@@ -1,0 +1,21 @@
+/**
+ * Imports :
+ */
+@import 'compass/reset';
+
+/**
+ * Import grid settings :
+ * This to be able to use gridle mixins, etc...
+ */
+@import 'grid-settings.scss';
+
+/**
+ * Basic formatting :
+ */
+body {
+	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+
+	@include gridle_responseTo('mobile') {
+		text-align:center;
+	}
+}

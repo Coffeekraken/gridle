@@ -1,0 +1,12 @@
+/**
+ * Import gridle :
+ */
+@import 'gridle/gridle';
+
+/**
+ * Configure :
+ */
+$gridle-columns-count : 12;
+$gridle-gutter-width : 20px;
+$gridle-debug : true;
+@include gridle_register_default_states();

@@ -1,0 +1,986 @@
+/**
+ * Gridle (.scss)
+ * Gridle is an one and unique grid system file that allows you to generate almost all
+ * grid you've ever dreamt about.
+ *
+ * Copyright (c) 2013 Olivier Bossel
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+ * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+ * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all copies or substantial portions
+ * of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+ * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+ * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ * IN THE SOFTWARE.
+ *
+ * @created 	25.03.13
+ * @updated 	25.03.13
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * @version 	1.0
+ */
+
+
+/**
+ * gridle configuration vars :
+ */
+$gridle-columns-count 					: 12 !default;
+$gridle-gutter-width 					: 20px !default;
+$gridle-name-multiplicator 				: 1 !default;
+
+$gridle-direction 						: ltr !default;
+
+$gridle-debug 							: false !default;
+$gridle-debug-show-class-names 			: true !default;
+
+$gridle-body-states-classes 			: false !default;
+
+$gridle-ie7-box-sizing-htc-url 			: null !default;
+$gridle-ie7-padding-div-class 			: null !default;
+
+$gridle-generate-helpers-classes 		: true !default;
+$gridle-generate-push-classes 			: true !default;
+$gridle-generate-pull-classes 			: true !default;
+$gridle-generate-prefix-classes 		: true !default;
+$gridle-generate-suffix-classes 		: true !default;
+
+
+/**
+ * Imports :
+ */
+@import 'compass/css3';
+
+
+/**
+ * Vars :
+ */
+$_gridle-inited : false;
+
+$_gridle-state-01-min-width 		: null !default;
+$_gridle-state-01-max-width 		: null !default;
+$_gridle-state-01-name 				: null !default;
+
+$_gridle-state-02-min-width 		: null !default;
+$_gridle-state-02-max-width 		: null !default;
+$_gridle-state-02-name 				: null !default;
+
+$_gridle-state-03-min-width 		: null !default;
+$_gridle-state-03-max-width 		: null !default;
+$_gridle-state-03-name 				: null !default;
+
+$_gridle-state-04-min-width 		: null !default;
+$_gridle-state-04-max-width 		: null !default;
+$_gridle-state-04-name 				: null !default;
+
+$_gridle-state-05-min-width 		: null !default;
+$_gridle-state-05-max-width 		: null !default;
+$_gridle-state-05-name 				: null !default;
+
+$_gridle-state-06-min-width 		: null !default;
+$_gridle-state-06-max-width 		: null !default;
+$_gridle-state-06-name 				: null !default;
+
+$_gridle-state-07-min-width 		: null !default;
+$_gridle-state-07-max-width 		: null !default;
+$_gridle-state-07-name 				: null !default;
+
+$_gridle-state-08-min-width 		: null !default;
+$_gridle-state-08-max-width 		: null !default;
+$_gridle-state-08-name 				: null !default;
+
+$_gridle-state-09-min-width 		: null !default;
+$_gridle-state-09-max-width 		: null !default;
+$_gridle-state-09-name 				: null !default;
+
+$_gridle-state-10-min-width 		: null !default;
+$_gridle-state-10-max-width 		: null !default;
+$_gridle-state-10-name 				: null !default;
+
+
+/**
+ * Init gridle
+ * Creating the silent classes with user configuration :
+ */
+@mixin gridle_init() {
+	
+	// update status :
+	$_gridle-inited : true;
+
+	// define silent classes :
+	%gridle-pull-debug-background-common {
+		background-size:50px 90%;
+		background-position:0 50%;
+		background-repeat:repeat-x;
+		@if $gridle-direction == ltr {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Qjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ0Qzg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDQjlFNzVFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRBODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ee9ybwAAA3JJREFUeNrs3dEKgkAQQNE27f9/uJoM6iXKwFLH8Vzw1WjdwxZt2iLiIOl9R0MgASJNqp/z5K01I5znOle9GOeY8XuCFQQOOACBAw5ABAcggiMW/G0CEDjgAAQOOACBAw5ABAcggiMBjufgapvdUXRwWEG0QxzDkWKbOSBwwAEIHHAAAgccgMABByCCAxDBkRsHIHDAAQgccAACBxyAwAEHIHDAAYjgAERwbBoHIHDAAQgccAACBxyAwAEHIHDAAQgccAAiOAARHFVxAAIHHIDAAQcgcMABCBxwAAIHHIDAAQcgcMABiOAARHAAIjjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOQOCAAxA44NhjPRxligcOAQLHS9fhuJjOPmLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwqCwQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMObRUIHAIEDgECBxyAwAEHIHDAUbo+MY6qN5SAwwoCBxyAwAEHIHDAAQgccCgtEDgECBwCBA44AIEDDkDggEMrAIFDgMAhQOCAAxA4vhRwAPJrXeHxgwMQk2ik/lD3ablaCEj1p69CAggkkAACCSRaEQgkAgQSSACBBBJAIIFEa/9hChIBAgkkgEACCSCLIAlIBMhnJBdIBAgkAgQSSACBBBJAIIEEEEgg0eaAQCJAICl7YwtAIPlbJ1MSEEggAQQSSACBBBJAIIEEEEggUVEgkAgQSCABBBJIAIEEEkAggQQQSFZHYoMjIJCMZBcwIJBAAggkkAACCSSAQAIJIJBAAggkkACy4/cOiQCBBBJAIIEEEEggAQQSSACBBBJAIIEEEEggAQQSSAARJAIEEkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBBAogggQQQSCABBBJIAIEEEkAggQQQSCABBBJIABEkgAiSwkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBB0gARJEWRAAIJJIBAAgkgkEACCCSQACJIABEk+ZEAAgkkgEACCSCQQAIIJJAAojEkZ0gA0XiQACJIABEkH5G0IUAESWIkgEACCSCQQAKIIAFEkAAiSJIgAQQSSACBBJKJLzLnySPCFM2BRFYQCRBp0W4CDAAOV/Wfo7G12gAAAABJRU5ErkJggg==);
+		} @else {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=);
+		}
+	}
+	%gridle-push-debug-background-common {
+		background-size:50px 90%;
+		background-position:0 50%;
+		background-repeat:repeat-x;
+		@if $gridle-direction == ltr {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=);
+		} @else {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Qjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ0Qzg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDQjlFNzVFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRBODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ee9ybwAAA3JJREFUeNrs3dEKgkAQQNE27f9/uJoM6iXKwFLH8Vzw1WjdwxZt2iLiIOl9R0MgASJNqp/z5K01I5znOle9GOeY8XuCFQQOOACBAw5ABAcggiMW/G0CEDjgAAQOOACBAw5ABAcggiMBjufgapvdUXRwWEG0QxzDkWKbOSBwwAEIHHAAAgccgMABByCCAxDBkRsHIHDAAQgccAACBxyAwAEHIHDAAYjgAERwbBoHIHDAAQgccAACBxyAwAEHIHDAAQgccAAiOAARHFVxAAIHHIDAAQcgcMABCBxwAAIHHIDAAQcgcMABiOAARHAAIjjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOQOCAAxA44NhjPRxligcOAQLHS9fhuJjOPmLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwqCwQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMObRUIHAIEDgECBxyAwAEHIHDAUbo+MY6qN5SAwwoCBxyAwAEHIHDAAQgccCgtEDgECBwCBA44AIEDDkDggEMrAIFDgMAhQOCAAxA4vhRwAPJrXeHxgwMQk2ik/lD3ablaCEj1p69CAggkkAACCSRaEQgkAgQSSACBBBJAIIFEa/9hChIBAgkkgEACCSCLIAlIBMhnJBdIBAgkAgQSSACBBBJAIIEEEEgg0eaAQCJAICl7YwtAIPlbJ1MSEEggAQQSSACBBBJAIIEEEEggUVEgkAgQSCABBBJIAIEEEkAggQQQSFZHYoMjIJCMZBcwIJBAAggkkAACCSSAQAIJIJBAAggkkACy4/cOiQCBBBJAIIEEEEggAQQSSACBBBJAIIEEEEggAQQSSAARJAIEEkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBBAogggQQQSCABBBJIAIEEEkAggQQQSCABBBJIABEkgAiSwkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBB0gARJEWRAAIJJIBAAgkgkEACCCSQACJIABEk+ZEAAgkkgEACCSCQQAIIJJAAojEkZ0gA0XiQACJIABEkH5G0IUAESWIkgEACCSCQQAKIIAFEkAAiSJIgAQQSSACBBJKJLzLnySPCFM2BRFYQCRBp0W4CDAAOV/Wfo7G12gAAAABJRU5ErkJggg==);
+		}
+	}
+	%gridle-push-pull-common {
+		position:relative;
+	}
+	%gridle-container-common {
+		width:100%;
+
+		/* For modern browsers */
+		&:before,
+		&:after {
+		    content:"";
+		    display:table;
+		}
+		&:after {
+		    clear:both;
+		}
+		/* For IE 6/7 (trigger hasLayout) */
+		& {
+		   zoom:1;
+		}
+
+		// clean gutter on nested grids :
+		[class*="grid-"], [class*="g-"] {
+			[class*="grid-"]:first-child, [class*="g-"]:first-child {
+				padding-left:0 !important;
+			}
+			[class*="grid-"]:last-child, [class*="g-"]:last-child {
+				padding-right:0 !important;
+			}
+		}
+
+		// debug part :
+		@if ($gridle-debug == true) {
+			@extend %gridle-container-debug-common;
+
+			&:before {
+				@if $gridle-debug-show-class-names == true {
+					content:"container-#{$gridle-columns-count}" !important;
+				}
+			}
+			&:after {
+				@if $gridle-debug-show-class-names == true {
+					content:"end container-#{$gridle-columns-count}" !important;
+				}
+			}
+		}
+	}
+	%gridle-container-debug-common {
+		background-color:#f5f5f5;
+
+		&:before,
+		&:after {
+			content:"";
+			display:block;
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
+			height:inherit;
+			padding:10px $gridle-gutter-width/2;
+			text-align:center;
+			color:white;
+			font-size:11px;
+			@include box-sizing(border-box);
+		}
+	}
+	%gridle-grid-debug-common {
+		&:before,
+		&:after {
+			content:"";
+			display:block;
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
+			margin:10px 0;
+			padding:5px 0;
+			text-align:center;
+			color:white;
+			font-size:11px;
+			@include box-sizing(border-box);
+		}
+		background-color:#daeff5;
+	}
+	%gridle-grid-common {
+		@if $gridle-direction == rtl {
+			float:right;
+			direction:rtl;
+		} @else {
+			float:left;
+			direction:ltr;
+		}
+		// set padding :;
+		padding:0 $gridle-gutter-width/2;
+
+		// check if an htc file is specified for ie7 :
+		@if $gridle-ie7-padding-div-class == null and $gridle-ie7-box-sizing-htc-url { *behavior: url($gridle-ie7-box-sizing-htc-url); }
+
+		// check if want to generate an div that handle the padding for ie7 :
+		@if $gridle-ie7-padding-div-class {
+			*padding:0 !important;
+			& > .#{$gridle-ie7-padding-div-class} {
+				padding:0 $gridle-gutter-width/2;
+			}
+		}
+		display:inline-block;
+		position:relative;
+		@include box-sizing(border-box);
+
+		// debug css :
+		@if $gridle-debug == true {
+			@extend %gridle-grid-debug-common;
+		}
+	}
+}
+
+
+/**
+ * Register an state :
+ *
+ * @param 	String 	$name 		The state name
+ * @param 	int 	$min-width 	The min width
+ * @param 	int 	$max-width 	The max width
+ */
+@mixin gridle_register_state(
+	$name,
+	$min-width : null,
+	$max-width : null
+) {
+	// register new state :
+	@if $_gridle-state-01-name == null {
+		$_gridle-state-01-name : $name;
+		$_gridle-state-01-min-width : $min-width;
+		$_gridle-state-01-max-width : $max-width;
+	} @else if $_gridle-state-02-name == null {
+		$_gridle-state-02-name : $name;
+		$_gridle-state-02-min-width : $min-width;
+		$_gridle-state-02-max-width : $max-width;
+	} @else if $_gridle-state-03-name == null {
+		$_gridle-state-03-name : $name;
+		$_gridle-state-03-min-width : $min-width;
+		$_gridle-state-03-max-width : $max-width;
+	} @else if $_gridle-state-04-name == null {
+		$_gridle-state-04-name : $name;
+		$_gridle-state-04-min-width : $min-width;
+		$_gridle-state-04-max-width : $max-width;
+	} @else if $_gridle-state-05-name == null {
+		$_gridle-state-05-name : $name;
+		$_gridle-state-05-min-width : $min-width;
+		$_gridle-state-05-max-width : $max-width;
+	} @else if $_gridle-state-06-name == null {
+		$_gridle-state-06-name : $name;
+		$_gridle-state-06-min-width : $min-width;
+		$_gridle-state-06-max-width : $max-width;
+	} @else if $_gridle-state-07-name == null {
+		$_gridle-state-07-name : $name;
+		$_gridle-state-07-min-width : $min-width;
+		$_gridle-state-07-max-width : $max-width;
+	} @else if $_gridle-state-08-name == null {
+		$_gridle-state-08-name : $name;
+		$_gridle-state-08-min-width : $min-width;
+		$_gridle-state-08-max-width : $max-width;
+	} @else if $_gridle-state-09-name == null {
+		$_gridle-state-09-name : $name;
+		$_gridle-state-09-min-width : $min-width;
+		$_gridle-state-09-max-width : $max-width;
+	} @else if $_gridle-state-10-name == null {
+		$_gridle-state-10-name : $name;
+		$_gridle-state-10-min-width : $min-width;
+		$_gridle-state-10-max-width : $max-width;
+	}
+}
+
+
+/**
+ * Register default states :
+ */
+@mixin gridle_register_default_states() {
+	// register mobile and tablet states :
+	@include gridle_register_state("mobile",0,400px);
+	@include gridle_register_state("tablet",401px,767px);
+}
+
+
+/**
+ * Responsive helpers mixins :
+ *
+ * @param 	String 	$media 	The media name to response for
+ */
+@mixin gridle_responseTo(
+	$media_min-width,
+	$max-width : null
+) {
+	// get the index of state :
+	$idx : _gridle_get_media_query_index_by_name($media_min-width);
+	// check if the first params is null :
+	@if $media_min-width == null {
+		& { @content; }
+	} @else if $idx != null {
+		// get vars :
+		$m : _gridle_get_media_query_vars($idx,"name");
+		$min-width : _gridle_get_media_query_vars($idx,"min-width");
+		$max-width : _gridle_get_media_query_vars($idx,"max-width");
+		// check if exist :
+		@if $m != null {
+
+			// process max and min width :
+			@if $min-width == null { $min-width : 0; }
+			@if $max-width == null { $max-width : 99999px; }
+			// write media query :
+			@if $gridle-body-states-classes { body.#{$m} & { @content; } }
+			@media screen and (min-width: $min-width) and (max-width: $max-width) { @content; }
+		}
+	} @else {
+		// check for min and max width :
+		@if $media_min-width != null and $max-width != null {
+			@media screen and (min-width: $media_min-width) and (max-width: $max-width) { @content; }
+		} @else if $media_min-width != null and $max-width == null {
+			@media screen and (min-width: $media_min-width) { @content; }
+		} @else if $media_min-width == null and $max-width != null {
+			@media screen and (max-width: $max-width) { @content; }
+		}
+	}
+}
+
+
+/**
+ * Container mixin :
+ */
+@mixin gridle_container(
+) {
+	@if $_gridle-inited != true { @include gridle_init(); }
+	@extend %gridle-container-common;
+}
+
+
+/**
+ * Grid mixin :
+ * Set the width of the specified grid column :
+ *
+ * @param 	int 		$columns 				The columns to generate	
+ */
+@mixin gridle(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	@if $_gridle-inited != true { @include gridle_init(); }
+	@extend %gridle-grid-common;
+	@if $gridle-debug == true {
+		@extend %gridle-grid-debug-common;
+	}
+	@include _gridle($columns,$state,$debug-state);
+}
+@mixin _gridle(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	// vars :
+	@if $debug-state == null { $debug-state : $state; }
+	$width : percentage(1 / $gridle-columns-count) * $columns;
+	@include gridle_responseTo($state) {
+		width:$width;
+		@if $gridle-ie7-box-sizing-htc-url != null { *width:$width - 0.053191489; }
+		@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+			&:before {
+				@if $debug-state != null {
+					content:"grid-#{$debug-state}-#{$columns * $gridle-name-multiplicator}";
+				} @else {
+					content:"grid-#{$columns * $gridle-name-multiplicator}";
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * push :
+ * Push the element of the count of column wanted
+ *
+ * @param 	int 		$columns 				The columns to generate	
+ * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
+ */
+@mixin gridle_push(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	@if $_gridle-inited != true { @include gridle_init(); }
+	@extend %gridle-push-pull-common;
+	@if $gridle-debug == true {
+		@extend %gridle-push-debug-background-common;
+	}
+	@include _gridle_push($columns,$state,$debug-state);
+}
+@mixin _gridle_push(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	// vars :
+	@if $debug-state == null { $debug-state : $state; }
+	$width : percentage(1 / $gridle-columns-count) * $columns;
+	@if $gridle-direction == rtl { $width : $width*-1; }
+	@include gridle_responseTo($state) {		
+		left:$width;
+
+		// debug css :
+		@if $gridle-debug == true {	
+			background-color:#f4efdf !important;
+			@if $gridle-debug-show-class-names == true {
+				&:after {
+					@if $debug-state != null {
+						content:"push-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
+					} @else {
+						content:"push-#{$columns * $gridle-name-multiplicator}" !important;
+					}
+				}
+			}
+		}	
+	}
+}
+
+
+/**
+ * pull :
+ * Pull the element of the count of column wanted
+ *
+ * @param 	int 		$columns 				The columns to generate	
+ * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
+ */
+@mixin gridle_pull(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	@if $_gridle-inited != true { @include gridle_init(); }
+	@extend %gridle-push-pull-common;
+	@if $gridle-debug == true {
+		@extend %gridle-pull-debug-background-common;
+	}
+	@include _gridle_pull($columns,$state,$debug-state);
+}
+@mixin _gridle_pull(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	// vars :
+	@if $debug-state == null { $debug-state : $state; }
+	$width : percentage(1 / $gridle-columns-count) * $columns;
+	@if $gridle-direction == rtl { $width : $width*-1; }
+	@include gridle_responseTo($state) {
+		right:$width;
+
+		// debug css :
+		@if $gridle-debug == true {
+			background-color:#cfe4d5 !important;
+			@if $gridle-debug-show-class-names == true {
+				&:after {
+					@if $debug-state != null {
+						content:"pull-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
+					} @else {
+						content:"pull-#{$columns * $gridle-name-multiplicator}" !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * push :
+ * Push the element of the count of column wanted
+ *
+ * @param 	int 		$columns 				The columns to generate	
+ * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
+ */
+@mixin gridle_prefix(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	@if $_gridle-inited != true { @include gridle_init(); }
+	@include _gridle_prefix($columns,$state,$debug-state);
+}
+@mixin _gridle_prefix(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	// vars :
+	@if $debug-state == null { $debug-state : $state; }
+	$width : percentage(1 / $gridle-columns-count) * $columns;
+	@include gridle_responseTo($state) {
+		@if $gridle-direction == rtl { margin-right:$width; }
+		@else { margin-left:$width; }
+
+		// debug css :
+		@if $gridle-debug == true {
+			background-color:#dae7e9 !important;
+			@if $gridle-debug-show-class-names == true {
+				&:after {
+					@if $debug-state != null {
+						content:"prefix-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
+					} @else {
+						content:"prefix-#{$columns * $gridle-name-multiplicator}" !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * pull :
+ * Pull the element of the count of column wanted
+ *
+ * @param 	int 		$columns 				The columns to generate	
+ * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
+ */
+@mixin gridle_suffix(
+	$columns : 12,
+	$state : null
+) {
+	@if $_gridle-inited != true { @include gridle_init(); }
+	@include _gridle_suffix($columns,$state);
+}
+@mixin _gridle_suffix(
+	$columns : 12,
+	$state : null,
+	$debug-state : null
+) {
+	// vars :
+	@if $debug-state == null { $debug-state : $state; }
+	$width : percentage(1 / $gridle-columns-count) * $columns;
+	@include gridle_responseTo($state) {
+		@if $gridle-direction == rtl { margin-left:$width; }
+		@else { margin-right:$width; }
+
+		// debug css :
+		@if $gridle-debug == true {
+			background-color:#dae7e9 !important;
+			@if $gridle-debug-show-class-names == true {
+				&:after {
+					@if $debug-state != null {
+						content:"suffix-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
+					} @else {
+						content:"suffix-#{$columns * $gridle-name-multiplicator}" !important;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/**
+ * Hide on (tablet, mobile, desktop) :
+ *
+ * @param 	String 	$media 	What to hide (one of the 3 state classes name)
+ */
+@mixin gridle_hide_on(
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		display:none;
+	}
+}
+
+
+/**
+ * Not visible on on (tablet, mobile, desktop) :
+ *
+ * @param 	String 	$media 	What to hide (one of the 3 state classes name)
+ */
+@mixin gridle_not_visible_on(
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		visibility:hidden;
+	}
+}
+
+
+/**
+ * Gridle Right :
+ */
+@mixin gridle_float(
+	$float-direction : left,
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		float:#{$float-direction};
+	}
+}
+
+
+/**
+ * Gridle clear :
+ *
+ * @param 	String 	$clear-direction 	The direction to clear
+ * @param 	String 	$state 				The state
+ */
+@mixin gridle_clear(
+	$clear-direction : both,
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		clear:#{$clear-direction};
+	}
+}
+
+
+/**
+ * Gridle no gutter :
+ *
+ * @param 	String 	$side 				The side to clear
+ * @param 	String 	$state 				The state
+ */
+@mixin gridle_no_gutter(
+	$side : null,
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		@if $side == 'left' or $side == left {
+			padding-left:0 !important;
+		} @else if $side == 'right' or $side == right {
+			padding-right:0 !important;
+		} @else {
+			padding-left:0 !important;
+			padding-right:0 !important;
+		}
+	}
+}
+@mixin gridle_no_margin(
+	$side : null,
+	$state : null
+) {
+	@include gridle_no_gutter($side, $state);
+}
+
+
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 	$index 	 	The media query indes
+ * @param 	String 	$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+@function _gridle_get_media_query_vars(
+	$index 	: 1,
+	$var 	: "name"
+) {
+	@if $index == 1 {
+		@if $var == "name" { @return $_gridle-state-01-name; }
+		@else if $var == "min-width" { @return $_gridle-state-01-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-01-max-width; }
+	} @else if $index == 2 {
+		@if $var == "name" { @return $_gridle-state-02-name; }
+		@else if $var == "min-width" { @return $_gridle-state-02-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-02-max-width; }
+	} @else if $index == 3 {
+		@if $var == "name" { @return $_gridle-state-03-name; }
+		@else if $var == "min-width" { @return $_gridle-state-03-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-03-max-width; }
+	} @else if $index == 4 {
+		@if $var == "name" { @return $_gridle-state-04-name; }
+		@else if $var == "min-width" { @return $_gridle-state-04-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-04-max-width; }
+	} @else if $index == 5 {
+		@if $var == "name" { @return $_gridle-state-05-name; }
+		@else if $var == "min-width" { @return $_gridle-state-05-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-05-max-width; }
+	} @else if $index == 6 {
+		@if $var == "name" { @return $_gridle-state-06-name; }
+		@else if $var == "min-width" { @return $_gridle-state-06-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-06-max-width; }
+	} @else if $index == 7 {
+		@if $var == "name" { @return $_gridle-state-07-name; }
+		@else if $var == "min-width" { @return $_gridle-state-07-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-07-max-width; }
+	} @else if $index == 8 {
+		@if $var == "name" { @return $_gridle-state-08-name; }
+		@else if $var == "min-width" { @return $_gridle-state-08-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-08-max-width; }
+	} @else if $index == 9 {
+		@if $var == "name" { @return $_gridle-state-09-name; }
+		@else if $var == "min-width" { @return $_gridle-state-09-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-09-max-width; }
+	} @else if $index == 10 {
+		@if $var == "name" { @return $_gridle-state-10-name; }
+		@else if $var == "min-width" { @return $_gridle-state-10-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-10-max-width; }
+	}
+}
+
+
+/**
+ * Get the index of an media query by name
+ *
+ * @param 	String 	$name 	The nme of the media query
+ * @return 	int 			The index of the media query
+ */
+@function _gridle_get_media_query_index_by_name(
+	$name
+) {
+	@if $_gridle-state-01-name == $name { @return 1; }
+	@else if $_gridle-state-02-name == $name { @return 2; }
+	@else if $_gridle-state-03-name == $name { @return 3; }
+	@else if $_gridle-state-04-name == $name { @return 4; }
+	@else if $_gridle-state-05-name == $name { @return 5; }
+	@else if $_gridle-state-06-name == $name { @return 6; }
+	@else if $_gridle-state-07-name == $name { @return 7; }
+	@else if $_gridle-state-08-name == $name { @return 8; }
+	@else if $_gridle-state-09-name == $name { @return 9; }
+	@else if $_gridle-state-10-name == $name { @return 10; }
+	@else { @return null; }
+}
+
+
+/**
+ * gridle mixin :
+ * Generate all the classes needed for a grid
+ */
+@mixin gridle_generate_classes(
+	$scope : null
+) {
+	// check if a scope exist :
+	@if $scope != null {
+		// wrapp grid into scope :
+		.#{$scope} {
+			@include _gridle_generate_classes();
+		}
+	} @else {
+		// generate classes :
+		@include _gridle_generate_classes();
+	}
+}
+@mixin _gridle_generate_classes() {
+
+	// check if gridle is inited :
+	@if $_gridle-inited != true {
+		@include gridle_init();
+	}
+
+	/**
+	 * Windows 8 fix for snap mode :
+	 */
+	@media screen and (max-width: 400px) {
+		@-ms-viewport { width: device-width; }
+	}
+	
+	// generate container class :
+	$container-selector : ();
+	$container-selector : $container-selector, unquote(".container, .grid-container, .container-#{$gridle-columns-count}, .c-#{$gridle-columns-count}");
+	#{$container-selector} {
+		@include gridle_container();
+	}
+
+	// generate all grid-x classes :
+	@for $i from 0 through $gridle-columns-count {
+
+		.grid-#{$i*$gridle-name-multiplicator},.g-#{$i*$gridle-name-multiplicator} {
+			@include gridle($i);
+		}
+		@if $gridle-generate-push-classes == true {
+			.push-#{$i*$gridle-name-multiplicator},.p-#{$i*$gridle-name-multiplicator} {
+				@include gridle_push($i);
+			}
+		}
+		@if $gridle-generate-pull-classes == true {
+			.pull-#{$i*$gridle-name-multiplicator},.p--#{$i*$gridle-name-multiplicator} {
+				@include gridle_pull($i);
+			}
+		}
+		@if $gridle-generate-prefix-classes == true {
+			.prefix-#{$i*$gridle-name-multiplicator},.px-#{$i*$gridle-name-multiplicator} {
+				@include gridle_prefix($i);
+			}
+		}
+		@if $gridle-generate-suffix-classes == true {
+			.suffix-#{$i*$gridle-name-multiplicator},.sx-#{$i*$gridle-name-multiplicator} {
+				@include gridle_suffix($i);
+			}
+		}
+	}
+
+	// helpers classes :
+	@if $gridle-generate-helpers-classes == true {
+		.float-left {
+			@include gridle_float(left);
+		}
+		.float-right {
+			@include gridle_float(right);
+		}
+		.clear {
+			@include gridle_clear(both);
+		}
+		.clear-left {
+			@include gridle_clear(left);
+		}
+		.clear-right {
+			@include gridle_clear(right);
+		}
+		.no-gutter,
+		.no-margin {
+			@include gridle_no_margin();
+		}
+		.no-gutter-left,
+		.no-margin-left {
+			@include gridle_no_margin(left);
+		}
+		.no-gutter-right,
+		.no-margin-right {
+			@include gridle_no_margin(right);
+		}
+		.auto-height {
+			height:inherit;
+		}
+	}
+
+	// generate all selector for extends :
+	$push-common-selector : ();
+	$pull-common-selector : ();
+	$common-selector : ();
+	@for $i from 0 through $gridle-columns-count {
+		$push-common-selector : $push-common-selector, unquote(".push-#{$i*$gridle-name-multiplicator}, .p-#{$i*$gridle-name-multiplicator}");
+		$pull-common-selector : $pull-common-selector, unquote(".pull-#{$i*$gridle-name-multiplicator}, .p--#{$i*$gridle-name-multiplicator}");
+		$common-selector : $common-selector, unquote(".grid-#{$i*$gridle-name-multiplicator}, .g-#{$i*$gridle-name-multiplicator}");
+
+		// generate all classes for media queries :
+		@for $j from 1 through 10 {
+			// setup vars :
+			$media : _gridle_get_media_query_vars($j,"name");
+			$min-width : _gridle_get_media_query_vars($j,"min-width");
+			$max-width : _gridle_get_media_query_vars($j,"max-width");
+			@if $min-width == null { $min-width : 0; }
+			@if $max-width == null { $max-width : 999999; }
+
+			// generate classes :	
+			@if $media != null and $min-width != null and $max-width != null {
+				
+				$push-common-selector : $push-common-selector, unquote(".push-#{$media}-#{$i*$gridle-name-multiplicator}, .p-#{$media}-#{$i*$gridle-name-multiplicator}");
+				$pull-common-selector : $pull-common-selector, unquote(".pull-#{$media}-#{$i*$gridle-name-multiplicator}, .p-#{$media}--#{$i*$gridle-name-multiplicator}");
+				$common-selector : $common-selector, unquote(".grid-#{$media}-#{$i*$gridle-name-multiplicator}, .g-#{$media}-#{$i*$gridle-name-multiplicator}");
+			}
+		}
+	}
+
+	// extends :
+	#{$push-common-selector} {
+		@extend %gridle-push-pull-common;
+		@if $gridle-debug == true {
+			@extend %gridle-push-debug-background-common;
+		}
+	}
+	#{$pull-common-selector} {
+		@extend %gridle-push-pull-common;
+		@if $gridle-debug == true {
+			@extend %gridle-pull-debug-background-common;
+		}
+	}
+	#{$common-selector} {
+		@extend %gridle-grid-common;
+		@if $gridle-debug == true {
+			@extend %gridle-grid-debug-common;
+		}
+	}
+
+	// generate all classes for differents media queries :
+	@for $i from 1 through 10 {
+		// setup vars :
+		$media : _gridle_get_media_query_vars($i,"name");
+		$min-width : _gridle_get_media_query_vars($i,"min-width");
+		$max-width : _gridle_get_media_query_vars($i,"max-width");
+		@if $min-width == null { $min-width : 0; }
+		@if $max-width == null { $max-width : 999999; }
+
+		// generate all media queries grid classes :
+		@if $media != null and $min-width != null and $max-width != null {
+
+			// generate all the classes :
+			@media screen and (min-width:$min-width) and (max-width:$max-width) {
+			
+				@for $j from 0 through $gridle-columns-count {
+		
+					.grid-#{$media}-#{$j*$gridle-name-multiplicator},.g-#{$media}-#{$j*$gridle-name-multiplicator} {
+						@include _gridle($j,null,$media);
+					}
+					@if $gridle-generate-push-classes == true {
+						.push-#{$media}-#{$j*$gridle-name-multiplicator},.p-#{$media}-#{$j*$gridle-name-multiplicator} {
+							@include _gridle_push($j,null,$media);
+						}
+					}
+					@if $gridle-generate-pull-classes == true {
+						.pull-#{$media}-#{$j*$gridle-name-multiplicator},.p-#{$media}--#{$j*$gridle-name-multiplicator} {
+							@include _gridle_pull($j,null,$media);
+						}
+					}
+					@if $gridle-generate-prefix-classes == true {
+						.prefix-#{$media}-#{$j*$gridle-name-multiplicator},.px-#{$media}-#{$j*$gridle-name-multiplicator} {
+							@include _gridle_prefix($j,null,$media);
+						}
+					}
+					@if $gridle-generate-suffix-classes == true {
+						.suffix-#{$media}-#{$j*$gridle-name-multiplicator},.sx-#{$media}-#{$j*$gridle-name-multiplicator} {
+							@include _gridle_suffix($j,null,$media);
+						}	
+					}
+				}
+
+				// media queries helpers classes :
+				@if $gridle-generate-helpers-classes == true and $media != null {
+					.hide-on-#{$media} {
+						@include gridle_hide_on(null);
+					}
+					.not-visible-on-#{$media} {
+						@include gridle_not_visible_on(null);
+					}
+					.float-#{$media}-left {
+						@include gridle_float(left);
+					}
+					.float-#{$media}-right {
+						@include gridle_float(right);
+					}
+					.clear-#{$media} {
+						@include gridle_clear(both);
+					}
+					.clear-#{$media}-left {
+						@include gridle_clear(left);
+					}
+					.clear-#{$media}-right {
+						@include gridle_clear(right);
+					}
+					.no-gutter-#{$media},
+					.no-margin-#{$media} {
+						@include gridle_no_margin();
+					}
+					.no-gutter-#{$media}-left,
+					.no-margin-#{$media}-left {
+						@include gridle_no_margin(left);
+					}
+					.no-gutter-#{$media}-right,
+					.no-margin-#{$media}-right {
+						@include gridle_no_margin(right);
+					}
+					.auto-height-#{$media} {
+						height:inherit;
+					}
+				}
+			}
+		}
+	}
+}

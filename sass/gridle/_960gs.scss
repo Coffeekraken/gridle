@@ -1,0 +1,18 @@
+/**
+ * Imports
+ */
+@import 'gridle';
+
+/**
+ * Configuration :
+ */
+$gridle-columns-count : 12;
+$gridle-gutter-width  : 20px;
+
+/**
+ * Fix width of container :
+ */
+.container, .grid-container, .container-12, .c-12 {
+	max-width:960px;
+	margin:0 auto;
+}

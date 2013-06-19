@@ -1,0 +1,14 @@
+/**
+ * Imports
+ */
+@import 'gridle';
+
+/**
+ * Configuration :
+ */
+$gridle-columns-count : 24;
+
+/**
+ * Register states :
+ */
+@include gridle_register_default_states();
