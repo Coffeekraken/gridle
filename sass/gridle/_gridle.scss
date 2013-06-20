@@ -40,9 +40,6 @@ $gridle-debug-show-class-names 			: true !default;
 
 $gridle-body-states-classes 			: false !default;
 
-$gridle-ie7-box-sizing-htc-url 			: null !default;
-$gridle-ie7-padding-div-class 			: null !default;
-
 $gridle-generate-helpers-classes 		: true !default;
 $gridle-generate-push-classes 			: true !default;
 $gridle-generate-pull-classes 			: true !default;
@@ -219,17 +216,6 @@ $_gridle-state-10-name 				: null !default;
 		}
 		// set padding :;
 		padding:0 $gridle-gutter-width/2;
-
-		// check if an htc file is specified for ie7 :
-		@if $gridle-ie7-padding-div-class == null and $gridle-ie7-box-sizing-htc-url { *behavior: url($gridle-ie7-box-sizing-htc-url); }
-
-		// check if want to generate an div that handle the padding for ie7 :
-		@if $gridle-ie7-padding-div-class {
-			*padding:0 !important;
-			& > .#{$gridle-ie7-padding-div-class} {
-				padding:0 $gridle-gutter-width/2;
-			}
-		}
 		display:inline-block;
 		position:relative;
 		@include box-sizing(border-box);
@@ -389,7 +375,7 @@ $_gridle-state-10-name 				: null !default;
 	$width : percentage(1 / $gridle-columns-count) * $columns;
 	@include gridle_responseTo($state) {
 		width:$width;
-		@if $gridle-ie7-box-sizing-htc-url != null { *width:$width - 0.053191489; }
+		*width: expression((this.parentNode.clientWidth/#{$gridle-columns-count}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 		@if $gridle-debug == true and $gridle-debug-show-class-names == true {
 			&:before {
 				@if $debug-state != null {

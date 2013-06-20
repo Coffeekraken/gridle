@@ -7,3 +7,11 @@
  * Generate classes :
  */
 @include gridle_generate_classes();
+
+/**
+ * Max size :
+ */
+.grid-container {
+	max-width:960px;
+	margin:0 auto;
+}
