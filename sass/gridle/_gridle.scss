@@ -20,7 +20,7 @@
  * IN THE SOFTWARE.
  *
  * @created 	25.03.13
- * @updated 	20.06.13
+ * @updated 	23.06.13
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  * @version 	1.0
  */
@@ -147,16 +147,6 @@ $_gridle-state-10-name 				: null !default;
 		/* For IE 6/7 (trigger hasLayout) */
 		& {
 		   zoom:1;
-		}
-
-		// clean gutter on nested grids :
-		[class*="grid-"], [class*="g-"] {
-			[class*="grid-"]:first-child, [class*="g-"]:first-child {
-				padding-left:0 !important;
-			}
-			[class*="grid-"]:last-child, [class*="g-"]:last-child {
-				padding-right:0 !important;
-			}
 		}
 
 		// debug part :
@@ -308,7 +298,17 @@ $_gridle-state-10-name 				: null !default;
 	$idx : _gridle_get_media_query_index_by_name($media_min-width);
 	// check if the first params is null :
 	@if $media_min-width == null {
-		& { @content; }
+		@content;
+	} @else if $media_min-width == 'retina' or $media_min-width == retina {
+		@media only screen and (-webkit-min-device-pixel-ratio: 2),
+			   only screen and (   min--moz-device-pixel-ratio: 2),
+			   only screen and (     -o-min-device-pixel-ratio: 2/1),
+			   only screen and (        min-device-pixel-ratio: 2),
+			   only screen and (                min-resolution: 192dpi),
+			   only screen and (                min-resolution: 2dppx)
+		{
+			@content;
+		}
 	} @else if $idx != null {
 		// get vars :
 		$m : _gridle_get_media_query_vars($idx,"name");
@@ -316,7 +316,6 @@ $_gridle-state-10-name 				: null !default;
 		$max-width : _gridle_get_media_query_vars($idx,"max-width");
 		// check if exist :
 		@if $m != null {
-
 			// process max and min width :
 			@if $min-width == null { $min-width : 0; }
 			@if $max-width == null { $max-width : 99999px; }
@@ -573,9 +572,9 @@ $_gridle-state-10-name 				: null !default;
 
 
 /**
- * Hide on (tablet, mobile, desktop) :
+ * Hide on :
  *
- * @param 	String 	$media 	What to hide (one of the 3 state classes name)
+ * @param 	String 	$media  On what state
  */
 @mixin gridle_hide_on(
 	$state : null
@@ -587,7 +586,7 @@ $_gridle-state-10-name 				: null !default;
 
 
 /**
- * Not visible on on (tablet, mobile, desktop) :
+ * Not visible on :
  *
  * @param 	String 	$media 	What to hide (one of the 3 state classes name)
  */
@@ -596,6 +595,34 @@ $_gridle-state-10-name 				: null !default;
 ) {
 	@include gridle_responseTo($state) {
 		visibility:hidden;
+	}
+}
+
+
+/**
+ * Show on
+ *
+ * @param 	String 	$media 	What to hide (one of the 3 state classes name)
+ */
+@mixin gridle_show_on(
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		display:block;
+	}
+}
+
+
+/**
+ * Visible on :
+ *
+ * @param 	String 	$media 	On what state
+ */
+@mixin gridle_visible_on(
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		visibility:visible;
 	}
 }
 
@@ -775,6 +802,16 @@ $_gridle-state-10-name 				: null !default;
 		@include gridle_container();
 	}
 
+	// clean gutter on nested grids :
+	[class*="grid-"], [class*="g-"] {
+		[class*="grid-"]:first-child, [class*="g-"]:first-child, [class*="grid-"].alpha, [class*="g-"].alpha {
+			padding-left:0 !important;
+		}
+		[class*="grid-"]:last-child, [class*="g-"]:last-child, [class*="grid-"].omega, [class*="g-"].omega {
+			padding-right:0 !important;
+		}
+	}
+
 	// generate all grid-x classes :
 	@for $i from 0 through $gridle-columns-count {
 
@@ -805,6 +842,18 @@ $_gridle-state-10-name 				: null !default;
 
 	// helpers classes :
 	@if $gridle-generate-helpers-classes == true {
+		.hide {
+			@include gridle_hide_on(null);
+		}
+		.not-visible {
+			@include gridle_not_visible_on(null);
+		}
+		.show {
+			@include gridle_show_on(null);
+		}
+		.visible {
+			@include gridle_visible_on(null);
+		}
 		.float-left {
 			@include gridle_float(left);
 		}
@@ -934,6 +983,12 @@ $_gridle-state-10-name 				: null !default;
 					}
 					.not-visible-on-#{$media} {
 						@include gridle_not_visible_on(null);
+					}
+					.show-on-#{$media} {
+						@include gridle_show_on(null);
+					}
+					.visible-on-#{$media} {
+						@include gridle_visible_on(null);
 					}
 					.float-#{$media}-left {
 						@include gridle_float(left);

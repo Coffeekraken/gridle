@@ -1,6 +1,6 @@
 /** Import grid settings : */
 /** Import gridle : */
-/** Gridle (.scss) Gridle is an one and unique grid system file that allows you to generate almost all grid you've ever dreamt about.  Copyright (c) 2013 Olivier Bossel  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  @created 	25.03.13 @updated 	20.06.13 @author 		Olivier Bossel <olivier.bossel@gmail.com> @version 	1.0 */
+/** Gridle (.scss) Gridle is an one and unique grid system file that allows you to generate almost all grid you've ever dreamt about.  Copyright (c) 2013 Olivier Bossel  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  @created 	25.03.13 @updated 	23.06.13 @author 		Olivier Bossel <olivier.bossel@gmail.com> @version 	1.0 */
 /** gridle configuration vars : */
 /** Imports : */
 /** Vars : */
@@ -14,8 +14,10 @@
 /** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
 /** push : Push the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
 /** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
-/** Hide on (tablet, mobile, desktop) :  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
-/** Not visible on on (tablet, mobile, desktop) :  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
+/** Hide on :  @param 	String 	$media  On what state */
+/** Not visible on :  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
+/** Show on  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
+/** Visible on :  @param 	String 	$media 	On what state */
 /** Gridle Right : */
 /** Gridle clear :  @param 	String 	$clear-direction 	The direction to clear @param 	String 	$state 				The state */
 /** Gridle no gutter :  @param 	String 	$side 				The side to clear @param 	String 	$state 				The state */
@@ -34,8 +36,6 @@
 .container:before, .grid-container:before, .container-12:before, .c-12:before, .container:after, .grid-container:after, .container-12:after, .c-12:after { content: ""; display: table; }
 .container:after, .grid-container:after, .container-12:after, .c-12:after { clear: both; }
 .container, .grid-container, .container-12, .c-12 { zoom: 1; }
-.container [class*="grid-"] [class*="grid-"]:first-child, .grid-container [class*="grid-"] [class*="grid-"]:first-child, .container-12 [class*="grid-"] [class*="grid-"]:first-child, .c-12 [class*="grid-"] [class*="grid-"]:first-child, .container [class*="grid-"] [class*="g-"]:first-child, .grid-container [class*="grid-"] [class*="g-"]:first-child, .container-12 [class*="grid-"] [class*="g-"]:first-child, .c-12 [class*="grid-"] [class*="g-"]:first-child, .container [class*="g-"] [class*="grid-"]:first-child, .grid-container [class*="g-"] [class*="grid-"]:first-child, .container-12 [class*="g-"] [class*="grid-"]:first-child, .c-12 [class*="g-"] [class*="grid-"]:first-child, .container [class*="g-"] [class*="g-"]:first-child, .grid-container [class*="g-"] [class*="g-"]:first-child, .container-12 [class*="g-"] [class*="g-"]:first-child, .c-12 [class*="g-"] [class*="g-"]:first-child { padding-left: 0 !important; }
-.container [class*="grid-"] [class*="grid-"]:last-child, .grid-container [class*="grid-"] [class*="grid-"]:last-child, .container-12 [class*="grid-"] [class*="grid-"]:last-child, .c-12 [class*="grid-"] [class*="grid-"]:last-child, .container [class*="grid-"] [class*="g-"]:last-child, .grid-container [class*="grid-"] [class*="g-"]:last-child, .container-12 [class*="grid-"] [class*="g-"]:last-child, .c-12 [class*="grid-"] [class*="g-"]:last-child, .container [class*="g-"] [class*="grid-"]:last-child, .grid-container [class*="g-"] [class*="grid-"]:last-child, .container-12 [class*="g-"] [class*="grid-"]:last-child, .c-12 [class*="g-"] [class*="grid-"]:last-child, .container [class*="g-"] [class*="g-"]:last-child, .grid-container [class*="g-"] [class*="g-"]:last-child, .container-12 [class*="g-"] [class*="g-"]:last-child, .c-12 [class*="g-"] [class*="g-"]:last-child { padding-right: 0 !important; }
 .container:before, .grid-container:before, .container-12:before, .c-12:before { content: "container-12" !important; }
 .container:after, .grid-container:after, .container-12:after, .c-12:after { content: "end container-12" !important; }
 
@@ -49,6 +49,9 @@
 
 /** Windows 8 fix for snap mode : */
 @media screen and (max-width: 400px) { @-ms-viewport { width: device-width; } }
+[class*="grid-"] [class*="grid-"]:first-child, [class*="grid-"] [class*="g-"]:first-child, [class*="grid-"] [class*="grid-"].alpha, [class*="grid-"] [class*="g-"].alpha, [class*="g-"] [class*="grid-"]:first-child, [class*="g-"] [class*="g-"]:first-child, [class*="g-"] [class*="grid-"].alpha, [class*="g-"] [class*="g-"].alpha { padding-left: 0 !important; }
+[class*="grid-"] [class*="grid-"]:last-child, [class*="grid-"] [class*="g-"]:last-child, [class*="grid-"] [class*="grid-"].omega, [class*="grid-"] [class*="g-"].omega, [class*="g-"] [class*="grid-"]:last-child, [class*="g-"] [class*="g-"]:last-child, [class*="g-"] [class*="grid-"].omega, [class*="g-"] [class*="g-"].omega { padding-right: 0 !important; }
+
 .grid-0, .g-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-0:before, .g-0:before { content: "grid-0"; }
 
@@ -244,6 +247,14 @@
 .suffix-12, .sx-12 { margin-right: 100.0%; background-color: #dae7e9 !important; }
 .suffix-12:after, .sx-12:after { content: "suffix-12" !important; }
 
+.hide { display: none; }
+
+.not-visible { visibility: hidden; }
+
+.show { display: block; }
+
+.visible { visibility: visible; }
+
 .float-left { float: left; }
 
 .float-right { float: right; }
@@ -394,6 +405,8 @@
   .suffix-mobile-12:after, .sx-mobile-12:after { content: "suffix-mobile-12" !important; }
   .hide-on-mobile { display: none; }
   .not-visible-on-mobile { visibility: hidden; }
+  .show-on-mobile { display: block; }
+  .visible-on-mobile { visibility: visible; }
   .float-mobile-left { float: left; }
   .float-mobile-right { float: right; }
   .clear-mobile { clear: both; }
@@ -535,6 +548,8 @@
   .suffix-tablet-12:after, .sx-tablet-12:after { content: "suffix-tablet-12" !important; }
   .hide-on-tablet { display: none; }
   .not-visible-on-tablet { visibility: hidden; }
+  .show-on-tablet { display: block; }
+  .visible-on-tablet { visibility: visible; }
   .float-tablet-left { float: left; }
   .float-tablet-right { float: right; }
   .clear-tablet { clear: both; }
