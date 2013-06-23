@@ -576,7 +576,7 @@ $_gridle-state-10-name 				: null !default;
  *
  * @param 	String 	$media  On what state
  */
-@mixin gridle_hide_on(
+@mixin gridle_hide(
 	$state : null
 ) {
 	@include gridle_responseTo($state) {
@@ -590,7 +590,7 @@ $_gridle-state-10-name 				: null !default;
  *
  * @param 	String 	$media 	What to hide (one of the 3 state classes name)
  */
-@mixin gridle_not_visible_on(
+@mixin gridle_not_visible(
 	$state : null
 ) {
 	@include gridle_responseTo($state) {
@@ -604,7 +604,7 @@ $_gridle-state-10-name 				: null !default;
  *
  * @param 	String 	$media 	What to hide (one of the 3 state classes name)
  */
-@mixin gridle_show_on(
+@mixin gridle_show(
 	$state : null
 ) {
 	@include gridle_responseTo($state) {
@@ -618,7 +618,7 @@ $_gridle-state-10-name 				: null !default;
  *
  * @param 	String 	$media 	On what state
  */
-@mixin gridle_visible_on(
+@mixin gridle_visible(
 	$state : null
 ) {
 	@include gridle_responseTo($state) {
@@ -843,16 +843,16 @@ $_gridle-state-10-name 				: null !default;
 	// helpers classes :
 	@if $gridle-generate-helpers-classes == true {
 		.hide {
-			@include gridle_hide_on(null);
+			@include gridle_hide(null);
 		}
 		.not-visible {
-			@include gridle_not_visible_on(null);
+			@include gridle_not_visible(null);
 		}
 		.show {
-			@include gridle_show_on(null);
+			@include gridle_show(null);
 		}
 		.visible {
-			@include gridle_visible_on(null);
+			@include gridle_visible(null);
 		}
 		.float-left {
 			@include gridle_float(left);
@@ -978,17 +978,17 @@ $_gridle-state-10-name 				: null !default;
 
 				// media queries helpers classes :
 				@if $gridle-generate-helpers-classes == true and $media != null {
-					.hide-on-#{$media} {
-						@include gridle_hide_on(null);
+					.hide-#{$media} {
+						@include gridle_hide(null);
 					}
-					.not-visible-on-#{$media} {
-						@include gridle_not_visible_on(null);
+					.not-visible-#{$media} {
+						@include gridle_not_visible(null);
 					}
-					.show-on-#{$media} {
-						@include gridle_show_on(null);
+					.show-#{$media} {
+						@include gridle_show(null);
 					}
-					.visible-on-#{$media} {
-						@include gridle_visible_on(null);
+					.visible-#{$media} {
+						@include gridle_visible(null);
 					}
 					.float-#{$media}-left {
 						@include gridle_float(left);
