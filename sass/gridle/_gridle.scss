@@ -800,15 +800,15 @@ $_gridle-state-10-name 				: null !default;
 	$container-selector : $container-selector, unquote(".container, .grid-container, .container-#{$gridle-columns-count}, .c-#{$gridle-columns-count}");
 	#{$container-selector} {
 		@include gridle_container();
-	}
-
-	// clean gutter on nested grids :
-	[class*="grid-"], [class*="g-"] {
-		[class*="grid-"]:first-child, [class*="g-"]:first-child, [class*="grid-"].alpha, [class*="g-"].alpha {
-			padding-left:0 !important;
-		}
-		[class*="grid-"]:last-child, [class*="g-"]:last-child, [class*="grid-"].omega, [class*="g-"].omega {
-			padding-right:0 !important;
+	
+		// clean gutter on nested grids :
+		[class*="grid-"], [class*="g-"] {
+			[class*="grid-"]:first-child, [class*="g-"]:first-child, [class*="grid-"].alpha, [class*="g-"].alpha {
+				padding-left:0 !important;
+			}
+			[class*="grid-"]:last-child, [class*="g-"]:last-child, [class*="grid-"].omega, [class*="g-"].omega {
+				padding-right:0 !important;
+			}
 		}
 	}
 
