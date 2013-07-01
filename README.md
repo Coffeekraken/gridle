@@ -33,7 +33,7 @@ Generate all classes :
 
 Use your grid in hrml :
 
-	<div class="grid-container">
+	<div class="container">
 		<div class="grid-12">
 			Header
 		</div>
