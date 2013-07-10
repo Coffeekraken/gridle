@@ -219,6 +219,14 @@ $_gridle-state-10-name 				: null !default;
 
 
 /**
+ * Tell gridle that we use mixins :
+ */
+@mixin gridle_use_mixins() {
+	@include gridle_init();
+}
+
+
+/**
  * Register an state :
  *
  * @param 	String 	$name 		The state name
