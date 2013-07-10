@@ -23,7 +23,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /** Imports : */
 /** Vars : */
 /** Init gridle Creating the silent classes with user configuration : */
-/** Tell gridle that we use mixins : */
+/** Common css that cannot be extended cause of variables : */
 /** Register an state :  @param 	String 	$name 		The state name @param 	int 	$min-width 	The min width @param 	int 	$max-width 	The max width */
 /** Register default states : */
 /** Responsive helpers mixins :  @param 	String 	$media 	The media name to response for */

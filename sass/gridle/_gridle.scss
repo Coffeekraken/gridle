@@ -38,6 +38,8 @@ $gridle-direction 						: ltr !default;
 $gridle-debug 							: false !default;
 $gridle-debug-show-class-names 			: true !default;
 
+$gridle-ie7-support 					: true !default;
+
 $gridle-body-states-classes 			: false !default;
 
 $gridle-generate-helpers-classes 		: true !default;
@@ -56,8 +58,6 @@ $gridle-generate-suffix-classes 		: true !default;
 /**
  * Vars :
  */
-$_gridle-inited : false;
-
 $_gridle-state-01-min-width 		: null !default;
 $_gridle-state-01-max-width 		: null !default;
 $_gridle-state-01-name 				: null !default;
@@ -103,126 +103,145 @@ $_gridle-state-10-name 				: null !default;
  * Init gridle
  * Creating the silent classes with user configuration :
  */
-@mixin gridle_init() {
-	
-	// update status :
-	$_gridle-inited : true;
+%gridle-push-pull-debug-background-common {
+	background-size:50px 90%;
+	background-position:0 50%;
+	background-repeat:repeat-x;
+}
+%gridle-push-pull-common {
+	position:relative;
+}
+%gridle-container-common {
+	width:100%;
 
-	// define silent classes :
-	%gridle-pull-debug-background-common {
-		background-size:50px 90%;
-		background-position:0 50%;
-		background-repeat:repeat-x;
-		@if $gridle-direction == ltr {
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Qjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ0Qzg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDQjlFNzVFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRBODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ee9ybwAAA3JJREFUeNrs3dEKgkAQQNE27f9/uJoM6iXKwFLH8Vzw1WjdwxZt2iLiIOl9R0MgASJNqp/z5K01I5znOle9GOeY8XuCFQQOOACBAw5ABAcggiMW/G0CEDjgAAQOOACBAw5ABAcggiMBjufgapvdUXRwWEG0QxzDkWKbOSBwwAEIHHAAAgccgMABByCCAxDBkRsHIHDAAQgccAACBxyAwAEHIHDAAYjgAERwbBoHIHDAAQgccAACBxyAwAEHIHDAAQgccAAiOAARHFVxAAIHHIDAAQcgcMABCBxwAAIHHIDAAQcgcMABiOAARHAAIjjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOQOCAAxA44NhjPRxligcOAQLHS9fhuJjOPmLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwqCwQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMObRUIHAIEDgECBxyAwAEHIHDAUbo+MY6qN5SAwwoCBxyAwAEHIHDAAQgccCgtEDgECBwCBA44AIEDDkDggEMrAIFDgMAhQOCAAxA4vhRwAPJrXeHxgwMQk2ik/lD3ablaCEj1p69CAggkkAACCSRaEQgkAgQSSACBBBJAIIFEa/9hChIBAgkkgEACCSCLIAlIBMhnJBdIBAgkAgQSSACBBBJAIIEEEEgg0eaAQCJAICl7YwtAIPlbJ1MSEEggAQQSSACBBBJAIIEEEEggUVEgkAgQSCABBBJIAIEEEkAggQQQSFZHYoMjIJCMZBcwIJBAAggkkAACCSSAQAIJIJBAAggkkACy4/cOiQCBBBJAIIEEEEggAQQSSACBBBJAIIEEEEggAQQSSAARJAIEEkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBBAogggQQQSCABBBJIAIEEEkAggQQQSCABBBJIABEkgAiSwkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBB0gARJEWRAAIJJIBAAgkgkEACCCSQACJIABEk+ZEAAgkkgEACCSCQQAIIJJAAojEkZ0gA0XiQACJIABEkH5G0IUAESWIkgEACCSCQQAKIIAFEkAAiSJIgAQQSSACBBJKJLzLnySPCFM2BRFYQCRBp0W4CDAAOV/Wfo7G12gAAAABJRU5ErkJggg==);
-		} @else {
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=);
-		}
+	/* For modern browsers */
+	&:before,
+	&:after {
+	    content:"";
+	    display:table;
 	}
-	%gridle-push-debug-background-common {
-		background-size:50px 90%;
-		background-position:0 50%;
-		background-repeat:repeat-x;
-		@if $gridle-direction == ltr {
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=);
-		} @else {
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Qjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ0Qzg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDQjlFNzVFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRBODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ee9ybwAAA3JJREFUeNrs3dEKgkAQQNE27f9/uJoM6iXKwFLH8Vzw1WjdwxZt2iLiIOl9R0MgASJNqp/z5K01I5znOle9GOeY8XuCFQQOOACBAw5ABAcggiMW/G0CEDjgAAQOOACBAw5ABAcggiMBjufgapvdUXRwWEG0QxzDkWKbOSBwwAEIHHAAAgccgMABByCCAxDBkRsHIHDAAQgccAACBxyAwAEHIHDAAYjgAERwbBoHIHDAAQgccAACBxyAwAEHIHDAAQgccAAiOAARHFVxAAIHHIDAAQcgcMABCBxwAAIHHIDAAQcgcMABiOAARHAAIjjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOQOCAAxA44NhjPRxligcOAQLHS9fhuJjOPmLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwqCwQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMObRUIHAIEDgECBxyAwAEHIHDAUbo+MY6qN5SAwwoCBxyAwAEHIHDAAQgccCgtEDgECBwCBA44AIEDDkDggEMrAIFDgMAhQOCAAxA4vhRwAPJrXeHxgwMQk2ik/lD3ablaCEj1p69CAggkkAACCSRaEQgkAgQSSACBBBJAIIFEa/9hChIBAgkkgEACCSCLIAlIBMhnJBdIBAgkAgQSSACBBBJAIIEEEEgg0eaAQCJAICl7YwtAIPlbJ1MSEEggAQQSSACBBBJAIIEEEEggUVEgkAgQSCABBBJIAIEEEkAggQQQSFZHYoMjIJCMZBcwIJBAAggkkAACCSSAQAIJIJBAAggkkACy4/cOiQCBBBJAIIEEEEggAQQSSACBBBJAIIEEEEggAQQSSAARJAIEEkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBBAogggQQQSCABBBJIAIEEEkAggQQQSCABBBJIABEkgAiSwkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBB0gARJEWRAAIJJIBAAgkgkEACCCSQACJIABEk+ZEAAgkkgEACCSCQQAIIJJAAojEkZ0gA0XiQACJIABEkH5G0IUAESWIkgEACCSCQQAKIIAFEkAAiSJIgAQQSSACBBJKJLzLnySPCFM2BRFYQCRBp0W4CDAAOV/Wfo7G12gAAAABJRU5ErkJggg==);
-		}
+	&:after {
+	    clear:both;
 	}
-	%gridle-push-pull-common {
-		position:relative;
+	/* For IE 6/7 (trigger hasLayout) */
+	& {
+	   zoom:1;
 	}
-	%gridle-container-common {
-		width:100%;
+}
+%gridle-container-debug-common {
+	background-color:#f5f5f5;
 
-		/* For modern browsers */
-		&:before,
-		&:after {
-		    content:"";
-		    display:table;
-		}
-		&:after {
-		    clear:both;
-		}
-		/* For IE 6/7 (trigger hasLayout) */
-		& {
-		   zoom:1;
-		}
-
-		// debug part :
-		@if ($gridle-debug == true) {
-			@extend %gridle-container-debug-common;
-
-			&:before {
-				@if $gridle-debug-show-class-names == true {
-					content:"container-#{$gridle-columns-count}" !important;
-				}
-			}
-			&:after {
-				@if $gridle-debug-show-class-names == true {
-					content:"end container-#{$gridle-columns-count}" !important;
-				}
-			}
-		}
-	}
-	%gridle-container-debug-common {
-		background-color:#f5f5f5;
-
-		&:before,
-		&:after {
-			content:"";
-			display:block;
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
-			height:inherit;
-			padding:10px $gridle-gutter-width/2;
-			text-align:center;
-			color:white;
-			font-size:11px;
-			@include box-sizing(border-box);
-		}
-	}
-	%gridle-grid-debug-common {
-		&:before,
-		&:after {
-			content:"";
-			display:block;
-			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
-			margin:10px 0;
-			padding:5px 0;
-			text-align:center;
-			color:white;
-			font-size:11px;
-			@include box-sizing(border-box);
-		}
-		background-color:#daeff5;
-	}
-	%gridle-grid-common {
-		@if $gridle-direction == rtl {
-			float:right;
-			direction:rtl;
-		} @else {
-			float:left;
-			direction:ltr;
-		}
-		// set padding :;
-		padding:0 $gridle-gutter-width/2;
-		display:inline-block;
-		position:relative;
+	&:before,
+	&:after {
+		content:"";
+		display:block;
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
+		height:inherit;
+		text-align:center;
+		color:white;
+		font-size:11px;
 		@include box-sizing(border-box);
-
-		// debug css :
-		@if $gridle-debug == true {
-			@extend %gridle-grid-debug-common;
-		}
 	}
+}
+%gridle-grid-debug-common {
+	&:before,
+	&:after {
+		content:"";
+		display:block;
+		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
+		margin:10px 0;
+		padding:5px 0;
+		text-align:center;
+		color:white;
+		font-size:11px;
+		@include box-sizing(border-box);
+	}
+	background-color:#daeff5;
+}
+%gridle-grid-common {
+	display:inline-block;
+	position:relative;
+	@include box-sizing(border-box);
+}
+%gridle-prefix-debug-common {
+	background-color:#dae7e9 !important;
+}
+%gridle-suffix-debug-common {
+	background-color:#dae7e9 !important;
 }
 
 
 /**
- * Tell gridle that we use mixins :
+ * Common css that cannot be extended cause of variables :
  */
-@mixin gridle_use_mixins() {
-	@include gridle_init();
+@mixin _gridle_grid_common() {
+	@extend %gridle-grid-common;
+	@if $gridle-direction == rtl {
+		float:right;
+		direction:rtl;
+	} @else {
+		float:left;
+		direction:ltr;
+	}
+	// set padding :;
+	padding:0 $gridle-gutter-width/2;
+	@if $gridle-debug == true {
+		@extend %gridle-grid-debug-common;
+	}
+}
+@mixin _gridle_container_common() {
+	@extend %gridle-container-common;
+	// debug part :
+	@if ($gridle-debug == true) {
+		@extend %gridle-container-debug-common;
+		&:before {
+			@if $gridle-debug-show-class-names == true {
+				padding:10px $gridle-gutter-width/2;
+				content:"container-#{$gridle-columns-count}" !important;
+			}
+		}
+		&:after {
+			@if $gridle-debug-show-class-names == true {
+				padding:10px $gridle-gutter-width/2;
+				content:"end container-#{$gridle-columns-count}" !important;
+			}
+		}
+	}
+}
+@mixin _gridle_push_common() {
+	// extend common :
+	@extend %gridle-push-pull-common;
+	@if $gridle-debug == true {
+		@extend %gridle-push-pull-debug-background-common;
+		background-color:#f4efdf !important;
+		@if $gridle-direction == ltr {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=);
+		} @else {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Qjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ0Qzg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDQjlFNzVFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRBODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ee9ybwAAA3JJREFUeNrs3dEKgkAQQNE27f9/uJoM6iXKwFLH8Vzw1WjdwxZt2iLiIOl9R0MgASJNqp/z5K01I5znOle9GOeY8XuCFQQOOACBAw5ABAcggiMW/G0CEDjgAAQOOACBAw5ABAcggiMBjufgapvdUXRwWEG0QxzDkWKbOSBwwAEIHHAAAgccgMABByCCAxDBkRsHIHDAAQgccAACBxyAwAEHIHDAAYjgAERwbBoHIHDAAQgccAACBxyAwAEHIHDAAQgccAAiOAARHFVxAAIHHIDAAQcgcMABCBxwAAIHHIDAAQcgcMABiOAARHAAIjjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOQOCAAxA44NhjPRxligcOAQLHS9fhuJjOPmLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwqCwQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMObRUIHAIEDgECBxyAwAEHIHDAUbo+MY6qN5SAwwoCBxyAwAEHIHDAAQgccCgtEDgECBwCBA44AIEDDkDggEMrAIFDgMAhQOCAAxA4vhRwAPJrXeHxgwMQk2ik/lD3ablaCEj1p69CAggkkAACCSRaEQgkAgQSSACBBBJAIIFEa/9hChIBAgkkgEACCSCLIAlIBMhnJBdIBAgkAgQSSACBBBJAIIEEEEgg0eaAQCJAICl7YwtAIPlbJ1MSEEggAQQSSACBBBJAIIEEEEggUVEgkAgQSCABBBJIAIEEEkAggQQQSFZHYoMjIJCMZBcwIJBAAggkkAACCSSAQAIJIJBAAggkkACy4/cOiQCBBBJAIIEEEEggAQQSSACBBBJAIIEEEEggAQQSSAARJAIEEkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBBAogggQQQSCABBBJIAIEEEkAggQQQSCABBBJIABEkgAiSwkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBB0gARJEWRAAIJJIBAAgkgkEACCCSQACJIABEk+ZEAAgkkgEACCSCQQAIIJJAAojEkZ0gA0XiQACJIABEkH5G0IUAESWIkgEACCSCQQAKIIAFEkAAiSJIgAQQSSACBBJKJLzLnySPCFM2BRFYQCRBp0W4CDAAOV/Wfo7G12gAAAABJRU5ErkJggg==);
+		}
+	}
+}
+@mixin _gridle_pull_common() {
+	@extend %gridle-push-pull-common;
+	@if $gridle-debug == true {
+		@extend %gridle-push-pull-debug-background-common;
+		background-color:#cfe4d5 !important;
+		@if $gridle-direction == ltr {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Qjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ0Qzg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDQjlFNzVFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRBODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ee9ybwAAA3JJREFUeNrs3dEKgkAQQNE27f9/uJoM6iXKwFLH8Vzw1WjdwxZt2iLiIOl9R0MgASJNqp/z5K01I5znOle9GOeY8XuCFQQOOACBAw5ABAcggiMW/G0CEDjgAAQOOACBAw5ABAcggiMBjufgapvdUXRwWEG0QxzDkWKbOSBwwAEIHHAAAgccgMABByCCAxDBkRsHIHDAAQgccAACBxyAwAEHIHDAAYjgAERwbBoHIHDAAQgccAACBxyAwAEHIHDAAQgccAAiOAARHFVxAAIHHIDAAQcgcMABCBxwAAIHHIDAAQcgcMABiOAARHAAIjjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOQOCAAxA44NhjPRxligcOAQLHS9fhuJjOPmLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwqCwQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMObRUIHAIEDgECBxyAwAEHIHDAUbo+MY6qN5SAwwoCBxyAwAEHIHDAAQgccCgtEDgECBwCBA44AIEDDkDggEMrAIFDgMAhQOCAAxA4vhRwAPJrXeHxgwMQk2ik/lD3ablaCEj1p69CAggkkAACCSRaEQgkAgQSSACBBBJAIIFEa/9hChIBAgkkgEACCSCLIAlIBMhnJBdIBAgkAgQSSACBBBJAIIEEEEgg0eaAQCJAICl7YwtAIPlbJ1MSEEggAQQSSACBBBJAIIEEEEggUVEgkAgQSCABBBJIAIEEEkAggQQQSFZHYoMjIJCMZBcwIJBAAggkkAACCSSAQAIJIJBAAggkkACy4/cOiQCBBBJAIIEEEEggAQQSSACBBBJAIIEEEEggAQQSSAARJAIEEkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBBAogggQQQSCABBBJIAIEEEkAggQQQSCABBBJIABEkgAiSwkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBB0gARJEWRAAIJJIBAAgkgkEACCCSQACJIABEk+ZEAAgkkgEACCSCQQAIIJJAAojEkZ0gA0XiQACJIABEkH5G0IUAESWIkgEACCSCQQAKIIAFEkAAiSJIgAQQSSACBBJKJLzLnySPCFM2BRFYQCRBp0W4CDAAOV/Wfo7G12gAAAABJRU5ErkJggg==);
+		} @else {
+			background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=);
+		}
+	}
+}
+@mixin _gridle_prefix_common() {
+	@if $gridle-debug == true {
+		@extend %gridle-prefix-debug-common;
+	}
+}
+@mixin _gridle_suffix_common() {
+	@if $gridle-debug == true {
+		@extend %gridle-suffix-debug-common;
+	}
 }
 
 
@@ -349,8 +368,7 @@ $_gridle-state-10-name 				: null !default;
  */
 @mixin gridle_container(
 ) {
-	@if $_gridle-inited != true { @include gridle_init(); }
-	@extend %gridle-container-common;
+	@include _gridle_container_common();
 }
 
 
@@ -365,11 +383,7 @@ $_gridle-state-10-name 				: null !default;
 	$state : null,
 	$debug-state : null
 ) {
-	@if $_gridle-inited != true { @include gridle_init(); }
-	@extend %gridle-grid-common;
-	@if $gridle-debug == true {
-		@extend %gridle-grid-debug-common;
-	}
+	@include _gridle_grid_common();
 	@include _gridle($columns,$state,$debug-state);
 }
 @mixin _gridle(
@@ -382,7 +396,9 @@ $_gridle-state-10-name 				: null !default;
 	$width : percentage(1 / $gridle-columns-count) * $columns;
 	@include gridle_responseTo($state) {
 		width:$width;
-		*width: expression((this.parentNode.clientWidth/#{$gridle-columns-count}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+		@if $gridle-ie7-support == true {
+			*width: expression((this.parentNode.clientWidth/#{$gridle-columns-count}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+		}
 		@if $gridle-debug == true and $gridle-debug-show-class-names == true {
 			&:before {
 				@if $debug-state != null {
@@ -408,11 +424,7 @@ $_gridle-state-10-name 				: null !default;
 	$state : null,
 	$debug-state : null
 ) {
-	@if $_gridle-inited != true { @include gridle_init(); }
-	@extend %gridle-push-pull-common;
-	@if $gridle-debug == true {
-		@extend %gridle-push-debug-background-common;
-	}
+	@include _gridle_push_common();
 	@include _gridle_push($columns,$state,$debug-state);
 }
 @mixin _gridle_push(
@@ -429,7 +441,6 @@ $_gridle-state-10-name 				: null !default;
 
 		// debug css :
 		@if $gridle-debug == true {	
-			background-color:#f4efdf !important;
 			@if $gridle-debug-show-class-names == true {
 				&:after {
 					@if $debug-state != null {
@@ -456,11 +467,7 @@ $_gridle-state-10-name 				: null !default;
 	$state : null,
 	$debug-state : null
 ) {
-	@if $_gridle-inited != true { @include gridle_init(); }
-	@extend %gridle-push-pull-common;
-	@if $gridle-debug == true {
-		@extend %gridle-pull-debug-background-common;
-	}
+	@include _gridle_pull_common();
 	@include _gridle_pull($columns,$state,$debug-state);
 }
 @mixin _gridle_pull(
@@ -477,7 +484,6 @@ $_gridle-state-10-name 				: null !default;
 
 		// debug css :
 		@if $gridle-debug == true {
-			background-color:#cfe4d5 !important;
 			@if $gridle-debug-show-class-names == true {
 				&:after {
 					@if $debug-state != null {
@@ -504,7 +510,7 @@ $_gridle-state-10-name 				: null !default;
 	$state : null,
 	$debug-state : null
 ) {
-	@if $_gridle-inited != true { @include gridle_init(); }
+	@include _gridle_prefix_common();
 	@include _gridle_prefix($columns,$state,$debug-state);
 }
 @mixin _gridle_prefix(
@@ -521,7 +527,6 @@ $_gridle-state-10-name 				: null !default;
 
 		// debug css :
 		@if $gridle-debug == true {
-			background-color:#dae7e9 !important;
 			@if $gridle-debug-show-class-names == true {
 				&:after {
 					@if $debug-state != null {
@@ -547,7 +552,7 @@ $_gridle-state-10-name 				: null !default;
 	$columns : 12,
 	$state : null
 ) {
-	@if $_gridle-inited != true { @include gridle_init(); }
+	@include _gridle_suffix_common();
 	@include _gridle_suffix($columns,$state);
 }
 @mixin _gridle_suffix(
@@ -564,7 +569,6 @@ $_gridle-state-10-name 				: null !default;
 
 		// debug css :
 		@if $gridle-debug == true {
-			background-color:#dae7e9 !important;
 			@if $gridle-debug-show-class-names == true {
 				&:after {
 					@if $debug-state != null {
@@ -791,11 +795,6 @@ $_gridle-state-10-name 				: null !default;
 }
 @mixin _gridle_generate_classes() {
 
-	// check if gridle is inited :
-	@if $_gridle-inited != true {
-		@include gridle_init();
-	}
-
 	/**
 	 * Windows 8 fix for snap mode :
 	 */
@@ -824,26 +823,26 @@ $_gridle-state-10-name 				: null !default;
 	@for $i from 0 through $gridle-columns-count {
 
 		.grid-#{$i*$gridle-name-multiplicator} {
-			@include gridle($i);
+			@include _gridle($i);
 		}
 		@if $gridle-generate-push-classes == true {
 			.push-#{$i*$gridle-name-multiplicator} {
-				@include gridle_push($i);
+				@include _gridle_push($i);
 			}
 		}
 		@if $gridle-generate-pull-classes == true {
 			.pull-#{$i*$gridle-name-multiplicator} {
-				@include gridle_pull($i);
+				@include _gridle_pull($i);
 			}
 		}
 		@if $gridle-generate-prefix-classes == true {
 			.prefix-#{$i*$gridle-name-multiplicator} {
-				@include gridle_prefix($i);
+				@include _gridle_prefix($i);
 			}
 		}
 		@if $gridle-generate-suffix-classes == true {
 			.suffix-#{$i*$gridle-name-multiplicator} {
-				@include gridle_suffix($i);
+				@include _gridle_suffix($i);
 			}
 		}
 	}
@@ -897,10 +896,14 @@ $_gridle-state-10-name 				: null !default;
 	// generate all selector for extends :
 	$push-common-selector : ();
 	$pull-common-selector : ();
+	$prefix-common-selector : ();
+	$suffix-common-selector : ();
 	$common-selector : ();
 	@for $i from 0 through $gridle-columns-count {
 		$push-common-selector : $push-common-selector, unquote(".push-#{$i*$gridle-name-multiplicator}");
 		$pull-common-selector : $pull-common-selector, unquote(".pull-#{$i*$gridle-name-multiplicator}");
+		$prefix-common-selector : $prefix-common-selector, unquote(".prefix-#{$i*$gridle-name-multiplicator}");
+		$suffix-common-selector : $suffix-common-selector, unquote(".suffix-#{$i*$gridle-name-multiplicator}");
 		$common-selector : $common-selector, unquote(".grid-#{$i*$gridle-name-multiplicator}");
 
 		// generate all classes for media queries :
@@ -917,6 +920,8 @@ $_gridle-state-10-name 				: null !default;
 				
 				$push-common-selector : $push-common-selector, unquote(".push-#{$media}-#{$i*$gridle-name-multiplicator}");
 				$pull-common-selector : $pull-common-selector, unquote(".pull-#{$media}-#{$i*$gridle-name-multiplicator}");
+				$prefix-common-selector : $prefix-common-selector, unquote(".prefix-#{$media}-#{$i*$gridle-name-multiplicator}");
+				$suffix-common-selector : $suffix-common-selector, unquote(".suffix-#{$media}-#{$i*$gridle-name-multiplicator}");
 				$common-selector : $common-selector, unquote(".grid-#{$media}-#{$i*$gridle-name-multiplicator}");
 			}
 		}
@@ -924,22 +929,19 @@ $_gridle-state-10-name 				: null !default;
 
 	// extends :
 	#{$push-common-selector} {
-		@extend %gridle-push-pull-common;
-		@if $gridle-debug == true {
-			@extend %gridle-push-debug-background-common;
-		}
+		@include _gridle_push_common();
 	}
 	#{$pull-common-selector} {
-		@extend %gridle-push-pull-common;
-		@if $gridle-debug == true {
-			@extend %gridle-pull-debug-background-common;
-		}
+		@include _gridle_pull_common();
+	}
+	#{$prefix-common-selector} {
+		@include _gridle_prefix_common();
+	}
+	#{$suffix-common-selector} {
+		@include _gridle_suffix_common();
 	}
 	#{$common-selector} {
-		@extend %gridle-grid-common;
-		@if $gridle-debug == true {
-			@extend %gridle-grid-debug-common;
-		}
+		@include _gridle_grid_common();
 	}
 
 	// generate all classes for differents media queries :
