@@ -47,4 +47,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /** Configure : */
 /** Basic formatting : */
 body { font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif; }
-@media screen and (min-width: 0) and (max-width: 400px) { body { text-align: center; } }
+body .tablet { background: yellow; }
+body .mobile { background: yellow; }
+@media (min-width: 401px) and (max-width: 767px), (min-width: 0) and (max-width: 400px) { body { background: red; background: green; } }

@@ -40,7 +40,7 @@ $gridle-debug-show-class-names 			: true !default;
 
 $gridle-ie7-support 					: true !default;
 
-$gridle-body-states-classes 			: false !default;
+$gridle-body-states-classes 			: true !default;
 
 $gridle-generate-helpers-classes 		: true !default;
 $gridle-generate-push-classes 			: true !default;
@@ -314,51 +314,61 @@ $_gridle-state-10-name 				: null !default;
 }
 
 
-/**
- * Responsive helpers mixins :
- *
- * @param 	String 	$media 	The media name to response for
- */
-@mixin gridle_responseTo(
+@function contains($list,$var) {
+    @return (false == index($list, $var));
+}
+
+@function get_query_for(
 	$media_min-width,
 	$max-width : null
 ) {
+
 	// get the index of state :
 	$idx : _gridle_get_media_query_index_by_name($media_min-width);
 	// check if the first params is null :
 	@if $media_min-width == null {
-		@content;
+		@return null;
 	} @else if $media_min-width == 'print' or $media_min-width == print {
-		@if $gridle-body-states-classes { body.print { @content; } }
-		@media only print {
-			@content;
-		}
+		// @if $gridle-body-states-classes { body.print { @content; } }
+		// $query : append($query,unquote('only print'),unquote('AND'));
+		@return "print";
+		// @media only print {
+		// 	@content;
+		// }
 	} @else if $media_min-width == 'tv' or $media_min-width == tv {
-		@if $gridle-body-states-classes { body.tv { @content; } }
-		@media only tv {
-			@content;
-		}
+		// @if $gridle-body-states-classes { body.tv { @content; } }
+		@return "tv";
+		// $query : append($query,unquote('only tv'),unquote('AND'));
+		// @media only tv {
+		// 	@content;
+		// }
 	} @else if $media_min-width == 'portrait' or $media_min-width == portrait {
-		@if $gridle-body-states-classes { body.portrait { @content; } }
-		@media only screen and (orientation: portrait) {
-			@content;
-		}
+		// @if $gridle-body-states-classes { body.portrait { @content; } }
+		// $query : append($query,unquote('(orientation: portrait)'),unquote('AND'));
+		@return "(orientation: portrait)";
+		// @media only screen and (orientation: portrait) {
+		// 	@content;
+		// }
 	} @else if $media_min-width == 'landscape' or $media_min-width == landscape {
-		@if $gridle-body-states-classes { body.landscape { @content; } }
-		@media only screen and (orientation: landscape) {
-			@content;
-		}
+		// @if $gridle-body-states-classes { body.landscape { @content; } }
+		// $query : append($query,unquote('(orientation: landscape)'),unquote('AND'));
+		@return "(orientation: landscape)";
+		// // @media only screen and (orientation: landscape) {
+		// 	@content;
+		// }
 	} @else if $media_min-width == 'retina' or $media_min-width == retina {
-		@if $gridle-body-states-classes { body.retina { @content; } }
-		@media only screen and (-webkit-min-device-pixel-ratio: 2),
-			   only screen and (   min--moz-device-pixel-ratio: 2),
-			   only screen and (     -o-min-device-pixel-ratio: 2/1),
-			   only screen and (        min-device-pixel-ratio: 2),
-			   only screen and (                min-resolution: 192dpi),
-			   only screen and (                min-resolution: 2dppx)
-		{
-			@content;
-		}
+		// @if $gridle-body-states-classes { body.retina { @content; } }
+		// $query : append($query,unquote('(orientation: retina)'),unquote('AND'));
+		@return "only screen";
+		// // @media only screen and (-webkit-min-device-pixel-ratio: 2),
+		// 	   only screen and (   min--moz-device-pixel-ratio: 2),
+		// 	   only screen and (     -o-min-device-pixel-ratio: 2/1),
+		// 	   only screen and (        min-device-pixel-ratio: 2),
+		// 	   only screen and (                min-resolution: 192dpi),
+		// 	   only screen and (                min-resolution: 2dppx)
+		// {
+		// 	@content;
+		// }
 	} @else if $idx != null {
 		// get vars :
 		$m : _gridle_get_media_query_vars($idx,"name");
@@ -370,19 +380,85 @@ $_gridle-state-10-name 				: null !default;
 			@if $min-width == null { $min-width : 0; }
 			@if $max-width == null { $max-width : 99999px; }
 			// write media query :
-			@if $gridle-body-states-classes { body.#{$m} { @content; } }
-			@media screen and (min-width: $min-width) and (max-width: $max-width) { @content; }
+			// @if $gridle-body-states-classes { body.#{$m} { @content; } }
+			// @media screen and (min-width: $min-width) and (max-width: $max-width) { @content; }
+			// $query : append($query,unquote('(min-width : #{$min-width}) and (max-width: #{$max-width})'),unquote('AND'));
+			@return "(min-width: #{$min-width}) and (max-width: #{$max-width})";
 		}
 	} @else {
-		// check for min and max width :
-		@if $media_min-width != null and $max-width != null {
-			@media screen and (min-width: $media_min-width) and (max-width: $max-width) { @content; }
-		} @else if $media_min-width != null and $max-width == null {
-			@media screen and (min-width: $media_min-width) { @content; }
-		} @else if $media_min-width == null and $max-width != null {
-			@media screen and (max-width: $max-width) { @content; }
+		// // check for min and max width :
+		// @if $media_min-width != null and $max-width != null {
+		// 	@media screen and (min-width: $media_min-width) and (max-width: $max-width) { @content; }
+		// } @else if $media_min-width != null and $max-width == null {
+		// 	@media screen and (min-width: $media_min-width) { @content; }
+		// } @else if $media_min-width == null and $max-width != null {
+		// 	@media screen and (max-width: $max-width) { @content; }
+		// }
+		@return null;
+	}	
+
+}
+
+
+/**
+ * Responsive helpers mixins :
+ *
+ * @param 	String 	$media 	The media name to response for
+ */
+@mixin gridle_responseTo(
+	$media_min-width,
+	$max-width : null
+) {
+
+	
+
+	$query : ();
+
+	@if $media_min-width == null {
+		@content;
+	} @else {
+
+		@if length($media_min-width) == 1 {
+			
+			// $query : append($query, get_query_for($media_min-width));
+		
+		 	$query : $query, get_query_for($media_min-width);
+
+		} @else if length($media_min-width) > 1 {
+			
+			$i : 0;
+			@each $state in $media_min-width {
+			
+				.#{$state} {
+					background:yellow;
+				}
+
+				$q : unquote(get_query_for($state));
+				@if ($q != null) {
+					$query : $query, $q;
+				}
+				
+				$i : $i + 1;
+			}
+
+		} @else {
+			// $query : "";
 		}
+
+		// $selector : join((), $query);
+			
+		// $query : unquote($query);
+
+		@media #{$query} {
+			background:red;
+			@content;
+		}
+		// @media  {
+		// 	@content;
+		// }
+
 	}
+
 }
 
 

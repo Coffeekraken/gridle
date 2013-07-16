@@ -15,7 +15,13 @@
 body {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 
-	@include gridle_responseTo('mobile') {
-		text-align:center;
+	// @include gridle_responseTo('mobile') {
+	// 	text-align:center;
+	// }
+
+
+	@include gridle_responseTo(tablet mobile) {
+		background:green;
 	}
+
 }
