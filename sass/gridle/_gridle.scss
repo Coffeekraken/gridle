@@ -20,9 +20,9 @@
  * IN THE SOFTWARE.
  *
  * @created 	25.03.13
- * @updated 	23.06.13
+ * @updated 	16.07.13
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
- * @version 	1.0
+ * @version 	1.0.1
  */
 
 
@@ -47,6 +47,8 @@ $gridle-generate-push-classes 			: true !default;
 $gridle-generate-pull-classes 			: true !default;
 $gridle-generate-prefix-classes 		: true !default;
 $gridle-generate-suffix-classes 		: true !default;
+
+$gridle-useful-states 					: ('retina','landscape','portrait','print','tv') !default;
 
 
 /**
@@ -326,7 +328,28 @@ $_gridle-state-10-name 				: null !default;
 	// check if the first params is null :
 	@if $media_min-width == null {
 		@content;
+	} @else if $media_min-width == 'print' or $media_min-width == print {
+		@if $gridle-body-states-classes { body.print { @content; } }
+		@media only print {
+			@content;
+		}
+	} @else if $media_min-width == 'tv' or $media_min-width == tv {
+		@if $gridle-body-states-classes { body.tv { @content; } }
+		@media only tv {
+			@content;
+		}
+	} @else if $media_min-width == 'portrait' or $media_min-width == portrait {
+		@if $gridle-body-states-classes { body.portrait { @content; } }
+		@media only screen and (orientation: portrait) {
+			@content;
+		}
+	} @else if $media_min-width == 'landscape' or $media_min-width == landscape {
+		@if $gridle-body-states-classes { body.landscape { @content; } }
+		@media only screen and (orientation: landscape) {
+			@content;
+		}
 	} @else if $media_min-width == 'retina' or $media_min-width == retina {
+		@if $gridle-body-states-classes { body.retina { @content; } }
 		@media only screen and (-webkit-min-device-pixel-ratio: 2),
 			   only screen and (   min--moz-device-pixel-ratio: 2),
 			   only screen and (     -o-min-device-pixel-ratio: 2/1),
@@ -347,7 +370,7 @@ $_gridle-state-10-name 				: null !default;
 			@if $min-width == null { $min-width : 0; }
 			@if $max-width == null { $max-width : 99999px; }
 			// write media query :
-			@if $gridle-body-states-classes { body.#{$m} & { @content; } }
+			@if $gridle-body-states-classes { body.#{$m} { @content; } }
 			@media screen and (min-width: $min-width) and (max-width: $max-width) { @content; }
 		}
 	} @else {
@@ -776,6 +799,64 @@ $_gridle-state-10-name 				: null !default;
 
 
 /**
+ * Generate all helpers classes
+ * All the classes generated are not wrapper in gridle_responseTo
+ * in this mixin... Just the names are generated accordingly to the
+ * requested state
+ */
+@mixin _gridle_generate_helper_classes (
+	$state : null
+) {
+	$media : '';
+	@if ($state != null) { $media : -#{$state}; }
+	@else { $media : ''; }
+
+	.hide#{$media} {
+		@include gridle_hide(null);
+	}
+	.not-visible#{$media} {
+		@include gridle_not_visible(null);
+	}
+	.show#{$media} {
+		@include gridle_show(null);
+	}
+	.visible#{$media} {
+		@include gridle_visible(null);
+	}
+	.float#{$media}-left {
+		@include gridle_float(left);
+	}
+	.float#{$media}-right {
+		@include gridle_float(right);
+	}
+	.clear#{$media} {
+		@include gridle_clear(both);
+	}
+	.clear#{$media}-left {
+		@include gridle_clear(left);
+	}
+	.clear#{$media}-right {
+		@include gridle_clear(right);
+	}
+	.no-gutter#{$media},
+	.no-margin#{$media} {
+		@include gridle_no_margin();
+	}
+	.no-gutter#{$media}-left,
+	.no-margin#{$media}-left {
+		@include gridle_no_margin(left);
+	}
+	.no-gutter#{$media}-right,
+	.no-margin#{$media}-right {
+		@include gridle_no_margin(right);
+	}
+	.auto-height#{$media} {
+		height:inherit;
+	}
+}
+
+
+/**
  * gridle mixin :
  * Generate all the classes needed for a grid
  */
@@ -849,49 +930,48 @@ $_gridle-state-10-name 				: null !default;
 
 	// helpers classes :
 	@if $gridle-generate-helpers-classes == true {
-		.hide {
-			@include gridle_hide(null);
-		}
-		.not-visible {
-			@include gridle_not_visible(null);
-		}
-		.show {
-			@include gridle_show(null);
-		}
-		.visible {
-			@include gridle_visible(null);
-		}
-		.float-left {
-			@include gridle_float(left);
-		}
-		.float-right {
-			@include gridle_float(right);
-		}
-		.clear {
-			@include gridle_clear(both);
-		}
-		.clear-left {
-			@include gridle_clear(left);
-		}
-		.clear-right {
-			@include gridle_clear(right);
-		}
-		.no-gutter,
-		.no-margin {
-			@include gridle_no_margin();
-		}
-		.no-gutter-left,
-		.no-margin-left {
-			@include gridle_no_margin(left);
-		}
-		.no-gutter-right,
-		.no-margin-right {
-			@include gridle_no_margin(right);
-		}
-		.auto-height {
-			height:inherit;
+		@include _gridle_generate_helper_classes();
+	}
+
+	// usefull states :
+	@if $gridle-useful-states != null {
+		@each $state in $gridle-useful-states { 
+			@include gridle_responseTo($state) {
+
+				@for $k from 0 through $gridle-columns-count {
+			
+					.grid-#{$state}-#{$k*$gridle-name-multiplicator} {
+						@include _gridle($k,null,$state);
+					}
+					@if $gridle-generate-push-classes == true {
+						.push-#{$state}-#{$k*$gridle-name-multiplicator} {
+							@include _gridle_push($k,null,$state);
+						}
+					}
+					@if $gridle-generate-pull-classes == true {
+						.pull-#{$state}-#{$k*$gridle-name-multiplicator} {
+							@include _gridle_pull($k,null,$state);
+						}
+					}
+					@if $gridle-generate-prefix-classes == true {
+						.prefix-#{$state}-#{$k*$gridle-name-multiplicator} {
+							@include _gridle_prefix($k,null,$state);
+						}
+					}
+					@if $gridle-generate-suffix-classes == true {
+						.suffix-#{$state}-#{$k*$gridle-name-multiplicator} {
+							@include _gridle_suffix($k,null,$state);
+						}	
+					}
+				}
+				
+				@if $gridle-generate-helpers-classes == true {
+					@include _gridle_generate_helper_classes($state);	
+				}
+			}
 		}
 	}
+
 
 	// generate all selector for extends :
 	$push-common-selector : ();
@@ -925,6 +1005,17 @@ $_gridle-state-10-name 				: null !default;
 				$common-selector : $common-selector, unquote(".grid-#{$media}-#{$i*$gridle-name-multiplicator}");
 			}
 		}
+
+		// generate all classes for usefull states :
+		@if $gridle-useful-states != null {
+			@each $state in $gridle-useful-states {
+				$push-common-selector : $push-common-selector, unquote(".push-#{$state}-#{$i*$gridle-name-multiplicator}");
+				$pull-common-selector : $pull-common-selector, unquote(".pull-#{$state}-#{$i*$gridle-name-multiplicator}");
+				$prefix-common-selector : $prefix-common-selector, unquote(".prefix-#{$state}-#{$i*$gridle-name-multiplicator}");
+				$suffix-common-selector : $suffix-common-selector, unquote(".suffix-#{$state}-#{$i*$gridle-name-multiplicator}");
+				$common-selector : $common-selector, unquote(".grid-#{$state}-#{$i*$gridle-name-multiplicator}");
+			}
+		}
 	}
 
 	// extends :
@@ -950,15 +1041,13 @@ $_gridle-state-10-name 				: null !default;
 		$media : _gridle_get_media_query_vars($i,"name");
 		$min-width : _gridle_get_media_query_vars($i,"min-width");
 		$max-width : _gridle_get_media_query_vars($i,"max-width");
-		@if $min-width == null { $min-width : 0; }
-		@if $max-width == null { $max-width : 999999; }
 
 		// generate all media queries grid classes :
 		@if $media != null and $min-width != null and $max-width != null {
 
 			// generate all the classes :
-			@media screen and (min-width:$min-width) and (max-width:$max-width) {
-			
+			@include gridle_responseTo($media) {
+		
 				@for $j from 0 through $gridle-columns-count {
 		
 					.grid-#{$media}-#{$j*$gridle-name-multiplicator} {
@@ -988,48 +1077,7 @@ $_gridle-state-10-name 				: null !default;
 
 				// media queries helpers classes :
 				@if $gridle-generate-helpers-classes == true and $media != null {
-					.hide-#{$media} {
-						@include gridle_hide(null);
-					}
-					.not-visible-#{$media} {
-						@include gridle_not_visible(null);
-					}
-					.show-#{$media} {
-						@include gridle_show(null);
-					}
-					.visible-#{$media} {
-						@include gridle_visible(null);
-					}
-					.float-#{$media}-left {
-						@include gridle_float(left);
-					}
-					.float-#{$media}-right {
-						@include gridle_float(right);
-					}
-					.clear-#{$media} {
-						@include gridle_clear(both);
-					}
-					.clear-#{$media}-left {
-						@include gridle_clear(left);
-					}
-					.clear-#{$media}-right {
-						@include gridle_clear(right);
-					}
-					.no-gutter-#{$media},
-					.no-margin-#{$media} {
-						@include gridle_no_margin();
-					}
-					.no-gutter-#{$media}-left,
-					.no-margin-#{$media}-left {
-						@include gridle_no_margin(left);
-					}
-					.no-gutter-#{$media}-right,
-					.no-margin-#{$media}-right {
-						@include gridle_no_margin(right);
-					}
-					.auto-height-#{$media} {
-						height:inherit;
-					}
+					@include _gridle_generate_helper_classes($media);
 				}
 			}
 		}

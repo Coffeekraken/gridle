@@ -9,4 +9,6 @@
 $gridle-columns-count : 12;
 $gridle-gutter-width : 20px;
 $gridle-debug : true;
+$gridle-useful-states : ('retina','landscape','portrait');
+
 @include gridle_register_default_states();
