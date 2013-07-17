@@ -13,18 +13,38 @@
 
 	<title>Gridle - Demo</title>
 
+	<script src="js/jquery.js"></script>
+	<script>
+		jQuery(function($) {
+			$('#medias li').click(function(e) {
+				e.preventDefault();
+				$('#medias li').removeClass('active');
+				$('html').attr('class','').addClass($(this).data('class'));
+				$(this).addClass('active');
+			})
+		});
+	</script>
+
 </head>
 <body>
 
+	<ul id="medias">
+		<li data-class="">Default</li>
+		<li data-class="tablet">Tablet</li>
+		<li data-class="mobile">Mobile</li>
+		<li data-class="print">Print</li>
+		<li data-class="ipad-landscape">iPad landscape</li>
+	</ul>
+
 	<div class="container">
 
-		<div class="grid-3 grid-mobile-12">Logo</div>
-		<div class="grid-5 grid-mobile-12">Search</div>
-		<div class="grid-4 grid-mobile-12 hide-mobile">Login</div>
+		<div class="grid-3 grid-mobile-12 grid-ipad-landscape-12 hide-print">Logo</div>
+		<div class="grid-5 grid-mobile-12 grid-ipad-landscape-12 hide-print">Search</div>
+		<div class="grid-4 grid-mobile-12 hide-ipad-landscape hide-mobile hide-print">Login</div>
 
-		<div class="grid-12" style="background-color:#eee9b2;">Primary navigation</div>
+		<div class="grid-12 hide-print" style="background-color:#eee9b2;">Primary navigation</div>
 
-		<div class="grid-8 grid-landscape-10 grid-tablet-12 grid-mobile-12 float-right" style="background-color:#fae4a7;">
+		<div class="grid-8 grid-tablet-12 grid-mobile-12 float-right" style="background-color:#fae4a7;">
 			<div class="content" style="height:242px;">
 				Slideshow content
 			</div>
@@ -44,21 +64,20 @@
 				Slideshow menu 3
 			</div>
 		</div>
-		
 
 		<div class="grid-12" style="background-color:#eee9b2;">Breadcrumb</div>
 
-		<div class="grid-4 grid-tablet-6 grid-mobile-12 push-tablet-6">
+		<div class="grid-4 grid-ipad-landscape-6 grid-tablet-6 grid-mobile-12 push-tablet-6">
 			<div class="content" style="height:100px;">
 				Highlight 1
 			</div>
 		</div>
-		<div class="grid-4 grid-tablet-6 grid-mobile-12 pull-tablet-6">
+		<div class="grid-4 grid-ipad-landscape-6 grid-tablet-6 grid-mobile-12 pull-tablet-6">
 			<div class="content" style="height:100px;">
 				Highlight 2
 			</div>
 		</div>
-		<div class="grid-4 grid-tablet-12 grid-mobile-12 grid-tablet-clear">
+		<div class="grid-4 grid-ipad-landscape-12 grid-tablet-12 grid-mobile-12 grid-tablet-clear">
 			<div class="content" style="height:100px;">
 				Highlight 3
 			</div>
@@ -75,7 +94,7 @@
 			</div>
 		</div>
 
-		<div class="grid-12">Footer</div>
+		<div class="grid-12 hide-print">Footer</div>
 
 	</div>
 

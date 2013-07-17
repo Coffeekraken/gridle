@@ -18,7 +18,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 
 /** Import grid settings : This to be able to use gridle mixins, etc... */
 /** Import gridle : */
-/** Gridle (.scss) Gridle is an one and unique grid system file that allows you to generate almost all grid you've ever dreamt about.  Copyright (c) 2013 Olivier Bossel  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  @created 	25.03.13 @updated 	16.07.13 @author 		Olivier Bossel <olivier.bossel@gmail.com> @version 	1.0.1 */
+/** Gridle (.scss) Gridle is an one and unique grid system file that allows you to generate almost all grid you've ever dreamt about.  Copyright (c) 2013 Olivier Bossel  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  @created 	25.03.13 @updated 	17.07.13 @author 		Olivier Bossel <olivier.bossel@gmail.com> @version 	1.0.1 */
 /** gridle configuration vars : */
 /** Imports : */
 /** Vars : */
@@ -45,8 +45,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /** Generate all helpers classes All the classes generated are not wrapper in gridle_responseTo in this mixin... Just the names are generated accordingly to the requested state */
 /** gridle mixin : Generate all the classes needed for a grid */
 /** Configure : */
+/** Medias : */
+ul#medias { background: black; text-align: center; margin-bottom: 30px; }
+ul#medias li { display: inline-block; height: 50px; line-height: 50px; padding: 0 30px; color: white; font-size: 16px; cursor: pointer; margin: 0; }
+ul#medias li.active, ul#medias li:hover { background: white; color: black; }
+@media screen and (min-width: 0) and (max-width: 600px) { ul#medias { display: none; } }
+
 /** Basic formatting : */
 body { font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif; }
-body .tablet { background: yellow; }
-body .mobile { background: yellow; }
-@media (min-width: 401px) and (max-width: 767px), (min-width: 0) and (max-width: 400px) { body { background: red; background: green; } }
+html.mobile body { text-align: center; }
+@media screen and (min-width: 0) and (max-width: 400px) { body { text-align: center; } }
+html.ipad-landscape body { font-size: 16px; }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { body { font-size: 16px; } }

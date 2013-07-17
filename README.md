@@ -25,6 +25,7 @@ Register states (media queries) (optional) :
 
 	@include gridle_register_state('tablet',401px,767px);
 	@include gridle_register_state('mobile',0,400px);
+	@include gridle_register_state('print', 'only print');
 	- make the use of media queries really easy
 
 Generate all classes :
@@ -34,13 +35,13 @@ Generate all classes :
 Use your grid in hrml :
 
 	<div class="container">
-		<div class="grid-12">
+		<div class="grid-12 hide-print">
 			Header
 		</div>
 		<div class="grid-8 grid-mobile-12">
 			Content
 		</div>
-		<div class="grid-4 grid-mobile-12">
+		<div class="grid-4 grid-mobile-12 hide-print">
 			Sidebar
 		</div>
 	</div>

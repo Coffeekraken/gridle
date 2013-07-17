@@ -10,18 +10,45 @@
 @import 'grid-settings.scss';
 
 /**
+ * Medias :
+ */
+ul#medias {
+	background:black;
+	text-align:center;
+	margin-bottom:30px;
+
+	li {
+		display:inline-block;
+		height:50px;
+		line-height:50px;
+		padding:0 30px;
+		color:white;
+		font-size:16px;
+		cursor:pointer;
+		margin:0;
+
+		&.active,
+		&:hover {
+			background:white;
+			color:black;
+		}
+	}
+
+	@include gridle_responseTo(0, 600px) {
+		display:none;
+	}
+}
+
+/**
  * Basic formatting :
  */
 body {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 
-	// @include gridle_responseTo('mobile') {
-	// 	text-align:center;
-	// }
-
-
-	@include gridle_responseTo(tablet mobile) {
-		background:green;
+	@include gridle_responseTo('mobile') {
+		text-align:center;
 	}
-
+	@include gridle_responseTo('ipad-landscape') {
+		font-size:16px;
+	}
 }
