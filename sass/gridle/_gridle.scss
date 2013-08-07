@@ -20,9 +20,9 @@
  * IN THE SOFTWARE.
  *
  * @created 	25.03.13
- * @updated 	17.07.13
+ * @updated 	07.08.13
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
- * @version 	1.0.1
+ * @version 	1.0.2
  */
 
 
@@ -48,7 +48,29 @@ $gridle-generate-pull-classes 			: true !default;
 $gridle-generate-prefix-classes 		: true !default;
 $gridle-generate-suffix-classes 		: true !default;
 
-$gridle-generate-useful-states-classes 	: ('retina','print') !default; // retina | landscape | portrait | print | tv
+$gridle-generate-useful-states-classes 	: () !default; // retina | landscape | portrait | print | tv
+
+
+/**
+ * Get query for :
+ */
+@function gridle_get_query_for(
+	$device
+) {
+	@if $device == 'ipad' {
+		@return 'screen and (device-aspect-ratio: 3/4)';
+	} @else if $device == 'iphone' {
+		@return 'screen and (device-aspect-ratio: 2/3), screen and (device-aspect-ratio: 40/71)';
+	} @else if $device == 'iphone<5' {
+		@return 'screen and (device-aspect-ratio: 2/3)';
+	} @else if $device == 'iphone5' or $device == 'iphone>5' {
+		@return 'screen and (device-aspect-ratio: 40/71)';
+	} @else if $device == 'smartphone' {
+		@return 'only screen and (min-device-width : 320px) and (max-device-width : 480px)';
+	} @else {
+		@return null;
+	}
+}
 
 
 /**
@@ -501,8 +523,8 @@ $_gridle-state-15-classes 			: true !default;
  */
 @mixin gridle_register_default_states() {
 	// register mobile and tablet states :
-	@include gridle_register_state("mobile",0,400px);
-	@include gridle_register_state("tablet",401px,767px);
+	@include gridle_register_state("mobile",0,480px);
+	@include gridle_register_state("tablet",481px,1024px);
 }
 
 
@@ -594,6 +616,59 @@ $_gridle-state-15-classes 			: true !default;
 		}
 	} @else {
 		@content;
+	}
+}
+
+
+/**
+ * Get media query by state :
+ *
+ * @param 	String 	$state 	The state name
+ * @return 	String 			The query
+ */
+@function _get_media_query_for_state(
+	$state
+) {
+	// get the index of state :
+	$idx : _gridle_get_media_query_index_by_name($state);
+
+	// check if media_min-width is null :
+	@if $state != null {
+
+		@if $idx != null {
+			// get vars :
+			$m : _gridle_get_media_query_vars($idx,"name");
+			$min-width : _gridle_get_media_query_vars($idx,"min-width");
+			$max-width : _gridle_get_media_query_vars($idx,"max-width");
+			$classes : _gridle_get_media_query_vars($idx,"classes");
+			$query : _gridle_get_media_query_vars($idx,"query");
+
+			// check if exist :
+			@if $m != null {
+				// check if query exist :
+				@if $query != null {
+					@return $query;
+				} @else {
+					// process max and min width :
+					@if $min-width == null { $min-width : 0; }
+					@if $max-width == null { $max-width : 99999px; }
+					// write media query :
+					@return "screen and (min-width: #{$min-width}) and (max-width: #{$max-width})";
+				}
+			}
+		} @else if $state == 'print' or $state == print {
+			@return "only print";
+		} @else if $state == 'tv' or $state == tv {
+			@return "only tv";
+		} @else if $state == 'portrait' or $state == portrait {
+			@return "only screen and (orientation: portrait)";
+		} @else if $state == 'landscape' or $state == landscape {
+			@return "only screen and (orientation: landscape)";
+		} @else if $state == 'retina' or $state == retina {
+			@return "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
+		}
+	} @else {
+		@return null;
 	}
 }
 
@@ -1145,13 +1220,14 @@ $_gridle-state-15-classes 			: true !default;
 	$has-parent
 ) {
 
-	/**
-	 * Windows 8 fix for snap mode :
-	 */
+	// Windows 8 fix for snap mode :
 	@media screen and (max-width: 400px) {
 		@-ms-viewport { width: device-width; }
 	}
 	
+	// body media query content :
+	$json-states : "{";
+
 	// generate container class :
 	$container-selector : ();
 	$container-selector : $container-selector, unquote(".container, .grid-container, .container-#{$gridle-columns-count}");
@@ -1276,6 +1352,16 @@ $_gridle-state-15-classes 			: true !default;
 		// generate all media queries grid classes :
 		@if $media != null and $classes == true {
 
+			// manage body query :
+			$body-query : _get_media_query_for_state($media);
+			@if ($body-query != null) {
+				@if $i == 1 {
+					$json-states : "#{$json-states}\"#{$media}\":\"#{$body-query}\"";
+				} @else {
+					$json-states : "#{$json-states},\"#{$media}\":\"#{$body-query}\"";
+				}
+			}
+
 			// generate all the classes :
 			@include gridle_responseTo($media, null, $has-parent) {
 		
@@ -1317,6 +1403,14 @@ $_gridle-state-15-classes 			: true !default;
 	// usefull states :
 	@if $gridle-generate-useful-states-classes != null {
 		@each $state in $gridle-generate-useful-states-classes { 
+
+			// manage body query :
+			$body-query : _get_media_query_for_state($state);
+			@if ($body-query != null) {
+				$json-states : "#{$json-states},\"#{$state}\":\"#{$body-query}\"";
+			}
+
+			// creating classes :
 			@include gridle_responseTo($state, null, $has-parent) {
 
 				@for $k from 0 through $gridle-columns-count {
@@ -1351,5 +1445,11 @@ $_gridle-state-15-classes 			: true !default;
 				}
 			}
 		}
+	}
+
+	// close body query content json :
+	$json-states : "#{$json-states}}";
+	#gridle-states {
+		content : $json-states;
 	}
 }
