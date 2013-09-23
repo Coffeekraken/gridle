@@ -74,12 +74,6 @@ $gridle-generate-useful-states-classes 	: () !default; // retina | landscape | p
 
 
 /**
- * Imports :
- */
-@import 'compass/css3';
-
-
-/**
  * Vars :
  */
 $_gridle-state-01-min-width 		: null !default;
@@ -214,7 +208,9 @@ $_gridle-state-15-classes 			: true !default;
 		text-align:center;
 		color:white;
 		font-size:11px;
-		@include box-sizing(border-box);
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
 	}
 }
 %gridle-grid-debug-common {
@@ -228,14 +224,18 @@ $_gridle-state-15-classes 			: true !default;
 		text-align:center;
 		color:white;
 		font-size:11px;
-		@include box-sizing(border-box);
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+		box-sizing: border-box;
 	}
 	background-color:#daeff5;
 }
 %gridle-grid-common {
 	display:inline-block;
 	position:relative;
-	@include box-sizing(border-box);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 %gridle-prefix-debug-common {
 	background-color:#dae7e9 !important;
