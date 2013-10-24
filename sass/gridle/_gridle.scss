@@ -918,9 +918,13 @@ $_gridle-state-15-classes 			: true !default;
 /**
  * Grid parent :
  */
-@mixin gridle_parent() {
-	padding-left:0 !important;
-	padding-right:0 !important;
+@mixin gridle_parent(
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		padding-left:0 !important;
+		padding-right:0 !important;
+	}
 }
 
 
@@ -1227,7 +1231,7 @@ $_gridle-state-15-classes 			: true !default;
 		height:inherit;
 	}
 	[class*="grid-"].grid-parent#{$media} {
-		@include gridle_parent();
+		@include gridle_parent(null);
 	}
 }
 

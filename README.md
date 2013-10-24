@@ -46,6 +46,28 @@ Use your grid in hrml :
 		</div>
 	</div>
 
+Or with mixins :
+
+	.container {
+		@include gridle_container();
+		max-width:960px;
+		margin:0 auto;
+	}
+	#header {
+		@include gridle(12);
+	}
+	#sidebar {
+		@include gridle(8);
+		@include gridle(12, 'mobile');
+	}
+	#sidebar {
+		@include gridle(4);
+		@include gridle_hide('mobile');
+	}
+	@footer {
+		@include gridle(12);
+	}
+
 Customize your content look and feel with Gridle mixins
 
 	#sidebar {
