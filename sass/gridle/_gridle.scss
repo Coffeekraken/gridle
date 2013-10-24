@@ -20,9 +20,9 @@
  * IN THE SOFTWARE.
  *
  * @created 	25.03.13
- * @updated 	07.08.13
+ * @updated 	24.10.13
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
- * @version 	1.0.2
+ * @version 	1.0.3
  */
 
 
@@ -232,7 +232,7 @@ $_gridle-state-15-classes 			: true !default;
 }
 %gridle-grid-common {
 	display:inline-block;
-	position:relative;
+	min-height:1px;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -258,7 +258,7 @@ $_gridle-state-15-classes 			: true !default;
 		direction:ltr;
 	}
 	// set padding :;
-	padding:0 $gridle-gutter-width/2;
+	padding:0 $gridle-gutter-width/2 !important;
 	@if $gridle-debug == true {
 		@extend %gridle-grid-debug-common;
 	}
@@ -316,6 +316,21 @@ $_gridle-state-15-classes 			: true !default;
 	@if $gridle-debug == true {
 		@extend %gridle-suffix-debug-common;
 	}
+}
+
+
+/**
+ * Get column width :
+ */
+@function gridle_columns_width(
+    $columns : 1
+) {
+    @return percentage(1 / $gridle-columns-count * $columns);
+}
+@function gridle_column_width(
+    $columns : 1
+) { 
+    @return gridle_columns_width($columns);
 }
 
 
@@ -717,6 +732,13 @@ $_gridle-state-15-classes 			: true !default;
 					content:"grid-#{$columns * $gridle-name-multiplicator}";
 				}
 			}
+			&.grid-parent:before {
+				@if $debug-state != null {
+					content:"grid-parent-#{$debug-state}-#{$columns * $gridle-name-multiplicator}";
+				} @else {
+					content:"grid-parent-#{$columns * $gridle-name-multiplicator}";
+				}
+			}
 		}
 	}
 }
@@ -890,6 +912,15 @@ $_gridle-state-15-classes 			: true !default;
 			}
 		}
 	}
+}
+
+
+/**
+ * Grid parent :
+ */
+@mixin gridle_parent() {
+	padding-left:0 !important;
+	padding-right:0 !important;
 }
 
 
@@ -1195,6 +1226,9 @@ $_gridle-state-15-classes 			: true !default;
 	.auto-height#{$media} {
 		height:inherit;
 	}
+	[class*="grid-"].grid-parent#{$media} {
+		@include gridle_parent();
+	}
 }
 
 
@@ -1233,16 +1267,6 @@ $_gridle-state-15-classes 			: true !default;
 	$container-selector : $container-selector, unquote(".container, .grid-container, .container-#{$gridle-columns-count}");
 	#{$container-selector} {
 		@include gridle_container();
-	
-		// clean gutter on nested grids :
-		[class*="grid-"] {
-			[class*="grid-"]:first-child, [class*="grid-"].alpha {
-				padding-left:0 !important;
-			}
-			[class*="grid-"]:last-child, [class*="grid-"].omega {
-				padding-right:0 !important;
-			}
-		}
 	}
 
 	// generate all grid-x classes :

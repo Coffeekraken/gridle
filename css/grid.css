@@ -1,6 +1,6 @@
 /** Import grid settings : */
 /** Import gridle : */
-/** Gridle (.scss) Gridle is an one and unique grid system file that allows you to generate almost all grid you've ever dreamt about.  Copyright (c) 2013 Olivier Bossel  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  @created 	25.03.13 @updated 	07.08.13 @author 		Olivier Bossel <olivier.bossel@gmail.com> @version 	1.0.2 */
+/** Gridle (.scss) Gridle is an one and unique grid system file that allows you to generate almost all grid you've ever dreamt about.  Copyright (c) 2013 Olivier Bossel  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  @created 	25.03.13 @updated 	24.10.13 @author 		Olivier Bossel <olivier.bossel@gmail.com> @version 	1.0.3 */
 /** gridle configuration vars : */
 /** Get query for : */
 /** Vars : */
@@ -20,13 +20,14 @@
 .grid-0, .grid-mobile-0, .grid-tablet-0, .grid-ipad-landscape-0, .grid-1, .grid-mobile-1, .grid-tablet-1, .grid-ipad-landscape-1, .grid-2, .grid-mobile-2, .grid-tablet-2, .grid-ipad-landscape-2, .grid-3, .grid-mobile-3, .grid-tablet-3, .grid-ipad-landscape-3, .grid-4, .grid-mobile-4, .grid-tablet-4, .grid-ipad-landscape-4, .grid-5, .grid-mobile-5, .grid-tablet-5, .grid-ipad-landscape-5, .grid-6, .grid-mobile-6, .grid-tablet-6, .grid-ipad-landscape-6, .grid-7, .grid-mobile-7, .grid-tablet-7, .grid-ipad-landscape-7, .grid-8, .grid-mobile-8, .grid-tablet-8, .grid-ipad-landscape-8, .grid-9, .grid-mobile-9, .grid-tablet-9, .grid-ipad-landscape-9, .grid-10, .grid-mobile-10, .grid-tablet-10, .grid-ipad-landscape-10, .grid-11, .grid-mobile-11, .grid-tablet-11, .grid-ipad-landscape-11, .grid-12, .grid-mobile-12, .grid-tablet-12, .grid-ipad-landscape-12 { background-color: #daeff5; }
 .grid-0:before, .grid-mobile-0:before, .grid-tablet-0:before, .grid-ipad-landscape-0:before, .grid-1:before, .grid-mobile-1:before, .grid-tablet-1:before, .grid-ipad-landscape-1:before, .grid-2:before, .grid-mobile-2:before, .grid-tablet-2:before, .grid-ipad-landscape-2:before, .grid-3:before, .grid-mobile-3:before, .grid-tablet-3:before, .grid-ipad-landscape-3:before, .grid-4:before, .grid-mobile-4:before, .grid-tablet-4:before, .grid-ipad-landscape-4:before, .grid-5:before, .grid-mobile-5:before, .grid-tablet-5:before, .grid-ipad-landscape-5:before, .grid-6:before, .grid-mobile-6:before, .grid-tablet-6:before, .grid-ipad-landscape-6:before, .grid-7:before, .grid-mobile-7:before, .grid-tablet-7:before, .grid-ipad-landscape-7:before, .grid-8:before, .grid-mobile-8:before, .grid-tablet-8:before, .grid-ipad-landscape-8:before, .grid-9:before, .grid-mobile-9:before, .grid-tablet-9:before, .grid-ipad-landscape-9:before, .grid-10:before, .grid-mobile-10:before, .grid-tablet-10:before, .grid-ipad-landscape-10:before, .grid-11:before, .grid-mobile-11:before, .grid-tablet-11:before, .grid-ipad-landscape-11:before, .grid-12:before, .grid-mobile-12:before, .grid-tablet-12:before, .grid-ipad-landscape-12:before, .grid-0:after, .grid-mobile-0:after, .grid-tablet-0:after, .grid-ipad-landscape-0:after, .grid-1:after, .grid-mobile-1:after, .grid-tablet-1:after, .grid-ipad-landscape-1:after, .grid-2:after, .grid-mobile-2:after, .grid-tablet-2:after, .grid-ipad-landscape-2:after, .grid-3:after, .grid-mobile-3:after, .grid-tablet-3:after, .grid-ipad-landscape-3:after, .grid-4:after, .grid-mobile-4:after, .grid-tablet-4:after, .grid-ipad-landscape-4:after, .grid-5:after, .grid-mobile-5:after, .grid-tablet-5:after, .grid-ipad-landscape-5:after, .grid-6:after, .grid-mobile-6:after, .grid-tablet-6:after, .grid-ipad-landscape-6:after, .grid-7:after, .grid-mobile-7:after, .grid-tablet-7:after, .grid-ipad-landscape-7:after, .grid-8:after, .grid-mobile-8:after, .grid-tablet-8:after, .grid-ipad-landscape-8:after, .grid-9:after, .grid-mobile-9:after, .grid-tablet-9:after, .grid-ipad-landscape-9:after, .grid-10:after, .grid-mobile-10:after, .grid-tablet-10:after, .grid-ipad-landscape-10:after, .grid-11:after, .grid-mobile-11:after, .grid-tablet-11:after, .grid-ipad-landscape-11:after, .grid-12:after, .grid-mobile-12:after, .grid-tablet-12:after, .grid-ipad-landscape-12:after { content: ""; display: block; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==); margin: 10px 0; padding: 5px 0; text-align: center; color: white; font-size: 11px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-.grid-0, .grid-mobile-0, .grid-tablet-0, .grid-ipad-landscape-0, .grid-1, .grid-mobile-1, .grid-tablet-1, .grid-ipad-landscape-1, .grid-2, .grid-mobile-2, .grid-tablet-2, .grid-ipad-landscape-2, .grid-3, .grid-mobile-3, .grid-tablet-3, .grid-ipad-landscape-3, .grid-4, .grid-mobile-4, .grid-tablet-4, .grid-ipad-landscape-4, .grid-5, .grid-mobile-5, .grid-tablet-5, .grid-ipad-landscape-5, .grid-6, .grid-mobile-6, .grid-tablet-6, .grid-ipad-landscape-6, .grid-7, .grid-mobile-7, .grid-tablet-7, .grid-ipad-landscape-7, .grid-8, .grid-mobile-8, .grid-tablet-8, .grid-ipad-landscape-8, .grid-9, .grid-mobile-9, .grid-tablet-9, .grid-ipad-landscape-9, .grid-10, .grid-mobile-10, .grid-tablet-10, .grid-ipad-landscape-10, .grid-11, .grid-mobile-11, .grid-tablet-11, .grid-ipad-landscape-11, .grid-12, .grid-mobile-12, .grid-tablet-12, .grid-ipad-landscape-12 { display: inline-block; position: relative; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.grid-0, .grid-mobile-0, .grid-tablet-0, .grid-ipad-landscape-0, .grid-1, .grid-mobile-1, .grid-tablet-1, .grid-ipad-landscape-1, .grid-2, .grid-mobile-2, .grid-tablet-2, .grid-ipad-landscape-2, .grid-3, .grid-mobile-3, .grid-tablet-3, .grid-ipad-landscape-3, .grid-4, .grid-mobile-4, .grid-tablet-4, .grid-ipad-landscape-4, .grid-5, .grid-mobile-5, .grid-tablet-5, .grid-ipad-landscape-5, .grid-6, .grid-mobile-6, .grid-tablet-6, .grid-ipad-landscape-6, .grid-7, .grid-mobile-7, .grid-tablet-7, .grid-ipad-landscape-7, .grid-8, .grid-mobile-8, .grid-tablet-8, .grid-ipad-landscape-8, .grid-9, .grid-mobile-9, .grid-tablet-9, .grid-ipad-landscape-9, .grid-10, .grid-mobile-10, .grid-tablet-10, .grid-ipad-landscape-10, .grid-11, .grid-mobile-11, .grid-tablet-11, .grid-ipad-landscape-11, .grid-12, .grid-mobile-12, .grid-tablet-12, .grid-ipad-landscape-12 { display: inline-block; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .prefix-0, .prefix-mobile-0, .prefix-tablet-0, .prefix-ipad-landscape-0, .prefix-1, .prefix-mobile-1, .prefix-tablet-1, .prefix-ipad-landscape-1, .prefix-2, .prefix-mobile-2, .prefix-tablet-2, .prefix-ipad-landscape-2, .prefix-3, .prefix-mobile-3, .prefix-tablet-3, .prefix-ipad-landscape-3, .prefix-4, .prefix-mobile-4, .prefix-tablet-4, .prefix-ipad-landscape-4, .prefix-5, .prefix-mobile-5, .prefix-tablet-5, .prefix-ipad-landscape-5, .prefix-6, .prefix-mobile-6, .prefix-tablet-6, .prefix-ipad-landscape-6, .prefix-7, .prefix-mobile-7, .prefix-tablet-7, .prefix-ipad-landscape-7, .prefix-8, .prefix-mobile-8, .prefix-tablet-8, .prefix-ipad-landscape-8, .prefix-9, .prefix-mobile-9, .prefix-tablet-9, .prefix-ipad-landscape-9, .prefix-10, .prefix-mobile-10, .prefix-tablet-10, .prefix-ipad-landscape-10, .prefix-11, .prefix-mobile-11, .prefix-tablet-11, .prefix-ipad-landscape-11, .prefix-12, .prefix-mobile-12, .prefix-tablet-12, .prefix-ipad-landscape-12 { background-color: #dae7e9 !important; }
 
 .suffix-0, .suffix-mobile-0, .suffix-tablet-0, .suffix-ipad-landscape-0, .suffix-1, .suffix-mobile-1, .suffix-tablet-1, .suffix-ipad-landscape-1, .suffix-2, .suffix-mobile-2, .suffix-tablet-2, .suffix-ipad-landscape-2, .suffix-3, .suffix-mobile-3, .suffix-tablet-3, .suffix-ipad-landscape-3, .suffix-4, .suffix-mobile-4, .suffix-tablet-4, .suffix-ipad-landscape-4, .suffix-5, .suffix-mobile-5, .suffix-tablet-5, .suffix-ipad-landscape-5, .suffix-6, .suffix-mobile-6, .suffix-tablet-6, .suffix-ipad-landscape-6, .suffix-7, .suffix-mobile-7, .suffix-tablet-7, .suffix-ipad-landscape-7, .suffix-8, .suffix-mobile-8, .suffix-tablet-8, .suffix-ipad-landscape-8, .suffix-9, .suffix-mobile-9, .suffix-tablet-9, .suffix-ipad-landscape-9, .suffix-10, .suffix-mobile-10, .suffix-tablet-10, .suffix-ipad-landscape-10, .suffix-11, .suffix-mobile-11, .suffix-tablet-11, .suffix-ipad-landscape-11, .suffix-12, .suffix-mobile-12, .suffix-tablet-12, .suffix-ipad-landscape-12 { background-color: #dae7e9 !important; }
 
 /** Common css that cannot be extended cause of variables : */
+/** Get column width : */
 /** Register an state :  @param 	String 	$name 		The state name @param 	int 	$min-width 	The min width @param 	int 	$max-width 	The max width */
 /** Register default states : */
 /** Responsive helpers mixins :  @param 	String 	$media 	The media name to response for */
@@ -37,6 +38,7 @@
 /** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
 /** push : Push the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
 /** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
+/** Grid parent : */
 /** Hide on :  @param 	String 	$media  On what state */
 /** Not visible on :  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
 /** Show on  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
@@ -53,11 +55,10 @@
 @media screen and (max-width: 400px) { @-ms-viewport { width: device-width; } }
 .container:before, .grid-container:before, .container-12:before { padding: 10px 10px; content: "container-12" !important; }
 .container:after, .grid-container:after, .container-12:after { padding: 10px 10px; content: "end container-12" !important; }
-.container [class*="grid-"] [class*="grid-"]:first-child, .container [class*="grid-"] [class*="grid-"].alpha, .grid-container [class*="grid-"] [class*="grid-"]:first-child, .grid-container [class*="grid-"] [class*="grid-"].alpha, .container-12 [class*="grid-"] [class*="grid-"]:first-child, .container-12 [class*="grid-"] [class*="grid-"].alpha { padding-left: 0 !important; }
-.container [class*="grid-"] [class*="grid-"]:last-child, .container [class*="grid-"] [class*="grid-"].omega, .grid-container [class*="grid-"] [class*="grid-"]:last-child, .grid-container [class*="grid-"] [class*="grid-"].omega, .container-12 [class*="grid-"] [class*="grid-"]:last-child, .container-12 [class*="grid-"] [class*="grid-"].omega { padding-right: 0 !important; }
 
 .grid-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-0:before { content: "grid-0"; }
+.grid-0.grid-parent:before { content: "grid-parent-0"; }
 
 .push-0 { left: 0%; }
 .push-0:after { content: "push-0" !important; }
@@ -73,6 +74,7 @@
 
 .grid-1 { width: 8.33333%; *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-1:before { content: "grid-1"; }
+.grid-1.grid-parent:before { content: "grid-parent-1"; }
 
 .push-1 { left: 8.33333%; }
 .push-1:after { content: "push-1" !important; }
@@ -88,6 +90,7 @@
 
 .grid-2 { width: 16.66667%; *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-2:before { content: "grid-2"; }
+.grid-2.grid-parent:before { content: "grid-parent-2"; }
 
 .push-2 { left: 16.66667%; }
 .push-2:after { content: "push-2" !important; }
@@ -103,6 +106,7 @@
 
 .grid-3 { width: 25.0%; *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-3:before { content: "grid-3"; }
+.grid-3.grid-parent:before { content: "grid-parent-3"; }
 
 .push-3 { left: 25.0%; }
 .push-3:after { content: "push-3" !important; }
@@ -118,6 +122,7 @@
 
 .grid-4 { width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-4:before { content: "grid-4"; }
+.grid-4.grid-parent:before { content: "grid-parent-4"; }
 
 .push-4 { left: 33.33333%; }
 .push-4:after { content: "push-4" !important; }
@@ -133,6 +138,7 @@
 
 .grid-5 { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-5:before { content: "grid-5"; }
+.grid-5.grid-parent:before { content: "grid-parent-5"; }
 
 .push-5 { left: 41.66667%; }
 .push-5:after { content: "push-5" !important; }
@@ -148,6 +154,7 @@
 
 .grid-6 { width: 50.0%; *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-6:before { content: "grid-6"; }
+.grid-6.grid-parent:before { content: "grid-parent-6"; }
 
 .push-6 { left: 50.0%; }
 .push-6:after { content: "push-6" !important; }
@@ -163,6 +170,7 @@
 
 .grid-7 { width: 58.33333%; *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-7:before { content: "grid-7"; }
+.grid-7.grid-parent:before { content: "grid-parent-7"; }
 
 .push-7 { left: 58.33333%; }
 .push-7:after { content: "push-7" !important; }
@@ -178,6 +186,7 @@
 
 .grid-8 { width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-8:before { content: "grid-8"; }
+.grid-8.grid-parent:before { content: "grid-parent-8"; }
 
 .push-8 { left: 66.66667%; }
 .push-8:after { content: "push-8" !important; }
@@ -193,6 +202,7 @@
 
 .grid-9 { width: 75.0%; *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-9:before { content: "grid-9"; }
+.grid-9.grid-parent:before { content: "grid-parent-9"; }
 
 .push-9 { left: 75.0%; }
 .push-9:after { content: "push-9" !important; }
@@ -208,6 +218,7 @@
 
 .grid-10 { width: 83.33333%; *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-10:before { content: "grid-10"; }
+.grid-10.grid-parent:before { content: "grid-parent-10"; }
 
 .push-10 { left: 83.33333%; }
 .push-10:after { content: "push-10" !important; }
@@ -223,6 +234,7 @@
 
 .grid-11 { width: 91.66667%; *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-11:before { content: "grid-11"; }
+.grid-11.grid-parent:before { content: "grid-parent-11"; }
 
 .push-11 { left: 91.66667%; }
 .push-11:after { content: "push-11" !important; }
@@ -238,6 +250,7 @@
 
 .grid-12 { width: 100.0%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .grid-12:before { content: "grid-12"; }
+.grid-12.grid-parent:before { content: "grid-parent-12"; }
 
 .push-12 { left: 100.0%; }
 .push-12:after { content: "push-12" !important; }
@@ -277,14 +290,17 @@
 
 .auto-height { height: inherit; }
 
+[class*="grid-"].grid-parent { padding-left: 0 !important; padding-right: 0 !important; }
+
 .push-0, .push-mobile-0, .push-tablet-0, .push-ipad-landscape-0, .push-1, .push-mobile-1, .push-tablet-1, .push-ipad-landscape-1, .push-2, .push-mobile-2, .push-tablet-2, .push-ipad-landscape-2, .push-3, .push-mobile-3, .push-tablet-3, .push-ipad-landscape-3, .push-4, .push-mobile-4, .push-tablet-4, .push-ipad-landscape-4, .push-5, .push-mobile-5, .push-tablet-5, .push-ipad-landscape-5, .push-6, .push-mobile-6, .push-tablet-6, .push-ipad-landscape-6, .push-7, .push-mobile-7, .push-tablet-7, .push-ipad-landscape-7, .push-8, .push-mobile-8, .push-tablet-8, .push-ipad-landscape-8, .push-9, .push-mobile-9, .push-tablet-9, .push-ipad-landscape-9, .push-10, .push-mobile-10, .push-tablet-10, .push-ipad-landscape-10, .push-11, .push-mobile-11, .push-tablet-11, .push-ipad-landscape-11, .push-12, .push-mobile-12, .push-tablet-12, .push-ipad-landscape-12 { background-color: #f4efdf !important; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=); }
 
 .pull-0, .pull-mobile-0, .pull-tablet-0, .pull-ipad-landscape-0, .pull-1, .pull-mobile-1, .pull-tablet-1, .pull-ipad-landscape-1, .pull-2, .pull-mobile-2, .pull-tablet-2, .pull-ipad-landscape-2, .pull-3, .pull-mobile-3, .pull-tablet-3, .pull-ipad-landscape-3, .pull-4, .pull-mobile-4, .pull-tablet-4, .pull-ipad-landscape-4, .pull-5, .pull-mobile-5, .pull-tablet-5, .pull-ipad-landscape-5, .pull-6, .pull-mobile-6, .pull-tablet-6, .pull-ipad-landscape-6, .pull-7, .pull-mobile-7, .pull-tablet-7, .pull-ipad-landscape-7, .pull-8, .pull-mobile-8, .pull-tablet-8, .pull-ipad-landscape-8, .pull-9, .pull-mobile-9, .pull-tablet-9, .pull-ipad-landscape-9, .pull-10, .pull-mobile-10, .pull-tablet-10, .pull-ipad-landscape-10, .pull-11, .pull-mobile-11, .pull-tablet-11, .pull-ipad-landscape-11, .pull-12, .pull-mobile-12, .pull-tablet-12, .pull-ipad-landscape-12 { background-color: #cfe4d5 !important; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Qjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ0Qzg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjdDQjlFNzVFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRBODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+ee9ybwAAA3JJREFUeNrs3dEKgkAQQNE27f9/uJoM6iXKwFLH8Vzw1WjdwxZt2iLiIOl9R0MgASJNqp/z5K01I5znOle9GOeY8XuCFQQOOACBAw5ABAcggiMW/G0CEDjgAAQOOACBAw5ABAcggiMBjufgapvdUXRwWEG0QxzDkWKbOSBwwAEIHHAAAgccgMABByCCAxDBkRsHIHDAAQgccAACBxyAwAEHIHDAAYjgAERwbBoHIHDAAQgccAACBxyAwAEHIHDAAQgccAAiOAARHFVxAAIHHIDAAQcgcMABCBxwAAIHHIDAAQcgcMABiOAARHAAIjjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOQOCAAxA44NhjPRxligcOAQLHS9fhuJjOPmLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwqCwQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMObRUIHAIEDgECBxyAwAEHIHDAUbo+MY6qN5SAwwoCBxyAwAEHIHDAAQgccCgtEDgECBwCBA44AIEDDkDggEMrAIFDgMAhQOCAAxA4vhRwAPJrXeHxgwMQk2ik/lD3ablaCEj1p69CAggkkAACCSRaEQgkAgQSSACBBBJAIIFEa/9hChIBAgkkgEACCSCLIAlIBMhnJBdIBAgkAgQSSACBBBJAIIEEEEgg0eaAQCJAICl7YwtAIPlbJ1MSEEggAQQSSACBBBJAIIEEEEggUVEgkAgQSCABBBJIAIEEEkAggQQQSFZHYoMjIJCMZBcwIJBAAggkkAACCSSAQAIJIJBAAggkkACy4/cOiQCBBBJAIIEEEEggAQQSSACBBBJAIIEEEEggAQQSSAARJAIEEkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBBAogggQQQSCABBBJIAIEEEkAggQQQSCABBBJIABEkgAiSwkgAgQQSQCCBBBBIIAEEEkgAgQQSQCCBBBBB0gARJEWRAAIJJIBAAgkgkEACCCSQACJIABEk+ZEAAgkkgEACCSCQQAIIJJAAojEkZ0gA0XiQACJIABEkH5G0IUAESWIkgEACCSCQQAKIIAFEkAAiSJIgAQQSSACBBJKJLzLnySPCFM2BRFYQCRBp0W4CDAAOV/Wfo7G12gAAAABJRU5ErkJggg==); }
 
-.grid-0, .grid-mobile-0, .grid-tablet-0, .grid-ipad-landscape-0, .grid-1, .grid-mobile-1, .grid-tablet-1, .grid-ipad-landscape-1, .grid-2, .grid-mobile-2, .grid-tablet-2, .grid-ipad-landscape-2, .grid-3, .grid-mobile-3, .grid-tablet-3, .grid-ipad-landscape-3, .grid-4, .grid-mobile-4, .grid-tablet-4, .grid-ipad-landscape-4, .grid-5, .grid-mobile-5, .grid-tablet-5, .grid-ipad-landscape-5, .grid-6, .grid-mobile-6, .grid-tablet-6, .grid-ipad-landscape-6, .grid-7, .grid-mobile-7, .grid-tablet-7, .grid-ipad-landscape-7, .grid-8, .grid-mobile-8, .grid-tablet-8, .grid-ipad-landscape-8, .grid-9, .grid-mobile-9, .grid-tablet-9, .grid-ipad-landscape-9, .grid-10, .grid-mobile-10, .grid-tablet-10, .grid-ipad-landscape-10, .grid-11, .grid-mobile-11, .grid-tablet-11, .grid-ipad-landscape-11, .grid-12, .grid-mobile-12, .grid-tablet-12, .grid-ipad-landscape-12 { float: left; direction: ltr; padding: 0 10px; }
+.grid-0, .grid-mobile-0, .grid-tablet-0, .grid-ipad-landscape-0, .grid-1, .grid-mobile-1, .grid-tablet-1, .grid-ipad-landscape-1, .grid-2, .grid-mobile-2, .grid-tablet-2, .grid-ipad-landscape-2, .grid-3, .grid-mobile-3, .grid-tablet-3, .grid-ipad-landscape-3, .grid-4, .grid-mobile-4, .grid-tablet-4, .grid-ipad-landscape-4, .grid-5, .grid-mobile-5, .grid-tablet-5, .grid-ipad-landscape-5, .grid-6, .grid-mobile-6, .grid-tablet-6, .grid-ipad-landscape-6, .grid-7, .grid-mobile-7, .grid-tablet-7, .grid-ipad-landscape-7, .grid-8, .grid-mobile-8, .grid-tablet-8, .grid-ipad-landscape-8, .grid-9, .grid-mobile-9, .grid-tablet-9, .grid-ipad-landscape-9, .grid-10, .grid-mobile-10, .grid-tablet-10, .grid-ipad-landscape-10, .grid-11, .grid-mobile-11, .grid-tablet-11, .grid-ipad-landscape-11, .grid-12, .grid-mobile-12, .grid-tablet-12, .grid-ipad-landscape-12 { float: left; direction: ltr; padding: 0 10px !important; }
 
 html.mobile .grid-mobile-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-0:before { content: "grid-mobile-0"; }
+html.mobile .grid-mobile-0.grid-parent:before { content: "grid-parent-mobile-0"; }
 html.mobile .push-mobile-0 { left: 0%; }
 html.mobile .push-mobile-0:after { content: "push-mobile-0" !important; }
 html.mobile .pull-mobile-0 { right: 0%; }
@@ -295,6 +311,7 @@ html.mobile .suffix-mobile-0 { margin-right: 0%; }
 html.mobile .suffix-mobile-0:after { content: "suffix-mobile-0" !important; }
 html.mobile .grid-mobile-1 { width: 8.33333%; *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-1:before { content: "grid-mobile-1"; }
+html.mobile .grid-mobile-1.grid-parent:before { content: "grid-parent-mobile-1"; }
 html.mobile .push-mobile-1 { left: 8.33333%; }
 html.mobile .push-mobile-1:after { content: "push-mobile-1" !important; }
 html.mobile .pull-mobile-1 { right: 8.33333%; }
@@ -305,6 +322,7 @@ html.mobile .suffix-mobile-1 { margin-right: 8.33333%; }
 html.mobile .suffix-mobile-1:after { content: "suffix-mobile-1" !important; }
 html.mobile .grid-mobile-2 { width: 16.66667%; *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-2:before { content: "grid-mobile-2"; }
+html.mobile .grid-mobile-2.grid-parent:before { content: "grid-parent-mobile-2"; }
 html.mobile .push-mobile-2 { left: 16.66667%; }
 html.mobile .push-mobile-2:after { content: "push-mobile-2" !important; }
 html.mobile .pull-mobile-2 { right: 16.66667%; }
@@ -315,6 +333,7 @@ html.mobile .suffix-mobile-2 { margin-right: 16.66667%; }
 html.mobile .suffix-mobile-2:after { content: "suffix-mobile-2" !important; }
 html.mobile .grid-mobile-3 { width: 25.0%; *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-3:before { content: "grid-mobile-3"; }
+html.mobile .grid-mobile-3.grid-parent:before { content: "grid-parent-mobile-3"; }
 html.mobile .push-mobile-3 { left: 25.0%; }
 html.mobile .push-mobile-3:after { content: "push-mobile-3" !important; }
 html.mobile .pull-mobile-3 { right: 25.0%; }
@@ -325,6 +344,7 @@ html.mobile .suffix-mobile-3 { margin-right: 25.0%; }
 html.mobile .suffix-mobile-3:after { content: "suffix-mobile-3" !important; }
 html.mobile .grid-mobile-4 { width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-4:before { content: "grid-mobile-4"; }
+html.mobile .grid-mobile-4.grid-parent:before { content: "grid-parent-mobile-4"; }
 html.mobile .push-mobile-4 { left: 33.33333%; }
 html.mobile .push-mobile-4:after { content: "push-mobile-4" !important; }
 html.mobile .pull-mobile-4 { right: 33.33333%; }
@@ -335,6 +355,7 @@ html.mobile .suffix-mobile-4 { margin-right: 33.33333%; }
 html.mobile .suffix-mobile-4:after { content: "suffix-mobile-4" !important; }
 html.mobile .grid-mobile-5 { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-5:before { content: "grid-mobile-5"; }
+html.mobile .grid-mobile-5.grid-parent:before { content: "grid-parent-mobile-5"; }
 html.mobile .push-mobile-5 { left: 41.66667%; }
 html.mobile .push-mobile-5:after { content: "push-mobile-5" !important; }
 html.mobile .pull-mobile-5 { right: 41.66667%; }
@@ -345,6 +366,7 @@ html.mobile .suffix-mobile-5 { margin-right: 41.66667%; }
 html.mobile .suffix-mobile-5:after { content: "suffix-mobile-5" !important; }
 html.mobile .grid-mobile-6 { width: 50.0%; *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-6:before { content: "grid-mobile-6"; }
+html.mobile .grid-mobile-6.grid-parent:before { content: "grid-parent-mobile-6"; }
 html.mobile .push-mobile-6 { left: 50.0%; }
 html.mobile .push-mobile-6:after { content: "push-mobile-6" !important; }
 html.mobile .pull-mobile-6 { right: 50.0%; }
@@ -355,6 +377,7 @@ html.mobile .suffix-mobile-6 { margin-right: 50.0%; }
 html.mobile .suffix-mobile-6:after { content: "suffix-mobile-6" !important; }
 html.mobile .grid-mobile-7 { width: 58.33333%; *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-7:before { content: "grid-mobile-7"; }
+html.mobile .grid-mobile-7.grid-parent:before { content: "grid-parent-mobile-7"; }
 html.mobile .push-mobile-7 { left: 58.33333%; }
 html.mobile .push-mobile-7:after { content: "push-mobile-7" !important; }
 html.mobile .pull-mobile-7 { right: 58.33333%; }
@@ -365,6 +388,7 @@ html.mobile .suffix-mobile-7 { margin-right: 58.33333%; }
 html.mobile .suffix-mobile-7:after { content: "suffix-mobile-7" !important; }
 html.mobile .grid-mobile-8 { width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-8:before { content: "grid-mobile-8"; }
+html.mobile .grid-mobile-8.grid-parent:before { content: "grid-parent-mobile-8"; }
 html.mobile .push-mobile-8 { left: 66.66667%; }
 html.mobile .push-mobile-8:after { content: "push-mobile-8" !important; }
 html.mobile .pull-mobile-8 { right: 66.66667%; }
@@ -375,6 +399,7 @@ html.mobile .suffix-mobile-8 { margin-right: 66.66667%; }
 html.mobile .suffix-mobile-8:after { content: "suffix-mobile-8" !important; }
 html.mobile .grid-mobile-9 { width: 75.0%; *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-9:before { content: "grid-mobile-9"; }
+html.mobile .grid-mobile-9.grid-parent:before { content: "grid-parent-mobile-9"; }
 html.mobile .push-mobile-9 { left: 75.0%; }
 html.mobile .push-mobile-9:after { content: "push-mobile-9" !important; }
 html.mobile .pull-mobile-9 { right: 75.0%; }
@@ -385,6 +410,7 @@ html.mobile .suffix-mobile-9 { margin-right: 75.0%; }
 html.mobile .suffix-mobile-9:after { content: "suffix-mobile-9" !important; }
 html.mobile .grid-mobile-10 { width: 83.33333%; *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-10:before { content: "grid-mobile-10"; }
+html.mobile .grid-mobile-10.grid-parent:before { content: "grid-parent-mobile-10"; }
 html.mobile .push-mobile-10 { left: 83.33333%; }
 html.mobile .push-mobile-10:after { content: "push-mobile-10" !important; }
 html.mobile .pull-mobile-10 { right: 83.33333%; }
@@ -395,6 +421,7 @@ html.mobile .suffix-mobile-10 { margin-right: 83.33333%; }
 html.mobile .suffix-mobile-10:after { content: "suffix-mobile-10" !important; }
 html.mobile .grid-mobile-11 { width: 91.66667%; *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-11:before { content: "grid-mobile-11"; }
+html.mobile .grid-mobile-11.grid-parent:before { content: "grid-parent-mobile-11"; }
 html.mobile .push-mobile-11 { left: 91.66667%; }
 html.mobile .push-mobile-11:after { content: "push-mobile-11" !important; }
 html.mobile .pull-mobile-11 { right: 91.66667%; }
@@ -405,6 +432,7 @@ html.mobile .suffix-mobile-11 { margin-right: 91.66667%; }
 html.mobile .suffix-mobile-11:after { content: "suffix-mobile-11" !important; }
 html.mobile .grid-mobile-12 { width: 100.0%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.mobile .grid-mobile-12:before { content: "grid-mobile-12"; }
+html.mobile .grid-mobile-12.grid-parent:before { content: "grid-parent-mobile-12"; }
 html.mobile .push-mobile-12 { left: 100.0%; }
 html.mobile .push-mobile-12:after { content: "push-mobile-12" !important; }
 html.mobile .pull-mobile-12 { right: 100.0%; }
@@ -426,9 +454,11 @@ html.mobile .no-gutter-mobile, html.mobile .no-margin-mobile { padding-left: 0 !
 html.mobile .no-gutter-mobile-left, html.mobile .no-margin-mobile-left { padding-left: 0 !important; }
 html.mobile .no-gutter-mobile-right, html.mobile .no-margin-mobile-right { padding-right: 0 !important; }
 html.mobile .auto-height-mobile { height: inherit; }
+html.mobile [class*="grid-"].grid-parent-mobile { padding-left: 0 !important; padding-right: 0 !important; }
 
 @media screen and (min-width: 0) and (max-width: 480px) { .grid-mobile-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-0:before { content: "grid-mobile-0"; }
+  .grid-mobile-0.grid-parent:before { content: "grid-parent-mobile-0"; }
   .push-mobile-0 { left: 0%; }
   .push-mobile-0:after { content: "push-mobile-0" !important; }
   .pull-mobile-0 { right: 0%; }
@@ -439,6 +469,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-0:after { content: "suffix-mobile-0" !important; }
   .grid-mobile-1 { width: 8.33333%; *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-1:before { content: "grid-mobile-1"; }
+  .grid-mobile-1.grid-parent:before { content: "grid-parent-mobile-1"; }
   .push-mobile-1 { left: 8.33333%; }
   .push-mobile-1:after { content: "push-mobile-1" !important; }
   .pull-mobile-1 { right: 8.33333%; }
@@ -449,6 +480,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-1:after { content: "suffix-mobile-1" !important; }
   .grid-mobile-2 { width: 16.66667%; *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-2:before { content: "grid-mobile-2"; }
+  .grid-mobile-2.grid-parent:before { content: "grid-parent-mobile-2"; }
   .push-mobile-2 { left: 16.66667%; }
   .push-mobile-2:after { content: "push-mobile-2" !important; }
   .pull-mobile-2 { right: 16.66667%; }
@@ -459,6 +491,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-2:after { content: "suffix-mobile-2" !important; }
   .grid-mobile-3 { width: 25.0%; *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-3:before { content: "grid-mobile-3"; }
+  .grid-mobile-3.grid-parent:before { content: "grid-parent-mobile-3"; }
   .push-mobile-3 { left: 25.0%; }
   .push-mobile-3:after { content: "push-mobile-3" !important; }
   .pull-mobile-3 { right: 25.0%; }
@@ -469,6 +502,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-3:after { content: "suffix-mobile-3" !important; }
   .grid-mobile-4 { width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-4:before { content: "grid-mobile-4"; }
+  .grid-mobile-4.grid-parent:before { content: "grid-parent-mobile-4"; }
   .push-mobile-4 { left: 33.33333%; }
   .push-mobile-4:after { content: "push-mobile-4" !important; }
   .pull-mobile-4 { right: 33.33333%; }
@@ -479,6 +513,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-4:after { content: "suffix-mobile-4" !important; }
   .grid-mobile-5 { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-5:before { content: "grid-mobile-5"; }
+  .grid-mobile-5.grid-parent:before { content: "grid-parent-mobile-5"; }
   .push-mobile-5 { left: 41.66667%; }
   .push-mobile-5:after { content: "push-mobile-5" !important; }
   .pull-mobile-5 { right: 41.66667%; }
@@ -489,6 +524,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-5:after { content: "suffix-mobile-5" !important; }
   .grid-mobile-6 { width: 50.0%; *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-6:before { content: "grid-mobile-6"; }
+  .grid-mobile-6.grid-parent:before { content: "grid-parent-mobile-6"; }
   .push-mobile-6 { left: 50.0%; }
   .push-mobile-6:after { content: "push-mobile-6" !important; }
   .pull-mobile-6 { right: 50.0%; }
@@ -499,6 +535,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-6:after { content: "suffix-mobile-6" !important; }
   .grid-mobile-7 { width: 58.33333%; *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-7:before { content: "grid-mobile-7"; }
+  .grid-mobile-7.grid-parent:before { content: "grid-parent-mobile-7"; }
   .push-mobile-7 { left: 58.33333%; }
   .push-mobile-7:after { content: "push-mobile-7" !important; }
   .pull-mobile-7 { right: 58.33333%; }
@@ -509,6 +546,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-7:after { content: "suffix-mobile-7" !important; }
   .grid-mobile-8 { width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-8:before { content: "grid-mobile-8"; }
+  .grid-mobile-8.grid-parent:before { content: "grid-parent-mobile-8"; }
   .push-mobile-8 { left: 66.66667%; }
   .push-mobile-8:after { content: "push-mobile-8" !important; }
   .pull-mobile-8 { right: 66.66667%; }
@@ -519,6 +557,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-8:after { content: "suffix-mobile-8" !important; }
   .grid-mobile-9 { width: 75.0%; *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-9:before { content: "grid-mobile-9"; }
+  .grid-mobile-9.grid-parent:before { content: "grid-parent-mobile-9"; }
   .push-mobile-9 { left: 75.0%; }
   .push-mobile-9:after { content: "push-mobile-9" !important; }
   .pull-mobile-9 { right: 75.0%; }
@@ -529,6 +568,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-9:after { content: "suffix-mobile-9" !important; }
   .grid-mobile-10 { width: 83.33333%; *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-10:before { content: "grid-mobile-10"; }
+  .grid-mobile-10.grid-parent:before { content: "grid-parent-mobile-10"; }
   .push-mobile-10 { left: 83.33333%; }
   .push-mobile-10:after { content: "push-mobile-10" !important; }
   .pull-mobile-10 { right: 83.33333%; }
@@ -539,6 +579,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-10:after { content: "suffix-mobile-10" !important; }
   .grid-mobile-11 { width: 91.66667%; *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-11:before { content: "grid-mobile-11"; }
+  .grid-mobile-11.grid-parent:before { content: "grid-parent-mobile-11"; }
   .push-mobile-11 { left: 91.66667%; }
   .push-mobile-11:after { content: "push-mobile-11" !important; }
   .pull-mobile-11 { right: 91.66667%; }
@@ -549,6 +590,7 @@ html.mobile .auto-height-mobile { height: inherit; }
   .suffix-mobile-11:after { content: "suffix-mobile-11" !important; }
   .grid-mobile-12 { width: 100.0%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-mobile-12:before { content: "grid-mobile-12"; }
+  .grid-mobile-12.grid-parent:before { content: "grid-parent-mobile-12"; }
   .push-mobile-12 { left: 100.0%; }
   .push-mobile-12:after { content: "push-mobile-12" !important; }
   .pull-mobile-12 { right: 100.0%; }
@@ -569,9 +611,11 @@ html.mobile .auto-height-mobile { height: inherit; }
   .no-gutter-mobile, .no-margin-mobile { padding-left: 0 !important; padding-right: 0 !important; }
   .no-gutter-mobile-left, .no-margin-mobile-left { padding-left: 0 !important; }
   .no-gutter-mobile-right, .no-margin-mobile-right { padding-right: 0 !important; }
-  .auto-height-mobile { height: inherit; } }
+  .auto-height-mobile { height: inherit; }
+  [class*="grid-"].grid-parent-mobile { padding-left: 0 !important; padding-right: 0 !important; } }
 html.tablet .grid-tablet-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-0:before { content: "grid-tablet-0"; }
+html.tablet .grid-tablet-0.grid-parent:before { content: "grid-parent-tablet-0"; }
 html.tablet .push-tablet-0 { left: 0%; }
 html.tablet .push-tablet-0:after { content: "push-tablet-0" !important; }
 html.tablet .pull-tablet-0 { right: 0%; }
@@ -582,6 +626,7 @@ html.tablet .suffix-tablet-0 { margin-right: 0%; }
 html.tablet .suffix-tablet-0:after { content: "suffix-tablet-0" !important; }
 html.tablet .grid-tablet-1 { width: 8.33333%; *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-1:before { content: "grid-tablet-1"; }
+html.tablet .grid-tablet-1.grid-parent:before { content: "grid-parent-tablet-1"; }
 html.tablet .push-tablet-1 { left: 8.33333%; }
 html.tablet .push-tablet-1:after { content: "push-tablet-1" !important; }
 html.tablet .pull-tablet-1 { right: 8.33333%; }
@@ -592,6 +637,7 @@ html.tablet .suffix-tablet-1 { margin-right: 8.33333%; }
 html.tablet .suffix-tablet-1:after { content: "suffix-tablet-1" !important; }
 html.tablet .grid-tablet-2 { width: 16.66667%; *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-2:before { content: "grid-tablet-2"; }
+html.tablet .grid-tablet-2.grid-parent:before { content: "grid-parent-tablet-2"; }
 html.tablet .push-tablet-2 { left: 16.66667%; }
 html.tablet .push-tablet-2:after { content: "push-tablet-2" !important; }
 html.tablet .pull-tablet-2 { right: 16.66667%; }
@@ -602,6 +648,7 @@ html.tablet .suffix-tablet-2 { margin-right: 16.66667%; }
 html.tablet .suffix-tablet-2:after { content: "suffix-tablet-2" !important; }
 html.tablet .grid-tablet-3 { width: 25.0%; *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-3:before { content: "grid-tablet-3"; }
+html.tablet .grid-tablet-3.grid-parent:before { content: "grid-parent-tablet-3"; }
 html.tablet .push-tablet-3 { left: 25.0%; }
 html.tablet .push-tablet-3:after { content: "push-tablet-3" !important; }
 html.tablet .pull-tablet-3 { right: 25.0%; }
@@ -612,6 +659,7 @@ html.tablet .suffix-tablet-3 { margin-right: 25.0%; }
 html.tablet .suffix-tablet-3:after { content: "suffix-tablet-3" !important; }
 html.tablet .grid-tablet-4 { width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-4:before { content: "grid-tablet-4"; }
+html.tablet .grid-tablet-4.grid-parent:before { content: "grid-parent-tablet-4"; }
 html.tablet .push-tablet-4 { left: 33.33333%; }
 html.tablet .push-tablet-4:after { content: "push-tablet-4" !important; }
 html.tablet .pull-tablet-4 { right: 33.33333%; }
@@ -622,6 +670,7 @@ html.tablet .suffix-tablet-4 { margin-right: 33.33333%; }
 html.tablet .suffix-tablet-4:after { content: "suffix-tablet-4" !important; }
 html.tablet .grid-tablet-5 { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-5:before { content: "grid-tablet-5"; }
+html.tablet .grid-tablet-5.grid-parent:before { content: "grid-parent-tablet-5"; }
 html.tablet .push-tablet-5 { left: 41.66667%; }
 html.tablet .push-tablet-5:after { content: "push-tablet-5" !important; }
 html.tablet .pull-tablet-5 { right: 41.66667%; }
@@ -632,6 +681,7 @@ html.tablet .suffix-tablet-5 { margin-right: 41.66667%; }
 html.tablet .suffix-tablet-5:after { content: "suffix-tablet-5" !important; }
 html.tablet .grid-tablet-6 { width: 50.0%; *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-6:before { content: "grid-tablet-6"; }
+html.tablet .grid-tablet-6.grid-parent:before { content: "grid-parent-tablet-6"; }
 html.tablet .push-tablet-6 { left: 50.0%; }
 html.tablet .push-tablet-6:after { content: "push-tablet-6" !important; }
 html.tablet .pull-tablet-6 { right: 50.0%; }
@@ -642,6 +692,7 @@ html.tablet .suffix-tablet-6 { margin-right: 50.0%; }
 html.tablet .suffix-tablet-6:after { content: "suffix-tablet-6" !important; }
 html.tablet .grid-tablet-7 { width: 58.33333%; *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-7:before { content: "grid-tablet-7"; }
+html.tablet .grid-tablet-7.grid-parent:before { content: "grid-parent-tablet-7"; }
 html.tablet .push-tablet-7 { left: 58.33333%; }
 html.tablet .push-tablet-7:after { content: "push-tablet-7" !important; }
 html.tablet .pull-tablet-7 { right: 58.33333%; }
@@ -652,6 +703,7 @@ html.tablet .suffix-tablet-7 { margin-right: 58.33333%; }
 html.tablet .suffix-tablet-7:after { content: "suffix-tablet-7" !important; }
 html.tablet .grid-tablet-8 { width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-8:before { content: "grid-tablet-8"; }
+html.tablet .grid-tablet-8.grid-parent:before { content: "grid-parent-tablet-8"; }
 html.tablet .push-tablet-8 { left: 66.66667%; }
 html.tablet .push-tablet-8:after { content: "push-tablet-8" !important; }
 html.tablet .pull-tablet-8 { right: 66.66667%; }
@@ -662,6 +714,7 @@ html.tablet .suffix-tablet-8 { margin-right: 66.66667%; }
 html.tablet .suffix-tablet-8:after { content: "suffix-tablet-8" !important; }
 html.tablet .grid-tablet-9 { width: 75.0%; *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-9:before { content: "grid-tablet-9"; }
+html.tablet .grid-tablet-9.grid-parent:before { content: "grid-parent-tablet-9"; }
 html.tablet .push-tablet-9 { left: 75.0%; }
 html.tablet .push-tablet-9:after { content: "push-tablet-9" !important; }
 html.tablet .pull-tablet-9 { right: 75.0%; }
@@ -672,6 +725,7 @@ html.tablet .suffix-tablet-9 { margin-right: 75.0%; }
 html.tablet .suffix-tablet-9:after { content: "suffix-tablet-9" !important; }
 html.tablet .grid-tablet-10 { width: 83.33333%; *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-10:before { content: "grid-tablet-10"; }
+html.tablet .grid-tablet-10.grid-parent:before { content: "grid-parent-tablet-10"; }
 html.tablet .push-tablet-10 { left: 83.33333%; }
 html.tablet .push-tablet-10:after { content: "push-tablet-10" !important; }
 html.tablet .pull-tablet-10 { right: 83.33333%; }
@@ -682,6 +736,7 @@ html.tablet .suffix-tablet-10 { margin-right: 83.33333%; }
 html.tablet .suffix-tablet-10:after { content: "suffix-tablet-10" !important; }
 html.tablet .grid-tablet-11 { width: 91.66667%; *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-11:before { content: "grid-tablet-11"; }
+html.tablet .grid-tablet-11.grid-parent:before { content: "grid-parent-tablet-11"; }
 html.tablet .push-tablet-11 { left: 91.66667%; }
 html.tablet .push-tablet-11:after { content: "push-tablet-11" !important; }
 html.tablet .pull-tablet-11 { right: 91.66667%; }
@@ -692,6 +747,7 @@ html.tablet .suffix-tablet-11 { margin-right: 91.66667%; }
 html.tablet .suffix-tablet-11:after { content: "suffix-tablet-11" !important; }
 html.tablet .grid-tablet-12 { width: 100.0%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-12:before { content: "grid-tablet-12"; }
+html.tablet .grid-tablet-12.grid-parent:before { content: "grid-parent-tablet-12"; }
 html.tablet .push-tablet-12 { left: 100.0%; }
 html.tablet .push-tablet-12:after { content: "push-tablet-12" !important; }
 html.tablet .pull-tablet-12 { right: 100.0%; }
@@ -713,9 +769,11 @@ html.tablet .no-gutter-tablet, html.tablet .no-margin-tablet { padding-left: 0 !
 html.tablet .no-gutter-tablet-left, html.tablet .no-margin-tablet-left { padding-left: 0 !important; }
 html.tablet .no-gutter-tablet-right, html.tablet .no-margin-tablet-right { padding-right: 0 !important; }
 html.tablet .auto-height-tablet { height: inherit; }
+html.tablet [class*="grid-"].grid-parent-tablet { padding-left: 0 !important; padding-right: 0 !important; }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) { .grid-tablet-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-0:before { content: "grid-tablet-0"; }
+  .grid-tablet-0.grid-parent:before { content: "grid-parent-tablet-0"; }
   .push-tablet-0 { left: 0%; }
   .push-tablet-0:after { content: "push-tablet-0" !important; }
   .pull-tablet-0 { right: 0%; }
@@ -726,6 +784,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-0:after { content: "suffix-tablet-0" !important; }
   .grid-tablet-1 { width: 8.33333%; *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-1:before { content: "grid-tablet-1"; }
+  .grid-tablet-1.grid-parent:before { content: "grid-parent-tablet-1"; }
   .push-tablet-1 { left: 8.33333%; }
   .push-tablet-1:after { content: "push-tablet-1" !important; }
   .pull-tablet-1 { right: 8.33333%; }
@@ -736,6 +795,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-1:after { content: "suffix-tablet-1" !important; }
   .grid-tablet-2 { width: 16.66667%; *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-2:before { content: "grid-tablet-2"; }
+  .grid-tablet-2.grid-parent:before { content: "grid-parent-tablet-2"; }
   .push-tablet-2 { left: 16.66667%; }
   .push-tablet-2:after { content: "push-tablet-2" !important; }
   .pull-tablet-2 { right: 16.66667%; }
@@ -746,6 +806,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-2:after { content: "suffix-tablet-2" !important; }
   .grid-tablet-3 { width: 25.0%; *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-3:before { content: "grid-tablet-3"; }
+  .grid-tablet-3.grid-parent:before { content: "grid-parent-tablet-3"; }
   .push-tablet-3 { left: 25.0%; }
   .push-tablet-3:after { content: "push-tablet-3" !important; }
   .pull-tablet-3 { right: 25.0%; }
@@ -756,6 +817,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-3:after { content: "suffix-tablet-3" !important; }
   .grid-tablet-4 { width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-4:before { content: "grid-tablet-4"; }
+  .grid-tablet-4.grid-parent:before { content: "grid-parent-tablet-4"; }
   .push-tablet-4 { left: 33.33333%; }
   .push-tablet-4:after { content: "push-tablet-4" !important; }
   .pull-tablet-4 { right: 33.33333%; }
@@ -766,6 +828,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-4:after { content: "suffix-tablet-4" !important; }
   .grid-tablet-5 { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-5:before { content: "grid-tablet-5"; }
+  .grid-tablet-5.grid-parent:before { content: "grid-parent-tablet-5"; }
   .push-tablet-5 { left: 41.66667%; }
   .push-tablet-5:after { content: "push-tablet-5" !important; }
   .pull-tablet-5 { right: 41.66667%; }
@@ -776,6 +839,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-5:after { content: "suffix-tablet-5" !important; }
   .grid-tablet-6 { width: 50.0%; *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-6:before { content: "grid-tablet-6"; }
+  .grid-tablet-6.grid-parent:before { content: "grid-parent-tablet-6"; }
   .push-tablet-6 { left: 50.0%; }
   .push-tablet-6:after { content: "push-tablet-6" !important; }
   .pull-tablet-6 { right: 50.0%; }
@@ -786,6 +850,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-6:after { content: "suffix-tablet-6" !important; }
   .grid-tablet-7 { width: 58.33333%; *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-7:before { content: "grid-tablet-7"; }
+  .grid-tablet-7.grid-parent:before { content: "grid-parent-tablet-7"; }
   .push-tablet-7 { left: 58.33333%; }
   .push-tablet-7:after { content: "push-tablet-7" !important; }
   .pull-tablet-7 { right: 58.33333%; }
@@ -796,6 +861,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-7:after { content: "suffix-tablet-7" !important; }
   .grid-tablet-8 { width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-8:before { content: "grid-tablet-8"; }
+  .grid-tablet-8.grid-parent:before { content: "grid-parent-tablet-8"; }
   .push-tablet-8 { left: 66.66667%; }
   .push-tablet-8:after { content: "push-tablet-8" !important; }
   .pull-tablet-8 { right: 66.66667%; }
@@ -806,6 +872,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-8:after { content: "suffix-tablet-8" !important; }
   .grid-tablet-9 { width: 75.0%; *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-9:before { content: "grid-tablet-9"; }
+  .grid-tablet-9.grid-parent:before { content: "grid-parent-tablet-9"; }
   .push-tablet-9 { left: 75.0%; }
   .push-tablet-9:after { content: "push-tablet-9" !important; }
   .pull-tablet-9 { right: 75.0%; }
@@ -816,6 +883,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-9:after { content: "suffix-tablet-9" !important; }
   .grid-tablet-10 { width: 83.33333%; *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-10:before { content: "grid-tablet-10"; }
+  .grid-tablet-10.grid-parent:before { content: "grid-parent-tablet-10"; }
   .push-tablet-10 { left: 83.33333%; }
   .push-tablet-10:after { content: "push-tablet-10" !important; }
   .pull-tablet-10 { right: 83.33333%; }
@@ -826,6 +894,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-10:after { content: "suffix-tablet-10" !important; }
   .grid-tablet-11 { width: 91.66667%; *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-11:before { content: "grid-tablet-11"; }
+  .grid-tablet-11.grid-parent:before { content: "grid-parent-tablet-11"; }
   .push-tablet-11 { left: 91.66667%; }
   .push-tablet-11:after { content: "push-tablet-11" !important; }
   .pull-tablet-11 { right: 91.66667%; }
@@ -836,6 +905,7 @@ html.tablet .auto-height-tablet { height: inherit; }
   .suffix-tablet-11:after { content: "suffix-tablet-11" !important; }
   .grid-tablet-12 { width: 100.0%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-tablet-12:before { content: "grid-tablet-12"; }
+  .grid-tablet-12.grid-parent:before { content: "grid-parent-tablet-12"; }
   .push-tablet-12 { left: 100.0%; }
   .push-tablet-12:after { content: "push-tablet-12" !important; }
   .pull-tablet-12 { right: 100.0%; }
@@ -856,9 +926,11 @@ html.tablet .auto-height-tablet { height: inherit; }
   .no-gutter-tablet, .no-margin-tablet { padding-left: 0 !important; padding-right: 0 !important; }
   .no-gutter-tablet-left, .no-margin-tablet-left { padding-left: 0 !important; }
   .no-gutter-tablet-right, .no-margin-tablet-right { padding-right: 0 !important; }
-  .auto-height-tablet { height: inherit; } }
+  .auto-height-tablet { height: inherit; }
+  [class*="grid-"].grid-parent-tablet { padding-left: 0 !important; padding-right: 0 !important; } }
 html.ipad-landscape .grid-ipad-landscape-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-0:before { content: "grid-ipad-landscape-0"; }
+html.ipad-landscape .grid-ipad-landscape-0.grid-parent:before { content: "grid-parent-ipad-landscape-0"; }
 html.ipad-landscape .push-ipad-landscape-0 { left: 0%; }
 html.ipad-landscape .push-ipad-landscape-0:after { content: "push-ipad-landscape-0" !important; }
 html.ipad-landscape .pull-ipad-landscape-0 { right: 0%; }
@@ -869,6 +941,7 @@ html.ipad-landscape .suffix-ipad-landscape-0 { margin-right: 0%; }
 html.ipad-landscape .suffix-ipad-landscape-0:after { content: "suffix-ipad-landscape-0" !important; }
 html.ipad-landscape .grid-ipad-landscape-1 { width: 8.33333%; *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-1:before { content: "grid-ipad-landscape-1"; }
+html.ipad-landscape .grid-ipad-landscape-1.grid-parent:before { content: "grid-parent-ipad-landscape-1"; }
 html.ipad-landscape .push-ipad-landscape-1 { left: 8.33333%; }
 html.ipad-landscape .push-ipad-landscape-1:after { content: "push-ipad-landscape-1" !important; }
 html.ipad-landscape .pull-ipad-landscape-1 { right: 8.33333%; }
@@ -879,6 +952,7 @@ html.ipad-landscape .suffix-ipad-landscape-1 { margin-right: 8.33333%; }
 html.ipad-landscape .suffix-ipad-landscape-1:after { content: "suffix-ipad-landscape-1" !important; }
 html.ipad-landscape .grid-ipad-landscape-2 { width: 16.66667%; *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-2:before { content: "grid-ipad-landscape-2"; }
+html.ipad-landscape .grid-ipad-landscape-2.grid-parent:before { content: "grid-parent-ipad-landscape-2"; }
 html.ipad-landscape .push-ipad-landscape-2 { left: 16.66667%; }
 html.ipad-landscape .push-ipad-landscape-2:after { content: "push-ipad-landscape-2" !important; }
 html.ipad-landscape .pull-ipad-landscape-2 { right: 16.66667%; }
@@ -889,6 +963,7 @@ html.ipad-landscape .suffix-ipad-landscape-2 { margin-right: 16.66667%; }
 html.ipad-landscape .suffix-ipad-landscape-2:after { content: "suffix-ipad-landscape-2" !important; }
 html.ipad-landscape .grid-ipad-landscape-3 { width: 25.0%; *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-3:before { content: "grid-ipad-landscape-3"; }
+html.ipad-landscape .grid-ipad-landscape-3.grid-parent:before { content: "grid-parent-ipad-landscape-3"; }
 html.ipad-landscape .push-ipad-landscape-3 { left: 25.0%; }
 html.ipad-landscape .push-ipad-landscape-3:after { content: "push-ipad-landscape-3" !important; }
 html.ipad-landscape .pull-ipad-landscape-3 { right: 25.0%; }
@@ -899,6 +974,7 @@ html.ipad-landscape .suffix-ipad-landscape-3 { margin-right: 25.0%; }
 html.ipad-landscape .suffix-ipad-landscape-3:after { content: "suffix-ipad-landscape-3" !important; }
 html.ipad-landscape .grid-ipad-landscape-4 { width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-4:before { content: "grid-ipad-landscape-4"; }
+html.ipad-landscape .grid-ipad-landscape-4.grid-parent:before { content: "grid-parent-ipad-landscape-4"; }
 html.ipad-landscape .push-ipad-landscape-4 { left: 33.33333%; }
 html.ipad-landscape .push-ipad-landscape-4:after { content: "push-ipad-landscape-4" !important; }
 html.ipad-landscape .pull-ipad-landscape-4 { right: 33.33333%; }
@@ -909,6 +985,7 @@ html.ipad-landscape .suffix-ipad-landscape-4 { margin-right: 33.33333%; }
 html.ipad-landscape .suffix-ipad-landscape-4:after { content: "suffix-ipad-landscape-4" !important; }
 html.ipad-landscape .grid-ipad-landscape-5 { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-5:before { content: "grid-ipad-landscape-5"; }
+html.ipad-landscape .grid-ipad-landscape-5.grid-parent:before { content: "grid-parent-ipad-landscape-5"; }
 html.ipad-landscape .push-ipad-landscape-5 { left: 41.66667%; }
 html.ipad-landscape .push-ipad-landscape-5:after { content: "push-ipad-landscape-5" !important; }
 html.ipad-landscape .pull-ipad-landscape-5 { right: 41.66667%; }
@@ -919,6 +996,7 @@ html.ipad-landscape .suffix-ipad-landscape-5 { margin-right: 41.66667%; }
 html.ipad-landscape .suffix-ipad-landscape-5:after { content: "suffix-ipad-landscape-5" !important; }
 html.ipad-landscape .grid-ipad-landscape-6 { width: 50.0%; *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-6:before { content: "grid-ipad-landscape-6"; }
+html.ipad-landscape .grid-ipad-landscape-6.grid-parent:before { content: "grid-parent-ipad-landscape-6"; }
 html.ipad-landscape .push-ipad-landscape-6 { left: 50.0%; }
 html.ipad-landscape .push-ipad-landscape-6:after { content: "push-ipad-landscape-6" !important; }
 html.ipad-landscape .pull-ipad-landscape-6 { right: 50.0%; }
@@ -929,6 +1007,7 @@ html.ipad-landscape .suffix-ipad-landscape-6 { margin-right: 50.0%; }
 html.ipad-landscape .suffix-ipad-landscape-6:after { content: "suffix-ipad-landscape-6" !important; }
 html.ipad-landscape .grid-ipad-landscape-7 { width: 58.33333%; *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-7:before { content: "grid-ipad-landscape-7"; }
+html.ipad-landscape .grid-ipad-landscape-7.grid-parent:before { content: "grid-parent-ipad-landscape-7"; }
 html.ipad-landscape .push-ipad-landscape-7 { left: 58.33333%; }
 html.ipad-landscape .push-ipad-landscape-7:after { content: "push-ipad-landscape-7" !important; }
 html.ipad-landscape .pull-ipad-landscape-7 { right: 58.33333%; }
@@ -939,6 +1018,7 @@ html.ipad-landscape .suffix-ipad-landscape-7 { margin-right: 58.33333%; }
 html.ipad-landscape .suffix-ipad-landscape-7:after { content: "suffix-ipad-landscape-7" !important; }
 html.ipad-landscape .grid-ipad-landscape-8 { width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-8:before { content: "grid-ipad-landscape-8"; }
+html.ipad-landscape .grid-ipad-landscape-8.grid-parent:before { content: "grid-parent-ipad-landscape-8"; }
 html.ipad-landscape .push-ipad-landscape-8 { left: 66.66667%; }
 html.ipad-landscape .push-ipad-landscape-8:after { content: "push-ipad-landscape-8" !important; }
 html.ipad-landscape .pull-ipad-landscape-8 { right: 66.66667%; }
@@ -949,6 +1029,7 @@ html.ipad-landscape .suffix-ipad-landscape-8 { margin-right: 66.66667%; }
 html.ipad-landscape .suffix-ipad-landscape-8:after { content: "suffix-ipad-landscape-8" !important; }
 html.ipad-landscape .grid-ipad-landscape-9 { width: 75.0%; *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-9:before { content: "grid-ipad-landscape-9"; }
+html.ipad-landscape .grid-ipad-landscape-9.grid-parent:before { content: "grid-parent-ipad-landscape-9"; }
 html.ipad-landscape .push-ipad-landscape-9 { left: 75.0%; }
 html.ipad-landscape .push-ipad-landscape-9:after { content: "push-ipad-landscape-9" !important; }
 html.ipad-landscape .pull-ipad-landscape-9 { right: 75.0%; }
@@ -959,6 +1040,7 @@ html.ipad-landscape .suffix-ipad-landscape-9 { margin-right: 75.0%; }
 html.ipad-landscape .suffix-ipad-landscape-9:after { content: "suffix-ipad-landscape-9" !important; }
 html.ipad-landscape .grid-ipad-landscape-10 { width: 83.33333%; *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-10:before { content: "grid-ipad-landscape-10"; }
+html.ipad-landscape .grid-ipad-landscape-10.grid-parent:before { content: "grid-parent-ipad-landscape-10"; }
 html.ipad-landscape .push-ipad-landscape-10 { left: 83.33333%; }
 html.ipad-landscape .push-ipad-landscape-10:after { content: "push-ipad-landscape-10" !important; }
 html.ipad-landscape .pull-ipad-landscape-10 { right: 83.33333%; }
@@ -969,6 +1051,7 @@ html.ipad-landscape .suffix-ipad-landscape-10 { margin-right: 83.33333%; }
 html.ipad-landscape .suffix-ipad-landscape-10:after { content: "suffix-ipad-landscape-10" !important; }
 html.ipad-landscape .grid-ipad-landscape-11 { width: 91.66667%; *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-11:before { content: "grid-ipad-landscape-11"; }
+html.ipad-landscape .grid-ipad-landscape-11.grid-parent:before { content: "grid-parent-ipad-landscape-11"; }
 html.ipad-landscape .push-ipad-landscape-11 { left: 91.66667%; }
 html.ipad-landscape .push-ipad-landscape-11:after { content: "push-ipad-landscape-11" !important; }
 html.ipad-landscape .pull-ipad-landscape-11 { right: 91.66667%; }
@@ -979,6 +1062,7 @@ html.ipad-landscape .suffix-ipad-landscape-11 { margin-right: 91.66667%; }
 html.ipad-landscape .suffix-ipad-landscape-11:after { content: "suffix-ipad-landscape-11" !important; }
 html.ipad-landscape .grid-ipad-landscape-12 { width: 100.0%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-12:before { content: "grid-ipad-landscape-12"; }
+html.ipad-landscape .grid-ipad-landscape-12.grid-parent:before { content: "grid-parent-ipad-landscape-12"; }
 html.ipad-landscape .push-ipad-landscape-12 { left: 100.0%; }
 html.ipad-landscape .push-ipad-landscape-12:after { content: "push-ipad-landscape-12" !important; }
 html.ipad-landscape .pull-ipad-landscape-12 { right: 100.0%; }
@@ -1000,9 +1084,11 @@ html.ipad-landscape .no-gutter-ipad-landscape, html.ipad-landscape .no-margin-ip
 html.ipad-landscape .no-gutter-ipad-landscape-left, html.ipad-landscape .no-margin-ipad-landscape-left { padding-left: 0 !important; }
 html.ipad-landscape .no-gutter-ipad-landscape-right, html.ipad-landscape .no-margin-ipad-landscape-right { padding-right: 0 !important; }
 html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
+html.ipad-landscape [class*="grid-"].grid-parent-ipad-landscape { padding-left: 0 !important; padding-right: 0 !important; }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { .grid-ipad-landscape-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-0:before { content: "grid-ipad-landscape-0"; }
+  .grid-ipad-landscape-0.grid-parent:before { content: "grid-parent-ipad-landscape-0"; }
   .push-ipad-landscape-0 { left: 0%; }
   .push-ipad-landscape-0:after { content: "push-ipad-landscape-0" !important; }
   .pull-ipad-landscape-0 { right: 0%; }
@@ -1013,6 +1099,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-0:after { content: "suffix-ipad-landscape-0" !important; }
   .grid-ipad-landscape-1 { width: 8.33333%; *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-1:before { content: "grid-ipad-landscape-1"; }
+  .grid-ipad-landscape-1.grid-parent:before { content: "grid-parent-ipad-landscape-1"; }
   .push-ipad-landscape-1 { left: 8.33333%; }
   .push-ipad-landscape-1:after { content: "push-ipad-landscape-1" !important; }
   .pull-ipad-landscape-1 { right: 8.33333%; }
@@ -1023,6 +1110,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-1:after { content: "suffix-ipad-landscape-1" !important; }
   .grid-ipad-landscape-2 { width: 16.66667%; *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-2:before { content: "grid-ipad-landscape-2"; }
+  .grid-ipad-landscape-2.grid-parent:before { content: "grid-parent-ipad-landscape-2"; }
   .push-ipad-landscape-2 { left: 16.66667%; }
   .push-ipad-landscape-2:after { content: "push-ipad-landscape-2" !important; }
   .pull-ipad-landscape-2 { right: 16.66667%; }
@@ -1033,6 +1121,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-2:after { content: "suffix-ipad-landscape-2" !important; }
   .grid-ipad-landscape-3 { width: 25.0%; *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-3:before { content: "grid-ipad-landscape-3"; }
+  .grid-ipad-landscape-3.grid-parent:before { content: "grid-parent-ipad-landscape-3"; }
   .push-ipad-landscape-3 { left: 25.0%; }
   .push-ipad-landscape-3:after { content: "push-ipad-landscape-3" !important; }
   .pull-ipad-landscape-3 { right: 25.0%; }
@@ -1043,6 +1132,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-3:after { content: "suffix-ipad-landscape-3" !important; }
   .grid-ipad-landscape-4 { width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-4:before { content: "grid-ipad-landscape-4"; }
+  .grid-ipad-landscape-4.grid-parent:before { content: "grid-parent-ipad-landscape-4"; }
   .push-ipad-landscape-4 { left: 33.33333%; }
   .push-ipad-landscape-4:after { content: "push-ipad-landscape-4" !important; }
   .pull-ipad-landscape-4 { right: 33.33333%; }
@@ -1053,6 +1143,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-4:after { content: "suffix-ipad-landscape-4" !important; }
   .grid-ipad-landscape-5 { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-5:before { content: "grid-ipad-landscape-5"; }
+  .grid-ipad-landscape-5.grid-parent:before { content: "grid-parent-ipad-landscape-5"; }
   .push-ipad-landscape-5 { left: 41.66667%; }
   .push-ipad-landscape-5:after { content: "push-ipad-landscape-5" !important; }
   .pull-ipad-landscape-5 { right: 41.66667%; }
@@ -1063,6 +1154,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-5:after { content: "suffix-ipad-landscape-5" !important; }
   .grid-ipad-landscape-6 { width: 50.0%; *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-6:before { content: "grid-ipad-landscape-6"; }
+  .grid-ipad-landscape-6.grid-parent:before { content: "grid-parent-ipad-landscape-6"; }
   .push-ipad-landscape-6 { left: 50.0%; }
   .push-ipad-landscape-6:after { content: "push-ipad-landscape-6" !important; }
   .pull-ipad-landscape-6 { right: 50.0%; }
@@ -1073,6 +1165,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-6:after { content: "suffix-ipad-landscape-6" !important; }
   .grid-ipad-landscape-7 { width: 58.33333%; *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-7:before { content: "grid-ipad-landscape-7"; }
+  .grid-ipad-landscape-7.grid-parent:before { content: "grid-parent-ipad-landscape-7"; }
   .push-ipad-landscape-7 { left: 58.33333%; }
   .push-ipad-landscape-7:after { content: "push-ipad-landscape-7" !important; }
   .pull-ipad-landscape-7 { right: 58.33333%; }
@@ -1083,6 +1176,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-7:after { content: "suffix-ipad-landscape-7" !important; }
   .grid-ipad-landscape-8 { width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-8:before { content: "grid-ipad-landscape-8"; }
+  .grid-ipad-landscape-8.grid-parent:before { content: "grid-parent-ipad-landscape-8"; }
   .push-ipad-landscape-8 { left: 66.66667%; }
   .push-ipad-landscape-8:after { content: "push-ipad-landscape-8" !important; }
   .pull-ipad-landscape-8 { right: 66.66667%; }
@@ -1093,6 +1187,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-8:after { content: "suffix-ipad-landscape-8" !important; }
   .grid-ipad-landscape-9 { width: 75.0%; *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-9:before { content: "grid-ipad-landscape-9"; }
+  .grid-ipad-landscape-9.grid-parent:before { content: "grid-parent-ipad-landscape-9"; }
   .push-ipad-landscape-9 { left: 75.0%; }
   .push-ipad-landscape-9:after { content: "push-ipad-landscape-9" !important; }
   .pull-ipad-landscape-9 { right: 75.0%; }
@@ -1103,6 +1198,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-9:after { content: "suffix-ipad-landscape-9" !important; }
   .grid-ipad-landscape-10 { width: 83.33333%; *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-10:before { content: "grid-ipad-landscape-10"; }
+  .grid-ipad-landscape-10.grid-parent:before { content: "grid-parent-ipad-landscape-10"; }
   .push-ipad-landscape-10 { left: 83.33333%; }
   .push-ipad-landscape-10:after { content: "push-ipad-landscape-10" !important; }
   .pull-ipad-landscape-10 { right: 83.33333%; }
@@ -1113,6 +1209,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-10:after { content: "suffix-ipad-landscape-10" !important; }
   .grid-ipad-landscape-11 { width: 91.66667%; *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-11:before { content: "grid-ipad-landscape-11"; }
+  .grid-ipad-landscape-11.grid-parent:before { content: "grid-parent-ipad-landscape-11"; }
   .push-ipad-landscape-11 { left: 91.66667%; }
   .push-ipad-landscape-11:after { content: "push-ipad-landscape-11" !important; }
   .pull-ipad-landscape-11 { right: 91.66667%; }
@@ -1123,6 +1220,7 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .suffix-ipad-landscape-11:after { content: "suffix-ipad-landscape-11" !important; }
   .grid-ipad-landscape-12 { width: 100.0%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .grid-ipad-landscape-12:before { content: "grid-ipad-landscape-12"; }
+  .grid-ipad-landscape-12.grid-parent:before { content: "grid-parent-ipad-landscape-12"; }
   .push-ipad-landscape-12 { left: 100.0%; }
   .push-ipad-landscape-12:after { content: "push-ipad-landscape-12" !important; }
   .pull-ipad-landscape-12 { right: 100.0%; }
@@ -1143,7 +1241,8 @@ html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
   .no-gutter-ipad-landscape, .no-margin-ipad-landscape { padding-left: 0 !important; padding-right: 0 !important; }
   .no-gutter-ipad-landscape-left, .no-margin-ipad-landscape-left { padding-left: 0 !important; }
   .no-gutter-ipad-landscape-right, .no-margin-ipad-landscape-right { padding-right: 0 !important; }
-  .auto-height-ipad-landscape { height: inherit; } }
+  .auto-height-ipad-landscape { height: inherit; }
+  [class*="grid-"].grid-parent-ipad-landscape { padding-left: 0 !important; padding-right: 0 !important; } }
 #gridle-states { content: '{"mobile":"screen and (min-width: 0) and (max-width: 480px)","tablet":"screen and (min-width: 481px) and (max-width: 1024px)","ipad-landscape":"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)"}'; }
 
 /** Max size : */
