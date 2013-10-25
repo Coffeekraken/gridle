@@ -38,6 +38,7 @@
 /** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
 /** push : Push the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
 /** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
+/** Grid centered : */
 /** Grid parent : */
 /** Hide on :  @param 	String 	$media  On what state */
 /** Not visible on :  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
@@ -290,6 +291,8 @@
 
 .auto-height { height: inherit; }
 
+.centered { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+
 [class*="grid-"].grid-parent { padding-left: 0 !important; padding-right: 0 !important; }
 
 .push-0, .push-mobile-0, .push-tablet-0, .push-ipad-landscape-0, .push-1, .push-mobile-1, .push-tablet-1, .push-ipad-landscape-1, .push-2, .push-mobile-2, .push-tablet-2, .push-ipad-landscape-2, .push-3, .push-mobile-3, .push-tablet-3, .push-ipad-landscape-3, .push-4, .push-mobile-4, .push-tablet-4, .push-ipad-landscape-4, .push-5, .push-mobile-5, .push-tablet-5, .push-ipad-landscape-5, .push-6, .push-mobile-6, .push-tablet-6, .push-ipad-landscape-6, .push-7, .push-mobile-7, .push-tablet-7, .push-ipad-landscape-7, .push-8, .push-mobile-8, .push-tablet-8, .push-ipad-landscape-8, .push-9, .push-mobile-9, .push-tablet-9, .push-ipad-landscape-9, .push-10, .push-mobile-10, .push-tablet-10, .push-ipad-landscape-10, .push-11, .push-mobile-11, .push-tablet-11, .push-ipad-landscape-11, .push-12, .push-mobile-12, .push-tablet-12, .push-ipad-landscape-12 { background-color: #f4efdf !important; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDQzZDQUQ0Rjg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDQzZDQUQ1MDg1MDYxMUUyOEQwMjgzRjhGQkEwMDdDNyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkNDNkNBRDREODUwNjExRTI4RDAyODNGOEZCQTAwN0M3IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkNDNkNBRDRFODUwNjExRTI4RDAyODNGOEZCQTAwN0M3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+FdXphgAAA39JREFUeNrs3cGKwjAUQNGm7f//8FQyo66E6oAS8/Jy7qY7peEdGyFoqbUuks5bLYEEiPRWe8sXL6XcLq3fp2PX/elhjBotboDt/2qIPvsMSIxfX9xiQSJAIBEgkEACCCSQqBcQSAQIJJAAAgkkgEACCSCQQKLAQCARIJDckBRjBwgkz5FskAACCSSAQAIJIJBAAggkkGhUIJAIEEggAQQSSACBBBJAIIEEEEggAWTsIBEgkEACCCSQAAIJJIBAAgkgkEACCCSQAJI2SAQIJJAAAgkkgEACCSCQQAIIJJAAAgkkgEACCSALJJAIEEgECCSQAAIJJIBAAgkgkEACCCSQAAIJJIBAAgkggkSAQAIJIJBAAggkkAACCSSAQAIJIJBAAggkkAAiSAARJPMiAQQSSACBBBJAIIEEEEggAQQSSACBBBJAIIEEEP2L5AcSQPQ6SAARJIAIkmmQAAIJJIBAAgkgkEACCCSQAAIJJIAIEkAEydBIAIEEEkCGywFHQPQip4ABESTxkQACCSSAQAIJIJBAAggkkAAiSAARJKdI9khIAIEkYmGQAAJJWCTlL0AESWAkgEACCSCQQAIIJJAAIkgAESRBkAACCSSAQAIJIJoPydbaCCD52xLf26XWCog+wpH1z22O2loHIOlxrHAAIjgAERzfxgEIHHAAAgccgMABByCCAxDBEQQHIHCExbHcj8ksgAiOoDgAgQMOQOCA4/12MwdH564oLhFxeILAAQcgcMABCBxwAAIHHIAIDkAEByCCY2gcgMABByBwwAEIHHAAAgccgMABByBwwAGI4ABEcGTFAQgccAACBxyAwAEHIHDAAQgccATKjza0W9cCByB6rCRe0+lw2GLBAQcgcMABCBxwAAIHHIDAAQcgcMABCBxwAAIHHIAIDkAEhwCBAw5A4IADEDjgAAQOOACBAw5A4IADEDjgAAQOOACBAw5NDwQOAQKHAIEDDkDggAMQOOAABA44AIEDDkDggAMQOOAABA44NAcQOAQIHAIEDjgAgQMOQOCAAxA44AAEDjgAgQMOrXDAoVxA4BAgcAgQOOAABA44AIEDDkDggAMQOOBQeCBwCBA4BAgccAACBxyAwAHHdO1wNMdxGDNPEDjgAAQOOACBAw51BQKHAIFDgMABByBwwAEIHHCoAxA4NHSlVicgpAhf0iVApEz9CjAA65/oofjgOdQAAAAASUVORK5CYII=); }
@@ -454,6 +457,7 @@ html.mobile .no-gutter-mobile, html.mobile .no-margin-mobile { padding-left: 0 !
 html.mobile .no-gutter-mobile-left, html.mobile .no-margin-mobile-left { padding-left: 0 !important; }
 html.mobile .no-gutter-mobile-right, html.mobile .no-margin-mobile-right { padding-right: 0 !important; }
 html.mobile .auto-height-mobile { height: inherit; }
+html.mobile .centered-mobile { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
 html.mobile [class*="grid-"].grid-parent-mobile { padding-left: 0 !important; padding-right: 0 !important; }
 
 @media screen and (min-width: 0) and (max-width: 480px) { .grid-mobile-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
@@ -612,6 +616,7 @@ html.mobile [class*="grid-"].grid-parent-mobile { padding-left: 0 !important; pa
   .no-gutter-mobile-left, .no-margin-mobile-left { padding-left: 0 !important; }
   .no-gutter-mobile-right, .no-margin-mobile-right { padding-right: 0 !important; }
   .auto-height-mobile { height: inherit; }
+  .centered-mobile { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
   [class*="grid-"].grid-parent-mobile { padding-left: 0 !important; padding-right: 0 !important; } }
 html.tablet .grid-tablet-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.tablet .grid-tablet-0:before { content: "grid-tablet-0"; }
@@ -769,6 +774,7 @@ html.tablet .no-gutter-tablet, html.tablet .no-margin-tablet { padding-left: 0 !
 html.tablet .no-gutter-tablet-left, html.tablet .no-margin-tablet-left { padding-left: 0 !important; }
 html.tablet .no-gutter-tablet-right, html.tablet .no-margin-tablet-right { padding-right: 0 !important; }
 html.tablet .auto-height-tablet { height: inherit; }
+html.tablet .centered-tablet { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
 html.tablet [class*="grid-"].grid-parent-tablet { padding-left: 0 !important; padding-right: 0 !important; }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) { .grid-tablet-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
@@ -927,6 +933,7 @@ html.tablet [class*="grid-"].grid-parent-tablet { padding-left: 0 !important; pa
   .no-gutter-tablet-left, .no-margin-tablet-left { padding-left: 0 !important; }
   .no-gutter-tablet-right, .no-margin-tablet-right { padding-right: 0 !important; }
   .auto-height-tablet { height: inherit; }
+  .centered-tablet { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
   [class*="grid-"].grid-parent-tablet { padding-left: 0 !important; padding-right: 0 !important; } }
 html.ipad-landscape .grid-ipad-landscape-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 html.ipad-landscape .grid-ipad-landscape-0:before { content: "grid-ipad-landscape-0"; }
@@ -1084,6 +1091,7 @@ html.ipad-landscape .no-gutter-ipad-landscape, html.ipad-landscape .no-margin-ip
 html.ipad-landscape .no-gutter-ipad-landscape-left, html.ipad-landscape .no-margin-ipad-landscape-left { padding-left: 0 !important; }
 html.ipad-landscape .no-gutter-ipad-landscape-right, html.ipad-landscape .no-margin-ipad-landscape-right { padding-right: 0 !important; }
 html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
+html.ipad-landscape .centered-ipad-landscape { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
 html.ipad-landscape [class*="grid-"].grid-parent-ipad-landscape { padding-left: 0 !important; padding-right: 0 !important; }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { .grid-ipad-landscape-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
@@ -1242,6 +1250,7 @@ html.ipad-landscape [class*="grid-"].grid-parent-ipad-landscape { padding-left: 
   .no-gutter-ipad-landscape-left, .no-margin-ipad-landscape-left { padding-left: 0 !important; }
   .no-gutter-ipad-landscape-right, .no-margin-ipad-landscape-right { padding-right: 0 !important; }
   .auto-height-ipad-landscape { height: inherit; }
+  .centered-ipad-landscape { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
   [class*="grid-"].grid-parent-ipad-landscape { padding-left: 0 !important; padding-right: 0 !important; } }
 #gridle-states { content: '{"mobile":"screen and (min-width: 0) and (max-width: 480px)","tablet":"screen and (min-width: 481px) and (max-width: 1024px)","ipad-landscape":"only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)"}'; }
 

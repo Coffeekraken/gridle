@@ -721,9 +721,13 @@ $_gridle-state-15-classes 			: true !default;
 	$width : percentage(1 / $gridle-columns-count) * $columns;
 	@include gridle_responseTo($state) {
 		width:$width;
+
+		// ie7 support :
 		@if $gridle-ie7-support == true {
 			*width: expression((this.parentNode.clientWidth/#{$gridle-columns-count}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 		}
+		
+		// debug :
 		@if $gridle-debug == true and $gridle-debug-show-class-names == true {
 			&:before {
 				@if $debug-state != null {
@@ -911,6 +915,22 @@ $_gridle-state-15-classes 			: true !default;
 				}
 			}
 		}
+	}
+}
+
+
+/**
+ * Grid centered :
+ */
+@mixin gridle_centered(
+	$state : null
+) {
+	@include gridle_responseTo($state) {
+		display:block;
+		float:none;
+		margin-left:auto;
+		margin-right:auto;
+		clear:both;
 	}
 }
 
@@ -1229,6 +1249,9 @@ $_gridle-state-15-classes 			: true !default;
 	}
 	.auto-height#{$media} {
 		height:inherit;
+	}
+	.centered#{$media} {
+		@include gridle_centered(null);
 	}
 	[class*="grid-"].grid-parent#{$media} {
 		@include gridle_parent(null);
