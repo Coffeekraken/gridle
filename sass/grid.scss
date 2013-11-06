@@ -1,16 +1,10 @@
-/**
- * Import grid settings :
- */
-@import 'grid-settings.scss';
+// Import grid settings :
+@import 'grid-settings';
 
-/**
- * Generate classes :
- */
+// Generate classes :
 @include gridle_generate_classes();
 
-/**
- * Max size :
- */
+// Max size :
 .container {
 	max-width:960px;
 	margin:0 auto;

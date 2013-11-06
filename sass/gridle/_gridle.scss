@@ -1,34 +1,51 @@
-/**
- * Gridle (.scss)
- * Gridle is an one and unique grid system file that allows you to generate almost all
- * grid you've ever dreamt about.
- *
- * Copyright (c) 2013 Olivier Bossel
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
- * documentation files (the "Software"), to deal in the Software without restriction, including without limitation
- * the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
- * and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all copies or substantial portions
- * of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
- * TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
- * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
- * CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
- * IN THE SOFTWARE.
- *
- * @created 	25.03.13
- * @updated 	04.11.13
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
- * @version 	1.0.4
- */
+// |------------------------------------------------------
+// |------------------------------------------------------
+// Gridle (.scss)
+// Gridle is an one and unique grid system file that allows you to generate almost all
+// grid you've ever dreamt about.
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+// |------------------------------------------------------
+// |------------------------------------------------------
+// Copyright (c) 2013 Olivier Bossel
+
+// Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+// documentation files (the "Software"), to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+// and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+// The above copyright notice and this permission notice shall be included in all copies or substantial portions
+// of the Software.
+
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+// TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+// CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+// IN THE SOFTWARE.
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+// |------------------------------------------------------
+// |------------------------------------------------------
+// @created 	25.03.13
+// @updated 	06.11.13
+// @author 		Olivier Bossel <olivier.bossel@gmail.com>
+// @version 	1.0.5
+// |------------------------------------------------------
+// |------------------------------------------------------
 
 
-/**
- * gridle configuration vars :
- */
+
+
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Settings
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+// gridle configuration vars :
 $gridle-columns-count 					: 12 !default;
 $gridle-gutter-width 					: 20px !default;
 $gridle-name-multiplicator 				: 1 !default;
@@ -48,34 +65,19 @@ $gridle-generate-pull-classes 			: true !default;
 $gridle-generate-prefix-classes 		: true !default;
 $gridle-generate-suffix-classes 		: true !default;
 
-$gridle-generate-useful-states-classes 	: () !default; // retina | landscape | portrait | print | tv
+$gridle-generate-useful-states-classes 	: (retina, landscape) !default;// retina | landscape | portrait | print | tv
 
 
-/**
- * Get query for :
- */
-@function gridle_get_query_for(
-	$device
-) {
-	@if $device == 'ipad' {
-		@return 'screen and (device-aspect-ratio: 3/4)';
-	} @else if $device == 'iphone' {
-		@return 'screen and (device-aspect-ratio: 2/3), screen and (device-aspect-ratio: 40/71)';
-	} @else if $device == 'iphone<5' {
-		@return 'screen and (device-aspect-ratio: 2/3)';
-	} @else if $device == 'iphone5' or $device == 'iphone>5' {
-		@return 'screen and (device-aspect-ratio: 40/71)';
-	} @else if $device == 'smartphone' {
-		@return 'only screen and (min-device-width : 320px) and (max-device-width : 480px)';
-	} @else {
-		@return null;
-	}
-}
 
 
-/**
- * Vars :
- */
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Variables
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+
 $_gridle-state-01-min-width 		: null !default;
 $_gridle-state-01-max-width 		: null !default;
 $_gridle-state-01-name 				: null !default;
@@ -167,10 +169,17 @@ $_gridle-state-15-query 			: null !default;
 $_gridle-state-15-classes 			: true !default;
 
 
-/**
- * Init gridle
- * Creating the silent classes with user configuration :
- */
+
+
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Silent classes
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+// Init gridle
+// Creating the silent classes with user configuration :
 %gridle-push-pull-debug-background-common {
 	background-size:50px 90%;
 	background-position:0 50%;
@@ -182,7 +191,7 @@ $_gridle-state-15-classes 			: true !default;
 %gridle-container-common {
 	width:100%;
 
-	/* For modern browsers */
+	// For modern browser
 	&:before,
 	&:after {
 	    content:"";
@@ -191,7 +200,7 @@ $_gridle-state-15-classes 			: true !default;
 	&:after {
 	    clear:both;
 	}
-	/* For IE 6/7 (trigger hasLayout) */
+	// For IE 6/7 (trigger hasLayout
 	& {
 	   zoom:1;
 	}
@@ -245,9 +254,16 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Common css that cannot be extended cause of variables :
- */
+
+
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Common mixins
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+// Common css that cannot be extended cause of variables :
 @mixin _gridle_grid_common() {
 	@extend %gridle-grid-common;
 	@if $gridle-direction == rtl {
@@ -319,28 +335,218 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Get column width :
- */
-@function gridle_columns_width(
+
+
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Functions
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+// Get column width :
+@function gridle_get_columns_width(
     $columns : 1
 ) {
     @return percentage(1 / $gridle-columns-count * $columns);
 }
-@function gridle_column_width(
+@function gridle_get_column_width(
     $columns : 1
 ) { 
-    @return gridle_columns_width($columns);
+    @return gridle_get_columns_width($columns);
 }
 
 
-/**
- * Register an state :
- *
- * @param 	String 	$name 		The state name
- * @param 	int 	$min-width 	The min width
- * @param 	int 	$max-width 	The max width
- */
+// Get media query by state :
+// @param 	String 	$state 	The state name
+// @return 	String 			The query
+@function _get_media_query_for_state(
+	$state
+) {
+	// get the index of state :
+	$idx : _gridle_get_media_query_index_by_name($state);
+
+	// check if media_min-width is null :
+	@if $state != null {
+
+		@if $idx != null {
+			// get vars :
+			$m : _gridle_get_media_query_vars($idx,"name");
+			$min-width : _gridle_get_media_query_vars($idx,"min-width");
+			$max-width : _gridle_get_media_query_vars($idx,"max-width");
+			$classes : _gridle_get_media_query_vars($idx,"classes");
+			$query : _gridle_get_media_query_vars($idx,"query");
+
+			// check if exist :
+			@if $m != null {
+				// check if query exist :
+				@if $query != null {
+					@return $query;
+				} @else {
+					// process max and min width :
+					@if $min-width == null { $min-width : 0; }
+					@if $max-width == null { $max-width : 99999px; }
+					// write media query :
+					@return "screen and (min-width: #{$min-width}) and (max-width: #{$max-width})";
+				}
+			}
+		} @else if $state == 'print' or $state == print {
+			@return "only print";
+		} @else if $state == 'tv' or $state == tv {
+			@return "only tv";
+		} @else if $state == 'portrait' or $state == portrait {
+			@return "only screen and (orientation: portrait)";
+		} @else if $state == 'landscape' or $state == landscape {
+			@return "only screen and (orientation: landscape)";
+		} @else if $state == 'retina' or $state == retina {
+			@return "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
+		}
+	} @else {
+		@return null;
+	}
+}
+
+
+// Get the media queries variables :
+// @param 	int 	$index 	 	The media query indes
+// @param 	String 	$var 		The media query variable name
+// @return 	String|int 			The variable value
+@function _gridle_get_media_query_vars(
+	$index 	: 1,
+	$var 	: "name"
+) {
+	@if $index == 1 {
+		@if $var == "name" { @return $_gridle-state-01-name; }
+		@else if $var == "min-width" { @return $_gridle-state-01-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-01-max-width; }
+		@else if $var == "query" { @return $_gridle-state-01-query; }
+		@else if $var == "classes" { @return $_gridle-state-01-classes; }
+	} @else if $index == 2 {
+		@if $var == "name" { @return $_gridle-state-02-name; }
+		@else if $var == "min-width" { @return $_gridle-state-02-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-02-max-width; }
+		@else if $var == "query" { @return $_gridle-state-02-query; }
+		@else if $var == "classes" { @return $_gridle-state-02-classes; }
+	} @else if $index == 3 {
+		@if $var == "name" { @return $_gridle-state-03-name; }
+		@else if $var == "min-width" { @return $_gridle-state-03-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-03-max-width; }
+		@else if $var == "query" { @return $_gridle-state-03-query; }
+		@else if $var == "classes" { @return $_gridle-state-03-classes; }
+	} @else if $index == 4 {
+		@if $var == "name" { @return $_gridle-state-04-name; }
+		@else if $var == "min-width" { @return $_gridle-state-04-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-04-max-width; }
+		@else if $var == "query" { @return $_gridle-state-04-query; }
+		@else if $var == "classes" { @return $_gridle-state-04-classes; }
+	} @else if $index == 5 {
+		@if $var == "name" { @return $_gridle-state-05-name; }
+		@else if $var == "min-width" { @return $_gridle-state-05-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-05-max-width; }
+		@else if $var == "query" { @return $_gridle-state-05-query; }
+		@else if $var == "classes" { @return $_gridle-state-05-classes; }
+	} @else if $index == 6 {
+		@if $var == "name" { @return $_gridle-state-06-name; }
+		@else if $var == "min-width" { @return $_gridle-state-06-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-06-max-width; }
+		@else if $var == "query" { @return $_gridle-state-06-query; }
+		@else if $var == "classes" { @return $_gridle-state-06-classes; }
+	} @else if $index == 7 {
+		@if $var == "name" { @return $_gridle-state-07-name; }
+		@else if $var == "min-width" { @return $_gridle-state-07-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-07-max-width; }
+		@else if $var == "query" { @return $_gridle-state-07-query; }
+		@else if $var == "classes" { @return $_gridle-state-07-classes; }
+	} @else if $index == 8 {
+		@if $var == "name" { @return $_gridle-state-08-name; }
+		@else if $var == "min-width" { @return $_gridle-state-08-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-08-max-width; }
+		@else if $var == "query" { @return $_gridle-state-08-query; }
+		@else if $var == "classes" { @return $_gridle-state-08-classes; }
+	} @else if $index == 9 {
+		@if $var == "name" { @return $_gridle-state-09-name; }
+		@else if $var == "min-width" { @return $_gridle-state-09-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-09-max-width; }
+		@else if $var == "query" { @return $_gridle-state-09-query; }
+		@else if $var == "classes" { @return $_gridle-state-09-classes; }
+	} @else if $index == 10 {
+		@if $var == "name" { @return $_gridle-state-10-name; }
+		@else if $var == "min-width" { @return $_gridle-state-10-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-10-max-width; }
+		@else if $var == "query" { @return $_gridle-state-10-query; }
+		@else if $var == "classes" { @return $_gridle-state-10-classes; }
+	} @else if $index == 11 {
+		@if $var == "name" { @return $_gridle-state-11-name; }
+		@else if $var == "min-width" { @return $_gridle-state-11-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-11-max-width; }
+		@else if $var == "query" { @return $_gridle-state-11-query; }
+		@else if $var == "classes" { @return $_gridle-state-11-classes; }
+	} @else if $index == 12 {
+		@if $var == "name" { @return $_gridle-state-12-name; }
+		@else if $var == "min-width" { @return $_gridle-state-12-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-12-max-width; }
+		@else if $var == "query" { @return $_gridle-state-12-query; }
+		@else if $var == "classes" { @return $_gridle-state-12-classes; }
+	} @else if $index == 13 {
+		@if $var == "name" { @return $_gridle-state-13-name; }
+		@else if $var == "min-width" { @return $_gridle-state-13-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-13-max-width; }
+		@else if $var == "query" { @return $_gridle-state-13-query; }
+		@else if $var == "classes" { @return $_gridle-state-13-classes; }
+	} @else if $index == 14 {
+		@if $var == "name" { @return $_gridle-state-14-name; }
+		@else if $var == "min-width" { @return $_gridle-state-14-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-14-max-width; }
+		@else if $var == "query" { @return $_gridle-state-14-query; }
+		@else if $var == "classes" { @return $_gridle-state-14-classes; }
+	} @else if $index == 15 {
+		@if $var == "name" { @return $_gridle-state-15-name; }
+		@else if $var == "min-width" { @return $_gridle-state-15-min-width; }
+		@else if $var == "max-width" { @return $_gridle-state-15-max-width; }
+		@else if $var == "query" { @return $_gridle-state-15-query; }
+		@else if $var == "classes" { @return $_gridle-state-15-classes; }
+	}
+}
+
+
+// Get the index of an media query by name
+// @param 	String 	$name 	The nme of the media query
+// @return 	int 			The index of the media query
+@function _gridle_get_media_query_index_by_name(
+	$name
+) {
+	@if $_gridle-state-01-name == $name { @return 1; }
+	@else if $_gridle-state-02-name == $name { @return 2; }
+	@else if $_gridle-state-03-name == $name { @return 3; }
+	@else if $_gridle-state-04-name == $name { @return 4; }
+	@else if $_gridle-state-05-name == $name { @return 5; }
+	@else if $_gridle-state-06-name == $name { @return 6; }
+	@else if $_gridle-state-07-name == $name { @return 7; }
+	@else if $_gridle-state-08-name == $name { @return 8; }
+	@else if $_gridle-state-09-name == $name { @return 9; }
+	@else if $_gridle-state-10-name == $name { @return 10; }
+	@else if $_gridle-state-11-name == $name { @return 11; }
+	@else if $_gridle-state-12-name == $name { @return 12; }
+	@else if $_gridle-state-13-name == $name { @return 13; }
+	@else if $_gridle-state-14-name == $name { @return 14; }
+	@else if $_gridle-state-15-name == $name { @return 15; }
+	@else { @return null; }
+}
+
+
+
+
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Mixins
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+// Register an state :
+// @param 	String 	$name 		The state name
+// @param 	int 	$min-width 	The min width
+// @param 	int 	$max-width 	The max width
 @mixin gridle_register_state(
 	$name,
 	$min-width-or-query : null,
@@ -533,9 +739,7 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Register default states :
- */
+// Register default states :
 @mixin gridle_register_default_states() {
 	// register mobile and tablet states :
 	@include gridle_register_state("mobile",0,480px);
@@ -543,11 +747,8 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Responsive helpers mixins :
- *
- * @param 	String 	$media 	The media name to response for
- */
+// Responsive helpers mixins :
+// @param 	String 	$media 	The media name to response for
 @mixin gridle_responseTo(
 	$state-or-min-width,
 	$max-width : null,
@@ -635,74 +836,16 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Get media query by state :
- *
- * @param 	String 	$state 	The state name
- * @return 	String 			The query
- */
-@function _get_media_query_for_state(
-	$state
-) {
-	// get the index of state :
-	$idx : _gridle_get_media_query_index_by_name($state);
-
-	// check if media_min-width is null :
-	@if $state != null {
-
-		@if $idx != null {
-			// get vars :
-			$m : _gridle_get_media_query_vars($idx,"name");
-			$min-width : _gridle_get_media_query_vars($idx,"min-width");
-			$max-width : _gridle_get_media_query_vars($idx,"max-width");
-			$classes : _gridle_get_media_query_vars($idx,"classes");
-			$query : _gridle_get_media_query_vars($idx,"query");
-
-			// check if exist :
-			@if $m != null {
-				// check if query exist :
-				@if $query != null {
-					@return $query;
-				} @else {
-					// process max and min width :
-					@if $min-width == null { $min-width : 0; }
-					@if $max-width == null { $max-width : 99999px; }
-					// write media query :
-					@return "screen and (min-width: #{$min-width}) and (max-width: #{$max-width})";
-				}
-			}
-		} @else if $state == 'print' or $state == print {
-			@return "only print";
-		} @else if $state == 'tv' or $state == tv {
-			@return "only tv";
-		} @else if $state == 'portrait' or $state == portrait {
-			@return "only screen and (orientation: portrait)";
-		} @else if $state == 'landscape' or $state == landscape {
-			@return "only screen and (orientation: landscape)";
-		} @else if $state == 'retina' or $state == retina {
-			@return "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
-		}
-	} @else {
-		@return null;
-	}
-}
-
-
-/**
- * Container mixin :
- */
+// Container mixin :
 @mixin gridle_container(
 ) {
 	@include _gridle_container_common();
 }
 
 
-/**
- * Grid mixin :
- * Set the width of the specified grid column :
- *
- * @param 	int 		$columns 				The columns to generate	
- */
+// Grid mixin :
+// Set the width of the specified grid column :
+// @param 	int 		$columns 				The columns to generate	
 @mixin gridle(
 	$columns : 12,
 	$state : null,
@@ -752,13 +895,10 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * push :
- * Push the element of the count of column wanted
- *
- * @param 	int 		$columns 				The columns to generate	
- * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
- */
+// push :
+// Push the element of the count of column wanted
+// @param 	int 		$columns 				The columns to generate	
+// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_push(
 	$columns : 12,
 	$state : null,
@@ -797,13 +937,10 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * pull :
- * Pull the element of the count of column wanted
- *
- * @param 	int 		$columns 				The columns to generate	
- * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
- */
+// pull :
+// Pull the element of the count of column wanted
+// @param 	int 		$columns 				The columns to generate	
+// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_pull(
 	$columns : 12,
 	$state : null,
@@ -842,13 +979,10 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * push :
- * Push the element of the count of column wanted
- *
- * @param 	int 		$columns 				The columns to generate	
- * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
- */
+// push :
+// Push the element of the count of column wanted
+// @param 	int 		$columns 				The columns to generate	
+// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_prefix(
 	$columns : 12,
 	$state : null,
@@ -887,13 +1021,10 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * pull :
- * Pull the element of the count of column wanted
- *
- * @param 	int 		$columns 				The columns to generate	
- * @param 	boolean 	$important 			Define if need to add !important at the end of the properties
- */
+// pull :
+// Pull the element of the count of column wanted
+// @param 	int 		$columns 				The columns to generate	
+// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_suffix(
 	$columns : 12,
 	$state : null
@@ -931,9 +1062,7 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Grid centered :
- */
+// Grid centered :
 @mixin gridle_centered(
 	$state : null
 ) {
@@ -954,9 +1083,7 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Grid parent :
- */
+// Grid parent :
 @mixin gridle_parent(
 	$state : null
 ) {
@@ -974,11 +1101,8 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Hide on :
- *
- * @param 	String 	$media  On what state
- */
+// Hide on :
+// @param 	String 	$media  On what state
 @mixin gridle_hide(
 	$state : null
 ) {
@@ -995,11 +1119,8 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Not visible on :
- *
- * @param 	String 	$media 	What to hide (one of the 3 state classes name)
- */
+// Not visible on :
+// @param 	String 	$media 	What to hide (one of the 3 state classes name)
 @mixin gridle_not_visible(
 	$state : null
 ) {
@@ -1016,11 +1137,8 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Show on
- *
- * @param 	String 	$media 	What to hide (one of the 3 state classes name)
- */
+// Show on
+// @param 	String 	$media 	What to hide (one of the 3 state classes name)
 @mixin gridle_show(
 	$state : null
 ) {
@@ -1037,11 +1155,8 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Visible on :
- *
- * @param 	String 	$media 	On what state
- */
+// Visible on :
+// @param 	String 	$media 	On what state
 @mixin gridle_visible(
 	$state : null
 ) {
@@ -1058,9 +1173,7 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Gridle Right :
- */
+// Gridle Right :
 @mixin gridle_float(
 	$float-direction : left,
 	$state : null
@@ -1080,12 +1193,9 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Gridle clear :
- *
- * @param 	String 	$clear-direction 	The direction to clear
- * @param 	String 	$state 				The state
- */
+// Gridle clear :
+// @param 	String 	$clear-direction 	The direction to clear
+// @param 	String 	$state 				The state
 @mixin gridle_clear(
 	$clear-direction : both,
 	$state : null
@@ -1105,12 +1215,9 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Gridle no gutter :
- *
- * @param 	String 	$side 				The side to clear
- * @param 	String 	$state 				The state
- */
+// Gridle no gutter :
+// @param 	String 	$side 				The side to clear
+// @param 	String 	$state 				The state
 @mixin gridle_no_gutter(
 	$side : null,
 	$state : null
@@ -1144,145 +1251,10 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * Get the media queries variables :
- *
- * @param 	int 	$index 	 	The media query indes
- * @param 	String 	$var 		The media query variable name
- * @return 	String|int 			The variable value
- */
-@function _gridle_get_media_query_vars(
-	$index 	: 1,
-	$var 	: "name"
-) {
-	@if $index == 1 {
-		@if $var == "name" { @return $_gridle-state-01-name; }
-		@else if $var == "min-width" { @return $_gridle-state-01-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-01-max-width; }
-		@else if $var == "query" { @return $_gridle-state-01-query; }
-		@else if $var == "classes" { @return $_gridle-state-01-classes; }
-	} @else if $index == 2 {
-		@if $var == "name" { @return $_gridle-state-02-name; }
-		@else if $var == "min-width" { @return $_gridle-state-02-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-02-max-width; }
-		@else if $var == "query" { @return $_gridle-state-02-query; }
-		@else if $var == "classes" { @return $_gridle-state-02-classes; }
-	} @else if $index == 3 {
-		@if $var == "name" { @return $_gridle-state-03-name; }
-		@else if $var == "min-width" { @return $_gridle-state-03-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-03-max-width; }
-		@else if $var == "query" { @return $_gridle-state-03-query; }
-		@else if $var == "classes" { @return $_gridle-state-03-classes; }
-	} @else if $index == 4 {
-		@if $var == "name" { @return $_gridle-state-04-name; }
-		@else if $var == "min-width" { @return $_gridle-state-04-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-04-max-width; }
-		@else if $var == "query" { @return $_gridle-state-04-query; }
-		@else if $var == "classes" { @return $_gridle-state-04-classes; }
-	} @else if $index == 5 {
-		@if $var == "name" { @return $_gridle-state-05-name; }
-		@else if $var == "min-width" { @return $_gridle-state-05-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-05-max-width; }
-		@else if $var == "query" { @return $_gridle-state-05-query; }
-		@else if $var == "classes" { @return $_gridle-state-05-classes; }
-	} @else if $index == 6 {
-		@if $var == "name" { @return $_gridle-state-06-name; }
-		@else if $var == "min-width" { @return $_gridle-state-06-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-06-max-width; }
-		@else if $var == "query" { @return $_gridle-state-06-query; }
-		@else if $var == "classes" { @return $_gridle-state-06-classes; }
-	} @else if $index == 7 {
-		@if $var == "name" { @return $_gridle-state-07-name; }
-		@else if $var == "min-width" { @return $_gridle-state-07-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-07-max-width; }
-		@else if $var == "query" { @return $_gridle-state-07-query; }
-		@else if $var == "classes" { @return $_gridle-state-07-classes; }
-	} @else if $index == 8 {
-		@if $var == "name" { @return $_gridle-state-08-name; }
-		@else if $var == "min-width" { @return $_gridle-state-08-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-08-max-width; }
-		@else if $var == "query" { @return $_gridle-state-08-query; }
-		@else if $var == "classes" { @return $_gridle-state-08-classes; }
-	} @else if $index == 9 {
-		@if $var == "name" { @return $_gridle-state-09-name; }
-		@else if $var == "min-width" { @return $_gridle-state-09-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-09-max-width; }
-		@else if $var == "query" { @return $_gridle-state-09-query; }
-		@else if $var == "classes" { @return $_gridle-state-09-classes; }
-	} @else if $index == 10 {
-		@if $var == "name" { @return $_gridle-state-10-name; }
-		@else if $var == "min-width" { @return $_gridle-state-10-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-10-max-width; }
-		@else if $var == "query" { @return $_gridle-state-10-query; }
-		@else if $var == "classes" { @return $_gridle-state-10-classes; }
-	} @else if $index == 11 {
-		@if $var == "name" { @return $_gridle-state-11-name; }
-		@else if $var == "min-width" { @return $_gridle-state-11-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-11-max-width; }
-		@else if $var == "query" { @return $_gridle-state-11-query; }
-		@else if $var == "classes" { @return $_gridle-state-11-classes; }
-	} @else if $index == 12 {
-		@if $var == "name" { @return $_gridle-state-12-name; }
-		@else if $var == "min-width" { @return $_gridle-state-12-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-12-max-width; }
-		@else if $var == "query" { @return $_gridle-state-12-query; }
-		@else if $var == "classes" { @return $_gridle-state-12-classes; }
-	} @else if $index == 13 {
-		@if $var == "name" { @return $_gridle-state-13-name; }
-		@else if $var == "min-width" { @return $_gridle-state-13-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-13-max-width; }
-		@else if $var == "query" { @return $_gridle-state-13-query; }
-		@else if $var == "classes" { @return $_gridle-state-13-classes; }
-	} @else if $index == 14 {
-		@if $var == "name" { @return $_gridle-state-14-name; }
-		@else if $var == "min-width" { @return $_gridle-state-14-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-14-max-width; }
-		@else if $var == "query" { @return $_gridle-state-14-query; }
-		@else if $var == "classes" { @return $_gridle-state-14-classes; }
-	} @else if $index == 15 {
-		@if $var == "name" { @return $_gridle-state-15-name; }
-		@else if $var == "min-width" { @return $_gridle-state-15-min-width; }
-		@else if $var == "max-width" { @return $_gridle-state-15-max-width; }
-		@else if $var == "query" { @return $_gridle-state-15-query; }
-		@else if $var == "classes" { @return $_gridle-state-15-classes; }
-	}
-}
-
-
-/**
- * Get the index of an media query by name
- *
- * @param 	String 	$name 	The nme of the media query
- * @return 	int 			The index of the media query
- */
-@function _gridle_get_media_query_index_by_name(
-	$name
-) {
-	@if $_gridle-state-01-name == $name { @return 1; }
-	@else if $_gridle-state-02-name == $name { @return 2; }
-	@else if $_gridle-state-03-name == $name { @return 3; }
-	@else if $_gridle-state-04-name == $name { @return 4; }
-	@else if $_gridle-state-05-name == $name { @return 5; }
-	@else if $_gridle-state-06-name == $name { @return 6; }
-	@else if $_gridle-state-07-name == $name { @return 7; }
-	@else if $_gridle-state-08-name == $name { @return 8; }
-	@else if $_gridle-state-09-name == $name { @return 9; }
-	@else if $_gridle-state-10-name == $name { @return 10; }
-	@else if $_gridle-state-11-name == $name { @return 11; }
-	@else if $_gridle-state-12-name == $name { @return 12; }
-	@else if $_gridle-state-13-name == $name { @return 13; }
-	@else if $_gridle-state-14-name == $name { @return 14; }
-	@else if $_gridle-state-15-name == $name { @return 15; }
-	@else { @return null; }
-}
-
-
-/**
- * Generate all helpers classes
- * All the classes generated are not wrapper in gridle_responseTo
- * in this mixin... Just the names are generated accordingly to the
- * requested state
- */
+// Generate all helpers classes
+// All the classes generated are not wrapper in gridle_responseTo
+// in this mixin... Just the names are generated accordingly to the
+// requested state
 @mixin _gridle_generate_helper_classes (
 	$state : null
 ) {
@@ -1341,10 +1313,8 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-/**
- * gridle mixin :
- * Generate all the classes needed for a grid
- */
+// gridle mixin :
+// Generate all the classes needed for a grid
 @mixin gridle_generate_classes(
 	$scope : null
 ) {
@@ -1369,7 +1339,7 @@ $_gridle-state-15-classes 			: true !default;
 	}
 	
 	// body media query content :
-	$json-states : "{";
+	$gridle-settings-states : "{";
 
 	// generate container class :
 	$container-selector : ();
@@ -1489,9 +1459,9 @@ $_gridle-state-15-classes 			: true !default;
 			$body-query : _get_media_query_for_state($media);
 			@if ($body-query != null) {
 				@if $i == 1 {
-					$json-states : "#{$json-states}\"#{$media}\":\"#{$body-query}\"";
+					$gridle-settings-states : "#{$gridle-settings-states}\"#{$media}\":\"#{$body-query}\"";
 				} @else {
-					$json-states : "#{$json-states},\"#{$media}\":\"#{$body-query}\"";
+					$gridle-settings-states : "#{$gridle-settings-states},\"#{$media}\":\"#{$body-query}\"";
 				}
 			}
 
@@ -1540,7 +1510,7 @@ $_gridle-state-15-classes 			: true !default;
 			// manage body query :
 			$body-query : _get_media_query_for_state($state);
 			@if ($body-query != null) {
-				$json-states : "#{$json-states},\"#{$state}\":\"#{$body-query}\"";
+				$gridle-settings-states : "#{$gridle-settings-states},\"#{$state}\":\"#{$body-query}\"";
 			}
 
 			// creating classes :
@@ -1580,9 +1550,34 @@ $_gridle-state-15-classes 			: true !default;
 		}
 	}
 
-	// close body query content json :
-	$json-states : "#{$json-states}}";
-	#gridle-states {
-		content : $json-states;
+	// generate settings json :
+	$gridle-settings-states : "#{$gridle-settings-states}}";
+	$gridle-settings : "{";
+	$gridle-settings : "#{$gridle-settings} \"states\" : #{$gridle-settings-states}";
+	$gridle-settings : "#{$gridle-settings}, \"columnsCount\" : #{$gridle-columns-count}";
+	$gridle-settings : "#{$gridle-settings}, \"gutterWidth\" : \"#{$gridle-gutter-width}\"";
+	$gridle-settings : "#{$gridle-settings}, \"nameMultiplicator\" : #{$gridle-name-multiplicator}";
+	$gridle-settings : "#{$gridle-settings}, \"direction\" : \"#{$gridle-direction}\"";
+	$gridle-settings : "#{$gridle-settings}, \"ie7Support\" : #{$gridle-ie7-support}";
+	$gridle-settings : "#{$gridle-settings}, \"debug\" : #{$gridle-debug}";
+	$gridle-settings : "#{$gridle-settings}, \"debugShowClassNames\" : #{$gridle-debug-show-class-names}";
+	$gridle-settings : "#{$gridle-settings}, \"htmlStatesClasses\" : #{$gridle-html-states-classes}";
+	$gridle-settings : "#{$gridle-settings}, \"generateHelpersClasses\" : #{$gridle-generate-helpers-classes}";
+	$gridle-settings : "#{$gridle-settings}, \"generatePushClasses\" : #{$gridle-generate-push-classes}";
+	$gridle-settings : "#{$gridle-settings}, \"generatePullClasses\" : #{$gridle-generate-pull-classes}";
+	$gridle-settings : "#{$gridle-settings}, \"generatePrefixClasses\" : #{$gridle-generate-prefix-classes}";
+	$gridle-settings : "#{$gridle-settings}, \"generateSuffixClasses\" : #{$gridle-generate-suffix-classes}";
+	$useful-states-classes : "[";
+	@for $i from 1 through length($gridle-generate-useful-states-classes) {
+		@if $i > 1 {
+			$useful-states-classes : "#{$useful-states-classes},";
+		}
+		$useful-states-classes : "#{$useful-states-classes}\"#{nth($gridle-generate-useful-states-classes,$i)}\"";
+	}
+	$useful-states-classes : "#{$useful-states-classes}]";
+	$gridle-settings : "#{$gridle-settings}, \"generateUsefulStatesClasses\" : #{$useful-states-classes}";
+	$gridle-settings : "#{$gridle-settings}}";
+	#gridle-settings {
+		content : $gridle-settings;
 	}
 }

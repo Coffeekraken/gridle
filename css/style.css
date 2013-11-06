@@ -17,38 +17,6 @@ a img { border: none; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
 
 /** Import grid settings : This to be able to use gridle mixins, etc... */
-/** Import gridle : */
-/** Gridle (.scss) Gridle is an one and unique grid system file that allows you to generate almost all grid you've ever dreamt about.  Copyright (c) 2013 Olivier Bossel  Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:  The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.  @created 	25.03.13 @updated 	04.11.13 @author 		Olivier Bossel <olivier.bossel@gmail.com> @version 	1.0.4 */
-/** gridle configuration vars : */
-/** Get query for : */
-/** Vars : */
-/** Init gridle Creating the silent classes with user configuration : */
-/** Common css that cannot be extended cause of variables : */
-/** Get column width : */
-/** Register an state :  @param 	String 	$name 		The state name @param 	int 	$min-width 	The min width @param 	int 	$max-width 	The max width */
-/** Register default states : */
-/** Responsive helpers mixins :  @param 	String 	$media 	The media name to response for */
-/** Get media query by state :  @param 	String 	$state 	The state name @return 	String 			The query */
-/** Container mixin : */
-/** Grid mixin : Set the width of the specified grid column :  @param 	int 		$columns 				The columns to generate	 */
-/** push : Push the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
-/** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
-/** push : Push the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
-/** pull : Pull the element of the count of column wanted  @param 	int 		$columns 				The columns to generate	 @param 	boolean 	$important 			Define if need to add !important at the end of the properties */
-/** Grid centered : */
-/** Grid parent : */
-/** Hide on :  @param 	String 	$media  On what state */
-/** Not visible on :  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
-/** Show on  @param 	String 	$media 	What to hide (one of the 3 state classes name) */
-/** Visible on :  @param 	String 	$media 	On what state */
-/** Gridle Right : */
-/** Gridle clear :  @param 	String 	$clear-direction 	The direction to clear @param 	String 	$state 				The state */
-/** Gridle no gutter :  @param 	String 	$side 				The side to clear @param 	String 	$state 				The state */
-/** Get the media queries variables :  @param 	int 	$index 	 	The media query indes @param 	String 	$var 		The media query variable name @return 	String|int 			The variable value */
-/** Get the index of an media query by name  @param 	String 	$name 	The nme of the media query @return 	int 			The index of the media query */
-/** Generate all helpers classes All the classes generated are not wrapper in gridle_responseTo in this mixin... Just the names are generated accordingly to the requested state */
-/** gridle mixin : Generate all the classes needed for a grid */
-/** Configure : */
 /** Medias : */
 ul#medias { background: black; text-align: center; margin-bottom: 30px; }
 ul#medias li { display: inline-block; height: 50px; line-height: 50px; padding: 0 30px; color: white; font-size: 16px; cursor: pointer; margin: 0; }
