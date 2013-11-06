@@ -65,7 +65,7 @@ $gridle-generate-pull-classes 			: true !default;
 $gridle-generate-prefix-classes 		: true !default;
 $gridle-generate-suffix-classes 		: true !default;
 
-$gridle-generate-useful-states-classes 	: (retina, landscape) !default;// retina | landscape | portrait | print | tv
+$gridle-generate-useful-states-classes 	: () !default;// retina | landscape | portrait | print | tv
 
 
 
