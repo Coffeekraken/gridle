@@ -39,6 +39,20 @@ ul#medias {
 	}
 }
 
+.c1 {
+	@include gridle(5,10);
+	@include grid_parent();
+}
+.c2 {
+	@include gridle(5,10,'mobile');
+}
+.c3 {
+	@include gridle(5);
+}
+.c4 {
+	@include gridle(5,'mobile');
+}
+
 /**
  * Basic formatting :
  */

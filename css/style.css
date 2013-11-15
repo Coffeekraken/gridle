@@ -17,15 +17,32 @@ a img { border: none; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
 
 /** Import grid settings : This to be able to use gridle mixins, etc... */
+.c1 { width: 100%; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.c1:before, .c1:after { content: ""; display: table; }
+.c1:after { clear: both; }
+.c1 { zoom: 1; }
+
+.c1, .c2, .c3, .c4  { display: inline-block; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.middle { position: absolute; top: 50%; transform: translate(-50%, 0); }
+
 /** Medias : */
 ul#medias { background: black; text-align: center; margin-bottom: 30px; }
 ul#medias li { display: inline-block; height: 50px; line-height: 50px; padding: 0 30px; color: white; font-size: 16px; cursor: pointer; margin: 0; }
 ul#medias li.active, ul#medias li:hover { background: white; color: black; }
 @media screen and (min-width: 0) and (max-width: 600px) { ul#medias { display: none; } }
 
+.c1 { float: left; direction: ltr; padding: 0 10px; width: 50%; *width: expression((this.parentNode.clientWidth/10*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); padding-left: 0 !important; padding-right: 0 !important; }
+
+.c2 { float: left; direction: ltr; padding: 0 10px; }
+@media screen and (min-width: 0) and (max-width: 480px) { .c2 { width: 50%; *width: expression((this.parentNode.clientWidth/10*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); } }
+
+.c3 { float: left; direction: ltr; padding: 0 10px; width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+
+.c4  { float: left; direction: ltr; padding: 0 10px; }
+@media screen and (min-width: 0) and (max-width: 480px) { .c4  { width: 41.66667%; *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); } }
+
 /** Basic formatting : */
 body { font: 11px/1.5 "Helvetica Neue", Verdana, sans-serif; }
-html.mobile body { text-align: center; }
 @media screen and (min-width: 0) and (max-width: 480px) { body { text-align: center; } }
-html.ipad-landscape body { font-size: 16px; }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { body { font-size: 16px; } }

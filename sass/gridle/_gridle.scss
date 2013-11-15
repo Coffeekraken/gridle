@@ -177,7 +177,6 @@ $_gridle-state-15-classes 			: true !default;
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-
 // Init gridle
 // Creating the silent classes with user configuration :
 %gridle-push-pull-debug-background-common {
@@ -190,6 +189,9 @@ $_gridle-state-15-classes 			: true !default;
 }
 %gridle-container-common {
 	width:100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 
 	// For modern browser
 	&:before,
@@ -217,9 +219,6 @@ $_gridle-state-15-classes 			: true !default;
 		text-align:center;
 		color:white;
 		font-size:11px;
-		-webkit-box-sizing: border-box;
-		-moz-box-sizing: border-box;
-		box-sizing: border-box;
 	}
 }
 %gridle-grid-debug-common {
@@ -274,7 +273,7 @@ $_gridle-state-15-classes 			: true !default;
 		direction:ltr;
 	}
 	// set padding :;
-	padding:0 $gridle-gutter-width/2 !important;
+	padding:0 $gridle-gutter-width/2;
 	@if $gridle-debug == true {
 		@extend %gridle-grid-debug-common;
 	}
@@ -346,14 +345,16 @@ $_gridle-state-15-classes 			: true !default;
 
 // Get column width :
 @function gridle_get_columns_width(
-    $columns : 1
+    $columns : 1,
+    $context : $gridle-columns-count
 ) {
-    @return percentage(1 / $gridle-columns-count * $columns);
+    @return percentage(1 / $context * $columns);
 }
 @function gridle_get_column_width(
-    $columns : 1
+    $columns : 1,
+    $context : $gridle-column-count
 ) { 
-    @return gridle_get_columns_width($columns);
+    @return gridle_get_columns_width($columns, $context);
 }
 
 
@@ -544,9 +545,6 @@ $_gridle-state-15-classes 			: true !default;
 
 
 // Register an state :
-// @param 	String 	$name 		The state name
-// @param 	int 	$min-width 	The min width
-// @param 	int 	$max-width 	The max width
 @mixin gridle_register_state(
 	$name,
 	$min-width-or-query : null,
@@ -748,7 +746,6 @@ $_gridle-state-15-classes 			: true !default;
 
 
 // Responsive helpers mixins :
-// @param 	String 	$media 	The media name to response for
 @mixin gridle_responseTo(
 	$state-or-min-width,
 	$max-width : null,
@@ -834,6 +831,29 @@ $_gridle-state-15-classes 			: true !default;
 		@content;
 	}
 }
+// shortcut :
+@mixin grid_responseTo(
+	$state-or-min-width,
+	$max-width : null,
+	$has-parent : true
+) {
+	@include gridle_responseTo($state-or-min-width, $max-width, $has-parent);
+}
+@mixin gridle_state(
+	$state-or-min-width,
+	$max-width : null,
+	$has-parent : true
+) {
+	@include gridle_responseTo($state-or-min-width, $max-width, $has-parent);
+}
+@mixin grid_state(
+	$state-or-min-width,
+	$max-width : null,
+	$has-parent : true
+) {
+	@include gridle_responseTo($state-or-min-width, $max-width, $has-parent);
+}
+
 
 
 // Container mixin :
@@ -845,51 +865,56 @@ $_gridle-state-15-classes 			: true !default;
 
 // Grid mixin :
 // Set the width of the specified grid column :
-// @param 	int 		$columns 				The columns to generate	
 @mixin gridle(
-	$columns : 12,
-	$state : null,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
 ) {
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+	}
 	@include _gridle_grid_common();
 	@if $state {
 		@include gridle_responseTo($state) {
-			@include _gridle($columns, $state, $debug-state);
+			@include _gridle($columns, $state, $context);
 		}
 	} @else {
-		@include _gridle($columns,$state,$debug-state);
+		@include _gridle($columns,$state,$context);
 	}
 }
+// shortcut :
+@mixin grid(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	@include gridle($columns, $state-context, $state);
+}
 @mixin _gridle(
-	$columns : 12,
+	$columns : $gridle-columns-count,
 	$state : null,
-	$debug-state : null
+	$context : $gridle-columns-count
 ) {
 	// vars :
-	@if $debug-state == null { $debug-state : $state; }
-	$width : percentage(1 / $gridle-columns-count) * $columns;
+	$width : percentage(1 / $context * $columns);
 	width:$width;
 
 	// ie7 support :
 	@if $gridle-ie7-support == true {
-		*width: expression((this.parentNode.clientWidth/#{$gridle-columns-count}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+		*width: expression((this.parentNode.clientWidth/#{$context}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 	}
 	
 	// debug :
 	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
 		&:before {
-			@if $debug-state != null {
-				content:"grid-#{$debug-state}-#{$columns * $gridle-name-multiplicator}";
-			} @else {
-				content:"grid-#{$columns * $gridle-name-multiplicator}";
-			}
+			content:"grid-#{$state}-#{$columns * $gridle-name-multiplicator}";
 		}
 		&.grid-parent:before {
-			@if $debug-state != null {
-				content:"grid-parent-#{$debug-state}-#{$columns * $gridle-name-multiplicator}";
-			} @else {
-				content:"grid-parent-#{$columns * $gridle-name-multiplicator}";
-			}
+			content:"grid-parent-#{$state}-#{$columns * $gridle-name-multiplicator}";
 		}
 	}
 }
@@ -897,28 +922,41 @@ $_gridle-state-15-classes 			: true !default;
 
 // push :
 // Push the element of the count of column wanted
-// @param 	int 		$columns 				The columns to generate	
-// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_push(
-	$columns : 12,
-	$state : null,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
 ) {
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+	}
 	@include _gridle_push_common();
 	@if $state {
 		@include gridle_responseTo($state) {
-			@include _gridle_push($columns,$debug-state);
+			@include _gridle_push($columns,$state,$context);
 		}
 	} @else {
-		@include _gridle_push($columns,$debug-state);
+		@include _gridle_push($columns,$state,$context);
 	}
 }
+@mixin grid_push(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	@include gridle_push($columns, $state-context, $state);
+}
 @mixin _gridle_push(
-	$columns : 12,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
 ) {
 	// vars :
-	$width : percentage(1 / $gridle-columns-count) * $columns;
+	$width : percentage(1 / $context) * $columns;
 	@if $gridle-direction == rtl { $width : $width*-1; }
 	left:$width;
 
@@ -926,11 +964,7 @@ $_gridle-state-15-classes 			: true !default;
 	@if $gridle-debug == true {	
 		@if $gridle-debug-show-class-names == true {
 			&:after {
-				@if $debug-state != null {
-					content:"push-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
-				} @else {
-					content:"push-#{$columns * $gridle-name-multiplicator}" !important;
-				}
+				content:"push-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
 			}
 		}
 	}
@@ -939,28 +973,42 @@ $_gridle-state-15-classes 			: true !default;
 
 // pull :
 // Pull the element of the count of column wanted
-// @param 	int 		$columns 				The columns to generate	
-// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_pull(
-	$columns : 12,
-	$state : null,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
 ) {
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+	}
 	@include _gridle_pull_common();
 	@if $state {
 		@include gridle_responseTo($state) {
-			@include _gridle_pull($columns,$debug-state);
+			@include _gridle_pull($columns,$state,$context);
 		}
 	} @else {
-		@include _gridle_pull($columns,$debug-state);
+		@include _gridle_pull($columns,$state,$context);
 	}
 }
+// shortcut :
+@mixin grid_pull(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	@include gridle_pull($columns, $state-context, $state);
+}
 @mixin _gridle_pull(
-	$columns : 12,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
 ) {
 	// vars :
-	$width : percentage(1 / $gridle-columns-count) * $columns;
+	$width : percentage(1 / $context) * $columns;
 	@if $gridle-direction == rtl { $width : $width*-1; }
 	right:$width;
 
@@ -968,11 +1016,7 @@ $_gridle-state-15-classes 			: true !default;
 	@if $gridle-debug == true {
 		@if $gridle-debug-show-class-names == true {
 			&:after {
-				@if $debug-state != null {
-					content:"pull-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
-				} @else {
-					content:"pull-#{$columns * $gridle-name-multiplicator}" !important;
-				}
+				content:"pull-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
 			}
 		}
 	}
@@ -981,28 +1025,42 @@ $_gridle-state-15-classes 			: true !default;
 
 // push :
 // Push the element of the count of column wanted
-// @param 	int 		$columns 				The columns to generate	
-// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_prefix(
-	$columns : 12,
-	$state : null,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
 ) {
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+	}
 	@include _gridle_prefix_common();
 	@if $state {
 		@include gridle_responseTo($state) {
-			@include _gridle_prefix($columns,$debug-state);
+			@include _gridle_prefix($columns,$state,$context);
 		}
 	} @else {
-		@include _gridle_prefix($columns,$debug-state);
+		@include _gridle_prefix($columns,$state,$context);
 	}
 }
+// shortcut :
+@mixin grid_prefix(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	@include gridle_prefix($columns, $state-context, $state);
+}
 @mixin _gridle_prefix(
-	$columns : 12,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
 ) {
 	// vars :
-	$width : percentage(1 / $gridle-columns-count) * $columns;
+	$width : percentage(1 / $context) * $columns;
 	@if $gridle-direction == rtl { margin-right:$width; }
 	@else { margin-left:$width; }
 
@@ -1010,11 +1068,7 @@ $_gridle-state-15-classes 			: true !default;
 	@if $gridle-debug == true {
 		@if $gridle-debug-show-class-names == true {
 			&:after {
-				@if $debug-state != null {
-					content:"prefix-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
-				} @else {
-					content:"prefix-#{$columns * $gridle-name-multiplicator}" !important;
-				}
+				content:"prefix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
 			}
 		}
 	}
@@ -1023,27 +1077,42 @@ $_gridle-state-15-classes 			: true !default;
 
 // pull :
 // Pull the element of the count of column wanted
-// @param 	int 		$columns 				The columns to generate	
-// @param 	boolean 	$important 			Define if need to add !important at the end of the properties
 @mixin gridle_suffix(
-	$columns : 12,
+	$columns : $gridle-columns-count,
+	$state-context : null,
 	$state : null
 ) {
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+	}
 	@include _gridle_suffix_common();
 	@if $state {
 		@include gridle_responseTo($state) {
-			@include _gridle_suffix($columns,$state);
+			@include _gridle_suffix($columns,$state,$context);
 		}
 	} @else {
-		@include _gridle_suffix($columns,$state);
+		@include _gridle_suffix($columns,$state,$context);
 	}
 }
+// shortcut :
+@mixin grid_suffix(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	@include gridle_suffix($columns, $state-context, $state);
+}
 @mixin _gridle_suffix(
-	$columns : 12,
-	$debug-state : null
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
 ) {
 	// vars :
-	$width : percentage(1 / $gridle-columns-count) * $columns;
+	$width : percentage(1 / $context) * $columns;
 	@if $gridle-direction == rtl { margin-left:$width; }
 	@else { margin-right:$width; }
 
@@ -1051,11 +1120,7 @@ $_gridle-state-15-classes 			: true !default;
 	@if $gridle-debug == true {
 		@if $gridle-debug-show-class-names == true {
 			&:after {
-				@if $debug-state != null {
-					content:"suffix-#{$debug-state}-#{$columns * $gridle-name-multiplicator}" !important;
-				} @else {
-					content:"suffix-#{$columns * $gridle-name-multiplicator}" !important;
-				}
+				content:"suffix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
 			}
 		}
 	}
@@ -1073,6 +1138,12 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		@include _gridle_centered();
 	}
+}
+// shortcut :
+@mixin grid_centered(
+	$state : null
+) {
+	@include gridle_centered($state);
 }
 @mixin _gridle_centered() {
 	display:block;
@@ -1095,7 +1166,14 @@ $_gridle-state-15-classes 			: true !default;
 		@include _gridle_parent();
 	}
 }
+// shortcut :
+@mixin grid_parent(
+	$state : null
+) {
+	@include gridle_parent($state);
+}
 @mixin _gridle_parent() {
+	@include gridle_container();
 	padding-left:0 !important;
 	padding-right:0 !important;
 }
@@ -1113,6 +1191,12 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		@include _gridle_hide();
 	}
+}
+// shortcut :
+@mixin grid_hide(
+	$state : null
+) {
+	@include gridle_hide($state);
 }
 @mixin _gridle_hide() {
 	display:none;
@@ -1132,6 +1216,12 @@ $_gridle-state-15-classes 			: true !default;
 		@include _gridle_not_visible();
 	}
 }
+// shortcut :
+@mixin grid_not_visible(
+	$state : null
+) {
+	@include grid_not_visible($state);
+}
 @mixin _gridle_not_visible() {
 	visibility:hidden;
 }
@@ -1149,6 +1239,12 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		@include _gridle_show();
 	}
+}
+// shortcut :
+@mixin grid_show(
+	$state : null
+) {
+	@include gridle_show($state);
 }
 @mixin _gridle_show() {
 	display:block;
@@ -1168,6 +1264,12 @@ $_gridle-state-15-classes 			: true !default;
 		@include _gridle_visible();
 	}
 }
+// shortcut :
+@mixin grid_visible(
+	$state : null
+) {
+	@include gridle_visible($state);
+}
 @mixin _gridle_visible() {
 	visibility:visible;
 }
@@ -1185,6 +1287,13 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		@include gridle_float($float-direction);
 	}
+}
+// shortcut :
+@mixin grid_float(
+	$float-direction : left,
+	$state : null
+) {
+	@include gridle_float($float-direction, $state);
 }
 @mixin gridle_float(
 	$float-direction : left
@@ -1208,6 +1317,13 @@ $_gridle-state-15-classes 			: true !default;
 		@include _gridle_clear($clear-direction);
 	}
 }
+// shortcut :
+@mixin grid_clear(
+	$clear-direction : both,
+	$state : null
+) {
+	@include gridle_clear($clear-direction, $state);
+}
 @mixin _gridle_clear(
 	$clear-direction : both
 ) {
@@ -1230,17 +1346,16 @@ $_gridle-state-15-classes 			: true !default;
 		@include _gridle_no_gutter($side);
 	}
 }
+// shortcut :
 @mixin _gridle_no_gutter(
 	$side : null
 ) {
-
-	@if $side == 'left' or $side == left {
-		padding-left:0 !important;
-	} @else if $side == 'right' or $side == right {
-		padding-right:0 !important;
+	@if $side == null {
+		padding : 0 !important;
 	} @else {
-		padding-left:0 !important;
-		padding-right:0 !important;
+		@each $s in $side {
+			padding-#{$s} : 0 !important;
+		}
 	}
 }
 @mixin gridle_no_margin(
@@ -1248,6 +1363,144 @@ $_gridle-state-15-classes 			: true !default;
 	$state : null
 ) {
 	@include gridle_no_gutter($side, $state);
+}
+@mixin grid_no_gutter(
+	$side : null,
+	$state : null
+) {
+	@include gridle_no_gutter($side, $state);
+}
+@mixin grid_no_margin(
+	$side : null,
+	$state : null
+) {
+	@include gridle_no_gutter($side, $state);
+}
+
+
+// Gridle gutter :
+// @param 	String 	$side 				The side to clear
+// @param 	String 	$state 				The state
+@mixin gridle_gutter(
+	$side : null,
+	$state : null
+) {
+	@if $state {
+		@include gridle_responseTo($state) {
+			@include _gridle_gutter($side);
+		}
+	} @else {
+		@include _gridle_gutter($side);
+	}
+}
+// shortcut :
+@mixin _gridle_gutter(
+	$side : null
+) {
+	@if $side == null {
+		padding : $gridle-gutter-width / 2 !important;
+	} @else {
+		@each $s in $side {
+			padding-#{$s} : $gridle-gutter-width / 2 !important;
+		}
+	}
+}
+@mixin gridle_margin(
+	$side : null,
+	$state : null
+) {
+	@include gridle_gutter($side, $state);
+}
+@mixin grid_gutter(
+	$side : null,
+	$state : null
+) {
+	@include gridle_gutter($side, $state);
+}
+@mixin grid_margin(
+	$side : null,
+	$state : null
+) {
+	@include gridle_gutter($side, $state);
+}
+
+
+// Same height columns :
+@mixin gridle_table_row(
+	$state : null
+) {
+	@if $state {
+		@include gridle_responseTo($state) {
+			@include _gridle_table_row();
+		}
+	} @else {
+		@include _gridle_table_row();
+	}
+}
+@mixin _gridle_table_row() {
+	// display:table !important;
+	// width:100%;
+	overflow:hidden;
+	clear:both;
+}
+@mixin gridle_equal_height_column(
+	$state : null
+) {
+	@if $state {
+		@include gridle_responseTo($state) {
+			@include _gridle_equal_height_column();
+		}
+	} @else {
+		@include _gridle_equal_height_column();
+	}
+}
+@mixin _gridle_equal_height_column() {
+	// display:table-cell !important;
+	// float:none !important;
+	// padding-bottom:999999px;
+	// margin-bottom:-999999px;
+}
+
+
+// vertical align :
+@mixin gridle_v_align_row(
+	$state : null
+) {
+	@if $state {
+		@include gridle_responseTo($state) {
+			@include _gridle_v_align_row();
+		}
+	} @else {
+		@include _gridle_v_align_row();
+	}
+}
+@mixin _gridle_v_align_row() {
+	display:table !important;
+	width:100%;
+}
+@mixin gridle_v_align(
+	$align : middle,
+	$state : null
+) {
+	@if $state {
+		@include gridle_responseTo($state) {
+			@include _gridle_v_align($align);
+		}
+	} @else {
+		@include _gridle_v_align($align);
+	}
+}
+@mixin _gridle_v_align(
+	$align : middle
+) {
+	display:table-cell;
+	vertical-align:$align;
+}
+
+.middle {
+	position:absolute;
+	top:50%;
+	transform: translate(-50%, 0);
 }
 
 
@@ -1301,6 +1554,26 @@ $_gridle-state-15-classes 			: true !default;
 	.no-margin#{$media}-right {
 		@include gridle_no_margin(right);
 	}
+	.gutter#{$media},
+	.margin#{$media} {
+		@include gridle_margin();
+	}
+	.gutter#{$media}-left,
+	.margin#{$media}-left {
+		@include gridle_margin(left);
+	}
+	.gutter#{$media}-right,
+	.margin#{$media}-right {
+		@include gridle_margin(right);
+	}
+	.gutter#{$media}-top,
+	.margin#{$media}-top {
+		@include gridle_margin(top);
+	}
+	.gutter#{$media}-bottom,
+	.margin#{$media}-bottom {
+		@include gridle_margin(bottom);
+	}
 	.auto-height#{$media} {
 		height:inherit;
 	}
@@ -1309,6 +1582,28 @@ $_gridle-state-15-classes 			: true !default;
 	}
 	[class*="grid-"].grid-parent#{$media} {
 		@include gridle_parent(null);
+	}
+	.table-row#{$media} {
+		@include gridle_table_row();
+	}
+	.equal-height-row#{$media} {
+		@include gridle_table_row();
+
+		> [class*="grid-"] {
+			@include gridle_equal_height_column();
+		}
+	}
+	.v-align-row#{$media} {
+		@include gridle_v_align_row();
+	}
+	.v-align#{$media}-top {
+		@include gridle_v_align(top);
+	}
+	.v-align#{$media}-middle {
+		@include gridle_v_align(middle);
+	}
+	.v-align#{$media}-bottom {
+		@include gridle_v_align(bottom);
 	}
 }
 
