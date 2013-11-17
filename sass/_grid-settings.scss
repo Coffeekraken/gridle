@@ -5,7 +5,7 @@
 // Configure :
 $gridle-columns-count : 12;
 $gridle-gutter-width : 20px;
-$gridle-debug : false;
+$gridle-debug : true;
 $gridle-html-states-classes : false; // not really for production, used for demo here...
 
 @include gridle_register_default_states();

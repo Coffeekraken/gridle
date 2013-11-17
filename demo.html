@@ -36,36 +36,76 @@
 		<li data-class="ipad-landscape">iPad landscape</li>
 	</ul>
 
-	<div class="container">
+	<div class="container grid-debug">
 
 		<div class="grid-3 grid-mobile-12 grid-ipad-landscape-12 hide-print">Logo</div>
 		<div class="grid-5 grid-mobile-12 grid-ipad-landscape-12 hide-print">Search</div>
 		<div class="grid-4 grid-mobile-12 hide-ipad-landscape hide-mobile hide-print">Login</div>
 
-		<div class="grid-12 hide-print" style="background-color:#eee9b2;">Primary navigation</div>
+		<div class="grid-12 hide-print grid-debug-color-1">Primary navigation</div>
 
-		<div class="grid-8 grid-tablet-12 grid-mobile-12 float-right" style="background-color:#fae4a7;">
-			<div class="content" style="height:242px;">
-				Slideshow content
+
+		<div class="grid-12 grid-parent grid-flex-row">
+
+			<div class="grid-8 grid-tablet-12 grid-mobile-12 float-right grid-debug-color-3">
+				<div class="content" style="height:500px;">
+					Slideshow content
+				</div>
 			</div>
-		</div>
-		<div class="grid-4 grid-mobile-12" style="background-color:#f5eacc;">
-			<div class="content" style="height:30px;">
-				Slideshow menu 1
+
+			<div class="grid-4 grid-tablet-12 grid-mobile-12 grid-parent grid-flex-column">
+
+				<div class="grid-12 grid-tablet-4 grid-mobile-12 grid-debug-color-2 grid-flex">
+					<div class="content">
+						Slideshow menu 1
+					</div>
+				</div>
+				<div class="grid-12 grid-tablet-4 grid-mobile-12 grid-debug-color-2 grid-flex">
+					<div class="content">
+						Slideshow menu 2
+					</div>
+				</div>
+				<div class="grid-12 grid-tablet-4 grid-mobile-12 grid-debug-color-2 grid-flex">
+					<div class="content">
+						Slideshow menu 3
+					</div>
+				</div>
+				<div class="grid-12 grid-tablet-4 grid-mobile-12 grid-debug-color-2 grid-flex">
+					<div class="content">
+						Slideshow menu 3
+					</div>
+				</div>
+
 			</div>
-		</div>
-		<div class="grid-4 grid-mobile-12" style="background-color:#f5eacc;">
-			<div class="content" style="height:30px;">
-				Slideshow menu 2
-			</div>
-		</div>
-		<div class="grid-4 grid-mobile-12" style="background-color:#f5eacc;">
-			<div class="content" style="height:30px;">
-				Slideshow menu 3
-			</div>
+
 		</div>
 
-		<div class="grid-12" style="background-color:#eee9b2;">Breadcrumb</div>
+		<div class="grid-flex-row grid-12 grid-parent">
+
+			<div class="grid-4 grid-tablet-12 grid-debug-color-1">
+				<div style="height:300px;" class="grid-debug-color-5">
+					Hello
+				</div>
+			</div>
+
+			<div class="grid-4 grid-tablet-12 grid-debug-color-1 grid-flex-column">
+				<div class="grid-debug-color-4 grid-flex" style="padding:20px; margin-bottom:20px;">
+					World
+				</div>
+				<div class="grid-debug-color-4 grid-flex">
+					World
+				</div>
+			</div>
+
+			<div class="grid-4 grid-tablet-12 grid-debug-color-1">
+				<div>
+					Check
+				</div>
+			</div>
+
+		</div>
+
+		<div class="grid-12 grid-debug-color-1">Breadcrumb</div>
 
 		<div class="grid-4 grid-ipad-landscape-6 grid-tablet-6 grid-mobile-12 push-tablet-6">
 			<div class="content" style="height:100px;">
@@ -84,12 +124,12 @@
 			</div>
 		</div>
 
-		<div class="grid-6 grid-mobile-12" style="background-color:#f5eacc;">
+		<div class="grid-6 grid-mobile-12 grid-debug-color-3">
 			<div class="content" style="height:100px">
 				Custom box 1
 			</div>
 		</div>
-		<div class="grid-6 grid-mobile-12" style="background-color:#f5eacc;">
+		<div class="grid-6 grid-mobile-12 grid-debug-color-3">
 			<div class="content" style="height:100px">
 				Custom box 2
 			</div>

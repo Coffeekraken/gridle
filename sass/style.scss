@@ -2,12 +2,18 @@
  * Imports :
  */
 @import 'compass/reset';
+@import 'compass/css3/box';
 
 /**
  * Import grid settings :
  * This to be able to use gridle mixins, etc...
  */
 @import 'grid-settings';
+
+
+.flex {
+	@include display-box;
+}
 
 /**
  * Medias :
