@@ -373,27 +373,34 @@ $_gridle-debug-selector : ".grid-debug &, &.grid-debug";
 // display flex :
 @mixin _gridle_cross_display_flex()
 {
-	display: -webkit-box;
+	// display: -webkit-box;
 	// display: -moz-box;
 	// display: -ms-flexbox;
 	// display: -webkit-flex;
-	display: flex;
+	// display: -webkit-box;
+display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+
+  > [class*="grid-"] {
+  	float:none;
+  }
 }
 
 // flex :
 @mixin _gridle_cross_flex(
 	$value : 1
 ) {
-
-	$width : percentage(1 / $gridle-columns-count * $value);
-	
-	-webkit-box-flex: $value $width;
+	// -webkit-box-flex: $value;
 	// -moz-box-flex: $value;
 	// -webkit-flex: $value;
 	// -ms-flex: $value;
-	flex: $value;
+	// flex: $value;
 
-	float:none !important;
+	// float:none !important;
 }
 
 // flex flow :
@@ -403,25 +410,21 @@ $_gridle-debug-selector : ".grid-debug &, &.grid-debug";
 	// -webkit-flex-flow: $flow;
 	// -moz-flex-flow: $flow;
 	// -ms-flex-flow: $flow;
-	flex-flow: $flow;
+	// flex-flow: $flow;
 
-	@if nth($flow, 1) == row {
-		-webkit-box-orient: horizontal;
-		// -moz-box-orient: horizontal;
-		// -webkit-flex-direction: row;
-		// -ms-flex-direction: row;
-		flex-direction: row;
-	} @else {
-		-webkit-box-orient: vertical;
-		// -moz-box-orient: vertical;
-		// -webkit-flex-direction: column;
-		// -ms-flex-direction: column;
-		flex-direction: column;
-	}
-
-	flex-wrap : wrap;
-	
-
+	// @if nth($flow, 1) == row {
+	// 	-webkit-box-orient: horizontal;
+	// 	// -moz-box-orient: horizontal;
+	// 	// -webkit-flex-direction: row;
+	// 	// -ms-flex-direction: row;
+	// 	flex-direction: row;
+	// } @else {
+	// 	-webkit-box-orient: vertical;
+	// 	// -moz-box-orient: vertical;
+	// 	// -webkit-flex-direction: column;
+	// 	// -ms-flex-direction: column;
+	// 	flex-direction: column;
+	// }
 }
 
 
