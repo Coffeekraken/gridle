@@ -73,7 +73,7 @@ Customize your content look and feel with Gridle mixins
 	#sidebar {
 		background : red;
 
-		@include gridle_responseTo('mobile') {
+		@include gridle_state('mobile') {
 			background : green;
 		}
 	}
