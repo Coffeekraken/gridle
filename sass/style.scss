@@ -10,11 +10,6 @@
  */
 @import 'grid-settings';
 
-
-.flex {
-	@include display-box;
-}
-
 /**
  * Medias :
  */
@@ -40,23 +35,9 @@ ul#medias {
 		}
 	}
 
-	@include gridle_responseTo(0, 600px) {
+	@include gridle_state(0, 600px) {
 		display:none;
 	}
-}
-
-.c1 {
-	@include gridle(5,10);
-	@include grid_parent();
-}
-.c2 {
-	@include gridle(5,10,'mobile');
-}
-.c3 {
-	@include gridle(5);
-}
-.c4 {
-	@include gridle(5,'mobile');
 }
 
 /**
@@ -65,10 +46,10 @@ ul#medias {
 body {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 
-	@include gridle_responseTo('mobile') {
+	@include gridle_state('mobile') {
 		text-align:center;
 	}
-	@include gridle_responseTo('ipad-landscape') {
+	@include gridle_state('ipad-landscape') {
 		font-size:16px;
 	}
 }

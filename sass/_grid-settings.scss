@@ -6,7 +6,7 @@
 $gridle-columns-count : 12;
 $gridle-gutter-width : 20px;
 $gridle-debug : true;
-$gridle-html-states-classes : false; // not really for production, used for demo here...
+$gridle-html-states-classes : true; // not really for production, used for demo here...
 
 @include gridle_register_default_states();
 @include gridle_register_state('ipad-landscape', 'only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)');
