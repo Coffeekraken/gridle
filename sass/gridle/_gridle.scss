@@ -31,7 +31,7 @@
 // @created 	25.03.13
 // @updated 	12.11.13
 // @author 		Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.0.8
+// @version 	1.0.9
 // |------------------------------------------------------
 // |------------------------------------------------------
 
@@ -1380,6 +1380,14 @@ $_gridle-state-15-classes 			: true !default;
 	#{_gridle_prefixed_class("no-gutter#{$media}-right")},
 	#{_gridle_prefixed_class("no-margin#{$media}-right")} {
 		@include gridle_no_margin(right);
+	}
+	#{_gridle_prefixed_class("no-gutter#{$media}-top")},
+	#{_gridle_prefixed_class("no-margin#{$media}-top")} {
+		@include gridle_no_margin(top);
+	}
+	#{_gridle_prefixed_class("no-gutter#{$media}-bottom")},
+	#{_gridle_prefixed_class("no-margin#{$media}-bottom")} {
+		@include gridle_no_margin(bottom);
 	}
 	#{_gridle_prefixed_class("gutter#{$media}")},
 	#{_gridle_prefixed_class("margin#{$media}")} {
