@@ -31,7 +31,7 @@
 // @created 	25.03.13
 // @updated 	20.11.13
 // @author 		Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.0.9.5
+// @version 	1.0.9.7
 // |------------------------------------------------------
 // |------------------------------------------------------
 
@@ -186,11 +186,11 @@ $_gridle-state-15-classes 			: true !default;
 	// For modern browser
 	&:before,
 	&:after {
-	    content:"";
-	    display:table;
+		content:"";
+		display:table;
 	}
 	&:after {
-	    clear:both;
+		clear:both;
 	}
 	// For IE 6/7 (trigger hasLayout
 	& {
@@ -372,16 +372,16 @@ $_gridle-state-15-classes 			: true !default;
 
 // Get column width :
 @function gridle_get_columns_width(
-    $columns : 1,
-    $context : $gridle-columns-count
+	$columns : 1,
+	$context : $gridle-columns-count
 ) {
-    @return percentage(1 / $context * $columns);
+	@return percentage(1 / $context * $columns);
 }
 @function gridle_get_column_width(
-    $columns : 1,
-    $context : $gridle-column-count
+	$columns : 1,
+	$context : $gridle-columns-count
 ) { 
-    @return gridle_get_columns_width($columns, $context);
+	@return gridle_get_columns_width($columns, $context);
 }
 
 // prefix classname :
@@ -411,9 +411,9 @@ $_gridle-state-15-classes 			: true !default;
 		$query : _gridle_get_media_query_vars($idx,"query");
 
 		// check if exist :
-		@if $name != null {
+		@if $name {
 			// check if query exist :
-			@if $query != null {
+			@if $query {
 				@return $query;
 			} @else {
 
@@ -812,9 +812,9 @@ $_gridle-state-15-classes 			: true !default;
 		$query : _gridle_get_media_query_vars($idx,"query");
 
 		// check if exist :
-		@if $name != null {
+		@if $name {
 			// check if query exist :
-			@if $query != null {
+			@if $query {
 				@media #{$query} {
 					@content;
 				}
@@ -887,6 +887,9 @@ $_gridle-state-15-classes 			: true !default;
 	$state-context : null,
 	$state : null
 ) {
+	// common :
+	@include _gridle_grid_common();
+	// variables :
 	$context : $gridle-columns-count;
 	@if type-of($state-context) == number {
 		$state : $state;
@@ -894,7 +897,7 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		$state : $state-context;
 	}
-	@include _gridle_grid_common();
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle($columns, $state, $context);
@@ -938,6 +941,9 @@ $_gridle-state-15-classes 			: true !default;
 	$state-context : null,
 	$state : null
 ) {
+	// common :
+	@include _gridle_push_common();
+	// variables :
 	$context : $gridle-columns-count;
 	@if type-of($state-context) == number {
 		$state : $state;
@@ -945,7 +951,7 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		$state : $state-context;
 	}
-	@include _gridle_push_common();
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_push($columns,$state,$context);
@@ -982,6 +988,9 @@ $_gridle-state-15-classes 			: true !default;
 	$state-context : null,
 	$state : null
 ) {
+	// common :
+	@include _gridle_pull_common();
+	// variables :
 	$context : $gridle-columns-count;
 	@if type-of($state-context) == number {
 		$state : $state;
@@ -989,7 +998,7 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		$state : $state-context;
 	}
-	@include _gridle_pull_common();
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_pull($columns,$state,$context);
@@ -1026,6 +1035,9 @@ $_gridle-state-15-classes 			: true !default;
 	$state-context : null,
 	$state : null
 ) {
+	// common :
+	@include _gridle_prefix_common();
+	// variables :
 	$context : $gridle-columns-count;
 	@if type-of($state-context) == number {
 		$state : $state;
@@ -1033,7 +1045,7 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		$state : $state-context;
 	}
-	@include _gridle_prefix_common();
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_prefix($columns,$state,$context);
@@ -1070,6 +1082,9 @@ $_gridle-state-15-classes 			: true !default;
 	$state-context : null,
 	$state : null
 ) {
+	// common :
+	@include _gridle_suffix_common();
+	// variables :
 	$context : $gridle-columns-count;
 	@if type-of($state-context) == number {
 		$state : $state;
@@ -1077,7 +1092,7 @@ $_gridle-state-15-classes 			: true !default;
 	} @else {
 		$state : $state-context;
 	}
-	@include _gridle_suffix_common();
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_suffix($columns,$state,$context);
@@ -1111,6 +1126,7 @@ $_gridle-state-15-classes 			: true !default;
 @mixin gridle_centered(
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_centered();
@@ -1132,7 +1148,9 @@ $_gridle-state-15-classes 			: true !default;
 @mixin gridle_parent(
 	$state : null
 ) {
+	// common :
 	@include _gridle_parent_common();
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_parent();
@@ -1151,6 +1169,7 @@ $_gridle-state-15-classes 			: true !default;
 @mixin gridle_hide(
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_hide();
@@ -1169,6 +1188,7 @@ $_gridle-state-15-classes 			: true !default;
 @mixin gridle_not_visible(
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_not_visible();
@@ -1187,6 +1207,7 @@ $_gridle-state-15-classes 			: true !default;
 @mixin gridle_show(
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_show();
@@ -1205,6 +1226,7 @@ $_gridle-state-15-classes 			: true !default;
 @mixin gridle_visible(
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_visible();
@@ -1223,6 +1245,7 @@ $_gridle-state-15-classes 			: true !default;
 	$float-direction : left,
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include gridle_float($float-direction);
@@ -1245,6 +1268,7 @@ $_gridle-state-15-classes 			: true !default;
 	$clear-direction : both,
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_clear($clear-direction);
@@ -1267,6 +1291,7 @@ $_gridle-state-15-classes 			: true !default;
 	$side : left right,
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_no_gutter($side);
@@ -1297,6 +1322,7 @@ $_gridle-state-15-classes 			: true !default;
 	$side : left right,
 	$state : null
 ) {
+	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_gutter($side);
@@ -1328,10 +1354,12 @@ $_gridle-state-15-classes 			: true !default;
 @mixin _gridle_generate_helper_classes (
 	$state : null
 ) {
+	// variables :
 	$media : '';
-	@if ($state != null) { $media : -#{$state}; }
+	@if $state { $media : -#{$state}; }
 	@else { $media : ''; }
 
+	// helpers :
 	#{_gridle_prefixed_class("hide#{$media}")} {
 		@include gridle_hide(null);
 	}
@@ -1405,7 +1433,11 @@ $_gridle-state-15-classes 			: true !default;
 	#{_gridle_prefixed_class("centered#{$media}")} {
 		@include gridle_centered(null);
 	}
+	#{_gridle_prefixed_class("parent#{$media}")} {
+		@include _gridle_parent(); // gridle_parent contain extend so can not be here in a media query
+	}
 
+	// debug colors :
 	@if $gridle-debug {
 		// debug color classes :
 		#{_gridle_prefixed_class("debug-color#{$media}-1")} {
@@ -1442,260 +1474,49 @@ $_gridle-state-15-classes 			: true !default;
 }
 
 
-// gridle mixin :
-// Generate all the classes needed for a grid
-@mixin gridle_generate_classes(
-	$scope : null
-) {
-	// check if a scope exist :
-	@if $scope != null {
-		// wrapp grid into scope :
-		.#{$scope} {
-			@include _gridle_generate_classes(true);
-		}
-	} @else {
-		// generate classes :
-		@include _gridle_generate_classes(false);
-	}
-}
-@mixin _gridle_generate_classes(
-	$has-parent
+// generate settings json :
+@mixin gridle_generate_json_settings(
+	$scope : default
 ) {
 
-	// Windows 8 fix for snap mode :
-	@media screen and (max-width: 400px) {
-		@-ms-viewport { width: device-width; }
-	}
-	
-	// body media query content :
+	// settings content :
 	$gridle-settings-states : "{";
-
-	// generate container class :
-	$container-selector : ();
-	$container-selector : $container-selector, unquote("#{_gridle_prefixed_class("container")}, #{_gridle_prefixed_class("container-#{$gridle-columns-count}")}");
-	#{$container-selector} {
-		@include gridle_container();
-	}
-
-	// generate all grid-x classes :
-	@for $i from 0 through $gridle-columns-count {
-
-		#{_gridle_prefixed_class("grid-#{$i*$gridle-name-multiplicator}")} {
-			@include gridle($i);
-		}
-		@if $gridle-generate-push-classes == true {
-			#{_gridle_prefixed_class("push-#{$i*$gridle-name-multiplicator}")} {
-				@include gridle_push($i);
-			}
-		}
-		@if $gridle-generate-pull-classes == true {
-			#{_gridle_prefixed_class("pull-#{$i*$gridle-name-multiplicator}")} {
-				@include gridle_pull($i);
-			}
-		}
-		@if $gridle-generate-prefix-classes == true {
-			#{_gridle_prefixed_class("prefix-#{$i*$gridle-name-multiplicator}")} {
-				@include gridle_prefix($i);
-			}
-		}
-		@if $gridle-generate-suffix-classes == true {
-			#{_gridle_prefixed_class("suffix-#{$i*$gridle-name-multiplicator}")} {
-				@include gridle_suffix($i);
-			}
-		}
-	}
-
-	// helpers classes :
-	@if $gridle-generate-helpers-classes == true {
-		@include _gridle_generate_helper_classes();
-
-		#{_gridle_prefixed_class("parent")} {
-			@include gridle_parent();
-		}
-	}
 
 	// generate all classes for differents media queries :
 	@for $i from 1 through 15 {
 		// setup vars :
 		$media : _gridle_get_media_query_vars($i,"name");
-		$min-width : _gridle_get_media_query_vars($i,"min-width");
-		$max-width : _gridle_get_media_query_vars($i,"max-width");
 		$classes : _gridle_get_media_query_vars($i,"classes");
-
+ 
 		// generate all media queries grid classes :
 		@if $media and $classes == true {
-
+ 
 			// manage body query :
 			$body-query : _get_media_query_for_state($media);
-			@if ($body-query != null) {
+			@if $body-query {
 				@if $i == 1 {
 					$gridle-settings-states : "#{$gridle-settings-states}\"#{$media}\":\"#{$body-query}\"";
 				} @else {
 					$gridle-settings-states : "#{$gridle-settings-states},\"#{$media}\":\"#{$body-query}\"";
 				}
 			}
-			
-			// extend common css :
-			@for $j from 0 through $gridle-columns-count {
-	
-				// extend classes :
-				#{_gridle_prefixed_class("grid-#{$media}-#{$j*$gridle-name-multiplicator}")} {
-					@include _gridle_grid_common();
-				}
-				@if $gridle-generate-push-classes == true {
-					#{_gridle_prefixed_class("push-#{$media}-#{$j*$gridle-name-multiplicator}")} {
-						@include _gridle_push_common();
-					}
-				}
-				@if $gridle-generate-pull-classes == true {
-					#{_gridle_prefixed_class("pull-#{$media}-#{$j*$gridle-name-multiplicator}")} {
-						@include _gridle_pull_common();
-					}
-				}
-				@if $gridle-generate-prefix-classes == true {
-					#{_gridle_prefixed_class("prefix-#{$media}-#{$j*$gridle-name-multiplicator}")} {
-						@include _gridle_prefix_common();
-					}
-				}
-				@if $gridle-generate-suffix-classes == true {
-					#{_gridle_prefixed_class("suffix-#{$media}-#{$j*$gridle-name-multiplicator}")} {
-						@include _gridle_suffix_common();
-					}	
-				}
 
-			}
-
-			// generate all the classes :
-			@include gridle_state($media, null, $has-parent) {
-		
-				@for $k from 0 through $gridle-columns-count {
-		
-					#{_gridle_prefixed_class("grid-#{$media}-#{$k*$gridle-name-multiplicator}")} {
-						@include _gridle($k,$media);
-					}
-					@if $gridle-generate-push-classes == true {
-						#{_gridle_prefixed_class("push-#{$media}-#{$k*$gridle-name-multiplicator}")} {
-							@include _gridle_push($k,$media);
-						}
-					}
-					@if $gridle-generate-pull-classes == true {
-						#{_gridle_prefixed_class("pull-#{$media}-#{$k*$gridle-name-multiplicator}")} {
-							@include _gridle_pull($k,$media);
-						}
-					}
-					@if $gridle-generate-prefix-classes == true {
-						#{_gridle_prefixed_class("prefix-#{$media}-#{$k*$gridle-name-multiplicator}")} {
-							@include _gridle_prefix($k,$media);
-						}
-					}
-					@if $gridle-generate-suffix-classes == true {
-						#{_gridle_prefixed_class("suffix-#{$media}-#{$k*$gridle-name-multiplicator}")} {
-							@include _gridle_suffix($k,$media);
-						}	
-					}
-				}
-
-				// media queries helpers classes (that not contain extend css) :
-				@if $gridle-generate-helpers-classes == true and $media {
-					@include _gridle_generate_helper_classes($media);
-				}
-			}
-
-			// helpers that have extend in them (can not been in the @media) :
-			@if $gridle-generate-helpers-classes == true and $media {
-				#{_gridle_prefixed_class("parent-#{$media}")} {
-					@include gridle_parent($media);
-				}
-			}
 		}
 	}
 
 	// usefull states :
 	@if $gridle-generate-useful-states-classes != null {
 		@each $state in $gridle-generate-useful-states-classes { 
-
+ 
 			// manage body query :
 			$body-query : _get_media_query_for_state($state);
-			@if ($body-query != null) {
+			@if $body-query {
 				$gridle-settings-states : "#{$gridle-settings-states},\"#{$state}\":\"#{$body-query}\"";
-			}
-
-			// extend common css :
-			@for $l from 0 through $gridle-columns-count {
-	
-				// extend classes :
-				#{_gridle_prefixed_class("grid-#{$state}-#{$l*$gridle-name-multiplicator}")} {
-					@include _gridle_grid_common();
-				}
-				@if $gridle-generate-push-classes == true {
-					#{_gridle_prefixed_class("push-#{$state}-#{$l*$gridle-name-multiplicator}")} {
-						@include _gridle_push_common();
-					}
-				}
-				@if $gridle-generate-pull-classes == true {
-					#{_gridle_prefixed_class("pull-#{$state}-#{$l*$gridle-name-multiplicator}")} {
-						@include _gridle_pull_common();
-					}
-				}
-				@if $gridle-generate-prefix-classes == true {
-					#{_gridle_prefixed_class("prefix-#{$state}-#{$l*$gridle-name-multiplicator}")} {
-						@include _gridle_prefix_common();
-					}
-				}
-				@if $gridle-generate-suffix-classes == true {
-					#{_gridle_prefixed_class("suffix-#{$state}-#{$l*$gridle-name-multiplicator}")} {
-						@include _gridle_suffix_common();
-					}	
-				}
-
-			}
-
-			// creating classes :
-			@include gridle_state($state, null, $has-parent) {
-
-				@for $m from 0 through $gridle-columns-count {
-			
-					#{_gridle_prefixed_class("grid-#{$state}-#{$m*$gridle-name-multiplicator}")} {
-						@include _gridle($m,$state);
-					}
-					@if $gridle-generate-push-classes == true {
-						#{_gridle_prefixed_class("push-#{$state}-#{$m*$gridle-name-multiplicator}")} {
-							@include _gridle_push($m,$state);
-						}
-					}
-					@if $gridle-generate-pull-classes == true {
-						#{_gridle_prefixed_class("pull-#{$state}-#{$m*$gridle-name-multiplicator}")} {
-							@include _gridle_pull($m,$state);
-						}
-					}
-					@if $gridle-generate-prefix-classes == true {
-						#{_gridle_prefixed_class("prefix-#{$state}-#{$m*$gridle-name-multiplicator}")} {
-							@include _gridle_prefix($m,$state);
-						}
-					}
-					@if $gridle-generate-suffix-classes == true {
-						#{_gridle_prefixed_class("suffix-#{$state}-#{$m*$gridle-name-multiplicator}")} {
-							@include _gridle_suffix($m,$state);
-						}	
-					}
-				}
-				
-				// media queries helpers classes (that not contain extend css) :
-				@if $gridle-generate-helpers-classes == true {
-					@include _gridle_generate_helper_classes($state);	
-				}
-			}
-
-			// helpers that have extend in them (can not been in the @media) :
-			@if $gridle-generate-helpers-classes == true {
-				#{_gridle_prefixed_class("parent-#{$state}")} {
-					@include gridle_parent($state);
-				}
 			}
 		}
 	}
 
-	// generate settings json :
+	 // generate settings json :
 	$gridle-settings-states : "#{$gridle-settings-states}}";
 	$gridle-settings : "{";
 	$gridle-settings : "#{$gridle-settings} \"states\" : #{$gridle-settings-states}";
@@ -1723,7 +1544,249 @@ $_gridle-state-15-classes 			: true !default;
 	$useful-states-classes : "#{$useful-states-classes}]";
 	$gridle-settings : "#{$gridle-settings}, \"generateUsefulStatesClasses\" : #{$useful-states-classes}";
 	$gridle-settings : "#{$gridle-settings}}";
-	#gridle-settings {
+	#gridle-settings-#{$scope} {
 		content : $gridle-settings;
 	}
+}
+
+
+// gridle mixin :
+// Generate all the classes needed for a grid
+@mixin gridle_generate_classes(
+	$scope : null
+) {
+	// check if a scope exist :
+	@if $scope {
+		// wrapp grid into scope :
+		.#{$scope} {
+			@include _gridle_generate_classes(true);
+		}
+	} @else {
+		// generate classes :
+		@include _gridle_generate_classes(false);
+	}
+}
+@mixin _gridle_generate_classes(
+	$has-parent
+) {
+ 
+	// Windows 8 fix for snap mode :
+	@media screen and (max-width: 400px) {
+		@-ms-viewport { width: device-width; }
+	}
+ 
+	// generate container class :
+	$container-selector : ();
+	$container-selector : $container-selector, unquote("#{_gridle_prefixed_class("container")}, #{_gridle_prefixed_class("container-#{$gridle-columns-count}")}");
+	#{$container-selector} {
+		@include gridle_container();
+	}
+
+	// parent common css :
+	$parentSelector : "#{"#{$gridle-class-prefix}parent"}";
+	$gridSelector : "#{"#{$gridle-class-prefix}grid-"}";
+	[class*="#{$gridSelector}"][class*="#{$parentSelector}"] {
+		@extend %gridle-clearfix;
+		@extend %gridle-parent-common;
+	}
+ 
+	// generate all grid-x classes :
+	@for $i from 0 through $gridle-columns-count {
+ 
+		// variables :
+		$calculatedSelector : "#{$i*$gridle-name-multiplicator}";
+
+		// classes :
+		#{_gridle_prefixed_class("grid-#{$calculatedSelector}")} {
+			@include _gridle($i);
+		}
+		@if $gridle-generate-push-classes == true {
+			#{_gridle_prefixed_class("push-#{$calculatedSelector}")} {
+				@include _gridle_push($i);
+			}
+		}
+		@if $gridle-generate-pull-classes == true {
+			#{_gridle_prefixed_class("pull-#{$calculatedSelector}")} {
+				@include _gridle_pull($i);
+			}
+		}
+		@if $gridle-generate-prefix-classes == true {
+			#{_gridle_prefixed_class("prefix-#{$calculatedSelector}")} {
+				@include _gridle_prefix($i);
+			}
+		}
+		@if $gridle-generate-suffix-classes == true {
+			#{_gridle_prefixed_class("suffix-#{$calculatedSelector}")} {
+				@include _gridle_suffix($i);
+			}
+		}
+	}
+ 
+	// helpers classes :
+	@if $gridle-generate-helpers-classes == true {
+		@include _gridle_generate_helper_classes();
+	}
+ 
+	// generate all selector for extends :
+	$push-common-selector : ();
+	$pull-common-selector : ();
+	$prefix-common-selector : ();
+	$suffix-common-selector : ();
+	$common-selector : ();
+	@for $i from 0 through $gridle-columns-count {
+
+		// variables :
+		$calculatedSelector : "#{$i*$gridle-name-multiplicator}";
+
+		// selectors :
+		$push-common-selector : append( $push-common-selector, unquote("#{_gridle_prefixed_class("push-#{$calculatedSelector}")}"), comma );
+		$pull-common-selector : append( $pull-common-selector, unquote("#{_gridle_prefixed_class("pull-#{$calculatedSelector}")}"), comma );
+		$prefix-common-selector : append( $prefix-common-selector, unquote("#{_gridle_prefixed_class("prefix-#{$calculatedSelector}")}"), comma );
+		$suffix-common-selector : append( $suffix-common-selector, unquote("#{_gridle_prefixed_class("suffix-#{$calculatedSelector}")}"), comma );
+		$common-selector : append( $common-selector, unquote("#{_gridle_prefixed_class("grid-#{$calculatedSelector}")}"), comma );
+ 
+		// generate all classes for media queries :
+		@for $j from 1 through 15 {
+			// setup vars :
+			$media : _gridle_get_media_query_vars($j,"name");
+			$classes : _gridle_get_media_query_vars($j,"classes");
+ 
+			// generate classes :   
+			@if $media and $classes == true {
+				 
+				$push-common-selector : append( $push-common-selector, unquote("#{_gridle_prefixed_class("push-#{$media}-#{$calculatedSelector}")}"), comma );
+				$pull-common-selector : append( $pull-common-selector, unquote("#{_gridle_prefixed_class("pull-#{$media}-#{$calculatedSelector}")}"), comma );
+				$prefix-common-selector : append( $prefix-common-selector, unquote("#{_gridle_prefixed_class("prefix-#{$media}-#{$calculatedSelector}")}"), comma );
+				$suffix-common-selector : append( $suffix-common-selector, unquote("#{_gridle_prefixed_class("suffix-#{$media}-#{$calculatedSelector}")}"), comma );
+				$common-selector : append( $common-selector, unquote("#{_gridle_prefixed_class("grid-#{$media}-#{$calculatedSelector}")}"), comma );
+			}
+		}
+ 
+		// generate all classes for usefull states :
+		@if $gridle-generate-useful-states-classes != null {
+			@each $state in $gridle-generate-useful-states-classes {
+				$push-common-selector : append( $push-common-selector, unquote("#{_gridle_prefixed_class("push-#{$state}-#{$calculatedSelector}")}"), comma );
+				$pull-common-selector : append( $pull-common-selector, unquote("#{_gridle_prefixed_class("pull-#{$state}-#{$calculatedSelector}")}"), comma );
+				$prefix-common-selector : append( $prefix-common-selector, unquote("#{_gridle_prefixed_class("prefix-#{$state}-#{$calculatedSelector}")}"), comma );
+				$suffix-common-selector : append( $suffix-common-selector, unquote("#{_gridle_prefixed_class("suffix-#{$state}-#{$calculatedSelector}")}"), comma );
+				$common-selector : append( $common-selector, unquote("#{_gridle_prefixed_class("grid-#{$state}-#{$calculatedSelector}")}"), comma );
+			}
+		}
+	}
+ 
+	// common css :
+	#{$push-common-selector} {
+		@include _gridle_push_common();
+	}
+	#{$pull-common-selector} {
+		@include _gridle_pull_common();
+	}
+	#{$prefix-common-selector} {
+		@include _gridle_prefix_common();
+	}
+	#{$suffix-common-selector} {
+		@include _gridle_suffix_common();
+	}
+	#{$common-selector} {
+		@include _gridle_grid_common();
+	}
+ 
+	// generate all classes for differents media queries :
+	@for $i from 1 through 15 {
+		// setup vars :
+		$media : _gridle_get_media_query_vars($i,"name");
+		$classes : _gridle_get_media_query_vars($i,"classes");
+ 
+		// generate all media queries grid classes :
+		@if $media and $classes == true {
+ 
+			// generate all the classes :
+			@include gridle_state($media, null, $has-parent) {
+		 
+				@for $j from 0 through $gridle-columns-count {
+		 
+					// variables :
+					$calculatedSelector : "#{$j*$gridle-name-multiplicator}";
+
+					// classes :
+					#{_gridle_prefixed_class("grid-#{$media}-#{$calculatedSelector}")} {
+						@include _gridle($j,$media);
+					}
+					@if $gridle-generate-push-classes == true {
+						#{_gridle_prefixed_class("push-#{$media}-#{$calculatedSelector}")} {
+							@include _gridle_push($j,$media);
+						}
+					}
+					@if $gridle-generate-pull-classes == true {
+						#{_gridle_prefixed_class("pull-#{$media}-#{$calculatedSelector}")} {
+							@include _gridle_pull($j,$media);
+						}
+					}
+					@if $gridle-generate-prefix-classes == true {
+						#{_gridle_prefixed_class("prefix-#{$media}-#{$calculatedSelector}")} {
+							@include _gridle_prefix($j,$media);
+						}
+					}
+					@if $gridle-generate-suffix-classes == true {
+						#{_gridle_prefixed_class("suffix-#{$media}-#{$calculatedSelector}")} {
+							@include _gridle_suffix($j,$media);
+						}   
+					}
+				}
+ 
+				// media queries helpers classes :
+				@if $gridle-generate-helpers-classes == true and $media {
+					@include _gridle_generate_helper_classes($media);
+				}
+			}
+		}
+	}
+ 
+	// usefull states :
+	@if $gridle-generate-useful-states-classes != null {
+		@each $state in $gridle-generate-useful-states-classes { 
+ 
+			// creating classes :
+			@include gridle_state($state, null, $has-parent) {
+ 
+				@for $k from 0 through $gridle-columns-count {
+			 
+					// variables :
+					$calculatedSelector : "#{$k*$gridle-name-multiplicator}";
+
+					// classes :
+					#{_gridle_prefixed_class("grid-#{$state}-#{$calculatedSelector}")} {
+						@include _gridle($k,$state);
+					}
+					@if $gridle-generate-push-classes == true {
+						#{_gridle_prefixed_class("push-#{$state}-#{$calculatedSelector}")} {
+							@include _gridle_push($k,$state);
+						}
+					}
+					@if $gridle-generate-pull-classes == true {
+						#{_gridle_prefixed_class("pull-#{$state}-#{$calculatedSelector}")} {
+							@include _gridle_pull($k,$state);
+						}
+					}
+					@if $gridle-generate-prefix-classes == true {
+						#{_gridle_prefixed_class("prefix-#{$state}-#{$calculatedSelector}")} {
+							@include _gridle_prefix($k,$state);
+						}
+					}
+					@if $gridle-generate-suffix-classes == true {
+						#{_gridle_prefixed_class("suffix-#{$state}-#{$calculatedSelector}")} {
+							@include _gridle_suffix($k,$state);
+						}   
+					}
+				}
+				 
+				@if $gridle-generate-helpers-classes == true {
+					@include _gridle_generate_helper_classes($state);   
+				}
+			}
+		}
+	}
+ 
+	// generate json settings :
+	@include gridle_generate_json_settings();
 }
