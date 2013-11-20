@@ -29,9 +29,9 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 // @created 	25.03.13
-// @updated 	12.11.13
+// @updated 	20.11.13
 // @author 		Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.0.9
+// @version 	1.0.9.1
 // |------------------------------------------------------
 // |------------------------------------------------------
 
@@ -1143,8 +1143,7 @@ $_gridle-state-15-classes 			: true !default;
 @mixin _gridle_parent() {
 	@extend gridle-parent-common;
 
-	padding-left:0 !important;
-	padding-right:0 !important;
+	@include gridle_no_gutter();
 }
 
 
@@ -1284,14 +1283,10 @@ $_gridle-state-15-classes 			: true !default;
 	@include gridle_no_gutter($side, $state);
 }
 @mixin _gridle_no_gutter(
-	$side : null
+	$side : left right
 ) {
-	@if $side == null {
-		padding : 0 !important;
-	} @else {
-		@each $s in $side {
-			padding-#{$s} : 0 !important;
-		}
+	@each $s in $side {
+		padding-#{$s} : 0;
 	}
 }
 
@@ -1319,14 +1314,10 @@ $_gridle-state-15-classes 			: true !default;
 	@include gridle_gutter($side, $state);
 }
 @mixin _gridle_gutter(
-	$side : null
+	$side : left right
 ) {
-	@if $side == null {
-		padding : $gridle-gutter-width / 2 !important;
-	} @else {
-		@each $s in $side {
-			padding-#{$s} : $gridle-gutter-width / 2 !important;
-		}
+	@each $s in $side {
+		padding-#{$s} : $gridle-gutter-width / 2;
 	}
 }
 
