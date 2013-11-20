@@ -1265,7 +1265,7 @@ $_gridle-state-15-classes 			: true !default;
 // @param 	String 	$side 				The side to clear
 // @param 	String 	$state 				The state
 @mixin gridle_no_gutter(
-	$side : null,
+	$side : left right,
 	$state : null
 ) {
 	@if $state {
@@ -1277,7 +1277,7 @@ $_gridle-state-15-classes 			: true !default;
 	}
 }
 @mixin gridle_no_margin(
-	$side : null,
+	$side : left right,
 	$state : null
 ) {
 	@include gridle_no_gutter($side, $state);
@@ -1286,7 +1286,7 @@ $_gridle-state-15-classes 			: true !default;
 	$side : left right
 ) {
 	@each $s in $side {
-		padding-#{$s} : 0;
+		padding-#{$s} : 0 !important;
 	}
 }
 
@@ -1295,7 +1295,7 @@ $_gridle-state-15-classes 			: true !default;
 // @param 	String 	$side 				The side to clear
 // @param 	String 	$state 				The state
 @mixin gridle_gutter(
-	$side : null,
+	$side : left right,
 	$state : null
 ) {
 	@if $state {
@@ -1308,7 +1308,7 @@ $_gridle-state-15-classes 			: true !default;
 }
 // shortcut :
 @mixin gridle_margin(
-	$side : null,
+	$side : left right,
 	$state : null
 ) {
 	@include gridle_gutter($side, $state);
@@ -1406,7 +1406,7 @@ $_gridle-state-15-classes 			: true !default;
 	#{_gridle_prefixed_class("centered#{$media}")} {
 		@include gridle_centered(null);
 	}
-	[class*="#{"#{$gridle-class-prefix}grid-"}"]#{_gridle_prefixed_class("parent#{$media}")} {
+	#{_gridle_prefixed_class("parent#{$media}")} {
 		@include gridle_parent(null);
 	}
 
