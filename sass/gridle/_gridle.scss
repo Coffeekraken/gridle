@@ -31,7 +31,7 @@
 // @created 	25.03.13
 // @updated 	20.11.13
 // @author 		Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.0.9.3
+// @version 	1.0.9.5
 // |------------------------------------------------------
 // |------------------------------------------------------
 
@@ -304,7 +304,7 @@ $_gridle-state-15-classes 			: true !default;
 		direction:ltr;
 	}
 
-	// set padding :;
+	// set padding :
 	padding:0 $gridle-gutter-width/2;
 	@if $gridle-debug == true {
 		#{$gridle-debug-selector} {
