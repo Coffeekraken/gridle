@@ -31,7 +31,7 @@
 // @created 	25.03.13
 // @updated 	20.11.13
 // @author 		Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.0.9.1
+// @version 	1.0.9.2
 // |------------------------------------------------------
 // |------------------------------------------------------
 
@@ -210,14 +210,14 @@ $_gridle-state-15-classes 			: true !default;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 
-	@extend gridle-clearfix;
+	@extend %gridle-clearfix;
 }
 %gridle-parent-common {
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 
-	@extend gridle-clearfix;
+	@extend %gridle-clearfix !optional;
 }
 %gridle-container-debug-common {
 	background-color:#f5f5f5;
@@ -1141,7 +1141,7 @@ $_gridle-state-15-classes 			: true !default;
 	}
 }
 @mixin _gridle_parent() {
-	@extend gridle-parent-common;
+	@extend %gridle-parent-common;
 
 	@include gridle_no_gutter();
 }

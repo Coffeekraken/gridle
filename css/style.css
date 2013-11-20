@@ -24,7 +24,7 @@ ul#medias li.active, ul#medias li:hover { background: white; color: black; }
 @media screen and (min-width: 0) and (max-width: 600px) { ul#medias { display: none; } }
 
 /** Basic formatting : */
-body { font: 11px/1.5 "Helvetica Neue", Verdana, sans-serif; }
+body { font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif; }
 html.mobile body { text-align: center; }
 @media screen and (max-width: 480px) { body { text-align: center; } }
 html.ipad-landscape body { font-size: 16px; }

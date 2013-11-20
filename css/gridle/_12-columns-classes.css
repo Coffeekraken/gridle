@@ -1,12 +1,14 @@
 /** Imports : */
 /** Imports */
-.container:before, .container-12:before, .container:after, .container-12:after { content: ""; display: table; }
-.container:after, .container-12:after { clear: both; }
-.container, .container-12 { zoom: 1; }
+.container:before, .container-12:before, .parent:before, .container:after, .container-12:after, .parent:after { content: ""; display: table; }
+.container:after, .container-12:after, .parent:after { clear: both; }
+.container, .container-12, .parent { zoom: 1; }
 
 .push-0, .push-1, .push-2, .push-3, .push-4, .push-5, .push-6, .push-7, .push-8, .push-9, .push-10, .push-11, .push-12, .pull-0, .pull-1, .pull-2, .pull-3, .pull-4, .pull-5, .pull-6, .pull-7, .pull-8, .pull-9, .pull-10, .pull-11, .pull-12 { position: relative; }
 
 .container, .container-12 { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+.parent { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 { display: inline-block; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
