@@ -31,7 +31,7 @@
 // @created 	25.03.13
 // @updated 	20.11.13
 // @author 		Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.0.9.2
+// @version 	1.0.9.3
 // |------------------------------------------------------
 // |------------------------------------------------------
 
@@ -217,7 +217,7 @@ $_gridle-state-15-classes 			: true !default;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 
-	@extend %gridle-clearfix !optional;
+	@extend %gridle-clearfix;
 }
 %gridle-container-debug-common {
 	background-color:#f5f5f5;
@@ -276,26 +276,7 @@ $_gridle-state-15-classes 			: true !default;
 
 
 // Common css that cannot be extended cause of variables :
-@mixin _gridle_grid_common() {
-	@extend %gridle-grid-common;
-	@if $gridle-direction == rtl {
-		float:right;
-		direction:rtl;
-	} @else {
-		float:left;
-		direction:ltr;
-	}
-
-	// set padding :;
-	padding:0 $gridle-gutter-width/2;
-	@if $gridle-debug == true {
-		#{$gridle-debug-selector} {
-			@extend %gridle-grid-debug-common;
-		}
-	}
-}
 @mixin _gridle_container_common() {
-	@extend %gridle-clearfix;
 	@extend %gridle-container-common;
 	// debug part :
 	@if ($gridle-debug == true) {
@@ -315,6 +296,27 @@ $_gridle-state-15-classes 			: true !default;
 			}
 		}
 	}
+}
+@mixin _gridle_grid_common() {
+	@extend %gridle-grid-common;
+	@if $gridle-direction == rtl {
+		float:right;
+		direction:rtl;
+	} @else {
+		float:left;
+		direction:ltr;
+	}
+
+	// set padding :;
+	padding:0 $gridle-gutter-width/2;
+	@if $gridle-debug == true {
+		#{$gridle-debug-selector} {
+			@extend %gridle-grid-debug-common;
+		}
+	}
+}
+@mixin _gridle_parent_common() {
+	@extend %gridle-parent-common;
 }
 @mixin _gridle_push_common() {
 	// extend common :
@@ -1132,6 +1134,7 @@ $_gridle-state-15-classes 			: true !default;
 @mixin gridle_parent(
 	$state : null
 ) {
+	@include _gridle_parent_common();
 	@if $state {
 		@include gridle_state($state) {
 			@include _gridle_parent();
@@ -1141,8 +1144,6 @@ $_gridle-state-15-classes 			: true !default;
 	}
 }
 @mixin _gridle_parent() {
-	@extend %gridle-parent-common;
-
 	@include gridle_no_gutter();
 }
 
