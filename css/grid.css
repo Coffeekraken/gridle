@@ -272,7 +272,7 @@
 
 .auto-height { height: inherit; }
 
-.centered { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+.centered { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
 
 .parent { padding-left: 0 !important; padding-right: 0 !important; }
 
@@ -457,7 +457,7 @@ html.mobile .gutter-mobile-right, html.mobile .margin-mobile-right { padding-rig
 html.mobile .gutter-mobile-top, html.mobile .margin-mobile-top { padding-top: 10px; }
 html.mobile .gutter-mobile-bottom, html.mobile .margin-mobile-bottom { padding-bottom: 10px; }
 html.mobile .auto-height-mobile { height: inherit; }
-html.mobile .centered-mobile { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+html.mobile .centered-mobile { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
 html.mobile .parent-mobile { padding-left: 0 !important; padding-right: 0 !important; }
 .gridle-debug html.mobile .debug-color-mobile-1, html.mobile .debug-color-mobile-1.gridle-debug { background-color: #edeeb2; }
 .gridle-debug html.mobile .debug-color-mobile-2, html.mobile .debug-color-mobile-2.gridle-debug { background-color: #fae4a7; }
@@ -629,7 +629,7 @@ html.mobile .parent-mobile { padding-left: 0 !important; padding-right: 0 !impor
   .gutter-mobile-top, .margin-mobile-top { padding-top: 10px; }
   .gutter-mobile-bottom, .margin-mobile-bottom { padding-bottom: 10px; }
   .auto-height-mobile { height: inherit; }
-  .centered-mobile { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+  .centered-mobile { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
   .parent-mobile { padding-left: 0 !important; padding-right: 0 !important; }
   .gridle-debug .debug-color-mobile-1, .debug-color-mobile-1.gridle-debug { background-color: #edeeb2; }
   .gridle-debug .debug-color-mobile-2, .debug-color-mobile-2.gridle-debug { background-color: #fae4a7; }
@@ -800,7 +800,7 @@ html.tablet .gutter-tablet-right, html.tablet .margin-tablet-right { padding-rig
 html.tablet .gutter-tablet-top, html.tablet .margin-tablet-top { padding-top: 10px; }
 html.tablet .gutter-tablet-bottom, html.tablet .margin-tablet-bottom { padding-bottom: 10px; }
 html.tablet .auto-height-tablet { height: inherit; }
-html.tablet .centered-tablet { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+html.tablet .centered-tablet { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
 html.tablet .parent-tablet { padding-left: 0 !important; padding-right: 0 !important; }
 .gridle-debug html.tablet .debug-color-tablet-1, html.tablet .debug-color-tablet-1.gridle-debug { background-color: #edeeb2; }
 .gridle-debug html.tablet .debug-color-tablet-2, html.tablet .debug-color-tablet-2.gridle-debug { background-color: #fae4a7; }
@@ -972,7 +972,7 @@ html.tablet .parent-tablet { padding-left: 0 !important; padding-right: 0 !impor
   .gutter-tablet-top, .margin-tablet-top { padding-top: 10px; }
   .gutter-tablet-bottom, .margin-tablet-bottom { padding-bottom: 10px; }
   .auto-height-tablet { height: inherit; }
-  .centered-tablet { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+  .centered-tablet { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
   .parent-tablet { padding-left: 0 !important; padding-right: 0 !important; }
   .gridle-debug .debug-color-tablet-1, .debug-color-tablet-1.gridle-debug { background-color: #edeeb2; }
   .gridle-debug .debug-color-tablet-2, .debug-color-tablet-2.gridle-debug { background-color: #fae4a7; }
@@ -1143,7 +1143,7 @@ html.ipad-landscape .gutter-ipad-landscape-right, html.ipad-landscape .margin-ip
 html.ipad-landscape .gutter-ipad-landscape-top, html.ipad-landscape .margin-ipad-landscape-top { padding-top: 10px; }
 html.ipad-landscape .gutter-ipad-landscape-bottom, html.ipad-landscape .margin-ipad-landscape-bottom { padding-bottom: 10px; }
 html.ipad-landscape .auto-height-ipad-landscape { height: inherit; }
-html.ipad-landscape .centered-ipad-landscape { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+html.ipad-landscape .centered-ipad-landscape { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
 html.ipad-landscape .parent-ipad-landscape { padding-left: 0 !important; padding-right: 0 !important; }
 .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-1, html.ipad-landscape .debug-color-ipad-landscape-1.gridle-debug { background-color: #edeeb2; }
 .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-2, html.ipad-landscape .debug-color-ipad-landscape-2.gridle-debug { background-color: #fae4a7; }
@@ -1315,7 +1315,7 @@ html.ipad-landscape .parent-ipad-landscape { padding-left: 0 !important; padding
   .gutter-ipad-landscape-top, .margin-ipad-landscape-top { padding-top: 10px; }
   .gutter-ipad-landscape-bottom, .margin-ipad-landscape-bottom { padding-bottom: 10px; }
   .auto-height-ipad-landscape { height: inherit; }
-  .centered-ipad-landscape { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+  .centered-ipad-landscape { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
   .parent-ipad-landscape { padding-left: 0 !important; padding-right: 0 !important; }
   .gridle-debug .debug-color-ipad-landscape-1, .debug-color-ipad-landscape-1.gridle-debug { background-color: #edeeb2; }
   .gridle-debug .debug-color-ipad-landscape-2, .debug-color-ipad-landscape-2.gridle-debug { background-color: #fae4a7; }

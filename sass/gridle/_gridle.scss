@@ -1120,11 +1120,11 @@ $_gridle-state-15-classes 			: true !default;
 	}
 }
 @mixin _gridle_centered() {
-	display:block;
-	float:none;
-	margin-left:auto;
-	margin-right:auto;
-	clear:both;
+	display:block !important;
+	float:none !important;
+	margin-left:auto !important;
+	margin-right:auto !important;
+	clear:both !important;
 }
 
 

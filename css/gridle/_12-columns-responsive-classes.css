@@ -184,7 +184,7 @@
 
 .auto-height { height: inherit; }
 
-.centered { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+.centered { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
 
 .parent { padding-left: 0 !important; padding-right: 0 !important; }
 
@@ -275,7 +275,7 @@
   .gutter-mobile-top, .margin-mobile-top { padding-top: 10px; }
   .gutter-mobile-bottom, .margin-mobile-bottom { padding-bottom: 10px; }
   .auto-height-mobile { height: inherit; }
-  .centered-mobile { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+  .centered-mobile { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
   .parent-mobile { padding-left: 0 !important; padding-right: 0 !important; } }
 @media screen and (min-width: 481px) and (max-width: 1024px) { .grid-tablet-0 { width: 0%; *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
   .push-tablet-0 { left: 0%; }
@@ -362,6 +362,6 @@
   .gutter-tablet-top, .margin-tablet-top { padding-top: 10px; }
   .gutter-tablet-bottom, .margin-tablet-bottom { padding-bottom: 10px; }
   .auto-height-tablet { height: inherit; }
-  .centered-tablet { display: block; float: none; margin-left: auto; margin-right: auto; clear: both; }
+  .centered-tablet { display: block !important; float: none !important; margin-left: auto !important; margin-right: auto !important; clear: both !important; }
   .parent-tablet { padding-left: 0 !important; padding-right: 0 !important; } }
 #gridle-settings { content: '{ "states" : {"mobile":"@media screen and (max-width: 480px)","tablet":"@media screen and (min-width: 481px) and (max-width: 1024px)"}, "columnsCount" : 12, "gutterWidth" : "20px", "nameMultiplicator" : 1, "direction" : "ltr", "ie7Support" : true, "debug" : false, "debugShowClassNames" : true, "htmlStatesClasses" : false, "generateHelpersClasses" : true, "generatePushClasses" : true, "generatePullClasses" : true, "generatePrefixClasses" : true, "generateSuffixClasses" : true, "classPrefix" : "", "generateUsefulStatesClasses" : []}'; }
