@@ -1,8 +1,16 @@
 {
   "name": "gridle",
   "version": "1.0.9.8",
-  "main": "sass/gridle/_gridle.scss",
   "ignore": [
+    ".sass-cache",
+    "css",
+    "js",
+    "bower.json",
+    "config.rb",
+    "demo.html",
+    "favicon.ico",
+    "package.json",
+    "README.md",
     "**/*.txt"
   ],
   "dependencies": {
