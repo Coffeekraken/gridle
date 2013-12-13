@@ -75,54 +75,54 @@ $gridle-class-separator 				: '-' !default;
 
 $gridle-container-name-pattern 			: ('container') !default;
 
-$gridle-grid-name-pattern 				: ('grid','%-','%media','%-','%count') !default;
-$gridle-push-name-pattern 				: ('push','%-','%media','%-','%count') !default;
-$gridle-pull-name-pattern 				: ('pull','%-','%media','%-','%count') !default;
-$gridle-prefix-name-pattern 			: ('prefix','%-','%media','%-','%count') !default;
-$gridle-suffix-name-pattern 			: ('suffix','%-','%media','%-','%count') !default;
+$gridle-grid-name-pattern 				: ('grid','%-','%state','%-','%count') !default;
+$gridle-push-name-pattern 				: ('push','%-','%state','%-','%count') !default;
+$gridle-pull-name-pattern 				: ('pull','%-','%state','%-','%count') !default;
+$gridle-prefix-name-pattern 			: ('prefix','%-','%state','%-','%count') !default;
+$gridle-suffix-name-pattern 			: ('suffix','%-','%state','%-','%count') !default;
 
-$gridle-parent-name-pattern 			: ('parent','%-','%media') !default;
-$gridle-centered-name-pattern 			: ('centered','%-','%media') !default;
+$gridle-parent-name-pattern 			: ('parent','%-','%state') !default;
+$gridle-centered-name-pattern 			: ('centered','%-','%state') !default;
 
-$gridle-hide-name-pattern 				: ('hide','%-','%media') !default;
-$gridle-show-name-pattern 				: ('show','%-','%media') !default;
-$gridle-not-visible-name-pattern 		: ('not','%-','visible','%-','%media') !default;
-$gridle-visible-name-pattern 			: ('visible','%-','%media') !default;
+$gridle-hide-name-pattern 				: ('hide','%-','%state') !default;
+$gridle-show-name-pattern 				: ('show','%-','%state') !default;
+$gridle-not-visible-name-pattern 		: ('not','%-','visible','%-','%state') !default;
+$gridle-visible-name-pattern 			: ('visible','%-','%state') !default;
 
-$gridle-float-left-name-pattern 		: ('float','%-','%media','%-','left') !default;
-$gridle-float-right-name-pattern 		: ('float','%-','%media','%-','right') !default;
+$gridle-float-left-name-pattern 		: ('float','%-','%state','%-','left') !default;
+$gridle-float-right-name-pattern 		: ('float','%-','%state','%-','right') !default;
 
-$gridle-clear-name-pattern 				: ('clear','%-','%media') !default;
-$gridle-clear-left-name-pattern 		: ('clear','%-','%media','%-','left') !default;
-$gridle-clear-right-name-pattern 		: ('clear','%-','%media','%-','right') !default;
+$gridle-clear-name-pattern 				: ('clear','%-','%state') !default;
+$gridle-clear-left-name-pattern 		: ('clear','%-','%state','%-','left') !default;
+$gridle-clear-right-name-pattern 		: ('clear','%-','%state','%-','right') !default;
 
-$gridle-no-gutter-name-pattern 			: ('no','%-','gutter','%-','%media') !default;
-$gridle-no-gutter-left-name-pattern 	: ('no','%-','gutter','%-','%media','%-','left') !default;
-$gridle-no-gutter-right-name-pattern 	: ('no','%-','gutter','%-','%media','%-','right') !default;
-$gridle-no-gutter-top-name-pattern 		: ('no','%-','gutter','%-','%media','%-','top') !default;
-$gridle-no-gutter-bottom-name-pattern 	: ('no','%-','gutter','%-','%media','%-','bottom') !default;
+$gridle-no-gutter-name-pattern 			: ('no','%-','gutter','%-','%state') !default;
+$gridle-no-gutter-left-name-pattern 	: ('no','%-','gutter','%-','%state','%-','left') !default;
+$gridle-no-gutter-right-name-pattern 	: ('no','%-','gutter','%-','%state','%-','right') !default;
+$gridle-no-gutter-top-name-pattern 		: ('no','%-','gutter','%-','%state','%-','top') !default;
+$gridle-no-gutter-bottom-name-pattern 	: ('no','%-','gutter','%-','%state','%-','bottom') !default;
 
-$gridle-no-margin-name-pattern 			: ('no','%-','margin','%-','%media') !default;
-$gridle-no-margin-left-name-pattern 	: ('no','%-','margin','%-','%media','%-','left') !default;
-$gridle-no-margin-right-name-pattern 	: ('no','%-','margin','%-','%media','%-','right') !default;
-$gridle-no-margin-top-name-pattern 		: ('no','%-','margin','%-','%media','%-','top') !default;
-$gridle-no-margin-bottom-name-pattern 	: ('no','%-','margin','%-','%media','%-','bottom') !default;
+$gridle-no-margin-name-pattern 			: ('no','%-','margin','%-','%state') !default;
+$gridle-no-margin-left-name-pattern 	: ('no','%-','margin','%-','%state','%-','left') !default;
+$gridle-no-margin-right-name-pattern 	: ('no','%-','margin','%-','%state','%-','right') !default;
+$gridle-no-margin-top-name-pattern 		: ('no','%-','margin','%-','%state','%-','top') !default;
+$gridle-no-margin-bottom-name-pattern 	: ('no','%-','margin','%-','%state','%-','bottom') !default;
 
-$gridle-gutter-name-pattern 			: ('gutter','%-','%media') !default;
-$gridle-gutter-left-name-pattern 		: ('gutter','%-','%media','%-','left') !default;
-$gridle-gutter-right-name-pattern 		: ('gutter','%-','%media','%-','right') !default;
-$gridle-gutter-top-name-pattern 		: ('gutter','%-','%media','%-','top') !default;
-$gridle-gutter-bottom-name-pattern 		: ('gutter','%-','%media','%-','bottom') !default;
+$gridle-gutter-name-pattern 			: ('gutter','%-','%state') !default;
+$gridle-gutter-left-name-pattern 		: ('gutter','%-','%state','%-','left') !default;
+$gridle-gutter-right-name-pattern 		: ('gutter','%-','%state','%-','right') !default;
+$gridle-gutter-top-name-pattern 		: ('gutter','%-','%state','%-','top') !default;
+$gridle-gutter-bottom-name-pattern 		: ('gutter','%-','%state','%-','bottom') !default;
 
-$gridle-margin-name-pattern 			: ('margin','%-','%media') !default;
-$gridle-margin-left-name-pattern 		: ('margin','%-','%media','%-','left') !default;
-$gridle-margin-right-name-pattern 		: ('margin','%-','%media','%-','right') !default;
-$gridle-margin-top-name-pattern 		: ('margin','%-','%media','%-','top') !default;
-$gridle-margin-bottom-name-pattern 		: ('margin','%-','%media','%-','bottom') !default;
+$gridle-margin-name-pattern 			: ('margin','%-','%state') !default;
+$gridle-margin-left-name-pattern 		: ('margin','%-','%state','%-','left') !default;
+$gridle-margin-right-name-pattern 		: ('margin','%-','%state','%-','right') !default;
+$gridle-margin-top-name-pattern 		: ('margin','%-','%state','%-','top') !default;
+$gridle-margin-bottom-name-pattern 		: ('margin','%-','%state','%-','bottom') !default;
 
-$gridle-auto-height-name-pattern 		: ('auto','%-','height','%-','%media') !default;
+$gridle-auto-height-name-pattern 		: ('auto','%-','height','%-','%state') !default;
 
-$gridle-debug-color-name-pattern 		: ('debug','%-','color','%-','%media','%-','%count') !default;
+$gridle-debug-color-name-pattern 		: ('debug','%-','color','%-','%state','%-','%count') !default;
 
 
 // |------------------------------------------------------
@@ -372,13 +372,13 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	@each $var in $pattern {
 		
 		// replace tokens :
-		@if $var == '%media' and $media {
+		@if $var == '%state' and $media {
 			$sel : "#{$sel}#{$media}";
 		} 
 		@if $var == '%count' and $count {
 			$sel : "#{$sel}#{$count}";
 		}  
-		@if $var != '%media' and $var != '%count' and $var != '%-' and $var != '%prefix' {
+		@if $var != '%state' and $var != '%count' and $var != '%-' and $var != '%prefix' {
 			$sel : "#{$sel}#{$var}";
 		}
 
@@ -386,10 +386,10 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 		@if $var == '%-' and $i < length($pattern) {
 			$index : $i + 1;
 			$value : nth($pattern, $index);
-			@if $value != '%media' and $value != '%count' and $value != '%-' and $value != '%prefix' {
+			@if $value != '%state' and $value != '%count' and $value != '%-' and $value != '%prefix' {
 				$sel : "#{$sel}#{$gridle-class-separator}";
 			}
-			@if $value == '%media' and $media {
+			@if $value == '%state' and $media {
 				$sel : "#{$sel}#{$gridle-class-separator}";
 			}
 			@if $value == '%count' and $count {
