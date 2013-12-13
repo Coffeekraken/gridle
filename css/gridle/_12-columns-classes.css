@@ -1,14 +1,14 @@
 /** Imports : */
 /** Imports */
-.container:before, .container-12:before, [class*="grid-"][class*="parent"]:before, .container:after, .container-12:after, [class*="grid-"][class*="parent"]:after { content: ""; display: table; }
-.container:after, .container-12:after, [class*="grid-"][class*="parent"]:after { clear: both; }
-.container, .container-12, [class*="grid-"][class*="parent"] { zoom: 1; }
+.container:before, .parent:before, .container:after, .parent:after { content: ""; display: table; }
+.container:after, .parent:after { clear: both; }
+.container, .parent { zoom: 1; }
 
 .push-0, .push-1, .push-2, .push-3, .push-4, .push-5, .push-6, .push-7, .push-8, .push-9, .push-10, .push-11, .push-12, .pull-0, .pull-1, .pull-2, .pull-3, .pull-4, .pull-5, .pull-6, .pull-7, .pull-8, .pull-9, .pull-10, .pull-11, .pull-12 { position: relative; }
 
-.container, .container-12 { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.container { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
-[class*="grid-"][class*="parent"] { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+.parent { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
 .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 { display: inline-block; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
 
@@ -173,7 +173,7 @@
 
 .no-gutter-bottom, .no-margin-bottom { padding-bottom: 0 !important; }
 
-.gutter, .margin { padding-left: 10px; padding-right: 10px; }
+.no-gutter-top, .margin { padding-left: 10px; padding-right: 10px; }
 
 .gutter-left, .margin-left { padding-left: 10px; }
 
@@ -191,4 +191,4 @@
 
 .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 { float: left; direction: ltr; padding: 0 10px; }
 
-#gridle-settings-default { content: '{ "states" : {}, "columnsCount" : 12, "gutterWidth" : "20px", "nameMultiplicator" : 1, "direction" : "ltr", "ie7Support" : true, "debug" : false, "debugShowClassNames" : true, "htmlStatesClasses" : false, "generateHelpersClasses" : true, "generatePushClasses" : true, "generatePullClasses" : true, "generatePrefixClasses" : true, "generateSuffixClasses" : true, "classPrefix" : "", "generateUsefulStatesClasses" : []}'; }
+#gridle-settings-default { content: '{ "version" : "1.1.1", "states" : {}, "debugDevices" : {  }, "columnsCount" : 12, "gutterWidth" : "20px", "nameMultiplicator" : 1, "direction" : "ltr", "ie7Support" : true, "debug" : false, "debugShowClassNames" : true, "htmlStatesClasses" : false, "generateHelpersClasses" : true, "generatePushClasses" : true, "generatePullClasses" : true, "generatePrefixClasses" : true, "generateSuffixClasses" : true, "classPrefix" : "", "generateUsefulStatesClasses" : [] }'; }
