@@ -17,8 +17,6 @@ a img { border: none; }
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
 
 /** Import grid settings : This to be able to use gridle mixins, etc... */
-/* Optional : Change generation class names pattern (for example to match bootstrap naming conventions) : If you check the generated grid.css file, the classes are following these patterns... */
-/* Here's a list of all available naming vars : */
 /** Medias : */
 ul#medias { background: black; text-align: center; margin-bottom: 30px; }
 ul#medias li { display: inline-block; height: 50px; line-height: 50px; padding: 0 30px; color: white; font-size: 16px; cursor: pointer; margin: 0; }
