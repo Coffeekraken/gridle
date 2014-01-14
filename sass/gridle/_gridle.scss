@@ -1050,7 +1050,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 		width:100%; height:100% !important;
 		// vars :
 		$width : percentage(1 / $context);
-		background: linear-gradient(to right, rgba(255,0,0,.2) 50% , rgba(0,255,0,.2) 50%); /* Standard syntax */
+		background: linear-gradient(to right, rgba(0,0,0,.01) 50% , rgba(0,0,0,.04) 50%); /* Standard syntax */
 		background-size:($width*2) 100%;
 		// background-position:$gridle-gutter-width/2 0;
 	}

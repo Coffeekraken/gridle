@@ -2,7 +2,7 @@
  * Imports :
  */
 @import 'compass/reset';
-@import 'compass/css3/box';
+@import 'compass/css3';
 
 /**
  * Import grid settings :
@@ -20,13 +20,14 @@ $base-line-height : 24px;
 @mixin font-size(
 	$size : $base-font-size,
 	$line-height-or-grid : $base-line-height,
-	$grid : 1
+	$grid-bottom : 1,
+	$grid-top : 0
 ) {
  
  	$line-height : $line-height-or-grid;
 	@if unit($line-height-or-grid) != px {
 		$line-height : strip-unit($base-line-height);
-		$grid : $line-height-or-grid;
+		$grid-bottom : $line-height-or-grid;
 	}
 
 	// stip units :
@@ -39,8 +40,15 @@ $base-line-height : 24px;
 
 	line-height: round($line-height / $size*10000) / 10000;
 	
-	margin-bottom: (0px + $line-height) * $grid;
-	margin-bottom: ($line-height / strip-unit($base-font-size)) * $grid +rem;
+	margin-bottom: (0px + $line-height) * $grid-bottom;
+	margin-bottom: ($line-height / strip-unit($base-font-size)) * $grid-bottom +rem;
+
+	@if $grid-top > 0 {
+		margin-top: (0px + $line-height) * $grid-top;
+		margin-top: ($line-height / strip-unit($base-font-size)) * $grid-top +rem;
+	}
+
+
 }
 
 @mixin vertical_rythme_background(
@@ -49,8 +57,27 @@ $base-line-height : 24px;
 ) {
 
 	$h : (strip-unit($line-height) / strip-unit($font-size))+rem;
-	background: linear-gradient(to bottom, #BA9B9A .1rem, transparent .1rem ) !important;
+	background: linear-gradient(to bottom, rgba(0,0,0,.2) .01rem, transparent .1rem ) !important;
 	background-size: 100% $h !important;
+}
+
+@mixin rythme_image(
+	$grid : 10
+) {
+	$line-height : strip-unit($base-line-height);
+	height : (0px + $line-height) * $grid;
+	height : ($line-height / strip-unit($base-font-size)) * $grid +rem;
+	max-width : 100%;
+	overflow:hidden;
+	position:relative;
+	
+	img {
+		min-width:100%;
+		min-height:100%;
+		position:absolute;
+		top:50%; left:50%;
+		@include transform(translateX(-50%) translateY(-50%)); 
+	}
 }
 
 /**
@@ -92,9 +119,18 @@ body {
 /**
  * Text styling :
  */
+p {
+	@include font-size(12,1);
+}
 .title {
-	@include font-size(40,0);
+	@include font-size(40,0,0,1);
 }
 .subtitle {
-	@include font-size(20,4);
+	@include font-size(20,1);
+}
+.img-container {
+	@include rythme_image(10);
+	@include gridle_state(tablet) {
+		@include rythme_image(5);
+	}
 }
