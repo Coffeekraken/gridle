@@ -19,17 +19,10 @@ $base-line-height : 24px;
 
 @mixin font-size(
 	$size : $base-font-size,
-	$line-height-or-grid : $base-line-height,
 	$grid-bottom : 1,
-	$grid-top : 0
+	$grid-top : null,
+	$line-height : $base-line-height
 ) {
- 
- 	$line-height : $line-height-or-grid;
-	@if unit($line-height-or-grid) != px {
-		$line-height : strip-unit($base-line-height);
-		$grid-bottom : $line-height-or-grid;
-	}
-
 	// stip units :
 	$size : strip-unit($size);
 	$line-height : strip-unit($line-height);
@@ -43,7 +36,7 @@ $base-line-height : 24px;
 	margin-bottom: (0px + $line-height) * $grid-bottom;
 	margin-bottom: ($line-height / strip-unit($base-font-size)) * $grid-bottom +rem;
 
-	@if $grid-top > 0 {
+	@if $grid-top {
 		margin-top: (0px + $line-height) * $grid-top;
 		margin-top: ($line-height / strip-unit($base-font-size)) * $grid-top +rem;
 	}
@@ -62,7 +55,9 @@ $base-line-height : 24px;
 }
 
 @mixin rythme_image(
-	$grid : 10
+	$grid : 10,
+	$grid-bottom : 1,
+	$grid-top : null
 ) {
 	$line-height : strip-unit($base-line-height);
 	height : (0px + $line-height) * $grid;
@@ -70,7 +65,15 @@ $base-line-height : 24px;
 	max-width : 100%;
 	overflow:hidden;
 	position:relative;
-	
+
+	margin-bottom: (0px + $line-height) * $grid-bottom;
+	margin-bottom: ($line-height / strip-unit($base-font-size)) * $grid-bottom +rem;
+
+	@if $grid-top {
+		margin-top: (0px + $line-height) * $grid-top;
+		margin-top: ($line-height / strip-unit($base-font-size)) * $grid-top +rem;
+	}
+
 	img {
 		min-width:100%;
 		min-height:100%;
@@ -110,6 +113,7 @@ body {
 }
 #sidebar {
 	@include gridle(4);
+	@include gridle(12,mobile);
 }
 #footer {
 	@include gridle(12);
@@ -120,13 +124,18 @@ body {
  * Text styling :
  */
 p {
-	@include font-size(12,1);
+	@include font-size(13,1);
 }
 .title {
-	@include font-size(40,0,0,1);
+	@include font-size(30,1,2);
 }
 .subtitle {
-	@include font-size(20,1);
+	@include font-size(12,1,1);
+	color:#888;
+
+	.title ~ & {
+		@include font-size(12,1,-1);
+	}
 }
 .img-container {
 	@include rythme_image(10);

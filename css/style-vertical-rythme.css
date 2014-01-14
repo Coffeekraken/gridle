@@ -46,24 +46,31 @@ html.mobile #content { width: 100%; *width: expression((this.parentNode.clientWi
   .gridle-debug #content:before, #content.gridle-debug:before { content: "grid-mobile-12"; }
   .gridle-debug #content.parent:before, #content.gridle-debug.parent:before { content: "grid-parent-mobile-12"; } }
 
-#sidebar { float: left; direction: ltr; padding: 0 10px; width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+#sidebar { float: left; direction: ltr; padding: 0 10px; width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); float: left; direction: ltr; padding: 0 10px; }
 .gridle-debug #sidebar:before, #sidebar.gridle-debug:before { content: "grid--4"; }
 .gridle-debug #sidebar.parent:before, #sidebar.gridle-debug.parent:before { content: "grid-parent--4"; }
+html.mobile #sidebar { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+.gridle-debug html.mobile #sidebar:before, html.mobile #sidebar.gridle-debug:before { content: "grid-mobile-12"; }
+.gridle-debug html.mobile #sidebar.parent:before, html.mobile #sidebar.gridle-debug.parent:before { content: "grid-parent-mobile-12"; }
+@media screen and (max-width: 480px) { #sidebar { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  .gridle-debug #sidebar:before, #sidebar.gridle-debug:before { content: "grid-mobile-12"; }
+  .gridle-debug #sidebar.parent:before, #sidebar.gridle-debug.parent:before { content: "grid-parent-mobile-12"; } }
 
 #footer { float: left; direction: ltr; padding: 0 10px; width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
 .gridle-debug #footer:before, #footer.gridle-debug:before { content: "grid--12"; }
 .gridle-debug #footer.parent:before, #footer.gridle-debug.parent:before { content: "grid-parent--12"; }
 
 /** Text styling : */
-p { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; }
+p { font-size: 13px; font-size: 0.8125rem; line-height: 1.8462; margin-bottom: 24px; margin-bottom: 1.5rem; }
 
-.title { font-size: 40px; font-size: 2.5rem; line-height: 0.6; margin-bottom: 0px; margin-bottom: 0rem; margin-top: 24px; margin-top: 1.5rem; }
+.title { font-size: 30px; font-size: 1.875rem; line-height: 0.8; margin-bottom: 24px; margin-bottom: 1.5rem; margin-top: 48px; margin-top: 3rem; }
 
-.subtitle { font-size: 20px; font-size: 1.25rem; line-height: 1.2; margin-bottom: 24px; margin-bottom: 1.5rem; }
+.subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; margin-top: 24px; margin-top: 1.5rem; color: #888; }
+.title ~ .subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; margin-top: -24px; margin-top: -1.5rem; }
 
-.img-container { height: 240px; height: 15rem; max-width: 100%; overflow: hidden; position: relative; }
+.img-container { height: 240px; height: 15rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
 .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
-html.tablet .img-container { height: 120px; height: 7.5rem; max-width: 100%; overflow: hidden; position: relative; }
+html.tablet .img-container { height: 120px; height: 7.5rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
 html.tablet .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
-@media screen and (min-width: 481px) and (max-width: 1024px) { .img-container { height: 120px; height: 7.5rem; max-width: 100%; overflow: hidden; position: relative; }
+@media screen and (min-width: 481px) and (max-width: 1024px) { .img-container { height: 120px; height: 7.5rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
   .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); } }
