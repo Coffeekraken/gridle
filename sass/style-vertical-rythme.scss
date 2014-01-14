@@ -1,0 +1,100 @@
+/**
+ * Imports :
+ */
+@import 'compass/reset';
+@import 'compass/css3/box';
+
+/**
+ * Import grid settings :
+ * This to be able to use gridle mixins, etc...
+ */
+@import 'grid-settings';
+
+$base-font-size : 16px;
+$base-line-height : 24px;
+
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin font-size(
+	$size : $base-font-size,
+	$line-height-or-grid : $base-line-height,
+	$grid : 1
+) {
+ 
+ 	$line-height : $line-height-or-grid;
+	@if unit($line-height-or-grid) != px {
+		$line-height : strip-unit($base-line-height);
+		$grid : $line-height-or-grid;
+	}
+
+	// stip units :
+	$size : strip-unit($size);
+	$line-height : strip-unit($line-height);
+
+	// font size :
+	font-size: 0px + $size;
+	font-size: $size / strip-unit($base-font-size) +rem;
+
+	line-height: round($line-height / $size*10000) / 10000;
+	
+	margin-bottom: (0px + $line-height) * $grid;
+	margin-bottom: ($line-height / strip-unit($base-font-size)) * $grid +rem;
+}
+
+@mixin vertical_rythme_background(
+	$font-size : $base-font-size,
+	$line-height : $base-line-height
+) {
+
+	$h : (strip-unit($line-height) / strip-unit($font-size))+rem;
+	background: linear-gradient(to bottom, #BA9B9A .1rem, transparent .1rem ) !important;
+	background-size: 100% $h !important;
+}
+
+/**
+ * Basic formatting :
+ */
+html {
+	font-size : $base-font-size;
+
+	@include gridle_state(tablet) {
+		font-size:30px;
+	}
+}
+body {
+	// font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+	@include font-size(12);
+	@include vertical_rythme_background();
+	
+}
+
+
+/**
+ * Layout :
+ */
+#header {
+	@include gridle(12);
+}
+#content {
+	@include gridle(8);
+	@include gridle(12,mobile);
+}
+#sidebar {
+	@include gridle(4);
+}
+#footer {
+	@include gridle(12);
+}
+
+
+/**
+ * Text styling :
+ */
+.title {
+	@include font-size(40,0);
+}
+.subtitle {
+	@include font-size(20,4);
+}

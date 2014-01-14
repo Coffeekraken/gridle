@@ -1,0 +1,60 @@
+/** Imports : */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+
+html { line-height: 1; }
+
+ol, ul { list-style: none; }
+
+table { border-collapse: collapse; border-spacing: 0; }
+
+caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+
+q, blockquote { quotes: none; }
+q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+
+a img { border: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+
+/** Import grid settings : This to be able to use gridle mixins, etc... */
+.gridle-debug #header, #header.gridle-debug, .gridle-debug #content, #content.gridle-debug, .gridle-debug #sidebar, #sidebar.gridle-debug, .gridle-debug #footer, #footer.gridle-debug { background-color: #daeff5; }
+.gridle-debug #header:before, #header.gridle-debug:before, .gridle-debug #content:before, #content.gridle-debug:before, .gridle-debug #sidebar:before, #sidebar.gridle-debug:before, .gridle-debug #footer:before, #footer.gridle-debug:before, .gridle-debug #header:after, #header.gridle-debug:after, .gridle-debug #content:after, #content.gridle-debug:after, .gridle-debug #sidebar:after, #sidebar.gridle-debug:after, .gridle-debug #footer:after, #footer.gridle-debug:after { content: ""; display: block; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==); margin: 10px 0; padding: 5px 0; text-align: center; color: white; font-size: 11px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block !important; }
+
+#header, #content, #sidebar, #footer { display: inline-block; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+
+/** Get states count : */
+/** Set media query var : */
+/** Basic formatting : */
+html { font-size: 16px; }
+html.tablet html { font-size: 30px; }
+@media screen and (min-width: 481px) and (max-width: 1024px) { html { font-size: 30px; } }
+
+body { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; background: linear-gradient(to bottom, #ba9b9a 0.1rem, transparent 0.1rem) !important; background-size: 100% 1.5rem !important; }
+
+/** Layout : */
+#header { float: left; direction: ltr; padding: 0 10px; width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+.gridle-debug #header:before, #header.gridle-debug:before { content: "grid--12"; }
+.gridle-debug #header.parent:before, #header.gridle-debug.parent:before { content: "grid-parent--12"; }
+
+#content { float: left; direction: ltr; padding: 0 10px; width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); float: left; direction: ltr; padding: 0 10px; }
+.gridle-debug #content:before, #content.gridle-debug:before { content: "grid--8"; }
+.gridle-debug #content.parent:before, #content.gridle-debug.parent:before { content: "grid-parent--8"; }
+html.mobile #content { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+.gridle-debug html.mobile #content:before, html.mobile #content.gridle-debug:before { content: "grid-mobile-12"; }
+.gridle-debug html.mobile #content.parent:before, html.mobile #content.gridle-debug.parent:before { content: "grid-parent-mobile-12"; }
+@media screen and (max-width: 480px) { #content { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  .gridle-debug #content:before, #content.gridle-debug:before { content: "grid-mobile-12"; }
+  .gridle-debug #content.parent:before, #content.gridle-debug.parent:before { content: "grid-parent-mobile-12"; } }
+
+#sidebar { float: left; direction: ltr; padding: 0 10px; width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+.gridle-debug #sidebar:before, #sidebar.gridle-debug:before { content: "grid--4"; }
+.gridle-debug #sidebar.parent:before, #sidebar.gridle-debug.parent:before { content: "grid-parent--4"; }
+
+#footer { float: left; direction: ltr; padding: 0 10px; width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+.gridle-debug #footer:before, #footer.gridle-debug:before { content: "grid--12"; }
+.gridle-debug #footer.parent:before, #footer.gridle-debug.parent:before { content: "grid-parent--12"; }
+
+/** Text styling : */
+.title { font-size: 40px; font-size: 2.5rem; line-height: 0.6; margin-bottom: 0px; margin-bottom: 0rem; }
+
+.subtitle { font-size: 20px; font-size: 1.25rem; line-height: 1.2; margin-bottom: 96px; margin-bottom: 6rem; }

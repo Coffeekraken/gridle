@@ -1,11 +1,20 @@
 // Import grid settings :
 @import 'grid-settings';
 
+$gridle-generate-useful-states-classes : (retina,print);
+
+$gridle-gutter-width : 1rem;
+
 // Generate classes :
 @include gridle_generate_classes();
+
+// @include gridle_generate_json_settings();
 
 // Max size :
 .container {
 	margin:0 auto;
 	max-width:960px;
+
+	@include gridle_grid_background();
+	@include gridle_grid_background(7,mobile);
 }

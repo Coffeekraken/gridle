@@ -66,8 +66,6 @@ $gridle-generate-pull-classes 			: true !default;
 $gridle-generate-prefix-classes 		: true !default;
 $gridle-generate-suffix-classes 		: true !default;
 
-$gridle-generate-useful-states-classes 	: () !default;// retina | landscape | portrait | print | tv
-
 $gridle-debug-selector 					: ".gridle-debug &, &.gridle-debug" !default;
 
 $gridle-class-prefix 					: '' !default;
@@ -131,9 +129,8 @@ $gridle-debug-color-name-pattern 		: ('debug','%-','color','%-','%state','%-','%
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-
-$_gridle_state_variable_count : 5; 		// the number of variable for each state in the variables list
-$_gridle_states : ();					// the variable list for each states
+$_gridle_states_vars_pattern : ('name', 'min-width', 'max-width', 'query', 'classes', 'context');
+$_gridle_states : ();						// the variable list for each states
 $_gridle_states_debug_devices : (); 	// save the debug states devices
 
 
@@ -147,6 +144,35 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 
 // Init gridle
 // Creating the silent classes with user configuration :
+%gridle-pie-clearfix {
+	&:after {
+		content: ".";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+	}
+	 
+	& {
+		display: inline-block;
+	}
+	 
+	html[xmlns] & {
+		display: block;
+	}
+	 
+	* html & {
+		height: 1%;
+	}
+}
+%gridle-simple-clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
 %gridle-clearfix {
 	// For modern browser
 	&:before,
@@ -182,17 +208,6 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 }
 %gridle-container-debug-common {
 	background-color:#f5f5f5;
-
-	&:before,
-	&:after {
-		content:"";
-		display:block;
-		background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
-		height:inherit;
-		text-align:center;
-		color:white;
-		font-size:11px;
-	}
 }
 %gridle-grid-debug-common {
 	&:before,
@@ -238,24 +253,12 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 
 // Common css that cannot be extended cause of variables :
 @mixin _gridle_container_common() {
-	@extend %gridle-clearfix;
+	@extend %gridle-simple-clearfix;
 	@extend %gridle-container-common;
 	// debug part :
 	@if ($gridle-debug == true) {
 		#{$gridle-debug-selector} {
 			@extend %gridle-container-debug-common;
-			&:before {
-				@if $gridle-debug-show-class-names == true {
-					padding:10px $gridle-gutter-width/2;
-					content:"container-#{$gridle-columns-count}" !important;
-				}
-			}
-			&:after {
-				@if $gridle-debug-show-class-names == true {
-					padding:10px $gridle-gutter-width/2;
-					content:"end container-#{$gridle-columns-count}" !important;
-				}
-			}
 		}
 	}
 }
@@ -412,16 +415,16 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	$max-width : null
 ) {
 	// get the index of state :
-	$idx : _gridle_get_media_query_index_by_name($state-or-min-width);
+	$idx : _gridle_get_state_index_by_name($state-or-min-width);
 
 	// if there's an idx, the state requested is a registered one :
 	@if $idx {
 		// get vars :
-		$name : _gridle_get_media_query_vars($idx,"name");
-		$min-width : _gridle_get_media_query_vars($idx,"min-width");
-		$max-width : _gridle_get_media_query_vars($idx,"max-width");
-		$classes : _gridle_get_media_query_vars($idx,"classes");
-		$query : _gridle_get_media_query_vars($idx,"query");
+		$name : _gridle_get_state_var($idx,"name");
+		$min-width : _gridle_get_state_var($idx,"min-width");
+		$max-width : _gridle_get_state_var($idx,"max-width");
+		$classes : _gridle_get_state_var($idx,"classes");
+		$query : _gridle_get_state_var($idx,"query");
 
 		// check if exist :
 		@if $name {
@@ -467,33 +470,52 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 }
 
 
+// Get value index in state vars package list
+@function _gridle_get_state_var_index(
+	$stateName-or-stateIndex : 1,
+	$var : "name"
+) {
+
+	// check type of index :
+	$index : 1;
+	@if (type-of($stateName-or-stateIndex) != number)
+	{
+		$index : _gridle_get_state_index_by_name($stateName-or-stateIndex);
+	} @else {
+		$index : $stateName-or-stateIndex;
+	}
+
+	// get index of variable :
+	$varIdx : 1;
+	$varIdx : index($_gridle_states_vars_pattern, $var);
+
+	// calculate the actual value idx in the list :
+	$valueIdx : ($index - 1) * length($_gridle_states_vars_pattern) + $varIdx;
+	
+	// if value idx is bigger than the actual list length, return null :
+	@if length($_gridle_states) < $valueIdx {
+		@return null;
+	}
+
+	// return the index :
+	@return $valueIdx;
+}
+
+
 // Get the media queries variables :
 // @param 	int 	$index 	 	The media query indes
 // @param 	String 	$var 		The media query variable name
 // @return 	String|int 			The variable value
-@function _gridle_get_media_query_vars(
-	$index 	: 1,
+@function _gridle_get_state_var(
+	$stateName-or-stateIndex 	: 1,
 	$var 	: "name"
 ) {
-	// set the variable index (in each states groups) :
-	$varIdx : 1;
-	@if $var == "name" {
-		$varIdx : 1;
-	} @else if $var == "min-width" {
-		$varIdx : 2;
-	} @else if $var == "max-width" {
-		$varIdx : 3;
-	} @else if $var == "query" {
-		$varIdx : 4;
-	} @else if $var == "classes" {
-		$varIdx : 5;
-	}
-	
-	// calculate the actual value idx in the list :
-	$valueIdx : ($index - 1) * $_gridle_state_variable_count + $varIdx;
-	
-	// if value idx is bigger than the actual list length, return null :
-	@if length($_gridle_states) < $valueIdx {
+
+	// get the value idx :
+	$valueIdx : _gridle_get_state_var_index($stateName-or-stateIndex, $var);
+
+	// check value :
+	@if $valueIdx == null {
 		@return null;
 	}
 
@@ -510,10 +532,76 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 }
 
 
+/**
+ * Get states count :
+ */
+@function _gridle_states_count() {
+	@return length($_gridle_states) / length($_gridle_states_vars_pattern);
+}
+
+
+/**
+ * Set media query var :
+ */
+@function _gridle_set_state_var(
+	$stateName-or-stateIndex,
+	$var,
+	$newValue
+) {
+	// get the value index in the list :
+	$valueIdx : _gridle_get_state_var_index($stateName-or-stateIndex, $var);
+
+	// check value :
+	@if $valueIdx == null {
+		@return null;
+	}
+
+	// replace the value :
+	$_gridle_states : replace-nth($_gridle_states, $valueIdx, $newValue);
+
+	// return the list :
+	@return $_gridle_states;
+}
+
+
+@function replace-nth($list, $index, $value) {
+	$result: null;
+
+	@if type-of($index) != number {
+		@warn "$index: #{quote($index)} is not a number for `replace-nth`.";
+	}
+
+	@else if $index == 0 {
+		@warn "List index 0 must be a non-zero integer for `replace-nth`.";
+	}
+
+	@else if abs($index) > length($list) {
+		@warn "List index is #{$index} but list is only #{length($list)} item long for `replace-nth`.";
+	}
+
+	@else {
+		$result: ();
+		$index: if($index < 0, length($list) + $index + 1, $index);  
+
+		@for $i from 1 through length($list) {
+			@if $i == $index {
+				$result: append($result, $value);
+			}
+
+			@else {
+				$result: append($result, nth($list, $i));
+			}
+		}
+	}
+
+	@return $result;
+}
+
+
 // Get the index of an media query by name
 // @param 	String 	$name 	The nme of the media query
 // @return 	int 			The index of the media query
-@function _gridle_get_media_query_index_by_name(
+@function _gridle_get_state_index_by_name(
 	$name
 ) {
 	// if no name, return null :
@@ -525,7 +613,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	$i : 1;
 	$group : 0;
 	@each $value in $_gridle_states {
-		$int : ($i - 1) / $_gridle_state_variable_count;
+		$int : ($i - 1) / length($_gridle_states_vars_pattern);
 		@if round($int) == $int {
 			$group : $group + 1;
 		}
@@ -556,17 +644,19 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	$name,
 	$min-width-or-query : null,
 	$max-width-or-classes-generation : null,
-	$classes-generation : true
+	$classes-generation : true,
+	$context : $gridle-columns-count
 ) {
 
-	$index : length($_gridle_states) * $_gridle_state_variable_count;
+	$index : length($_gridle_states) * length($_gridle_states_vars_pattern);
 
 	// process variables :
 	$name : $name;
 	$min-width : -1;
 	$max-width : -1;
-	$classes : true;
 	$query : -1;
+	$classes : true;
+	$context : $context;
 	@if type-of($min-width-or-query) == string {
 		$query : $min-width-or-query;
 	} @else {
@@ -588,6 +678,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	$_gridle_states : append($_gridle_states, $max-width);
 	$_gridle_states : append($_gridle_states, $query);
 	$_gridle_states : append($_gridle_states, $classes);
+	$_gridle_states : append($_gridle_states, $context);
 }
 
 
@@ -596,6 +687,16 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	// register mobile and tablet states :
 	@include gridle_register_state("mobile",null,480px);
 	@include gridle_register_state("tablet",481px,1024px);
+}
+
+
+// set context by state :
+@mixin gridle_set_context_for_state(
+	$state,
+	$context
+) {
+	// set context in state :
+	$var : _gridle_set_state_var($state, "context", $context);
 }
 
 
@@ -675,8 +776,9 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	@if type-of($state-context) == number {
 		$state : $state;
 		$context : $state-context;
-	} @else {
+	} @elseif $state-context {
 		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
 	}
 	// check if need media query :
 	@if $state {
@@ -731,6 +833,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 		$context : $state-context;
 	} @else {
 		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
 	}
 	// check if need media query :
 	@if $state {
@@ -759,6 +862,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 			}
 		}
 	}
+
 }
 
 
@@ -778,6 +882,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 		$context : $state-context;
 	} @else {
 		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
 	}
 	// check if need media query :
 	@if $state {
@@ -825,6 +930,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 		$context : $state-context;
 	} @else {
 		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
 	}
 	// check if need media query :
 	@if $state {
@@ -872,6 +978,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 		$context : $state-context;
 	} @else {
 		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
 	}
 	// check if need media query :
 	@if $state {
@@ -900,6 +1007,63 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 			}
 		}
 	}
+}
+
+
+// grid background :
+// Display the grid background debug
+@mixin gridle_grid_background(
+	$state-context : null,
+	$state : null
+) {
+
+	// variables :
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @elseif $state {
+		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
+	}
+
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_grid_background($state,$context);
+		}
+	} @else {
+		@include _gridle_grid_background($state,$context);
+	}
+}
+@mixin _gridle_grid_background(
+	$state : null,
+	$context : $gridle-columns-count
+) {
+	
+	position:relative;
+	z-index:9999;
+	&:before {
+		content:'.';
+		position:absolute;
+		top:0; left:0;
+		width:100%; height:100% !important;
+		// vars :
+		$width : percentage(1 / $context);
+		background: linear-gradient(to right, rgba(255,0,0,.2) 50% , rgba(0,255,0,.2) 50%); /* Standard syntax */
+		background-size:($width*2) 100%;
+		// background-position:$gridle-gutter-width/2 0;
+	}
+	
+
+	// debug css :
+	// @if $gridle-debug == true and $gridle-debug-show-class-names == true {
+	// 	#{$gridle-debug-selector} {
+	// 		&:after {
+	// 			content:"suffix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+	// 		}
+	// 	}
+	// }
 }
 
 
@@ -1259,37 +1423,33 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	$gridle-settings-states : "{";
 
 	// generate all classes for differents media queries :
-	@for $i from 1 through (length($_gridle_states) / $_gridle_state_variable_count) {
-		// setup vars :
-		$media : _gridle_get_media_query_vars($i,"name");
-		$classes : _gridle_get_media_query_vars($i,"classes");
- 
-		// generate all media queries grid classes :
-		@if $media and $classes == true {
- 
-			// manage body query :
-			$body-query : _get_media_query_for_state($media);
-			@if $body-query {
-				@if $i == 1 {
-					$gridle-settings-states : "#{$gridle-settings-states}\"#{$media}\":\"#{$body-query}\"";
-				} @else {
-					$gridle-settings-states : "#{$gridle-settings-states},\"#{$media}\":\"#{$body-query}\"";
-				}
+	
+	@for $i from 1 through _gridle_states_count() {
+
+		$name : _gridle_get_state_var($i,"name");
+
+		$gridle-settings-states : "#{$gridle-settings-states} \"#{$name}\":{";
+	
+		@each $var in $_gridle_states_vars_pattern {
+
+			$value : null;
+			@if $var == "query" {
+				$value : _get_media_query_for_state($name);
+			} @else {
+				$value : _gridle_get_state_var($i,$var);
 			}
 
-		}
-	}
-
-	// usefull states :
-	@if $gridle-generate-useful-states-classes != null {
-		@each $state in $gridle-generate-useful-states-classes { 
- 
-			// manage body query :
-			$body-query : _get_media_query_for_state($state);
-			@if $body-query {
-				$gridle-settings-states : "#{$gridle-settings-states},\"#{$state}\":\"#{$body-query}\"";
+			@if $value == null {
+				$gridle-settings-states : "#{$gridle-settings-states} \"#{$var}\" : null,";
+			} @elseif $var == 'context' or $var == 'classes' {
+				$gridle-settings-states : "#{$gridle-settings-states} \"#{$var}\" : #{$value},";
+			} @else {
+				$gridle-settings-states : "#{$gridle-settings-states} \"#{$var}\" : \"#{$value}\",";		
 			}
 		}
+
+		$gridle-settings-states : "#{$gridle-settings-states} },";
+
 	}
 
 	 // generate settings json :
@@ -1322,15 +1482,6 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	$gridle-settings : "#{$gridle-settings}, \"generatePrefixClasses\" : #{$gridle-generate-prefix-classes}";
 	$gridle-settings : "#{$gridle-settings}, \"generateSuffixClasses\" : #{$gridle-generate-suffix-classes}";
 	$gridle-settings : "#{$gridle-settings}, \"classPrefix\" : \"#{$gridle-class-prefix}\"";
-	$useful-states-classes : "[";
-	@for $i from 1 through length($gridle-generate-useful-states-classes) {
-		@if $i > 1 {
-			$useful-states-classes : "#{$useful-states-classes},";
-		}
-		$useful-states-classes : "#{$useful-states-classes}\"#{nth($gridle-generate-useful-states-classes,$i)}\"";
-	}
-	$useful-states-classes : "#{$useful-states-classes}]";
-	$gridle-settings : "#{$gridle-settings}, \"generateUsefulStatesClasses\" : #{$useful-states-classes}";
 	$gridle-settings : "#{$gridle-settings} }";
 	#gridle-settings-#{$scope} {
 		content : $gridle-settings;
@@ -1425,6 +1576,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	$prefix-common-selector : ();
 	$suffix-common-selector : ();
 	$common-selector : ();
+	
 	@for $i from 0 through $gridle-columns-count {
 
 		// variables :
@@ -1436,33 +1588,30 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 		$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, null, $calculatedSelector)), comma );
 		$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, null, $calculatedSelector)), comma );
 		$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, null, $calculatedSelector)), comma );
- 
-		// generate all classes for media queries :
-		@for $j from 1 through (length($_gridle_states) / $_gridle_state_variable_count) {
-			// setup vars :
-			$media : _gridle_get_media_query_vars($j,"name");
-			$classes : _gridle_get_media_query_vars($j,"classes");
+	}
 
-			// generate classes :   
-			@if $media and $classes == true {
-				 
+	// generate all classes for media queries :
+	@for $j from 1 through _gridle_states_count() {
+
+		// setup vars :
+		$media : _gridle_get_state_var($j,"name");
+		$classes : _gridle_get_state_var($j,"classes");
+		$context : _gridle_get_state_var($j,"context");
+
+		// generate classes :   
+		@if $media and $classes == true and $context {
+
+			@for $i from 0 through $context {
+
+				// variables :
+				$calculatedSelector : "#{$i*$gridle-name-multiplicator}";
+		 						
+				// add selector :
 				$common-selector : append( $common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, $media, $calculatedSelector)), comma );
 				$push-common-selector : append( $push-common-selector, unquote(_gridle_classname($gridle-push-name-pattern, $media, $calculatedSelector)), comma );
 				$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, $media, $calculatedSelector)), comma );
 				$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, $media, $calculatedSelector)), comma );
 				$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, $media, $calculatedSelector)), comma );
-			}
-		}
- 
-		// generate all classes for usefull states :
-		@if $gridle-generate-useful-states-classes != null {
-			@each $state in $gridle-generate-useful-states-classes {
-
-				$common-selector : append( $common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, $state, $calculatedSelector)), comma );
-				$push-common-selector : append( $push-common-selector, unquote(_gridle_classname($gridle-push-name-pattern, $state, $calculatedSelector)), comma );
-				$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, $state, $calculatedSelector)), comma );
-				$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, $state, $calculatedSelector)), comma );
-				$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, $state, $calculatedSelector)), comma );
 			}
 		}
 	}
@@ -1485,13 +1634,14 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 	}
  
 	// generate all classes for differents media queries :
-	@for $i from 1 through (length($_gridle_states) / $_gridle_state_variable_count) {
+	@for $i from 1 through _gridle_states_count() {
 		// setup vars :
-		$media : _gridle_get_media_query_vars($i,"name");
-		$classes : _gridle_get_media_query_vars($i,"classes");
-		$min-width : _gridle_get_media_query_vars($i,"min-width");
-		$max-width : _gridle_get_media_query_vars($i,"max-width");
-		$query : _gridle_get_media_query_vars($i,"query");
+		$media : _gridle_get_state_var($i,"name");
+		$classes : _gridle_get_state_var($i,"classes");
+		$min-width : _gridle_get_state_var($i,"min-width");
+		$max-width : _gridle_get_state_var($i,"max-width");
+		$query : _gridle_get_state_var($i,"query");
+		$context : _gridle_get_state_var($i,"context");
 
 		// parent common css :
 		$parentSelector : _gridle_classname($gridle-parent-name-pattern,$media,null);
@@ -1506,7 +1656,7 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 			// generate all the classes :
 			@include gridle_state($media, null, $has-parent) {
 		 
-				@for $j from 0 through $gridle-columns-count {
+				@for $j from 0 through $context {
 		 
 					// variables :
 					$calculatedSelector : "#{$j*$gridle-name-multiplicator}";
@@ -1514,26 +1664,26 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 					// classes :
 					// #{_gridle_classname("grid-#{$media}-#{$calculatedSelector}")} {
 					#{_gridle_classname($gridle-grid-name-pattern, $media, $calculatedSelector)} {
-						@include _gridle($j,$media);
+						@include _gridle($j, $media, $context);
 					}
 					@if $gridle-generate-push-classes == true {
 						#{_gridle_classname($gridle-push-name-pattern, $media, $calculatedSelector)} {
-							@include _gridle_push($j,$media);
+							@include _gridle_push($j, $media, $context);
 						}
 					}
 					@if $gridle-generate-pull-classes == true {
 						#{_gridle_classname($gridle-pull-name-pattern, $media, $calculatedSelector)} {
-							@include _gridle_pull($j,$media);
+							@include _gridle_pull($j, $media, $context);
 						}
 					}
 					@if $gridle-generate-prefix-classes == true {
 						#{_gridle_classname($gridle-prefix-name-pattern, $media, $calculatedSelector)} {
-							@include _gridle_prefix($j,$media);
+							@include _gridle_prefix($j, $media, $context);
 						}
 					}
 					@if $gridle-generate-suffix-classes == true {
 						#{_gridle_classname($gridle-suffix-name-pattern, $media, $calculatedSelector)} {
-							@include _gridle_suffix($j,$media);
+							@include _gridle_suffix($j, $media, $context);
 						}   
 					}
 				}
@@ -1541,58 +1691,6 @@ $_gridle_states_debug_devices : (); 	// save the debug states devices
 				// media queries helpers classes :
 				@if $gridle-generate-helpers-classes == true and $media {
 					@include _gridle_generate_helper_classes($media);
-				}
-			}
-		}
-	}
- 
-	// usefull states :
-	@if $gridle-generate-useful-states-classes != null {
-		@each $state in $gridle-generate-useful-states-classes { 
- 
-			// parent common css :
-			$parentSelector : _gridle_classname($gridle-parent-name-pattern,$state,null);
-			#{$parentSelector} {
-				@extend %gridle-clearfix;
-				@extend %gridle-parent-common;
-			}
-
-			// creating classes :
-			@include gridle_state($state, null, $has-parent) {
- 
-				@for $k from 0 through $gridle-columns-count {
-			 
-					// variables :
-					$calculatedSelector : "#{$k*$gridle-name-multiplicator}";
-
-					// classes :
-					#{_gridle_classname("grid-#{$state}-#{$calculatedSelector}")} {
-						@include _gridle($k,$state);
-					}
-					@if $gridle-generate-push-classes == true {
-						#{_gridle_classname($gridle-grid-name-pattern, $state, $calculatedSelector)} {
-							@include _gridle_push($k,$state);
-						}
-					}
-					@if $gridle-generate-pull-classes == true {
-						#{_gridle_classname($gridle-pull-name-pattern, $state, $calculatedSelector)} {
-							@include _gridle_pull($k,$state);
-						}
-					}
-					@if $gridle-generate-prefix-classes == true {
-						#{_gridle_classname($gridle-prefix-name-pattern, $state, $calculatedSelector)} {
-							@include _gridle_prefix($k,$state);
-						}
-					}
-					@if $gridle-generate-suffix-classes == true {
-						#{_gridle_classname($gridle-suffix-name-pattern, $state, $calculatedSelector)} {
-							@include _gridle_suffix($k,$state);
-						}   
-					}
-				}
-				 
-				@if $gridle-generate-helpers-classes == true {
-					@include _gridle_generate_helper_classes($state);   
 				}
 			}
 		}
