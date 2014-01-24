@@ -21,17 +21,23 @@ $base-line-height : 24px;
 	$size : $base-font-size,
 	$grid-bottom : 1,
 	$grid-top : null,
-	$line-height : $base-line-height
+	$substract : null
 ) {
 	// stip units :
 	$size : strip-unit($size);
-	$line-height : strip-unit($line-height);
+	$line-height : strip-unit($base-line-height);
+
+	@if $substract {
+		$substract : strip-unit($substract);
+	} @else {
+		$substract : 0;
+	}
 
 	// font size :
 	font-size: 0px + $size;
 	font-size: $size / strip-unit($base-font-size) +rem;
 
-	line-height: round($line-height / $size*10000) / 10000;
+	line-height: $line-height / ($size - $substract) * 10000 / 10000;
 	
 	margin-bottom: (0px + $line-height) * $grid-bottom;
 	margin-bottom: ($line-height / strip-unit($base-font-size)) * $grid-bottom +rem;
@@ -90,7 +96,7 @@ html {
 	font-size : $base-font-size;
 
 	@include gridle_state(tablet) {
-		font-size:30px;
+		font-size:20px;
 	}
 }
 body {
@@ -127,7 +133,8 @@ p {
 	@include font-size(13,1);
 }
 .title {
-	@include font-size(30,1,2);
+	@include font-size(30,6,2);
+	border-bottom:1px solid red;
 }
 .subtitle {
 	@include font-size(12,1,1);
