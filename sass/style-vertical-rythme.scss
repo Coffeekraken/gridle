@@ -36,12 +36,12 @@ $base-line-height : 24px;
 	// font size :
 	font-size: 0px + $size;
 	font-size: $size / strip-unit($base-font-size) +rem;
-
-	line-height: $line-height / ($size - $substract) * 10000 / 10000;
+	
+	line-height: $line-height / ($size - $substract) * 1000 / 1000;
 	
 	margin-bottom: (0px + $line-height) * $grid-bottom;
 	margin-bottom: ($line-height / strip-unit($base-font-size)) * $grid-bottom +rem;
-
+	
 	@if $grid-top {
 		margin-top: (0px + $line-height) * $grid-top;
 		margin-top: ($line-height / strip-unit($base-font-size)) * $grid-top +rem;
@@ -94,10 +94,6 @@ $base-line-height : 24px;
  */
 html {
 	font-size : $base-font-size;
-
-	@include gridle_state(tablet) {
-		font-size:20px;
-	}
 }
 body {
 	// font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
@@ -130,18 +126,24 @@ body {
  * Text styling :
  */
 p {
-	@include font-size(13,1);
+	@include font-size(20,1);
+}
+.page-title {
+	@include font-size(80,0,3);
+}
+.page-subtitle {
+	@include font-size(40,3,1);
 }
 .title {
-	@include font-size(30,6,2);
-	border-bottom:1px solid red;
+	@include font-size(30,0);
+	// border-bottom:1px solid red;
 }
 .subtitle {
-	@include font-size(12,1,1);
+	@include font-size(12,1);
 	color:#888;
 
 	.title ~ & {
-		@include font-size(12,1,-1);
+		@include font-size(12,1);
 	}
 }
 .img-container {
@@ -149,4 +151,12 @@ p {
 	@include gridle_state(tablet) {
 		@include rythme_image(5);
 	}
+}
+#sidebar {
+	.img-container {
+		@include rythme_image(6);
+		@include gridle_state(tablet) {
+			@include rythme_image(4);
+		}
+	}	
 }

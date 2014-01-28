@@ -26,8 +26,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 /** Set media query var : */
 /** Basic formatting : */
 html { font-size: 16px; }
-html.tablet html { font-size: 20px; }
-@media screen and (min-width: 481px) and (max-width: 1024px) { html { font-size: 20px; } }
 
 body { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0.01rem, rgba(0, 0, 0, 0) 0.1rem) !important; background-size: 100% 1.5rem !important; }
 
@@ -61,12 +59,16 @@ html.mobile #sidebar { width: 100%; *width: expression((this.parentNode.clientWi
 .gridle-debug #footer.parent:before, #footer.gridle-debug.parent:before { content: "grid-parent--12"; }
 
 /** Text styling : */
-p { font-size: 13px; font-size: 0.8125rem; line-height: 1.84615; margin-bottom: 24px; margin-bottom: 1.5rem; }
+p { font-size: 20px; font-size: 1.25rem; line-height: 1.2; margin-bottom: 24px; margin-bottom: 1.5rem; }
 
-.title { font-size: 30px; font-size: 1.875rem; line-height: 0.8; margin-bottom: 144px; margin-bottom: 9rem; margin-top: 48px; margin-top: 3rem; border-bottom: 1px solid red; }
+.page-title { font-size: 80px; font-size: 5rem; line-height: 0.3; margin-bottom: 0px; margin-bottom: 0rem; margin-top: 72px; margin-top: 4.5rem; }
 
-.subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; margin-top: 24px; margin-top: 1.5rem; color: #888; }
-.title ~ .subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; margin-top: -24px; margin-top: -1.5rem; }
+.page-subtitle { font-size: 40px; font-size: 2.5rem; line-height: 0.6; margin-bottom: 72px; margin-bottom: 4.5rem; margin-top: 24px; margin-top: 1.5rem; }
+
+.title { font-size: 30px; font-size: 1.875rem; line-height: 0.8; margin-bottom: 0px; margin-bottom: 0rem; }
+
+.subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; color: #888; }
+.title ~ .subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; }
 
 .img-container { height: 240px; height: 15rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
 .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
@@ -74,3 +76,10 @@ html.tablet .img-container { height: 120px; height: 7.5rem; max-width: 100%; ove
 html.tablet .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
 @media screen and (min-width: 481px) and (max-width: 1024px) { .img-container { height: 120px; height: 7.5rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
   .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); } }
+
+#sidebar .img-container { height: 144px; height: 9rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
+#sidebar .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
+html.tablet #sidebar .img-container { height: 96px; height: 6rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
+html.tablet #sidebar .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
+@media screen and (min-width: 481px) and (max-width: 1024px) { #sidebar .img-container { height: 96px; height: 6rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
+  #sidebar .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); } }
