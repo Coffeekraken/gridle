@@ -1,0 +1,81 @@
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Settings
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+// gridle configuration vars :
+$gridle-columns-count 				: 12 !default;
+$gridle-gutter-width 					: 20px !default;
+$gridle-name-multiplicator 				: 1 !default;
+
+$gridle-direction 					: ltr !default;
+
+$gridle-debug 						: false !default;
+$gridle-debug-show-class-names 			: true !default;
+
+$gridle-ie7-support 					: true !default;
+
+$gridle-html-states-classes 				: false !default;
+
+$gridle-generate-helpers-classes 			: true !default;
+$gridle-generate-push-classes 			: true !default;
+$gridle-generate-pull-classes 				: true !default;
+$gridle-generate-prefix-classes 			: true !default;
+$gridle-generate-suffix-classes 			: true !default;
+
+$gridle-debug-selector 				: ".gridle-debug &, &.gridle-debug" !default;
+
+$gridle-class-prefix 					: '' !default;
+$gridle-class-separator 				: '-' !default;
+
+$gridle-container-name-pattern 			: ('container') !default;
+
+$gridle-grid-name-pattern 				: ('grid','%-','%state','%-','%count') !default;
+$gridle-push-name-pattern 				: ('push','%-','%state','%-','%count') !default;
+$gridle-pull-name-pattern 				: ('pull','%-','%state','%-','%count') !default;
+$gridle-prefix-name-pattern 				: ('prefix','%-','%state','%-','%count') !default;
+$gridle-suffix-name-pattern 				: ('suffix','%-','%state','%-','%count') !default;
+
+$gridle-parent-name-pattern 				: ('parent','%-','%state') !default;
+$gridle-centered-name-pattern 			: ('centered','%-','%state') !default;
+
+$gridle-hide-name-pattern 				: ('hide','%-','%state') !default;
+$gridle-show-name-pattern 				: ('show','%-','%state') !default;
+$gridle-not-visible-name-pattern 			: ('not','%-','visible','%-','%state') !default;
+$gridle-visible-name-pattern 				: ('visible','%-','%state') !default;
+
+$gridle-float-left-name-pattern 			: ('float','%-','%state','%-','left') !default;
+$gridle-float-right-name-pattern 			: ('float','%-','%state','%-','right') !default;
+
+$gridle-clear-name-pattern 				: ('clear','%-','%state') !default;
+$gridle-clear-left-name-pattern 			: ('clear','%-','%state','%-','left') !default;
+$gridle-clear-right-name-pattern 			: ('clear','%-','%state','%-','right') !default;
+
+$gridle-no-gutter-name-pattern 			: ('no','%-','gutter','%-','%state') !default;
+$gridle-no-gutter-left-name-pattern 			: ('no','%-','gutter','%-','%state','%-','left') !default;
+$gridle-no-gutter-right-name-pattern 		: ('no','%-','gutter','%-','%state','%-','right') !default;
+$gridle-no-gutter-top-name-pattern 			: ('no','%-','gutter','%-','%state','%-','top') !default;
+$gridle-no-gutter-bottom-name-pattern 		: ('no','%-','gutter','%-','%state','%-','bottom') !default;
+
+$gridle-no-margin-name-pattern 			: ('no','%-','margin','%-','%state') !default;
+$gridle-no-margin-left-name-pattern 		: ('no','%-','margin','%-','%state','%-','left') !default;
+$gridle-no-margin-right-name-pattern 		: ('no','%-','margin','%-','%state','%-','right') !default;
+$gridle-no-margin-top-name-pattern 		: ('no','%-','margin','%-','%state','%-','top') !default;
+$gridle-no-margin-bottom-name-pattern 		: ('no','%-','margin','%-','%state','%-','bottom') !default;
+
+$gridle-gutter-name-pattern 				: ('gutter','%-','%state') !default;
+$gridle-gutter-left-name-pattern 			: ('gutter','%-','%state','%-','left') !default;
+$gridle-gutter-right-name-pattern 			: ('gutter','%-','%state','%-','right') !default;
+$gridle-gutter-top-name-pattern 			: ('gutter','%-','%state','%-','top') !default;
+$gridle-gutter-bottom-name-pattern 		: ('gutter','%-','%state','%-','bottom') !default;
+
+$gridle-margin-name-pattern 			: ('margin','%-','%state') !default;
+$gridle-margin-left-name-pattern 			: ('margin','%-','%state','%-','left') !default;
+$gridle-margin-right-name-pattern 			: ('margin','%-','%state','%-','right') !default;
+$gridle-margin-top-name-pattern 			: ('margin','%-','%state','%-','top') !default;
+$gridle-margin-bottom-name-pattern 		: ('margin','%-','%state','%-','bottom') !default;
+
+$gridle-auto-height-name-pattern 			: ('auto','%-','height','%-','%state') !default;
+
+$gridle-debug-color-name-pattern 			: ('debug','%-','color','%-','%state','%-','%count') !default;

@@ -1,0 +1,318 @@
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Functions
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+// Get column width :
+@function gridle_get_columns_width(
+	$columns : 1,
+	$context : $gridle-columns-count
+) {
+	@return percentage(1 / $context * $columns);
+}
+@function gridle_get_column_width(
+	$columns : 1,
+	$context : $gridle-columns-count
+) { 
+	@return gridle_get_columns_width($columns, $context);
+}
+
+// generate classname :
+@function _gridle_classname(
+	$pattern,
+	$media : null,
+	$count : null
+) {
+
+	// init selector :
+	$sel : ".";
+
+	// add class prefix :
+	@if $gridle-class-prefix and $gridle-class-prefix != '' {
+		$sel : "#{$sel}#{$gridle-class-prefix}";
+		@if $gridle-class-separator {
+			$sel : "#{$sel}#{$gridle-class-separator}";
+		}
+	}
+
+	// construct class name :
+	$i : 1;
+	@each $var in $pattern {
+		
+		// replace tokens :
+		@if $var == '%state' and $media {
+			$sel : "#{$sel}#{$media}";
+		} 
+		@if $var == '%count' and $count {
+			$sel : "#{$sel}#{$count}";
+		}  
+		@if $var != '%state' and $var != '%count' and $var != '%-' and $var != '%prefix' {
+			$sel : "#{$sel}#{$var}";
+		}
+
+		// handle separators :
+		@if $var == '%-' and $i < length($pattern) {
+			$index : $i + 1;
+			$value : nth($pattern, $index);
+			@if $value != '%state' and $value != '%count' and $value != '%-' and $value != '%prefix' {
+				$sel : "#{$sel}#{$gridle-class-separator}";
+			}
+			@if $value == '%state' and $media {
+				$sel : "#{$sel}#{$gridle-class-separator}";
+			}
+			@if $value == '%count' and $count {
+				$sel : "#{$sel}#{$gridle-class-separator}";
+			}
+		}
+
+		// update i :
+		$i : $i + 1;
+	}
+
+	// return generated class :
+	@return $sel;
+}
+
+
+// Get media query by state :
+@function _get_media_query_for_state(
+	$state-or-min-width : null,
+	$max-width : null
+) {
+	// get the index of state :
+	$idx : _gridle_get_state_index_by_name($state-or-min-width);
+
+	// if there's an idx, the state requested is a registered one :
+	@if $idx {
+		// get vars :
+		$name : _gridle_get_state_var($idx,"name");
+		$min-width : _gridle_get_state_var($idx,"min-width");
+		$max-width : _gridle_get_state_var($idx,"max-width");
+		$classes : _gridle_get_state_var($idx,"classes");
+		$query : _gridle_get_state_var($idx,"query");
+
+		// check if exist :
+		@if $name {
+			// check if query exist :
+			@if $query {
+				@return $query;
+			} @else {
+
+				// write media query :
+				@if $min-width and $max-width {
+					@return "screen and (min-width: #{$min-width}) and (max-width: #{$max-width})";
+				} @else if $min-width == null and $max-width {
+					@return "screen and (max-width: #{$max-width})";
+				} @else if $min-width and $max-width == null {
+					@return "screen and (min-width: #{$min-width})";
+				} @else {
+					@return null;
+				}
+			}
+		}
+	} @else if $state-or-min-width == 'print' or $state-or-min-width == print {
+		@return "only print";
+	} @else if $state-or-min-width == 'tv' or $state-or-min-width == tv {
+		@return "only tv";
+	} @else if $state-or-min-width == 'portrait' or $state-or-min-width == portrait {
+		@return "only screen and (orientation: portrait)";
+	} @else if $state-or-min-width == 'landscape' or $state-or-min-width == landscape {
+		@return "only screen and (orientation: landscape)";
+	} @else if $state-or-min-width == 'retina' or $state-or-min-width == retina {
+		@return "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
+	} @else {
+		// check for min and max width :
+		@if $state-or-min-width and $max-width {
+			@return "screen and (min-width: #{$state-or-min-width}) and (max-width: #{$max-width})";
+		} @else if $state-or-min-width and $max-width == null {
+			@return "screen and (min-width: #{$state-or-min-width})";
+		} @else if $state-or-min-width == null and $max-width {
+			@return "screen and (max-width: #{$max-width})";
+		} @else {
+			@return null;
+		}
+	}
+}
+
+
+/**
+ * Get state variable index in the states variables list
+ * 
+ * @param 	Mixed 		$stateName-or-stateIndex : 1 		The state name of state index
+ * @param 	String 		$var 					The variable name to get
+ * @return 	int 							The value index in states variables list
+ */
+@function _gridle_get_state_var_index(
+	$stateName-or-stateIndex : 1,
+	$var : "name"
+) {
+
+	// check type of index :
+	$index : 1;
+	@if (type-of($stateName-or-stateIndex) != number)
+	{
+		$index : _gridle_get_state_index_by_name($stateName-or-stateIndex);
+	} @else {
+		$index : $stateName-or-stateIndex;
+	}
+
+	// get index of variable :
+	$varIdx : 1;
+	$varIdx : index($_gridle_states_vars_pattern, $var);
+
+	// calculate the actual value idx in the list :
+	$valueIdx : ($index - 1) * length($_gridle_states_vars_pattern) + $varIdx;
+	
+	// if value idx is bigger than the actual list length, return null :
+	@if length($_gridle_states) < $valueIdx {
+		@return null;
+	}
+
+	// return the index :
+	@return $valueIdx;
+}
+
+
+/**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+@function _gridle_states_count() {
+	@return length($_gridle_states) / length($_gridle_states_vars_pattern);
+}
+
+
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 		$index 	 	The media query indes
+ * @param 	String 		$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+@function _gridle_get_state_var(
+	$stateName-or-stateIndex 	: 1,
+	$var 	: "name"
+) {
+
+	// get the value idx :
+	$valueIdx : _gridle_get_state_var_index($stateName-or-stateIndex, $var);
+
+	// check value :
+	@if $valueIdx == null {
+		@return null;
+	}
+
+	// get the value :
+	$value : nth($_gridle_states, $valueIdx);
+
+	// return null if value is -1 :
+	@if $value == -1 {
+		$value : null;
+	}
+
+	// return the value :
+	@return $value;
+}
+
+
+/**
+ * Set a variable in a state
+ * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+ * @param  	String $var                    		Variable name to assign
+ * @param  	Mixed $newValue          		The new value to assign
+ * @return 	List                         			The states list (full)
+ */
+@function _gridle_set_state_var(
+	$stateName-or-stateIndex,
+	$var,
+	$newValue
+) {
+	// get the value index in the list :
+	$valueIdx : _gridle_get_state_var_index($stateName-or-stateIndex, $var);
+
+	// check value :
+	@if $valueIdx == null {
+		@return null;
+	}
+
+	// replace the value :
+	$_gridle_states : replace-nth($_gridle_states, $valueIdx, $newValue);
+
+	// return the list :
+	@return $_gridle_states;
+}
+
+/**
+ * Replacing an element in a list
+ *
+ * @param	List 	$list 		The list in witch replace an element
+ * @param	int 	$index 		The index of the element in the list
+ * @param 	Mix 	$value 	 	The new value
+ * @return  	List 			The new list
+ */
+@function replace-nth($list, $index, $value) {
+	$result: null;
+
+	@if type-of($index) != number {
+		@warn "$index: #{quote($index)} is not a number for `replace-nth`.";
+	}
+
+	@else if $index == 0 {
+		@warn "List index 0 must be a non-zero integer for `replace-nth`.";
+	}
+
+	@else if abs($index) > length($list) {
+		@warn "List index is #{$index} but list is only #{length($list)} item long for `replace-nth`.";
+	}
+
+	@else {
+		$result: ();
+		$index: if($index < 0, length($list) + $index + 1, $index);  
+
+		@for $i from 1 through length($list) {
+			@if $i == $index {
+				$result: append($result, $value);
+			}
+
+			@else {
+				$result: append($result, nth($list, $i));
+			}
+		}
+	}
+
+	@return $result;
+}
+
+
+// Get the index of an media query by name
+// @param 	String 	$name 	The nme of the media query
+// @return 	int 			The index of the media query
+@function _gridle_get_state_index_by_name(
+	$name
+) {
+	// if no name, return null :
+	@if $name == null {
+		@return null;
+	}
+
+	// try to find the index from name :
+	$i : 1;
+	$group : 0;
+	@each $value in $_gridle_states {
+		$int : ($i - 1) / length($_gridle_states_vars_pattern);
+		@if round($int) == $int {
+			$group : $group + 1;
+		}
+		@if $name == $value {
+			// calculate state index :
+			@return $group;
+		}
+		$i : $i + 1;
+	}
+
+	// nothing found :
+	@return null;
+}

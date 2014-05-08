@@ -1,0 +1,80 @@
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Settings mixins
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+// Register an state :
+@mixin gridle_register_state(
+	$name,
+	$min-width-or-query : null,
+	$max-width-or-classes-generation : null,
+	$classes-generation : true,
+	$context : $gridle-columns-count
+) {
+
+	$index : length($_gridle_states) * length($_gridle_states_vars_pattern);
+
+	// process variables :
+	$name : $name;
+	$min-width : -1;
+	$max-width : -1;
+	$query : -1;
+	$classes : true;
+	$context : $context;
+	@if type-of($min-width-or-query) == string {
+		$query : $min-width-or-query;
+	} @else {
+		@if $min-width-or-query {
+			$min-width : $min-width-or-query;
+		}
+	}
+	@if type-of($max-width-or-classes-generation) == bool {
+		$classes : $max-width-or-classes-generation;
+	} @else {
+		@if $max-width-or-classes-generation {
+			$max-width : $max-width-or-classes-generation;
+		}
+		$classes : $classes-generation;
+	}
+
+	$_gridle_states : append($_gridle_states, $name);
+	$_gridle_states : append($_gridle_states, $min-width);
+	$_gridle_states : append($_gridle_states, $max-width);
+	$_gridle_states : append($_gridle_states, $query);
+	$_gridle_states : append($_gridle_states, $classes);
+	$_gridle_states : append($_gridle_states, $context);
+}
+
+
+// Register default states :
+@mixin gridle_register_default_states() {
+	// register mobile and tablet states :
+	@include gridle_register_state("mobile",null,480px);
+	@include gridle_register_state("tablet",481px,1024px);
+}
+
+
+// set context by state :
+@mixin gridle_set_context_for_state(
+	$state,
+	$context
+) {
+	// set context in state :
+	$var : _gridle_set_state_var($state, "context", $context);
+}
+
+
+// set state debug device :
+@mixin gridle_set_debug_device(
+	$state : null,
+	$device : null
+) {
+
+	// check params :
+	@if $state and $device {
+		// set the state device :
+		$_gridle_states_debug_devices : append($_gridle_states_debug_devices, unquote("\"#{$state}\" : \"#{$device}\""), comma);
+	}
+
+}

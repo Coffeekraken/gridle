@@ -10,28 +10,6 @@
  */
 @import 'grid-settings';
 
-$base-font-size : 16;
-$base-line-height : 24;
-
-@mixin font-size(
-	$size : $base-font-size,
-	$line-height : $base-line-height
-) {
- 
-	@if type-of($size) == string {
-		font-size: $size; 
-	}
-	@else {
-		font-size: 0px + $size;
-		font-size: $size / $base-font-size +rem;
-		line-height: round($line-height / $size*10000) / 10000;
-	} 
-	
-	margin-bottom: 0px + $line-height;
-	margin-bottom: ($line-height / $base-font-size)+rem;
-}
-
-
 /**
  * Medias :
  */
@@ -66,9 +44,7 @@ ul#medias {
  * Basic formatting :
  */
 body {
-	// font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
-
-	font-size : $base-font-size;
+	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 
 	@include gridle_state('mobile') {
 		text-align:center;
@@ -76,13 +52,4 @@ body {
 	@include gridle_state('ipad-landscape') {
 		font-size:16px;
 	}
-
-	$h : (24 / $base-font-size)+rem;
-
-	background: linear-gradient(to bottom, #BA9B9A .1rem, transparent .1rem ) !important;
-	background-size: 100% $h !important;
-}
-
-[class*="grid-"] {
-	@include font-size(12);
 }

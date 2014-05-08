@@ -1,35 +1,126 @@
-/** Imports : */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+/**
+ * Imports :
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
 
-html { line-height: 1; }
+html {
+  line-height: 1; }
 
-ol, ul { list-style: none; }
+ol, ul {
+  list-style: none; }
 
-table { border-collapse: collapse; border-spacing: 0; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
-caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
 
-q, blockquote { quotes: none; }
-q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
 
-a img { border: none; }
+a img {
+  border: none; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
 
-/** Import grid settings : This to be able to use gridle mixins, etc... */
-/** Get states count : */
-/** Set media query var : */
-/** Medias : */
-ul#medias { background: black; text-align: center; margin-bottom: 30px; }
-ul#medias li { display: inline-block; height: 50px; line-height: 50px; padding: 0 30px; color: white; font-size: 16px; cursor: pointer; margin: 0; }
-ul#medias li.active, ul#medias li:hover { background: white; color: black; }
-@media screen and (min-width: 0) and (max-width: 600px) { ul#medias { display: none; } }
+/**
+ * Import grid settings :
+ * This to be able to use gridle mixins, etc...
+ */
+/**
+ * Get state variable index in the states variables list
+ * 
+ * @param 	Mixed 		$stateName-or-stateIndex : 1 		The state name of state index
+ * @param 	String 		$var 					The variable name to get
+ * @return 	int 							The value index in states variables list
+ */
+/**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 		$index 	 	The media query indes
+ * @param 	String 		$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+/**
+ * Set a variable in a state
+ * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+ * @param  	String $var                    		Variable name to assign
+ * @param  	Mixed $newValue          		The new value to assign
+ * @return 	List                         			The states list (full)
+ */
+/**
+ * Replacing an element in a list
+ *
+ * @param	List 	$list 		The list in witch replace an element
+ * @param	int 	$index 		The index of the element in the list
+ * @param 	Mix 	$value 	 	The new value
+ * @return  	List 			The new list
+ */
+/**
+ * Medias :
+ */
+ul#medias {
+  background: black;
+  text-align: center;
+  margin-bottom: 30px; }
+  ul#medias li {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 30px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 0; }
+    ul#medias li.active, ul#medias li:hover {
+      background: white;
+      color: black; }
+  @media screen and (min-width: 0) and (max-width: 600px) {
+    ul#medias {
+      display: none; } }
 
-/** Basic formatting : */
-body { font-size: 16; background: linear-gradient(to bottom, #ba9b9a 0.1rem, transparent 0.1rem) !important; background-size: 100% 1.5rem !important; }
-html.mobile body { text-align: center; }
-@media screen and (max-width: 480px) { body { text-align: center; } }
-html.ipad-landscape body { font-size: 16px; }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { body { font-size: 16px; } }
-
-[class*="grid-"] { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; }
+/**
+ * Basic formatting :
+ */
+body {
+  font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif; }
+  html.mobile body {
+    text-align: center; }
+  @media screen and (max-width: 480px) {
+    body {
+      text-align: center; } }
+  html.ipad-landscape body {
+    font-size: 16px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    body {
+      font-size: 16px; } }

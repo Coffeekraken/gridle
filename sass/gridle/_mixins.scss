@@ -1,0 +1,581 @@
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Mixins
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+// Responsive helpers mixins :
+@mixin gridle_state(
+	$state-or-min-width,
+	$max-width : null,
+	$has-parent : true
+) {
+
+	// query list :
+	$query : ();
+
+	// loop on each states :
+	@each $_state-or-min-width in $state-or-min-width {
+
+		// check if is a state :
+		@if type-of($_state-or-min-width) == string and ($gridle-html-states-classes or $gridle-debug) {
+			// html class :
+			@if $has-parent {
+				html#{_gridle_classname("#{$_state-or-min-width}")} & { @content; }
+			} @else {
+				html#{_gridle_classname("#{$_state-or-min-width}")} { @content; }
+			}
+		}
+
+		// get the media query :
+		$q : _get_media_query_for_state($_state-or-min-width, $max-width);
+		@if $q {
+			$query : append($query, unquote("#{$q}"), comma);
+		}
+	}
+
+	// check and print media query :
+	@if length($query) {
+		@media #{$query} {
+			@content;
+		}
+	}
+}
+
+
+
+// Container mixin :
+@mixin gridle_container(
+) {
+	@include _gridle_container_common();
+}
+
+
+// Grid mixin :
+// Set the width of the specified grid column :
+@mixin gridle(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	// common :
+	@include _gridle_grid_common();
+	// variables :
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @elseif $state-context {
+		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
+	}
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle($columns, $state, $context);
+		}
+	} @else {
+		@include _gridle($columns,$state,$context);
+	}
+}
+@mixin _gridle(
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
+) {
+	// vars :
+	$width : percentage(1 / $context * $columns);
+	width:$width;
+	
+	// ie7 support :
+	@if $gridle-ie7-support == true {
+		*width: expression((this.parentNode.clientWidth/#{$context}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+	}
+	
+	// debug :
+	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+		#{$gridle-debug-selector} {
+			&:before {
+				content:"grid-#{$state}-#{$columns * $gridle-name-multiplicator}";
+			}
+			&.parent:before {
+				content:"grid-parent-#{$state}-#{$columns * $gridle-name-multiplicator}";
+			}
+		}
+	}
+}
+
+
+// push :
+// Push the element of the count of column wanted
+@mixin gridle_push(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	// common :
+	@include _gridle_push_common();
+	// variables :
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
+	}
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_push($columns,$state,$context);
+		}
+	} @else {
+		@include _gridle_push($columns,$state,$context);
+	}
+}
+@mixin _gridle_push(
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
+) {
+	// vars :
+	$width : percentage(1 / $context) * $columns;
+	@if $gridle-direction == rtl { $width : $width*-1; }
+	left:$width;
+
+	// debug css :
+	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+		#{$gridle-debug-selector} {
+			&:after {
+				content:"push-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+			}
+		}
+	}
+
+}
+
+
+// pull :
+// Pull the element of the count of column wanted
+@mixin gridle_pull(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	// common :
+	@include _gridle_pull_common();
+	// variables :
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
+	}
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_pull($columns,$state,$context);
+		}
+	} @else {
+		@include _gridle_pull($columns,$state,$context);
+	}
+}
+@mixin _gridle_pull(
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
+) {
+	// vars :
+	$width : percentage(1 / $context) * $columns;
+	@if $gridle-direction == rtl { $width : $width*-1; }
+	right:$width;
+
+	// debug css :
+	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+		#{$gridle-debug-selector} {
+			&:after {
+				content:"pull-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+			}
+		}
+	}
+}
+
+
+// push :
+// Push the element of the count of column wanted
+@mixin gridle_prefix(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	// common :
+	@include _gridle_prefix_common();
+	// variables :
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
+	}
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_prefix($columns,$state,$context);
+		}
+	} @else {
+		@include _gridle_prefix($columns,$state,$context);
+	}
+}
+@mixin _gridle_prefix(
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
+) {
+	// vars :
+	$width : percentage(1 / $context) * $columns;
+	@if $gridle-direction == rtl { margin-right:$width; }
+	@else { margin-left:$width; }
+
+	// debug css :
+	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+		#{$gridle-debug-selector} {
+			&:after {
+				content:"prefix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+			}
+		}
+	}
+}
+
+
+// pull :
+// Pull the element of the count of column wanted
+@mixin gridle_suffix(
+	$columns : $gridle-columns-count,
+	$state-context : null,
+	$state : null
+) {
+	// common :
+	@include _gridle_suffix_common();
+	// variables :
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @else {
+		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
+	}
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_suffix($columns,$state,$context);
+		}
+	} @else {
+		@include _gridle_suffix($columns,$state,$context);
+	}
+}
+@mixin _gridle_suffix(
+	$columns : $gridle-columns-count,
+	$state : null,
+	$context : $gridle-columns-count
+) {
+	// vars :
+	$width : percentage(1 / $context) * $columns;
+	@if $gridle-direction == rtl { margin-left:$width; }
+	@else { margin-right:$width; }
+
+	// debug css :
+	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+		#{$gridle-debug-selector} {
+			&:after {
+				content:"suffix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+			}
+		}
+	}
+}
+
+
+// grid background :
+// Display the grid background debug
+@mixin gridle_grid_background(
+	$state-context : null,
+	$state : null
+) {
+
+	// variables :
+	$context : $gridle-columns-count;
+	@if type-of($state-context) == number {
+		$state : $state;
+		$context : $state-context;
+	} @elseif $state {
+		$state : $state-context;
+		$context : _gridle_get_state_var($state,'context');
+	}
+
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_grid_background($state,$context);
+		}
+	} @else {
+		@include _gridle_grid_background($state,$context);
+	}
+}
+@mixin _gridle_grid_background(
+	$state : null,
+	$context : $gridle-columns-count
+) {
+	
+	position:relative;
+	z-index:9999;
+	&:before {
+		content:'.';
+		position:absolute;
+		top:0; left:0;
+		width:100%; height:100% !important;
+		// vars :
+		$width : percentage(1 / $context);
+		background: linear-gradient(to right, rgba(0,0,0,.01) 50% , rgba(0,0,0,.04) 50%); /* Standard syntax */
+		background-size:($width*2) 100%;
+		// background-position:$gridle-gutter-width/2 0;
+	}
+	
+
+	// debug css :
+	// @if $gridle-debug == true and $gridle-debug-show-class-names == true {
+	// 	#{$gridle-debug-selector} {
+	// 		&:after {
+	// 			content:"suffix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+	// 		}
+	// 	}
+	// }
+}
+
+
+// Grid centered :
+@mixin gridle_centered(
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_centered();
+		}
+	} @else {
+		@include _gridle_centered();
+	}
+}
+@mixin _gridle_centered() {
+	display:block !important;
+	float:none !important;
+	margin-left:auto !important;
+	margin-right:auto !important;
+	clear:both !important;
+}
+
+
+// Grid parent :
+@mixin gridle_parent(
+	$state : null
+) {
+	// common :
+	@include _gridle_parent_common();
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_parent();
+		}
+	} @else {
+		@include _gridle_parent();
+	}
+}
+@mixin _gridle_parent() {
+	@include gridle_no_gutter();
+}
+
+
+// Hide on :
+// @param 	String 	$media  On what state
+@mixin gridle_hide(
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_hide();
+		}
+	} @else {
+		@include _gridle_hide();
+	}
+}
+@mixin _gridle_hide() {
+	display:none;
+}
+
+
+// Not visible on :
+// @param 	String 	$media 	What to hide (one of the 3 state classes name)
+@mixin gridle_not_visible(
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_not_visible();
+		}
+	} @else {
+		@include _gridle_not_visible();
+	}
+}
+@mixin _gridle_not_visible() {
+	visibility:hidden;
+}
+
+
+// Show on
+// @param 	String 	$media 	What to hide (one of the 3 state classes name)
+@mixin gridle_show(
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_show();
+		}
+	} @else {
+		@include _gridle_show();
+	}
+}
+@mixin _gridle_show() {
+	display:block;
+}
+
+
+// Visible on :
+// @param 	String 	$media 	On what state
+@mixin gridle_visible(
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_visible();
+		}
+	} @else {
+		@include _gridle_visible();
+	}
+}
+@mixin _gridle_visible() {
+	visibility:visible;
+}
+
+
+// Gridle Right :
+@mixin gridle_float(
+	$float-direction : left,
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include gridle_float($float-direction);
+		}
+	} @else {
+		@include gridle_float($float-direction);
+	}
+}
+@mixin gridle_float(
+	$float-direction : left
+) {
+	float:#{$float-direction};
+}
+
+
+// Gridle clear :
+// @param 	String 	$clear-direction 	The direction to clear
+// @param 	String 	$state 				The state
+@mixin gridle_clear(
+	$clear-direction : both,
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_clear($clear-direction);
+		}
+	} @else {
+		@include _gridle_clear($clear-direction);
+	}
+}
+@mixin _gridle_clear(
+	$clear-direction : both
+) {
+	clear:#{$clear-direction};
+}
+
+
+// Gridle no gutter :
+// @param 	String 	$side 				The side to clear
+// @param 	String 	$state 				The state
+@mixin gridle_no_gutter(
+	$side : left right,
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_no_gutter($side);
+		}
+	} @else {
+		@include _gridle_no_gutter($side);
+	}
+}
+@mixin gridle_no_margin(
+	$side : left right,
+	$state : null
+) {
+	@include gridle_no_gutter($side, $state);
+}
+@mixin _gridle_no_gutter(
+	$side : left right
+) {
+	@each $s in $side {
+		padding-#{$s} : 0 !important;
+	}
+}
+
+
+// Gridle gutter :
+// @param 	String 	$side 				The side to clear
+// @param 	String 	$state 				The state
+@mixin gridle_gutter(
+	$side : left right,
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_gutter($side);
+		}
+	} @else {
+		@include _gridle_gutter($side);
+	}
+}
+// shortcut :
+@mixin gridle_margin(
+	$side : left right,
+	$state : null
+) {
+	@include gridle_gutter($side, $state);
+}
+@mixin _gridle_gutter(
+	$side : left right
+) {
+	@each $s in $side {
+		padding-#{$s} : $gridle-gutter-width / 2;
+	}
+}

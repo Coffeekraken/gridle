@@ -1,85 +1,375 @@
-/** Imports : */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+/**
+ * Imports :
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline; }
 
-html { line-height: 1; }
+html {
+  line-height: 1; }
 
-ol, ul { list-style: none; }
+ol, ul {
+  list-style: none; }
 
-table { border-collapse: collapse; border-spacing: 0; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
 
-caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle; }
 
-q, blockquote { quotes: none; }
-q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+q, blockquote {
+  quotes: none; }
+  q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none; }
 
-a img { border: none; }
+a img {
+  border: none; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary { display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+  display: block; }
 
-/** Import grid settings : This to be able to use gridle mixins, etc... */
-.gridle-debug #header, #header.gridle-debug, .gridle-debug #content, #content.gridle-debug, .gridle-debug #sidebar, #sidebar.gridle-debug, .gridle-debug #footer, #footer.gridle-debug { background-color: #daeff5; }
-.gridle-debug #header:before, #header.gridle-debug:before, .gridle-debug #content:before, #content.gridle-debug:before, .gridle-debug #sidebar:before, #sidebar.gridle-debug:before, .gridle-debug #footer:before, #footer.gridle-debug:before, .gridle-debug #header:after, #header.gridle-debug:after, .gridle-debug #content:after, #content.gridle-debug:after, .gridle-debug #sidebar:after, #sidebar.gridle-debug:after, .gridle-debug #footer:after, #footer.gridle-debug:after { content: ""; display: block; background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==); margin: 10px 0; padding: 5px 0; text-align: center; color: white; font-size: 11px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; display: block !important; }
+/**
+ * Import grid settings :
+ * This to be able to use gridle mixins, etc...
+ */
+.gridle-debug #header, #header.gridle-debug, .gridle-debug #content, #content.gridle-debug, .gridle-debug #sidebar, #sidebar.gridle-debug, .gridle-debug #footer, #footer.gridle-debug {
+  background-color: #daeff5; }
+  .gridle-debug #header:before, #header.gridle-debug:before, .gridle-debug #content:before, #content.gridle-debug:before, .gridle-debug #sidebar:before, #sidebar.gridle-debug:before, .gridle-debug #footer:before, #footer.gridle-debug:before, .gridle-debug #header:after, #header.gridle-debug:after, .gridle-debug #content:after, #content.gridle-debug:after, .gridle-debug #sidebar:after, #sidebar.gridle-debug:after, .gridle-debug #footer:after, #footer.gridle-debug:after {
+    content: "";
+    display: block;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
+    margin: 10px 0;
+    padding: 5px 0;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block !important; }
 
-#header, #content, #sidebar, #footer { display: inline-block; min-height: 1px; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
+#header, #content, #sidebar, #footer {
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
-/** Get states count : */
-/** Set media query var : */
-/** Basic formatting : */
-html { font-size: 16px; }
+/**
+ * Get state variable index in the states variables list
+ * 
+ * @param 	Mixed 		$stateName-or-stateIndex : 1 		The state name of state index
+ * @param 	String 		$var 					The variable name to get
+ * @return 	int 							The value index in states variables list
+ */
+/**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 		$index 	 	The media query indes
+ * @param 	String 		$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+/**
+ * Set a variable in a state
+ * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+ * @param  	String $var                    		Variable name to assign
+ * @param  	Mixed $newValue          		The new value to assign
+ * @return 	List                         			The states list (full)
+ */
+/**
+ * Replacing an element in a list
+ *
+ * @param	List 	$list 		The list in witch replace an element
+ * @param	int 	$index 		The index of the element in the list
+ * @param 	Mix 	$value 	 	The new value
+ * @return  	List 			The new list
+ */
+/**
+ * Basic formatting :
+ */
+html {
+  font-size: 16px; }
 
-body { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0.01rem, rgba(0, 0, 0, 0) 0.1rem) !important; background-size: 100% 1.5rem !important; }
+body {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0.01rem, transparent 0.1rem) !important;
+  background-size: 100% 1.5rem !important; }
 
-/** Layout : */
-#header { float: left; direction: ltr; padding: 0 10px; width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
-.gridle-debug #header:before, #header.gridle-debug:before { content: "grid--12"; }
-.gridle-debug #header.parent:before, #header.gridle-debug.parent:before { content: "grid-parent--12"; }
+/**
+ * Layout :
+ */
+#header {
+  float: left;
+  direction: ltr;
+  padding: 0 10px;
+  width: 100%;
+  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  .gridle-debug #header:before, #header.gridle-debug:before {
+    content: "grid--12"; }
+  .gridle-debug #header.parent:before, #header.gridle-debug.parent:before {
+    content: "grid-parent--12"; }
 
-#content { float: left; direction: ltr; padding: 0 10px; width: 66.66667%; *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); float: left; direction: ltr; padding: 0 10px; }
-.gridle-debug #content:before, #content.gridle-debug:before { content: "grid--8"; }
-.gridle-debug #content.parent:before, #content.gridle-debug.parent:before { content: "grid-parent--8"; }
-html.mobile #content { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
-.gridle-debug html.mobile #content:before, html.mobile #content.gridle-debug:before { content: "grid-mobile-12"; }
-.gridle-debug html.mobile #content.parent:before, html.mobile #content.gridle-debug.parent:before { content: "grid-parent-mobile-12"; }
-@media screen and (max-width: 480px) { #content { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
-  .gridle-debug #content:before, #content.gridle-debug:before { content: "grid-mobile-12"; }
-  .gridle-debug #content.parent:before, #content.gridle-debug.parent:before { content: "grid-parent-mobile-12"; } }
+#content {
+  float: left;
+  direction: ltr;
+  padding: 0 10px;
+  width: 66.66667%;
+  *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  float: left;
+  direction: ltr;
+  padding: 0 10px; }
+  .gridle-debug #content:before, #content.gridle-debug:before {
+    content: "grid--8"; }
+  .gridle-debug #content.parent:before, #content.gridle-debug.parent:before {
+    content: "grid-parent--8"; }
+  html.mobile #content {
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    .gridle-debug html.mobile #content:before, html.mobile #content.gridle-debug:before {
+      content: "grid-mobile-12"; }
+    .gridle-debug html.mobile #content.parent:before, html.mobile #content.gridle-debug.parent:before {
+      content: "grid-parent-mobile-12"; }
+  @media screen and (max-width: 480px) {
+    #content {
+      width: 100%;
+      *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+      .gridle-debug #content:before, #content.gridle-debug:before {
+        content: "grid-mobile-12"; }
+      .gridle-debug #content.parent:before, #content.gridle-debug.parent:before {
+        content: "grid-parent-mobile-12"; } }
 
-#sidebar { float: left; direction: ltr; padding: 0 10px; width: 33.33333%; *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); float: left; direction: ltr; padding: 0 10px; }
-.gridle-debug #sidebar:before, #sidebar.gridle-debug:before { content: "grid--4"; }
-.gridle-debug #sidebar.parent:before, #sidebar.gridle-debug.parent:before { content: "grid-parent--4"; }
-html.mobile #sidebar { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
-.gridle-debug html.mobile #sidebar:before, html.mobile #sidebar.gridle-debug:before { content: "grid-mobile-12"; }
-.gridle-debug html.mobile #sidebar.parent:before, html.mobile #sidebar.gridle-debug.parent:before { content: "grid-parent-mobile-12"; }
-@media screen and (max-width: 480px) { #sidebar { width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
-  .gridle-debug #sidebar:before, #sidebar.gridle-debug:before { content: "grid-mobile-12"; }
-  .gridle-debug #sidebar.parent:before, #sidebar.gridle-debug.parent:before { content: "grid-parent-mobile-12"; } }
+#sidebar {
+  float: left;
+  direction: ltr;
+  padding: 0 10px;
+  width: 33.33333%;
+  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+  float: left;
+  direction: ltr;
+  padding: 0 10px; }
+  .gridle-debug #sidebar:before, #sidebar.gridle-debug:before {
+    content: "grid--4"; }
+  .gridle-debug #sidebar.parent:before, #sidebar.gridle-debug.parent:before {
+    content: "grid-parent--4"; }
+  html.mobile #sidebar {
+    width: 100%;
+    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    .gridle-debug html.mobile #sidebar:before, html.mobile #sidebar.gridle-debug:before {
+      content: "grid-mobile-12"; }
+    .gridle-debug html.mobile #sidebar.parent:before, html.mobile #sidebar.gridle-debug.parent:before {
+      content: "grid-parent-mobile-12"; }
+  @media screen and (max-width: 480px) {
+    #sidebar {
+      width: 100%;
+      *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+      .gridle-debug #sidebar:before, #sidebar.gridle-debug:before {
+        content: "grid-mobile-12"; }
+      .gridle-debug #sidebar.parent:before, #sidebar.gridle-debug.parent:before {
+        content: "grid-parent-mobile-12"; } }
 
-#footer { float: left; direction: ltr; padding: 0 10px; width: 100%; *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
-.gridle-debug #footer:before, #footer.gridle-debug:before { content: "grid--12"; }
-.gridle-debug #footer.parent:before, #footer.gridle-debug.parent:before { content: "grid-parent--12"; }
+#footer {
+  float: left;
+  direction: ltr;
+  padding: 0 10px;
+  width: 100%;
+  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  .gridle-debug #footer:before, #footer.gridle-debug:before {
+    content: "grid--12"; }
+  .gridle-debug #footer.parent:before, #footer.gridle-debug.parent:before {
+    content: "grid-parent--12"; }
 
-/** Text styling : */
-p { font-size: 20px; font-size: 1.25rem; line-height: 1.2; margin-bottom: 24px; margin-bottom: 1.5rem; }
+/**
+ * Text styling :
+ */
+p {
+  font-size: 20px;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
 
-.page-title { font-size: 80px; font-size: 5rem; line-height: 0.3; margin-bottom: 0px; margin-bottom: 0rem; margin-top: 72px; margin-top: 4.5rem; }
+.page-title {
+  font-size: 80px;
+  font-size: 5rem;
+  line-height: 0.3;
+  margin-bottom: 0px;
+  margin-bottom: 0rem;
+  margin-top: 72px;
+  margin-top: 4.5rem; }
 
-.page-subtitle { font-size: 40px; font-size: 2.5rem; line-height: 0.6; margin-bottom: 72px; margin-bottom: 4.5rem; margin-top: 24px; margin-top: 1.5rem; }
+.page-subtitle {
+  font-size: 40px;
+  font-size: 2.5rem;
+  line-height: 0.6;
+  margin-bottom: 72px;
+  margin-bottom: 4.5rem;
+  margin-top: 24px;
+  margin-top: 1.5rem; }
 
-.title { font-size: 30px; font-size: 1.875rem; line-height: 0.8; margin-bottom: 0px; margin-bottom: 0rem; }
+.title {
+  font-size: 30px;
+  font-size: 1.875rem;
+  line-height: 0.8;
+  margin-bottom: 0px;
+  margin-bottom: 0rem; }
 
-.subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; color: #888; }
-.title ~ .subtitle { font-size: 12px; font-size: 0.75rem; line-height: 2; margin-bottom: 24px; margin-bottom: 1.5rem; }
+.subtitle {
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 2;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
+  color: #888; }
+  .title ~ .subtitle {
+    font-size: 12px;
+    font-size: 0.75rem;
+    line-height: 2;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem; }
 
-.img-container { height: 240px; height: 15rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
-.img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
-html.tablet .img-container { height: 120px; height: 7.5rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
-html.tablet .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
-@media screen and (min-width: 481px) and (max-width: 1024px) { .img-container { height: 120px; height: 7.5rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
-  .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); } }
+.img-container {
+  height: 240px;
+  height: 15rem;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+  .img-container img {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%); }
+  html.tablet .img-container {
+    height: 120px;
+    height: 7.5rem;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem; }
+    html.tablet .img-container img {
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%); }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    .img-container {
+      height: 120px;
+      height: 7.5rem;
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 24px;
+      margin-bottom: 1.5rem; }
+      .img-container img {
+        min-width: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%); } }
 
-#sidebar .img-container { height: 144px; height: 9rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
-#sidebar .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
-html.tablet #sidebar .img-container { height: 96px; height: 6rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
-html.tablet #sidebar .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); }
-@media screen and (min-width: 481px) and (max-width: 1024px) { #sidebar .img-container { height: 96px; height: 6rem; max-width: 100%; overflow: hidden; position: relative; margin-bottom: 24px; margin-bottom: 1.5rem; }
-  #sidebar .img-container img { min-width: 100%; min-height: 100%; position: absolute; top: 50%; left: 50%; -moz-transform: translateX(-50%) translateY(-50%); -ms-transform: translateX(-50%) translateY(-50%); -o-transform: translateX(-50%) translateY(-50%); -webkit-transform: translateX(-50%) translateY(-50%); transform: translateX(-50%) translateY(-50%); } }
+#sidebar .img-container {
+  height: 144px;
+  height: 9rem;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 24px;
+  margin-bottom: 1.5rem; }
+  #sidebar .img-container img {
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%); }
+  html.tablet #sidebar .img-container {
+    height: 96px;
+    height: 6rem;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 24px;
+    margin-bottom: 1.5rem; }
+    html.tablet #sidebar .img-container img {
+      min-width: 100%;
+      min-height: 100%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      -moz-transform: translateX(-50%) translateY(-50%);
+      -ms-transform: translateX(-50%) translateY(-50%);
+      -o-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%); }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    #sidebar .img-container {
+      height: 96px;
+      height: 6rem;
+      max-width: 100%;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 24px;
+      margin-bottom: 1.5rem; }
+      #sidebar .img-container img {
+        min-width: 100%;
+        min-height: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -moz-transform: translateX(-50%) translateY(-50%);
+        -ms-transform: translateX(-50%) translateY(-50%);
+        -o-transform: translateX(-50%) translateY(-50%);
+        transform: translateX(-50%) translateY(-50%); } }
