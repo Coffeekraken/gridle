@@ -2,7 +2,6 @@
  * Imports :
  */
 @import 'compass/reset';
-@import 'compass/css3/box';
 
 /**
  * Import grid settings :
@@ -35,7 +34,7 @@ ul#medias {
 		}
 	}
 
-	@include gridle_state(0, 600px) {
+	@include gridle_state(0, 620px) {
 		display:none;
 	}
 }

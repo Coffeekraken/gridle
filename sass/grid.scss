@@ -18,3 +18,7 @@ $gridle-gutter-width : 1rem;
 	@include gridle_grid_background();
 	@include gridle_grid_background(7,mobile);
 }
+
+.hello {
+	@include gridle(3,4);
+}

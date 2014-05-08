@@ -45,7 +45,7 @@ q, blockquote {
 a img {
   border: none; }
 
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
   display: block; }
 
 /**
@@ -53,16 +53,22 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * This to be able to use gridle mixins, etc...
  */
 /**
- * Get state variable index in the states variables list
- * 
- * @param 	Mixed 		$stateName-or-stateIndex : 1 		The state name of state index
- * @param 	String 		$var 					The variable name to get
- * @return 	int 							The value index in states variables list
+ * Map set
+ *
+ * @param 	Map 	$map 		The map to use
+ * @param 	String 	$key 		The key to update
+ * @param 	Mixed 	$value 		The new value
+ * @return 	Map 			The new map
  */
 /**
- * Get states count
- * 
- * @return 	int 	The number of states defined
+ * Get the column width in percent for the global or a specific context
+ *
+ * @param 	int 		$columns 					The number of columns to calculate
+ * @param 	int 		$context : $gridle-columns-count 	 	The context to use
+ * @return 	percentage 							The width in percent
+ */
+/**
+ *  Get a state map
  */
 /**
  * Get the media queries variables :
@@ -79,12 +85,34 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
  * @return 	List                         			The states list (full)
  */
 /**
- * Replacing an element in a list
+ * Generate a column
  *
- * @param	List 	$list 		The list in witch replace an element
- * @param	int 	$index 		The index of the element in the list
- * @param 	Mix 	$value 	 	The new value
- * @return  	List 			The new list
+ * @param 	String 		$name 			The column name (often count)
+ * @param 	int 		$columns 		The column count that the column will take
+ * @param 	int 		$context 		The context on witch the with will be calculed
+ * @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
+ */
+/**
+ * Generate classname
+ *
+ * @param 	List 		$parrern 	The pattern to use to generate classname
+ * @param 	String 		$state 		The state
+ * @param 	int 		$count 		The column count
+ */
+/**
+ * Get the media query for a particular state, or with, etc...
+ *
+ * @param 	Mixed 		$state-or-min-width 		The state name of the min with
+ * @param 	Mixed 		$max-width 			The max width if first param is a min width
+ * @return 	String 						The media query string without the @media
+ */
+/**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
+ * Register a special class
  */
 /**
  * Medias :
@@ -105,7 +133,7 @@ ul#medias {
     ul#medias li.active, ul#medias li:hover {
       background: white;
       color: black; }
-  @media screen and (min-width: 0) and (max-width: 600px) {
+  @media screen and (min-width: 0) and (max-width: 620px) {
     ul#medias {
       display: none; } }
 

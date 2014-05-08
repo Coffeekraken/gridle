@@ -1,0 +1,118 @@
+/**
+ * Imports :
+ */
+/**
+ * Import grid settings :
+ * This to be able to use gridle mixins, etc...
+ */
+/**
+ * Get the column width in percent for the global or a specific context
+ *
+ * @param 	int 		$columns 					The number of columns to calculate
+ * @param 	int 		$context : $gridle-columns-count 	 	The context to use
+ * @return 	percentage 							The width in percent
+ */
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 		$index 	 	The media query indes
+ * @param 	String 		$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+/**
+ * Set a variable in a state
+ * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+ * @param  	String $var                    		Variable name to assign
+ * @param  	Mixed $newValue          		The new value to assign
+ * @return 	List                         			The states list (full)
+ */
+/**
+ * Generate classname
+ *
+ * @param 	List 		$parrern 	The pattern to use to generate classname
+ * @param 	String 		$state 		The state
+ * @param 	int 		$count 		The column count
+ */
+/**
+ * Get the media query for a particular state, or with, etc...
+ *
+ * @param 	Mixed 		$state-or-min-width 		The state name of the min with
+ * @param 	Mixed 		$max-width 			The max width if first param is a min width
+ * @return 	String 						The media query string without the @media
+ */
+/**
+ * Get state variable index in the states variables list
+ * 
+ * @param 	Mixed 		$stateName-or-stateIndex : 1 		The state name of state index
+ * @param 	String 		$var 					The variable name to get
+ * @return 	int 							The value index in states variables list
+ */
+/**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
+ * Replacing an element in a list (internal use)
+ *
+ * @param	List 	$list 		The list in witch replace an element
+ * @param	int 	$index 		The index of the element in the list
+ * @param 	Mix 	$value 	 	The new value
+ * @return  	List 			The new list
+ */
+/**
+ * Get the index of the state (internal use)
+ *
+ * @param 	String 		$name 		The nme of the media query
+ * @return 	int 				The index of the media query
+ */
+/**
+ * Medias :
+ */
+ul#medias {
+  background: black;
+  text-align: center;
+  margin-bottom: 30px;
+}
+ul#medias li {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0;
+}
+ul#medias li.active, ul#medias li:hover {
+  background: white;
+  color: black;
+}
+@media screen and (min-width: 0) and (max-width: 600px) {
+  ul#medias {
+    display: none;
+  }
+}
+
+/**
+ * Basic formatting :
+ */
+body {
+  font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+}
+html.mobile body {
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  body {
+    text-align: center;
+  }
+}
+html.ipad-landscape body {
+  font-size: 16px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  body {
+    font-size: 16px;
+  }
+}

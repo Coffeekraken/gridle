@@ -12,14 +12,13 @@
 	$classes-generation : true,
 	$context : $gridle-columns-count
 ) {
-
 	$index : length($_gridle_states) * length($_gridle_states_vars_pattern);
 
 	// process variables :
 	$name : $name;
-	$min-width : -1;
-	$max-width : -1;
-	$query : -1;
+	$min-width : null;
+	$max-width : null;
+	$query : null;
 	$classes : true;
 	$context : $context;
 	@if type-of($min-width-or-query) == string {
@@ -38,12 +37,47 @@
 		$classes : $classes-generation;
 	}
 
-	$_gridle_states : append($_gridle_states, $name);
-	$_gridle_states : append($_gridle_states, $min-width);
-	$_gridle_states : append($_gridle_states, $max-width);
-	$_gridle_states : append($_gridle_states, $query);
-	$_gridle_states : append($_gridle_states, $classes);
-	$_gridle_states : append($_gridle_states, $context);
+	// creating state :
+	$state : (
+		$name : (
+			name : $name,
+			min-width : $min-width,
+			max-width : $max-width,
+			query : $query,
+			classes : $classes,
+			context : $context
+		)
+	);
+
+	// add state in maps :
+	$_gridle_states : map-merge($_gridle_states, $state);
+}
+
+
+/**
+ * Register a special class
+ */
+@mixin gridle_register_column(
+	$name,
+	$columns,
+	$context,
+	$generateClasses : true
+) {
+	// app the column in the variable :
+	// $column : (
+	// 	$name : (
+	// 		name : $name,
+	// 		columns : $columns,
+	// 		context : $context,
+	// 		generateClasses : $generateClasses
+	// 	)
+	// );
+
+	$col : _gridle_create_column($name, $columns, $context, $generateClasses);
+
+	// add column in maps :
+	$_gridle_columns : map-set($_gridle_columns, $name, $col);
+	// $_gridle_columns : map-merge($_gridle_columns, $column);
 }
 
 
@@ -61,7 +95,7 @@
 	$context
 ) {
 	// set context in state :
-	$var : _gridle_set_state_var($state, "context", $context);
+	// $var : _gridle_set_state_var($state, "context", $context);
 }
 
 

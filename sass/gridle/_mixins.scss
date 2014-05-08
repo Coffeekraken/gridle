@@ -18,7 +18,9 @@
 	@each $_state-or-min-width in $state-or-min-width {
 
 		// check if is a state :
-		@if type-of($_state-or-min-width) == string and ($gridle-html-states-classes or $gridle-debug) {
+		@if type-of($_state-or-min-width) == string 
+			and ($gridle-html-states-classes or $gridle-debug)
+			and _gridle_get_state($_state-or-min-width) {
 			// html class :
 			@if $has-parent {
 				html#{_gridle_classname("#{$_state-or-min-width}")} & { @content; }
@@ -35,7 +37,7 @@
 	}
 
 	// check and print media query :
-	@if length($query) {
+	@if type-of($query) == list {
 		@media #{$query} {
 			@content;
 		}

@@ -5,7 +5,27 @@
 // |------------------------------------------------------
 
 
-// Get column width :
+/**
+ * Map set
+ *
+ * @param 	Map 	$map 		The map to use
+ * @param 	String 	$key 		The key to update
+ * @param 	Mixed 	$value 		The new value
+ * @return 	Map 			The new map
+ */
+@function map-set($map, $key, $value) {
+	$new: ($key: $value);
+	@return map-merge($map, $new);
+}
+
+
+/**
+ * Get the column width in percent for the global or a specific context
+ *
+ * @param 	int 		$columns 					The number of columns to calculate
+ * @param 	int 		$context : $gridle-columns-count 	 	The context to use
+ * @return 	percentage 							The width in percent
+ */
 @function gridle_get_columns_width(
 	$columns : 1,
 	$context : $gridle-columns-count
@@ -19,10 +39,123 @@
 	@return gridle_get_columns_width($columns, $context);
 }
 
-// generate classname :
+
+/**
+ *  Get a state map
+ */
+@function _gridle_get_state(
+	$name
+) {
+	// if name if not a string, return null :
+	@if type-of($name) != string
+	{
+		@return false;
+	}
+
+	// check if has a state named like this :
+	@if (map-has-key($_gridle_states, $name))
+	{
+		@return map-get($_gridle_states, unquote($name));
+	} 
+
+	@return false;
+}
+
+
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 		$index 	 	The media query indes
+ * @param 	String 		$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+@function _gridle_get_state_var(
+	$stateName,
+	$var 	: "name"
+) {
+
+	// get the state :
+	$state : _gridle_get_state($stateName);
+
+	// check ig state and if has the variable :
+	@if $state
+	      and map-has-key($state,unquote($var))
+	{
+		@return map-get($state,unquote($var));
+	}
+
+	// nothing getted :
+	@return null;
+}
+
+
+/**
+ * Set a variable in a state
+ * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+ * @param  	String $var                    		Variable name to assign
+ * @param  	Mixed $newValue          		The new value to assign
+ * @return 	List                         			The states list (full)
+ */
+@function _gridle_set_state_var(
+	$stateName,
+	$var,
+	$newValue
+) {
+	// get the state :
+	$state : _gridle_get_state($stateName);
+
+	// check ig state and if has the variable :
+	@if $state
+	      and map-has-key($state,unquote($var))
+	{
+		// set new value in state :
+		$state : map-set($state, unquote($var), $newValue);
+
+		// set states :
+		$_gridle_states : map-set($_gridle_states, unquote($stateName), $state);
+
+		// return new state :
+		@return $state;
+	}
+
+	// nothing getted :
+	@return null;
+}
+
+
+/**
+ * Generate a column
+ *
+ * @param 	String 		$name 			The column name (often count)
+ * @param 	int 		$columns 		The column count that the column will take
+ * @param 	int 		$context 		The context on witch the with will be calculed
+ * @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
+ */
+@function _gridle_create_column(
+	$name,
+	$columns,
+	$context,
+	$generateClasses : true
+) {
+	@return (
+		name : $name,
+		columns : $columns,
+		context : $context,
+		generateClasses : $generateClasses
+	);
+}
+
+
+/**
+ * Generate classname
+ *
+ * @param 	List 		$parrern 	The pattern to use to generate classname
+ * @param 	String 		$state 		The state
+ * @param 	int 		$count 		The column count
+ */
 @function _gridle_classname(
 	$pattern,
-	$media : null,
+	$state : null,
 	$count : null
 ) {
 
@@ -42,8 +175,8 @@
 	@each $var in $pattern {
 		
 		// replace tokens :
-		@if $var == '%state' and $media {
-			$sel : "#{$sel}#{$media}";
+		@if $var == '%state' and $state {
+			$sel : "#{$sel}#{$state}";
 		} 
 		@if $var == '%count' and $count {
 			$sel : "#{$sel}#{$count}";
@@ -59,7 +192,7 @@
 			@if $value != '%state' and $value != '%count' and $value != '%-' and $value != '%prefix' {
 				$sel : "#{$sel}#{$gridle-class-separator}";
 			}
-			@if $value == '%state' and $media {
+			@if $value == '%state' and $state {
 				$sel : "#{$sel}#{$gridle-class-separator}";
 			}
 			@if $value == '%count' and $count {
@@ -76,25 +209,34 @@
 }
 
 
-// Get media query by state :
+/**
+ * Get the media query for a particular state, or with, etc...
+ *
+ * @param 	Mixed 		$state-or-min-width 		The state name of the min with
+ * @param 	Mixed 		$max-width 			The max width if first param is a min width
+ * @return 	String 						The media query string without the @media
+ */
 @function _get_media_query_for_state(
 	$state-or-min-width : null,
 	$max-width : null
 ) {
+
 	// get the index of state :
-	$idx : _gridle_get_state_index_by_name($state-or-min-width);
+	$state : _gridle_get_state($state-or-min-width);
 
 	// if there's an idx, the state requested is a registered one :
-	@if $idx {
+	@if $state {
+
 		// get vars :
-		$name : _gridle_get_state_var($idx,"name");
-		$min-width : _gridle_get_state_var($idx,"min-width");
-		$max-width : _gridle_get_state_var($idx,"max-width");
-		$classes : _gridle_get_state_var($idx,"classes");
-		$query : _gridle_get_state_var($idx,"query");
+		$name : map-get($state, name);
+		$min-width : map-get($state, min-width);
+		$max-width : map-get($state, max-width);
+		$classes : map-get($state, classes);
+		$query : map-get($state, query);
 
 		// check if exist :
 		@if $name {
+
 			// check if query exist :
 			@if $query {
 				@return $query;
@@ -108,9 +250,11 @@
 				} @else if $min-width and $max-width == null {
 					@return "screen and (min-width: #{$min-width})";
 				} @else {
-					@return null;
+					@return false;
 				}
 			}
+		} @else {
+			@return "not working";
 		}
 	} @else if $state-or-min-width == 'print' or $state-or-min-width == print {
 		@return "only print";
@@ -138,181 +282,10 @@
 
 
 /**
- * Get state variable index in the states variables list
- * 
- * @param 	Mixed 		$stateName-or-stateIndex : 1 		The state name of state index
- * @param 	String 		$var 					The variable name to get
- * @return 	int 							The value index in states variables list
- */
-@function _gridle_get_state_var_index(
-	$stateName-or-stateIndex : 1,
-	$var : "name"
-) {
-
-	// check type of index :
-	$index : 1;
-	@if (type-of($stateName-or-stateIndex) != number)
-	{
-		$index : _gridle_get_state_index_by_name($stateName-or-stateIndex);
-	} @else {
-		$index : $stateName-or-stateIndex;
-	}
-
-	// get index of variable :
-	$varIdx : 1;
-	$varIdx : index($_gridle_states_vars_pattern, $var);
-
-	// calculate the actual value idx in the list :
-	$valueIdx : ($index - 1) * length($_gridle_states_vars_pattern) + $varIdx;
-	
-	// if value idx is bigger than the actual list length, return null :
-	@if length($_gridle_states) < $valueIdx {
-		@return null;
-	}
-
-	// return the index :
-	@return $valueIdx;
-}
-
-
-/**
  * Get states count
  * 
  * @return 	int 	The number of states defined
  */
-@function _gridle_states_count() {
+@function _gridle_get_states_count() {
 	@return length($_gridle_states) / length($_gridle_states_vars_pattern);
-}
-
-
-/**
- * Get the media queries variables :
- *
- * @param 	int 		$index 	 	The media query indes
- * @param 	String 		$var 		The media query variable name
- * @return 	String|int 			The variable value
- */
-@function _gridle_get_state_var(
-	$stateName-or-stateIndex 	: 1,
-	$var 	: "name"
-) {
-
-	// get the value idx :
-	$valueIdx : _gridle_get_state_var_index($stateName-or-stateIndex, $var);
-
-	// check value :
-	@if $valueIdx == null {
-		@return null;
-	}
-
-	// get the value :
-	$value : nth($_gridle_states, $valueIdx);
-
-	// return null if value is -1 :
-	@if $value == -1 {
-		$value : null;
-	}
-
-	// return the value :
-	@return $value;
-}
-
-
-/**
- * Set a variable in a state
- * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
- * @param  	String $var                    		Variable name to assign
- * @param  	Mixed $newValue          		The new value to assign
- * @return 	List                         			The states list (full)
- */
-@function _gridle_set_state_var(
-	$stateName-or-stateIndex,
-	$var,
-	$newValue
-) {
-	// get the value index in the list :
-	$valueIdx : _gridle_get_state_var_index($stateName-or-stateIndex, $var);
-
-	// check value :
-	@if $valueIdx == null {
-		@return null;
-	}
-
-	// replace the value :
-	$_gridle_states : replace-nth($_gridle_states, $valueIdx, $newValue);
-
-	// return the list :
-	@return $_gridle_states;
-}
-
-/**
- * Replacing an element in a list
- *
- * @param	List 	$list 		The list in witch replace an element
- * @param	int 	$index 		The index of the element in the list
- * @param 	Mix 	$value 	 	The new value
- * @return  	List 			The new list
- */
-@function replace-nth($list, $index, $value) {
-	$result: null;
-
-	@if type-of($index) != number {
-		@warn "$index: #{quote($index)} is not a number for `replace-nth`.";
-	}
-
-	@else if $index == 0 {
-		@warn "List index 0 must be a non-zero integer for `replace-nth`.";
-	}
-
-	@else if abs($index) > length($list) {
-		@warn "List index is #{$index} but list is only #{length($list)} item long for `replace-nth`.";
-	}
-
-	@else {
-		$result: ();
-		$index: if($index < 0, length($list) + $index + 1, $index);  
-
-		@for $i from 1 through length($list) {
-			@if $i == $index {
-				$result: append($result, $value);
-			}
-
-			@else {
-				$result: append($result, nth($list, $i));
-			}
-		}
-	}
-
-	@return $result;
-}
-
-
-// Get the index of an media query by name
-// @param 	String 	$name 	The nme of the media query
-// @return 	int 			The index of the media query
-@function _gridle_get_state_index_by_name(
-	$name
-) {
-	// if no name, return null :
-	@if $name == null {
-		@return null;
-	}
-
-	// try to find the index from name :
-	$i : 1;
-	$group : 0;
-	@each $value in $_gridle_states {
-		$int : ($i - 1) / length($_gridle_states_vars_pattern);
-		@if round($int) == $int {
-			$group : $group + 1;
-		}
-		@if $name == $value {
-			// calculate state index :
-			@return $group;
-		}
-		$i : $i + 1;
-	}
-
-	// nothing found :
-	@return null;
 }
