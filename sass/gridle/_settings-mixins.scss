@@ -63,21 +63,11 @@
 	$context,
 	$generateClasses : true
 ) {
-	// app the column in the variable :
-	// $column : (
-	// 	$name : (
-	// 		name : $name,
-	// 		columns : $columns,
-	// 		context : $context,
-	// 		generateClasses : $generateClasses
-	// 	)
-	// );
-
+	// create a column :
 	$col : _gridle_create_column($name, $columns, $context, $generateClasses);
 
 	// add column in maps :
 	$_gridle_columns : map-set($_gridle_columns, $name, $col);
-	// $_gridle_columns : map-merge($_gridle_columns, $column);
 }
 
 
@@ -95,7 +85,7 @@
 	$context
 ) {
 	// set context in state :
-	// $var : _gridle_set_state_var($state, "context", $context);
+	$var : _gridle_set_state_var($state, "context", $context);
 }
 
 
