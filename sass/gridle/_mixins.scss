@@ -400,6 +400,32 @@
 }
 
 
+/**
+ * Vertical align :
+ */
+@mixin gridle_parent_vertical_align(
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_parent_vertical_align();
+		}
+	} @else {
+		@include _gridle_parent_vertical_align();
+	}
+}
+@mixin _gridle_parent_vertical_align() {
+	vertical-align:middle;
+
+	> * {
+		display:inline-block;
+		float:none !important;
+		vertical-align:middle;
+	}
+}
+
+
 // Hide on :
 // @param 	String 	$media  On what state
 @mixin gridle_hide(

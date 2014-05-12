@@ -31,11 +31,11 @@
 // @created 	25.03.13
 // @updated 	08.05.14
 // @author 	Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.1.2
+// @version 	1.2.0
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-$_gridle-version : "1.1.2";
+$_gridle-version : "1.2.0";
 
 
 
@@ -46,7 +46,6 @@ $_gridle-version : "1.1.2";
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-$_gridle_states_vars_pattern : ('name', 'min-width', 'max-width', 'query', 'classes', 'context');
 $_gridle_states : ();						// the variable map for each states
 $_gridle_columns : (); 						// store the registered special columns
 $_gridle_states_debug_devices : (); 				// save the debug states devices

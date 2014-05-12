@@ -14,7 +14,7 @@ $gridle-direction 					: ltr !default;
 $gridle-debug 						: false !default;
 $gridle-debug-show-class-names 			: true !default;
 
-$gridle-ie7-support 					: true !default;
+$gridle-ie7-support 					: false !default;
 
 $gridle-html-states-classes 				: false !default;
 
@@ -38,6 +38,7 @@ $gridle-prefix-name-pattern 				: ('prefix','%-','%state','%-','%count') !defaul
 $gridle-suffix-name-pattern 				: ('suffix','%-','%state','%-','%count') !default;
 
 $gridle-parent-name-pattern 				: ('parent','%-','%state') !default;
+$gridle-parent-vertical-align-name-pattern 		: ('parent','%-','vertical','%-','align','%-','%state') !default;
 $gridle-centered-name-pattern 			: ('centered','%-','%state') !default;
 
 $gridle-hide-name-pattern 				: ('hide','%-','%state') !default;

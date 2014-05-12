@@ -12,8 +12,6 @@
 	$classes-generation : true,
 	$context : $gridle-columns-count
 ) {
-	$index : length($_gridle_states) * length($_gridle_states_vars_pattern);
-
 	// process variables :
 	$name : $name;
 	$min-width : null;

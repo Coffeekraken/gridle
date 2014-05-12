@@ -123,12 +123,14 @@
 /**
  * Register a special class
  */
+/**
+ * Vertical align :
+ */
 @media screen and (max-width: 400px) {
   @-ms-viewport {
     width: device-width; } }
 .grid-1on5 {
-  width: 20%;
-  *width: expression((this.parentNode.clientWidth/5*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 20%; }
   .gridle-debug .grid-1on5:before, .grid-1on5.gridle-debug:before {
     content: "grid--1"; }
   .gridle-debug .grid-1on5.parent:before, .grid-1on5.gridle-debug.parent:before {
@@ -155,8 +157,7 @@
     content: "suffix--1" !important; }
 
 .grid-0 {
-  width: 0%;
-  *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 0%; }
   .gridle-debug .grid-0:before, .grid-0.gridle-debug:before {
     content: "grid--0"; }
   .gridle-debug .grid-0.parent:before, .grid-0.gridle-debug.parent:before {
@@ -183,8 +184,7 @@
     content: "suffix--0" !important; }
 
 .grid-1 {
-  width: 8.33333%;
-  *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 8.33333%; }
   .gridle-debug .grid-1:before, .grid-1.gridle-debug:before {
     content: "grid--1"; }
   .gridle-debug .grid-1.parent:before, .grid-1.gridle-debug.parent:before {
@@ -211,8 +211,7 @@
     content: "suffix--1" !important; }
 
 .grid-2 {
-  width: 16.66667%;
-  *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 16.66667%; }
   .gridle-debug .grid-2:before, .grid-2.gridle-debug:before {
     content: "grid--2"; }
   .gridle-debug .grid-2.parent:before, .grid-2.gridle-debug.parent:before {
@@ -239,8 +238,7 @@
     content: "suffix--2" !important; }
 
 .grid-3 {
-  width: 25%;
-  *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 25%; }
   .gridle-debug .grid-3:before, .grid-3.gridle-debug:before {
     content: "grid--3"; }
   .gridle-debug .grid-3.parent:before, .grid-3.gridle-debug.parent:before {
@@ -267,8 +265,7 @@
     content: "suffix--3" !important; }
 
 .grid-4 {
-  width: 33.33333%;
-  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 33.33333%; }
   .gridle-debug .grid-4:before, .grid-4.gridle-debug:before {
     content: "grid--4"; }
   .gridle-debug .grid-4.parent:before, .grid-4.gridle-debug.parent:before {
@@ -295,8 +292,7 @@
     content: "suffix--4" !important; }
 
 .grid-5 {
-  width: 41.66667%;
-  *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 41.66667%; }
   .gridle-debug .grid-5:before, .grid-5.gridle-debug:before {
     content: "grid--5"; }
   .gridle-debug .grid-5.parent:before, .grid-5.gridle-debug.parent:before {
@@ -323,8 +319,7 @@
     content: "suffix--5" !important; }
 
 .grid-6 {
-  width: 50%;
-  *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 50%; }
   .gridle-debug .grid-6:before, .grid-6.gridle-debug:before {
     content: "grid--6"; }
   .gridle-debug .grid-6.parent:before, .grid-6.gridle-debug.parent:before {
@@ -351,8 +346,7 @@
     content: "suffix--6" !important; }
 
 .grid-7 {
-  width: 58.33333%;
-  *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 58.33333%; }
   .gridle-debug .grid-7:before, .grid-7.gridle-debug:before {
     content: "grid--7"; }
   .gridle-debug .grid-7.parent:before, .grid-7.gridle-debug.parent:before {
@@ -379,8 +373,7 @@
     content: "suffix--7" !important; }
 
 .grid-8 {
-  width: 66.66667%;
-  *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 66.66667%; }
   .gridle-debug .grid-8:before, .grid-8.gridle-debug:before {
     content: "grid--8"; }
   .gridle-debug .grid-8.parent:before, .grid-8.gridle-debug.parent:before {
@@ -407,8 +400,7 @@
     content: "suffix--8" !important; }
 
 .grid-9 {
-  width: 75%;
-  *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 75%; }
   .gridle-debug .grid-9:before, .grid-9.gridle-debug:before {
     content: "grid--9"; }
   .gridle-debug .grid-9.parent:before, .grid-9.gridle-debug.parent:before {
@@ -435,8 +427,7 @@
     content: "suffix--9" !important; }
 
 .grid-10 {
-  width: 83.33333%;
-  *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 83.33333%; }
   .gridle-debug .grid-10:before, .grid-10.gridle-debug:before {
     content: "grid--10"; }
   .gridle-debug .grid-10.parent:before, .grid-10.gridle-debug.parent:before {
@@ -463,8 +454,7 @@
     content: "suffix--10" !important; }
 
 .grid-11 {
-  width: 91.66667%;
-  *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 91.66667%; }
   .gridle-debug .grid-11:before, .grid-11.gridle-debug:before {
     content: "grid--11"; }
   .gridle-debug .grid-11.parent:before, .grid-11.gridle-debug.parent:before {
@@ -491,8 +481,7 @@
     content: "suffix--11" !important; }
 
 .grid-12 {
-  width: 100%;
-  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 100%; }
   .gridle-debug .grid-12:before, .grid-12.gridle-debug:before {
     content: "grid--12"; }
   .gridle-debug .grid-12.parent:before, .grid-12.gridle-debug.parent:before {
@@ -601,6 +590,13 @@
   padding-left: 0 !important;
   padding-right: 0 !important; }
 
+.parent-vertical-align {
+  vertical-align: middle; }
+  .parent-vertical-align > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: middle; }
+
 .gridle-debug .debug-color-1, .debug-color-1.gridle-debug {
   background-color: #edeeb2; }
 
@@ -633,8 +629,7 @@
   padding: 0 0.5rem; }
 
 html.mobile .grid-mobile-1on5 {
-  width: 20%;
-  *width: expression((this.parentNode.clientWidth/5*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 20%; }
   .gridle-debug html.mobile .grid-mobile-1on5:before, html.mobile .grid-mobile-1on5.gridle-debug:before {
     content: "grid-mobile-1"; }
   .gridle-debug html.mobile .grid-mobile-1on5.parent:before, html.mobile .grid-mobile-1on5.gridle-debug.parent:before {
@@ -656,8 +651,7 @@ html.mobile .suffix-mobile-1on5 {
   .gridle-debug html.mobile .suffix-mobile-1on5:after, html.mobile .suffix-mobile-1on5.gridle-debug:after {
     content: "suffix-mobile-1" !important; }
 html.mobile .grid-mobile-0 {
-  width: 0%;
-  *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 0%; }
   .gridle-debug html.mobile .grid-mobile-0:before, html.mobile .grid-mobile-0.gridle-debug:before {
     content: "grid-mobile-0"; }
   .gridle-debug html.mobile .grid-mobile-0.parent:before, html.mobile .grid-mobile-0.gridle-debug.parent:before {
@@ -679,8 +673,7 @@ html.mobile .suffix-mobile-0 {
   .gridle-debug html.mobile .suffix-mobile-0:after, html.mobile .suffix-mobile-0.gridle-debug:after {
     content: "suffix-mobile-0" !important; }
 html.mobile .grid-mobile-1 {
-  width: 8.33333%;
-  *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 8.33333%; }
   .gridle-debug html.mobile .grid-mobile-1:before, html.mobile .grid-mobile-1.gridle-debug:before {
     content: "grid-mobile-1"; }
   .gridle-debug html.mobile .grid-mobile-1.parent:before, html.mobile .grid-mobile-1.gridle-debug.parent:before {
@@ -702,8 +695,7 @@ html.mobile .suffix-mobile-1 {
   .gridle-debug html.mobile .suffix-mobile-1:after, html.mobile .suffix-mobile-1.gridle-debug:after {
     content: "suffix-mobile-1" !important; }
 html.mobile .grid-mobile-2 {
-  width: 16.66667%;
-  *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 16.66667%; }
   .gridle-debug html.mobile .grid-mobile-2:before, html.mobile .grid-mobile-2.gridle-debug:before {
     content: "grid-mobile-2"; }
   .gridle-debug html.mobile .grid-mobile-2.parent:before, html.mobile .grid-mobile-2.gridle-debug.parent:before {
@@ -725,8 +717,7 @@ html.mobile .suffix-mobile-2 {
   .gridle-debug html.mobile .suffix-mobile-2:after, html.mobile .suffix-mobile-2.gridle-debug:after {
     content: "suffix-mobile-2" !important; }
 html.mobile .grid-mobile-3 {
-  width: 25%;
-  *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 25%; }
   .gridle-debug html.mobile .grid-mobile-3:before, html.mobile .grid-mobile-3.gridle-debug:before {
     content: "grid-mobile-3"; }
   .gridle-debug html.mobile .grid-mobile-3.parent:before, html.mobile .grid-mobile-3.gridle-debug.parent:before {
@@ -748,8 +739,7 @@ html.mobile .suffix-mobile-3 {
   .gridle-debug html.mobile .suffix-mobile-3:after, html.mobile .suffix-mobile-3.gridle-debug:after {
     content: "suffix-mobile-3" !important; }
 html.mobile .grid-mobile-4 {
-  width: 33.33333%;
-  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 33.33333%; }
   .gridle-debug html.mobile .grid-mobile-4:before, html.mobile .grid-mobile-4.gridle-debug:before {
     content: "grid-mobile-4"; }
   .gridle-debug html.mobile .grid-mobile-4.parent:before, html.mobile .grid-mobile-4.gridle-debug.parent:before {
@@ -771,8 +761,7 @@ html.mobile .suffix-mobile-4 {
   .gridle-debug html.mobile .suffix-mobile-4:after, html.mobile .suffix-mobile-4.gridle-debug:after {
     content: "suffix-mobile-4" !important; }
 html.mobile .grid-mobile-5 {
-  width: 41.66667%;
-  *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 41.66667%; }
   .gridle-debug html.mobile .grid-mobile-5:before, html.mobile .grid-mobile-5.gridle-debug:before {
     content: "grid-mobile-5"; }
   .gridle-debug html.mobile .grid-mobile-5.parent:before, html.mobile .grid-mobile-5.gridle-debug.parent:before {
@@ -794,8 +783,7 @@ html.mobile .suffix-mobile-5 {
   .gridle-debug html.mobile .suffix-mobile-5:after, html.mobile .suffix-mobile-5.gridle-debug:after {
     content: "suffix-mobile-5" !important; }
 html.mobile .grid-mobile-6 {
-  width: 50%;
-  *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 50%; }
   .gridle-debug html.mobile .grid-mobile-6:before, html.mobile .grid-mobile-6.gridle-debug:before {
     content: "grid-mobile-6"; }
   .gridle-debug html.mobile .grid-mobile-6.parent:before, html.mobile .grid-mobile-6.gridle-debug.parent:before {
@@ -817,8 +805,7 @@ html.mobile .suffix-mobile-6 {
   .gridle-debug html.mobile .suffix-mobile-6:after, html.mobile .suffix-mobile-6.gridle-debug:after {
     content: "suffix-mobile-6" !important; }
 html.mobile .grid-mobile-7 {
-  width: 58.33333%;
-  *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 58.33333%; }
   .gridle-debug html.mobile .grid-mobile-7:before, html.mobile .grid-mobile-7.gridle-debug:before {
     content: "grid-mobile-7"; }
   .gridle-debug html.mobile .grid-mobile-7.parent:before, html.mobile .grid-mobile-7.gridle-debug.parent:before {
@@ -840,8 +827,7 @@ html.mobile .suffix-mobile-7 {
   .gridle-debug html.mobile .suffix-mobile-7:after, html.mobile .suffix-mobile-7.gridle-debug:after {
     content: "suffix-mobile-7" !important; }
 html.mobile .grid-mobile-8 {
-  width: 66.66667%;
-  *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 66.66667%; }
   .gridle-debug html.mobile .grid-mobile-8:before, html.mobile .grid-mobile-8.gridle-debug:before {
     content: "grid-mobile-8"; }
   .gridle-debug html.mobile .grid-mobile-8.parent:before, html.mobile .grid-mobile-8.gridle-debug.parent:before {
@@ -863,8 +849,7 @@ html.mobile .suffix-mobile-8 {
   .gridle-debug html.mobile .suffix-mobile-8:after, html.mobile .suffix-mobile-8.gridle-debug:after {
     content: "suffix-mobile-8" !important; }
 html.mobile .grid-mobile-9 {
-  width: 75%;
-  *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 75%; }
   .gridle-debug html.mobile .grid-mobile-9:before, html.mobile .grid-mobile-9.gridle-debug:before {
     content: "grid-mobile-9"; }
   .gridle-debug html.mobile .grid-mobile-9.parent:before, html.mobile .grid-mobile-9.gridle-debug.parent:before {
@@ -886,8 +871,7 @@ html.mobile .suffix-mobile-9 {
   .gridle-debug html.mobile .suffix-mobile-9:after, html.mobile .suffix-mobile-9.gridle-debug:after {
     content: "suffix-mobile-9" !important; }
 html.mobile .grid-mobile-10 {
-  width: 83.33333%;
-  *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 83.33333%; }
   .gridle-debug html.mobile .grid-mobile-10:before, html.mobile .grid-mobile-10.gridle-debug:before {
     content: "grid-mobile-10"; }
   .gridle-debug html.mobile .grid-mobile-10.parent:before, html.mobile .grid-mobile-10.gridle-debug.parent:before {
@@ -909,8 +893,7 @@ html.mobile .suffix-mobile-10 {
   .gridle-debug html.mobile .suffix-mobile-10:after, html.mobile .suffix-mobile-10.gridle-debug:after {
     content: "suffix-mobile-10" !important; }
 html.mobile .grid-mobile-11 {
-  width: 91.66667%;
-  *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 91.66667%; }
   .gridle-debug html.mobile .grid-mobile-11:before, html.mobile .grid-mobile-11.gridle-debug:before {
     content: "grid-mobile-11"; }
   .gridle-debug html.mobile .grid-mobile-11.parent:before, html.mobile .grid-mobile-11.gridle-debug.parent:before {
@@ -932,8 +915,7 @@ html.mobile .suffix-mobile-11 {
   .gridle-debug html.mobile .suffix-mobile-11:after, html.mobile .suffix-mobile-11.gridle-debug:after {
     content: "suffix-mobile-11" !important; }
 html.mobile .grid-mobile-12 {
-  width: 100%;
-  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 100%; }
   .gridle-debug html.mobile .grid-mobile-12:before, html.mobile .grid-mobile-12.gridle-debug:before {
     content: "grid-mobile-12"; }
   .gridle-debug html.mobile .grid-mobile-12.parent:before, html.mobile .grid-mobile-12.gridle-debug.parent:before {
@@ -1015,6 +997,12 @@ html.mobile .centered-mobile {
 html.mobile .parent-mobile {
   padding-left: 0 !important;
   padding-right: 0 !important; }
+html.mobile .parent-vertical-align-mobile {
+  vertical-align: middle; }
+  html.mobile .parent-vertical-align-mobile > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: middle; }
 .gridle-debug html.mobile .debug-color-mobile-1, html.mobile .debug-color-mobile-1.gridle-debug {
   background-color: #edeeb2; }
 .gridle-debug html.mobile .debug-color-mobile-2, html.mobile .debug-color-mobile-2.gridle-debug {
@@ -1030,8 +1018,7 @@ html.mobile .parent-mobile {
 
 @media screen and (max-width: 480px) {
   .grid-mobile-1on5 {
-    width: 20%;
-    *width: expression((this.parentNode.clientWidth/5*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 20%; }
     .gridle-debug .grid-mobile-1on5:before, .grid-mobile-1on5.gridle-debug:before {
       content: "grid-mobile-1"; }
     .gridle-debug .grid-mobile-1on5.parent:before, .grid-mobile-1on5.gridle-debug.parent:before {
@@ -1058,8 +1045,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-1" !important; }
 
   .grid-mobile-0 {
-    width: 0%;
-    *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 0%; }
     .gridle-debug .grid-mobile-0:before, .grid-mobile-0.gridle-debug:before {
       content: "grid-mobile-0"; }
     .gridle-debug .grid-mobile-0.parent:before, .grid-mobile-0.gridle-debug.parent:before {
@@ -1086,8 +1072,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-0" !important; }
 
   .grid-mobile-1 {
-    width: 8.33333%;
-    *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 8.33333%; }
     .gridle-debug .grid-mobile-1:before, .grid-mobile-1.gridle-debug:before {
       content: "grid-mobile-1"; }
     .gridle-debug .grid-mobile-1.parent:before, .grid-mobile-1.gridle-debug.parent:before {
@@ -1114,8 +1099,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-1" !important; }
 
   .grid-mobile-2 {
-    width: 16.66667%;
-    *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 16.66667%; }
     .gridle-debug .grid-mobile-2:before, .grid-mobile-2.gridle-debug:before {
       content: "grid-mobile-2"; }
     .gridle-debug .grid-mobile-2.parent:before, .grid-mobile-2.gridle-debug.parent:before {
@@ -1142,8 +1126,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-2" !important; }
 
   .grid-mobile-3 {
-    width: 25%;
-    *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 25%; }
     .gridle-debug .grid-mobile-3:before, .grid-mobile-3.gridle-debug:before {
       content: "grid-mobile-3"; }
     .gridle-debug .grid-mobile-3.parent:before, .grid-mobile-3.gridle-debug.parent:before {
@@ -1170,8 +1153,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-3" !important; }
 
   .grid-mobile-4 {
-    width: 33.33333%;
-    *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 33.33333%; }
     .gridle-debug .grid-mobile-4:before, .grid-mobile-4.gridle-debug:before {
       content: "grid-mobile-4"; }
     .gridle-debug .grid-mobile-4.parent:before, .grid-mobile-4.gridle-debug.parent:before {
@@ -1198,8 +1180,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-4" !important; }
 
   .grid-mobile-5 {
-    width: 41.66667%;
-    *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 41.66667%; }
     .gridle-debug .grid-mobile-5:before, .grid-mobile-5.gridle-debug:before {
       content: "grid-mobile-5"; }
     .gridle-debug .grid-mobile-5.parent:before, .grid-mobile-5.gridle-debug.parent:before {
@@ -1226,8 +1207,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-5" !important; }
 
   .grid-mobile-6 {
-    width: 50%;
-    *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 50%; }
     .gridle-debug .grid-mobile-6:before, .grid-mobile-6.gridle-debug:before {
       content: "grid-mobile-6"; }
     .gridle-debug .grid-mobile-6.parent:before, .grid-mobile-6.gridle-debug.parent:before {
@@ -1254,8 +1234,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-6" !important; }
 
   .grid-mobile-7 {
-    width: 58.33333%;
-    *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 58.33333%; }
     .gridle-debug .grid-mobile-7:before, .grid-mobile-7.gridle-debug:before {
       content: "grid-mobile-7"; }
     .gridle-debug .grid-mobile-7.parent:before, .grid-mobile-7.gridle-debug.parent:before {
@@ -1282,8 +1261,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-7" !important; }
 
   .grid-mobile-8 {
-    width: 66.66667%;
-    *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 66.66667%; }
     .gridle-debug .grid-mobile-8:before, .grid-mobile-8.gridle-debug:before {
       content: "grid-mobile-8"; }
     .gridle-debug .grid-mobile-8.parent:before, .grid-mobile-8.gridle-debug.parent:before {
@@ -1310,8 +1288,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-8" !important; }
 
   .grid-mobile-9 {
-    width: 75%;
-    *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 75%; }
     .gridle-debug .grid-mobile-9:before, .grid-mobile-9.gridle-debug:before {
       content: "grid-mobile-9"; }
     .gridle-debug .grid-mobile-9.parent:before, .grid-mobile-9.gridle-debug.parent:before {
@@ -1338,8 +1315,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-9" !important; }
 
   .grid-mobile-10 {
-    width: 83.33333%;
-    *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 83.33333%; }
     .gridle-debug .grid-mobile-10:before, .grid-mobile-10.gridle-debug:before {
       content: "grid-mobile-10"; }
     .gridle-debug .grid-mobile-10.parent:before, .grid-mobile-10.gridle-debug.parent:before {
@@ -1366,8 +1342,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-10" !important; }
 
   .grid-mobile-11 {
-    width: 91.66667%;
-    *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 91.66667%; }
     .gridle-debug .grid-mobile-11:before, .grid-mobile-11.gridle-debug:before {
       content: "grid-mobile-11"; }
     .gridle-debug .grid-mobile-11.parent:before, .grid-mobile-11.gridle-debug.parent:before {
@@ -1394,8 +1369,7 @@ html.mobile .parent-mobile {
       content: "suffix-mobile-11" !important; }
 
   .grid-mobile-12 {
-    width: 100%;
-    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 100%; }
     .gridle-debug .grid-mobile-12:before, .grid-mobile-12.gridle-debug:before {
       content: "grid-mobile-12"; }
     .gridle-debug .grid-mobile-12.parent:before, .grid-mobile-12.gridle-debug.parent:before {
@@ -1504,6 +1478,13 @@ html.mobile .parent-mobile {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
+  .parent-vertical-align-mobile {
+    vertical-align: middle; }
+    .parent-vertical-align-mobile > * {
+      display: inline-block;
+      float: none !important;
+      vertical-align: middle; }
+
   .gridle-debug .debug-color-mobile-1, .debug-color-mobile-1.gridle-debug {
     background-color: #edeeb2; }
 
@@ -1522,8 +1503,7 @@ html.mobile .parent-mobile {
   .gridle-debug .debug-color-mobile-6, .debug-color-mobile-6.gridle-debug {
     background-color: #b2d8ee; } }
 html.tablet .grid-tablet-1on5 {
-  width: 20%;
-  *width: expression((this.parentNode.clientWidth/5*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 20%; }
   .gridle-debug html.tablet .grid-tablet-1on5:before, html.tablet .grid-tablet-1on5.gridle-debug:before {
     content: "grid-tablet-1"; }
   .gridle-debug html.tablet .grid-tablet-1on5.parent:before, html.tablet .grid-tablet-1on5.gridle-debug.parent:before {
@@ -1545,8 +1525,7 @@ html.tablet .suffix-tablet-1on5 {
   .gridle-debug html.tablet .suffix-tablet-1on5:after, html.tablet .suffix-tablet-1on5.gridle-debug:after {
     content: "suffix-tablet-1" !important; }
 html.tablet .grid-tablet-0 {
-  width: 0%;
-  *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 0%; }
   .gridle-debug html.tablet .grid-tablet-0:before, html.tablet .grid-tablet-0.gridle-debug:before {
     content: "grid-tablet-0"; }
   .gridle-debug html.tablet .grid-tablet-0.parent:before, html.tablet .grid-tablet-0.gridle-debug.parent:before {
@@ -1568,8 +1547,7 @@ html.tablet .suffix-tablet-0 {
   .gridle-debug html.tablet .suffix-tablet-0:after, html.tablet .suffix-tablet-0.gridle-debug:after {
     content: "suffix-tablet-0" !important; }
 html.tablet .grid-tablet-1 {
-  width: 8.33333%;
-  *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 8.33333%; }
   .gridle-debug html.tablet .grid-tablet-1:before, html.tablet .grid-tablet-1.gridle-debug:before {
     content: "grid-tablet-1"; }
   .gridle-debug html.tablet .grid-tablet-1.parent:before, html.tablet .grid-tablet-1.gridle-debug.parent:before {
@@ -1591,8 +1569,7 @@ html.tablet .suffix-tablet-1 {
   .gridle-debug html.tablet .suffix-tablet-1:after, html.tablet .suffix-tablet-1.gridle-debug:after {
     content: "suffix-tablet-1" !important; }
 html.tablet .grid-tablet-2 {
-  width: 16.66667%;
-  *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 16.66667%; }
   .gridle-debug html.tablet .grid-tablet-2:before, html.tablet .grid-tablet-2.gridle-debug:before {
     content: "grid-tablet-2"; }
   .gridle-debug html.tablet .grid-tablet-2.parent:before, html.tablet .grid-tablet-2.gridle-debug.parent:before {
@@ -1614,8 +1591,7 @@ html.tablet .suffix-tablet-2 {
   .gridle-debug html.tablet .suffix-tablet-2:after, html.tablet .suffix-tablet-2.gridle-debug:after {
     content: "suffix-tablet-2" !important; }
 html.tablet .grid-tablet-3 {
-  width: 25%;
-  *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 25%; }
   .gridle-debug html.tablet .grid-tablet-3:before, html.tablet .grid-tablet-3.gridle-debug:before {
     content: "grid-tablet-3"; }
   .gridle-debug html.tablet .grid-tablet-3.parent:before, html.tablet .grid-tablet-3.gridle-debug.parent:before {
@@ -1637,8 +1613,7 @@ html.tablet .suffix-tablet-3 {
   .gridle-debug html.tablet .suffix-tablet-3:after, html.tablet .suffix-tablet-3.gridle-debug:after {
     content: "suffix-tablet-3" !important; }
 html.tablet .grid-tablet-4 {
-  width: 33.33333%;
-  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 33.33333%; }
   .gridle-debug html.tablet .grid-tablet-4:before, html.tablet .grid-tablet-4.gridle-debug:before {
     content: "grid-tablet-4"; }
   .gridle-debug html.tablet .grid-tablet-4.parent:before, html.tablet .grid-tablet-4.gridle-debug.parent:before {
@@ -1660,8 +1635,7 @@ html.tablet .suffix-tablet-4 {
   .gridle-debug html.tablet .suffix-tablet-4:after, html.tablet .suffix-tablet-4.gridle-debug:after {
     content: "suffix-tablet-4" !important; }
 html.tablet .grid-tablet-5 {
-  width: 41.66667%;
-  *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 41.66667%; }
   .gridle-debug html.tablet .grid-tablet-5:before, html.tablet .grid-tablet-5.gridle-debug:before {
     content: "grid-tablet-5"; }
   .gridle-debug html.tablet .grid-tablet-5.parent:before, html.tablet .grid-tablet-5.gridle-debug.parent:before {
@@ -1683,8 +1657,7 @@ html.tablet .suffix-tablet-5 {
   .gridle-debug html.tablet .suffix-tablet-5:after, html.tablet .suffix-tablet-5.gridle-debug:after {
     content: "suffix-tablet-5" !important; }
 html.tablet .grid-tablet-6 {
-  width: 50%;
-  *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 50%; }
   .gridle-debug html.tablet .grid-tablet-6:before, html.tablet .grid-tablet-6.gridle-debug:before {
     content: "grid-tablet-6"; }
   .gridle-debug html.tablet .grid-tablet-6.parent:before, html.tablet .grid-tablet-6.gridle-debug.parent:before {
@@ -1706,8 +1679,7 @@ html.tablet .suffix-tablet-6 {
   .gridle-debug html.tablet .suffix-tablet-6:after, html.tablet .suffix-tablet-6.gridle-debug:after {
     content: "suffix-tablet-6" !important; }
 html.tablet .grid-tablet-7 {
-  width: 58.33333%;
-  *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 58.33333%; }
   .gridle-debug html.tablet .grid-tablet-7:before, html.tablet .grid-tablet-7.gridle-debug:before {
     content: "grid-tablet-7"; }
   .gridle-debug html.tablet .grid-tablet-7.parent:before, html.tablet .grid-tablet-7.gridle-debug.parent:before {
@@ -1729,8 +1701,7 @@ html.tablet .suffix-tablet-7 {
   .gridle-debug html.tablet .suffix-tablet-7:after, html.tablet .suffix-tablet-7.gridle-debug:after {
     content: "suffix-tablet-7" !important; }
 html.tablet .grid-tablet-8 {
-  width: 66.66667%;
-  *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 66.66667%; }
   .gridle-debug html.tablet .grid-tablet-8:before, html.tablet .grid-tablet-8.gridle-debug:before {
     content: "grid-tablet-8"; }
   .gridle-debug html.tablet .grid-tablet-8.parent:before, html.tablet .grid-tablet-8.gridle-debug.parent:before {
@@ -1752,8 +1723,7 @@ html.tablet .suffix-tablet-8 {
   .gridle-debug html.tablet .suffix-tablet-8:after, html.tablet .suffix-tablet-8.gridle-debug:after {
     content: "suffix-tablet-8" !important; }
 html.tablet .grid-tablet-9 {
-  width: 75%;
-  *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 75%; }
   .gridle-debug html.tablet .grid-tablet-9:before, html.tablet .grid-tablet-9.gridle-debug:before {
     content: "grid-tablet-9"; }
   .gridle-debug html.tablet .grid-tablet-9.parent:before, html.tablet .grid-tablet-9.gridle-debug.parent:before {
@@ -1775,8 +1745,7 @@ html.tablet .suffix-tablet-9 {
   .gridle-debug html.tablet .suffix-tablet-9:after, html.tablet .suffix-tablet-9.gridle-debug:after {
     content: "suffix-tablet-9" !important; }
 html.tablet .grid-tablet-10 {
-  width: 83.33333%;
-  *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 83.33333%; }
   .gridle-debug html.tablet .grid-tablet-10:before, html.tablet .grid-tablet-10.gridle-debug:before {
     content: "grid-tablet-10"; }
   .gridle-debug html.tablet .grid-tablet-10.parent:before, html.tablet .grid-tablet-10.gridle-debug.parent:before {
@@ -1798,8 +1767,7 @@ html.tablet .suffix-tablet-10 {
   .gridle-debug html.tablet .suffix-tablet-10:after, html.tablet .suffix-tablet-10.gridle-debug:after {
     content: "suffix-tablet-10" !important; }
 html.tablet .grid-tablet-11 {
-  width: 91.66667%;
-  *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 91.66667%; }
   .gridle-debug html.tablet .grid-tablet-11:before, html.tablet .grid-tablet-11.gridle-debug:before {
     content: "grid-tablet-11"; }
   .gridle-debug html.tablet .grid-tablet-11.parent:before, html.tablet .grid-tablet-11.gridle-debug.parent:before {
@@ -1821,8 +1789,7 @@ html.tablet .suffix-tablet-11 {
   .gridle-debug html.tablet .suffix-tablet-11:after, html.tablet .suffix-tablet-11.gridle-debug:after {
     content: "suffix-tablet-11" !important; }
 html.tablet .grid-tablet-12 {
-  width: 100%;
-  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 100%; }
   .gridle-debug html.tablet .grid-tablet-12:before, html.tablet .grid-tablet-12.gridle-debug:before {
     content: "grid-tablet-12"; }
   .gridle-debug html.tablet .grid-tablet-12.parent:before, html.tablet .grid-tablet-12.gridle-debug.parent:before {
@@ -1904,6 +1871,12 @@ html.tablet .centered-tablet {
 html.tablet .parent-tablet {
   padding-left: 0 !important;
   padding-right: 0 !important; }
+html.tablet .parent-vertical-align-tablet {
+  vertical-align: middle; }
+  html.tablet .parent-vertical-align-tablet > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: middle; }
 .gridle-debug html.tablet .debug-color-tablet-1, html.tablet .debug-color-tablet-1.gridle-debug {
   background-color: #edeeb2; }
 .gridle-debug html.tablet .debug-color-tablet-2, html.tablet .debug-color-tablet-2.gridle-debug {
@@ -1919,8 +1892,7 @@ html.tablet .parent-tablet {
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .grid-tablet-1on5 {
-    width: 20%;
-    *width: expression((this.parentNode.clientWidth/5*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 20%; }
     .gridle-debug .grid-tablet-1on5:before, .grid-tablet-1on5.gridle-debug:before {
       content: "grid-tablet-1"; }
     .gridle-debug .grid-tablet-1on5.parent:before, .grid-tablet-1on5.gridle-debug.parent:before {
@@ -1947,8 +1919,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-1" !important; }
 
   .grid-tablet-0 {
-    width: 0%;
-    *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 0%; }
     .gridle-debug .grid-tablet-0:before, .grid-tablet-0.gridle-debug:before {
       content: "grid-tablet-0"; }
     .gridle-debug .grid-tablet-0.parent:before, .grid-tablet-0.gridle-debug.parent:before {
@@ -1975,8 +1946,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-0" !important; }
 
   .grid-tablet-1 {
-    width: 8.33333%;
-    *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 8.33333%; }
     .gridle-debug .grid-tablet-1:before, .grid-tablet-1.gridle-debug:before {
       content: "grid-tablet-1"; }
     .gridle-debug .grid-tablet-1.parent:before, .grid-tablet-1.gridle-debug.parent:before {
@@ -2003,8 +1973,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-1" !important; }
 
   .grid-tablet-2 {
-    width: 16.66667%;
-    *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 16.66667%; }
     .gridle-debug .grid-tablet-2:before, .grid-tablet-2.gridle-debug:before {
       content: "grid-tablet-2"; }
     .gridle-debug .grid-tablet-2.parent:before, .grid-tablet-2.gridle-debug.parent:before {
@@ -2031,8 +2000,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-2" !important; }
 
   .grid-tablet-3 {
-    width: 25%;
-    *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 25%; }
     .gridle-debug .grid-tablet-3:before, .grid-tablet-3.gridle-debug:before {
       content: "grid-tablet-3"; }
     .gridle-debug .grid-tablet-3.parent:before, .grid-tablet-3.gridle-debug.parent:before {
@@ -2059,8 +2027,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-3" !important; }
 
   .grid-tablet-4 {
-    width: 33.33333%;
-    *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 33.33333%; }
     .gridle-debug .grid-tablet-4:before, .grid-tablet-4.gridle-debug:before {
       content: "grid-tablet-4"; }
     .gridle-debug .grid-tablet-4.parent:before, .grid-tablet-4.gridle-debug.parent:before {
@@ -2087,8 +2054,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-4" !important; }
 
   .grid-tablet-5 {
-    width: 41.66667%;
-    *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 41.66667%; }
     .gridle-debug .grid-tablet-5:before, .grid-tablet-5.gridle-debug:before {
       content: "grid-tablet-5"; }
     .gridle-debug .grid-tablet-5.parent:before, .grid-tablet-5.gridle-debug.parent:before {
@@ -2115,8 +2081,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-5" !important; }
 
   .grid-tablet-6 {
-    width: 50%;
-    *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 50%; }
     .gridle-debug .grid-tablet-6:before, .grid-tablet-6.gridle-debug:before {
       content: "grid-tablet-6"; }
     .gridle-debug .grid-tablet-6.parent:before, .grid-tablet-6.gridle-debug.parent:before {
@@ -2143,8 +2108,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-6" !important; }
 
   .grid-tablet-7 {
-    width: 58.33333%;
-    *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 58.33333%; }
     .gridle-debug .grid-tablet-7:before, .grid-tablet-7.gridle-debug:before {
       content: "grid-tablet-7"; }
     .gridle-debug .grid-tablet-7.parent:before, .grid-tablet-7.gridle-debug.parent:before {
@@ -2171,8 +2135,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-7" !important; }
 
   .grid-tablet-8 {
-    width: 66.66667%;
-    *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 66.66667%; }
     .gridle-debug .grid-tablet-8:before, .grid-tablet-8.gridle-debug:before {
       content: "grid-tablet-8"; }
     .gridle-debug .grid-tablet-8.parent:before, .grid-tablet-8.gridle-debug.parent:before {
@@ -2199,8 +2162,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-8" !important; }
 
   .grid-tablet-9 {
-    width: 75%;
-    *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 75%; }
     .gridle-debug .grid-tablet-9:before, .grid-tablet-9.gridle-debug:before {
       content: "grid-tablet-9"; }
     .gridle-debug .grid-tablet-9.parent:before, .grid-tablet-9.gridle-debug.parent:before {
@@ -2227,8 +2189,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-9" !important; }
 
   .grid-tablet-10 {
-    width: 83.33333%;
-    *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 83.33333%; }
     .gridle-debug .grid-tablet-10:before, .grid-tablet-10.gridle-debug:before {
       content: "grid-tablet-10"; }
     .gridle-debug .grid-tablet-10.parent:before, .grid-tablet-10.gridle-debug.parent:before {
@@ -2255,8 +2216,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-10" !important; }
 
   .grid-tablet-11 {
-    width: 91.66667%;
-    *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 91.66667%; }
     .gridle-debug .grid-tablet-11:before, .grid-tablet-11.gridle-debug:before {
       content: "grid-tablet-11"; }
     .gridle-debug .grid-tablet-11.parent:before, .grid-tablet-11.gridle-debug.parent:before {
@@ -2283,8 +2243,7 @@ html.tablet .parent-tablet {
       content: "suffix-tablet-11" !important; }
 
   .grid-tablet-12 {
-    width: 100%;
-    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 100%; }
     .gridle-debug .grid-tablet-12:before, .grid-tablet-12.gridle-debug:before {
       content: "grid-tablet-12"; }
     .gridle-debug .grid-tablet-12.parent:before, .grid-tablet-12.gridle-debug.parent:before {
@@ -2393,6 +2352,13 @@ html.tablet .parent-tablet {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
+  .parent-vertical-align-tablet {
+    vertical-align: middle; }
+    .parent-vertical-align-tablet > * {
+      display: inline-block;
+      float: none !important;
+      vertical-align: middle; }
+
   .gridle-debug .debug-color-tablet-1, .debug-color-tablet-1.gridle-debug {
     background-color: #edeeb2; }
 
@@ -2411,8 +2377,7 @@ html.tablet .parent-tablet {
   .gridle-debug .debug-color-tablet-6, .debug-color-tablet-6.gridle-debug {
     background-color: #b2d8ee; } }
 html.ipad-landscape .grid-ipad-landscape-1on5 {
-  width: 20%;
-  *width: expression((this.parentNode.clientWidth/5*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 20%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug:before {
     content: "grid-ipad-landscape-1"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5.parent:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug.parent:before {
@@ -2434,8 +2399,7 @@ html.ipad-landscape .suffix-ipad-landscape-1on5 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-1on5:after, html.ipad-landscape .suffix-ipad-landscape-1on5.gridle-debug:after {
     content: "suffix-ipad-landscape-1" !important; }
 html.ipad-landscape .grid-ipad-landscape-0 {
-  width: 0%;
-  *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 0%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-0:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug:before {
     content: "grid-ipad-landscape-0"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-0.parent:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug.parent:before {
@@ -2457,8 +2421,7 @@ html.ipad-landscape .suffix-ipad-landscape-0 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-0:after, html.ipad-landscape .suffix-ipad-landscape-0.gridle-debug:after {
     content: "suffix-ipad-landscape-0" !important; }
 html.ipad-landscape .grid-ipad-landscape-1 {
-  width: 8.33333%;
-  *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 8.33333%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-1:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug:before {
     content: "grid-ipad-landscape-1"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-1.parent:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug.parent:before {
@@ -2480,8 +2443,7 @@ html.ipad-landscape .suffix-ipad-landscape-1 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-1:after, html.ipad-landscape .suffix-ipad-landscape-1.gridle-debug:after {
     content: "suffix-ipad-landscape-1" !important; }
 html.ipad-landscape .grid-ipad-landscape-2 {
-  width: 16.66667%;
-  *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 16.66667%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-2:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug:before {
     content: "grid-ipad-landscape-2"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-2.parent:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug.parent:before {
@@ -2503,8 +2465,7 @@ html.ipad-landscape .suffix-ipad-landscape-2 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-2:after, html.ipad-landscape .suffix-ipad-landscape-2.gridle-debug:after {
     content: "suffix-ipad-landscape-2" !important; }
 html.ipad-landscape .grid-ipad-landscape-3 {
-  width: 25%;
-  *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 25%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-3:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug:before {
     content: "grid-ipad-landscape-3"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-3.parent:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug.parent:before {
@@ -2526,8 +2487,7 @@ html.ipad-landscape .suffix-ipad-landscape-3 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-3:after, html.ipad-landscape .suffix-ipad-landscape-3.gridle-debug:after {
     content: "suffix-ipad-landscape-3" !important; }
 html.ipad-landscape .grid-ipad-landscape-4 {
-  width: 33.33333%;
-  *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 33.33333%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-4:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug:before {
     content: "grid-ipad-landscape-4"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-4.parent:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug.parent:before {
@@ -2549,8 +2509,7 @@ html.ipad-landscape .suffix-ipad-landscape-4 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-4:after, html.ipad-landscape .suffix-ipad-landscape-4.gridle-debug:after {
     content: "suffix-ipad-landscape-4" !important; }
 html.ipad-landscape .grid-ipad-landscape-5 {
-  width: 41.66667%;
-  *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 41.66667%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-5:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug:before {
     content: "grid-ipad-landscape-5"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-5.parent:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug.parent:before {
@@ -2572,8 +2531,7 @@ html.ipad-landscape .suffix-ipad-landscape-5 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-5:after, html.ipad-landscape .suffix-ipad-landscape-5.gridle-debug:after {
     content: "suffix-ipad-landscape-5" !important; }
 html.ipad-landscape .grid-ipad-landscape-6 {
-  width: 50%;
-  *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 50%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-6:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug:before {
     content: "grid-ipad-landscape-6"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-6.parent:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug.parent:before {
@@ -2595,8 +2553,7 @@ html.ipad-landscape .suffix-ipad-landscape-6 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-6:after, html.ipad-landscape .suffix-ipad-landscape-6.gridle-debug:after {
     content: "suffix-ipad-landscape-6" !important; }
 html.ipad-landscape .grid-ipad-landscape-7 {
-  width: 58.33333%;
-  *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 58.33333%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-7:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug:before {
     content: "grid-ipad-landscape-7"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-7.parent:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug.parent:before {
@@ -2618,8 +2575,7 @@ html.ipad-landscape .suffix-ipad-landscape-7 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-7:after, html.ipad-landscape .suffix-ipad-landscape-7.gridle-debug:after {
     content: "suffix-ipad-landscape-7" !important; }
 html.ipad-landscape .grid-ipad-landscape-8 {
-  width: 66.66667%;
-  *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 66.66667%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-8:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug:before {
     content: "grid-ipad-landscape-8"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-8.parent:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug.parent:before {
@@ -2641,8 +2597,7 @@ html.ipad-landscape .suffix-ipad-landscape-8 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-8:after, html.ipad-landscape .suffix-ipad-landscape-8.gridle-debug:after {
     content: "suffix-ipad-landscape-8" !important; }
 html.ipad-landscape .grid-ipad-landscape-9 {
-  width: 75%;
-  *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 75%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-9:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug:before {
     content: "grid-ipad-landscape-9"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-9.parent:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug.parent:before {
@@ -2664,8 +2619,7 @@ html.ipad-landscape .suffix-ipad-landscape-9 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-9:after, html.ipad-landscape .suffix-ipad-landscape-9.gridle-debug:after {
     content: "suffix-ipad-landscape-9" !important; }
 html.ipad-landscape .grid-ipad-landscape-10 {
-  width: 83.33333%;
-  *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 83.33333%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-10:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug:before {
     content: "grid-ipad-landscape-10"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-10.parent:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug.parent:before {
@@ -2687,8 +2641,7 @@ html.ipad-landscape .suffix-ipad-landscape-10 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-10:after, html.ipad-landscape .suffix-ipad-landscape-10.gridle-debug:after {
     content: "suffix-ipad-landscape-10" !important; }
 html.ipad-landscape .grid-ipad-landscape-11 {
-  width: 91.66667%;
-  *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 91.66667%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-11:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug:before {
     content: "grid-ipad-landscape-11"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-11.parent:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug.parent:before {
@@ -2710,8 +2663,7 @@ html.ipad-landscape .suffix-ipad-landscape-11 {
   .gridle-debug html.ipad-landscape .suffix-ipad-landscape-11:after, html.ipad-landscape .suffix-ipad-landscape-11.gridle-debug:after {
     content: "suffix-ipad-landscape-11" !important; }
 html.ipad-landscape .grid-ipad-landscape-12 {
-  width: 100%;
-  *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 100%; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-12:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug:before {
     content: "grid-ipad-landscape-12"; }
   .gridle-debug html.ipad-landscape .grid-ipad-landscape-12.parent:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug.parent:before {
@@ -2793,6 +2745,12 @@ html.ipad-landscape .centered-ipad-landscape {
 html.ipad-landscape .parent-ipad-landscape {
   padding-left: 0 !important;
   padding-right: 0 !important; }
+html.ipad-landscape .parent-vertical-align-ipad-landscape {
+  vertical-align: middle; }
+  html.ipad-landscape .parent-vertical-align-ipad-landscape > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: middle; }
 .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-1, html.ipad-landscape .debug-color-ipad-landscape-1.gridle-debug {
   background-color: #edeeb2; }
 .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-2, html.ipad-landscape .debug-color-ipad-landscape-2.gridle-debug {
@@ -2808,8 +2766,7 @@ html.ipad-landscape .parent-ipad-landscape {
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-ipad-landscape-1on5 {
-    width: 20%;
-    *width: expression((this.parentNode.clientWidth/5*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 20%; }
     .gridle-debug .grid-ipad-landscape-1on5:before, .grid-ipad-landscape-1on5.gridle-debug:before {
       content: "grid-ipad-landscape-1"; }
     .gridle-debug .grid-ipad-landscape-1on5.parent:before, .grid-ipad-landscape-1on5.gridle-debug.parent:before {
@@ -2836,8 +2793,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-1" !important; }
 
   .grid-ipad-landscape-0 {
-    width: 0%;
-    *width: expression((this.parentNode.clientWidth/12*0 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 0%; }
     .gridle-debug .grid-ipad-landscape-0:before, .grid-ipad-landscape-0.gridle-debug:before {
       content: "grid-ipad-landscape-0"; }
     .gridle-debug .grid-ipad-landscape-0.parent:before, .grid-ipad-landscape-0.gridle-debug.parent:before {
@@ -2864,8 +2820,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-0" !important; }
 
   .grid-ipad-landscape-1 {
-    width: 8.33333%;
-    *width: expression((this.parentNode.clientWidth/12*1 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 8.33333%; }
     .gridle-debug .grid-ipad-landscape-1:before, .grid-ipad-landscape-1.gridle-debug:before {
       content: "grid-ipad-landscape-1"; }
     .gridle-debug .grid-ipad-landscape-1.parent:before, .grid-ipad-landscape-1.gridle-debug.parent:before {
@@ -2892,8 +2847,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-1" !important; }
 
   .grid-ipad-landscape-2 {
-    width: 16.66667%;
-    *width: expression((this.parentNode.clientWidth/12*2 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 16.66667%; }
     .gridle-debug .grid-ipad-landscape-2:before, .grid-ipad-landscape-2.gridle-debug:before {
       content: "grid-ipad-landscape-2"; }
     .gridle-debug .grid-ipad-landscape-2.parent:before, .grid-ipad-landscape-2.gridle-debug.parent:before {
@@ -2920,8 +2874,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-2" !important; }
 
   .grid-ipad-landscape-3 {
-    width: 25%;
-    *width: expression((this.parentNode.clientWidth/12*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 25%; }
     .gridle-debug .grid-ipad-landscape-3:before, .grid-ipad-landscape-3.gridle-debug:before {
       content: "grid-ipad-landscape-3"; }
     .gridle-debug .grid-ipad-landscape-3.parent:before, .grid-ipad-landscape-3.gridle-debug.parent:before {
@@ -2948,8 +2901,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-3" !important; }
 
   .grid-ipad-landscape-4 {
-    width: 33.33333%;
-    *width: expression((this.parentNode.clientWidth/12*4 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 33.33333%; }
     .gridle-debug .grid-ipad-landscape-4:before, .grid-ipad-landscape-4.gridle-debug:before {
       content: "grid-ipad-landscape-4"; }
     .gridle-debug .grid-ipad-landscape-4.parent:before, .grid-ipad-landscape-4.gridle-debug.parent:before {
@@ -2976,8 +2928,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-4" !important; }
 
   .grid-ipad-landscape-5 {
-    width: 41.66667%;
-    *width: expression((this.parentNode.clientWidth/12*5 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 41.66667%; }
     .gridle-debug .grid-ipad-landscape-5:before, .grid-ipad-landscape-5.gridle-debug:before {
       content: "grid-ipad-landscape-5"; }
     .gridle-debug .grid-ipad-landscape-5.parent:before, .grid-ipad-landscape-5.gridle-debug.parent:before {
@@ -3004,8 +2955,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-5" !important; }
 
   .grid-ipad-landscape-6 {
-    width: 50%;
-    *width: expression((this.parentNode.clientWidth/12*6 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 50%; }
     .gridle-debug .grid-ipad-landscape-6:before, .grid-ipad-landscape-6.gridle-debug:before {
       content: "grid-ipad-landscape-6"; }
     .gridle-debug .grid-ipad-landscape-6.parent:before, .grid-ipad-landscape-6.gridle-debug.parent:before {
@@ -3032,8 +2982,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-6" !important; }
 
   .grid-ipad-landscape-7 {
-    width: 58.33333%;
-    *width: expression((this.parentNode.clientWidth/12*7 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 58.33333%; }
     .gridle-debug .grid-ipad-landscape-7:before, .grid-ipad-landscape-7.gridle-debug:before {
       content: "grid-ipad-landscape-7"; }
     .gridle-debug .grid-ipad-landscape-7.parent:before, .grid-ipad-landscape-7.gridle-debug.parent:before {
@@ -3060,8 +3009,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-7" !important; }
 
   .grid-ipad-landscape-8 {
-    width: 66.66667%;
-    *width: expression((this.parentNode.clientWidth/12*8 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 66.66667%; }
     .gridle-debug .grid-ipad-landscape-8:before, .grid-ipad-landscape-8.gridle-debug:before {
       content: "grid-ipad-landscape-8"; }
     .gridle-debug .grid-ipad-landscape-8.parent:before, .grid-ipad-landscape-8.gridle-debug.parent:before {
@@ -3088,8 +3036,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-8" !important; }
 
   .grid-ipad-landscape-9 {
-    width: 75%;
-    *width: expression((this.parentNode.clientWidth/12*9 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 75%; }
     .gridle-debug .grid-ipad-landscape-9:before, .grid-ipad-landscape-9.gridle-debug:before {
       content: "grid-ipad-landscape-9"; }
     .gridle-debug .grid-ipad-landscape-9.parent:before, .grid-ipad-landscape-9.gridle-debug.parent:before {
@@ -3116,8 +3063,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-9" !important; }
 
   .grid-ipad-landscape-10 {
-    width: 83.33333%;
-    *width: expression((this.parentNode.clientWidth/12*10 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 83.33333%; }
     .gridle-debug .grid-ipad-landscape-10:before, .grid-ipad-landscape-10.gridle-debug:before {
       content: "grid-ipad-landscape-10"; }
     .gridle-debug .grid-ipad-landscape-10.parent:before, .grid-ipad-landscape-10.gridle-debug.parent:before {
@@ -3144,8 +3090,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-10" !important; }
 
   .grid-ipad-landscape-11 {
-    width: 91.66667%;
-    *width: expression((this.parentNode.clientWidth/12*11 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 91.66667%; }
     .gridle-debug .grid-ipad-landscape-11:before, .grid-ipad-landscape-11.gridle-debug:before {
       content: "grid-ipad-landscape-11"; }
     .gridle-debug .grid-ipad-landscape-11.parent:before, .grid-ipad-landscape-11.gridle-debug.parent:before {
@@ -3172,8 +3117,7 @@ html.ipad-landscape .parent-ipad-landscape {
       content: "suffix-ipad-landscape-11" !important; }
 
   .grid-ipad-landscape-12 {
-    width: 100%;
-    *width: expression((this.parentNode.clientWidth/12*12 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+    width: 100%; }
     .gridle-debug .grid-ipad-landscape-12:before, .grid-ipad-landscape-12.gridle-debug:before {
       content: "grid-ipad-landscape-12"; }
     .gridle-debug .grid-ipad-landscape-12.parent:before, .grid-ipad-landscape-12.gridle-debug.parent:before {
@@ -3282,6 +3226,13 @@ html.ipad-landscape .parent-ipad-landscape {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
+  .parent-vertical-align-ipad-landscape {
+    vertical-align: middle; }
+    .parent-vertical-align-ipad-landscape > * {
+      display: inline-block;
+      float: none !important;
+      vertical-align: middle; }
+
   .gridle-debug .debug-color-ipad-landscape-1, .debug-color-ipad-landscape-1.gridle-debug {
     background-color: #edeeb2; }
 
@@ -3300,7 +3251,7 @@ html.ipad-landscape .parent-ipad-landscape {
   .gridle-debug .debug-color-ipad-landscape-6, .debug-color-ipad-landscape-6.gridle-debug {
     background-color: #b2d8ee; } }
 #gridle-settings-default {
-  content: '{ "version" : "1.1.2", "states" : { "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : 12, }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : 12, }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : 12, },}, "debugDevices" : {  }, "columnsCount" : 12, "gutterWidth" : "1rem", "nameMultiplicator" : 1, "direction" : "ltr", "ie7Support" : true, "debug" : true, "debugShowClassNames" : true, "htmlStatesClasses" : true, "generateHelpersClasses" : true, "generatePushClasses" : true, "generatePullClasses" : true, "generatePrefixClasses" : true, "generateSuffixClasses" : true, "classPrefix" : "" }'; }
+  content: '{ "version" : "1.2.0", "states" : { "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : "true", "context" : "12", }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : "true", "context" : "12", }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : "true", "context" : "12", },}, "debugDevices" : {  }, "columnsCount" : 12, "gutterWidth" : "1rem", "nameMultiplicator" : 1, "direction" : "ltr", "ie7Support" : false, "debug" : true, "debugShowClassNames" : true, "htmlStatesClasses" : true, "generateHelpersClasses" : true, "generatePushClasses" : true, "generatePullClasses" : true, "generatePrefixClasses" : true, "generateSuffixClasses" : true, "classPrefix" : "" }'; }
 
 .container {
   margin: 0 auto;
@@ -3349,8 +3300,7 @@ html.ipad-landscape .parent-ipad-landscape {
   float: left;
   direction: ltr;
   padding: 0 0.5rem;
-  width: 75%;
-  *width: expression((this.parentNode.clientWidth/4*3 - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px'); }
+  width: 75%; }
   .gridle-debug .hello:before, .hello.gridle-debug:before {
     content: "grid--3"; }
   .gridle-debug .hello.parent:before, .hello.gridle-debug.parent:before {

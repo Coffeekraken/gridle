@@ -86,7 +86,10 @@
 		@include gridle_centered(null);
 	}
 	#{_gridle_classname($gridle-parent-name-pattern, $state)} {
-		@include _gridle_parent(); // gridle_parent contain extend so can not be here in a media query
+		@include _gridle_parent();
+	}
+	#{_gridle_classname($gridle-parent-vertical-align-name-pattern, $state)} {
+		@include _gridle_parent_vertical_align();
 	}
 
 	// debug colors :
@@ -141,22 +144,22 @@
 
 		$gridle-settings-states : "#{$gridle-settings-states} \"#{$name}\":{";
 	
-		@each $var in $_gridle_states_vars_pattern {
+		@each $varName, $var in $state {
 
 			$value : null;
-			@if $var == "query" {
-				$value : _get_media_query_for_state($name);
+			@if $varName == "query" {
+				$value : _get_media_query_for_state($stateName);
 			} @else {
-				$value : map-get($state,$var);
+				$value : map-get($state,$varName);
 				// $value : _gridle_get_state_var($i,$var);
 			}
 
 			@if $value == null {
-				$gridle-settings-states : "#{$gridle-settings-states} \"#{$var}\" : null,";
+				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : null,";
 			} @elseif $var == 'context' or $var == 'classes' {
-				$gridle-settings-states : "#{$gridle-settings-states} \"#{$var}\" : #{$value},";
+				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : #{$value},";
 			} @else {
-				$gridle-settings-states : "#{$gridle-settings-states} \"#{$var}\" : \"#{$value}\",";		
+				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : \"#{$value}\",";		
 			}
 		}
 
