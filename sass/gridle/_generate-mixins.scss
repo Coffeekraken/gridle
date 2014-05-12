@@ -265,11 +265,11 @@
 	// | ------------------------
 
 	// generate all selector for extends :
+	$common-selector : ();
 	$push-common-selector : ();
 	$pull-common-selector : ();
 	$prefix-common-selector : ();
 	$suffix-common-selector : ();
-	$common-selector : ();
 
 
 	// | ------------------------
@@ -277,7 +277,7 @@
 	// | ------------------------
 
 	// get specials columns :
-	$columns : map-merge((), $_gridle_columns);
+	$columnsMap : map-merge((), $_gridle_columns);
 
 	// register all default columns :
 	@for $i from 0 through $gridle-columns-count {
@@ -285,42 +285,42 @@
 		// name :
 		$columnName : "#{$i*$gridle-name-multiplicator}";
 
-		// // create a column :
+		// create a column :
 		$col : _gridle_create_column($columnName, $i,  $gridle-columns-count);
 
-		// // add column in columns map :
-		$columns : map-set($columns, $columnName,  $col);
+		// add column in columns map :
+		$columnsMap : map-set($columnsMap, $columnName,  $col);
 	}
 
 	// generate all classes for columns :
-	@each $columnName, $column in $columns {
+	@each $columnName, $column in $columnsMap {
 
 		// variables :
-		$columns : map-get($column, columns);
+		$columnsCount : map-get($column, columns);
 		$context : map-get($column, context);
 
 		// classes :
 		#{_gridle_classname($gridle-grid-name-pattern, null, $columnName)} {
-			@include _gridle($columns, null, $context);
+			@include _gridle($columnsCount, null, $context);
 		}
 		@if $gridle-generate-push-classes == true {
 			#{_gridle_classname($gridle-push-name-pattern, null, $columnName)} {
-				@include _gridle_push($columns, null, $context);
+				@include _gridle_push($columnsCount, null, $context);
 			}
 		}
 		@if $gridle-generate-pull-classes == true {
 			#{_gridle_classname($gridle-pull-name-pattern, null, $columnName)} {
-				@include _gridle_pull($columns, null, $context);
+				@include _gridle_pull($columnsCount, null, $context);
 			}
 		}
 		@if $gridle-generate-prefix-classes == true {
 			#{_gridle_classname($gridle-prefix-name-pattern, null, $columnName)} {
-				@include _gridle_prefix($columns, null, $context);
+				@include _gridle_prefix($columnsCount, null, $context);
 			}
 		}
 		@if $gridle-generate-suffix-classes == true {
 			#{_gridle_classname($gridle-suffix-name-pattern, null, $columnName)} {
-				@include _gridle_suffix($columns, null, $context);
+				@include _gridle_suffix($columnsCount, null, $context);
 			}   
 		}
 	}
@@ -331,7 +331,7 @@
 	}
 
 	// loop on each columns to generate common selector :
-	@each $columnName, $column in $columns {
+	@each $columnName, $column in $columnsMap {
 
 		// selectors :
 		$common-selector : append( $common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, null, $columnName)), comma );
@@ -357,7 +357,7 @@
 		@if $media and $classes == true and $context {
 
 			// get specials columns :
-			$columns : map-merge((), $_gridle_columns);
+			$columnsMap : map-merge((), $_gridle_columns);
 
 			// register each default columns :
 			@for $j from 0 through $context {
@@ -369,12 +369,11 @@
 				$col : _gridle_create_column($columnName, $j,  $context);
 
 				// // add column in columns map :
-				$columns : map-set($columns, $columnName,  $col);
+				$columnsMap : map-set($columnsMap, $columnName,  $col);
 			}
 
 			// loop on each columns to generate common selector :
-			@each $columnName, $column in $columns {
-			// @for $i from 0 through $context {
+			@each $columnName, $column in $columnsMap {
 		 	
 				// add selector :
 				$common-selector : append( $common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, $media, $columnName)), comma );
@@ -433,7 +432,7 @@
 			@include gridle_state($media, null, $has-parent) {
 		 
 				// get specials columns :
-				$columns : map-merge((), $_gridle_columns);
+				$columnsMap : map-merge((), $_gridle_columns);
 
 				// register each default columns :
 				@for $j from 0 through $context {
@@ -445,38 +444,38 @@
 					$col : _gridle_create_column($columnName, $j,  $context);
 
 					// // add column in columns map :
-					$columns : map-set($columns, $columnName,  $col);
+					$columnsMap : map-set($columnsMap, $columnName,  $col);
 				}
 
 				// generate all classes for columns :
-				@each $columnName, $column in $columns {
+				@each $columnName, $column in $columnsMap {
 
 					// variables :
-					$columns : map-get($column, columns);
+					$columnsCount : map-get($column, columns);
 					$context : map-get($column, context);
 
 					// classes :
 					#{_gridle_classname($gridle-grid-name-pattern, $media, $columnName)} {
-						@include _gridle($columns, $media, $context);
+						@include _gridle($columnsCount, $media, $context);
 					}
 					@if $gridle-generate-push-classes == true {
 						#{_gridle_classname($gridle-push-name-pattern, $media, $columnName)} {
-							@include _gridle_push($columns, $media, $context);
+							@include _gridle_push($columnsCount, $media, $context);
 						}
 					}
 					@if $gridle-generate-pull-classes == true {
 						#{_gridle_classname($gridle-pull-name-pattern, $media, $columnName)} {
-							@include _gridle_pull($columns, $media, $context);
+							@include _gridle_pull($columnsCount, $media, $context);
 						}
 					}
 					@if $gridle-generate-prefix-classes == true {
 						#{_gridle_classname($gridle-prefix-name-pattern, $media, $columnName)} {
-							@include _gridle_prefix($columns, $media, $context);
+							@include _gridle_prefix($columnsCount, $media, $context);
 						}
 					}
 					@if $gridle-generate-suffix-classes == true {
 						#{_gridle_classname($gridle-suffix-name-pattern, $media, $columnName)} {
-							@include _gridle_suffix($columns, $media, $context);
+							@include _gridle_suffix($columnsCount, $media, $context);
 						}   
 					}
 				}
