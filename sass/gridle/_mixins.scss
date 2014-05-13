@@ -465,24 +465,25 @@
  * Vertical align :
  */
 @mixin gridle_parent_vertical_align(
+	$align : middle,
 	$state : null
 ) {
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_parent_vertical_align();
+			@include _gridle_parent_vertical_align($align);
 		}
 	} @else {
-		@include _gridle_parent_vertical_align();
+		@include _gridle_parent_vertical_align($align);
 	}
 }
-@mixin _gridle_parent_vertical_align() {
-	vertical-align:middle;
-
+@mixin _gridle_parent_vertical_align(
+	$align : middle
+) {
 	> * {
 		display:inline-block;
 		float:none !important;
-		vertical-align:middle;
+		vertical-align:$align;
 	}
 }
 

@@ -31,7 +31,6 @@ $gridle-class-separator 				: '-' !default;
 
 $gridle-container-name-pattern 			: ('container') !default;
 
-$gridle-grid-generic-unique-name-pattern 		: ('grid','%-') !default; // used to target grid with for example [class*="grid-"]
 $gridle-grid-name-pattern 				: ('grid','%-','%state','%-','%count') !default;
 $gridle-push-name-pattern 				: ('push','%-','%state','%-','%count') !default;
 $gridle-pull-name-pattern 				: ('pull','%-','%state','%-','%count') !default;
@@ -39,8 +38,11 @@ $gridle-prefix-name-pattern 				: ('prefix','%-','%state','%-','%count') !defaul
 $gridle-suffix-name-pattern 				: ('suffix','%-','%state','%-','%count') !default;
 
 $gridle-parent-name-pattern 				: ('parent','%-','%state') !default;
-$gridle-parent-vertical-align-name-pattern 		: ('parent','%-','vertical','%-','align','%-','%state') !default;
 $gridle-centered-name-pattern 			: ('centered','%-','%state') !default;
+
+$gridle-parent-vertical-align-middle-name-pattern 		: ('parent','%-','vertical','%-','align','%-','%state','%-','middle') !default;
+$gridle-parent-vertical-align-top-name-pattern 		: ('parent','%-','vertical','%-','align','%-','%state','%-','top') !default;
+$gridle-parent-vertical-align-bottom-name-pattern 		: ('parent','%-','vertical','%-','align','%-','%state','%-','bottom') !default;
 
 $gridle-hide-name-pattern 				: ('hide','%-','%state') !default;
 $gridle-show-name-pattern 				: ('show','%-','%state') !default;
