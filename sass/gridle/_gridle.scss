@@ -47,6 +47,7 @@ $_gridle-version : "1.2.0";
 // |------------------------------------------------------
 
 $_gridle_states : ();						// the variable map for each states
+$_gridle_clear_classes :(); 					// store each automatic clear count
 $_gridle_columns : (); 						// store the registered special columns
 $_gridle_states_debug_devices : (); 				// save the debug states devices
 

@@ -52,6 +52,7 @@ $gridle-float-right-name-pattern 			: ('float','%-','%state','%-','right') !defa
 $gridle-clear-name-pattern 				: ('clear','%-','%state') !default;
 $gridle-clear-left-name-pattern 			: ('clear','%-','%state','%-','left') !default;
 $gridle-clear-right-name-pattern 			: ('clear','%-','%state','%-','right') !default;
+$gridle-clear-each-pattern 				: ('clear','%-','each','%-','%state','%-','%count') !default;
 
 $gridle-no-gutter-name-pattern 			: ('no','%-','gutter','%-','%state') !default;
 $gridle-no-gutter-left-name-pattern 			: ('no','%-','gutter','%-','%state','%-','left') !default;

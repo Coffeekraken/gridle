@@ -11,11 +11,16 @@ $gridle-html-states-classes : true; // not really for production, used for demo 
 // register special columns :
 @include gridle_register_column('1on5', 1, 5);
 
+@include gridle_register_clear_each_parent_class(2,left);
+@include gridle_register_clear_each_parent_class(12,left);
+
 // @include gridle_register_columns_clear
 
 // Layout
 
-// omage responsive
+// image responsive
+
+// alignement vertical (v-aligner) - before sur parent a tester
 
 
 // register states :

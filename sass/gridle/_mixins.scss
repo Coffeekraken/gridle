@@ -345,16 +345,36 @@
 		background-size:($width*2) 100%;
 		// background-position:$gridle-gutter-width/2 0;
 	}
-	
+}
 
-	// debug css :
-	// @if $gridle-debug == true and $gridle-debug-show-class-names == true {
-	// 	#{$gridle-debug-selector} {
-	// 		&:after {
-	// 			content:"suffix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
-	// 		}
-	// 	}
-	// }
+
+/**
+ * Parent clear each
+ */
+// Grid mixin :
+// Set the width of the specified grid column :
+@mixin gridle_clear_each(
+	$clearEach,
+	$clearWhat : both,
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_clear_each($clearEach, $clearWhat, $state);
+		}
+	} @else {
+		@include _gridle_clear_each($clearEach, $clearWhat, $state);
+	}
+}
+@mixin _gridle_clear_each(
+	$clearEach,
+	$clearWhat,
+	$state : null
+) {
+	> *:nth-child(#{$clearEach}n+1) {
+		clear : $clearWhat;
+	}
 }
 
 

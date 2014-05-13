@@ -53,6 +53,24 @@
 
 
 /**
+ *  Register a clear each class
+ */
+@mixin gridle_register_clear_each_parent_class (
+	$count,
+	$clearWhat
+) {
+	// create the clear map :
+	$classMap : (
+		clearEach : $count,
+		clearWhat : $clearWhat
+	);
+
+	// append to map :
+	$_gridle_clear_classes : map-set($_gridle_clear_classes, $count, $classMap);
+}
+
+
+/**
  * Register a special class
  */
 @mixin gridle_register_column(

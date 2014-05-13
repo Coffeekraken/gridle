@@ -121,7 +121,13 @@
  * @return 	int 	The number of states defined
  */
 /**
+ *  Register a clear each class
+ */
+/**
  * Register a special class
+ */
+/**
+ * Parent clear each
  */
 /**
  * Vertical align :
@@ -597,6 +603,15 @@
     float: none !important;
     vertical-align: middle; }
 
+/**
+ * Clear each class :
+ */
+.clear-each-2 > *:nth-child(2n+1) {
+  clear: left; }
+
+.clear-each-12 > *:nth-child(12n+1) {
+  clear: left; }
+
 .gridle-debug .debug-color-1, .debug-color-1.gridle-debug {
   background-color: #edeeb2; }
 
@@ -628,393 +643,401 @@
   direction: ltr;
   padding: 0 0.5rem; }
 
-html.mobile .grid-mobile-1on5 {
-  width: 20%; }
-  .gridle-debug html.mobile .grid-mobile-1on5:before, html.mobile .grid-mobile-1on5.gridle-debug:before {
-    content: "grid-mobile-1"; }
-  .gridle-debug html.mobile .grid-mobile-1on5.parent:before, html.mobile .grid-mobile-1on5.gridle-debug.parent:before {
-    content: "grid-parent-mobile-1"; }
-html.mobile .push-mobile-1on5 {
-  left: 20%; }
-  .gridle-debug html.mobile .push-mobile-1on5:after, html.mobile .push-mobile-1on5.gridle-debug:after {
-    content: "push-mobile-1" !important; }
-html.mobile .pull-mobile-1on5 {
-  right: 20%; }
-  .gridle-debug html.mobile .pull-mobile-1on5:after, html.mobile .pull-mobile-1on5.gridle-debug:after {
-    content: "pull-mobile-1" !important; }
-html.mobile .prefix-mobile-1on5 {
-  margin-left: 20%; }
-  .gridle-debug html.mobile .prefix-mobile-1on5:after, html.mobile .prefix-mobile-1on5.gridle-debug:after {
-    content: "prefix-mobile-1" !important; }
-html.mobile .suffix-mobile-1on5 {
-  margin-right: 20%; }
-  .gridle-debug html.mobile .suffix-mobile-1on5:after, html.mobile .suffix-mobile-1on5.gridle-debug:after {
-    content: "suffix-mobile-1" !important; }
-html.mobile .grid-mobile-0 {
-  width: 0%; }
-  .gridle-debug html.mobile .grid-mobile-0:before, html.mobile .grid-mobile-0.gridle-debug:before {
-    content: "grid-mobile-0"; }
-  .gridle-debug html.mobile .grid-mobile-0.parent:before, html.mobile .grid-mobile-0.gridle-debug.parent:before {
-    content: "grid-parent-mobile-0"; }
-html.mobile .push-mobile-0 {
-  left: 0%; }
-  .gridle-debug html.mobile .push-mobile-0:after, html.mobile .push-mobile-0.gridle-debug:after {
-    content: "push-mobile-0" !important; }
-html.mobile .pull-mobile-0 {
-  right: 0%; }
-  .gridle-debug html.mobile .pull-mobile-0:after, html.mobile .pull-mobile-0.gridle-debug:after {
-    content: "pull-mobile-0" !important; }
-html.mobile .prefix-mobile-0 {
-  margin-left: 0%; }
-  .gridle-debug html.mobile .prefix-mobile-0:after, html.mobile .prefix-mobile-0.gridle-debug:after {
-    content: "prefix-mobile-0" !important; }
-html.mobile .suffix-mobile-0 {
-  margin-right: 0%; }
-  .gridle-debug html.mobile .suffix-mobile-0:after, html.mobile .suffix-mobile-0.gridle-debug:after {
-    content: "suffix-mobile-0" !important; }
-html.mobile .grid-mobile-1 {
-  width: 8.33333%; }
-  .gridle-debug html.mobile .grid-mobile-1:before, html.mobile .grid-mobile-1.gridle-debug:before {
-    content: "grid-mobile-1"; }
-  .gridle-debug html.mobile .grid-mobile-1.parent:before, html.mobile .grid-mobile-1.gridle-debug.parent:before {
-    content: "grid-parent-mobile-1"; }
-html.mobile .push-mobile-1 {
-  left: 8.33333%; }
-  .gridle-debug html.mobile .push-mobile-1:after, html.mobile .push-mobile-1.gridle-debug:after {
-    content: "push-mobile-1" !important; }
-html.mobile .pull-mobile-1 {
-  right: 8.33333%; }
-  .gridle-debug html.mobile .pull-mobile-1:after, html.mobile .pull-mobile-1.gridle-debug:after {
-    content: "pull-mobile-1" !important; }
-html.mobile .prefix-mobile-1 {
-  margin-left: 8.33333%; }
-  .gridle-debug html.mobile .prefix-mobile-1:after, html.mobile .prefix-mobile-1.gridle-debug:after {
-    content: "prefix-mobile-1" !important; }
-html.mobile .suffix-mobile-1 {
-  margin-right: 8.33333%; }
-  .gridle-debug html.mobile .suffix-mobile-1:after, html.mobile .suffix-mobile-1.gridle-debug:after {
-    content: "suffix-mobile-1" !important; }
-html.mobile .grid-mobile-2 {
-  width: 16.66667%; }
-  .gridle-debug html.mobile .grid-mobile-2:before, html.mobile .grid-mobile-2.gridle-debug:before {
-    content: "grid-mobile-2"; }
-  .gridle-debug html.mobile .grid-mobile-2.parent:before, html.mobile .grid-mobile-2.gridle-debug.parent:before {
-    content: "grid-parent-mobile-2"; }
-html.mobile .push-mobile-2 {
-  left: 16.66667%; }
-  .gridle-debug html.mobile .push-mobile-2:after, html.mobile .push-mobile-2.gridle-debug:after {
-    content: "push-mobile-2" !important; }
-html.mobile .pull-mobile-2 {
-  right: 16.66667%; }
-  .gridle-debug html.mobile .pull-mobile-2:after, html.mobile .pull-mobile-2.gridle-debug:after {
-    content: "pull-mobile-2" !important; }
-html.mobile .prefix-mobile-2 {
-  margin-left: 16.66667%; }
-  .gridle-debug html.mobile .prefix-mobile-2:after, html.mobile .prefix-mobile-2.gridle-debug:after {
-    content: "prefix-mobile-2" !important; }
-html.mobile .suffix-mobile-2 {
-  margin-right: 16.66667%; }
-  .gridle-debug html.mobile .suffix-mobile-2:after, html.mobile .suffix-mobile-2.gridle-debug:after {
-    content: "suffix-mobile-2" !important; }
-html.mobile .grid-mobile-3 {
-  width: 25%; }
-  .gridle-debug html.mobile .grid-mobile-3:before, html.mobile .grid-mobile-3.gridle-debug:before {
-    content: "grid-mobile-3"; }
-  .gridle-debug html.mobile .grid-mobile-3.parent:before, html.mobile .grid-mobile-3.gridle-debug.parent:before {
-    content: "grid-parent-mobile-3"; }
-html.mobile .push-mobile-3 {
-  left: 25.0%; }
-  .gridle-debug html.mobile .push-mobile-3:after, html.mobile .push-mobile-3.gridle-debug:after {
-    content: "push-mobile-3" !important; }
-html.mobile .pull-mobile-3 {
-  right: 25.0%; }
-  .gridle-debug html.mobile .pull-mobile-3:after, html.mobile .pull-mobile-3.gridle-debug:after {
-    content: "pull-mobile-3" !important; }
-html.mobile .prefix-mobile-3 {
-  margin-left: 25.0%; }
-  .gridle-debug html.mobile .prefix-mobile-3:after, html.mobile .prefix-mobile-3.gridle-debug:after {
-    content: "prefix-mobile-3" !important; }
-html.mobile .suffix-mobile-3 {
-  margin-right: 25.0%; }
-  .gridle-debug html.mobile .suffix-mobile-3:after, html.mobile .suffix-mobile-3.gridle-debug:after {
-    content: "suffix-mobile-3" !important; }
-html.mobile .grid-mobile-4 {
-  width: 33.33333%; }
-  .gridle-debug html.mobile .grid-mobile-4:before, html.mobile .grid-mobile-4.gridle-debug:before {
-    content: "grid-mobile-4"; }
-  .gridle-debug html.mobile .grid-mobile-4.parent:before, html.mobile .grid-mobile-4.gridle-debug.parent:before {
-    content: "grid-parent-mobile-4"; }
-html.mobile .push-mobile-4 {
-  left: 33.33333%; }
-  .gridle-debug html.mobile .push-mobile-4:after, html.mobile .push-mobile-4.gridle-debug:after {
-    content: "push-mobile-4" !important; }
-html.mobile .pull-mobile-4 {
-  right: 33.33333%; }
-  .gridle-debug html.mobile .pull-mobile-4:after, html.mobile .pull-mobile-4.gridle-debug:after {
-    content: "pull-mobile-4" !important; }
-html.mobile .prefix-mobile-4 {
-  margin-left: 33.33333%; }
-  .gridle-debug html.mobile .prefix-mobile-4:after, html.mobile .prefix-mobile-4.gridle-debug:after {
-    content: "prefix-mobile-4" !important; }
-html.mobile .suffix-mobile-4 {
-  margin-right: 33.33333%; }
-  .gridle-debug html.mobile .suffix-mobile-4:after, html.mobile .suffix-mobile-4.gridle-debug:after {
-    content: "suffix-mobile-4" !important; }
-html.mobile .grid-mobile-5 {
-  width: 41.66667%; }
-  .gridle-debug html.mobile .grid-mobile-5:before, html.mobile .grid-mobile-5.gridle-debug:before {
-    content: "grid-mobile-5"; }
-  .gridle-debug html.mobile .grid-mobile-5.parent:before, html.mobile .grid-mobile-5.gridle-debug.parent:before {
-    content: "grid-parent-mobile-5"; }
-html.mobile .push-mobile-5 {
-  left: 41.66667%; }
-  .gridle-debug html.mobile .push-mobile-5:after, html.mobile .push-mobile-5.gridle-debug:after {
-    content: "push-mobile-5" !important; }
-html.mobile .pull-mobile-5 {
-  right: 41.66667%; }
-  .gridle-debug html.mobile .pull-mobile-5:after, html.mobile .pull-mobile-5.gridle-debug:after {
-    content: "pull-mobile-5" !important; }
-html.mobile .prefix-mobile-5 {
-  margin-left: 41.66667%; }
-  .gridle-debug html.mobile .prefix-mobile-5:after, html.mobile .prefix-mobile-5.gridle-debug:after {
-    content: "prefix-mobile-5" !important; }
-html.mobile .suffix-mobile-5 {
-  margin-right: 41.66667%; }
-  .gridle-debug html.mobile .suffix-mobile-5:after, html.mobile .suffix-mobile-5.gridle-debug:after {
-    content: "suffix-mobile-5" !important; }
-html.mobile .grid-mobile-6 {
-  width: 50%; }
-  .gridle-debug html.mobile .grid-mobile-6:before, html.mobile .grid-mobile-6.gridle-debug:before {
-    content: "grid-mobile-6"; }
-  .gridle-debug html.mobile .grid-mobile-6.parent:before, html.mobile .grid-mobile-6.gridle-debug.parent:before {
-    content: "grid-parent-mobile-6"; }
-html.mobile .push-mobile-6 {
-  left: 50.0%; }
-  .gridle-debug html.mobile .push-mobile-6:after, html.mobile .push-mobile-6.gridle-debug:after {
-    content: "push-mobile-6" !important; }
-html.mobile .pull-mobile-6 {
-  right: 50.0%; }
-  .gridle-debug html.mobile .pull-mobile-6:after, html.mobile .pull-mobile-6.gridle-debug:after {
-    content: "pull-mobile-6" !important; }
-html.mobile .prefix-mobile-6 {
-  margin-left: 50.0%; }
-  .gridle-debug html.mobile .prefix-mobile-6:after, html.mobile .prefix-mobile-6.gridle-debug:after {
-    content: "prefix-mobile-6" !important; }
-html.mobile .suffix-mobile-6 {
-  margin-right: 50.0%; }
-  .gridle-debug html.mobile .suffix-mobile-6:after, html.mobile .suffix-mobile-6.gridle-debug:after {
-    content: "suffix-mobile-6" !important; }
-html.mobile .grid-mobile-7 {
-  width: 58.33333%; }
-  .gridle-debug html.mobile .grid-mobile-7:before, html.mobile .grid-mobile-7.gridle-debug:before {
-    content: "grid-mobile-7"; }
-  .gridle-debug html.mobile .grid-mobile-7.parent:before, html.mobile .grid-mobile-7.gridle-debug.parent:before {
-    content: "grid-parent-mobile-7"; }
-html.mobile .push-mobile-7 {
-  left: 58.33333%; }
-  .gridle-debug html.mobile .push-mobile-7:after, html.mobile .push-mobile-7.gridle-debug:after {
-    content: "push-mobile-7" !important; }
-html.mobile .pull-mobile-7 {
-  right: 58.33333%; }
-  .gridle-debug html.mobile .pull-mobile-7:after, html.mobile .pull-mobile-7.gridle-debug:after {
-    content: "pull-mobile-7" !important; }
-html.mobile .prefix-mobile-7 {
-  margin-left: 58.33333%; }
-  .gridle-debug html.mobile .prefix-mobile-7:after, html.mobile .prefix-mobile-7.gridle-debug:after {
-    content: "prefix-mobile-7" !important; }
-html.mobile .suffix-mobile-7 {
-  margin-right: 58.33333%; }
-  .gridle-debug html.mobile .suffix-mobile-7:after, html.mobile .suffix-mobile-7.gridle-debug:after {
-    content: "suffix-mobile-7" !important; }
-html.mobile .grid-mobile-8 {
-  width: 66.66667%; }
-  .gridle-debug html.mobile .grid-mobile-8:before, html.mobile .grid-mobile-8.gridle-debug:before {
-    content: "grid-mobile-8"; }
-  .gridle-debug html.mobile .grid-mobile-8.parent:before, html.mobile .grid-mobile-8.gridle-debug.parent:before {
-    content: "grid-parent-mobile-8"; }
-html.mobile .push-mobile-8 {
-  left: 66.66667%; }
-  .gridle-debug html.mobile .push-mobile-8:after, html.mobile .push-mobile-8.gridle-debug:after {
-    content: "push-mobile-8" !important; }
-html.mobile .pull-mobile-8 {
-  right: 66.66667%; }
-  .gridle-debug html.mobile .pull-mobile-8:after, html.mobile .pull-mobile-8.gridle-debug:after {
-    content: "pull-mobile-8" !important; }
-html.mobile .prefix-mobile-8 {
-  margin-left: 66.66667%; }
-  .gridle-debug html.mobile .prefix-mobile-8:after, html.mobile .prefix-mobile-8.gridle-debug:after {
-    content: "prefix-mobile-8" !important; }
-html.mobile .suffix-mobile-8 {
-  margin-right: 66.66667%; }
-  .gridle-debug html.mobile .suffix-mobile-8:after, html.mobile .suffix-mobile-8.gridle-debug:after {
-    content: "suffix-mobile-8" !important; }
-html.mobile .grid-mobile-9 {
-  width: 75%; }
-  .gridle-debug html.mobile .grid-mobile-9:before, html.mobile .grid-mobile-9.gridle-debug:before {
-    content: "grid-mobile-9"; }
-  .gridle-debug html.mobile .grid-mobile-9.parent:before, html.mobile .grid-mobile-9.gridle-debug.parent:before {
-    content: "grid-parent-mobile-9"; }
-html.mobile .push-mobile-9 {
-  left: 75.0%; }
-  .gridle-debug html.mobile .push-mobile-9:after, html.mobile .push-mobile-9.gridle-debug:after {
-    content: "push-mobile-9" !important; }
-html.mobile .pull-mobile-9 {
-  right: 75.0%; }
-  .gridle-debug html.mobile .pull-mobile-9:after, html.mobile .pull-mobile-9.gridle-debug:after {
-    content: "pull-mobile-9" !important; }
-html.mobile .prefix-mobile-9 {
-  margin-left: 75.0%; }
-  .gridle-debug html.mobile .prefix-mobile-9:after, html.mobile .prefix-mobile-9.gridle-debug:after {
-    content: "prefix-mobile-9" !important; }
-html.mobile .suffix-mobile-9 {
-  margin-right: 75.0%; }
-  .gridle-debug html.mobile .suffix-mobile-9:after, html.mobile .suffix-mobile-9.gridle-debug:after {
-    content: "suffix-mobile-9" !important; }
-html.mobile .grid-mobile-10 {
-  width: 83.33333%; }
-  .gridle-debug html.mobile .grid-mobile-10:before, html.mobile .grid-mobile-10.gridle-debug:before {
-    content: "grid-mobile-10"; }
-  .gridle-debug html.mobile .grid-mobile-10.parent:before, html.mobile .grid-mobile-10.gridle-debug.parent:before {
-    content: "grid-parent-mobile-10"; }
-html.mobile .push-mobile-10 {
-  left: 83.33333%; }
-  .gridle-debug html.mobile .push-mobile-10:after, html.mobile .push-mobile-10.gridle-debug:after {
-    content: "push-mobile-10" !important; }
-html.mobile .pull-mobile-10 {
-  right: 83.33333%; }
-  .gridle-debug html.mobile .pull-mobile-10:after, html.mobile .pull-mobile-10.gridle-debug:after {
-    content: "pull-mobile-10" !important; }
-html.mobile .prefix-mobile-10 {
-  margin-left: 83.33333%; }
-  .gridle-debug html.mobile .prefix-mobile-10:after, html.mobile .prefix-mobile-10.gridle-debug:after {
-    content: "prefix-mobile-10" !important; }
-html.mobile .suffix-mobile-10 {
-  margin-right: 83.33333%; }
-  .gridle-debug html.mobile .suffix-mobile-10:after, html.mobile .suffix-mobile-10.gridle-debug:after {
-    content: "suffix-mobile-10" !important; }
-html.mobile .grid-mobile-11 {
-  width: 91.66667%; }
-  .gridle-debug html.mobile .grid-mobile-11:before, html.mobile .grid-mobile-11.gridle-debug:before {
-    content: "grid-mobile-11"; }
-  .gridle-debug html.mobile .grid-mobile-11.parent:before, html.mobile .grid-mobile-11.gridle-debug.parent:before {
-    content: "grid-parent-mobile-11"; }
-html.mobile .push-mobile-11 {
-  left: 91.66667%; }
-  .gridle-debug html.mobile .push-mobile-11:after, html.mobile .push-mobile-11.gridle-debug:after {
-    content: "push-mobile-11" !important; }
-html.mobile .pull-mobile-11 {
-  right: 91.66667%; }
-  .gridle-debug html.mobile .pull-mobile-11:after, html.mobile .pull-mobile-11.gridle-debug:after {
-    content: "pull-mobile-11" !important; }
-html.mobile .prefix-mobile-11 {
-  margin-left: 91.66667%; }
-  .gridle-debug html.mobile .prefix-mobile-11:after, html.mobile .prefix-mobile-11.gridle-debug:after {
-    content: "prefix-mobile-11" !important; }
-html.mobile .suffix-mobile-11 {
-  margin-right: 91.66667%; }
-  .gridle-debug html.mobile .suffix-mobile-11:after, html.mobile .suffix-mobile-11.gridle-debug:after {
-    content: "suffix-mobile-11" !important; }
-html.mobile .grid-mobile-12 {
-  width: 100%; }
-  .gridle-debug html.mobile .grid-mobile-12:before, html.mobile .grid-mobile-12.gridle-debug:before {
-    content: "grid-mobile-12"; }
-  .gridle-debug html.mobile .grid-mobile-12.parent:before, html.mobile .grid-mobile-12.gridle-debug.parent:before {
-    content: "grid-parent-mobile-12"; }
-html.mobile .push-mobile-12 {
-  left: 100.0%; }
-  .gridle-debug html.mobile .push-mobile-12:after, html.mobile .push-mobile-12.gridle-debug:after {
-    content: "push-mobile-12" !important; }
-html.mobile .pull-mobile-12 {
-  right: 100.0%; }
-  .gridle-debug html.mobile .pull-mobile-12:after, html.mobile .pull-mobile-12.gridle-debug:after {
-    content: "pull-mobile-12" !important; }
-html.mobile .prefix-mobile-12 {
-  margin-left: 100.0%; }
-  .gridle-debug html.mobile .prefix-mobile-12:after, html.mobile .prefix-mobile-12.gridle-debug:after {
-    content: "prefix-mobile-12" !important; }
-html.mobile .suffix-mobile-12 {
-  margin-right: 100.0%; }
-  .gridle-debug html.mobile .suffix-mobile-12:after, html.mobile .suffix-mobile-12.gridle-debug:after {
-    content: "suffix-mobile-12" !important; }
-html.mobile .hide-mobile {
-  display: none; }
-html.mobile .not-visible-mobile {
-  visibility: hidden; }
-html.mobile .show-mobile {
-  display: block; }
-html.mobile .visible-mobile {
-  visibility: visible; }
-html.mobile .float-mobile-left {
-  float: left; }
-html.mobile .float-mobile-right {
-  float: right; }
-html.mobile .clear-mobile {
-  clear: both; }
-html.mobile .clear-mobile-left {
-  clear: left; }
-html.mobile .clear-mobile-right {
-  clear: right; }
-html.mobile .no-gutter-mobile,
-html.mobile .no-margin-mobile {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-html.mobile .no-gutter-mobile-left,
-html.mobile .no-margin-mobile-left {
-  padding-left: 0 !important; }
-html.mobile .no-gutter-mobile-right,
-html.mobile .no-margin-mobile-right {
-  padding-right: 0 !important; }
-html.mobile .no-gutter-mobile-top,
-html.mobile .no-margin-mobile-top {
-  padding-top: 0 !important; }
-html.mobile .no-gutter-mobile-bottom,
-html.mobile .no-margin-mobile-bottom {
-  padding-bottom: 0 !important; }
-html.mobile .no-gutter-mobile-top,
-html.mobile .margin-mobile {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem; }
-html.mobile .gutter-mobile-left,
-html.mobile .margin-mobile-left {
-  padding-left: 0.5rem; }
-html.mobile .gutter-mobile-right,
-html.mobile .margin-mobile-right {
-  padding-right: 0.5rem; }
-html.mobile .gutter-mobile-top,
-html.mobile .margin-mobile-top {
-  padding-top: 0.5rem; }
-html.mobile .gutter-mobile-bottom,
-html.mobile .margin-mobile-bottom {
-  padding-bottom: 0.5rem; }
-html.mobile .auto-height-mobile {
-  height: inherit; }
-html.mobile .centered-mobile {
-  display: block !important;
-  float: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  clear: both !important; }
-html.mobile .parent-mobile {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-html.mobile .parent-vertical-align-mobile {
-  vertical-align: middle; }
-  html.mobile .parent-vertical-align-mobile > * {
-    display: inline-block;
+html.mobile {
+  /**
+   * Clear each class :
+   */ }
+  html.mobile .grid-mobile-1on5 {
+    width: 20%; }
+    .gridle-debug html.mobile .grid-mobile-1on5:before, html.mobile .grid-mobile-1on5.gridle-debug:before {
+      content: "grid-mobile-1"; }
+    .gridle-debug html.mobile .grid-mobile-1on5.parent:before, html.mobile .grid-mobile-1on5.gridle-debug.parent:before {
+      content: "grid-parent-mobile-1"; }
+  html.mobile .push-mobile-1on5 {
+    left: 20%; }
+    .gridle-debug html.mobile .push-mobile-1on5:after, html.mobile .push-mobile-1on5.gridle-debug:after {
+      content: "push-mobile-1" !important; }
+  html.mobile .pull-mobile-1on5 {
+    right: 20%; }
+    .gridle-debug html.mobile .pull-mobile-1on5:after, html.mobile .pull-mobile-1on5.gridle-debug:after {
+      content: "pull-mobile-1" !important; }
+  html.mobile .prefix-mobile-1on5 {
+    margin-left: 20%; }
+    .gridle-debug html.mobile .prefix-mobile-1on5:after, html.mobile .prefix-mobile-1on5.gridle-debug:after {
+      content: "prefix-mobile-1" !important; }
+  html.mobile .suffix-mobile-1on5 {
+    margin-right: 20%; }
+    .gridle-debug html.mobile .suffix-mobile-1on5:after, html.mobile .suffix-mobile-1on5.gridle-debug:after {
+      content: "suffix-mobile-1" !important; }
+  html.mobile .grid-mobile-0 {
+    width: 0%; }
+    .gridle-debug html.mobile .grid-mobile-0:before, html.mobile .grid-mobile-0.gridle-debug:before {
+      content: "grid-mobile-0"; }
+    .gridle-debug html.mobile .grid-mobile-0.parent:before, html.mobile .grid-mobile-0.gridle-debug.parent:before {
+      content: "grid-parent-mobile-0"; }
+  html.mobile .push-mobile-0 {
+    left: 0%; }
+    .gridle-debug html.mobile .push-mobile-0:after, html.mobile .push-mobile-0.gridle-debug:after {
+      content: "push-mobile-0" !important; }
+  html.mobile .pull-mobile-0 {
+    right: 0%; }
+    .gridle-debug html.mobile .pull-mobile-0:after, html.mobile .pull-mobile-0.gridle-debug:after {
+      content: "pull-mobile-0" !important; }
+  html.mobile .prefix-mobile-0 {
+    margin-left: 0%; }
+    .gridle-debug html.mobile .prefix-mobile-0:after, html.mobile .prefix-mobile-0.gridle-debug:after {
+      content: "prefix-mobile-0" !important; }
+  html.mobile .suffix-mobile-0 {
+    margin-right: 0%; }
+    .gridle-debug html.mobile .suffix-mobile-0:after, html.mobile .suffix-mobile-0.gridle-debug:after {
+      content: "suffix-mobile-0" !important; }
+  html.mobile .grid-mobile-1 {
+    width: 8.33333%; }
+    .gridle-debug html.mobile .grid-mobile-1:before, html.mobile .grid-mobile-1.gridle-debug:before {
+      content: "grid-mobile-1"; }
+    .gridle-debug html.mobile .grid-mobile-1.parent:before, html.mobile .grid-mobile-1.gridle-debug.parent:before {
+      content: "grid-parent-mobile-1"; }
+  html.mobile .push-mobile-1 {
+    left: 8.33333%; }
+    .gridle-debug html.mobile .push-mobile-1:after, html.mobile .push-mobile-1.gridle-debug:after {
+      content: "push-mobile-1" !important; }
+  html.mobile .pull-mobile-1 {
+    right: 8.33333%; }
+    .gridle-debug html.mobile .pull-mobile-1:after, html.mobile .pull-mobile-1.gridle-debug:after {
+      content: "pull-mobile-1" !important; }
+  html.mobile .prefix-mobile-1 {
+    margin-left: 8.33333%; }
+    .gridle-debug html.mobile .prefix-mobile-1:after, html.mobile .prefix-mobile-1.gridle-debug:after {
+      content: "prefix-mobile-1" !important; }
+  html.mobile .suffix-mobile-1 {
+    margin-right: 8.33333%; }
+    .gridle-debug html.mobile .suffix-mobile-1:after, html.mobile .suffix-mobile-1.gridle-debug:after {
+      content: "suffix-mobile-1" !important; }
+  html.mobile .grid-mobile-2 {
+    width: 16.66667%; }
+    .gridle-debug html.mobile .grid-mobile-2:before, html.mobile .grid-mobile-2.gridle-debug:before {
+      content: "grid-mobile-2"; }
+    .gridle-debug html.mobile .grid-mobile-2.parent:before, html.mobile .grid-mobile-2.gridle-debug.parent:before {
+      content: "grid-parent-mobile-2"; }
+  html.mobile .push-mobile-2 {
+    left: 16.66667%; }
+    .gridle-debug html.mobile .push-mobile-2:after, html.mobile .push-mobile-2.gridle-debug:after {
+      content: "push-mobile-2" !important; }
+  html.mobile .pull-mobile-2 {
+    right: 16.66667%; }
+    .gridle-debug html.mobile .pull-mobile-2:after, html.mobile .pull-mobile-2.gridle-debug:after {
+      content: "pull-mobile-2" !important; }
+  html.mobile .prefix-mobile-2 {
+    margin-left: 16.66667%; }
+    .gridle-debug html.mobile .prefix-mobile-2:after, html.mobile .prefix-mobile-2.gridle-debug:after {
+      content: "prefix-mobile-2" !important; }
+  html.mobile .suffix-mobile-2 {
+    margin-right: 16.66667%; }
+    .gridle-debug html.mobile .suffix-mobile-2:after, html.mobile .suffix-mobile-2.gridle-debug:after {
+      content: "suffix-mobile-2" !important; }
+  html.mobile .grid-mobile-3 {
+    width: 25%; }
+    .gridle-debug html.mobile .grid-mobile-3:before, html.mobile .grid-mobile-3.gridle-debug:before {
+      content: "grid-mobile-3"; }
+    .gridle-debug html.mobile .grid-mobile-3.parent:before, html.mobile .grid-mobile-3.gridle-debug.parent:before {
+      content: "grid-parent-mobile-3"; }
+  html.mobile .push-mobile-3 {
+    left: 25.0%; }
+    .gridle-debug html.mobile .push-mobile-3:after, html.mobile .push-mobile-3.gridle-debug:after {
+      content: "push-mobile-3" !important; }
+  html.mobile .pull-mobile-3 {
+    right: 25.0%; }
+    .gridle-debug html.mobile .pull-mobile-3:after, html.mobile .pull-mobile-3.gridle-debug:after {
+      content: "pull-mobile-3" !important; }
+  html.mobile .prefix-mobile-3 {
+    margin-left: 25.0%; }
+    .gridle-debug html.mobile .prefix-mobile-3:after, html.mobile .prefix-mobile-3.gridle-debug:after {
+      content: "prefix-mobile-3" !important; }
+  html.mobile .suffix-mobile-3 {
+    margin-right: 25.0%; }
+    .gridle-debug html.mobile .suffix-mobile-3:after, html.mobile .suffix-mobile-3.gridle-debug:after {
+      content: "suffix-mobile-3" !important; }
+  html.mobile .grid-mobile-4 {
+    width: 33.33333%; }
+    .gridle-debug html.mobile .grid-mobile-4:before, html.mobile .grid-mobile-4.gridle-debug:before {
+      content: "grid-mobile-4"; }
+    .gridle-debug html.mobile .grid-mobile-4.parent:before, html.mobile .grid-mobile-4.gridle-debug.parent:before {
+      content: "grid-parent-mobile-4"; }
+  html.mobile .push-mobile-4 {
+    left: 33.33333%; }
+    .gridle-debug html.mobile .push-mobile-4:after, html.mobile .push-mobile-4.gridle-debug:after {
+      content: "push-mobile-4" !important; }
+  html.mobile .pull-mobile-4 {
+    right: 33.33333%; }
+    .gridle-debug html.mobile .pull-mobile-4:after, html.mobile .pull-mobile-4.gridle-debug:after {
+      content: "pull-mobile-4" !important; }
+  html.mobile .prefix-mobile-4 {
+    margin-left: 33.33333%; }
+    .gridle-debug html.mobile .prefix-mobile-4:after, html.mobile .prefix-mobile-4.gridle-debug:after {
+      content: "prefix-mobile-4" !important; }
+  html.mobile .suffix-mobile-4 {
+    margin-right: 33.33333%; }
+    .gridle-debug html.mobile .suffix-mobile-4:after, html.mobile .suffix-mobile-4.gridle-debug:after {
+      content: "suffix-mobile-4" !important; }
+  html.mobile .grid-mobile-5 {
+    width: 41.66667%; }
+    .gridle-debug html.mobile .grid-mobile-5:before, html.mobile .grid-mobile-5.gridle-debug:before {
+      content: "grid-mobile-5"; }
+    .gridle-debug html.mobile .grid-mobile-5.parent:before, html.mobile .grid-mobile-5.gridle-debug.parent:before {
+      content: "grid-parent-mobile-5"; }
+  html.mobile .push-mobile-5 {
+    left: 41.66667%; }
+    .gridle-debug html.mobile .push-mobile-5:after, html.mobile .push-mobile-5.gridle-debug:after {
+      content: "push-mobile-5" !important; }
+  html.mobile .pull-mobile-5 {
+    right: 41.66667%; }
+    .gridle-debug html.mobile .pull-mobile-5:after, html.mobile .pull-mobile-5.gridle-debug:after {
+      content: "pull-mobile-5" !important; }
+  html.mobile .prefix-mobile-5 {
+    margin-left: 41.66667%; }
+    .gridle-debug html.mobile .prefix-mobile-5:after, html.mobile .prefix-mobile-5.gridle-debug:after {
+      content: "prefix-mobile-5" !important; }
+  html.mobile .suffix-mobile-5 {
+    margin-right: 41.66667%; }
+    .gridle-debug html.mobile .suffix-mobile-5:after, html.mobile .suffix-mobile-5.gridle-debug:after {
+      content: "suffix-mobile-5" !important; }
+  html.mobile .grid-mobile-6 {
+    width: 50%; }
+    .gridle-debug html.mobile .grid-mobile-6:before, html.mobile .grid-mobile-6.gridle-debug:before {
+      content: "grid-mobile-6"; }
+    .gridle-debug html.mobile .grid-mobile-6.parent:before, html.mobile .grid-mobile-6.gridle-debug.parent:before {
+      content: "grid-parent-mobile-6"; }
+  html.mobile .push-mobile-6 {
+    left: 50.0%; }
+    .gridle-debug html.mobile .push-mobile-6:after, html.mobile .push-mobile-6.gridle-debug:after {
+      content: "push-mobile-6" !important; }
+  html.mobile .pull-mobile-6 {
+    right: 50.0%; }
+    .gridle-debug html.mobile .pull-mobile-6:after, html.mobile .pull-mobile-6.gridle-debug:after {
+      content: "pull-mobile-6" !important; }
+  html.mobile .prefix-mobile-6 {
+    margin-left: 50.0%; }
+    .gridle-debug html.mobile .prefix-mobile-6:after, html.mobile .prefix-mobile-6.gridle-debug:after {
+      content: "prefix-mobile-6" !important; }
+  html.mobile .suffix-mobile-6 {
+    margin-right: 50.0%; }
+    .gridle-debug html.mobile .suffix-mobile-6:after, html.mobile .suffix-mobile-6.gridle-debug:after {
+      content: "suffix-mobile-6" !important; }
+  html.mobile .grid-mobile-7 {
+    width: 58.33333%; }
+    .gridle-debug html.mobile .grid-mobile-7:before, html.mobile .grid-mobile-7.gridle-debug:before {
+      content: "grid-mobile-7"; }
+    .gridle-debug html.mobile .grid-mobile-7.parent:before, html.mobile .grid-mobile-7.gridle-debug.parent:before {
+      content: "grid-parent-mobile-7"; }
+  html.mobile .push-mobile-7 {
+    left: 58.33333%; }
+    .gridle-debug html.mobile .push-mobile-7:after, html.mobile .push-mobile-7.gridle-debug:after {
+      content: "push-mobile-7" !important; }
+  html.mobile .pull-mobile-7 {
+    right: 58.33333%; }
+    .gridle-debug html.mobile .pull-mobile-7:after, html.mobile .pull-mobile-7.gridle-debug:after {
+      content: "pull-mobile-7" !important; }
+  html.mobile .prefix-mobile-7 {
+    margin-left: 58.33333%; }
+    .gridle-debug html.mobile .prefix-mobile-7:after, html.mobile .prefix-mobile-7.gridle-debug:after {
+      content: "prefix-mobile-7" !important; }
+  html.mobile .suffix-mobile-7 {
+    margin-right: 58.33333%; }
+    .gridle-debug html.mobile .suffix-mobile-7:after, html.mobile .suffix-mobile-7.gridle-debug:after {
+      content: "suffix-mobile-7" !important; }
+  html.mobile .grid-mobile-8 {
+    width: 66.66667%; }
+    .gridle-debug html.mobile .grid-mobile-8:before, html.mobile .grid-mobile-8.gridle-debug:before {
+      content: "grid-mobile-8"; }
+    .gridle-debug html.mobile .grid-mobile-8.parent:before, html.mobile .grid-mobile-8.gridle-debug.parent:before {
+      content: "grid-parent-mobile-8"; }
+  html.mobile .push-mobile-8 {
+    left: 66.66667%; }
+    .gridle-debug html.mobile .push-mobile-8:after, html.mobile .push-mobile-8.gridle-debug:after {
+      content: "push-mobile-8" !important; }
+  html.mobile .pull-mobile-8 {
+    right: 66.66667%; }
+    .gridle-debug html.mobile .pull-mobile-8:after, html.mobile .pull-mobile-8.gridle-debug:after {
+      content: "pull-mobile-8" !important; }
+  html.mobile .prefix-mobile-8 {
+    margin-left: 66.66667%; }
+    .gridle-debug html.mobile .prefix-mobile-8:after, html.mobile .prefix-mobile-8.gridle-debug:after {
+      content: "prefix-mobile-8" !important; }
+  html.mobile .suffix-mobile-8 {
+    margin-right: 66.66667%; }
+    .gridle-debug html.mobile .suffix-mobile-8:after, html.mobile .suffix-mobile-8.gridle-debug:after {
+      content: "suffix-mobile-8" !important; }
+  html.mobile .grid-mobile-9 {
+    width: 75%; }
+    .gridle-debug html.mobile .grid-mobile-9:before, html.mobile .grid-mobile-9.gridle-debug:before {
+      content: "grid-mobile-9"; }
+    .gridle-debug html.mobile .grid-mobile-9.parent:before, html.mobile .grid-mobile-9.gridle-debug.parent:before {
+      content: "grid-parent-mobile-9"; }
+  html.mobile .push-mobile-9 {
+    left: 75.0%; }
+    .gridle-debug html.mobile .push-mobile-9:after, html.mobile .push-mobile-9.gridle-debug:after {
+      content: "push-mobile-9" !important; }
+  html.mobile .pull-mobile-9 {
+    right: 75.0%; }
+    .gridle-debug html.mobile .pull-mobile-9:after, html.mobile .pull-mobile-9.gridle-debug:after {
+      content: "pull-mobile-9" !important; }
+  html.mobile .prefix-mobile-9 {
+    margin-left: 75.0%; }
+    .gridle-debug html.mobile .prefix-mobile-9:after, html.mobile .prefix-mobile-9.gridle-debug:after {
+      content: "prefix-mobile-9" !important; }
+  html.mobile .suffix-mobile-9 {
+    margin-right: 75.0%; }
+    .gridle-debug html.mobile .suffix-mobile-9:after, html.mobile .suffix-mobile-9.gridle-debug:after {
+      content: "suffix-mobile-9" !important; }
+  html.mobile .grid-mobile-10 {
+    width: 83.33333%; }
+    .gridle-debug html.mobile .grid-mobile-10:before, html.mobile .grid-mobile-10.gridle-debug:before {
+      content: "grid-mobile-10"; }
+    .gridle-debug html.mobile .grid-mobile-10.parent:before, html.mobile .grid-mobile-10.gridle-debug.parent:before {
+      content: "grid-parent-mobile-10"; }
+  html.mobile .push-mobile-10 {
+    left: 83.33333%; }
+    .gridle-debug html.mobile .push-mobile-10:after, html.mobile .push-mobile-10.gridle-debug:after {
+      content: "push-mobile-10" !important; }
+  html.mobile .pull-mobile-10 {
+    right: 83.33333%; }
+    .gridle-debug html.mobile .pull-mobile-10:after, html.mobile .pull-mobile-10.gridle-debug:after {
+      content: "pull-mobile-10" !important; }
+  html.mobile .prefix-mobile-10 {
+    margin-left: 83.33333%; }
+    .gridle-debug html.mobile .prefix-mobile-10:after, html.mobile .prefix-mobile-10.gridle-debug:after {
+      content: "prefix-mobile-10" !important; }
+  html.mobile .suffix-mobile-10 {
+    margin-right: 83.33333%; }
+    .gridle-debug html.mobile .suffix-mobile-10:after, html.mobile .suffix-mobile-10.gridle-debug:after {
+      content: "suffix-mobile-10" !important; }
+  html.mobile .grid-mobile-11 {
+    width: 91.66667%; }
+    .gridle-debug html.mobile .grid-mobile-11:before, html.mobile .grid-mobile-11.gridle-debug:before {
+      content: "grid-mobile-11"; }
+    .gridle-debug html.mobile .grid-mobile-11.parent:before, html.mobile .grid-mobile-11.gridle-debug.parent:before {
+      content: "grid-parent-mobile-11"; }
+  html.mobile .push-mobile-11 {
+    left: 91.66667%; }
+    .gridle-debug html.mobile .push-mobile-11:after, html.mobile .push-mobile-11.gridle-debug:after {
+      content: "push-mobile-11" !important; }
+  html.mobile .pull-mobile-11 {
+    right: 91.66667%; }
+    .gridle-debug html.mobile .pull-mobile-11:after, html.mobile .pull-mobile-11.gridle-debug:after {
+      content: "pull-mobile-11" !important; }
+  html.mobile .prefix-mobile-11 {
+    margin-left: 91.66667%; }
+    .gridle-debug html.mobile .prefix-mobile-11:after, html.mobile .prefix-mobile-11.gridle-debug:after {
+      content: "prefix-mobile-11" !important; }
+  html.mobile .suffix-mobile-11 {
+    margin-right: 91.66667%; }
+    .gridle-debug html.mobile .suffix-mobile-11:after, html.mobile .suffix-mobile-11.gridle-debug:after {
+      content: "suffix-mobile-11" !important; }
+  html.mobile .grid-mobile-12 {
+    width: 100%; }
+    .gridle-debug html.mobile .grid-mobile-12:before, html.mobile .grid-mobile-12.gridle-debug:before {
+      content: "grid-mobile-12"; }
+    .gridle-debug html.mobile .grid-mobile-12.parent:before, html.mobile .grid-mobile-12.gridle-debug.parent:before {
+      content: "grid-parent-mobile-12"; }
+  html.mobile .push-mobile-12 {
+    left: 100.0%; }
+    .gridle-debug html.mobile .push-mobile-12:after, html.mobile .push-mobile-12.gridle-debug:after {
+      content: "push-mobile-12" !important; }
+  html.mobile .pull-mobile-12 {
+    right: 100.0%; }
+    .gridle-debug html.mobile .pull-mobile-12:after, html.mobile .pull-mobile-12.gridle-debug:after {
+      content: "pull-mobile-12" !important; }
+  html.mobile .prefix-mobile-12 {
+    margin-left: 100.0%; }
+    .gridle-debug html.mobile .prefix-mobile-12:after, html.mobile .prefix-mobile-12.gridle-debug:after {
+      content: "prefix-mobile-12" !important; }
+  html.mobile .suffix-mobile-12 {
+    margin-right: 100.0%; }
+    .gridle-debug html.mobile .suffix-mobile-12:after, html.mobile .suffix-mobile-12.gridle-debug:after {
+      content: "suffix-mobile-12" !important; }
+  html.mobile .hide-mobile {
+    display: none; }
+  html.mobile .not-visible-mobile {
+    visibility: hidden; }
+  html.mobile .show-mobile {
+    display: block; }
+  html.mobile .visible-mobile {
+    visibility: visible; }
+  html.mobile .float-mobile-left {
+    float: left; }
+  html.mobile .float-mobile-right {
+    float: right; }
+  html.mobile .clear-mobile {
+    clear: both; }
+  html.mobile .clear-mobile-left {
+    clear: left; }
+  html.mobile .clear-mobile-right {
+    clear: right; }
+  html.mobile .no-gutter-mobile,
+  html.mobile .no-margin-mobile {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+  html.mobile .no-gutter-mobile-left,
+  html.mobile .no-margin-mobile-left {
+    padding-left: 0 !important; }
+  html.mobile .no-gutter-mobile-right,
+  html.mobile .no-margin-mobile-right {
+    padding-right: 0 !important; }
+  html.mobile .no-gutter-mobile-top,
+  html.mobile .no-margin-mobile-top {
+    padding-top: 0 !important; }
+  html.mobile .no-gutter-mobile-bottom,
+  html.mobile .no-margin-mobile-bottom {
+    padding-bottom: 0 !important; }
+  html.mobile .no-gutter-mobile-top,
+  html.mobile .margin-mobile {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; }
+  html.mobile .gutter-mobile-left,
+  html.mobile .margin-mobile-left {
+    padding-left: 0.5rem; }
+  html.mobile .gutter-mobile-right,
+  html.mobile .margin-mobile-right {
+    padding-right: 0.5rem; }
+  html.mobile .gutter-mobile-top,
+  html.mobile .margin-mobile-top {
+    padding-top: 0.5rem; }
+  html.mobile .gutter-mobile-bottom,
+  html.mobile .margin-mobile-bottom {
+    padding-bottom: 0.5rem; }
+  html.mobile .auto-height-mobile {
+    height: inherit; }
+  html.mobile .centered-mobile {
+    display: block !important;
     float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important; }
+  html.mobile .parent-mobile {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+  html.mobile .parent-vertical-align-mobile {
     vertical-align: middle; }
-.gridle-debug html.mobile .debug-color-mobile-1, html.mobile .debug-color-mobile-1.gridle-debug {
-  background-color: #edeeb2; }
-.gridle-debug html.mobile .debug-color-mobile-2, html.mobile .debug-color-mobile-2.gridle-debug {
-  background-color: #fae4a7; }
-.gridle-debug html.mobile .debug-color-mobile-3, html.mobile .debug-color-mobile-3.gridle-debug {
-  background-color: #f5eacc; }
-.gridle-debug html.mobile .debug-color-mobile-4, html.mobile .debug-color-mobile-4.gridle-debug {
-  background-color: #eebdb2; }
-.gridle-debug html.mobile .debug-color-mobile-5, html.mobile .debug-color-mobile-5.gridle-debug {
-  background-color: #d4b2ee; }
-.gridle-debug html.mobile .debug-color-mobile-6, html.mobile .debug-color-mobile-6.gridle-debug {
-  background-color: #b2d8ee; }
+    html.mobile .parent-vertical-align-mobile > * {
+      display: inline-block;
+      float: none !important;
+      vertical-align: middle; }
+  html.mobile .clear-each-mobile-2 > *:nth-child(2n+1) {
+    clear: left; }
+  html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
+    clear: left; }
+  .gridle-debug html.mobile .debug-color-mobile-1, html.mobile .debug-color-mobile-1.gridle-debug {
+    background-color: #edeeb2; }
+  .gridle-debug html.mobile .debug-color-mobile-2, html.mobile .debug-color-mobile-2.gridle-debug {
+    background-color: #fae4a7; }
+  .gridle-debug html.mobile .debug-color-mobile-3, html.mobile .debug-color-mobile-3.gridle-debug {
+    background-color: #f5eacc; }
+  .gridle-debug html.mobile .debug-color-mobile-4, html.mobile .debug-color-mobile-4.gridle-debug {
+    background-color: #eebdb2; }
+  .gridle-debug html.mobile .debug-color-mobile-5, html.mobile .debug-color-mobile-5.gridle-debug {
+    background-color: #d4b2ee; }
+  .gridle-debug html.mobile .debug-color-mobile-6, html.mobile .debug-color-mobile-6.gridle-debug {
+    background-color: #b2d8ee; }
 
 @media screen and (max-width: 480px) {
   .grid-mobile-1on5 {
@@ -1485,6 +1508,15 @@ html.mobile .parent-vertical-align-mobile {
       float: none !important;
       vertical-align: middle; }
 
+  /**
+   * Clear each class :
+   */
+  .clear-each-mobile-2 > *:nth-child(2n+1) {
+    clear: left; }
+
+  .clear-each-mobile-12 > *:nth-child(12n+1) {
+    clear: left; }
+
   .gridle-debug .debug-color-mobile-1, .debug-color-mobile-1.gridle-debug {
     background-color: #edeeb2; }
 
@@ -1502,393 +1534,401 @@ html.mobile .parent-vertical-align-mobile {
 
   .gridle-debug .debug-color-mobile-6, .debug-color-mobile-6.gridle-debug {
     background-color: #b2d8ee; } }
-html.tablet .grid-tablet-1on5 {
-  width: 20%; }
-  .gridle-debug html.tablet .grid-tablet-1on5:before, html.tablet .grid-tablet-1on5.gridle-debug:before {
-    content: "grid-tablet-1"; }
-  .gridle-debug html.tablet .grid-tablet-1on5.parent:before, html.tablet .grid-tablet-1on5.gridle-debug.parent:before {
-    content: "grid-parent-tablet-1"; }
-html.tablet .push-tablet-1on5 {
-  left: 20%; }
-  .gridle-debug html.tablet .push-tablet-1on5:after, html.tablet .push-tablet-1on5.gridle-debug:after {
-    content: "push-tablet-1" !important; }
-html.tablet .pull-tablet-1on5 {
-  right: 20%; }
-  .gridle-debug html.tablet .pull-tablet-1on5:after, html.tablet .pull-tablet-1on5.gridle-debug:after {
-    content: "pull-tablet-1" !important; }
-html.tablet .prefix-tablet-1on5 {
-  margin-left: 20%; }
-  .gridle-debug html.tablet .prefix-tablet-1on5:after, html.tablet .prefix-tablet-1on5.gridle-debug:after {
-    content: "prefix-tablet-1" !important; }
-html.tablet .suffix-tablet-1on5 {
-  margin-right: 20%; }
-  .gridle-debug html.tablet .suffix-tablet-1on5:after, html.tablet .suffix-tablet-1on5.gridle-debug:after {
-    content: "suffix-tablet-1" !important; }
-html.tablet .grid-tablet-0 {
-  width: 0%; }
-  .gridle-debug html.tablet .grid-tablet-0:before, html.tablet .grid-tablet-0.gridle-debug:before {
-    content: "grid-tablet-0"; }
-  .gridle-debug html.tablet .grid-tablet-0.parent:before, html.tablet .grid-tablet-0.gridle-debug.parent:before {
-    content: "grid-parent-tablet-0"; }
-html.tablet .push-tablet-0 {
-  left: 0%; }
-  .gridle-debug html.tablet .push-tablet-0:after, html.tablet .push-tablet-0.gridle-debug:after {
-    content: "push-tablet-0" !important; }
-html.tablet .pull-tablet-0 {
-  right: 0%; }
-  .gridle-debug html.tablet .pull-tablet-0:after, html.tablet .pull-tablet-0.gridle-debug:after {
-    content: "pull-tablet-0" !important; }
-html.tablet .prefix-tablet-0 {
-  margin-left: 0%; }
-  .gridle-debug html.tablet .prefix-tablet-0:after, html.tablet .prefix-tablet-0.gridle-debug:after {
-    content: "prefix-tablet-0" !important; }
-html.tablet .suffix-tablet-0 {
-  margin-right: 0%; }
-  .gridle-debug html.tablet .suffix-tablet-0:after, html.tablet .suffix-tablet-0.gridle-debug:after {
-    content: "suffix-tablet-0" !important; }
-html.tablet .grid-tablet-1 {
-  width: 8.33333%; }
-  .gridle-debug html.tablet .grid-tablet-1:before, html.tablet .grid-tablet-1.gridle-debug:before {
-    content: "grid-tablet-1"; }
-  .gridle-debug html.tablet .grid-tablet-1.parent:before, html.tablet .grid-tablet-1.gridle-debug.parent:before {
-    content: "grid-parent-tablet-1"; }
-html.tablet .push-tablet-1 {
-  left: 8.33333%; }
-  .gridle-debug html.tablet .push-tablet-1:after, html.tablet .push-tablet-1.gridle-debug:after {
-    content: "push-tablet-1" !important; }
-html.tablet .pull-tablet-1 {
-  right: 8.33333%; }
-  .gridle-debug html.tablet .pull-tablet-1:after, html.tablet .pull-tablet-1.gridle-debug:after {
-    content: "pull-tablet-1" !important; }
-html.tablet .prefix-tablet-1 {
-  margin-left: 8.33333%; }
-  .gridle-debug html.tablet .prefix-tablet-1:after, html.tablet .prefix-tablet-1.gridle-debug:after {
-    content: "prefix-tablet-1" !important; }
-html.tablet .suffix-tablet-1 {
-  margin-right: 8.33333%; }
-  .gridle-debug html.tablet .suffix-tablet-1:after, html.tablet .suffix-tablet-1.gridle-debug:after {
-    content: "suffix-tablet-1" !important; }
-html.tablet .grid-tablet-2 {
-  width: 16.66667%; }
-  .gridle-debug html.tablet .grid-tablet-2:before, html.tablet .grid-tablet-2.gridle-debug:before {
-    content: "grid-tablet-2"; }
-  .gridle-debug html.tablet .grid-tablet-2.parent:before, html.tablet .grid-tablet-2.gridle-debug.parent:before {
-    content: "grid-parent-tablet-2"; }
-html.tablet .push-tablet-2 {
-  left: 16.66667%; }
-  .gridle-debug html.tablet .push-tablet-2:after, html.tablet .push-tablet-2.gridle-debug:after {
-    content: "push-tablet-2" !important; }
-html.tablet .pull-tablet-2 {
-  right: 16.66667%; }
-  .gridle-debug html.tablet .pull-tablet-2:after, html.tablet .pull-tablet-2.gridle-debug:after {
-    content: "pull-tablet-2" !important; }
-html.tablet .prefix-tablet-2 {
-  margin-left: 16.66667%; }
-  .gridle-debug html.tablet .prefix-tablet-2:after, html.tablet .prefix-tablet-2.gridle-debug:after {
-    content: "prefix-tablet-2" !important; }
-html.tablet .suffix-tablet-2 {
-  margin-right: 16.66667%; }
-  .gridle-debug html.tablet .suffix-tablet-2:after, html.tablet .suffix-tablet-2.gridle-debug:after {
-    content: "suffix-tablet-2" !important; }
-html.tablet .grid-tablet-3 {
-  width: 25%; }
-  .gridle-debug html.tablet .grid-tablet-3:before, html.tablet .grid-tablet-3.gridle-debug:before {
-    content: "grid-tablet-3"; }
-  .gridle-debug html.tablet .grid-tablet-3.parent:before, html.tablet .grid-tablet-3.gridle-debug.parent:before {
-    content: "grid-parent-tablet-3"; }
-html.tablet .push-tablet-3 {
-  left: 25.0%; }
-  .gridle-debug html.tablet .push-tablet-3:after, html.tablet .push-tablet-3.gridle-debug:after {
-    content: "push-tablet-3" !important; }
-html.tablet .pull-tablet-3 {
-  right: 25.0%; }
-  .gridle-debug html.tablet .pull-tablet-3:after, html.tablet .pull-tablet-3.gridle-debug:after {
-    content: "pull-tablet-3" !important; }
-html.tablet .prefix-tablet-3 {
-  margin-left: 25.0%; }
-  .gridle-debug html.tablet .prefix-tablet-3:after, html.tablet .prefix-tablet-3.gridle-debug:after {
-    content: "prefix-tablet-3" !important; }
-html.tablet .suffix-tablet-3 {
-  margin-right: 25.0%; }
-  .gridle-debug html.tablet .suffix-tablet-3:after, html.tablet .suffix-tablet-3.gridle-debug:after {
-    content: "suffix-tablet-3" !important; }
-html.tablet .grid-tablet-4 {
-  width: 33.33333%; }
-  .gridle-debug html.tablet .grid-tablet-4:before, html.tablet .grid-tablet-4.gridle-debug:before {
-    content: "grid-tablet-4"; }
-  .gridle-debug html.tablet .grid-tablet-4.parent:before, html.tablet .grid-tablet-4.gridle-debug.parent:before {
-    content: "grid-parent-tablet-4"; }
-html.tablet .push-tablet-4 {
-  left: 33.33333%; }
-  .gridle-debug html.tablet .push-tablet-4:after, html.tablet .push-tablet-4.gridle-debug:after {
-    content: "push-tablet-4" !important; }
-html.tablet .pull-tablet-4 {
-  right: 33.33333%; }
-  .gridle-debug html.tablet .pull-tablet-4:after, html.tablet .pull-tablet-4.gridle-debug:after {
-    content: "pull-tablet-4" !important; }
-html.tablet .prefix-tablet-4 {
-  margin-left: 33.33333%; }
-  .gridle-debug html.tablet .prefix-tablet-4:after, html.tablet .prefix-tablet-4.gridle-debug:after {
-    content: "prefix-tablet-4" !important; }
-html.tablet .suffix-tablet-4 {
-  margin-right: 33.33333%; }
-  .gridle-debug html.tablet .suffix-tablet-4:after, html.tablet .suffix-tablet-4.gridle-debug:after {
-    content: "suffix-tablet-4" !important; }
-html.tablet .grid-tablet-5 {
-  width: 41.66667%; }
-  .gridle-debug html.tablet .grid-tablet-5:before, html.tablet .grid-tablet-5.gridle-debug:before {
-    content: "grid-tablet-5"; }
-  .gridle-debug html.tablet .grid-tablet-5.parent:before, html.tablet .grid-tablet-5.gridle-debug.parent:before {
-    content: "grid-parent-tablet-5"; }
-html.tablet .push-tablet-5 {
-  left: 41.66667%; }
-  .gridle-debug html.tablet .push-tablet-5:after, html.tablet .push-tablet-5.gridle-debug:after {
-    content: "push-tablet-5" !important; }
-html.tablet .pull-tablet-5 {
-  right: 41.66667%; }
-  .gridle-debug html.tablet .pull-tablet-5:after, html.tablet .pull-tablet-5.gridle-debug:after {
-    content: "pull-tablet-5" !important; }
-html.tablet .prefix-tablet-5 {
-  margin-left: 41.66667%; }
-  .gridle-debug html.tablet .prefix-tablet-5:after, html.tablet .prefix-tablet-5.gridle-debug:after {
-    content: "prefix-tablet-5" !important; }
-html.tablet .suffix-tablet-5 {
-  margin-right: 41.66667%; }
-  .gridle-debug html.tablet .suffix-tablet-5:after, html.tablet .suffix-tablet-5.gridle-debug:after {
-    content: "suffix-tablet-5" !important; }
-html.tablet .grid-tablet-6 {
-  width: 50%; }
-  .gridle-debug html.tablet .grid-tablet-6:before, html.tablet .grid-tablet-6.gridle-debug:before {
-    content: "grid-tablet-6"; }
-  .gridle-debug html.tablet .grid-tablet-6.parent:before, html.tablet .grid-tablet-6.gridle-debug.parent:before {
-    content: "grid-parent-tablet-6"; }
-html.tablet .push-tablet-6 {
-  left: 50.0%; }
-  .gridle-debug html.tablet .push-tablet-6:after, html.tablet .push-tablet-6.gridle-debug:after {
-    content: "push-tablet-6" !important; }
-html.tablet .pull-tablet-6 {
-  right: 50.0%; }
-  .gridle-debug html.tablet .pull-tablet-6:after, html.tablet .pull-tablet-6.gridle-debug:after {
-    content: "pull-tablet-6" !important; }
-html.tablet .prefix-tablet-6 {
-  margin-left: 50.0%; }
-  .gridle-debug html.tablet .prefix-tablet-6:after, html.tablet .prefix-tablet-6.gridle-debug:after {
-    content: "prefix-tablet-6" !important; }
-html.tablet .suffix-tablet-6 {
-  margin-right: 50.0%; }
-  .gridle-debug html.tablet .suffix-tablet-6:after, html.tablet .suffix-tablet-6.gridle-debug:after {
-    content: "suffix-tablet-6" !important; }
-html.tablet .grid-tablet-7 {
-  width: 58.33333%; }
-  .gridle-debug html.tablet .grid-tablet-7:before, html.tablet .grid-tablet-7.gridle-debug:before {
-    content: "grid-tablet-7"; }
-  .gridle-debug html.tablet .grid-tablet-7.parent:before, html.tablet .grid-tablet-7.gridle-debug.parent:before {
-    content: "grid-parent-tablet-7"; }
-html.tablet .push-tablet-7 {
-  left: 58.33333%; }
-  .gridle-debug html.tablet .push-tablet-7:after, html.tablet .push-tablet-7.gridle-debug:after {
-    content: "push-tablet-7" !important; }
-html.tablet .pull-tablet-7 {
-  right: 58.33333%; }
-  .gridle-debug html.tablet .pull-tablet-7:after, html.tablet .pull-tablet-7.gridle-debug:after {
-    content: "pull-tablet-7" !important; }
-html.tablet .prefix-tablet-7 {
-  margin-left: 58.33333%; }
-  .gridle-debug html.tablet .prefix-tablet-7:after, html.tablet .prefix-tablet-7.gridle-debug:after {
-    content: "prefix-tablet-7" !important; }
-html.tablet .suffix-tablet-7 {
-  margin-right: 58.33333%; }
-  .gridle-debug html.tablet .suffix-tablet-7:after, html.tablet .suffix-tablet-7.gridle-debug:after {
-    content: "suffix-tablet-7" !important; }
-html.tablet .grid-tablet-8 {
-  width: 66.66667%; }
-  .gridle-debug html.tablet .grid-tablet-8:before, html.tablet .grid-tablet-8.gridle-debug:before {
-    content: "grid-tablet-8"; }
-  .gridle-debug html.tablet .grid-tablet-8.parent:before, html.tablet .grid-tablet-8.gridle-debug.parent:before {
-    content: "grid-parent-tablet-8"; }
-html.tablet .push-tablet-8 {
-  left: 66.66667%; }
-  .gridle-debug html.tablet .push-tablet-8:after, html.tablet .push-tablet-8.gridle-debug:after {
-    content: "push-tablet-8" !important; }
-html.tablet .pull-tablet-8 {
-  right: 66.66667%; }
-  .gridle-debug html.tablet .pull-tablet-8:after, html.tablet .pull-tablet-8.gridle-debug:after {
-    content: "pull-tablet-8" !important; }
-html.tablet .prefix-tablet-8 {
-  margin-left: 66.66667%; }
-  .gridle-debug html.tablet .prefix-tablet-8:after, html.tablet .prefix-tablet-8.gridle-debug:after {
-    content: "prefix-tablet-8" !important; }
-html.tablet .suffix-tablet-8 {
-  margin-right: 66.66667%; }
-  .gridle-debug html.tablet .suffix-tablet-8:after, html.tablet .suffix-tablet-8.gridle-debug:after {
-    content: "suffix-tablet-8" !important; }
-html.tablet .grid-tablet-9 {
-  width: 75%; }
-  .gridle-debug html.tablet .grid-tablet-9:before, html.tablet .grid-tablet-9.gridle-debug:before {
-    content: "grid-tablet-9"; }
-  .gridle-debug html.tablet .grid-tablet-9.parent:before, html.tablet .grid-tablet-9.gridle-debug.parent:before {
-    content: "grid-parent-tablet-9"; }
-html.tablet .push-tablet-9 {
-  left: 75.0%; }
-  .gridle-debug html.tablet .push-tablet-9:after, html.tablet .push-tablet-9.gridle-debug:after {
-    content: "push-tablet-9" !important; }
-html.tablet .pull-tablet-9 {
-  right: 75.0%; }
-  .gridle-debug html.tablet .pull-tablet-9:after, html.tablet .pull-tablet-9.gridle-debug:after {
-    content: "pull-tablet-9" !important; }
-html.tablet .prefix-tablet-9 {
-  margin-left: 75.0%; }
-  .gridle-debug html.tablet .prefix-tablet-9:after, html.tablet .prefix-tablet-9.gridle-debug:after {
-    content: "prefix-tablet-9" !important; }
-html.tablet .suffix-tablet-9 {
-  margin-right: 75.0%; }
-  .gridle-debug html.tablet .suffix-tablet-9:after, html.tablet .suffix-tablet-9.gridle-debug:after {
-    content: "suffix-tablet-9" !important; }
-html.tablet .grid-tablet-10 {
-  width: 83.33333%; }
-  .gridle-debug html.tablet .grid-tablet-10:before, html.tablet .grid-tablet-10.gridle-debug:before {
-    content: "grid-tablet-10"; }
-  .gridle-debug html.tablet .grid-tablet-10.parent:before, html.tablet .grid-tablet-10.gridle-debug.parent:before {
-    content: "grid-parent-tablet-10"; }
-html.tablet .push-tablet-10 {
-  left: 83.33333%; }
-  .gridle-debug html.tablet .push-tablet-10:after, html.tablet .push-tablet-10.gridle-debug:after {
-    content: "push-tablet-10" !important; }
-html.tablet .pull-tablet-10 {
-  right: 83.33333%; }
-  .gridle-debug html.tablet .pull-tablet-10:after, html.tablet .pull-tablet-10.gridle-debug:after {
-    content: "pull-tablet-10" !important; }
-html.tablet .prefix-tablet-10 {
-  margin-left: 83.33333%; }
-  .gridle-debug html.tablet .prefix-tablet-10:after, html.tablet .prefix-tablet-10.gridle-debug:after {
-    content: "prefix-tablet-10" !important; }
-html.tablet .suffix-tablet-10 {
-  margin-right: 83.33333%; }
-  .gridle-debug html.tablet .suffix-tablet-10:after, html.tablet .suffix-tablet-10.gridle-debug:after {
-    content: "suffix-tablet-10" !important; }
-html.tablet .grid-tablet-11 {
-  width: 91.66667%; }
-  .gridle-debug html.tablet .grid-tablet-11:before, html.tablet .grid-tablet-11.gridle-debug:before {
-    content: "grid-tablet-11"; }
-  .gridle-debug html.tablet .grid-tablet-11.parent:before, html.tablet .grid-tablet-11.gridle-debug.parent:before {
-    content: "grid-parent-tablet-11"; }
-html.tablet .push-tablet-11 {
-  left: 91.66667%; }
-  .gridle-debug html.tablet .push-tablet-11:after, html.tablet .push-tablet-11.gridle-debug:after {
-    content: "push-tablet-11" !important; }
-html.tablet .pull-tablet-11 {
-  right: 91.66667%; }
-  .gridle-debug html.tablet .pull-tablet-11:after, html.tablet .pull-tablet-11.gridle-debug:after {
-    content: "pull-tablet-11" !important; }
-html.tablet .prefix-tablet-11 {
-  margin-left: 91.66667%; }
-  .gridle-debug html.tablet .prefix-tablet-11:after, html.tablet .prefix-tablet-11.gridle-debug:after {
-    content: "prefix-tablet-11" !important; }
-html.tablet .suffix-tablet-11 {
-  margin-right: 91.66667%; }
-  .gridle-debug html.tablet .suffix-tablet-11:after, html.tablet .suffix-tablet-11.gridle-debug:after {
-    content: "suffix-tablet-11" !important; }
-html.tablet .grid-tablet-12 {
-  width: 100%; }
-  .gridle-debug html.tablet .grid-tablet-12:before, html.tablet .grid-tablet-12.gridle-debug:before {
-    content: "grid-tablet-12"; }
-  .gridle-debug html.tablet .grid-tablet-12.parent:before, html.tablet .grid-tablet-12.gridle-debug.parent:before {
-    content: "grid-parent-tablet-12"; }
-html.tablet .push-tablet-12 {
-  left: 100.0%; }
-  .gridle-debug html.tablet .push-tablet-12:after, html.tablet .push-tablet-12.gridle-debug:after {
-    content: "push-tablet-12" !important; }
-html.tablet .pull-tablet-12 {
-  right: 100.0%; }
-  .gridle-debug html.tablet .pull-tablet-12:after, html.tablet .pull-tablet-12.gridle-debug:after {
-    content: "pull-tablet-12" !important; }
-html.tablet .prefix-tablet-12 {
-  margin-left: 100.0%; }
-  .gridle-debug html.tablet .prefix-tablet-12:after, html.tablet .prefix-tablet-12.gridle-debug:after {
-    content: "prefix-tablet-12" !important; }
-html.tablet .suffix-tablet-12 {
-  margin-right: 100.0%; }
-  .gridle-debug html.tablet .suffix-tablet-12:after, html.tablet .suffix-tablet-12.gridle-debug:after {
-    content: "suffix-tablet-12" !important; }
-html.tablet .hide-tablet {
-  display: none; }
-html.tablet .not-visible-tablet {
-  visibility: hidden; }
-html.tablet .show-tablet {
-  display: block; }
-html.tablet .visible-tablet {
-  visibility: visible; }
-html.tablet .float-tablet-left {
-  float: left; }
-html.tablet .float-tablet-right {
-  float: right; }
-html.tablet .clear-tablet {
-  clear: both; }
-html.tablet .clear-tablet-left {
-  clear: left; }
-html.tablet .clear-tablet-right {
-  clear: right; }
-html.tablet .no-gutter-tablet,
-html.tablet .no-margin-tablet {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-html.tablet .no-gutter-tablet-left,
-html.tablet .no-margin-tablet-left {
-  padding-left: 0 !important; }
-html.tablet .no-gutter-tablet-right,
-html.tablet .no-margin-tablet-right {
-  padding-right: 0 !important; }
-html.tablet .no-gutter-tablet-top,
-html.tablet .no-margin-tablet-top {
-  padding-top: 0 !important; }
-html.tablet .no-gutter-tablet-bottom,
-html.tablet .no-margin-tablet-bottom {
-  padding-bottom: 0 !important; }
-html.tablet .no-gutter-tablet-top,
-html.tablet .margin-tablet {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem; }
-html.tablet .gutter-tablet-left,
-html.tablet .margin-tablet-left {
-  padding-left: 0.5rem; }
-html.tablet .gutter-tablet-right,
-html.tablet .margin-tablet-right {
-  padding-right: 0.5rem; }
-html.tablet .gutter-tablet-top,
-html.tablet .margin-tablet-top {
-  padding-top: 0.5rem; }
-html.tablet .gutter-tablet-bottom,
-html.tablet .margin-tablet-bottom {
-  padding-bottom: 0.5rem; }
-html.tablet .auto-height-tablet {
-  height: inherit; }
-html.tablet .centered-tablet {
-  display: block !important;
-  float: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  clear: both !important; }
-html.tablet .parent-tablet {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-html.tablet .parent-vertical-align-tablet {
-  vertical-align: middle; }
-  html.tablet .parent-vertical-align-tablet > * {
-    display: inline-block;
+html.tablet {
+  /**
+   * Clear each class :
+   */ }
+  html.tablet .grid-tablet-1on5 {
+    width: 20%; }
+    .gridle-debug html.tablet .grid-tablet-1on5:before, html.tablet .grid-tablet-1on5.gridle-debug:before {
+      content: "grid-tablet-1"; }
+    .gridle-debug html.tablet .grid-tablet-1on5.parent:before, html.tablet .grid-tablet-1on5.gridle-debug.parent:before {
+      content: "grid-parent-tablet-1"; }
+  html.tablet .push-tablet-1on5 {
+    left: 20%; }
+    .gridle-debug html.tablet .push-tablet-1on5:after, html.tablet .push-tablet-1on5.gridle-debug:after {
+      content: "push-tablet-1" !important; }
+  html.tablet .pull-tablet-1on5 {
+    right: 20%; }
+    .gridle-debug html.tablet .pull-tablet-1on5:after, html.tablet .pull-tablet-1on5.gridle-debug:after {
+      content: "pull-tablet-1" !important; }
+  html.tablet .prefix-tablet-1on5 {
+    margin-left: 20%; }
+    .gridle-debug html.tablet .prefix-tablet-1on5:after, html.tablet .prefix-tablet-1on5.gridle-debug:after {
+      content: "prefix-tablet-1" !important; }
+  html.tablet .suffix-tablet-1on5 {
+    margin-right: 20%; }
+    .gridle-debug html.tablet .suffix-tablet-1on5:after, html.tablet .suffix-tablet-1on5.gridle-debug:after {
+      content: "suffix-tablet-1" !important; }
+  html.tablet .grid-tablet-0 {
+    width: 0%; }
+    .gridle-debug html.tablet .grid-tablet-0:before, html.tablet .grid-tablet-0.gridle-debug:before {
+      content: "grid-tablet-0"; }
+    .gridle-debug html.tablet .grid-tablet-0.parent:before, html.tablet .grid-tablet-0.gridle-debug.parent:before {
+      content: "grid-parent-tablet-0"; }
+  html.tablet .push-tablet-0 {
+    left: 0%; }
+    .gridle-debug html.tablet .push-tablet-0:after, html.tablet .push-tablet-0.gridle-debug:after {
+      content: "push-tablet-0" !important; }
+  html.tablet .pull-tablet-0 {
+    right: 0%; }
+    .gridle-debug html.tablet .pull-tablet-0:after, html.tablet .pull-tablet-0.gridle-debug:after {
+      content: "pull-tablet-0" !important; }
+  html.tablet .prefix-tablet-0 {
+    margin-left: 0%; }
+    .gridle-debug html.tablet .prefix-tablet-0:after, html.tablet .prefix-tablet-0.gridle-debug:after {
+      content: "prefix-tablet-0" !important; }
+  html.tablet .suffix-tablet-0 {
+    margin-right: 0%; }
+    .gridle-debug html.tablet .suffix-tablet-0:after, html.tablet .suffix-tablet-0.gridle-debug:after {
+      content: "suffix-tablet-0" !important; }
+  html.tablet .grid-tablet-1 {
+    width: 8.33333%; }
+    .gridle-debug html.tablet .grid-tablet-1:before, html.tablet .grid-tablet-1.gridle-debug:before {
+      content: "grid-tablet-1"; }
+    .gridle-debug html.tablet .grid-tablet-1.parent:before, html.tablet .grid-tablet-1.gridle-debug.parent:before {
+      content: "grid-parent-tablet-1"; }
+  html.tablet .push-tablet-1 {
+    left: 8.33333%; }
+    .gridle-debug html.tablet .push-tablet-1:after, html.tablet .push-tablet-1.gridle-debug:after {
+      content: "push-tablet-1" !important; }
+  html.tablet .pull-tablet-1 {
+    right: 8.33333%; }
+    .gridle-debug html.tablet .pull-tablet-1:after, html.tablet .pull-tablet-1.gridle-debug:after {
+      content: "pull-tablet-1" !important; }
+  html.tablet .prefix-tablet-1 {
+    margin-left: 8.33333%; }
+    .gridle-debug html.tablet .prefix-tablet-1:after, html.tablet .prefix-tablet-1.gridle-debug:after {
+      content: "prefix-tablet-1" !important; }
+  html.tablet .suffix-tablet-1 {
+    margin-right: 8.33333%; }
+    .gridle-debug html.tablet .suffix-tablet-1:after, html.tablet .suffix-tablet-1.gridle-debug:after {
+      content: "suffix-tablet-1" !important; }
+  html.tablet .grid-tablet-2 {
+    width: 16.66667%; }
+    .gridle-debug html.tablet .grid-tablet-2:before, html.tablet .grid-tablet-2.gridle-debug:before {
+      content: "grid-tablet-2"; }
+    .gridle-debug html.tablet .grid-tablet-2.parent:before, html.tablet .grid-tablet-2.gridle-debug.parent:before {
+      content: "grid-parent-tablet-2"; }
+  html.tablet .push-tablet-2 {
+    left: 16.66667%; }
+    .gridle-debug html.tablet .push-tablet-2:after, html.tablet .push-tablet-2.gridle-debug:after {
+      content: "push-tablet-2" !important; }
+  html.tablet .pull-tablet-2 {
+    right: 16.66667%; }
+    .gridle-debug html.tablet .pull-tablet-2:after, html.tablet .pull-tablet-2.gridle-debug:after {
+      content: "pull-tablet-2" !important; }
+  html.tablet .prefix-tablet-2 {
+    margin-left: 16.66667%; }
+    .gridle-debug html.tablet .prefix-tablet-2:after, html.tablet .prefix-tablet-2.gridle-debug:after {
+      content: "prefix-tablet-2" !important; }
+  html.tablet .suffix-tablet-2 {
+    margin-right: 16.66667%; }
+    .gridle-debug html.tablet .suffix-tablet-2:after, html.tablet .suffix-tablet-2.gridle-debug:after {
+      content: "suffix-tablet-2" !important; }
+  html.tablet .grid-tablet-3 {
+    width: 25%; }
+    .gridle-debug html.tablet .grid-tablet-3:before, html.tablet .grid-tablet-3.gridle-debug:before {
+      content: "grid-tablet-3"; }
+    .gridle-debug html.tablet .grid-tablet-3.parent:before, html.tablet .grid-tablet-3.gridle-debug.parent:before {
+      content: "grid-parent-tablet-3"; }
+  html.tablet .push-tablet-3 {
+    left: 25.0%; }
+    .gridle-debug html.tablet .push-tablet-3:after, html.tablet .push-tablet-3.gridle-debug:after {
+      content: "push-tablet-3" !important; }
+  html.tablet .pull-tablet-3 {
+    right: 25.0%; }
+    .gridle-debug html.tablet .pull-tablet-3:after, html.tablet .pull-tablet-3.gridle-debug:after {
+      content: "pull-tablet-3" !important; }
+  html.tablet .prefix-tablet-3 {
+    margin-left: 25.0%; }
+    .gridle-debug html.tablet .prefix-tablet-3:after, html.tablet .prefix-tablet-3.gridle-debug:after {
+      content: "prefix-tablet-3" !important; }
+  html.tablet .suffix-tablet-3 {
+    margin-right: 25.0%; }
+    .gridle-debug html.tablet .suffix-tablet-3:after, html.tablet .suffix-tablet-3.gridle-debug:after {
+      content: "suffix-tablet-3" !important; }
+  html.tablet .grid-tablet-4 {
+    width: 33.33333%; }
+    .gridle-debug html.tablet .grid-tablet-4:before, html.tablet .grid-tablet-4.gridle-debug:before {
+      content: "grid-tablet-4"; }
+    .gridle-debug html.tablet .grid-tablet-4.parent:before, html.tablet .grid-tablet-4.gridle-debug.parent:before {
+      content: "grid-parent-tablet-4"; }
+  html.tablet .push-tablet-4 {
+    left: 33.33333%; }
+    .gridle-debug html.tablet .push-tablet-4:after, html.tablet .push-tablet-4.gridle-debug:after {
+      content: "push-tablet-4" !important; }
+  html.tablet .pull-tablet-4 {
+    right: 33.33333%; }
+    .gridle-debug html.tablet .pull-tablet-4:after, html.tablet .pull-tablet-4.gridle-debug:after {
+      content: "pull-tablet-4" !important; }
+  html.tablet .prefix-tablet-4 {
+    margin-left: 33.33333%; }
+    .gridle-debug html.tablet .prefix-tablet-4:after, html.tablet .prefix-tablet-4.gridle-debug:after {
+      content: "prefix-tablet-4" !important; }
+  html.tablet .suffix-tablet-4 {
+    margin-right: 33.33333%; }
+    .gridle-debug html.tablet .suffix-tablet-4:after, html.tablet .suffix-tablet-4.gridle-debug:after {
+      content: "suffix-tablet-4" !important; }
+  html.tablet .grid-tablet-5 {
+    width: 41.66667%; }
+    .gridle-debug html.tablet .grid-tablet-5:before, html.tablet .grid-tablet-5.gridle-debug:before {
+      content: "grid-tablet-5"; }
+    .gridle-debug html.tablet .grid-tablet-5.parent:before, html.tablet .grid-tablet-5.gridle-debug.parent:before {
+      content: "grid-parent-tablet-5"; }
+  html.tablet .push-tablet-5 {
+    left: 41.66667%; }
+    .gridle-debug html.tablet .push-tablet-5:after, html.tablet .push-tablet-5.gridle-debug:after {
+      content: "push-tablet-5" !important; }
+  html.tablet .pull-tablet-5 {
+    right: 41.66667%; }
+    .gridle-debug html.tablet .pull-tablet-5:after, html.tablet .pull-tablet-5.gridle-debug:after {
+      content: "pull-tablet-5" !important; }
+  html.tablet .prefix-tablet-5 {
+    margin-left: 41.66667%; }
+    .gridle-debug html.tablet .prefix-tablet-5:after, html.tablet .prefix-tablet-5.gridle-debug:after {
+      content: "prefix-tablet-5" !important; }
+  html.tablet .suffix-tablet-5 {
+    margin-right: 41.66667%; }
+    .gridle-debug html.tablet .suffix-tablet-5:after, html.tablet .suffix-tablet-5.gridle-debug:after {
+      content: "suffix-tablet-5" !important; }
+  html.tablet .grid-tablet-6 {
+    width: 50%; }
+    .gridle-debug html.tablet .grid-tablet-6:before, html.tablet .grid-tablet-6.gridle-debug:before {
+      content: "grid-tablet-6"; }
+    .gridle-debug html.tablet .grid-tablet-6.parent:before, html.tablet .grid-tablet-6.gridle-debug.parent:before {
+      content: "grid-parent-tablet-6"; }
+  html.tablet .push-tablet-6 {
+    left: 50.0%; }
+    .gridle-debug html.tablet .push-tablet-6:after, html.tablet .push-tablet-6.gridle-debug:after {
+      content: "push-tablet-6" !important; }
+  html.tablet .pull-tablet-6 {
+    right: 50.0%; }
+    .gridle-debug html.tablet .pull-tablet-6:after, html.tablet .pull-tablet-6.gridle-debug:after {
+      content: "pull-tablet-6" !important; }
+  html.tablet .prefix-tablet-6 {
+    margin-left: 50.0%; }
+    .gridle-debug html.tablet .prefix-tablet-6:after, html.tablet .prefix-tablet-6.gridle-debug:after {
+      content: "prefix-tablet-6" !important; }
+  html.tablet .suffix-tablet-6 {
+    margin-right: 50.0%; }
+    .gridle-debug html.tablet .suffix-tablet-6:after, html.tablet .suffix-tablet-6.gridle-debug:after {
+      content: "suffix-tablet-6" !important; }
+  html.tablet .grid-tablet-7 {
+    width: 58.33333%; }
+    .gridle-debug html.tablet .grid-tablet-7:before, html.tablet .grid-tablet-7.gridle-debug:before {
+      content: "grid-tablet-7"; }
+    .gridle-debug html.tablet .grid-tablet-7.parent:before, html.tablet .grid-tablet-7.gridle-debug.parent:before {
+      content: "grid-parent-tablet-7"; }
+  html.tablet .push-tablet-7 {
+    left: 58.33333%; }
+    .gridle-debug html.tablet .push-tablet-7:after, html.tablet .push-tablet-7.gridle-debug:after {
+      content: "push-tablet-7" !important; }
+  html.tablet .pull-tablet-7 {
+    right: 58.33333%; }
+    .gridle-debug html.tablet .pull-tablet-7:after, html.tablet .pull-tablet-7.gridle-debug:after {
+      content: "pull-tablet-7" !important; }
+  html.tablet .prefix-tablet-7 {
+    margin-left: 58.33333%; }
+    .gridle-debug html.tablet .prefix-tablet-7:after, html.tablet .prefix-tablet-7.gridle-debug:after {
+      content: "prefix-tablet-7" !important; }
+  html.tablet .suffix-tablet-7 {
+    margin-right: 58.33333%; }
+    .gridle-debug html.tablet .suffix-tablet-7:after, html.tablet .suffix-tablet-7.gridle-debug:after {
+      content: "suffix-tablet-7" !important; }
+  html.tablet .grid-tablet-8 {
+    width: 66.66667%; }
+    .gridle-debug html.tablet .grid-tablet-8:before, html.tablet .grid-tablet-8.gridle-debug:before {
+      content: "grid-tablet-8"; }
+    .gridle-debug html.tablet .grid-tablet-8.parent:before, html.tablet .grid-tablet-8.gridle-debug.parent:before {
+      content: "grid-parent-tablet-8"; }
+  html.tablet .push-tablet-8 {
+    left: 66.66667%; }
+    .gridle-debug html.tablet .push-tablet-8:after, html.tablet .push-tablet-8.gridle-debug:after {
+      content: "push-tablet-8" !important; }
+  html.tablet .pull-tablet-8 {
+    right: 66.66667%; }
+    .gridle-debug html.tablet .pull-tablet-8:after, html.tablet .pull-tablet-8.gridle-debug:after {
+      content: "pull-tablet-8" !important; }
+  html.tablet .prefix-tablet-8 {
+    margin-left: 66.66667%; }
+    .gridle-debug html.tablet .prefix-tablet-8:after, html.tablet .prefix-tablet-8.gridle-debug:after {
+      content: "prefix-tablet-8" !important; }
+  html.tablet .suffix-tablet-8 {
+    margin-right: 66.66667%; }
+    .gridle-debug html.tablet .suffix-tablet-8:after, html.tablet .suffix-tablet-8.gridle-debug:after {
+      content: "suffix-tablet-8" !important; }
+  html.tablet .grid-tablet-9 {
+    width: 75%; }
+    .gridle-debug html.tablet .grid-tablet-9:before, html.tablet .grid-tablet-9.gridle-debug:before {
+      content: "grid-tablet-9"; }
+    .gridle-debug html.tablet .grid-tablet-9.parent:before, html.tablet .grid-tablet-9.gridle-debug.parent:before {
+      content: "grid-parent-tablet-9"; }
+  html.tablet .push-tablet-9 {
+    left: 75.0%; }
+    .gridle-debug html.tablet .push-tablet-9:after, html.tablet .push-tablet-9.gridle-debug:after {
+      content: "push-tablet-9" !important; }
+  html.tablet .pull-tablet-9 {
+    right: 75.0%; }
+    .gridle-debug html.tablet .pull-tablet-9:after, html.tablet .pull-tablet-9.gridle-debug:after {
+      content: "pull-tablet-9" !important; }
+  html.tablet .prefix-tablet-9 {
+    margin-left: 75.0%; }
+    .gridle-debug html.tablet .prefix-tablet-9:after, html.tablet .prefix-tablet-9.gridle-debug:after {
+      content: "prefix-tablet-9" !important; }
+  html.tablet .suffix-tablet-9 {
+    margin-right: 75.0%; }
+    .gridle-debug html.tablet .suffix-tablet-9:after, html.tablet .suffix-tablet-9.gridle-debug:after {
+      content: "suffix-tablet-9" !important; }
+  html.tablet .grid-tablet-10 {
+    width: 83.33333%; }
+    .gridle-debug html.tablet .grid-tablet-10:before, html.tablet .grid-tablet-10.gridle-debug:before {
+      content: "grid-tablet-10"; }
+    .gridle-debug html.tablet .grid-tablet-10.parent:before, html.tablet .grid-tablet-10.gridle-debug.parent:before {
+      content: "grid-parent-tablet-10"; }
+  html.tablet .push-tablet-10 {
+    left: 83.33333%; }
+    .gridle-debug html.tablet .push-tablet-10:after, html.tablet .push-tablet-10.gridle-debug:after {
+      content: "push-tablet-10" !important; }
+  html.tablet .pull-tablet-10 {
+    right: 83.33333%; }
+    .gridle-debug html.tablet .pull-tablet-10:after, html.tablet .pull-tablet-10.gridle-debug:after {
+      content: "pull-tablet-10" !important; }
+  html.tablet .prefix-tablet-10 {
+    margin-left: 83.33333%; }
+    .gridle-debug html.tablet .prefix-tablet-10:after, html.tablet .prefix-tablet-10.gridle-debug:after {
+      content: "prefix-tablet-10" !important; }
+  html.tablet .suffix-tablet-10 {
+    margin-right: 83.33333%; }
+    .gridle-debug html.tablet .suffix-tablet-10:after, html.tablet .suffix-tablet-10.gridle-debug:after {
+      content: "suffix-tablet-10" !important; }
+  html.tablet .grid-tablet-11 {
+    width: 91.66667%; }
+    .gridle-debug html.tablet .grid-tablet-11:before, html.tablet .grid-tablet-11.gridle-debug:before {
+      content: "grid-tablet-11"; }
+    .gridle-debug html.tablet .grid-tablet-11.parent:before, html.tablet .grid-tablet-11.gridle-debug.parent:before {
+      content: "grid-parent-tablet-11"; }
+  html.tablet .push-tablet-11 {
+    left: 91.66667%; }
+    .gridle-debug html.tablet .push-tablet-11:after, html.tablet .push-tablet-11.gridle-debug:after {
+      content: "push-tablet-11" !important; }
+  html.tablet .pull-tablet-11 {
+    right: 91.66667%; }
+    .gridle-debug html.tablet .pull-tablet-11:after, html.tablet .pull-tablet-11.gridle-debug:after {
+      content: "pull-tablet-11" !important; }
+  html.tablet .prefix-tablet-11 {
+    margin-left: 91.66667%; }
+    .gridle-debug html.tablet .prefix-tablet-11:after, html.tablet .prefix-tablet-11.gridle-debug:after {
+      content: "prefix-tablet-11" !important; }
+  html.tablet .suffix-tablet-11 {
+    margin-right: 91.66667%; }
+    .gridle-debug html.tablet .suffix-tablet-11:after, html.tablet .suffix-tablet-11.gridle-debug:after {
+      content: "suffix-tablet-11" !important; }
+  html.tablet .grid-tablet-12 {
+    width: 100%; }
+    .gridle-debug html.tablet .grid-tablet-12:before, html.tablet .grid-tablet-12.gridle-debug:before {
+      content: "grid-tablet-12"; }
+    .gridle-debug html.tablet .grid-tablet-12.parent:before, html.tablet .grid-tablet-12.gridle-debug.parent:before {
+      content: "grid-parent-tablet-12"; }
+  html.tablet .push-tablet-12 {
+    left: 100.0%; }
+    .gridle-debug html.tablet .push-tablet-12:after, html.tablet .push-tablet-12.gridle-debug:after {
+      content: "push-tablet-12" !important; }
+  html.tablet .pull-tablet-12 {
+    right: 100.0%; }
+    .gridle-debug html.tablet .pull-tablet-12:after, html.tablet .pull-tablet-12.gridle-debug:after {
+      content: "pull-tablet-12" !important; }
+  html.tablet .prefix-tablet-12 {
+    margin-left: 100.0%; }
+    .gridle-debug html.tablet .prefix-tablet-12:after, html.tablet .prefix-tablet-12.gridle-debug:after {
+      content: "prefix-tablet-12" !important; }
+  html.tablet .suffix-tablet-12 {
+    margin-right: 100.0%; }
+    .gridle-debug html.tablet .suffix-tablet-12:after, html.tablet .suffix-tablet-12.gridle-debug:after {
+      content: "suffix-tablet-12" !important; }
+  html.tablet .hide-tablet {
+    display: none; }
+  html.tablet .not-visible-tablet {
+    visibility: hidden; }
+  html.tablet .show-tablet {
+    display: block; }
+  html.tablet .visible-tablet {
+    visibility: visible; }
+  html.tablet .float-tablet-left {
+    float: left; }
+  html.tablet .float-tablet-right {
+    float: right; }
+  html.tablet .clear-tablet {
+    clear: both; }
+  html.tablet .clear-tablet-left {
+    clear: left; }
+  html.tablet .clear-tablet-right {
+    clear: right; }
+  html.tablet .no-gutter-tablet,
+  html.tablet .no-margin-tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+  html.tablet .no-gutter-tablet-left,
+  html.tablet .no-margin-tablet-left {
+    padding-left: 0 !important; }
+  html.tablet .no-gutter-tablet-right,
+  html.tablet .no-margin-tablet-right {
+    padding-right: 0 !important; }
+  html.tablet .no-gutter-tablet-top,
+  html.tablet .no-margin-tablet-top {
+    padding-top: 0 !important; }
+  html.tablet .no-gutter-tablet-bottom,
+  html.tablet .no-margin-tablet-bottom {
+    padding-bottom: 0 !important; }
+  html.tablet .no-gutter-tablet-top,
+  html.tablet .margin-tablet {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; }
+  html.tablet .gutter-tablet-left,
+  html.tablet .margin-tablet-left {
+    padding-left: 0.5rem; }
+  html.tablet .gutter-tablet-right,
+  html.tablet .margin-tablet-right {
+    padding-right: 0.5rem; }
+  html.tablet .gutter-tablet-top,
+  html.tablet .margin-tablet-top {
+    padding-top: 0.5rem; }
+  html.tablet .gutter-tablet-bottom,
+  html.tablet .margin-tablet-bottom {
+    padding-bottom: 0.5rem; }
+  html.tablet .auto-height-tablet {
+    height: inherit; }
+  html.tablet .centered-tablet {
+    display: block !important;
     float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important; }
+  html.tablet .parent-tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+  html.tablet .parent-vertical-align-tablet {
     vertical-align: middle; }
-.gridle-debug html.tablet .debug-color-tablet-1, html.tablet .debug-color-tablet-1.gridle-debug {
-  background-color: #edeeb2; }
-.gridle-debug html.tablet .debug-color-tablet-2, html.tablet .debug-color-tablet-2.gridle-debug {
-  background-color: #fae4a7; }
-.gridle-debug html.tablet .debug-color-tablet-3, html.tablet .debug-color-tablet-3.gridle-debug {
-  background-color: #f5eacc; }
-.gridle-debug html.tablet .debug-color-tablet-4, html.tablet .debug-color-tablet-4.gridle-debug {
-  background-color: #eebdb2; }
-.gridle-debug html.tablet .debug-color-tablet-5, html.tablet .debug-color-tablet-5.gridle-debug {
-  background-color: #d4b2ee; }
-.gridle-debug html.tablet .debug-color-tablet-6, html.tablet .debug-color-tablet-6.gridle-debug {
-  background-color: #b2d8ee; }
+    html.tablet .parent-vertical-align-tablet > * {
+      display: inline-block;
+      float: none !important;
+      vertical-align: middle; }
+  html.tablet .clear-each-tablet-2 > *:nth-child(2n+1) {
+    clear: left; }
+  html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
+    clear: left; }
+  .gridle-debug html.tablet .debug-color-tablet-1, html.tablet .debug-color-tablet-1.gridle-debug {
+    background-color: #edeeb2; }
+  .gridle-debug html.tablet .debug-color-tablet-2, html.tablet .debug-color-tablet-2.gridle-debug {
+    background-color: #fae4a7; }
+  .gridle-debug html.tablet .debug-color-tablet-3, html.tablet .debug-color-tablet-3.gridle-debug {
+    background-color: #f5eacc; }
+  .gridle-debug html.tablet .debug-color-tablet-4, html.tablet .debug-color-tablet-4.gridle-debug {
+    background-color: #eebdb2; }
+  .gridle-debug html.tablet .debug-color-tablet-5, html.tablet .debug-color-tablet-5.gridle-debug {
+    background-color: #d4b2ee; }
+  .gridle-debug html.tablet .debug-color-tablet-6, html.tablet .debug-color-tablet-6.gridle-debug {
+    background-color: #b2d8ee; }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .grid-tablet-1on5 {
@@ -2359,6 +2399,15 @@ html.tablet .parent-vertical-align-tablet {
       float: none !important;
       vertical-align: middle; }
 
+  /**
+   * Clear each class :
+   */
+  .clear-each-tablet-2 > *:nth-child(2n+1) {
+    clear: left; }
+
+  .clear-each-tablet-12 > *:nth-child(12n+1) {
+    clear: left; }
+
   .gridle-debug .debug-color-tablet-1, .debug-color-tablet-1.gridle-debug {
     background-color: #edeeb2; }
 
@@ -2376,393 +2425,401 @@ html.tablet .parent-vertical-align-tablet {
 
   .gridle-debug .debug-color-tablet-6, .debug-color-tablet-6.gridle-debug {
     background-color: #b2d8ee; } }
-html.ipad-landscape .grid-ipad-landscape-1on5 {
-  width: 20%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug:before {
-    content: "grid-ipad-landscape-1"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5.parent:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-1"; }
-html.ipad-landscape .push-ipad-landscape-1on5 {
-  left: 20%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-1on5:after, html.ipad-landscape .push-ipad-landscape-1on5.gridle-debug:after {
-    content: "push-ipad-landscape-1" !important; }
-html.ipad-landscape .pull-ipad-landscape-1on5 {
-  right: 20%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-1on5:after, html.ipad-landscape .pull-ipad-landscape-1on5.gridle-debug:after {
-    content: "pull-ipad-landscape-1" !important; }
-html.ipad-landscape .prefix-ipad-landscape-1on5 {
-  margin-left: 20%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-1on5:after, html.ipad-landscape .prefix-ipad-landscape-1on5.gridle-debug:after {
-    content: "prefix-ipad-landscape-1" !important; }
-html.ipad-landscape .suffix-ipad-landscape-1on5 {
-  margin-right: 20%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-1on5:after, html.ipad-landscape .suffix-ipad-landscape-1on5.gridle-debug:after {
-    content: "suffix-ipad-landscape-1" !important; }
-html.ipad-landscape .grid-ipad-landscape-0 {
-  width: 0%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-0:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug:before {
-    content: "grid-ipad-landscape-0"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-0.parent:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-0"; }
-html.ipad-landscape .push-ipad-landscape-0 {
-  left: 0%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-0:after, html.ipad-landscape .push-ipad-landscape-0.gridle-debug:after {
-    content: "push-ipad-landscape-0" !important; }
-html.ipad-landscape .pull-ipad-landscape-0 {
-  right: 0%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-0:after, html.ipad-landscape .pull-ipad-landscape-0.gridle-debug:after {
-    content: "pull-ipad-landscape-0" !important; }
-html.ipad-landscape .prefix-ipad-landscape-0 {
-  margin-left: 0%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-0:after, html.ipad-landscape .prefix-ipad-landscape-0.gridle-debug:after {
-    content: "prefix-ipad-landscape-0" !important; }
-html.ipad-landscape .suffix-ipad-landscape-0 {
-  margin-right: 0%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-0:after, html.ipad-landscape .suffix-ipad-landscape-0.gridle-debug:after {
-    content: "suffix-ipad-landscape-0" !important; }
-html.ipad-landscape .grid-ipad-landscape-1 {
-  width: 8.33333%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-1:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug:before {
-    content: "grid-ipad-landscape-1"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-1.parent:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-1"; }
-html.ipad-landscape .push-ipad-landscape-1 {
-  left: 8.33333%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-1:after, html.ipad-landscape .push-ipad-landscape-1.gridle-debug:after {
-    content: "push-ipad-landscape-1" !important; }
-html.ipad-landscape .pull-ipad-landscape-1 {
-  right: 8.33333%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-1:after, html.ipad-landscape .pull-ipad-landscape-1.gridle-debug:after {
-    content: "pull-ipad-landscape-1" !important; }
-html.ipad-landscape .prefix-ipad-landscape-1 {
-  margin-left: 8.33333%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-1:after, html.ipad-landscape .prefix-ipad-landscape-1.gridle-debug:after {
-    content: "prefix-ipad-landscape-1" !important; }
-html.ipad-landscape .suffix-ipad-landscape-1 {
-  margin-right: 8.33333%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-1:after, html.ipad-landscape .suffix-ipad-landscape-1.gridle-debug:after {
-    content: "suffix-ipad-landscape-1" !important; }
-html.ipad-landscape .grid-ipad-landscape-2 {
-  width: 16.66667%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-2:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug:before {
-    content: "grid-ipad-landscape-2"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-2.parent:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-2"; }
-html.ipad-landscape .push-ipad-landscape-2 {
-  left: 16.66667%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-2:after, html.ipad-landscape .push-ipad-landscape-2.gridle-debug:after {
-    content: "push-ipad-landscape-2" !important; }
-html.ipad-landscape .pull-ipad-landscape-2 {
-  right: 16.66667%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-2:after, html.ipad-landscape .pull-ipad-landscape-2.gridle-debug:after {
-    content: "pull-ipad-landscape-2" !important; }
-html.ipad-landscape .prefix-ipad-landscape-2 {
-  margin-left: 16.66667%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-2:after, html.ipad-landscape .prefix-ipad-landscape-2.gridle-debug:after {
-    content: "prefix-ipad-landscape-2" !important; }
-html.ipad-landscape .suffix-ipad-landscape-2 {
-  margin-right: 16.66667%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-2:after, html.ipad-landscape .suffix-ipad-landscape-2.gridle-debug:after {
-    content: "suffix-ipad-landscape-2" !important; }
-html.ipad-landscape .grid-ipad-landscape-3 {
-  width: 25%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-3:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug:before {
-    content: "grid-ipad-landscape-3"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-3.parent:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-3"; }
-html.ipad-landscape .push-ipad-landscape-3 {
-  left: 25.0%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-3:after, html.ipad-landscape .push-ipad-landscape-3.gridle-debug:after {
-    content: "push-ipad-landscape-3" !important; }
-html.ipad-landscape .pull-ipad-landscape-3 {
-  right: 25.0%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-3:after, html.ipad-landscape .pull-ipad-landscape-3.gridle-debug:after {
-    content: "pull-ipad-landscape-3" !important; }
-html.ipad-landscape .prefix-ipad-landscape-3 {
-  margin-left: 25.0%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-3:after, html.ipad-landscape .prefix-ipad-landscape-3.gridle-debug:after {
-    content: "prefix-ipad-landscape-3" !important; }
-html.ipad-landscape .suffix-ipad-landscape-3 {
-  margin-right: 25.0%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-3:after, html.ipad-landscape .suffix-ipad-landscape-3.gridle-debug:after {
-    content: "suffix-ipad-landscape-3" !important; }
-html.ipad-landscape .grid-ipad-landscape-4 {
-  width: 33.33333%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-4:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug:before {
-    content: "grid-ipad-landscape-4"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-4.parent:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-4"; }
-html.ipad-landscape .push-ipad-landscape-4 {
-  left: 33.33333%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-4:after, html.ipad-landscape .push-ipad-landscape-4.gridle-debug:after {
-    content: "push-ipad-landscape-4" !important; }
-html.ipad-landscape .pull-ipad-landscape-4 {
-  right: 33.33333%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-4:after, html.ipad-landscape .pull-ipad-landscape-4.gridle-debug:after {
-    content: "pull-ipad-landscape-4" !important; }
-html.ipad-landscape .prefix-ipad-landscape-4 {
-  margin-left: 33.33333%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-4:after, html.ipad-landscape .prefix-ipad-landscape-4.gridle-debug:after {
-    content: "prefix-ipad-landscape-4" !important; }
-html.ipad-landscape .suffix-ipad-landscape-4 {
-  margin-right: 33.33333%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-4:after, html.ipad-landscape .suffix-ipad-landscape-4.gridle-debug:after {
-    content: "suffix-ipad-landscape-4" !important; }
-html.ipad-landscape .grid-ipad-landscape-5 {
-  width: 41.66667%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-5:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug:before {
-    content: "grid-ipad-landscape-5"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-5.parent:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-5"; }
-html.ipad-landscape .push-ipad-landscape-5 {
-  left: 41.66667%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-5:after, html.ipad-landscape .push-ipad-landscape-5.gridle-debug:after {
-    content: "push-ipad-landscape-5" !important; }
-html.ipad-landscape .pull-ipad-landscape-5 {
-  right: 41.66667%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-5:after, html.ipad-landscape .pull-ipad-landscape-5.gridle-debug:after {
-    content: "pull-ipad-landscape-5" !important; }
-html.ipad-landscape .prefix-ipad-landscape-5 {
-  margin-left: 41.66667%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-5:after, html.ipad-landscape .prefix-ipad-landscape-5.gridle-debug:after {
-    content: "prefix-ipad-landscape-5" !important; }
-html.ipad-landscape .suffix-ipad-landscape-5 {
-  margin-right: 41.66667%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-5:after, html.ipad-landscape .suffix-ipad-landscape-5.gridle-debug:after {
-    content: "suffix-ipad-landscape-5" !important; }
-html.ipad-landscape .grid-ipad-landscape-6 {
-  width: 50%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-6:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug:before {
-    content: "grid-ipad-landscape-6"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-6.parent:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-6"; }
-html.ipad-landscape .push-ipad-landscape-6 {
-  left: 50.0%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-6:after, html.ipad-landscape .push-ipad-landscape-6.gridle-debug:after {
-    content: "push-ipad-landscape-6" !important; }
-html.ipad-landscape .pull-ipad-landscape-6 {
-  right: 50.0%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-6:after, html.ipad-landscape .pull-ipad-landscape-6.gridle-debug:after {
-    content: "pull-ipad-landscape-6" !important; }
-html.ipad-landscape .prefix-ipad-landscape-6 {
-  margin-left: 50.0%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-6:after, html.ipad-landscape .prefix-ipad-landscape-6.gridle-debug:after {
-    content: "prefix-ipad-landscape-6" !important; }
-html.ipad-landscape .suffix-ipad-landscape-6 {
-  margin-right: 50.0%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-6:after, html.ipad-landscape .suffix-ipad-landscape-6.gridle-debug:after {
-    content: "suffix-ipad-landscape-6" !important; }
-html.ipad-landscape .grid-ipad-landscape-7 {
-  width: 58.33333%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-7:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug:before {
-    content: "grid-ipad-landscape-7"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-7.parent:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-7"; }
-html.ipad-landscape .push-ipad-landscape-7 {
-  left: 58.33333%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-7:after, html.ipad-landscape .push-ipad-landscape-7.gridle-debug:after {
-    content: "push-ipad-landscape-7" !important; }
-html.ipad-landscape .pull-ipad-landscape-7 {
-  right: 58.33333%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-7:after, html.ipad-landscape .pull-ipad-landscape-7.gridle-debug:after {
-    content: "pull-ipad-landscape-7" !important; }
-html.ipad-landscape .prefix-ipad-landscape-7 {
-  margin-left: 58.33333%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-7:after, html.ipad-landscape .prefix-ipad-landscape-7.gridle-debug:after {
-    content: "prefix-ipad-landscape-7" !important; }
-html.ipad-landscape .suffix-ipad-landscape-7 {
-  margin-right: 58.33333%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-7:after, html.ipad-landscape .suffix-ipad-landscape-7.gridle-debug:after {
-    content: "suffix-ipad-landscape-7" !important; }
-html.ipad-landscape .grid-ipad-landscape-8 {
-  width: 66.66667%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-8:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug:before {
-    content: "grid-ipad-landscape-8"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-8.parent:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-8"; }
-html.ipad-landscape .push-ipad-landscape-8 {
-  left: 66.66667%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-8:after, html.ipad-landscape .push-ipad-landscape-8.gridle-debug:after {
-    content: "push-ipad-landscape-8" !important; }
-html.ipad-landscape .pull-ipad-landscape-8 {
-  right: 66.66667%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-8:after, html.ipad-landscape .pull-ipad-landscape-8.gridle-debug:after {
-    content: "pull-ipad-landscape-8" !important; }
-html.ipad-landscape .prefix-ipad-landscape-8 {
-  margin-left: 66.66667%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-8:after, html.ipad-landscape .prefix-ipad-landscape-8.gridle-debug:after {
-    content: "prefix-ipad-landscape-8" !important; }
-html.ipad-landscape .suffix-ipad-landscape-8 {
-  margin-right: 66.66667%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-8:after, html.ipad-landscape .suffix-ipad-landscape-8.gridle-debug:after {
-    content: "suffix-ipad-landscape-8" !important; }
-html.ipad-landscape .grid-ipad-landscape-9 {
-  width: 75%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-9:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug:before {
-    content: "grid-ipad-landscape-9"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-9.parent:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-9"; }
-html.ipad-landscape .push-ipad-landscape-9 {
-  left: 75.0%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-9:after, html.ipad-landscape .push-ipad-landscape-9.gridle-debug:after {
-    content: "push-ipad-landscape-9" !important; }
-html.ipad-landscape .pull-ipad-landscape-9 {
-  right: 75.0%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-9:after, html.ipad-landscape .pull-ipad-landscape-9.gridle-debug:after {
-    content: "pull-ipad-landscape-9" !important; }
-html.ipad-landscape .prefix-ipad-landscape-9 {
-  margin-left: 75.0%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-9:after, html.ipad-landscape .prefix-ipad-landscape-9.gridle-debug:after {
-    content: "prefix-ipad-landscape-9" !important; }
-html.ipad-landscape .suffix-ipad-landscape-9 {
-  margin-right: 75.0%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-9:after, html.ipad-landscape .suffix-ipad-landscape-9.gridle-debug:after {
-    content: "suffix-ipad-landscape-9" !important; }
-html.ipad-landscape .grid-ipad-landscape-10 {
-  width: 83.33333%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-10:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug:before {
-    content: "grid-ipad-landscape-10"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-10.parent:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-10"; }
-html.ipad-landscape .push-ipad-landscape-10 {
-  left: 83.33333%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-10:after, html.ipad-landscape .push-ipad-landscape-10.gridle-debug:after {
-    content: "push-ipad-landscape-10" !important; }
-html.ipad-landscape .pull-ipad-landscape-10 {
-  right: 83.33333%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-10:after, html.ipad-landscape .pull-ipad-landscape-10.gridle-debug:after {
-    content: "pull-ipad-landscape-10" !important; }
-html.ipad-landscape .prefix-ipad-landscape-10 {
-  margin-left: 83.33333%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-10:after, html.ipad-landscape .prefix-ipad-landscape-10.gridle-debug:after {
-    content: "prefix-ipad-landscape-10" !important; }
-html.ipad-landscape .suffix-ipad-landscape-10 {
-  margin-right: 83.33333%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-10:after, html.ipad-landscape .suffix-ipad-landscape-10.gridle-debug:after {
-    content: "suffix-ipad-landscape-10" !important; }
-html.ipad-landscape .grid-ipad-landscape-11 {
-  width: 91.66667%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-11:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug:before {
-    content: "grid-ipad-landscape-11"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-11.parent:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-11"; }
-html.ipad-landscape .push-ipad-landscape-11 {
-  left: 91.66667%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-11:after, html.ipad-landscape .push-ipad-landscape-11.gridle-debug:after {
-    content: "push-ipad-landscape-11" !important; }
-html.ipad-landscape .pull-ipad-landscape-11 {
-  right: 91.66667%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-11:after, html.ipad-landscape .pull-ipad-landscape-11.gridle-debug:after {
-    content: "pull-ipad-landscape-11" !important; }
-html.ipad-landscape .prefix-ipad-landscape-11 {
-  margin-left: 91.66667%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-11:after, html.ipad-landscape .prefix-ipad-landscape-11.gridle-debug:after {
-    content: "prefix-ipad-landscape-11" !important; }
-html.ipad-landscape .suffix-ipad-landscape-11 {
-  margin-right: 91.66667%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-11:after, html.ipad-landscape .suffix-ipad-landscape-11.gridle-debug:after {
-    content: "suffix-ipad-landscape-11" !important; }
-html.ipad-landscape .grid-ipad-landscape-12 {
-  width: 100%; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-12:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug:before {
-    content: "grid-ipad-landscape-12"; }
-  .gridle-debug html.ipad-landscape .grid-ipad-landscape-12.parent:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug.parent:before {
-    content: "grid-parent-ipad-landscape-12"; }
-html.ipad-landscape .push-ipad-landscape-12 {
-  left: 100.0%; }
-  .gridle-debug html.ipad-landscape .push-ipad-landscape-12:after, html.ipad-landscape .push-ipad-landscape-12.gridle-debug:after {
-    content: "push-ipad-landscape-12" !important; }
-html.ipad-landscape .pull-ipad-landscape-12 {
-  right: 100.0%; }
-  .gridle-debug html.ipad-landscape .pull-ipad-landscape-12:after, html.ipad-landscape .pull-ipad-landscape-12.gridle-debug:after {
-    content: "pull-ipad-landscape-12" !important; }
-html.ipad-landscape .prefix-ipad-landscape-12 {
-  margin-left: 100.0%; }
-  .gridle-debug html.ipad-landscape .prefix-ipad-landscape-12:after, html.ipad-landscape .prefix-ipad-landscape-12.gridle-debug:after {
-    content: "prefix-ipad-landscape-12" !important; }
-html.ipad-landscape .suffix-ipad-landscape-12 {
-  margin-right: 100.0%; }
-  .gridle-debug html.ipad-landscape .suffix-ipad-landscape-12:after, html.ipad-landscape .suffix-ipad-landscape-12.gridle-debug:after {
-    content: "suffix-ipad-landscape-12" !important; }
-html.ipad-landscape .hide-ipad-landscape {
-  display: none; }
-html.ipad-landscape .not-visible-ipad-landscape {
-  visibility: hidden; }
-html.ipad-landscape .show-ipad-landscape {
-  display: block; }
-html.ipad-landscape .visible-ipad-landscape {
-  visibility: visible; }
-html.ipad-landscape .float-ipad-landscape-left {
-  float: left; }
-html.ipad-landscape .float-ipad-landscape-right {
-  float: right; }
-html.ipad-landscape .clear-ipad-landscape {
-  clear: both; }
-html.ipad-landscape .clear-ipad-landscape-left {
-  clear: left; }
-html.ipad-landscape .clear-ipad-landscape-right {
-  clear: right; }
-html.ipad-landscape .no-gutter-ipad-landscape,
-html.ipad-landscape .no-margin-ipad-landscape {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-html.ipad-landscape .no-gutter-ipad-landscape-left,
-html.ipad-landscape .no-margin-ipad-landscape-left {
-  padding-left: 0 !important; }
-html.ipad-landscape .no-gutter-ipad-landscape-right,
-html.ipad-landscape .no-margin-ipad-landscape-right {
-  padding-right: 0 !important; }
-html.ipad-landscape .no-gutter-ipad-landscape-top,
-html.ipad-landscape .no-margin-ipad-landscape-top {
-  padding-top: 0 !important; }
-html.ipad-landscape .no-gutter-ipad-landscape-bottom,
-html.ipad-landscape .no-margin-ipad-landscape-bottom {
-  padding-bottom: 0 !important; }
-html.ipad-landscape .no-gutter-ipad-landscape-top,
-html.ipad-landscape .margin-ipad-landscape {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem; }
-html.ipad-landscape .gutter-ipad-landscape-left,
-html.ipad-landscape .margin-ipad-landscape-left {
-  padding-left: 0.5rem; }
-html.ipad-landscape .gutter-ipad-landscape-right,
-html.ipad-landscape .margin-ipad-landscape-right {
-  padding-right: 0.5rem; }
-html.ipad-landscape .gutter-ipad-landscape-top,
-html.ipad-landscape .margin-ipad-landscape-top {
-  padding-top: 0.5rem; }
-html.ipad-landscape .gutter-ipad-landscape-bottom,
-html.ipad-landscape .margin-ipad-landscape-bottom {
-  padding-bottom: 0.5rem; }
-html.ipad-landscape .auto-height-ipad-landscape {
-  height: inherit; }
-html.ipad-landscape .centered-ipad-landscape {
-  display: block !important;
-  float: none !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  clear: both !important; }
-html.ipad-landscape .parent-ipad-landscape {
-  padding-left: 0 !important;
-  padding-right: 0 !important; }
-html.ipad-landscape .parent-vertical-align-ipad-landscape {
-  vertical-align: middle; }
-  html.ipad-landscape .parent-vertical-align-ipad-landscape > * {
-    display: inline-block;
+html.ipad-landscape {
+  /**
+   * Clear each class :
+   */ }
+  html.ipad-landscape .grid-ipad-landscape-1on5 {
+    width: 20%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug:before {
+      content: "grid-ipad-landscape-1"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5.parent:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-1"; }
+  html.ipad-landscape .push-ipad-landscape-1on5 {
+    left: 20%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-1on5:after, html.ipad-landscape .push-ipad-landscape-1on5.gridle-debug:after {
+      content: "push-ipad-landscape-1" !important; }
+  html.ipad-landscape .pull-ipad-landscape-1on5 {
+    right: 20%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-1on5:after, html.ipad-landscape .pull-ipad-landscape-1on5.gridle-debug:after {
+      content: "pull-ipad-landscape-1" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-1on5 {
+    margin-left: 20%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-1on5:after, html.ipad-landscape .prefix-ipad-landscape-1on5.gridle-debug:after {
+      content: "prefix-ipad-landscape-1" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-1on5 {
+    margin-right: 20%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-1on5:after, html.ipad-landscape .suffix-ipad-landscape-1on5.gridle-debug:after {
+      content: "suffix-ipad-landscape-1" !important; }
+  html.ipad-landscape .grid-ipad-landscape-0 {
+    width: 0%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-0:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug:before {
+      content: "grid-ipad-landscape-0"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-0.parent:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-0"; }
+  html.ipad-landscape .push-ipad-landscape-0 {
+    left: 0%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-0:after, html.ipad-landscape .push-ipad-landscape-0.gridle-debug:after {
+      content: "push-ipad-landscape-0" !important; }
+  html.ipad-landscape .pull-ipad-landscape-0 {
+    right: 0%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-0:after, html.ipad-landscape .pull-ipad-landscape-0.gridle-debug:after {
+      content: "pull-ipad-landscape-0" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-0 {
+    margin-left: 0%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-0:after, html.ipad-landscape .prefix-ipad-landscape-0.gridle-debug:after {
+      content: "prefix-ipad-landscape-0" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-0 {
+    margin-right: 0%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-0:after, html.ipad-landscape .suffix-ipad-landscape-0.gridle-debug:after {
+      content: "suffix-ipad-landscape-0" !important; }
+  html.ipad-landscape .grid-ipad-landscape-1 {
+    width: 8.33333%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-1:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug:before {
+      content: "grid-ipad-landscape-1"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-1.parent:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-1"; }
+  html.ipad-landscape .push-ipad-landscape-1 {
+    left: 8.33333%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-1:after, html.ipad-landscape .push-ipad-landscape-1.gridle-debug:after {
+      content: "push-ipad-landscape-1" !important; }
+  html.ipad-landscape .pull-ipad-landscape-1 {
+    right: 8.33333%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-1:after, html.ipad-landscape .pull-ipad-landscape-1.gridle-debug:after {
+      content: "pull-ipad-landscape-1" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-1 {
+    margin-left: 8.33333%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-1:after, html.ipad-landscape .prefix-ipad-landscape-1.gridle-debug:after {
+      content: "prefix-ipad-landscape-1" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-1 {
+    margin-right: 8.33333%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-1:after, html.ipad-landscape .suffix-ipad-landscape-1.gridle-debug:after {
+      content: "suffix-ipad-landscape-1" !important; }
+  html.ipad-landscape .grid-ipad-landscape-2 {
+    width: 16.66667%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-2:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug:before {
+      content: "grid-ipad-landscape-2"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-2.parent:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-2"; }
+  html.ipad-landscape .push-ipad-landscape-2 {
+    left: 16.66667%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-2:after, html.ipad-landscape .push-ipad-landscape-2.gridle-debug:after {
+      content: "push-ipad-landscape-2" !important; }
+  html.ipad-landscape .pull-ipad-landscape-2 {
+    right: 16.66667%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-2:after, html.ipad-landscape .pull-ipad-landscape-2.gridle-debug:after {
+      content: "pull-ipad-landscape-2" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-2 {
+    margin-left: 16.66667%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-2:after, html.ipad-landscape .prefix-ipad-landscape-2.gridle-debug:after {
+      content: "prefix-ipad-landscape-2" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-2 {
+    margin-right: 16.66667%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-2:after, html.ipad-landscape .suffix-ipad-landscape-2.gridle-debug:after {
+      content: "suffix-ipad-landscape-2" !important; }
+  html.ipad-landscape .grid-ipad-landscape-3 {
+    width: 25%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-3:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug:before {
+      content: "grid-ipad-landscape-3"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-3.parent:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-3"; }
+  html.ipad-landscape .push-ipad-landscape-3 {
+    left: 25.0%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-3:after, html.ipad-landscape .push-ipad-landscape-3.gridle-debug:after {
+      content: "push-ipad-landscape-3" !important; }
+  html.ipad-landscape .pull-ipad-landscape-3 {
+    right: 25.0%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-3:after, html.ipad-landscape .pull-ipad-landscape-3.gridle-debug:after {
+      content: "pull-ipad-landscape-3" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-3 {
+    margin-left: 25.0%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-3:after, html.ipad-landscape .prefix-ipad-landscape-3.gridle-debug:after {
+      content: "prefix-ipad-landscape-3" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-3 {
+    margin-right: 25.0%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-3:after, html.ipad-landscape .suffix-ipad-landscape-3.gridle-debug:after {
+      content: "suffix-ipad-landscape-3" !important; }
+  html.ipad-landscape .grid-ipad-landscape-4 {
+    width: 33.33333%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-4:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug:before {
+      content: "grid-ipad-landscape-4"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-4.parent:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-4"; }
+  html.ipad-landscape .push-ipad-landscape-4 {
+    left: 33.33333%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-4:after, html.ipad-landscape .push-ipad-landscape-4.gridle-debug:after {
+      content: "push-ipad-landscape-4" !important; }
+  html.ipad-landscape .pull-ipad-landscape-4 {
+    right: 33.33333%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-4:after, html.ipad-landscape .pull-ipad-landscape-4.gridle-debug:after {
+      content: "pull-ipad-landscape-4" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-4 {
+    margin-left: 33.33333%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-4:after, html.ipad-landscape .prefix-ipad-landscape-4.gridle-debug:after {
+      content: "prefix-ipad-landscape-4" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-4 {
+    margin-right: 33.33333%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-4:after, html.ipad-landscape .suffix-ipad-landscape-4.gridle-debug:after {
+      content: "suffix-ipad-landscape-4" !important; }
+  html.ipad-landscape .grid-ipad-landscape-5 {
+    width: 41.66667%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-5:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug:before {
+      content: "grid-ipad-landscape-5"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-5.parent:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-5"; }
+  html.ipad-landscape .push-ipad-landscape-5 {
+    left: 41.66667%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-5:after, html.ipad-landscape .push-ipad-landscape-5.gridle-debug:after {
+      content: "push-ipad-landscape-5" !important; }
+  html.ipad-landscape .pull-ipad-landscape-5 {
+    right: 41.66667%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-5:after, html.ipad-landscape .pull-ipad-landscape-5.gridle-debug:after {
+      content: "pull-ipad-landscape-5" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-5 {
+    margin-left: 41.66667%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-5:after, html.ipad-landscape .prefix-ipad-landscape-5.gridle-debug:after {
+      content: "prefix-ipad-landscape-5" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-5 {
+    margin-right: 41.66667%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-5:after, html.ipad-landscape .suffix-ipad-landscape-5.gridle-debug:after {
+      content: "suffix-ipad-landscape-5" !important; }
+  html.ipad-landscape .grid-ipad-landscape-6 {
+    width: 50%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-6:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug:before {
+      content: "grid-ipad-landscape-6"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-6.parent:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-6"; }
+  html.ipad-landscape .push-ipad-landscape-6 {
+    left: 50.0%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-6:after, html.ipad-landscape .push-ipad-landscape-6.gridle-debug:after {
+      content: "push-ipad-landscape-6" !important; }
+  html.ipad-landscape .pull-ipad-landscape-6 {
+    right: 50.0%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-6:after, html.ipad-landscape .pull-ipad-landscape-6.gridle-debug:after {
+      content: "pull-ipad-landscape-6" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-6 {
+    margin-left: 50.0%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-6:after, html.ipad-landscape .prefix-ipad-landscape-6.gridle-debug:after {
+      content: "prefix-ipad-landscape-6" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-6 {
+    margin-right: 50.0%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-6:after, html.ipad-landscape .suffix-ipad-landscape-6.gridle-debug:after {
+      content: "suffix-ipad-landscape-6" !important; }
+  html.ipad-landscape .grid-ipad-landscape-7 {
+    width: 58.33333%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-7:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug:before {
+      content: "grid-ipad-landscape-7"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-7.parent:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-7"; }
+  html.ipad-landscape .push-ipad-landscape-7 {
+    left: 58.33333%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-7:after, html.ipad-landscape .push-ipad-landscape-7.gridle-debug:after {
+      content: "push-ipad-landscape-7" !important; }
+  html.ipad-landscape .pull-ipad-landscape-7 {
+    right: 58.33333%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-7:after, html.ipad-landscape .pull-ipad-landscape-7.gridle-debug:after {
+      content: "pull-ipad-landscape-7" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-7 {
+    margin-left: 58.33333%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-7:after, html.ipad-landscape .prefix-ipad-landscape-7.gridle-debug:after {
+      content: "prefix-ipad-landscape-7" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-7 {
+    margin-right: 58.33333%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-7:after, html.ipad-landscape .suffix-ipad-landscape-7.gridle-debug:after {
+      content: "suffix-ipad-landscape-7" !important; }
+  html.ipad-landscape .grid-ipad-landscape-8 {
+    width: 66.66667%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-8:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug:before {
+      content: "grid-ipad-landscape-8"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-8.parent:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-8"; }
+  html.ipad-landscape .push-ipad-landscape-8 {
+    left: 66.66667%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-8:after, html.ipad-landscape .push-ipad-landscape-8.gridle-debug:after {
+      content: "push-ipad-landscape-8" !important; }
+  html.ipad-landscape .pull-ipad-landscape-8 {
+    right: 66.66667%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-8:after, html.ipad-landscape .pull-ipad-landscape-8.gridle-debug:after {
+      content: "pull-ipad-landscape-8" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-8 {
+    margin-left: 66.66667%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-8:after, html.ipad-landscape .prefix-ipad-landscape-8.gridle-debug:after {
+      content: "prefix-ipad-landscape-8" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-8 {
+    margin-right: 66.66667%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-8:after, html.ipad-landscape .suffix-ipad-landscape-8.gridle-debug:after {
+      content: "suffix-ipad-landscape-8" !important; }
+  html.ipad-landscape .grid-ipad-landscape-9 {
+    width: 75%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-9:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug:before {
+      content: "grid-ipad-landscape-9"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-9.parent:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-9"; }
+  html.ipad-landscape .push-ipad-landscape-9 {
+    left: 75.0%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-9:after, html.ipad-landscape .push-ipad-landscape-9.gridle-debug:after {
+      content: "push-ipad-landscape-9" !important; }
+  html.ipad-landscape .pull-ipad-landscape-9 {
+    right: 75.0%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-9:after, html.ipad-landscape .pull-ipad-landscape-9.gridle-debug:after {
+      content: "pull-ipad-landscape-9" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-9 {
+    margin-left: 75.0%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-9:after, html.ipad-landscape .prefix-ipad-landscape-9.gridle-debug:after {
+      content: "prefix-ipad-landscape-9" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-9 {
+    margin-right: 75.0%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-9:after, html.ipad-landscape .suffix-ipad-landscape-9.gridle-debug:after {
+      content: "suffix-ipad-landscape-9" !important; }
+  html.ipad-landscape .grid-ipad-landscape-10 {
+    width: 83.33333%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-10:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug:before {
+      content: "grid-ipad-landscape-10"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-10.parent:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-10"; }
+  html.ipad-landscape .push-ipad-landscape-10 {
+    left: 83.33333%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-10:after, html.ipad-landscape .push-ipad-landscape-10.gridle-debug:after {
+      content: "push-ipad-landscape-10" !important; }
+  html.ipad-landscape .pull-ipad-landscape-10 {
+    right: 83.33333%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-10:after, html.ipad-landscape .pull-ipad-landscape-10.gridle-debug:after {
+      content: "pull-ipad-landscape-10" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-10 {
+    margin-left: 83.33333%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-10:after, html.ipad-landscape .prefix-ipad-landscape-10.gridle-debug:after {
+      content: "prefix-ipad-landscape-10" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-10 {
+    margin-right: 83.33333%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-10:after, html.ipad-landscape .suffix-ipad-landscape-10.gridle-debug:after {
+      content: "suffix-ipad-landscape-10" !important; }
+  html.ipad-landscape .grid-ipad-landscape-11 {
+    width: 91.66667%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-11:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug:before {
+      content: "grid-ipad-landscape-11"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-11.parent:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-11"; }
+  html.ipad-landscape .push-ipad-landscape-11 {
+    left: 91.66667%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-11:after, html.ipad-landscape .push-ipad-landscape-11.gridle-debug:after {
+      content: "push-ipad-landscape-11" !important; }
+  html.ipad-landscape .pull-ipad-landscape-11 {
+    right: 91.66667%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-11:after, html.ipad-landscape .pull-ipad-landscape-11.gridle-debug:after {
+      content: "pull-ipad-landscape-11" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-11 {
+    margin-left: 91.66667%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-11:after, html.ipad-landscape .prefix-ipad-landscape-11.gridle-debug:after {
+      content: "prefix-ipad-landscape-11" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-11 {
+    margin-right: 91.66667%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-11:after, html.ipad-landscape .suffix-ipad-landscape-11.gridle-debug:after {
+      content: "suffix-ipad-landscape-11" !important; }
+  html.ipad-landscape .grid-ipad-landscape-12 {
+    width: 100%; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-12:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug:before {
+      content: "grid-ipad-landscape-12"; }
+    .gridle-debug html.ipad-landscape .grid-ipad-landscape-12.parent:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug.parent:before {
+      content: "grid-parent-ipad-landscape-12"; }
+  html.ipad-landscape .push-ipad-landscape-12 {
+    left: 100.0%; }
+    .gridle-debug html.ipad-landscape .push-ipad-landscape-12:after, html.ipad-landscape .push-ipad-landscape-12.gridle-debug:after {
+      content: "push-ipad-landscape-12" !important; }
+  html.ipad-landscape .pull-ipad-landscape-12 {
+    right: 100.0%; }
+    .gridle-debug html.ipad-landscape .pull-ipad-landscape-12:after, html.ipad-landscape .pull-ipad-landscape-12.gridle-debug:after {
+      content: "pull-ipad-landscape-12" !important; }
+  html.ipad-landscape .prefix-ipad-landscape-12 {
+    margin-left: 100.0%; }
+    .gridle-debug html.ipad-landscape .prefix-ipad-landscape-12:after, html.ipad-landscape .prefix-ipad-landscape-12.gridle-debug:after {
+      content: "prefix-ipad-landscape-12" !important; }
+  html.ipad-landscape .suffix-ipad-landscape-12 {
+    margin-right: 100.0%; }
+    .gridle-debug html.ipad-landscape .suffix-ipad-landscape-12:after, html.ipad-landscape .suffix-ipad-landscape-12.gridle-debug:after {
+      content: "suffix-ipad-landscape-12" !important; }
+  html.ipad-landscape .hide-ipad-landscape {
+    display: none; }
+  html.ipad-landscape .not-visible-ipad-landscape {
+    visibility: hidden; }
+  html.ipad-landscape .show-ipad-landscape {
+    display: block; }
+  html.ipad-landscape .visible-ipad-landscape {
+    visibility: visible; }
+  html.ipad-landscape .float-ipad-landscape-left {
+    float: left; }
+  html.ipad-landscape .float-ipad-landscape-right {
+    float: right; }
+  html.ipad-landscape .clear-ipad-landscape {
+    clear: both; }
+  html.ipad-landscape .clear-ipad-landscape-left {
+    clear: left; }
+  html.ipad-landscape .clear-ipad-landscape-right {
+    clear: right; }
+  html.ipad-landscape .no-gutter-ipad-landscape,
+  html.ipad-landscape .no-margin-ipad-landscape {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+  html.ipad-landscape .no-gutter-ipad-landscape-left,
+  html.ipad-landscape .no-margin-ipad-landscape-left {
+    padding-left: 0 !important; }
+  html.ipad-landscape .no-gutter-ipad-landscape-right,
+  html.ipad-landscape .no-margin-ipad-landscape-right {
+    padding-right: 0 !important; }
+  html.ipad-landscape .no-gutter-ipad-landscape-top,
+  html.ipad-landscape .no-margin-ipad-landscape-top {
+    padding-top: 0 !important; }
+  html.ipad-landscape .no-gutter-ipad-landscape-bottom,
+  html.ipad-landscape .no-margin-ipad-landscape-bottom {
+    padding-bottom: 0 !important; }
+  html.ipad-landscape .no-gutter-ipad-landscape-top,
+  html.ipad-landscape .margin-ipad-landscape {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem; }
+  html.ipad-landscape .gutter-ipad-landscape-left,
+  html.ipad-landscape .margin-ipad-landscape-left {
+    padding-left: 0.5rem; }
+  html.ipad-landscape .gutter-ipad-landscape-right,
+  html.ipad-landscape .margin-ipad-landscape-right {
+    padding-right: 0.5rem; }
+  html.ipad-landscape .gutter-ipad-landscape-top,
+  html.ipad-landscape .margin-ipad-landscape-top {
+    padding-top: 0.5rem; }
+  html.ipad-landscape .gutter-ipad-landscape-bottom,
+  html.ipad-landscape .margin-ipad-landscape-bottom {
+    padding-bottom: 0.5rem; }
+  html.ipad-landscape .auto-height-ipad-landscape {
+    height: inherit; }
+  html.ipad-landscape .centered-ipad-landscape {
+    display: block !important;
     float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important; }
+  html.ipad-landscape .parent-ipad-landscape {
+    padding-left: 0 !important;
+    padding-right: 0 !important; }
+  html.ipad-landscape .parent-vertical-align-ipad-landscape {
     vertical-align: middle; }
-.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-1, html.ipad-landscape .debug-color-ipad-landscape-1.gridle-debug {
-  background-color: #edeeb2; }
-.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-2, html.ipad-landscape .debug-color-ipad-landscape-2.gridle-debug {
-  background-color: #fae4a7; }
-.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-3, html.ipad-landscape .debug-color-ipad-landscape-3.gridle-debug {
-  background-color: #f5eacc; }
-.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-4, html.ipad-landscape .debug-color-ipad-landscape-4.gridle-debug {
-  background-color: #eebdb2; }
-.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-5, html.ipad-landscape .debug-color-ipad-landscape-5.gridle-debug {
-  background-color: #d4b2ee; }
-.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-6, html.ipad-landscape .debug-color-ipad-landscape-6.gridle-debug {
-  background-color: #b2d8ee; }
+    html.ipad-landscape .parent-vertical-align-ipad-landscape > * {
+      display: inline-block;
+      float: none !important;
+      vertical-align: middle; }
+  html.ipad-landscape .clear-each-ipad-landscape-2 > *:nth-child(2n+1) {
+    clear: left; }
+  html.ipad-landscape .clear-each-ipad-landscape-12 > *:nth-child(12n+1) {
+    clear: left; }
+  .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-1, html.ipad-landscape .debug-color-ipad-landscape-1.gridle-debug {
+    background-color: #edeeb2; }
+  .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-2, html.ipad-landscape .debug-color-ipad-landscape-2.gridle-debug {
+    background-color: #fae4a7; }
+  .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-3, html.ipad-landscape .debug-color-ipad-landscape-3.gridle-debug {
+    background-color: #f5eacc; }
+  .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-4, html.ipad-landscape .debug-color-ipad-landscape-4.gridle-debug {
+    background-color: #eebdb2; }
+  .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-5, html.ipad-landscape .debug-color-ipad-landscape-5.gridle-debug {
+    background-color: #d4b2ee; }
+  .gridle-debug html.ipad-landscape .debug-color-ipad-landscape-6, html.ipad-landscape .debug-color-ipad-landscape-6.gridle-debug {
+    background-color: #b2d8ee; }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-ipad-landscape-1on5 {
@@ -3232,6 +3289,15 @@ html.ipad-landscape .parent-vertical-align-ipad-landscape {
       display: inline-block;
       float: none !important;
       vertical-align: middle; }
+
+  /**
+   * Clear each class :
+   */
+  .clear-each-ipad-landscape-2 > *:nth-child(2n+1) {
+    clear: left; }
+
+  .clear-each-ipad-landscape-12 > *:nth-child(12n+1) {
+    clear: left; }
 
   .gridle-debug .debug-color-ipad-landscape-1, .debug-color-ipad-landscape-1.gridle-debug {
     background-color: #edeeb2; }

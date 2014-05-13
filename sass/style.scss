@@ -52,3 +52,7 @@ body {
 		font-size:16px;
 	}
 }
+
+.parent-clear-5 {
+	@include gridle_clear_each(5);
+}

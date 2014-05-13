@@ -92,6 +92,20 @@
 		@include _gridle_parent_vertical_align();
 	}
 
+	/**
+	 * Clear each class :
+	 */
+	@each $clearName, $clearMap in $_gridle_clear_classes {
+		// get count :
+		$clearCount : map-get($clearMap, clearEach);
+		// what to clear :
+		$clearWhat : map-get($clearMap, clearWhat);
+		// generate the class :
+		#{_gridle_classname($gridle-clear-each-pattern, $state, $clearCount)} {
+			@include _gridle_clear_each($clearCount, $clearWhat, $state);
+		}
+	}
+
 	// debug colors :
 	@if $gridle-debug {
 		// debug color classes :

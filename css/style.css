@@ -26,7 +26,9 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /** Generate classname  @param 	List 		$parrern 	The pattern to use to generate classname @param 	String 		$state 		The state @param 	int 		$count 		The column count */
 /** Get the media query for a particular state, or with, etc...  @param 	Mixed 		$state-or-min-width 		The state name of the min with @param 	Mixed 		$max-width 			The max width if first param is a min width @return 	String 						The media query string without the @media */
 /** Get states count  @return 	int 	The number of states defined */
+/** Register a clear each class */
 /** Register a special class */
+/** Parent clear each */
 /** Vertical align : */
 /** Medias : */
 ul#medias { background: black; text-align: center; margin-bottom: 30px; }
@@ -40,3 +42,5 @@ html.mobile body { text-align: center; }
 @media screen and (max-width: 480px) { body { text-align: center; } }
 html.ipad-landscape body { font-size: 16px; }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { body { font-size: 16px; } }
+
+.parent-clear-5 > *:nth-child(5n+1) { clear: both; }
