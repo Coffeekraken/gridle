@@ -87,7 +87,23 @@
 ) {
 	// vars :
 	$width : percentage(1 / $context * $columns);
-	width:$width;
+	
+	// check if is paddings or margin for gutters :
+	@if unquote($gridle-gutter-type) == margin
+	{
+		width:calc(#{$width} - #{$gridle-gutter-width});
+		margin:0 $gridle-gutter-width/2;
+		
+		// if has the parent class, need to adapt :
+		$parentSelector : _gridle_classname($gridle-parent-name-pattern,null,null);
+		&#{$parentSelector} {
+			width:$width;
+			margin:0;			
+		}
+
+	} @else {
+		width:$width;
+	}
 	
 	// ie7 support :
 	@if $gridle-ie7-support == true {
@@ -239,8 +255,19 @@
 ) {
 	// vars :
 	$width : percentage(1 / $context) * $columns;
-	@if $gridle-direction == rtl { margin-right:$width; }
-	@else { margin-left:$width; }
+
+	// different method if gutter is padding or margin :
+	@if unquote($gridle-gutter-type) == padding
+	{
+		@if $gridle-direction == rtl { margin-right:$width; }
+		@else { margin-left:$width; }
+	} @else {
+		@if $gridle-direction == rtl {
+			margin-right:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
+		} @else {
+			margin-left:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
+		}
+	}
 
 	// debug css :
 	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
@@ -287,8 +314,19 @@
 ) {
 	// vars :
 	$width : percentage(1 / $context) * $columns;
-	@if $gridle-direction == rtl { margin-left:$width; }
-	@else { margin-right:$width; }
+	
+	// different method if gutter is padding or margin :
+	@if unquote($gridle-gutter-type) == padding
+	{
+		@if $gridle-direction == rtl { margin-left:$width; }
+		@else { margin-right:$width; }
+	} @else {
+		@if $gridle-direction == rtl {
+			margin-left:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
+		} @else {
+			margin-right:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
+		}
+	}
 
 	// debug css :
 	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
@@ -416,7 +454,10 @@
 	}
 }
 @mixin _gridle_parent() {
-	@include gridle_no_gutter();
+	@if unquote($gridle-gutter-type) == padding
+	{
+		@include gridle_no_gutter();
+	}
 }
 
 

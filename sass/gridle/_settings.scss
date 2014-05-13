@@ -7,8 +7,8 @@
 // gridle configuration vars :
 $gridle-columns-count 				: 12 !default;
 $gridle-gutter-width 					: 20px !default;
+$gridle-gutter-type 					: padding !default;
 $gridle-name-multiplicator 				: 1 !default;
-
 $gridle-direction 					: ltr !default;
 
 $gridle-debug 						: false !default;
@@ -31,6 +31,7 @@ $gridle-class-separator 				: '-' !default;
 
 $gridle-container-name-pattern 			: ('container') !default;
 
+$gridle-grid-generic-unique-name-pattern 		: ('grid','%-') !default; // used to target grid with for example [class*="grid-"]
 $gridle-grid-name-pattern 				: ('grid','%-','%state','%-','%count') !default;
 $gridle-push-name-pattern 				: ('push','%-','%state','%-','%count') !default;
 $gridle-pull-name-pattern 				: ('pull','%-','%state','%-','%count') !default;

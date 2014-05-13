@@ -24,8 +24,11 @@
 		direction:ltr;
 	}
 
-	// set padding :
-	padding:0 $gridle-gutter-width/2;
+	@if $gridle-gutter-type == padding {
+		// set padding :
+		padding:0 $gridle-gutter-width/2;
+	}
+
 	@if $gridle-debug == true {
 		#{$gridle-debug-selector} {
 			@extend %gridle-grid-debug-common;
