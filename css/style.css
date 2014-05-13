@@ -28,6 +28,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /** Get states count  @return 	int 	The number of states defined */
 /** Register a clear each class */
 /** Register a special class */
+/** Register default states */
+/** Register default mobile first states : */
+/** Set the context for a particular state  @param 	String 		$state 		The state to update @param 	int 		$context 	The new context to set */
+/** Set the debug device (not used for now)  @param 	String 		$state 		The state to update @para m 	String 		$device 	The device to use (iphone, etc...) */
 /** Parent clear each */
 /** Vertical align : */
 /** Medias : */
@@ -42,5 +46,3 @@ html.mobile body { text-align: center; }
 @media screen and (max-width: 480px) { body { text-align: center; } }
 html.ipad-landscape body { font-size: 16px; }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { body { font-size: 16px; } }
-
-.parent-clear-5 > *:nth-child(5n+1) { clear: both; }

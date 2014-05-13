@@ -87,7 +87,9 @@
 }
 
 
-// Register default states :
+/**
+ * Register default states
+ */
 @mixin gridle_register_default_states() {
 	// register mobile and tablet states :
 	@include gridle_register_state("mobile",null,480px);
@@ -95,7 +97,23 @@
 }
 
 
-// set context by state :
+/**
+ * Register default mobile first states :
+ */
+@mixin gridle_register_default_mobile_first_states() {
+	@include gridle_register_state("xs", null, 768px);
+	@include gridle_register_state("sm", 768px, null);
+	@include gridle_register_state("md", 992px, null);
+	@include gridle_register_state("lg", 1200px, null);
+}
+
+
+/**
+ * Set the context for a particular state
+ *
+ * @param 	String 		$state 		The state to update
+ * @param 	int 		$context 	The new context to set
+ */
 @mixin gridle_set_context_for_state(
 	$state,
 	$context
@@ -105,7 +123,12 @@
 }
 
 
-// set state debug device :
+/**
+ * Set the debug device (not used for now)
+ * 
+ * @param 	String 		$state 		The state to update
+ * @para m 	String 		$device 	The device to use (iphone, etc...)
+ */
 @mixin gridle_set_debug_device(
 	$state : null,
 	$device : null

@@ -39,8 +39,8 @@
 	#{_gridle_classname($gridle-clear-right-name-pattern, $state)} {
 		@include gridle_clear(right);
 	}
-	#{_gridle_classname($gridle-no-gutter-name-pattern, $state)},
-	#{_gridle_classname($gridle-no-margin-name-pattern, $state)} {
+	#{_gridle_classname($gridle-no-gutters-name-pattern, $state)},
+	#{_gridle_classname($gridle-no-margins-name-pattern, $state)} {
 		@include gridle_no_margin();
 	}
 	#{_gridle_classname($gridle-no-gutter-left-name-pattern, $state)},
@@ -59,9 +59,9 @@
 	#{_gridle_classname($gridle-no-margin-bottom-name-pattern, $state)} {
 		@include gridle_no_margin(bottom);
 	}
-	#{_gridle_classname($gridle-no-gutter-top-name-pattern, $state)},
-	#{_gridle_classname($gridle-margin-name-pattern, $state)} {
-		@include gridle_margin();
+	#{_gridle_classname($gridle-gutters-name-pattern, $state)},
+	#{_gridle_classname($gridle-margins-name-pattern, $state)} {
+		@include gridle_margin(left right);
 	}
 	#{_gridle_classname($gridle-gutter-left-name-pattern, $state)},
 	#{_gridle_classname($gridle-margin-left-name-pattern, $state)} {

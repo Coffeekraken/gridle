@@ -7,12 +7,16 @@ $gridle-columns-count : 12;
 $gridle-gutter-width : 20px;
 $gridle-debug : true;
 $gridle-html-states-classes : true; // not really for production, used for demo here...
+$gridle-generate-useful-states-classes : (retina,print);
 
 // register special columns :
 @include gridle_register_column('1on5', 1, 5);
 
 @include gridle_register_clear_each(2,left);
 @include gridle_register_clear_each(12,left);
+
+// register clear each classes :
+@include gridle_register_clear_each(2, both);
 
 // @include gridle_register_columns_clear
 

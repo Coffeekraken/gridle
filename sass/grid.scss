@@ -1,10 +1,6 @@
 // Import grid settings :
 @import 'grid-settings';
 
-$gridle-generate-useful-states-classes : (retina,print);
-
-$gridle-gutter-width : 1rem;
-
 // Generate classes :
 @include gridle_generate_classes();
 
@@ -17,8 +13,4 @@ $gridle-gutter-width : 1rem;
 
 	@include gridle_grid_background();
 	@include gridle_grid_background(7,mobile);
-}
-
-.hello {
-	@include gridle(3,4);
 }

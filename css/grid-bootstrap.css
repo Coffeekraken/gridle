@@ -97,6 +97,24 @@
  * Register a special class
  */
 /**
+ * Register default states
+ */
+/**
+ * Register default mobile first states :
+ */
+/**
+ * Set the context for a particular state
+ *
+ * @param 	String 		$state 		The state to update
+ * @param 	int 		$context 	The new context to set
+ */
+/**
+ * Set the debug device (not used for now)
+ * 
+ * @param 	String 		$state 		The state to update
+ * @para m 	String 		$device 	The device to use (iphone, etc...)
+ */
+/**
  * Parent clear each
  */
 /**
@@ -342,8 +360,8 @@
 .clear-right {
   clear: right; }
 
-.no-gutter,
-.no-margin {
+.no-gutters,
+.no-margins {
   padding-left: 0 !important;
   padding-right: 0 !important; }
 
@@ -363,12 +381,12 @@
 .no-margin-bottom {
   padding-bottom: 0 !important; }
 
-.no-gutter-top,
-.margin {
+.gutters,
+.margins {
   padding-left: 15px;
   padding-right: 15px; }
 
-.gutter-left,
+.gutters-left,
 .margin-left {
   padding-left: 15px; }
 
@@ -565,8 +583,8 @@ html.xs {
     clear: left; }
   html.xs .clear-xs-right {
     clear: right; }
-  html.xs .no-gutter-xs,
-  html.xs .no-margin-xs {
+  html.xs .no-gutters-xs,
+  html.xs .no-margins-xs {
     padding-left: 0 !important;
     padding-right: 0 !important; }
   html.xs .no-gutter-xs-left,
@@ -581,11 +599,11 @@ html.xs {
   html.xs .no-gutter-xs-bottom,
   html.xs .no-margin-xs-bottom {
     padding-bottom: 0 !important; }
-  html.xs .no-gutter-xs-top,
-  html.xs .margin-xs {
+  html.xs .gutters-xs,
+  html.xs .margins-xs {
     padding-left: 15px;
     padding-right: 15px; }
-  html.xs .gutter-xs-left,
+  html.xs .gutters-xs-left,
   html.xs .margin-xs-left {
     padding-left: 15px; }
   html.xs .gutter-xs-right,
@@ -838,8 +856,8 @@ html.xs {
   .clear-xs-right {
     clear: right; }
 
-  .no-gutter-xs,
-  .no-margin-xs {
+  .no-gutters-xs,
+  .no-margins-xs {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
@@ -859,12 +877,12 @@ html.xs {
   .no-margin-xs-bottom {
     padding-bottom: 0 !important; }
 
-  .no-gutter-xs-top,
-  .margin-xs {
+  .gutters-xs,
+  .margins-xs {
     padding-left: 15px;
     padding-right: 15px; }
 
-  .gutter-xs-left,
+  .gutters-xs-left,
   .margin-xs-left {
     padding-left: 15px; }
 
@@ -1056,8 +1074,8 @@ html.sm {
     clear: left; }
   html.sm .clear-sm-right {
     clear: right; }
-  html.sm .no-gutter-sm,
-  html.sm .no-margin-sm {
+  html.sm .no-gutters-sm,
+  html.sm .no-margins-sm {
     padding-left: 0 !important;
     padding-right: 0 !important; }
   html.sm .no-gutter-sm-left,
@@ -1072,11 +1090,11 @@ html.sm {
   html.sm .no-gutter-sm-bottom,
   html.sm .no-margin-sm-bottom {
     padding-bottom: 0 !important; }
-  html.sm .no-gutter-sm-top,
-  html.sm .margin-sm {
+  html.sm .gutters-sm,
+  html.sm .margins-sm {
     padding-left: 15px;
     padding-right: 15px; }
-  html.sm .gutter-sm-left,
+  html.sm .gutters-sm-left,
   html.sm .margin-sm-left {
     padding-left: 15px; }
   html.sm .gutter-sm-right,
@@ -1329,8 +1347,8 @@ html.sm {
   .clear-sm-right {
     clear: right; }
 
-  .no-gutter-sm,
-  .no-margin-sm {
+  .no-gutters-sm,
+  .no-margins-sm {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
@@ -1350,12 +1368,12 @@ html.sm {
   .no-margin-sm-bottom {
     padding-bottom: 0 !important; }
 
-  .no-gutter-sm-top,
-  .margin-sm {
+  .gutters-sm,
+  .margins-sm {
     padding-left: 15px;
     padding-right: 15px; }
 
-  .gutter-sm-left,
+  .gutters-sm-left,
   .margin-sm-left {
     padding-left: 15px; }
 
@@ -1547,8 +1565,8 @@ html.md {
     clear: left; }
   html.md .clear-md-right {
     clear: right; }
-  html.md .no-gutter-md,
-  html.md .no-margin-md {
+  html.md .no-gutters-md,
+  html.md .no-margins-md {
     padding-left: 0 !important;
     padding-right: 0 !important; }
   html.md .no-gutter-md-left,
@@ -1563,11 +1581,11 @@ html.md {
   html.md .no-gutter-md-bottom,
   html.md .no-margin-md-bottom {
     padding-bottom: 0 !important; }
-  html.md .no-gutter-md-top,
-  html.md .margin-md {
+  html.md .gutters-md,
+  html.md .margins-md {
     padding-left: 15px;
     padding-right: 15px; }
-  html.md .gutter-md-left,
+  html.md .gutters-md-left,
   html.md .margin-md-left {
     padding-left: 15px; }
   html.md .gutter-md-right,
@@ -1820,8 +1838,8 @@ html.md {
   .clear-md-right {
     clear: right; }
 
-  .no-gutter-md,
-  .no-margin-md {
+  .no-gutters-md,
+  .no-margins-md {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
@@ -1841,12 +1859,12 @@ html.md {
   .no-margin-md-bottom {
     padding-bottom: 0 !important; }
 
-  .no-gutter-md-top,
-  .margin-md {
+  .gutters-md,
+  .margins-md {
     padding-left: 15px;
     padding-right: 15px; }
 
-  .gutter-md-left,
+  .gutters-md-left,
   .margin-md-left {
     padding-left: 15px; }
 
@@ -2038,8 +2056,8 @@ html.lg {
     clear: left; }
   html.lg .clear-lg-right {
     clear: right; }
-  html.lg .no-gutter-lg,
-  html.lg .no-margin-lg {
+  html.lg .no-gutters-lg,
+  html.lg .no-margins-lg {
     padding-left: 0 !important;
     padding-right: 0 !important; }
   html.lg .no-gutter-lg-left,
@@ -2054,11 +2072,11 @@ html.lg {
   html.lg .no-gutter-lg-bottom,
   html.lg .no-margin-lg-bottom {
     padding-bottom: 0 !important; }
-  html.lg .no-gutter-lg-top,
-  html.lg .margin-lg {
+  html.lg .gutters-lg,
+  html.lg .margins-lg {
     padding-left: 15px;
     padding-right: 15px; }
-  html.lg .gutter-lg-left,
+  html.lg .gutters-lg-left,
   html.lg .margin-lg-left {
     padding-left: 15px; }
   html.lg .gutter-lg-right,
@@ -2311,8 +2329,8 @@ html.lg {
   .clear-lg-right {
     clear: right; }
 
-  .no-gutter-lg,
-  .no-margin-lg {
+  .no-gutters-lg,
+  .no-margins-lg {
     padding-left: 0 !important;
     padding-right: 0 !important; }
 
@@ -2332,12 +2350,12 @@ html.lg {
   .no-margin-lg-bottom {
     padding-bottom: 0 !important; }
 
-  .no-gutter-lg-top,
-  .margin-lg {
+  .gutters-lg,
+  .margins-lg {
     padding-left: 15px;
     padding-right: 15px; }
 
-  .gutter-lg-left,
+  .gutters-lg-left,
   .margin-lg-left {
     padding-left: 15px; }
 
