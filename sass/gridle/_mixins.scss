@@ -6,39 +6,79 @@
 
 // Responsive helpers mixins :
 @mixin gridle_state(
-	$state-or-min-width,
-	$max-width : null,
+	$state,
 	$has-parent : true
 ) {
+	// variables :
+	$html-states-classes : _gridle_get_var_value(html-states-classes, $state);
+	$debug : _gridle_get_var_value(debug, $state);
+	$stateName : _gridle_get_var_value(name, $state);
 
-	// query list :
-	$query : ();
+	// check if is a state :
+	@if ($html-states-classes or $debug)
+		and $stateName {
+		// html class :
+		@if $has-parent {
+			html#{_gridle_classname("#{$stateName}")} & { @content; }
+		} @else {
+			html#{_gridle_classname("#{$stateName}")} { @content; }
+		}
+	}
 
+	// get the media query :
+	$q : _gridle_get_media_query($state);
+
+	// make the media query if a query exist :
+	@if $q {
+		@media #{$q} {
+			@content;
+		}
+	}
+	@else
+	{
+		@content;
+	}
+}
+
+
+/**
+ * States :
+ */
+@mixin gridle_states(
+	$states,
+	$has-parent : true
+) {
+	
 	// loop on each states :
-	@each $_state-or-min-width in $state-or-min-width {
+	@each $state in $states
+	{
+		// variables :
+		$html-states-classes : _gridle_get_var_value(html-states-classes, $state);
+		$debug : _gridle_get_var_value(debug, $state);
+		$stateName : _gridle_get_var_value(name, $state);
 
 		// check if is a state :
-		@if type-of($_state-or-min-width) == string 
-			and ($gridle-html-states-classes or $gridle-debug)
-			and _gridle_get_state($_state-or-min-width) {
+		@if ($html-states-classes or $debug)
+			and $stateName {
 			// html class :
 			@if $has-parent {
-				html#{_gridle_classname("#{$_state-or-min-width}")} & { @content; }
+				html#{_gridle_classname("#{$stateName}")} & { @content; }
 			} @else {
-				html#{_gridle_classname("#{$_state-or-min-width}")} { @content; }
+				html#{_gridle_classname("#{$stateName}")} { @content; }
 			}
 		}
 
 		// get the media query :
-		$q : _get_media_query_for_state($_state-or-min-width, $max-width);
-		@if $q {
-			$query : append($query, unquote("#{$q}"), comma);
-		}
-	}
+		$q : _gridle_get_media_query($state);
 
-	// check and print media query :
-	@if type-of($query) == list {
-		@media #{$query} {
+		// make the media query if a query exist :
+		@if $q {
+			@media #{$q} {
+				@content;
+			}
+		}
+		@else
+		{
 			@content;
 		}
 	}
@@ -48,76 +88,60 @@
 
 // Container mixin :
 @mixin gridle_container(
+	$state : null
 ) {
-	@include _gridle_container_common();
+	@include _gridle_container_common($state);
 }
 
 
 // Grid mixin :
 // Set the width of the specified grid column :
 @mixin gridle(
-	$columns : $gridle-columns-count,
-	$state-context : null,
+	$columns,
 	$state : null
 ) {
 	// common :
-	@include _gridle_grid_common();
-	// variables :
-	$context : $gridle-columns-count;
-	@if type-of($state-context) == number {
-		$state : $state;
-		$context : $state-context;
-	} @elseif $state-context {
-		$state : $state-context;
-		$context : _gridle_get_state_var($state,'context');
-	}
+	@include _gridle_grid_common($state);
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle($columns, $state, $context);
+			@include _gridle($columns, $state);
 		}
 	} @else {
-		@include _gridle($columns,$state,$context);
+		@include _gridle($columns, $state);
 	}
 }
 @mixin _gridle(
-	$columns : $gridle-columns-count,
-	$state : null,
-	$context : $gridle-columns-count
+	$columns,
+	$state : null
 ) {
 	// vars :
-	$width : percentage(1 / $context * $columns);
-	
-	// check if is paddings or margin for gutters :
-	@if unquote($gridle-gutter-type) == margin
-	{
-		width:calc(#{$width} - #{$gridle-gutter-width});
-		margin:0 $gridle-gutter-width/2;
-		
-		// if has the parent class, need to adapt :
-		$parentSelector : _gridle_classname($gridle-parent-name-pattern,null,null);
-		&#{$parentSelector} {
-			width:$width;
-			margin:0;			
-		}
+	$context : _gridle_get_var_value(context, $state);
+	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
+	$gutter-width : _gridle_get_var_value(gutter-width, $state);
+	$ie7-support : _gridle_get_var_value(ie7-support, $state);
+	$debug : _gridle_get_var_value(debug, $state);
+	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
-	} @else {
-		width:$width;
-	}
+	// vars :
+	$width : percentage(1 / $context * $columns);
+
+	// set value :
+	width:$width;
 	
 	// ie7 support :
-	@if $gridle-ie7-support == true {
+	@if $ie7-support == true {
 		*width: expression((this.parentNode.clientWidth/#{$context}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 	}
 	
 	// debug :
-	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:before {
-				content:"grid-#{$state}-#{$columns * $gridle-name-multiplicator}";
+				content:"grid-#{$state}-#{$columns * $name-multiplicator}";
 			}
 			&.parent:before {
-				content:"grid-parent-#{$state}-#{$columns * $gridle-name-multiplicator}";
+				content:"grid-parent-#{$state}-#{$columns * $name-multiplicator}";
 			}
 		}
 	}
@@ -127,45 +151,42 @@
 // push :
 // Push the element of the count of column wanted
 @mixin gridle_push(
-	$columns : $gridle-columns-count,
-	$state-context : null,
+	$columns,
 	$state : null
 ) {
 	// common :
-	@include _gridle_push_common();
-	// variables :
-	$context : $gridle-columns-count;
-	@if type-of($state-context) == number {
-		$state : $state;
-		$context : $state-context;
-	} @else {
-		$state : $state-context;
-		$context : _gridle_get_state_var($state,'context');
-	}
+	@include _gridle_push_common($state);
+
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_push($columns,$state,$context);
+			@include _gridle_push($columns,$state);
 		}
 	} @else {
-		@include _gridle_push($columns,$state,$context);
+		@include _gridle_push($columns,$state);
 	}
 }
 @mixin _gridle_push(
-	$columns : $gridle-columns-count,
-	$state : null,
-	$context : $gridle-columns-count
+	$columns,
+	$state : null
 ) {
+	// variables :
+	$context : _gridle_get_var_value(context, $state);
+	$direction : _gridle_get_var_value(direction, $state);
+	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
+	$debug : _gridle_get_var_value(debug, $state);
+	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
+
 	// vars :
 	$width : percentage(1 / $context) * $columns;
-	@if $gridle-direction == rtl { $width : $width*-1; }
+	@if $direction == rtl { $width : $width*-1; }
 	left:$width;
 
 	// debug css :
-	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"push-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+				content:"push-#{$state}-#{$columns * $name-multiplicator}" !important;
 			}
 		}
 	}
@@ -176,45 +197,42 @@
 // pull :
 // Pull the element of the count of column wanted
 @mixin gridle_pull(
-	$columns : $gridle-columns-count,
-	$state-context : null,
+	$columns,
 	$state : null
 ) {
 	// common :
-	@include _gridle_pull_common();
-	// variables :
-	$context : $gridle-columns-count;
-	@if type-of($state-context) == number {
-		$state : $state;
-		$context : $state-context;
-	} @else {
-		$state : $state-context;
-		$context : _gridle_get_state_var($state,'context');
-	}
+	@include _gridle_pull_common($state);
+
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_pull($columns,$state,$context);
+			@include _gridle_pull($columns,$state);
 		}
 	} @else {
-		@include _gridle_pull($columns,$state,$context);
+		@include _gridle_pull($columns,$state);
 	}
 }
 @mixin _gridle_pull(
-	$columns : $gridle-columns-count,
-	$state : null,
-	$context : $gridle-columns-count
+	$columns,
+	$state : null
 ) {
 	// vars :
+	$context : _gridle_get_var_value(context, $state);
+	$direction : _gridle_get_var_value(direction, $state);
+	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
+	$debug : _gridle_get_var_value(debug, $state);
+	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
+
+	// vars :
 	$width : percentage(1 / $context) * $columns;
-	@if $gridle-direction == rtl { $width : $width*-1; }
+	@if $direction == rtl { $width : $width*-1; }
 	right:$width;
 
 	// debug css :
-	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"pull-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+				content:"pull-#{$state}-#{$columns * $name-multiplicator}" !important;
 			}
 		}
 	}
@@ -224,56 +242,45 @@
 // push :
 // Push the element of the count of column wanted
 @mixin gridle_prefix(
-	$columns : $gridle-columns-count,
-	$state-context : null,
+	$columns,
 	$state : null
 ) {
 	// common :
-	@include _gridle_prefix_common();
-	// variables :
-	$context : $gridle-columns-count;
-	@if type-of($state-context) == number {
-		$state : $state;
-		$context : $state-context;
-	} @else {
-		$state : $state-context;
-		$context : _gridle_get_state_var($state,'context');
-	}
+	@include _gridle_prefix_common($state);
+	
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_prefix($columns,$state,$context);
+			@include _gridle_prefix($columns,$state);
 		}
 	} @else {
-		@include _gridle_prefix($columns,$state,$context);
+		@include _gridle_prefix($columns,$state);
 	}
 }
 @mixin _gridle_prefix(
-	$columns : $gridle-columns-count,
-	$state : null,
-	$context : $gridle-columns-count
+	$columns,
+	$state : null
 ) {
+	// vars :
+	$context : _gridle_get_var_value(context, $state);
+	$direction : _gridle_get_var_value(direction, $state);
+	$gutter-width : _gridle_get_var_value(gutter-width, $state);
+	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
+	$debug : _gridle_get_var_value(debug, $state);
+	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
+
 	// vars :
 	$width : percentage(1 / $context) * $columns;
 
-	// different method if gutter is padding or margin :
-	@if unquote($gridle-gutter-type) == padding
-	{
-		@if $gridle-direction == rtl { margin-right:$width; }
-		@else { margin-left:$width; }
-	} @else {
-		@if $gridle-direction == rtl {
-			margin-right:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
-		} @else {
-			margin-left:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
-		}
-	}
+	// set value :
+	@if $direction == rtl { margin-right:$width; }
+	@else { margin-left:$width; }
 
 	// debug css :
-	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"prefix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+				content:"prefix-#{$state}-#{$columns * $name-multiplicator}" !important;
 			}
 		}
 	}
@@ -283,56 +290,45 @@
 // pull :
 // Pull the element of the count of column wanted
 @mixin gridle_suffix(
-	$columns : $gridle-columns-count,
-	$state-context : null,
+	$columns,
 	$state : null
 ) {
 	// common :
-	@include _gridle_suffix_common();
-	// variables :
-	$context : $gridle-columns-count;
-	@if type-of($state-context) == number {
-		$state : $state;
-		$context : $state-context;
-	} @else {
-		$state : $state-context;
-		$context : _gridle_get_state_var($state,'context');
-	}
+	@include _gridle_suffix_common($state);
+
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_suffix($columns,$state,$context);
+			@include _gridle_suffix($columns,$state);
 		}
 	} @else {
-		@include _gridle_suffix($columns,$state,$context);
+		@include _gridle_suffix($columns,$state);
 	}
 }
 @mixin _gridle_suffix(
-	$columns : $gridle-columns-count,
-	$state : null,
-	$context : $gridle-columns-count
+	$columns,
+	$state : null
 ) {
+	// vars :
+	$context : _gridle_get_var_value(context, $state);
+	$direction : _gridle_get_var_value(direction, $state);
+	$gutter-width : _gridle_get_var_value(gutter-width, $state);
+	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
+	$debug : _gridle_get_var_value(debug, $state);
+	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
+
 	// vars :
 	$width : percentage(1 / $context) * $columns;
 	
-	// different method if gutter is padding or margin :
-	@if unquote($gridle-gutter-type) == padding
-	{
-		@if $gridle-direction == rtl { margin-left:$width; }
-		@else { margin-right:$width; }
-	} @else {
-		@if $gridle-direction == rtl {
-			margin-left:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
-		} @else {
-			margin-right:calc(#{$width} + #{$gridle-gutter-width/2}) !important;
-		}
-	}
+	// set value :
+	@if $direction == rtl { margin-left:$width; }
+	@else { margin-right:$width; }
 
 	// debug css :
-	@if $gridle-debug == true and $gridle-debug-show-class-names == true {
+	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"suffix-#{$state}-#{$columns * $gridle-name-multiplicator}" !important;
+				content:"suffix-#{$state}-#{$columns * $name-multiplicator}" !important;
 			}
 		}
 	}
@@ -342,38 +338,28 @@
 // grid background :
 // Display the grid background debug
 @mixin gridle_grid_background(
-	$state-context : null,
 	$state : null
 ) {
-
-	// variables :
-	$context : $gridle-columns-count;
-	@if type-of($state-context) == number {
-		$state : $state;
-		$context : $state-context;
-	} @elseif $state {
-		$state : $state-context;
-		$context : _gridle_get_state_var($state,'context');
-	}
-
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_grid_background($state,$context);
+			@include _gridle_grid_background($state);
 		}
 	} @else {
-		@include _gridle_grid_background($state,$context);
+		@include _gridle_grid_background($state);
 	}
 }
 @mixin _gridle_grid_background(
-	$state : null,
-	$context : $gridle-columns-count
+	$state : null
 ) {
 	
+	// variables :
+	$context : _gridle_get_var_value(context, $state);
+
 	position:relative;
 	z-index:9999;
 	&:before {
-		content:'.';
+		content:'';
 		position:absolute;
 		top:0; left:0;
 		width:100%; height:100% !important;
@@ -454,10 +440,7 @@
 	}
 }
 @mixin _gridle_parent() {
-	@if unquote($gridle-gutter-type) == padding
-	{
-		@include gridle_no_gutter();
-	}
+	@include gridle_no_gutter();
 }
 
 
@@ -663,9 +646,11 @@
 	@include gridle_gutter($side, $state);
 }
 @mixin _gridle_gutter(
-	$side : left right
+	$side : left right,
+	$state : null
 ) {
+	$gutter-width : _gridle_get_var_value(gutter-width, $state);
 	@each $s in $side {
-		padding-#{$s} : $gridle-gutter-width / 2;
+		padding-#{$s} : $gutter-width / 2;
 	}
 }

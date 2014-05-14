@@ -4,51 +4,50 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
+/**
+ * Setup
+ */
+@mixin gridle_setup(
+	$settings : ()
+) {
+	$_gridle-settings : map-merge((
+		min-width : 0,
+		max-width : 99999999px,
+		query : null,
+		classes : true,
+		context : 12,
+		gutter-width : 20px,
+		direction : ltr,
+		name-multiplicator : 1,
+		debug : false,
+		debug-show-class-names : false,
+		ie7-support : false,
+		html-states-classes : false,
+		generate-push-classes : true,
+		generate-pull-classes : true,
+		generate-prefix-classes : true,
+		generate-suffix-classes : true,
+		generate-helpers-classes : true
+	), $settings);
+
+	// register default state :
+	@include gridle_register_state(default, $_gridle-settings);
+
+}
+
 // Register an state :
 @mixin gridle_register_state(
 	$name,
-	$min-width-or-query : null,
-	$max-width-or-classes-generation : null,
-	$classes-generation : true,
-	$context : $gridle-columns-count
+	$settings
 ) {
-	// process variables :
-	$name : $name;
-	$min-width : null;
-	$max-width : null;
-	$query : null;
-	$classes : true;
-	$context : $context;
-	@if type-of($min-width-or-query) == string {
-		$query : $min-width-or-query;
-	} @else {
-		@if $min-width-or-query {
-			$min-width : $min-width-or-query;
-		}
-	}
-	@if type-of($max-width-or-classes-generation) == bool {
-		$classes : $max-width-or-classes-generation;
-	} @else {
-		@if $max-width-or-classes-generation {
-			$max-width : $max-width-or-classes-generation;
-		}
-		$classes : $classes-generation;
-	}
+	// settings :
+	$settings : map-merge($_gridle-settings, $settings);
 
-	// creating state :
-	$state : (
-		$name : (
-			name : $name,
-			min-width : $min-width,
-			max-width : $max-width,
-			query : $query,
-			classes : $classes,
-			context : $context
-		)
-	);
+	// set name :
+	$settings : map-set($settings, name, $name);
 
 	// add state in maps :
-	$_gridle_states : map-merge($_gridle_states, $state);
+	$_gridle_states : map-set($_gridle_states, $name, $settings);
 }
 
 
@@ -91,9 +90,13 @@
  * Register default states
  */
 @mixin gridle_register_default_states() {
-	// register mobile and tablet states :
-	@include gridle_register_state("mobile",null,480px);
-	@include gridle_register_state("tablet",481px,1024px);
+	@include gridle_register_state(mobile, (
+		max-width : 480px
+	));
+	@include gridle_register_state(tablet, (
+		min-width : 481px,
+		max-width : 1024px
+	));
 }
 
 
@@ -101,25 +104,18 @@
  * Register default mobile first states :
  */
 @mixin gridle_register_default_mobile_first_states() {
-	@include gridle_register_state("xs", null, 768px);
-	@include gridle_register_state("sm", 768px, null);
-	@include gridle_register_state("md", 992px, null);
-	@include gridle_register_state("lg", 1200px, null);
-}
-
-
-/**
- * Set the context for a particular state
- *
- * @param 	String 		$state 		The state to update
- * @param 	int 		$context 	The new context to set
- */
-@mixin gridle_set_context_for_state(
-	$state,
-	$context
-) {
-	// set context in state :
-	$var : _gridle_set_state_var($state, "context", $context);
+	@include gridle_register_state(xs, (
+		max-width : 768px
+	));
+	@include gridle_register_state(sm, (
+		min-width : 768px
+	));
+	@include gridle_register_state(md, (
+		min-width : 992px
+	));
+	@include gridle_register_state(lg, (
+		min-width : 1200px
+	));
 }
 
 

@@ -113,7 +113,8 @@
 	}
 
 	// debug colors :
-	@if $gridle-debug {
+	$debug : _gridle_get_var_value(debug, $state);
+	@if $debug {
 		// debug color classes :
 		#{_gridle_classname($gridle-debug-color-name-pattern, $state, 1)} {
 			#{$gridle-debug-selector} {
@@ -168,7 +169,7 @@
 
 			$value : null;
 			@if $varName == "query" {
-				$value : _get_media_query_for_state($stateName);
+				$value : _gridle_get_media_query_for_state($stateName);
 			} @else {
 				$value : map-get($state,$varName);
 				// $value : _gridle_get_state_var($i,$var);
@@ -244,12 +245,6 @@
 	$has-parent
 ) {
  
-	// check if debug is activated :
-	@if $gridle-debug {
-		$gridle-html-states-classes : true !global;
-	}
-
-
 	// | ------------------------
 	// | Windows 8 fix
 	// | ------------------------
@@ -296,75 +291,6 @@
 
 
 	// | ------------------------
-	// | Default classes
-	// | ------------------------
-
-	// get specials columns :
-	$columnsMap : map-merge((), $_gridle_columns);
-
-	// register all default columns :
-	@for $i from 0 through $gridle-columns-count {
-		
-		// name :
-		$columnName : "#{$i*$gridle-name-multiplicator}";
-
-		// create a column :
-		$col : _gridle_create_column($columnName, $i,  $gridle-columns-count);
-
-		// add column in columns map :
-		$columnsMap : map-set($columnsMap, $columnName,  $col);
-	}
-
-	// generate all classes for columns :
-	@each $columnName, $column in $columnsMap {
-
-		// variables :
-		$columnsCount : map-get($column, columns);
-		$context : map-get($column, context);
-
-		// classes :
-		#{_gridle_classname($gridle-grid-name-pattern, null, $columnName)} {
-			@include _gridle($columnsCount, null, $context);
-		}
-		@if $gridle-generate-push-classes == true {
-			#{_gridle_classname($gridle-push-name-pattern, null, $columnName)} {
-				@include _gridle_push($columnsCount, null, $context);
-			}
-		}
-		@if $gridle-generate-pull-classes == true {
-			#{_gridle_classname($gridle-pull-name-pattern, null, $columnName)} {
-				@include _gridle_pull($columnsCount, null, $context);
-			}
-		}
-		@if $gridle-generate-prefix-classes == true {
-			#{_gridle_classname($gridle-prefix-name-pattern, null, $columnName)} {
-				@include _gridle_prefix($columnsCount, null, $context);
-			}
-		}
-		@if $gridle-generate-suffix-classes == true {
-			#{_gridle_classname($gridle-suffix-name-pattern, null, $columnName)} {
-				@include _gridle_suffix($columnsCount, null, $context);
-			}   
-		}
-	}
-
-	// helpers classes :
-	@if $gridle-generate-helpers-classes == true {
-		@include _gridle_generate_helper_classes();
-	}
-
-	// loop on each columns to generate common selector :
-	@each $columnName, $column in $columnsMap {
-
-		// selectors :
-		$common-selector : append( $common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, null, $columnName)), comma );
-		$push-common-selector : append( $push-common-selector, unquote(_gridle_classname($gridle-push-name-pattern, null, $columnName)), comma );
-		$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, null, $columnName)), comma );
-		$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, null, $columnName)), comma );
-		$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, null, $columnName)), comma );
-	}
-
-	// | ------------------------
 	// | Media queries classes common selectors
 	// | ------------------------
 
@@ -373,11 +299,16 @@
 	
 		// setup vars :
 		$media : $stateName;
-		$classes : map-get($state, "classes");
-		$context : map-get($state, "context");
+		$classes : map-get($state, classes);
+		$context : map-get($state, context);
+		$name-multiplicator : map-get($state, name-multiplicator);
+		$generate-push-classes : _gridle_get_var_value(generate-push-classes, $state);
+		$generate-pull-classes : _gridle_get_var_value(generate-pull-classes, $state);
+		$generate-prefix-classes : _gridle_get_var_value(generate-prefix-classes, $state);
+		$generate-suffix-classes : _gridle_get_var_value(generate-suffix-classes, $state);
 
 		// generate classes :   
-		@if $media and $classes == true and $context {
+		@if $classes == true and $context {
 
 			// get specials columns :
 			$columnsMap : map-merge((), $_gridle_columns);
@@ -386,7 +317,7 @@
 			@for $j from 0 through $context {
 				
 				// name :
-				$columnName : "#{$j*$gridle-name-multiplicator}";
+				$columnName : "#{$j*$name-multiplicator}";
 
 				// // create a column :
 				$col : _gridle_create_column($columnName, $j,  $context);
@@ -400,10 +331,18 @@
 		 	
 				// add selector :
 				$common-selector : append( $common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, $media, $columnName)), comma );
-				$push-common-selector : append( $push-common-selector, unquote(_gridle_classname($gridle-push-name-pattern, $media, $columnName)), comma );
-				$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, $media, $columnName)), comma );
-				$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, $media, $columnName)), comma );
-				$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, $media, $columnName)), comma );
+				@if $generate-push-classes {
+					$push-common-selector : append( $push-common-selector, unquote(_gridle_classname($gridle-push-name-pattern, $media, $columnName)), comma );
+				}
+				@if $generate-pull-classes {
+					$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, $media, $columnName)), comma );
+				}
+				@if $generate-prefix-classes {
+					$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, $media, $columnName)), comma );
+				}
+				@if $generate-suffix-classes {
+					$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, $media, $columnName)), comma );
+				}
 			}
 		}
 	}
@@ -434,25 +373,27 @@
 	@each $stateName, $state in $_gridle_states {
 		
 		// setup vars :
-		$media : $stateName;
-		$classes : map-get($state, "classes");
-		$min-width : map-get($state, "min-width");
-		$max-width : map-get($state, "max-width");
-		$query : map-get($state, "query");
-		$context : map-get($state, "context");
+		$classes : _gridle_get_var_value(classes, $state);
+		$context : _gridle_get_var_value(context, $state);
+		$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
+		$generate-push-classes : _gridle_get_var_value(generate-push-classes, $state);
+		$generate-pull-classes : _gridle_get_var_value(generate-pull-classes, $state);
+		$generate-prefix-classes : _gridle_get_var_value(generate-prefix-classes, $state);
+		$generate-suffix-classes : _gridle_get_var_value(generate-suffix-classes, $state);
+		$generate-helpers-classes : _gridle_get_var_value(generate-helpers-classes, $state);
 
 		// parent common css :
-		$parentSelector : _gridle_classname($gridle-parent-name-pattern,$media,null);
+		$parentSelector : _gridle_classname($gridle-parent-name-pattern,$stateName,null);
 		#{$parentSelector} {
 			@extend %gridle-clearfix;
 			@extend %gridle-parent-common;
 		}
 
 		// generate all media queries grid classes :
-		@if $media and $classes == true {
+		@if $classes == true {
 
 			// generate all the classes :
-			@include gridle_state($media, null, $has-parent) {
+			@include gridle_state($stateName, $has-parent) {
 		 
 				// get specials columns :
 				$columnsMap : map-merge((), $_gridle_columns);
@@ -461,7 +402,7 @@
 				@for $j from 0 through $context {
 					
 					// name :
-					$columnName : "#{$j*$gridle-name-multiplicator}";
+					$columnName : "#{$j*$name-multiplicator}";
 
 					// // create a column :
 					$col : _gridle_create_column($columnName, $j,  $context);
@@ -475,47 +416,52 @@
 
 					// variables :
 					$columnsCount : map-get($column, columns);
-					$context : map-get($column, context);
+					$columnsContext : map-get($column, context);
+
+					// extend context in state (for columns) :
+					$extendedState : map-merge($state, (
+						context : $columnsContext
+					));
 
 					// classes :
-					#{_gridle_classname($gridle-grid-name-pattern, $media, $columnName)} {
-						@include _gridle($columnsCount, $media, $context);
+					#{_gridle_classname($gridle-grid-name-pattern, $stateName, $columnName)} {
+						@include _gridle($columnsCount, $extendedState);
 					}
-					@if $gridle-generate-push-classes == true {
-						#{_gridle_classname($gridle-push-name-pattern, $media, $columnName)} {
-							@include _gridle_push($columnsCount, $media, $context);
+					@if $generate-push-classes == true {
+						#{_gridle_classname($gridle-push-name-pattern, $stateName, $columnName)} {
+							@include _gridle_push($columnsCount, $extendedState);
 						}
 					}
-					@if $gridle-generate-pull-classes == true {
-						#{_gridle_classname($gridle-pull-name-pattern, $media, $columnName)} {
-							@include _gridle_pull($columnsCount, $media, $context);
+					@if $generate-pull-classes == true {
+						#{_gridle_classname($gridle-pull-name-pattern, $stateName, $columnName)} {
+							@include _gridle_pull($columnsCount, $extendedState);
 						}
 					}
-					@if $gridle-generate-prefix-classes == true {
-						#{_gridle_classname($gridle-prefix-name-pattern, $media, $columnName)} {
-							@include _gridle_prefix($columnsCount, $media, $context);
+					@if $generate-prefix-classes == true {
+						#{_gridle_classname($gridle-prefix-name-pattern, $stateName, $columnName)} {
+							@include _gridle_prefix($columnsCount, $extendedState);
 						}
 					}
-					@if $gridle-generate-suffix-classes == true {
-						#{_gridle_classname($gridle-suffix-name-pattern, $media, $columnName)} {
-							@include _gridle_suffix($columnsCount, $media, $context);
+					@if $generate-suffix-classes == true {
+						#{_gridle_classname($gridle-suffix-name-pattern, $stateName, $columnName)} {
+							@include _gridle_suffix($columnsCount, $extendedState);
 						}   
 					}
 				}
  
 				// media queries helpers classes :
-				@if $gridle-generate-helpers-classes == true and $media {
-					@include _gridle_generate_helper_classes($media);
+				@if $generate-helpers-classes == true {
+					@include _gridle_generate_helper_classes($stateName);
 				}
 			}
 		}
 	}
 
 
-	// | ------------------------
-	// | JSON Settings
-	// | ------------------------
+	// // | ------------------------
+	// // | JSON Settings
+	// // | ------------------------
  
-	// generate json settings :
-	@include gridle_generate_json_settings();
+	// // generate json settings :
+	// @include gridle_generate_json_settings();
 }

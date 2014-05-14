@@ -4,26 +4,6 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-// gridle configuration vars :
-$gridle-columns-count 				: 12 !default;
-$gridle-gutter-width 					: 20px !default;
-$gridle-gutter-type 					: padding !default;
-$gridle-name-multiplicator 				: 1 !default;
-$gridle-direction 					: ltr !default;
-
-$gridle-debug 						: false !default;
-$gridle-debug-show-class-names 			: true !default;
-
-$gridle-ie7-support 					: false !default;
-
-$gridle-html-states-classes 				: false !default;
-
-$gridle-generate-helpers-classes 			: true !default;
-$gridle-generate-push-classes 			: true !default;
-$gridle-generate-pull-classes 				: true !default;
-$gridle-generate-prefix-classes 			: true !default;
-$gridle-generate-suffix-classes 			: true !default;
-
 $gridle-debug-selector 				: ".gridle-debug &, &.gridle-debug" !default;
 
 $gridle-class-prefix 					: '' !default;

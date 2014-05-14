@@ -34,7 +34,9 @@ ul#medias {
 		}
 	}
 
-	@include gridle_state(0, 620px) {
+	@include gridle_state((
+		max-width : 620px
+	)) {
 		display:none;
 	}
 }
@@ -45,10 +47,10 @@ ul#medias {
 body {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 
-	@include gridle_state('mobile') {
+	@include gridle_states(mobile tablet) {
 		text-align:center;
 	}
-	@include gridle_state('ipad-landscape') {
+	@include gridle_state(ipad-landscape) {
 		font-size:16px;
 	}
 }
