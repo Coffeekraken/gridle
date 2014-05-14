@@ -3,12 +3,11 @@
 
 
 // basic configuration :
-@include gridle_setup();
-
-$gridle-columns-count : 12;
-$gridle-gutter-width : 30px;
-$gridle-debug : false;
-$gridle-html-states-classes : true; // not really for production, used for demo here...
+@include gridle_setup( (
+	context : 12,
+	gutter-width : 30px,
+	html-states-classes : true
+) );
 
 // register states :
 @include gridle_register_default_mobile_first_states();
@@ -40,7 +39,7 @@ $gridle-hide-name-pattern : ('hidden','%-','%state');
 
 
 // Generate classes :
-// @include gridle_generate_classes();
+@include gridle_generate_classes();
 
 // Max size :
 .container {

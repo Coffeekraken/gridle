@@ -23,7 +23,7 @@ module.exports = (grunt) ->
 			development:
 				options:
 					environment: 'development'
-					outputStyle: 'nested'
+					outputStyle: 'compressed'
 			production:
 				options:
 					environment: 'production'

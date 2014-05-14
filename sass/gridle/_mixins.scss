@@ -116,6 +116,7 @@
 	$state : null
 ) {
 	// vars :
+	$name : _gridle_get_var_value(name, $state);
 	$context : _gridle_get_var_value(context, $state);
 	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
 	$gutter-width : _gridle_get_var_value(gutter-width, $state);
@@ -138,10 +139,10 @@
 	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:before {
-				content:"grid-#{$state}-#{$columns * $name-multiplicator}";
+				content:"grid-#{$name}-#{$columns * $name-multiplicator}";
 			}
 			&.parent:before {
-				content:"grid-parent-#{$state}-#{$columns * $name-multiplicator}";
+				content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}";
 			}
 		}
 	}
@@ -171,6 +172,7 @@
 	$state : null
 ) {
 	// variables :
+	$name : _gridle_get_var_value(name, $state);
 	$context : _gridle_get_var_value(context, $state);
 	$direction : _gridle_get_var_value(direction, $state);
 	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
@@ -186,7 +188,11 @@
 	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"push-#{$state}-#{$columns * $name-multiplicator}" !important;
+				@if $name == default {
+					content:"push-#{$name}-#{$columns * $name-multiplicator}";
+				} @else {
+					content:"push-#{$name}-#{$columns * $name-multiplicator}" !important;
+				}
 			}
 		}
 	}
@@ -217,6 +223,7 @@
 	$state : null
 ) {
 	// vars :
+	$name : _gridle_get_var_value(name, $state);
 	$context : _gridle_get_var_value(context, $state);
 	$direction : _gridle_get_var_value(direction, $state);
 	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
@@ -232,7 +239,11 @@
 	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"pull-#{$state}-#{$columns * $name-multiplicator}" !important;
+				@if $name == default {
+					content:"pull-#{$name}-#{$columns * $name-multiplicator}";
+				} @else {
+					content:"pull-#{$name}-#{$columns * $name-multiplicator}" !important;
+				}
 			}
 		}
 	}
@@ -262,6 +273,7 @@
 	$state : null
 ) {
 	// vars :
+	$name : _gridle_get_var_value(name, $state);
 	$context : _gridle_get_var_value(context, $state);
 	$direction : _gridle_get_var_value(direction, $state);
 	$gutter-width : _gridle_get_var_value(gutter-width, $state);
@@ -280,7 +292,11 @@
 	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"prefix-#{$state}-#{$columns * $name-multiplicator}" !important;
+				@if $name == default {
+					content:"èrefix-#{$name}-#{$columns * $name-multiplicator}";
+				} @else {
+					content:"èrefix-#{$name}-#{$columns * $name-multiplicator}" !important;
+				}
 			}
 		}
 	}
@@ -310,6 +326,7 @@
 	$state : null
 ) {
 	// vars :
+	$name : _gridle_get_var_value(name, $state);
 	$context : _gridle_get_var_value(context, $state);
 	$direction : _gridle_get_var_value(direction, $state);
 	$gutter-width : _gridle_get_var_value(gutter-width, $state);
@@ -328,7 +345,11 @@
 	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:after {
-				content:"suffix-#{$state}-#{$columns * $name-multiplicator}" !important;
+				@if $name == default {
+					content:"suffix-#{$name}-#{$columns * $name-multiplicator}";
+				} @else {
+					content:"suffix-#{$name}-#{$columns * $name-multiplicator}" !important;
+				}
 			}
 		}
 	}

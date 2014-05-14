@@ -20,7 +20,7 @@
 		direction : ltr,
 		name-multiplicator : 1,
 		debug : false,
-		debug-show-class-names : false,
+		debug-show-class-names : true,
 		ie7-support : false,
 		html-states-classes : false,
 		generate-push-classes : true,
@@ -75,11 +75,10 @@
 @mixin gridle_register_column(
 	$name,
 	$columns,
-	$context,
-	$generateClasses : true
+	$context
 ) {
 	// create a column :
-	$col : _gridle_create_column($name, $columns, $context, $generateClasses);
+	$col : _gridle_create_column($name, $columns, $context);
 
 	// add column in maps :
 	$_gridle_columns : map-set($_gridle_columns, $name, $col);

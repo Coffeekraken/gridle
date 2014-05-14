@@ -161,14 +161,12 @@
 @function _gridle_create_column(
 	$name,
 	$columns,
-	$context,
-	$generateClasses : true
+	$context
 ) {
 	@return (
 		name : $name,
 		columns : $columns,
-		context : $context,
-		generateClasses : $generateClasses
+		context : $context
 	);
 }
 

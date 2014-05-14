@@ -20,18 +20,29 @@ import "gridle/gridle"
 Configure your grid :
 
 ```scss
-$gridle-columns-count : 12;
-$gridle-gutter-width : 20px;
-- and many more options...
+@include gridle_setup( (
+	context : 12,
+	gutter-width : 20px,
+	direction : rtl,
+	// etc...
+) );
 ```
 
 Register states (media queries) (optional) :
 
 ```scss
-@include gridle_register_state('tablet',401px,767px);
-@include gridle_register_state('mobile',0,400px);
-@include gridle_register_state('print', 'only print');
-- make the use of media queries really easy
+@include gridle_register_state ( mobile , (
+	max-width : 480px 
+) );
+@include gridle_register_state ( tablet , (
+	min-width : 481px,
+	max-width : 1024px
+) ) ;
+
+// even with full custom queries :
+@include gridle_register_state ( landscape, (
+	query : "(orientation : landscape)"
+) );
 ```
 
 Generate all classes :
@@ -86,7 +97,7 @@ Customize your content look and feel with Gridle mixins
 #sidebar {
 	background : red;
 
-	@include gridle_state('mobile') {
+	@include gridle_state(mobile) {
 		background : green;
 	}
 }

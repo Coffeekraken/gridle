@@ -1,8 +1,10 @@
 // Import gridle :
 @import 'gridle/gridle';
 
-
+// setup the grid (required) :
 @include gridle_setup((
+	context : 12,
+	gutter-width : 20px,
 	debug : true
 ));
 
@@ -10,11 +12,8 @@
 @include gridle_register_column('1on5', 1, 5);
 
 // clear each classes :
-@include gridle_register_clear_each(2,left);
-@include gridle_register_clear_each(12,left);
-
-// register clear each classes :
-@include gridle_register_clear_each(2, both);
+@include gridle_register_clear_each(2, left);
+@include gridle_register_clear_each(12, both);
 
 // register states :
 @include gridle_register_default_states();

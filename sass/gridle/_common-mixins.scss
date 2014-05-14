@@ -24,7 +24,7 @@
 	@each $stateName, $state in $_gridle-states
 	{
 		// vars :
-		$direction : _gridle_get_var_value(cirection, $state);
+		$direction : _gridle_get_var_value(direction, $state);
 		$gutter-width : _gridle_get_var_value(gutter-width, $state);
 		$debug : _gridle_get_var_value(debug, $state);
 		
