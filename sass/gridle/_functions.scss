@@ -61,6 +61,23 @@
 
 
 /**
+ * Check if a state exist :
+ *
+ * @param 	string 		$name 		The name of the state to check
+ * @return 	Boolean 			true is exist
+ */
+@function _gridle_has_state(
+	$stateName
+) {
+	@if map-has-key($_gridle_states, unquote($stateName)) {
+		@return true;
+	} @else {
+		@return false;
+	}
+}
+
+
+/**
  * Get the media queries variables :
  *
  * @param 	int 		$index 	 	The media query indes

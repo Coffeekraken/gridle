@@ -39,8 +39,8 @@
 	#{_gridle_classname($gridle-clear-right-name-pattern, $state)} {
 		@include gridle_clear(right);
 	}
-	#{_gridle_classname($gridle-no-gutters-name-pattern, $state)},
-	#{_gridle_classname($gridle-no-margins-name-pattern, $state)} {
+	#{_gridle_classname($gridle-no-gutter-name-pattern, $state)},
+	#{_gridle_classname($gridle-no-margin-name-pattern, $state)} {
 		@include gridle_no_margin();
 	}
 	#{_gridle_classname($gridle-no-gutter-left-name-pattern, $state)},
@@ -59,8 +59,8 @@
 	#{_gridle_classname($gridle-no-margin-bottom-name-pattern, $state)} {
 		@include gridle_no_margin(bottom);
 	}
-	#{_gridle_classname($gridle-gutters-name-pattern, $state)},
-	#{_gridle_classname($gridle-margins-name-pattern, $state)} {
+	#{_gridle_classname($gridle-gutter-name-pattern, $state)},
+	#{_gridle_classname($gridle-margin-name-pattern, $state)} {
 		@include gridle_margin(left right);
 	}
 	#{_gridle_classname($gridle-gutter-left-name-pattern, $state)},
@@ -88,14 +88,14 @@
 	#{_gridle_classname($gridle-parent-name-pattern, $state)} {
 		@include _gridle_parent();
 	}
-	#{_gridle_classname($gridle-parent-vertical-align-middle-name-pattern, $state)} {
-		@include _gridle_parent_vertical_align();
+	#{_gridle_classname($gridle-vertical-align-middle-name-pattern, $state)} {
+		@include _gridle_vertical_align();
 	}
-	#{_gridle_classname($gridle-parent-vertical-align-top-name-pattern, $state)} {
-		@include _gridle_parent_vertical_align(top);
+	#{_gridle_classname($gridle-vertical-align-top-name-pattern, $state)} {
+		@include _gridle_vertical_align(top);
 	}
-	#{_gridle_classname($gridle-parent-vertical-align-bottom-name-pattern, $state)} {
-		@include _gridle_parent_vertical_align(bottom);
+	#{_gridle_classname($gridle-vertical-align-bottom-name-pattern, $state)} {
+		@include _gridle_vertical_align(bottom);
 	}
 
 	/**

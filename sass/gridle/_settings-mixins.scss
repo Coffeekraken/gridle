@@ -11,7 +11,7 @@
 	$settings : ()
 ) {
 	$_gridle-settings : map-merge((
-		min-width : 0,
+		min-width : null,
 		max-width : 99999999px,
 		query : null,
 		classes : true,

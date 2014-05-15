@@ -1,52 +1,224 @@
-/** Imports : */
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video { margin: 0; padding: 0; border: 0; font: inherit; font-size: 100%; vertical-align: baseline; }
+/**
+ * Imports :
+ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
 
-html { line-height: 1; }
+html {
+  line-height: 1;
+}
 
-ol, ul { list-style: none; }
+ol, ul {
+  list-style: none;
+}
 
-table { border-collapse: collapse; border-spacing: 0; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
-caption, th, td { text-align: left; font-weight: normal; vertical-align: middle; }
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
 
-q, blockquote { quotes: none; }
-q:before, q:after, blockquote:before, blockquote:after { content: ""; content: none; }
+q, blockquote {
+  quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
 
-a img { border: none; }
+a img {
+  border: none;
+}
 
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary { display: block; }
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
 
-/** Import grid settings : This to be able to use gridle mixins, etc... */
-/** Map set  @param 	Map 	$map 		The map to use @param 	String 	$key 		The key to update @param 	Mixed 	$value 		The new value @return 	Map 			The new map */
-/** Get the column width in percent for the global or a specific context  @param 	int 		$columns 					The number of columns to calculate @param 	int 		$context : $gridle-columns-count 	 	The context to use @return 	percentage 							The width in percent */
-/** Get a state map  @param 	string 		$name 		The name of the state to get @return 	map 				A state map object */
-/** Get the media queries variables :  @param 	int 		$index 	 	The media query indes @param 	String 		$var 		The media query variable name @return 	String|int 			The variable value */
-/** Get a variable  @param 	String 		$varName 				The variable name @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value @return 	Mixed 							The finded value */
-/** Set a variable in a state @param 	Mixed $stateName-or-stateIndex 	The state name of state index @param  	String $var                    		Variable name to assign @param  	Mixed $newValue          		The new value to assign @return 	List                         			The states list (full) */
-/** Generate a column  @param 	String 		$name 			The column name (often count) @param 	int 		$columns 		The column count that the column will take @param 	int 		$context 		The context on witch the with will be calculed @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css */
-/** Generate classname  @param 	List 		$parrern 	The pattern to use to generate classname @param 	String 		$state 		The state @param 	int 		$count 		The column count */
-/** Get the media query for a particular state, or with, etc...  @param 	Mixed 		$state-or-min-width 		The state name of the min with @param 	Mixed 		$max-width 			The max width if first param is a min width @return 	String 						The media query string without the @media */
-/** Get states count  @return 	int 	The number of states defined */
-/** Setup */
-/** Register a clear each class */
-/** Register a special class */
-/** Register default states */
-/** Register default mobile first states : */
-/** Set the debug device (not used for now)  @param 	String 		$state 		The state to update @para m 	String 		$device 	The device to use (iphone, etc...) */
-/** States : */
-/** Parent clear each */
-/** Vertical align : */
-/** Medias : */
-ul#medias { background: black; text-align: center; margin-bottom: 30px; }
-ul#medias li { display: inline-block; height: 50px; line-height: 50px; padding: 0 30px; color: white; font-size: 16px; cursor: pointer; margin: 0; }
-ul#medias li.active, ul#medias li:hover { background: white; color: black; }
-@media screen and (min-width: 0) and (max-width: 620px) { ul#medias { display: none; } }
+/**
+ * Import grid settings :
+ * This to be able to use gridle mixins, etc...
+ */
+/**
+ * Map set
+ *
+ * @param 	Map 	$map 		The map to use
+ * @param 	String 	$key 		The key to update
+ * @param 	Mixed 	$value 		The new value
+ * @return 	Map 			The new map
+ */
+/**
+ * Get the column width in percent for the global or a specific context
+ *
+ * @param 	int 		$columns 					The number of columns to calculate
+ * @param 	int 		$context : $gridle-columns-count 	 	The context to use
+ * @return 	percentage 							The width in percent
+ */
+/**
+ *  Get a state map
+ *
+ * @param 	string 		$name 		The name of the state to get
+ * @return 	map 				A state map object
+ */
+/**
+ * Check if a state exist :
+ *
+ * @param 	string 		$name 		The name of the state to check
+ * @return 	Boolean 			true is exist
+ */
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 		$index 	 	The media query indes
+ * @param 	String 		$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+/**
+ * Get a variable
+ *
+ * @param 	String 		$varName 				The variable name
+ * @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
+ * @return 	Mixed 							The finded value
+ */
+/**
+ * Set a variable in a state
+ * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+ * @param  	String $var                    		Variable name to assign
+ * @param  	Mixed $newValue          		The new value to assign
+ * @return 	List                         			The states list (full)
+ */
+/**
+ * Generate a column
+ *
+ * @param 	String 		$name 			The column name (often count)
+ * @param 	int 		$columns 		The column count that the column will take
+ * @param 	int 		$context 		The context on witch the with will be calculed
+ * @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
+ */
+/**
+ * Generate classname
+ *
+ * @param 	List 		$parrern 	The pattern to use to generate classname
+ * @param 	String 		$state 		The state
+ * @param 	int 		$count 		The column count
+ */
+/**
+ * Get the media query for a particular state, or with, etc...
+ *
+ * @param 	Mixed 		$state-or-min-width 		The state name of the min with
+ * @param 	Mixed 		$max-width 			The max width if first param is a min width
+ * @return 	String 						The media query string without the @media
+ */
+/**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
+ * Setup
+ */
+/**
+ *  Register a clear each class
+ */
+/**
+ * Register a special class
+ */
+/**
+ * Register default states
+ */
+/**
+ * Register default mobile first states :
+ */
+/**
+ * Set the debug device (not used for now)
+ * 
+ * @param 	String 		$state 		The state to update
+ * @para m 	String 		$device 	The device to use (iphone, etc...)
+ */
+/**
+ * Parent clear each
+ */
+/**
+ * Vertical align :
+ */
+/**
+ * Medias :
+ */
+ul#medias {
+  background: black;
+  text-align: center;
+  margin-bottom: 30px;
+}
+ul#medias li {
+  display: inline-block;
+  height: 50px;
+  line-height: 50px;
+  padding: 0 30px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0;
+}
+ul#medias li.active, ul#medias li:hover {
+  background: white;
+  color: black;
+}
+@media screen and (max-width: 620px) {
+  ul#medias {
+    display: none;
+  }
+}
 
-/** Basic formatting : */
-body { font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif; }
-html.mobile body { text-align: center; }
-@media screen and (min-width: 0) and (max-width: 480px) { body { text-align: center; } }
-html.tablet body { text-align: center; }
-@media screen and (min-width: 481px) and (max-width: 1024px) { body { text-align: center; } }
-html.ipad-landscape body { font-size: 16px; }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) { body { font-size: 16px; } }
+/**
+ * Basic formatting :
+ */
+html {
+  font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+}
+
+html.mobile body {
+  text-align: center;
+}
+@media screen and (max-width: 480px) {
+  body {
+    text-align: center;
+  }
+}
+html.tablet body {
+  text-align: center;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  body {
+    text-align: center;
+  }
+}
+html.ipad-landscape body {
+  font-size: 16px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  body {
+    font-size: 16px;
+  }
+}

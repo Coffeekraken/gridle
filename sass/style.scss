@@ -44,12 +44,14 @@ ul#medias {
 /**
  * Basic formatting :
  */
-body {
+html {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
-
-	@include gridle_states(mobile tablet) {
+}
+body {
+	@include gridle_state(mobile tablet) {
 		text-align:center;
 	}
+
 	@include gridle_state(ipad-landscape) {
 		font-size:16px;
 	}

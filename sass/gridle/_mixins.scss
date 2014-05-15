@@ -6,56 +6,54 @@
 
 // Responsive helpers mixins :
 @mixin gridle_state(
-	$state,
-	$has-parent : true
-) {
-	// variables :
-	$html-states-classes : _gridle_get_var_value(html-states-classes, $state);
-	$debug : _gridle_get_var_value(debug, $state);
-	$stateName : _gridle_get_var_value(name, $state);
-
-	// check if is a state :
-	@if ($html-states-classes or $debug)
-		and $stateName {
-		// html class :
-		@if $has-parent {
-			html#{_gridle_classname("#{$stateName}")} & { @content; }
-		} @else {
-			html#{_gridle_classname("#{$stateName}")} { @content; }
-		}
-	}
-
-	// get the media query :
-	$q : _gridle_get_media_query($state);
-
-	// make the media query if a query exist :
-	@if $q {
-		@media #{$q} {
-			@content;
-		}
-	}
-	@else
-	{
-		@content;
-	}
-}
-
-
-/**
- * States :
- */
-@mixin gridle_states(
 	$states,
 	$has-parent : true
 ) {
-	
-	// loop on each states :
-	@each $state in $states
-	{
+
+	// check first param if is a state :
+	$firstState : nth($states,1);
+	@if _gridle_has_state($firstState) {
+
+		// loop on each states :
+		@each $state in $states
+		{
+			// variables :
+			$html-states-classes : _gridle_get_var_value(html-states-classes, $state);
+			$debug : _gridle_get_var_value(debug, $state);
+			$stateName : _gridle_get_var_value(name, $state);
+
+			// check if is a state :
+			@if ($html-states-classes or $debug)
+				and $stateName {
+				// html class :
+				@if $has-parent {
+					html#{_gridle_classname("#{$stateName}")} & { @content; }
+				} @else {
+					html#{_gridle_classname("#{$stateName}")} { @content; }
+				}
+			}
+
+			// get the media query :
+			$q : _gridle_get_media_query($state);
+
+			// make the media query if a query exist :
+			@if $q {
+				@media #{$q} {
+					@content;
+				}
+			}
+			@else
+			{
+				@content;
+			}
+		}
+
+	} @else {
+
 		// variables :
-		$html-states-classes : _gridle_get_var_value(html-states-classes, $state);
-		$debug : _gridle_get_var_value(debug, $state);
-		$stateName : _gridle_get_var_value(name, $state);
+		$html-states-classes : _gridle_get_var_value(html-states-classes, $states);
+		$debug : _gridle_get_var_value(debug, $states);
+		$stateName : _gridle_get_var_value(name, $states);
 
 		// check if is a state :
 		@if ($html-states-classes or $debug)
@@ -69,7 +67,7 @@
 		}
 
 		// get the media query :
-		$q : _gridle_get_media_query($state);
+		$q : _gridle_get_media_query($states);
 
 		// make the media query if a query exist :
 		@if $q {
@@ -81,6 +79,7 @@
 		{
 			@content;
 		}
+
 	}
 }
 
@@ -139,10 +138,18 @@
 	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
 			&:before {
-				content:"grid-#{$name}-#{$columns * $name-multiplicator}";
+				@if $name == default {
+					content:"grid-#{$name}-#{$columns * $name-multiplicator}";
+				} @else {
+					content:"grid-#{$name}-#{$columns * $name-multiplicator}" !important;
+				}
 			}
 			&.parent:before {
-				content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}";
+				@if $name == default {
+					content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}";
+				} @else {
+					content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}" !important;
+				}
 			}
 		}
 	}
@@ -293,9 +300,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"èrefix-#{$name}-#{$columns * $name-multiplicator}";
+					content:"prefix-#{$name}-#{$columns * $name-multiplicator}";
 				} @else {
-					content:"èrefix-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"prefix-#{$name}-#{$columns * $name-multiplicator}" !important;
 				}
 			}
 		}
@@ -468,26 +475,29 @@
 /**
  * Vertical align :
  */
-@mixin gridle_parent_vertical_align(
+@mixin gridle_vertical_align(
 	$align : middle,
 	$state : null
 ) {
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_parent_vertical_align($align);
+			@include _gridle_vertical_align($align);
 		}
 	} @else {
-		@include _gridle_parent_vertical_align($align);
+		@include _gridle_vertical_align($align);
 	}
 }
-@mixin _gridle_parent_vertical_align(
+@mixin _gridle_vertical_align(
 	$align : middle
 ) {
+	font-size:0;
+
 	> * {
 		display:inline-block;
 		float:none !important;
 		vertical-align:$align;
+		font-size:1rem;
 	}
 }
 
