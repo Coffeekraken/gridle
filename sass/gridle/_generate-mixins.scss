@@ -234,6 +234,8 @@
 	$gridle-settings-states : "{";
 
 	// generate all classes for differents media queries :
+	$statesCount : length($_gridle_states);
+	$i : 0;
 	@each $stateName, $state in $_gridle_states {
 	
 		$name : $stateName;
@@ -247,19 +249,27 @@
 				$value : _gridle_get_media_query($stateName);
 			} @else {
 				$value : map-get($state,$varName);
-				// $value : _gridle_get_state_var($i,$var);
 			}
 
 			@if $value == null {
 				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : null,";
-			} @elseif $var == 'context' or $var == 'classes' {
+			} @elseif type-of($value) == bool {
 				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : #{$value},";
 			} @else {
 				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : \"#{$value}\",";		
 			}
 		}
 
-		$gridle-settings-states : "#{$gridle-settings-states} },";
+		$gridle-settings-states : "#{$gridle-settings-states} \"_gridle\" : true";
+
+		@if $i >= $statesCount - 1 {
+			$gridle-settings-states : "#{$gridle-settings-states} }";
+		} @else {
+			$gridle-settings-states : "#{$gridle-settings-states} },";
+		}
+	
+		// update i :
+		$i : $i + 1;
 
 	}
 
@@ -276,10 +286,10 @@
 	@if length($_gridle_states_debug_devices) <= 0 {
 		$debug_devices : null;
 	}
-	$gridle-settings : "#{$gridle-settings}, \"debugDevices\" : { #{$debug_devices} }";
+	// $gridle-settings : "#{$gridle-settings}, \"debugDevices\" : { #{$debug_devices} }";
 
 	// settings :
-	$gridle-settings : "#{$gridle-settings}, \"classPrefix\" : \"#{$gridle-class-prefix}\"";
+	// $gridle-settings : "#{$gridle-settings}, \"classPrefix\" : \"#{$gridle-class-prefix}\"";
 	$gridle-settings : "#{$gridle-settings} }";
 	#gridle-settings {
 		content : $gridle-settings;
