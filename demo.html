@@ -13,8 +13,23 @@
 
 	<title>Gridle - Demo</title>
 
+	<script src="js/smokesignals.js"></script>
+	<script src="js/gridle.js"></script>
 	<script src="js/jquery.js"></script>
 	<script>
+
+		// Gridle.init({
+		// 	debug : true
+		// });
+
+		Gridle.on('update', function(e, updatedStates, activeStates, unactiveStates) {
+			
+			console.log('gridle update', updatedStates, activeStates, unactiveStates);
+			
+			if (Gridle.isActive('mobile')) console.log('Mobile State Active');
+
+		});
+
 		jQuery(function($) {
 			$('#medias li').click(function(e) {
 				e.preventDefault();
