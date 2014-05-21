@@ -13,15 +13,11 @@
 
 	<title>Gridle - Demo</title>
 
-	<script src="js/smokesignals.js"></script>
 	<script src="js/gridle.js"></script>
 	<script src="js/jquery.js"></script>
 	<script>
 
-		// Gridle.init({
-		// 	debug : true
-		// });
-
+		// listen for update in gridle js :
 		Gridle.on('update', function(e, updatedStates, activeStates, unactiveStates) {
 			
 			console.log('gridle update', updatedStates, activeStates, unactiveStates);
@@ -30,6 +26,7 @@
 
 		});
 
+		// states switch :
 		jQuery(function($) {
 			$('#medias li').click(function(e) {
 				e.preventDefault();
