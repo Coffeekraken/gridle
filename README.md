@@ -1,4 +1,4 @@
-# gridle (v1.3.1)
+# gridle (v1.3.2)
 
 
 One grid system to rule them all (.scss)
@@ -102,3 +102,15 @@ Customize your content look and feel with Gridle mixins
 	}
 }
 ```
+
+## Generate custom classes
+
+Gridle allows you to generate custom classes that will be available for each of your states. Here's an exemple
+
+```scss
+@include gridle_generate_custom_class( ( 'center', '-', '%state' ) ) {
+	text-align : center;
+}
+```
+
+This will produce the classes : center, center-mobile, center-tablet and center-landscape automatically
