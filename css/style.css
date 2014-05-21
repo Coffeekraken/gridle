@@ -164,6 +164,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * Vertical align :
  */
 /**
+ * Generate a custom class for all the states
+ *
+ * @param 	list 	$pattern 		The name pattern of the class
+ * @param 	list 	$statesNames 		The states names to generate
+ */
+/**
  * Medias :
  */
 ul#medias {
@@ -184,6 +190,9 @@ ul#medias li {
 ul#medias li.active, ul#medias li:hover {
   background: white;
   color: black;
+}
+html.default ul#medias {
+  display: none;
 }
 @media screen and (max-width: 620px) {
   ul#medias {

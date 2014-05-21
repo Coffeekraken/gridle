@@ -4,6 +4,18 @@
 // Generate classes :
 @include gridle_generate_classes();
 
+// you can generate classes separately if you need :
+// @include gridle_generate_classes(default);  	// default is the base state always registered
+// @include gridle_generate_classes(mobile, (grid, push, pull)) // generate only the grid, push and pull classes for mobile
+// etc...
+
+// generate a center custom class for all the states :
+@include gridle_generate_custom_class( ('center','%-','%state') ) {
+	text-align:center;
+}
+// this will produces classes : center, center-mobile, center-tablet, center-ipad-landscape
+// for separators, you can use the %- (replaced by the $gridle-class-separator option), or -, --, _, __
+
 // Max size :
 .container {
 	margin:0 auto;

@@ -44,7 +44,7 @@
 	$stateMap-or-stateName
 ) {
 	// check if has a state named like this :
-	@if (map-has-key($_gridle_states, $stateMap-or-stateName))
+	@if (map-has-key($_gridle_states, unquote($stateMap-or-stateName)))
 	{
 		@return map-get($_gridle_states, unquote($stateMap-or-stateName));
 	} 
@@ -228,22 +228,34 @@
 		@if $var == '%count' and $count {
 			$sel : "#{$sel}#{$count}";
 		}  
-		@if $var != '%state' and $var != '%count' and $var != '%-' and $var != '%prefix' {
+		@if $var != '%state' and $var != '%count' and $var != '%-' and $var != '-' and $var != '--' and $var != '_' and $var != '__' and $var != '%prefix' {
 			$sel : "#{$sel}#{$var}";
 		}
 
 		// handle separators :
-		@if $var == '%-' and $i < length($pattern) {
+		@if ($var == '%-' or $var == '-' or $var == '--' or $var == '_' or $var == '__') and $i < length($pattern) {
 			$index : $i + 1;
 			$value : nth($pattern, $index);
-			@if $value != '%state' and $value != '%count' and $value != '%-' and $value != '%prefix' {
-				$sel : "#{$sel}#{$gridle-class-separator}";
+			@if $value != '%state' and $value != '%count' and $value != '%-' and $value != '-' and $value != '--' and $value != '_' and $value != '__' and $value != '%prefix' {
+				@if $var == '%-' {
+					$sel : "#{$sel}#{$gridle-class-separator}";
+				} @else {
+					$sel : "#{$sel}#{$var}";
+				}
 			}
 			@if $value == '%state' and $state {
-				$sel : "#{$sel}#{$gridle-class-separator}";
+				@if $var == '%-' {
+					$sel : "#{$sel}#{$gridle-class-separator}";
+				} @else {
+					$sel : "#{$sel}#{$var}";
+				}
 			}
 			@if $value == '%count' and $count {
-				$sel : "#{$sel}#{$gridle-class-separator}";
+				@if $var == '%-' {
+					$sel : "#{$sel}#{$gridle-class-separator}";
+				} @else {
+					$sel : "#{$sel}#{$var}";
+				}
 			}
 		}
 

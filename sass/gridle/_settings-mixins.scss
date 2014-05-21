@@ -11,6 +11,7 @@
 	$settings : ()
 ) {
 	$_gridle-settings : map-merge((
+		name : default,
 		min-width : null,
 		max-width : 99999999px,
 		query : null,
@@ -54,7 +55,7 @@
 /**
  *  Register a clear each class
  */
-@mixin gridle_register_clear_each (
+@mixin gridle_register_clear_each(
 	$count,
 	$clearWhat
 ) {

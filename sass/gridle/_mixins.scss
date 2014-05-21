@@ -100,7 +100,7 @@
 	$state : null
 ) {
 	// common :
-	@include _gridle_grid_common($state);
+	@include _gridle_grid_common();
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
