@@ -175,65 +175,78 @@
 html.default .col-0, html.default .col-1, html.default .col-2, html.default .col-3, html.default .col-4, html.default .col-5, html.default .col-6, html.default .col-7, html.default .col-8, html.default .col-9, html.default .col-10, html.default .col-11, html.default .col-12, html.default .col-xs-0, html.default .col-xs-1, html.default .col-xs-2, html.default .col-xs-3, html.default .col-xs-4, html.default .col-xs-5, html.default .col-xs-6, html.default .col-xs-7, html.default .col-xs-8, html.default .col-xs-9, html.default .col-xs-10, html.default .col-xs-11, html.default .col-xs-12, html.default .col-sm-0, html.default .col-sm-1, html.default .col-sm-2, html.default .col-sm-3, html.default .col-sm-4, html.default .col-sm-5, html.default .col-sm-6, html.default .col-sm-7, html.default .col-sm-8, html.default .col-sm-9, html.default .col-sm-10, html.default .col-sm-11, html.default .col-sm-12, html.default .col-md-0, html.default .col-md-1, html.default .col-md-2, html.default .col-md-3, html.default .col-md-4, html.default .col-md-5, html.default .col-md-6, html.default .col-md-7, html.default .col-md-8, html.default .col-md-9, html.default .col-md-10, html.default .col-md-11, html.default .col-md-12, html.default .col-lg-0, html.default .col-lg-1, html.default .col-lg-2, html.default .col-lg-3, html.default .col-lg-4, html.default .col-lg-5, html.default .col-lg-6, html.default .col-lg-7, html.default .col-lg-8, html.default .col-lg-9, html.default .col-lg-10, html.default .col-lg-11, html.default .col-lg-12 {
   float: left;
   direction: ltr;
-  padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 @media screen and (max-width: 99999999px) {
   .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
     direction: ltr;
-    padding: 0 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 html.xs .col-0, html.xs .col-1, html.xs .col-2, html.xs .col-3, html.xs .col-4, html.xs .col-5, html.xs .col-6, html.xs .col-7, html.xs .col-8, html.xs .col-9, html.xs .col-10, html.xs .col-11, html.xs .col-12, html.xs .col-xs-0, html.xs .col-xs-1, html.xs .col-xs-2, html.xs .col-xs-3, html.xs .col-xs-4, html.xs .col-xs-5, html.xs .col-xs-6, html.xs .col-xs-7, html.xs .col-xs-8, html.xs .col-xs-9, html.xs .col-xs-10, html.xs .col-xs-11, html.xs .col-xs-12, html.xs .col-sm-0, html.xs .col-sm-1, html.xs .col-sm-2, html.xs .col-sm-3, html.xs .col-sm-4, html.xs .col-sm-5, html.xs .col-sm-6, html.xs .col-sm-7, html.xs .col-sm-8, html.xs .col-sm-9, html.xs .col-sm-10, html.xs .col-sm-11, html.xs .col-sm-12, html.xs .col-md-0, html.xs .col-md-1, html.xs .col-md-2, html.xs .col-md-3, html.xs .col-md-4, html.xs .col-md-5, html.xs .col-md-6, html.xs .col-md-7, html.xs .col-md-8, html.xs .col-md-9, html.xs .col-md-10, html.xs .col-md-11, html.xs .col-md-12, html.xs .col-lg-0, html.xs .col-lg-1, html.xs .col-lg-2, html.xs .col-lg-3, html.xs .col-lg-4, html.xs .col-lg-5, html.xs .col-lg-6, html.xs .col-lg-7, html.xs .col-lg-8, html.xs .col-lg-9, html.xs .col-lg-10, html.xs .col-lg-11, html.xs .col-lg-12 {
   float: left;
   direction: ltr;
-  padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 @media screen and (max-width: 768px) {
   .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
     direction: ltr;
-    padding: 0 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 html.sm .col-0, html.sm .col-1, html.sm .col-2, html.sm .col-3, html.sm .col-4, html.sm .col-5, html.sm .col-6, html.sm .col-7, html.sm .col-8, html.sm .col-9, html.sm .col-10, html.sm .col-11, html.sm .col-12, html.sm .col-xs-0, html.sm .col-xs-1, html.sm .col-xs-2, html.sm .col-xs-3, html.sm .col-xs-4, html.sm .col-xs-5, html.sm .col-xs-6, html.sm .col-xs-7, html.sm .col-xs-8, html.sm .col-xs-9, html.sm .col-xs-10, html.sm .col-xs-11, html.sm .col-xs-12, html.sm .col-sm-0, html.sm .col-sm-1, html.sm .col-sm-2, html.sm .col-sm-3, html.sm .col-sm-4, html.sm .col-sm-5, html.sm .col-sm-6, html.sm .col-sm-7, html.sm .col-sm-8, html.sm .col-sm-9, html.sm .col-sm-10, html.sm .col-sm-11, html.sm .col-sm-12, html.sm .col-md-0, html.sm .col-md-1, html.sm .col-md-2, html.sm .col-md-3, html.sm .col-md-4, html.sm .col-md-5, html.sm .col-md-6, html.sm .col-md-7, html.sm .col-md-8, html.sm .col-md-9, html.sm .col-md-10, html.sm .col-md-11, html.sm .col-md-12, html.sm .col-lg-0, html.sm .col-lg-1, html.sm .col-lg-2, html.sm .col-lg-3, html.sm .col-lg-4, html.sm .col-lg-5, html.sm .col-lg-6, html.sm .col-lg-7, html.sm .col-lg-8, html.sm .col-lg-9, html.sm .col-lg-10, html.sm .col-lg-11, html.sm .col-lg-12 {
   float: left;
   direction: ltr;
-  padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 @media screen and (min-width: 768px) and (max-width: 99999999px) {
   .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
     direction: ltr;
-    padding: 0 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 html.md .col-0, html.md .col-1, html.md .col-2, html.md .col-3, html.md .col-4, html.md .col-5, html.md .col-6, html.md .col-7, html.md .col-8, html.md .col-9, html.md .col-10, html.md .col-11, html.md .col-12, html.md .col-xs-0, html.md .col-xs-1, html.md .col-xs-2, html.md .col-xs-3, html.md .col-xs-4, html.md .col-xs-5, html.md .col-xs-6, html.md .col-xs-7, html.md .col-xs-8, html.md .col-xs-9, html.md .col-xs-10, html.md .col-xs-11, html.md .col-xs-12, html.md .col-sm-0, html.md .col-sm-1, html.md .col-sm-2, html.md .col-sm-3, html.md .col-sm-4, html.md .col-sm-5, html.md .col-sm-6, html.md .col-sm-7, html.md .col-sm-8, html.md .col-sm-9, html.md .col-sm-10, html.md .col-sm-11, html.md .col-sm-12, html.md .col-md-0, html.md .col-md-1, html.md .col-md-2, html.md .col-md-3, html.md .col-md-4, html.md .col-md-5, html.md .col-md-6, html.md .col-md-7, html.md .col-md-8, html.md .col-md-9, html.md .col-md-10, html.md .col-md-11, html.md .col-md-12, html.md .col-lg-0, html.md .col-lg-1, html.md .col-lg-2, html.md .col-lg-3, html.md .col-lg-4, html.md .col-lg-5, html.md .col-lg-6, html.md .col-lg-7, html.md .col-lg-8, html.md .col-lg-9, html.md .col-lg-10, html.md .col-lg-11, html.md .col-lg-12 {
   float: left;
   direction: ltr;
-  padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 @media screen and (min-width: 992px) and (max-width: 99999999px) {
   .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
     direction: ltr;
-    padding: 0 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 html.lg .col-0, html.lg .col-1, html.lg .col-2, html.lg .col-3, html.lg .col-4, html.lg .col-5, html.lg .col-6, html.lg .col-7, html.lg .col-8, html.lg .col-9, html.lg .col-10, html.lg .col-11, html.lg .col-12, html.lg .col-xs-0, html.lg .col-xs-1, html.lg .col-xs-2, html.lg .col-xs-3, html.lg .col-xs-4, html.lg .col-xs-5, html.lg .col-xs-6, html.lg .col-xs-7, html.lg .col-xs-8, html.lg .col-xs-9, html.lg .col-xs-10, html.lg .col-xs-11, html.lg .col-xs-12, html.lg .col-sm-0, html.lg .col-sm-1, html.lg .col-sm-2, html.lg .col-sm-3, html.lg .col-sm-4, html.lg .col-sm-5, html.lg .col-sm-6, html.lg .col-sm-7, html.lg .col-sm-8, html.lg .col-sm-9, html.lg .col-sm-10, html.lg .col-sm-11, html.lg .col-sm-12, html.lg .col-md-0, html.lg .col-md-1, html.lg .col-md-2, html.lg .col-md-3, html.lg .col-md-4, html.lg .col-md-5, html.lg .col-md-6, html.lg .col-md-7, html.lg .col-md-8, html.lg .col-md-9, html.lg .col-md-10, html.lg .col-md-11, html.lg .col-md-12, html.lg .col-lg-0, html.lg .col-lg-1, html.lg .col-lg-2, html.lg .col-lg-3, html.lg .col-lg-4, html.lg .col-lg-5, html.lg .col-lg-6, html.lg .col-lg-7, html.lg .col-lg-8, html.lg .col-lg-9, html.lg .col-lg-10, html.lg .col-lg-11, html.lg .col-lg-12 {
   float: left;
   direction: ltr;
-  padding: 0 15px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 @media screen and (min-width: 1200px) and (max-width: 99999999px) {
   .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
     float: left;
     direction: ltr;
-    padding: 0 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
 
 html.default {
+  /**
+   * Visible, hide, etc...
+   */
   /**
    * Clear each class :
    */
@@ -433,18 +446,6 @@ html.default .col-offset-12 {
 html.default .suffix-12 {
   margin-right: 100.0%;
 }
-html.default .hidden {
-  display: none;
-}
-html.default .not-visible {
-  visibility: hidden;
-}
-html.default .visible {
-  display: block;
-}
-html.default .visible {
-  visibility: visible;
-}
 html.default .float-left {
   float: left;
 }
@@ -545,6 +546,18 @@ html.default .vertical-align-bottom > * {
   float: none !important;
   vertical-align: bottom;
   font-size: 1rem;
+}
+html.default .hidden {
+  display: none;
+}
+html.default .not-visible {
+  visibility: hidden;
+}
+html.default .visible {
+  display: block;
+}
+html.default .visible {
+  visibility: visible;
 }
 
 @media screen and (max-width: 99999999px) {
@@ -808,22 +821,6 @@ html.default .vertical-align-bottom > * {
     margin-right: 100.0%;
   }
 
-  .hidden {
-    display: none;
-  }
-
-  .not-visible {
-    visibility: hidden;
-  }
-
-  .visible {
-    display: block;
-  }
-
-  .visible {
-    visibility: visible;
-  }
-
   .float-left {
     float: left;
   }
@@ -947,10 +944,32 @@ html.default .vertical-align-bottom > * {
   }
 
   /**
+   * Visible, hide, etc...
+   */
+  .hidden {
+    display: none;
+  }
+
+  .not-visible {
+    visibility: hidden;
+  }
+
+  .visible {
+    display: block;
+  }
+
+  .visible {
+    visibility: visible;
+  }
+
+  /**
    * Clear each class :
    */
 }
 html.xs {
+  /**
+   * Visible, hide, etc...
+   */
   /**
    * Clear each class :
    */
@@ -1150,18 +1169,6 @@ html.xs .col-xs-offset-12 {
 html.xs .suffix-xs-12 {
   margin-right: 100.0%;
 }
-html.xs .hidden-xs {
-  display: none;
-}
-html.xs .not-visible-xs {
-  visibility: hidden;
-}
-html.xs .visible-xs {
-  display: block;
-}
-html.xs .visible-xs {
-  visibility: visible;
-}
 html.xs .float-xs-left {
   float: left;
 }
@@ -1262,6 +1269,18 @@ html.xs .vertical-align-xs-bottom > * {
   float: none !important;
   vertical-align: bottom;
   font-size: 1rem;
+}
+html.xs .hidden-xs {
+  display: none;
+}
+html.xs .not-visible-xs {
+  visibility: hidden;
+}
+html.xs .visible-xs {
+  display: block;
+}
+html.xs .visible-xs {
+  visibility: visible;
 }
 
 @media screen and (max-width: 768px) {
@@ -1525,22 +1544,6 @@ html.xs .vertical-align-xs-bottom > * {
     margin-right: 100.0%;
   }
 
-  .hidden-xs {
-    display: none;
-  }
-
-  .not-visible-xs {
-    visibility: hidden;
-  }
-
-  .visible-xs {
-    display: block;
-  }
-
-  .visible-xs {
-    visibility: visible;
-  }
-
   .float-xs-left {
     float: left;
   }
@@ -1664,10 +1667,32 @@ html.xs .vertical-align-xs-bottom > * {
   }
 
   /**
+   * Visible, hide, etc...
+   */
+  .hidden-xs {
+    display: none;
+  }
+
+  .not-visible-xs {
+    visibility: hidden;
+  }
+
+  .visible-xs {
+    display: block;
+  }
+
+  .visible-xs {
+    visibility: visible;
+  }
+
+  /**
    * Clear each class :
    */
 }
 html.sm {
+  /**
+   * Visible, hide, etc...
+   */
   /**
    * Clear each class :
    */
@@ -1867,18 +1892,6 @@ html.sm .col-sm-offset-12 {
 html.sm .suffix-sm-12 {
   margin-right: 100.0%;
 }
-html.sm .hidden-sm {
-  display: none;
-}
-html.sm .not-visible-sm {
-  visibility: hidden;
-}
-html.sm .visible-sm {
-  display: block;
-}
-html.sm .visible-sm {
-  visibility: visible;
-}
 html.sm .float-sm-left {
   float: left;
 }
@@ -1979,6 +1992,18 @@ html.sm .vertical-align-sm-bottom > * {
   float: none !important;
   vertical-align: bottom;
   font-size: 1rem;
+}
+html.sm .hidden-sm {
+  display: none;
+}
+html.sm .not-visible-sm {
+  visibility: hidden;
+}
+html.sm .visible-sm {
+  display: block;
+}
+html.sm .visible-sm {
+  visibility: visible;
 }
 
 @media screen and (min-width: 768px) and (max-width: 99999999px) {
@@ -2242,22 +2267,6 @@ html.sm .vertical-align-sm-bottom > * {
     margin-right: 100.0%;
   }
 
-  .hidden-sm {
-    display: none;
-  }
-
-  .not-visible-sm {
-    visibility: hidden;
-  }
-
-  .visible-sm {
-    display: block;
-  }
-
-  .visible-sm {
-    visibility: visible;
-  }
-
   .float-sm-left {
     float: left;
   }
@@ -2381,10 +2390,32 @@ html.sm .vertical-align-sm-bottom > * {
   }
 
   /**
+   * Visible, hide, etc...
+   */
+  .hidden-sm {
+    display: none;
+  }
+
+  .not-visible-sm {
+    visibility: hidden;
+  }
+
+  .visible-sm {
+    display: block;
+  }
+
+  .visible-sm {
+    visibility: visible;
+  }
+
+  /**
    * Clear each class :
    */
 }
 html.md {
+  /**
+   * Visible, hide, etc...
+   */
   /**
    * Clear each class :
    */
@@ -2584,18 +2615,6 @@ html.md .col-md-offset-12 {
 html.md .suffix-md-12 {
   margin-right: 100.0%;
 }
-html.md .hidden-md {
-  display: none;
-}
-html.md .not-visible-md {
-  visibility: hidden;
-}
-html.md .visible-md {
-  display: block;
-}
-html.md .visible-md {
-  visibility: visible;
-}
 html.md .float-md-left {
   float: left;
 }
@@ -2696,6 +2715,18 @@ html.md .vertical-align-md-bottom > * {
   float: none !important;
   vertical-align: bottom;
   font-size: 1rem;
+}
+html.md .hidden-md {
+  display: none;
+}
+html.md .not-visible-md {
+  visibility: hidden;
+}
+html.md .visible-md {
+  display: block;
+}
+html.md .visible-md {
+  visibility: visible;
 }
 
 @media screen and (min-width: 992px) and (max-width: 99999999px) {
@@ -2959,22 +2990,6 @@ html.md .vertical-align-md-bottom > * {
     margin-right: 100.0%;
   }
 
-  .hidden-md {
-    display: none;
-  }
-
-  .not-visible-md {
-    visibility: hidden;
-  }
-
-  .visible-md {
-    display: block;
-  }
-
-  .visible-md {
-    visibility: visible;
-  }
-
   .float-md-left {
     float: left;
   }
@@ -3098,10 +3113,32 @@ html.md .vertical-align-md-bottom > * {
   }
 
   /**
+   * Visible, hide, etc...
+   */
+  .hidden-md {
+    display: none;
+  }
+
+  .not-visible-md {
+    visibility: hidden;
+  }
+
+  .visible-md {
+    display: block;
+  }
+
+  .visible-md {
+    visibility: visible;
+  }
+
+  /**
    * Clear each class :
    */
 }
 html.lg {
+  /**
+   * Visible, hide, etc...
+   */
   /**
    * Clear each class :
    */
@@ -3301,18 +3338,6 @@ html.lg .col-lg-offset-12 {
 html.lg .suffix-lg-12 {
   margin-right: 100.0%;
 }
-html.lg .hidden-lg {
-  display: none;
-}
-html.lg .not-visible-lg {
-  visibility: hidden;
-}
-html.lg .visible-lg {
-  display: block;
-}
-html.lg .visible-lg {
-  visibility: visible;
-}
 html.lg .float-lg-left {
   float: left;
 }
@@ -3413,6 +3438,18 @@ html.lg .vertical-align-lg-bottom > * {
   float: none !important;
   vertical-align: bottom;
   font-size: 1rem;
+}
+html.lg .hidden-lg {
+  display: none;
+}
+html.lg .not-visible-lg {
+  visibility: hidden;
+}
+html.lg .visible-lg {
+  display: block;
+}
+html.lg .visible-lg {
+  visibility: visible;
 }
 
 @media screen and (min-width: 1200px) and (max-width: 99999999px) {
@@ -3676,22 +3713,6 @@ html.lg .vertical-align-lg-bottom > * {
     margin-right: 100.0%;
   }
 
-  .hidden-lg {
-    display: none;
-  }
-
-  .not-visible-lg {
-    visibility: hidden;
-  }
-
-  .visible-lg {
-    display: block;
-  }
-
-  .visible-lg {
-    visibility: visible;
-  }
-
   .float-lg-left {
     float: left;
   }
@@ -3812,6 +3833,25 @@ html.lg .vertical-align-lg-bottom > * {
     float: none !important;
     vertical-align: bottom;
     font-size: 1rem;
+  }
+
+  /**
+   * Visible, hide, etc...
+   */
+  .hidden-lg {
+    display: none;
+  }
+
+  .not-visible-lg {
+    visibility: hidden;
+  }
+
+  .visible-lg {
+    display: block;
+  }
+
+  .visible-lg {
+    visibility: visible;
   }
 
   /**

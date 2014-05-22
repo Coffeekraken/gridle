@@ -52,30 +52,6 @@
 	$what : null
 ) {
 	// helpers :
-	@if $what == null or index($what, hide) or index($what, helpers) {
-		#{_gridle_classname($gridle-hide-name-pattern, $state)} {
-			@include gridle_hide(null);
-		}
-	}
-
-	@if $what == null or index($what, not_visible) or index($what, helpers) {
-		#{_gridle_classname($gridle-not-visible-name-pattern, $state)} {
-			@include gridle_not_visible(null);
-		}
-	}
-
-	@if $what == null or index($what, show) or index($what, helpers) {
-		#{_gridle_classname($gridle-show-name-pattern, $state)} {
-			@include gridle_show(null);
-		}
-	}
-
-	@if $what == null or index($what, visible) or index($what, helpers) {
-		#{_gridle_classname($gridle-visible-name-pattern, $state)} {
-			@include gridle_visible(null);
-		}
-	}
-
 	@if $what == null or index($what, float) or index($what, helpers) {
 		#{_gridle_classname($gridle-float-left-name-pattern, $state)} {
 			@include gridle_float(left);
@@ -170,6 +146,33 @@
 		}
 		#{_gridle_classname($gridle-vertical-align-bottom-name-pattern, $state)} {
 			@include _gridle_vertical_align(bottom);
+		}
+	}
+
+	/**
+	 * Visible, hide, etc...
+	 */
+	@if $what == null or index($what, hide) or index($what, helpers) {
+		#{_gridle_classname($gridle-hide-name-pattern, $state)} {
+			@include gridle_hide(null);
+		}
+	}
+
+	@if $what == null or index($what, not_visible) or index($what, helpers) {
+		#{_gridle_classname($gridle-not-visible-name-pattern, $state)} {
+			@include gridle_not_visible(null);
+		}
+	}
+
+	@if $what == null or index($what, show) or index($what, helpers) {
+		#{_gridle_classname($gridle-show-name-pattern, $state)} {
+			@include gridle_show(null);
+		}
+	}
+
+	@if $what == null or index($what, visible) or index($what, helpers) {
+		#{_gridle_classname($gridle-visible-name-pattern, $state)} {
+			@include gridle_visible(null);
 		}
 	}
 
