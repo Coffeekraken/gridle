@@ -40,20 +40,20 @@
    */
   window.Gridle = {
     _inited: false,
-    isReady: false,
-    statesInCss: null,
-    statesFindedInCss: false,
-    cssLinks: [],
-    cssSettings: [],
-    states: [],
-    activeStates: [],
-    activeStatesNames: [],
-    unactiveStates: [],
-    unactiveStatesNames: [],
-    changedStates: [],
-    changedStatesNames: [],
+    _isReady: false,
+    _statesInCss: null,
+    _statesFindedInCss: false,
+    _cssLinks: [],
+    _cssSettings: [],
+    _states: [],
+    _activeStates: [],
+    _activeStatesNames: [],
+    _unactiveStates: [],
+    _unactiveStatesNames: [],
+    _updatedStates: [],
+    _updatedStatesNames: [],
     resizeTimeout: null,
-    settings: {
+    _settings: {
       onUpdate: null,
       debug: null
     },
@@ -62,56 +62,56 @@
     		Init
      */
     init: function(settings) {
-      var cssLinks, index, link, _ref, _ref1;
+      var index, link, _cssLinks, _ref, _ref1;
       this._inited = true;
       if (settings != null) {
-        this.settings = settings;
+        this._settings = settings;
       }
       if (settings && (settings.debug != null)) {
-                if ((_ref = this.settings.debug) != null) {
+                if ((_ref = this._settings.debug) != null) {
           _ref;
         } else {
           settings.debug;
         };
       }
       if (settings && (settings.onStatesChange != null)) {
-                if ((_ref1 = this.settings.onStatesChange) != null) {
+                if ((_ref1 = this._settings.onStatesChange) != null) {
           _ref1;
         } else {
           settings.onStatesChange;
         };
       }
       this._debug('ajax request on stylesheets to find gridle states');
-      cssLinks = document.getElementsByTagName('link');
-      for (index in cssLinks) {
-        link = cssLinks[index];
+      _cssLinks = document.getElementsByTagName('link');
+      for (index in _cssLinks) {
+        link = _cssLinks[index];
         if (!link) {
           return false;
         }
-        this.cssLinks.push(link);
+        this._cssLinks.push(link);
       }
-      return this.loadAndParseCss(cssLinks.length ? void 0 : this._launch);
+      return this._loadAndParseCss(_cssLinks.length ? void 0 : this._launch);
     },
 
     /*
     		Load and parse css
      */
-    loadAndParseCss: function() {
+    _loadAndParseCss: function() {
       var index, link, _ref;
-      _ref = this.cssLinks;
+      _ref = this._cssLinks;
       for (index in _ref) {
         link = _ref[index];
-        if (this.statesFindedInCss) {
+        if (this._statesFindedInCss) {
           return false;
         }
         this._debug('|--- ajax request on ', link.href);
-        this.ajax({
+        this._ajax({
           async: true,
           url: link.href,
           success: (function(_this) {
             return function(response) {
               var settings;
-              if (_this.statesFindedInCss) {
+              if (_this._statesFindedInCss) {
                 return false;
               }
               if (!response) {
@@ -124,21 +124,21 @@
                 return false;
               }
               settings = JSON.parse(settings);
-              _this.cssSettings = settings;
+              _this._cssSettings = settings;
               if (!settings.states) {
                 _this._debug('no queries finded in css');
                 _this._noSettingsFindedInThisCss(link);
                 return false;
               }
               _this._debug('|--- states finded in', link.href);
-              _this.statesFindedInCss = true;
-              _this.statesInCss = settings.states;
+              _this._statesFindedInCss = true;
+              _this._statesInCss = settings.states;
               return _this._processFindedStates();
             };
           })(this),
           error: (function(_this) {
             return function(error) {
-              if (_this.statesFindedInCss) {
+              if (_this._statesFindedInCss) {
                 return false;
               }
               return _this._noSettingsFindedInThisCss(link);
@@ -153,8 +153,8 @@
     		Css link processed
      */
     _noSettingsFindedInThisCss: function(link) {
-      this.cssLinks.shift;
-      if (!this.cssLinks.length) {
+      this._cssLinks.shift;
+      if (!this._cssLinks.length) {
         return this._debug('no settings finded in css');
       }
     },
@@ -165,7 +165,7 @@
     _processFindedStates: function() {
       var name, query, _ref;
       this._debug('begin process finded states in css');
-      _ref = this.statesInCss;
+      _ref = this._statesInCss;
       for (name in _ref) {
         query = _ref[name];
         this._registerState(name, query);
@@ -178,9 +178,9 @@
      */
     _launch: function() {
       this._debug('launch');
-      this.isReady = true;
+      this._isReady = true;
       this._crossEmit('ready');
-      this.addEvent(window, 'resize', (function(_this) {
+      this._addEvent(window, 'resize', (function(_this) {
         return function(e) {
           clearTimeout(_this.resizeTimeout);
           return _this.resizeTimeout = setTimeout(function() {
@@ -213,7 +213,7 @@
         previous_status: null,
         updateOnResize: updateOnResize != null ? updateOnResize : true
       };
-      this.states.push(infos);
+      this._states.push(infos);
       return this._debug('|--- register state', name, infos);
     },
 
@@ -222,56 +222,56 @@
      */
     _updateStatesStatus: function() {
       var key, state, _ref;
-      this.activeStates = [];
-      this.activeStatesNames = [];
-      this.unactiveStates = [];
-      this.unactiveStatesNames = [];
-      this.changedStates = [];
-      this.changedStatesNames = [];
-      _ref = this.states;
+      this._activeStates = [];
+      this._activeStatesNames = [];
+      this._unactiveStates = [];
+      this._unactiveStatesNames = [];
+      this._updatedStates = [];
+      this._updatedStatesNames = [];
+      _ref = this._states;
       for (key in _ref) {
         state = _ref[key];
         if (!state.updateOnResize) {
           continue;
         }
-        this.states[key].previous_status = state.status;
-        if (this.validateState(state)) {
-          if (!this.states[key].status) {
-            this.changedStates.push(state);
-            this.changedStatesNames.push(state.name);
+        this._states[key].previous_status = state.status;
+        if (this._validateState(state)) {
+          if (!this._states[key].status) {
+            this._updatedStates.push(state);
+            this._updatedStatesNames.push(state.name);
           }
-          this.states[key].status = true;
-          this.activeStates.push(state);
-          this.activeStatesNames.push(state.name);
+          this._states[key].status = true;
+          this._activeStates.push(state);
+          this._activeStatesNames.push(state.name);
         } else {
-          if (this.states[key].status) {
-            this.changedStates.push(state);
-            this.changedStatesNames.push(state);
+          if (this._states[key].status) {
+            this._updatedStates.push(state);
+            this._updatedStatesNames.push(state);
           }
-          this.states[key].status = false;
-          this.unactiveStates.push(state);
-          this.unactiveStatesNames.push(state.name);
+          this._states[key].status = false;
+          this._unactiveStates.push(state);
+          this._unactiveStatesNames.push(state.name);
         }
       }
-      if (this.changedStates.length) {
-        this._crossEmit('update', this.changedStates, this.activeStates, this.unactiveStates);
+      if (this._updatedStates.length) {
+        this._crossEmit('update', this._updatedStates, this._activeStates, this._unactiveStates);
       }
-      if (this.changedStates.length && this.settings.onUpdate) {
-        return this.settings.onUpdate(this.changedStates, this.activeStates, this.unactiveStates);
+      if (this._updatedStates.length && this._settings.onUpdate) {
+        return this._settings.onUpdate(this._updatedStates, this._activeStates, this._unactiveStates);
       }
     },
 
     /*
     		Validate state
      */
-    validateState: function(state) {
+    _validateState: function(state) {
       return matchMedia(state.query).matches;
     },
 
     /*
     		Add event
      */
-    addEvent: function(elm, type, handler) {
+    _addEvent: function(elm, type, handler) {
       if (!elm) {
         return false;
       }
@@ -289,7 +289,7 @@
      */
     _crossEmit: function(eventName) {
       if (typeof jQuery !== "undefined" && jQuery !== null) {
-        jQuery(this).trigger('gridle.' + eventName, Array.prototype.slice.call(arguments, 1));
+        jQuery(this).trigger(eventName, Array.prototype.slice.call(arguments, 1));
         jQuery('body').trigger('gridle.' + eventName, Array.prototype.slice.call(arguments, 1));
       }
       return this.emit.apply(this, arguments);
@@ -298,7 +298,7 @@
     /*
     		Ajax proxy
      */
-    ajax: function(opts) {
+    _ajax: function(opts) {
       var args, http;
       args = {
         type: opts.type || 'GET',
@@ -339,49 +339,49 @@
     		Get registered states
      */
     getRegisteredStates: function() {
-      return this.states;
+      return this._states;
     },
 
     /*
     		Get changes states
      */
-    getChangedStates: function() {
-      return this.changedStates;
+    getUpdatedStates: function() {
+      return this._updatedStates;
     },
 
     /*
     		Get changes states names
      */
-    getChangedStatesNames: function() {
-      return this.changedStatesNames;
+    getUpdatedStatesNames: function() {
+      return this._updatedStatesNames;
     },
 
     /*
     		Get active states
      */
     getActiveStates: function() {
-      return this.activeStates;
+      return this._activeStates;
     },
 
     /*
     		Get active states names
      */
     getActiveStatesNames: function() {
-      return this.activeStatesNames;
+      return this._activeStatesNames;
     },
 
     /*
     		Get unactive states
      */
     getUnactiveStates: function() {
-      return this.unactiveStates;
+      return this._unactiveStates;
     },
 
     /*
     		Get unactive states names
      */
     getUnactiveStatesNames: function() {
-      return this.unactiveStatesNames;
+      return this._unactiveStatesNames;
     },
 
     /*
@@ -390,7 +390,7 @@
     isActive: function(stateName) {
       var index, isActive, name, _ref;
       isActive = false;
-      _ref = this.activeStatesNames;
+      _ref = this._activeStatesNames;
       for (index in _ref) {
         name = _ref[index];
         if (stateName === name) {
@@ -401,10 +401,17 @@
     },
 
     /*
+    		Check if gridle is ready
+     */
+    isReady: function() {
+      return this._isReady;
+    },
+
+    /*
     		Debug
      */
     _debug: function() {
-      if (this.settings.debug) {
+      if (this._settings.debug) {
         return console.log('GRIDLE', arguments);
       }
     }

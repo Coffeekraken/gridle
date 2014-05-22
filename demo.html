@@ -19,11 +19,8 @@
 
 		// listen for update in gridle js :
 		Gridle.on('update', function(e, updatedStates, activeStates, unactiveStates) {
-			
 			console.log('gridle update', updatedStates, activeStates, unactiveStates);
-			
 			if (Gridle.isActive('mobile')) console.log('Mobile State Active');
-
 		});
 
 		// states switch :
@@ -35,6 +32,7 @@
 				$(this).addClass('active');
 			})
 		});
+
 	</script>
 
 </head>

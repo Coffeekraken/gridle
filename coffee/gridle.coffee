@@ -39,35 +39,35 @@ do ->
 
 		# save the ready status
 		# this will be true when the states are finded or if no states exists in css (if gridle is not used)
-		isReady : false
+		_isReady : false
 
 		# save the states finded in css
-		statesInCss : null
+		_statesInCss : null
 
 		# boolean to save when the states are finded in css
 		# this is used to stop search when the states are finded
-		statesFindedInCss : false,
+		_statesFindedInCss : false,
 		
 		# all the css link tag in the page
-		cssLinks : []
+		_cssLinks : []
 
 		# settings finded in css (getted by an ajax request)
-		cssSettings : []
+		_cssSettings : []
 
 		# store states
-		states : []
-		activeStates : []
-		activeStatesNames : []
-		unactiveStates : [],
-		unactiveStatesNames : [],
-		changedStates : [],
-		changedStatesNames : [],
+		_states : []
+		_activeStates : []
+		_activeStatesNames : []
+		_unactiveStates : [],
+		_unactiveStatesNames : [],
+		_updatedStates : [],
+		_updatedStatesNames : [],
 
 		# resize timeout to not update every ms on resize
 		resizeTimeout : null,
 
 		# default settings that can be overrided on init
-		settings :
+		_settings :
 			onUpdate : null
 			debug : null
 
@@ -80,20 +80,20 @@ do ->
 			@_inited = true
 
 			# process settings
-			@settings = settings if settings?
-			@settings.debug ? settings.debug if settings and settings.debug?
-			@settings.onStatesChange ? settings.onStatesChange if settings and settings.onStatesChange?
+			@_settings = settings if settings?
+			@_settings.debug ? settings.debug if settings and settings.debug?
+			@_settings.onStatesChange ? settings.onStatesChange if settings and settings.onStatesChange?
 
 			@_debug 'ajax request on stylesheets to find gridle states'
 
 			# loop on each link tag to get each css url :
-			cssLinks = document.getElementsByTagName 'link'
-			for index, link of cssLinks
+			_cssLinks = document.getElementsByTagName 'link'
+			for index, link of _cssLinks
 				return false if not link
-				@cssLinks.push link
+				@_cssLinks.push link
 
 			# parse the css links :
-			@loadAndParseCss if cssLinks.length
+			@_loadAndParseCss if _cssLinks.length
 
 			# else, launch
 			else @_launch
@@ -101,23 +101,23 @@ do ->
 		###
 		Load and parse css
 		###
-		loadAndParseCss : ->
+		_loadAndParseCss : ->
 
 			# loop on each links
-			for index, link of @cssLinks
+			for index, link of @_cssLinks
 			
 				# stop if stated finded
-				return false if @statesFindedInCss
+				return false if @_statesFindedInCss
 
 				@_debug '|--- ajax request on ', link.href
 
 				# process ajax request on link
-				@ajax
+				@_ajax
 					async : true,
 					url : link.href
 					success : (response) =>
 
-						return false if @statesFindedInCss
+						return false if @_statesFindedInCss
 
 						# if no response, tell that the response is processed and stop
 						if not response
@@ -134,7 +134,7 @@ do ->
 
 						# parse settings to json
 						settings = JSON.parse settings;
-						@cssSettings = settings;
+						@_cssSettings = settings;
 
 						# check query :
 						if not settings.states
@@ -145,10 +145,10 @@ do ->
 						@_debug '|--- states finded in', link.href
 
 						# update states finded status 
-						@statesFindedInCss = true
+						@_statesFindedInCss = true
 
 						# save states :
-						@statesInCss = settings.states
+						@_statesInCss = settings.states
 
 						# process finded states
 						@_processFindedStates()
@@ -156,7 +156,7 @@ do ->
 					error : (error) =>
 
 						# check if already finded
-						return false if @statesFindedInCss
+						return false if @_statesFindedInCss
 
 						# simulate processed link
 						@_noSettingsFindedInThisCss link
@@ -169,10 +169,10 @@ do ->
 		_noSettingsFindedInThisCss : (link) ->
 
 			# remove link from array
-			@cssLinks.shift
+			@_cssLinks.shift
 
 			# check if no more links to launch
-			if not @cssLinks.length	
+			if not @_cssLinks.length	
 
 				@_debug 'no settings finded in css'
 
@@ -187,7 +187,7 @@ do ->
 			@_debug 'begin process finded states in css'
 
 			# loop on each states
-			for name, query of @statesInCss
+			for name, query of @_statesInCss
 
 				# register a state
 				@_registerState name, query
@@ -203,13 +203,13 @@ do ->
 			@_debug 'launch'
 
 			# mark app as ready
-			@isReady = true
+			@_isReady = true
 
 			# emit ready event
 			@_crossEmit 'ready'
 
 			# listen for window resize
-			@addEvent window, 'resize', (e) =>
+			@_addEvent window, 'resize', (e) =>
 				clearTimeout @resizeTimeout
 				@resizeTimeout = setTimeout =>
 					@_onResize()
@@ -244,7 +244,7 @@ do ->
 				updateOnResize : if updateOnResize? then updateOnResize else true
 
 			# push new state
-			@states.push infos
+			@_states.push infos
 
 			@_debug '|--- register state', name, infos
 
@@ -254,64 +254,64 @@ do ->
 		_updateStatesStatus : ->
 
 			# reset trackings arrays
-			@activeStates = [];
-			@activeStatesNames = [];
-			@unactiveStates = [];
-			@unactiveStatesNames = [];
-			@changedStates = [];
-			@changedStatesNames = [];
+			@_activeStates = [];
+			@_activeStatesNames = [];
+			@_unactiveStates = [];
+			@_unactiveStatesNames = [];
+			@_updatedStates = [];
+			@_updatedStatesNames = [];
 
 			# loop on each states
-			for key, state of @states
+			for key, state of @_states
 
 				# do not take care if not update on resize
 				continue if not state.updateOnResize
 
 				# save status
-				@states[key].previous_status = state.status
+				@_states[key].previous_status = state.status
 
 				# check is state is active
-				if @validateState state
+				if @_validateState state
 
 					# check is status has changed
-					if not @states[key].status
+					if not @_states[key].status
 
 						# save this state has changed one
-						@changedStates.push state
-						@changedStatesNames.push state.name
+						@_updatedStates.push state
+						@_updatedStatesNames.push state.name
 
 					# update status
-					@states[key].status = true
+					@_states[key].status = true
 
 					# add in active state
-					@activeStates.push state
-					@activeStatesNames.push state.name
+					@_activeStates.push state
+					@_activeStatesNames.push state.name
 
 				# the state is not active
 				else
 
 					# check is status has changed 
-					if @states[key].status
+					if @_states[key].status
 
 						# add state in changed ones
-						@changedStates.push state
-						@changedStatesNames.push state
+						@_updatedStates.push state
+						@_updatedStatesNames.push state
 
 					# update status
-					@states[key].status = false
+					@_states[key].status = false
 
 					# add state in unactives
-					@unactiveStates.push state
-					@unactiveStatesNames.push state.name
+					@_unactiveStates.push state
+					@_unactiveStatesNames.push state.name
 
 			# trigger events if needed
-			@_crossEmit 'update', @changedStates, @activeStates, @unactiveStates if @changedStates.length
-			@settings.onUpdate @changedStates, @activeStates, @unactiveStates if @changedStates.length and @settings.onUpdate
+			@_crossEmit 'update', @_updatedStates, @_activeStates, @_unactiveStates if @_updatedStates.length
+			@_settings.onUpdate @_updatedStates, @_activeStates, @_unactiveStates if @_updatedStates.length and @_settings.onUpdate
 
 		###
 		Validate state
 		###
-		validateState : (state) ->
+		_validateState : (state) ->
 
 			# validate state using matchmedia
 			return matchMedia(state.query).matches
@@ -319,7 +319,7 @@ do ->
 		###
 		Add event
 		###
-		addEvent : (elm, type, handler) ->
+		_addEvent : (elm, type, handler) ->
 
 			# check params
 			return false if not elm
@@ -340,7 +340,7 @@ do ->
 			# jquery
 			if jQuery?
 				# trigger event on Gridle object
-				jQuery(@).trigger 'gridle.'+eventName, Array.prototype.slice.call(arguments, 1)
+				jQuery(@).trigger eventName, Array.prototype.slice.call(arguments, 1)
 				# trigget event trough the body
 				jQuery('body').trigger('gridle.'+eventName, Array.prototype.slice.call(arguments, 1))
 
@@ -350,7 +350,7 @@ do ->
 		###
 		Ajax proxy
 		###
-		ajax : (opts) ->
+		_ajax : (opts) ->
 
 			# process arguments
 			args =
@@ -398,37 +398,37 @@ do ->
 		###
 		Get registered states
 		###
-		getRegisteredStates : ->return @states
+		getRegisteredStates : ->return @_states
 
 		###
 		Get changes states
 		###
-		getChangedStates : -> return @changedStates
+		getUpdatedStates : -> return @_updatedStates
 
 		###
 		Get changes states names
 		###
-		getChangedStatesNames : -> return @changedStatesNames
+		getUpdatedStatesNames : -> return @_updatedStatesNames
 
 		###
 		Get active states
 		###
-		getActiveStates : -> return @activeStates
+		getActiveStates : -> return @_activeStates
 
 		###
 		Get active states names
 		###
-		getActiveStatesNames : -> return @activeStatesNames
+		getActiveStatesNames : -> return @_activeStatesNames
 
 		###
 		Get unactive states
 		###
-		getUnactiveStates : -> return @unactiveStates
+		getUnactiveStates : -> return @_unactiveStates
 
 		###
 		Get unactive states names
 		###
-		getUnactiveStatesNames : -> return @unactiveStatesNames
+		getUnactiveStatesNames : -> return @_unactiveStatesNames
 
 		###
 		Check is a state is active
@@ -439,18 +439,24 @@ do ->
 			isActive = false;
 
 			# loop on each active states
-			for index, name of @activeStatesNames
+			for index, name of @_activeStatesNames
 				isActive = true if stateName == name
 
 			# return if is active or not
 			return isActive
+
+		###
+		Check if gridle is ready
+		###
+		isReady : ->
+			return @_isReady
 
 
 		###
 		Debug
 		###
 		_debug : ->
-			console.log 'GRIDLE', arguments if @settings.debug
+			console.log 'GRIDLE', arguments if @_settings.debug
 
 	# make gridle event dipatcher
 	smokesignals.convert window.Gridle
