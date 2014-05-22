@@ -114,3 +114,15 @@ Gridle allows you to generate custom classes that will be available for each of 
 ```
 
 This will produce the classes : center, center-mobile, center-tablet and center-landscape automatically
+
+
+## More control with Gridle{.js}
+
+Gridle{.js} allows you to be notified when states changes. It find automatically your states registered in your sass. Simple but powerful
+
+```javascript
+Gridle.on('update', function(updatedStates, activeStates, unactiveStates) {
+	// do something here...
+});
+// see documentation for more informations...
+```
