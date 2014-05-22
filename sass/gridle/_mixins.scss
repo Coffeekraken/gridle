@@ -560,6 +560,28 @@
 }
 
 
+/**
+ * Show inline
+ *
+ * @param 	String 		$state 		The state name
+ */
+@mixin gridle_show_inline(
+	$state : null
+) {
+	// check if need media query :
+	@if $state {
+		@include gridle_state($state) {
+			@include _gridle_show_inline();
+		}
+	} @else {
+		@include _gridle_show_inline();
+	}
+}
+@mixin _gridle_show_inline() {
+	display:inline-block;
+}
+
+
 // Visible on :
 // @param 	String 	$media 	On what state
 @mixin gridle_visible(

@@ -178,6 +178,11 @@
  * Vertical align :
  */
 /**
+ * Show inline
+ *
+ * @param 	String 		$state 		The state name
+ */
+/**
  * Generate a custom class for all the states
  *
  * @param 	list 	$pattern 		The name pattern of the class
@@ -836,6 +841,9 @@ html.default .not-visible {
 }
 html.default .show {
   display: block;
+}
+html.default .show-inline {
+  display: inline-block;
 }
 html.default .visible {
   visibility: visible;
@@ -1535,6 +1543,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
     display: block;
   }
 
+  .show-inline {
+    display: inline-block;
+  }
+
   .visible {
     visibility: visible;
   }
@@ -2153,6 +2165,9 @@ html.mobile .not-visible-mobile {
 }
 html.mobile .show-mobile {
   display: block;
+}
+html.mobile .show-inline-mobile {
+  display: inline-block;
 }
 html.mobile .visible-mobile {
   visibility: visible;
@@ -2852,6 +2867,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     display: block;
   }
 
+  .show-inline-mobile {
+    display: inline-block;
+  }
+
   .visible-mobile {
     visibility: visible;
   }
@@ -3470,6 +3489,9 @@ html.tablet .not-visible-tablet {
 }
 html.tablet .show-tablet {
   display: block;
+}
+html.tablet .show-inline-tablet {
+  display: inline-block;
 }
 html.tablet .visible-tablet {
   visibility: visible;
@@ -4169,6 +4191,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     display: block;
   }
 
+  .show-inline-tablet {
+    display: inline-block;
+  }
+
   .visible-tablet {
     visibility: visible;
   }
@@ -4787,6 +4813,9 @@ html.ipad-landscape .not-visible-ipad-landscape {
 }
 html.ipad-landscape .show-ipad-landscape {
   display: block;
+}
+html.ipad-landscape .show-inline-ipad-landscape {
+  display: inline-block;
 }
 html.ipad-landscape .visible-ipad-landscape {
   visibility: visible;
@@ -5484,6 +5513,10 @@ html.ipad-landscape .clear-each-ipad-landscape-12 > *:nth-child(12n+1) {
 
   .show-ipad-landscape {
     display: block;
+  }
+
+  .show-inline-ipad-landscape {
+    display: inline-block;
   }
 
   .visible-ipad-landscape {

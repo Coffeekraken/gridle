@@ -168,6 +168,9 @@
 		#{_gridle_classname($gridle-show-name-pattern, $state)} {
 			@include gridle_show(null);
 		}
+		#{_gridle_classname($gridle-show-inline-name-pattern, $state)} {
+			@include gridle_show_inline(null);
+		}
 	}
 
 	@if $what == null or index($what, visible) or index($what, helpers) {

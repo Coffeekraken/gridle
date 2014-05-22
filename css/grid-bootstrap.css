@@ -142,6 +142,11 @@
  * Vertical align :
  */
 /**
+ * Show inline
+ *
+ * @param 	String 		$state 		The state name
+ */
+/**
  * Generate a custom class for all the states
  *
  * @param 	list 	$pattern 		The name pattern of the class
@@ -556,6 +561,9 @@ html.default .not-visible {
 html.default .visible {
   display: block;
 }
+html.default .show-inline {
+  display: inline-block;
+}
 html.default .visible {
   visibility: visible;
 }
@@ -958,6 +966,10 @@ html.default .visible {
     display: block;
   }
 
+  .show-inline {
+    display: inline-block;
+  }
+
   .visible {
     visibility: visible;
   }
@@ -1278,6 +1290,9 @@ html.xs .not-visible-xs {
 }
 html.xs .visible-xs {
   display: block;
+}
+html.xs .show-inline-xs {
+  display: inline-block;
 }
 html.xs .visible-xs {
   visibility: visible;
@@ -1681,6 +1696,10 @@ html.xs .visible-xs {
     display: block;
   }
 
+  .show-inline-xs {
+    display: inline-block;
+  }
+
   .visible-xs {
     visibility: visible;
   }
@@ -2001,6 +2020,9 @@ html.sm .not-visible-sm {
 }
 html.sm .visible-sm {
   display: block;
+}
+html.sm .show-inline-sm {
+  display: inline-block;
 }
 html.sm .visible-sm {
   visibility: visible;
@@ -2404,6 +2426,10 @@ html.sm .visible-sm {
     display: block;
   }
 
+  .show-inline-sm {
+    display: inline-block;
+  }
+
   .visible-sm {
     visibility: visible;
   }
@@ -2724,6 +2750,9 @@ html.md .not-visible-md {
 }
 html.md .visible-md {
   display: block;
+}
+html.md .show-inline-md {
+  display: inline-block;
 }
 html.md .visible-md {
   visibility: visible;
@@ -3127,6 +3156,10 @@ html.md .visible-md {
     display: block;
   }
 
+  .show-inline-md {
+    display: inline-block;
+  }
+
   .visible-md {
     visibility: visible;
   }
@@ -3447,6 +3480,9 @@ html.lg .not-visible-lg {
 }
 html.lg .visible-lg {
   display: block;
+}
+html.lg .show-inline-lg {
+  display: inline-block;
 }
 html.lg .visible-lg {
   visibility: visible;
@@ -3848,6 +3884,10 @@ html.lg .visible-lg {
 
   .visible-lg {
     display: block;
+  }
+
+  .show-inline-lg {
+    display: inline-block;
   }
 
   .visible-lg {
