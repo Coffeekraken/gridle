@@ -27,7 +27,7 @@
         _ref = handlers[eventName];
         for (index in _ref) {
           handler = _ref[index];
-          handler.apply(obj, arguments);
+          handler.apply(obj, Array.prototype.slice.call(arguments, 1));
         }
         return obj;
       };

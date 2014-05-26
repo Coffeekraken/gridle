@@ -24,7 +24,7 @@ do ->
 
 			obj.emit = (eventName) ->
 				for index, handler of handlers[eventName]
-					handler.apply obj, arguments
+					handler.apply obj, Array.prototype.slice.call(arguments, 1)
 				return obj
 
 			return obj
