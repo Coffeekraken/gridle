@@ -671,7 +671,7 @@
 	$side : left right
 ) {
 	@each $s in $side {
-		padding-#{$s} : 0 !important;
+		padding-#{$s} : 0;
 	}
 }
 
