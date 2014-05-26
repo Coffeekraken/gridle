@@ -111,6 +111,8 @@ do ->
 
 				@_debug '|--- ajax request on ', link.href
 
+				continue if not link or not link.href
+
 				# process ajax request on link
 				@_ajax
 					async : true,

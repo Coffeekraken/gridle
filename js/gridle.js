@@ -105,6 +105,9 @@
           return false;
         }
         this._debug('|--- ajax request on ', link.href);
+        if (!link || !link.href) {
+          continue;
+        }
         this._ajax({
           async: true,
           url: link.href,
