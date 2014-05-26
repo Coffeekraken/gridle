@@ -350,7 +350,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		// | ------------------------
 	 
 		// generate container class :
-		@if $what == null or index($what, container)
+		@if $what == null or index($what, container) or index($what, default)
 		{
 			$container-selector : ();
 			$container-selector : append( $container-selector, unquote(_gridle_classname($gridle-container-name-pattern)), comma);
@@ -365,7 +365,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		// | ------------------------
 
 		// parent common css :
-		@if $what == null or index($what, parent)
+		@if $what == null or index($what, parent) or index($what, default)
 		{
 			$parentSelector : _gridle_classname($gridle-parent-name-pattern,null,null);
 			#{$parentSelector} {
@@ -446,19 +446,19 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 			@each $columnName, $column in $columnsMap {
 		 	
 				// add selector :
-				@if $what == null or index($what, grid) {
+				@if $what == null or index($what, grid) or index($what, default) {
 					$grid-common-selector : append( $grid-common-selector, unquote(_gridle_classname($gridle-grid-name-pattern, $media, $columnName)), comma );
 				}
-				@if $generate-push-classes and ($what == null or index($what, push)) {
+				@if $generate-push-classes and ($what == null or index($what, push) or index($what, default)) {
 					$push-common-selector : append( $push-common-selector, unquote(_gridle_classname($gridle-push-name-pattern, $media, $columnName)), comma );
 				}
-				@if $generate-pull-classes and ($what == null or index($what, pull)) {
+				@if $generate-pull-classes and ($what == null or index($what, pull) or index($what, default)) {
 					$pull-common-selector : append( $pull-common-selector, unquote(_gridle_classname($gridle-pull-name-pattern, $media, $columnName)), comma );
 				}
-				@if $generate-prefix-classes and ($what == null or index($what, prefix)) {
+				@if $generate-prefix-classes and ($what == null or index($what, prefix) or index($what, default)) {
 					$prefix-common-selector : append( $prefix-common-selector, unquote(_gridle_classname($gridle-prefix-name-pattern, $media, $columnName)), comma );
 				}
-				@if $generate-suffix-classes and ($what == null or index($what, suffix)) {
+				@if $generate-suffix-classes and ($what == null or index($what, suffix) or index($what, default)) {
 					$suffix-common-selector : append( $suffix-common-selector, unquote(_gridle_classname($gridle-suffix-name-pattern, $media, $columnName)), comma );
 				}
 			}
@@ -466,27 +466,27 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	}
  
 	// common css :
-	@if  $what == null or index($what, grid) {
+	@if  $what == null or index($what, grid) or index($what, default) {
 		#{$grid-common-selector} {
 			@include _gridle_grid_common();
 		}
 	}
-	@if  $what == null or index($what, push) {
+	@if  $what == null or index($what, push) or index($what, default) {
 		#{$push-common-selector} {
 			@include _gridle_push_common();
 		}
 	}
-	@if  $what == null or index($what, pull) {
+	@if  $what == null or index($what, pull) or index($what, default) {
 		#{$pull-common-selector} {
 			@include _gridle_pull_common();
 		}
 	}
-	@if  $what == null or index($what, prefix) {
+	@if  $what == null or index($what, prefix) or index($what, default) {
 		#{$prefix-common-selector} {
 			@include _gridle_prefix_common();
 		}
 	}
-	@if  $what == null or index($what, suffix) {
+	@if  $what == null or index($what, suffix) or index($what, default) {
 		#{$suffix-common-selector} {
 			@include _gridle_suffix_common();
 		}
@@ -552,27 +552,27 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					));
 
 					// classes :
-					@if $what == null or index($what, grid) {
+					@if $what == null or index($what, grid) or index($what, default) {
 						#{_gridle_classname($gridle-grid-name-pattern, $stateName, $columnName)} {
 							@include _gridle($columnsCount, $extendedState);
 						}
 					}
-					@if $generate-push-classes == true and ($what == null or index($what, push)) {
+					@if $generate-push-classes == true and ($what == null or index($what, push) or index($what, default)) {
 						#{_gridle_classname($gridle-push-name-pattern, $stateName, $columnName)} {
 							@include _gridle_push($columnsCount, $extendedState);
 						}
 					}
-					@if $generate-pull-classes == true and ($what == null or index($what, pull)) {
+					@if $generate-pull-classes == true and ($what == null or index($what, pull) or index($what, default)) {
 						#{_gridle_classname($gridle-pull-name-pattern, $stateName, $columnName)} {
 							@include _gridle_pull($columnsCount, $extendedState);
 						}
 					}
-					@if $generate-prefix-classes == true and ($what == null or index($what, prefix)) {
+					@if $generate-prefix-classes == true and ($what == null or index($what, prefix) or index($what, default)) {
 						#{_gridle_classname($gridle-prefix-name-pattern, $stateName, $columnName)} {
 							@include _gridle_prefix($columnsCount, $extendedState);
 						}
 					}
-					@if $generate-suffix-classes == true and ($what == null or index($what, suffix)) {
+					@if $generate-suffix-classes == true and ($what == null or index($what, suffix) or index($what, default)) {
 						#{_gridle_classname($gridle-suffix-name-pattern, $stateName, $columnName)} {
 							@include _gridle_suffix($columnsCount, $extendedState);
 						}   
