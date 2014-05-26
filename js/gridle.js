@@ -48,8 +48,8 @@
     _states: [],
     _activeStates: [],
     _activeStatesNames: [],
-    _unactiveStates: [],
-    _unactiveStatesNames: [],
+    _inactiveStates: [],
+    _inactiveStatesNames: [],
     _updatedStates: [],
     _updatedStatesNames: [],
     resizeTimeout: null,
@@ -104,10 +104,10 @@
         if (this._statesFindedInCss) {
           return false;
         }
-        this._debug('|--- ajax request on ', link.href);
         if (!link || !link.href) {
           continue;
         }
+        this._debug('|--- ajax request on ', link.href);
         this._ajax({
           async: true,
           url: link.href,
@@ -227,8 +227,8 @@
       var key, state, _ref;
       this._activeStates = [];
       this._activeStatesNames = [];
-      this._unactiveStates = [];
-      this._unactiveStatesNames = [];
+      this._inactiveStates = [];
+      this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
       _ref = this._states;
@@ -252,15 +252,15 @@
             this._updatedStatesNames.push(state);
           }
           this._states[key].status = false;
-          this._unactiveStates.push(state);
-          this._unactiveStatesNames.push(state.name);
+          this._inactiveStates.push(state);
+          this._inactiveStatesNames.push(state.name);
         }
       }
       if (this._updatedStates.length) {
-        this._crossEmit('update', this._updatedStates, this._activeStates, this._unactiveStates);
+        this._crossEmit('update', this._updatedStates, this._activeStates, this._inactiveStates);
       }
       if (this._updatedStates.length && this._settings.onUpdate) {
-        return this._settings.onUpdate(this._updatedStates, this._activeStates, this._unactiveStates);
+        return this._settings.onUpdate(this._updatedStates, this._activeStates, this._inactiveStates);
       }
     },
 
@@ -376,15 +376,15 @@
     /*
     		Get unactive states
      */
-    getUnactiveStates: function() {
-      return this._unactiveStates;
+    getInactiveStates: function() {
+      return this._inactiveStates;
     },
 
     /*
     		Get unactive states names
      */
-    getUnactiveStatesNames: function() {
-      return this._unactiveStatesNames;
+    getInactiveStatesNames: function() {
+      return this._inactiveStatesNames;
     },
 
     /*

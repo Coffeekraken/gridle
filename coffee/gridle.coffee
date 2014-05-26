@@ -58,8 +58,8 @@ do ->
 		_states : []
 		_activeStates : []
 		_activeStatesNames : []
-		_unactiveStates : [],
-		_unactiveStatesNames : [],
+		_inactiveStates : [],
+		_inactiveStatesNames : [],
 		_updatedStates : [],
 		_updatedStatesNames : [],
 
@@ -109,9 +109,10 @@ do ->
 				# stop if stated finded
 				return false if @_statesFindedInCss
 
-				@_debug '|--- ajax request on ', link.href
-
+				# if no href, continue
 				continue if not link or not link.href
+
+				@_debug '|--- ajax request on ', link.href
 
 				# process ajax request on link
 				@_ajax
@@ -258,8 +259,8 @@ do ->
 			# reset trackings arrays
 			@_activeStates = [];
 			@_activeStatesNames = [];
-			@_unactiveStates = [];
-			@_unactiveStatesNames = [];
+			@_inactiveStates = [];
+			@_inactiveStatesNames = [];
 			@_updatedStates = [];
 			@_updatedStatesNames = [];
 
@@ -303,12 +304,12 @@ do ->
 					@_states[key].status = false
 
 					# add state in unactives
-					@_unactiveStates.push state
-					@_unactiveStatesNames.push state.name
+					@_inactiveStates.push state
+					@_inactiveStatesNames.push state.name
 
 			# trigger events if needed
-			@_crossEmit 'update', @_updatedStates, @_activeStates, @_unactiveStates if @_updatedStates.length
-			@_settings.onUpdate @_updatedStates, @_activeStates, @_unactiveStates if @_updatedStates.length and @_settings.onUpdate
+			@_crossEmit 'update', @_updatedStates, @_activeStates, @_inactiveStates if @_updatedStates.length
+			@_settings.onUpdate @_updatedStates, @_activeStates, @_inactiveStates if @_updatedStates.length and @_settings.onUpdate
 
 		###
 		Validate state
@@ -425,12 +426,12 @@ do ->
 		###
 		Get unactive states
 		###
-		getUnactiveStates : -> return @_unactiveStates
+		getInactiveStates : -> return @_inactiveStates
 
 		###
 		Get unactive states names
 		###
-		getUnactiveStatesNames : -> return @_unactiveStatesNames
+		getInactiveStatesNames : -> return @_inactiveStatesNames
 
 		###
 		Check is a state is active
