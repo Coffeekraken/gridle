@@ -417,9 +417,14 @@
     }
   };
   smokesignals.convert(window.Gridle);
-  return setTimeout(function() {
+  setTimeout(function() {
     if (!Gridle._inited) {
       return Gridle.init();
     }
   }, 500);
+  if (typeof window.define === 'function' && window.define.amd) {
+    return window.define('gridle', [], function() {
+      return window.Gridle;
+    });
+  }
 })();

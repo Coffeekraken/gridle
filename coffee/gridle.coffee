@@ -465,3 +465,7 @@ do ->
 	setTimeout ->
 		Gridle.init() if not Gridle._inited
 	, 500
+
+	# support AMD
+	if typeof window.define is 'function' && window.define.amd
+		window.define 'gridle', [], -> window.Gridle
