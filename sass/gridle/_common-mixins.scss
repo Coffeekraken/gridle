@@ -5,7 +5,7 @@
 // |------------------------------------------------------
 
 @mixin _gridle_container_common(
-	$state : null
+	$state : default
 ) {
 	@extend %gridle-simple-clearfix;
 	@extend %gridle-container-common;
@@ -53,7 +53,7 @@
 	@extend %gridle-parent-common;
 }
 @mixin _gridle_push_common(
-	$state : null
+	$state : default
 ) {
 	$debug : _gridle_get_var_value(debug, $state);
 
@@ -67,7 +67,7 @@
 	}
 }
 @mixin _gridle_pull_common(
-	$state : null
+	$state : default
 ) {
 	$debug : _gridle_get_var_value(debug, $state);
 
@@ -80,7 +80,7 @@
 	}
 }
 @mixin _gridle_prefix_common(
-	$state : null
+	$state : default
 ) {
 	$debug : _gridle_get_var_value(debug, $state);
 	@if $debug == true {
@@ -90,7 +90,7 @@
 	}
 }
 @mixin _gridle_suffix_common(
-	$state : null
+	$state : default
 ) {
 	$debug : _gridle_get_var_value(debug, $state);
 	@if $debug == true {

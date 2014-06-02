@@ -126,7 +126,7 @@
  * @para m 	String 		$device 	The device to use (iphone, etc...)
  */
 @mixin gridle_set_debug_device(
-	$state : null,
+	$state : default,
 	$device : null
 ) {
 

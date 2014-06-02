@@ -190,7 +190,7 @@
 			$clearWhat : map-get($clearMap, clearWhat);
 			// generate the class :
 			#{_gridle_classname($gridle-clear-each-pattern, $state, $clearCount)} {
-				@include _gridle_clear_each($clearCount, $clearWhat, $state);
+				@include _gridle_clear_each($clearCount, $clearWhat);
 			}
 		}
 	}
