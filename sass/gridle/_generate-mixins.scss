@@ -197,7 +197,7 @@
 
 	// debug colors :
 	$debug : _gridle_get_var_value(debug, $state);
-	@if $debug {
+	@if $debug and ( $what == null or index($what, debug_colors) or index($what, helpers) ) {
 		// debug color classes :
 		#{_gridle_classname($gridle-debug-color-name-pattern, $state, 1)} {
 			#{$gridle-debug-selector} {
@@ -310,15 +310,37 @@
 	$what : null,
 	$scope : null
 ) {
-	// check if a scope exist :
-	@if $scope {
-		// wrapp grid into scope :
-		.#{$scope} {
-			@include _gridle_generate_classes($stateName, $what, true);
+	// if the what parameter is not null, mean that we need to generate only certain classes in a certain order :
+	@if $what
+	{
+		// loop on each what item to generate the corresponding classes :
+		@each $w in $what
+		{
+			// check if a scope exist :
+			@if $scope {
+				// wrapp grid into scope :
+				.#{$scope} {
+					@include _gridle_generate_classes($stateName, ( $w ), true);
+				}
+			} @else {
+				// generate classes :
+				@include _gridle_generate_classes($stateName, ( $w ), false);
+			}
 		}
-	} @else {
-		// generate classes :
-		@include _gridle_generate_classes($stateName, $what, false);
+	}
+	@else
+	{
+		// don't have any "what" parameter so generate all the classes
+		// check if a scope exist :
+		@if $scope {
+			// wrapp grid into scope :
+			.#{$scope} {
+				@include _gridle_generate_classes($stateName, null, true);
+			}
+		} @else {
+			// generate classes :
+			@include _gridle_generate_classes($stateName, null, false);
+		}
 	}
 }
 $_gridle_generateOnlyOnce : true; // keep track of generate once classes
