@@ -5,8 +5,8 @@
 #
 # @author 	Olivier Bossel <olivier.bossel@gmail.com>
 # @created 	20.05.14
-# @updated 	20.05.14
-# @version 	1.0
+# @updated 	12.06.14
+# @version 	1.0.1
 ###
 do ->
 
@@ -68,6 +68,7 @@ do ->
 
 		# default settings that can be overrided on init
 		_settings :
+			cssPath : null 				# if set, only this css will be fetched
 			onUpdate : null
 			debug : null
 
@@ -86,14 +87,19 @@ do ->
 
 			@_debug 'ajax request on stylesheets to find gridle states'
 
-			# loop on each link tag to get each css url :
-			_cssLinks = document.getElementsByTagName 'link'
-			for index, link of _cssLinks
-				return false if not link
-				@_cssLinks.push link
+			# check if a cssPath exist in options to fetch only that one
+			if @_settings.cssPath
+				@_cssLinks.push
+					href : @_settings.cssPath
+			else
+				# loop on each link tag to get each css url :
+				_cssLinks = document.getElementsByTagName 'link'
+				for index, link of _cssLinks
+					return false if not link
+					@_cssLinks.push link
 
 			# parse the css links :
-			@_loadAndParseCss if _cssLinks.length
+			@_loadAndParseCss if @_cssLinks.length
 
 			# else, launch
 			else @_launch

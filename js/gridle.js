@@ -6,8 +6,8 @@
  *
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  * @created 	20.05.14
- * @updated 	20.05.14
- * @version 	1.0
+ * @updated 	12.06.14
+ * @version 	1.0.1
  */
 (function() {
 
@@ -54,6 +54,7 @@
     _updatedStatesNames: [],
     resizeTimeout: null,
     _settings: {
+      cssPath: null,
       onUpdate: null,
       debug: null
     },
@@ -82,15 +83,21 @@
         };
       }
       this._debug('ajax request on stylesheets to find gridle states');
-      _cssLinks = document.getElementsByTagName('link');
-      for (index in _cssLinks) {
-        link = _cssLinks[index];
-        if (!link) {
-          return false;
+      if (this._settings.cssPath) {
+        this._cssLinks.push({
+          href: this._settings.cssPath
+        });
+      } else {
+        _cssLinks = document.getElementsByTagName('link');
+        for (index in _cssLinks) {
+          link = _cssLinks[index];
+          if (!link) {
+            return false;
+          }
+          this._cssLinks.push(link);
         }
-        this._cssLinks.push(link);
       }
-      return this._loadAndParseCss(_cssLinks.length ? void 0 : this._launch);
+      return this._loadAndParseCss(this._cssLinks.length ? void 0 : this._launch);
     },
 
     /*
@@ -431,3 +438,5 @@
     });
   }
 })();
+
+//# sourceMappingURL=gridle.js.map

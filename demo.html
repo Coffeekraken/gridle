@@ -17,6 +17,12 @@
 	<script src="js/jquery.js"></script>
 	<script>
 
+		// init gridle
+		Gridle.init({
+			debug : true,
+			// cssPath : 'css/grid.css'
+		});
+
 		// listen for update in gridle js :
 		Gridle.on('update', function(e, updatedStates, activeStates, unactiveStates) {
 			console.log('gridle update', updatedStates, activeStates, unactiveStates);
