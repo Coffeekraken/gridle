@@ -18,8 +18,7 @@ module.exports = (grunt) ->
 
 		compass:
 			options:
-				sassDir: paths.compass.src
-				cssDir: paths.compass.dest
+				config: 'config.rb'
 			development:
 				options:
 					environment: 'development'
