@@ -6,8 +6,8 @@
  *
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  * @created 	20.05.14
- * @updated 	12.06.14
- * @version 	1.0.1
+ * @updated 	08.07.14
+ * @version 	1.0.11
  */
 (function() {
 
@@ -23,11 +23,15 @@
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, index, _ref;
+        var handler, _i, _len, _ref;
+        if (!handlers[eventName]) {
+          return;
+        }
         _ref = handlers[eventName];
-        for (index in _ref) {
-          handler = _ref[index];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          handler = _ref[_i];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
+          continue;
         }
         return obj;
       };
@@ -128,7 +132,7 @@
                 _this._noSettingsFindedInThisCss(link);
                 return false;
               }
-              settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\';?(?:\s*)\}/gi) && RegExp.$1;
+              settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\';/) && RegExp.$1;
               if (!settings) {
                 _this._noSettingsFindedInThisCss(link);
                 return false;
@@ -433,7 +437,7 @@
     }
   }, 500);
   if (typeof window.define === 'function' && window.define.amd) {
-    return window.define('gridle', [], function() {
+    return window.define([], function() {
       return window.Gridle;
     });
   }

@@ -5,8 +5,8 @@
 #
 # @author 	Olivier Bossel <olivier.bossel@gmail.com>
 # @created 	20.05.14
-# @updated 	12.06.14
-# @version 	1.0.1
+# @updated 	08.07.14
+# @version 	1.0.11
 ###
 do ->
 
@@ -14,19 +14,17 @@ do ->
 	Little smokesignals implementation
 	###
 	smokesignals =
-
 		convert : (obj, handlers) ->
 			handlers = {}
-
 			obj.on = (eventName, handler) ->
 				(handlers[eventName] = handlers[eventName] || []).push handler
 				return obj
-
 			obj.emit = (eventName) ->
-				for index, handler of handlers[eventName]
+				return if not handlers[eventName]
+				for handler in handlers[eventName]
 					handler.apply obj, Array.prototype.slice.call(arguments, 1)
+					continue
 				return obj
-
 			return obj
 
 	###
@@ -134,7 +132,7 @@ do ->
 							return false
 
 						# try to find settings in css
-						settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\';?(?:\s*)\}/gi )&& RegExp.$1 
+						settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\';/) && RegExp.$1;
 
 						# stop if no settings
 						if not settings
@@ -477,4 +475,4 @@ do ->
 
 	# support AMD
 	if typeof window.define is 'function' && window.define.amd
-		window.define 'gridle', [], -> window.Gridle
+		window.define [], -> window.Gridle
