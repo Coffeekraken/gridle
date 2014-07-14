@@ -124,14 +124,14 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context * $columns);
+	$width : percentage(1 / $context * ($columns / $name-multiplicator) );
 
 	// set value :
 	width:$width;
 	
 	// ie7 support :
 	@if $ie7-support == true {
-		*width: expression((this.parentNode.clientWidth/#{$context}*#{$columns} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
+		*width: expression((this.parentNode.clientWidth/#{$context}*#{($columns / $name-multiplicator)} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
 	}
 	
 	// debug :
@@ -139,16 +139,16 @@
 		#{$gridle-debug-selector} {
 			&:before {
 				@if $name == default {
-					content:"grid-#{$name}-#{$columns * $name-multiplicator}";
+					content:"grid-#{$name}-#{$columns}";
 				} @else {
-					content:"grid-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"grid-#{$name}-#{$columns}" !important;
 				}
 			}
 			&.parent:before {
 				@if $name == default {
-					content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}";
+					content:"grid-parent-#{$name}-#{$columns}";
 				} @else {
-					content:"grid-parent-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"grid-parent-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -187,7 +187,7 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	@if $direction == rtl { $width : $width*-1; }
 	left:$width;
 
@@ -196,9 +196,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"push-#{$name}-#{$columns * $name-multiplicator}";
+					content:"push-#{$name}-#{$columns}";
 				} @else {
-					content:"push-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"push-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -238,7 +238,7 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	@if $direction == rtl { $width : $width*-1; }
 	right:$width;
 
@@ -247,9 +247,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"pull-#{$name}-#{$columns * $name-multiplicator}";
+					content:"pull-#{$name}-#{$columns}";
 				} @else {
-					content:"pull-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"pull-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -289,7 +289,7 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 
 	// set value :
 	@if $direction == rtl { margin-right:$width; }
@@ -300,9 +300,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"prefix-#{$name}-#{$columns * $name-multiplicator}";
+					content:"prefix-#{$name}-#{$columns}";
 				} @else {
-					content:"prefix-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"prefix-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
@@ -342,7 +342,7 @@
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
 	// vars :
-	$width : percentage(1 / $context) * $columns;
+	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	
 	// set value :
 	@if $direction == rtl { margin-left:$width; }
@@ -353,9 +353,9 @@
 		#{$gridle-debug-selector} {
 			&:after {
 				@if $name == default {
-					content:"suffix-#{$name}-#{$columns * $name-multiplicator}";
+					content:"suffix-#{$name}-#{$columns}";
 				} @else {
-					content:"suffix-#{$name}-#{$columns * $name-multiplicator}" !important;
+					content:"suffix-#{$name}-#{$columns}" !important;
 				}
 			}
 		}
