@@ -16,3 +16,9 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 1. Add compass gem support
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 1.3.28
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Make the mixins gridle, gridle_push, pull, etc... handle the name multiplicator. So if you have a context of 20 and a name multiplicator, when you want a full with column, you need to set gridle(100, mobile). The 100 is not 100%, but your context 20 * your name multiplicator 5

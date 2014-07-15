@@ -456,9 +456,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 				
 				// name :
 				$columnName : "#{$j*$name-multiplicator}";
+				$columnWidth : $j * $name-multiplicator;
 
 				// // create a column :
-				$col : _gridle_create_column($columnName, $j,  $context);
+				$col : _gridle_create_column($columnName, $columnWidth, $context, $name-multiplicator);
 
 				// // add column in columns map :
 				$columnsMap : map-set($columnsMap, $columnName,  $col);
@@ -553,9 +554,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					
 					// name :
 					$columnName : "#{$j*$name-multiplicator}";
+					$columnWidth : $j * $name-multiplicator;
 
 					// // create a column :
-					$col : _gridle_create_column($columnName, $j,  $context);
+					$col : _gridle_create_column($columnName, $columnWidth, $context, $name-multiplicator);
 
 					// // add column in columns map :
 					$columnsMap : map-set($columnsMap, $columnName,  $col);
@@ -567,10 +569,12 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					// variables :
 					$columnsCount : map-get($column, columns);
 					$columnsContext : map-get($column, context);
+					$columnsNameMultiplicator : map-get($column, name-multiplicator);
 
 					// extend context in state (for columns) :
 					$extendedState : map-merge($state, (
-						context : $columnsContext
+						context : $columnsContext,
+						name-multiplicator : $columnsNameMultiplicator // inject the name multiplicator here getted from column to handle custom registered columns
 					));
 
 					// classes :

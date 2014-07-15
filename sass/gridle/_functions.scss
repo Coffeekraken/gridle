@@ -178,12 +178,14 @@
 @function _gridle_create_column(
 	$name,
 	$columns,
-	$context
+	$context,
+	$name-multiplicator : 1 // used to extend the state on custom registered columns
 ) {
 	@return (
 		name : $name,
 		columns : $columns,
-		context : $context
+		context : $context,
+		name-multiplicator : $name-multiplicator
 	);
 }
 
