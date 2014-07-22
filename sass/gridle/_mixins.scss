@@ -4,6 +4,92 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
+// Helper to apply multiple config for a certain state with one mixin
+@mixin gridle_set(
+	$settings,
+	$state : default
+) {
+	
+	// loop on each settings
+	@each $settingName, $settingValue in $settings
+	{
+		$sn : unquote($settingName);
+		$sv : $settingValue;
+
+		// check if setting name is a state :
+		@if _gridle_has_state($sn) {
+			// process the state
+			@include gridle_set($sv, $sn);
+		} @else {
+			@if $sn == container {
+				@include gridle_container($state);
+			} @else if $sn == grid {
+				@include gridle($sv, $state);
+			} @else if $sn == push {
+				@include gridle_push($sv, $state);
+			} @else if $sn == pull {
+				@include gridle_pull($sv, $state);
+			} @else if $sn == prefix {
+				@include gridle_prefix($sv, $state);
+			} @else if $sn == suffix {
+				@include gridle_suffix($sv, $state);
+			} @else if $sn == pull {
+				@include gridle_pull($sv, $state);
+			} @else if $sn == clear_each {
+				@include gridle_clear_each(nth($sv,1), nth($sv,2), $state);
+			} @else if $sn == centered {
+				@include gridle_centered($state);
+			} @else if $sn == parent {
+				@include gridle_parent($state);
+			} @else if $sn == vertical_align {
+				@include gridle_vertical_align($sv, $state);
+			} @else if $sn == hide {
+				@if $sv == true {
+					@include gridle_hide($state);
+				} @else {
+					@include gridle_show($state);
+				}
+			} @else if $sn == show {
+				@if $sv == true {
+					@include gridle_show($state);
+				} @else {
+					@include gridle_hide($state);
+				}
+			} @else if $sn == visible {
+				@if $sv == true {
+					@include gridle_visible($state);
+				} @else {
+					@include gridle_not_visible($state);
+				}
+			} @else if $sn == not_visible {
+				@if $sv == true {
+					@include gridle_not_visible($state);
+				} @else {
+					@include gridle_visible($state);
+				}
+			} @else if $sn == show_inline {
+				@if $sv == true {
+					@include gridle_show_inline($state);
+				} @else {
+					@include gridle_hide($state);
+				}
+			} @else if $sn == float {
+				@include gridle_float($sv, $state);
+			} @else if $sn == clear {
+				@include gridle_clear($sv, $state);
+			} @else if $sn == no_gutter
+				or $sn == no_margin {
+				@include gridle_no_gutter($sv, $state);
+			} @else if $sn == gutter
+				or $sn == margin {
+				@include gridle_gutter($sv, $state);
+			} @else {
+				// we do nothing
+			}
+		}
+	}
+}
+
 // Responsive helpers mixins :
 @mixin gridle_state(
 	$states,

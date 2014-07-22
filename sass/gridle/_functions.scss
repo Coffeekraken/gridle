@@ -57,6 +57,12 @@
 		@return map-merge($_gridle-settings, $stateMap-or-stateName);
 	}
 
+	// return the default one if exist
+	@if map-has-key($_gridle_states, default)
+	{
+		@return map-get($_gridle_states, default);
+	}
+
 	// nothing finded, return the default state :
 	@return $_gridle-settings;
 }

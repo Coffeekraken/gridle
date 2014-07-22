@@ -56,3 +56,21 @@ body {
 		font-size:16px;
 	}
 }
+
+
+/**
+ * Gridle set sample :
+ */
+#myCoolItem {
+	@include gridle_set((
+		grid : 8,
+		push : 2,
+		tablet : (
+			grid : 12,
+			push : 0
+		),
+		mobile : (
+			visible : false
+		)
+	));
+}

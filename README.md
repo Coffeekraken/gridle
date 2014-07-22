@@ -1,4 +1,4 @@
-# gridle (v1.3.29)
+# gridle (v1.3.3)
 
 
 One grid system to rule them all (.scss)
@@ -80,11 +80,11 @@ Or with mixins :
 }
 #sidebar {
 	@include gridle(8);
-	@include gridle(12, 'mobile');
+	@include gridle(12,  mobile );
 }
 #sidebar {
 	@include gridle(4);
-	@include gridle_hide('mobile');
+	@include gridle_hide( mobile );
 }
 @footer {
 	@include gridle(12);
