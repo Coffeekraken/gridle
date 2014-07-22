@@ -22,3 +22,11 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 1. Make the mixins gridle, gridle_push, pull, etc... handle the name multiplicator. So if you have a context of 20 and a name multiplicator, when you want a full with column, you need to set gridle(100, mobile). The 100 is not 100%, but your context 20 * your name multiplicator 5
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 1.3.29
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Fix some classes generation issues when setting up classes : false
+2. Register default helpful states like retina, print, tv, etc... that does not generate classes by default
+3. Adding a global setting to generate or not the json settings in css (used by gridle.js)

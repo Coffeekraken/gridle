@@ -34,10 +34,16 @@
 			$stateName : map-get($stateName, name);
 		}
 
+		// classes :
+		$classes : _gridle_get_var_value(classes, $stateName);
+
 		// genrate the classname :
-		@include gridle_state($stateName, false) {
-			#{_gridle_classname($pattern, $stateName)} {
-				@content;
+		@if $classes
+		{
+			@include gridle_state($stateName, false) {
+				#{_gridle_classname($pattern, $stateName)} {
+					@content;
+				}
 			}
 		}
 	}
@@ -402,7 +408,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		// // | ------------------------
 	 
 		// // generate json settings :
-		@include gridle_generate_json_settings();
+		@if $gridle-generate-json-settings
+		{
+			@include gridle_generate_json_settings();
+		}
 
 	}
 
@@ -533,15 +542,15 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		$generate-suffix-classes : _gridle_get_var_value(generate-suffix-classes, $state);
 		$generate-helpers-classes : _gridle_get_var_value(generate-helpers-classes, $state);
 
-		// parent common css :
-		$parentSelector : _gridle_classname($gridle-parent-name-pattern,$stateName,null);
-		#{$parentSelector} {
-			@extend %gridle-clearfix;
-			@extend %gridle-parent-common;
-		}
-
 		// generate all media queries grid classes :
 		@if $classes == true {
+
+			// parent common css :
+			$parentSelector : _gridle_classname($gridle-parent-name-pattern,$stateName,null);
+			#{$parentSelector} {
+				@extend %gridle-clearfix;
+				@extend %gridle-parent-common;
+			}
 
 			// generate all the classes :
 			@include gridle_state($stateName, $has-parent) {

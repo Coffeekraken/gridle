@@ -25,25 +25,29 @@
 	{
 		// vars :
 		$direction : _gridle_get_var_value(direction, $state);
+		$classes : _gridle_get_var_value(classes, $state);
 		$gutter-width : _gridle_get_var_value(gutter-width, $state);
 		$debug : _gridle_get_var_value(debug, $state);
 		
-		@include gridle_state($state) {
-			@if $direction == rtl {
-				float:right;
-				direction:rtl;
-			} @else {
-				float:left;
-				direction:ltr;
-			}
+		@if $classes
+		{
+			@include gridle_state($state) {
+				@if $direction == rtl {
+					float:right;
+					direction:rtl;
+				} @else {
+					float:left;
+					direction:ltr;
+				}
 
-			padding-left:$gutter-width/2;
-			padding-right:$gutter-width/2;
-		}
-		
-		@if $debug == true {
-			#{$gridle-debug-selector} {
-				@extend %gridle-grid-debug-common;
+				padding-left:$gutter-width/2;
+				padding-right:$gutter-width/2;
+			}
+			
+			@if $debug == true {
+				#{$gridle-debug-selector} {
+					@extend %gridle-grid-debug-common;
+				}
 			}
 		}
 	}

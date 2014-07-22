@@ -44,13 +44,15 @@
 	$stateMap-or-stateName
 ) {
 	// check if has a state named like this :
-	@if (map-has-key($_gridle_states, unquote($stateMap-or-stateName)))
+	@if (type-of($stateMap-or-stateName) == string
+		and  map-has-key($_gridle_states, unquote($stateMap-or-stateName)))
 	{
 		@return map-get($_gridle_states, unquote($stateMap-or-stateName));
 	} 
 
 	// nothing finded, so return the default state :
 	@if $stateMap-or-stateName
+		and type-of($stateMap-or-stateName) == map
 	{
 		@return map-merge($_gridle-settings, $stateMap-or-stateName);
 	}
@@ -327,26 +329,6 @@
 		}
 
 	} 
-	@else if unquote($state-or-settings) == print
-	{
-		@return "only print";
-	} 
-	@else if unquote($state-or-settings) == tv
-	{
-		@return "only tv";
-	}
-	@else if unquote($state-or-settings) == portrait
-	{
-		@return "only screen and (orientation: portrait)";
-	}
-	@else if unquote($state-or-settings) == landscape
-	{
-		@return "only screen and (orientation: landscape)";
-	}
-	@else if unquote($state-or-settings) == retina
-	{
-		@return "only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx)";
-	}
 	@else
 	{
 		@return null;
