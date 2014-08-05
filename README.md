@@ -1,4 +1,4 @@
-# gridle (v1.3.30)
+# gridle (v1.3.31)
 
 
 One grid system to rule them all (.scss)
