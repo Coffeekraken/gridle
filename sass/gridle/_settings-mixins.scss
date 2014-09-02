@@ -29,7 +29,7 @@
 		generate-prefix-classes : true,
 		generate-suffix-classes : true,
 		generate-helpers-classes : true
-	), $settings);
+	), $settings) !global;
 
 	// register default state :
 	@include gridle_register_state(default, $_gridle-settings);
@@ -48,7 +48,7 @@
 	$settings : map-set($settings, name, $name);
 
 	// add state in maps :
-	$_gridle_states : map-set($_gridle_states, $name, $settings);
+	$_gridle_states : map-set($_gridle_states, $name, $settings) !global;
 }
 
 
@@ -66,7 +66,7 @@
 	);
 
 	// append to map :
-	$_gridle_clear_classes : map-set($_gridle_clear_classes, $count, $classMap);
+	$_gridle_clear_classes : map-set($_gridle_clear_classes, $count, $classMap) !global;
 }
 
 
@@ -82,7 +82,7 @@
 	$col : _gridle_create_column($name, $columns, $context);
 
 	// add column in maps :
-	$_gridle_columns : map-set($_gridle_columns, $name, $col);
+	$_gridle_columns : map-set($_gridle_columns, $name, $col) !global;
 }
 
 
