@@ -694,13 +694,13 @@
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include gridle_float($float-direction);
+			@include _gridle_float($float-direction);
 		}
 	} @else {
-		@include gridle_float($float-direction);
+		@include _gridle_float($float-direction);
 	}
 }
-@mixin gridle_float(
+@mixin _gridle_float(
 	$float-direction : left
 ) {
 	float:#{$float-direction};
