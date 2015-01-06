@@ -9,7 +9,7 @@
 ) {
 	@extend %gridle-simple-clearfix;
 	@extend %gridle-container-common;
-	// debug part :
+	// debug part
 	$debug : _gridle_get_var_value(debug, $state);
 	@if ($debug == true) {
 		#{$gridle-debug-selector} {
@@ -17,31 +17,50 @@
 		}
 	}
 }
+$_gridle-already-generated : ();
 @mixin _gridle_grid_common() {
 	@extend %gridle-grid-common;
-	
+
+	// default values
+	$default-gutter-width : _gridle_get_var_value(gutter-width, default);
+	$default-direction : _gridle_get_var_value(direction, default);
+
 	// loop on each states :
 	@each $stateName, $state in $_gridle-states
 	{
-		// vars :
+		// selector key to be used in map
+		$key : "#{$stateName} #{&}";
+
+		// check if already generated classes
+		$already-generated : map-has-key($_gridle-already-generated, $key);
+
+		// vars
 		$direction : _gridle_get_var_value(direction, $state);
 		$classes : _gridle_get_var_value(classes, $state);
 		$gutter-width : _gridle_get_var_value(gutter-width, $state);
 		$debug : _gridle_get_var_value(debug, $state);
-		
-		@if $classes
-		{
-			@include gridle_state($state) {
-				@if $direction == rtl {
-					float:right;
-					direction:rtl;
-				} @else {
-					float:left;
-					direction:ltr;
-				}
 
-				padding-left:$gutter-width/2;
-				padding-right:$gutter-width/2;
+		@if $already-generated != true and $classes and ( ($default-direction != $direction or $default-gutter-width != $gutter-width) or $stateName == default)
+		{
+			// set that we have already generated css for this selector
+			$_gridle-already-generated : map-set($_gridle-already-generated, $key, true) !global;
+			
+			// generate the css for this element
+			@include gridle_state($state) {
+				@if $direction != $default-direction or $stateName == default {
+					// content : "#{$key}";
+					@if $direction == rtl {
+						float:right;
+						direction:rtl;
+					} @else {
+						float:left;
+						direction:ltr;
+					}
+				}
+				@if $gutter-width != $default-gutter-width or $stateName == default {
+					padding-left:$gutter-width/2;
+					padding-right:$gutter-width/2;
+				}
 			}
 			
 			@if $debug == true {

@@ -40,6 +40,15 @@
 }
 
 /**
+ * Str replace
+ *
+ * @param {string}  $string    String that you want to replace
+ * @param {string}  $substr    String that is to be replaced by `$newsubstr`
+ * @param {string}  $newsubstr String that replaces `$substr`
+ * @param {number*} $all       Flag for replaceing all (1+) or not (0)
+ * @return {string}
+ */
+/**
  * Map set
  *
  * @param 	Map 	$map 		The map to use
@@ -174,7 +183,7 @@
   }
 }
 #gridle-settings {
-  content: '{ "version" : "1.3.33", "states" : { "retina":{ "query" : "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)", "classes" : false, "name" : "retina", "_gridle" : true }, "tv":{ "query" : "only tv", "classes" : false, "name" : "tv", "_gridle" : true }, "print":{ "query" : "only print", "classes" : false, "name" : "print", "_gridle" : true }, "portrait":{ "query" : "only screen and (orientation: portrait)", "classes" : false, "name" : "portrait", "_gridle" : true }, "landscape":{ "query" : "only screen and (orientation: landscape)", "classes" : false, "name" : "landscape", "_gridle" : true }, "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "xs":{ "name" : "xs", "min-width" : null, "max-width" : "768px", "query" : "screen and (max-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "sm":{ "name" : "sm", "min-width" : "768px", "max-width" : null, "query" : "screen and (min-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "md":{ "name" : "md", "min-width" : "992px", "max-width" : null, "query" : "screen and (min-width: 992px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "lg":{ "name" : "lg", "min-width" : "1200px", "max-width" : null, "query" : "screen and (min-width: 1200px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
+  content: '{ "version" : "1.3.34", "states" : { "retina":{ "query" : "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)", "classes" : false, "name" : "retina", "_gridle" : true }, "tv":{ "query" : "only tv", "classes" : false, "name" : "tv", "_gridle" : true }, "print":{ "query" : "only print", "classes" : false, "name" : "print", "_gridle" : true }, "portrait":{ "query" : "only screen and (orientation: portrait)", "classes" : false, "name" : "portrait", "_gridle" : true }, "landscape":{ "query" : "only screen and (orientation: landscape)", "classes" : false, "name" : "landscape", "_gridle" : true }, "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "xs":{ "name" : "xs", "min-width" : null, "max-width" : "768px", "query" : "screen and (max-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "sm":{ "name" : "sm", "min-width" : "768px", "max-width" : null, "query" : "screen and (min-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "md":{ "name" : "md", "min-width" : "992px", "max-width" : null, "query" : "screen and (min-width: 992px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "lg":{ "name" : "lg", "min-width" : "1200px", "max-width" : null, "query" : "screen and (min-width: 1200px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
 }
 
 .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
@@ -188,62 +197,6 @@ html.default .col-0, html.default .col-1, html.default .col-2, html.default .col
   direction: ltr;
   padding-left: 15px;
   padding-right: 15px;
-}
-html.xs .col-0, html.xs .col-1, html.xs .col-2, html.xs .col-3, html.xs .col-4, html.xs .col-5, html.xs .col-6, html.xs .col-7, html.xs .col-8, html.xs .col-9, html.xs .col-10, html.xs .col-11, html.xs .col-12, html.xs .col-xs-0, html.xs .col-xs-1, html.xs .col-xs-2, html.xs .col-xs-3, html.xs .col-xs-4, html.xs .col-xs-5, html.xs .col-xs-6, html.xs .col-xs-7, html.xs .col-xs-8, html.xs .col-xs-9, html.xs .col-xs-10, html.xs .col-xs-11, html.xs .col-xs-12, html.xs .col-sm-0, html.xs .col-sm-1, html.xs .col-sm-2, html.xs .col-sm-3, html.xs .col-sm-4, html.xs .col-sm-5, html.xs .col-sm-6, html.xs .col-sm-7, html.xs .col-sm-8, html.xs .col-sm-9, html.xs .col-sm-10, html.xs .col-sm-11, html.xs .col-sm-12, html.xs .col-md-0, html.xs .col-md-1, html.xs .col-md-2, html.xs .col-md-3, html.xs .col-md-4, html.xs .col-md-5, html.xs .col-md-6, html.xs .col-md-7, html.xs .col-md-8, html.xs .col-md-9, html.xs .col-md-10, html.xs .col-md-11, html.xs .col-md-12, html.xs .col-lg-0, html.xs .col-lg-1, html.xs .col-lg-2, html.xs .col-lg-3, html.xs .col-lg-4, html.xs .col-lg-5, html.xs .col-lg-6, html.xs .col-lg-7, html.xs .col-lg-8, html.xs .col-lg-9, html.xs .col-lg-10, html.xs .col-lg-11, html.xs .col-lg-12 {
-  float: left;
-  direction: ltr;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media screen and (max-width: 768px) {
-  .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    float: left;
-    direction: ltr;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-html.sm .col-0, html.sm .col-1, html.sm .col-2, html.sm .col-3, html.sm .col-4, html.sm .col-5, html.sm .col-6, html.sm .col-7, html.sm .col-8, html.sm .col-9, html.sm .col-10, html.sm .col-11, html.sm .col-12, html.sm .col-xs-0, html.sm .col-xs-1, html.sm .col-xs-2, html.sm .col-xs-3, html.sm .col-xs-4, html.sm .col-xs-5, html.sm .col-xs-6, html.sm .col-xs-7, html.sm .col-xs-8, html.sm .col-xs-9, html.sm .col-xs-10, html.sm .col-xs-11, html.sm .col-xs-12, html.sm .col-sm-0, html.sm .col-sm-1, html.sm .col-sm-2, html.sm .col-sm-3, html.sm .col-sm-4, html.sm .col-sm-5, html.sm .col-sm-6, html.sm .col-sm-7, html.sm .col-sm-8, html.sm .col-sm-9, html.sm .col-sm-10, html.sm .col-sm-11, html.sm .col-sm-12, html.sm .col-md-0, html.sm .col-md-1, html.sm .col-md-2, html.sm .col-md-3, html.sm .col-md-4, html.sm .col-md-5, html.sm .col-md-6, html.sm .col-md-7, html.sm .col-md-8, html.sm .col-md-9, html.sm .col-md-10, html.sm .col-md-11, html.sm .col-md-12, html.sm .col-lg-0, html.sm .col-lg-1, html.sm .col-lg-2, html.sm .col-lg-3, html.sm .col-lg-4, html.sm .col-lg-5, html.sm .col-lg-6, html.sm .col-lg-7, html.sm .col-lg-8, html.sm .col-lg-9, html.sm .col-lg-10, html.sm .col-lg-11, html.sm .col-lg-12 {
-  float: left;
-  direction: ltr;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media screen and (min-width: 768px) {
-  .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    float: left;
-    direction: ltr;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-html.md .col-0, html.md .col-1, html.md .col-2, html.md .col-3, html.md .col-4, html.md .col-5, html.md .col-6, html.md .col-7, html.md .col-8, html.md .col-9, html.md .col-10, html.md .col-11, html.md .col-12, html.md .col-xs-0, html.md .col-xs-1, html.md .col-xs-2, html.md .col-xs-3, html.md .col-xs-4, html.md .col-xs-5, html.md .col-xs-6, html.md .col-xs-7, html.md .col-xs-8, html.md .col-xs-9, html.md .col-xs-10, html.md .col-xs-11, html.md .col-xs-12, html.md .col-sm-0, html.md .col-sm-1, html.md .col-sm-2, html.md .col-sm-3, html.md .col-sm-4, html.md .col-sm-5, html.md .col-sm-6, html.md .col-sm-7, html.md .col-sm-8, html.md .col-sm-9, html.md .col-sm-10, html.md .col-sm-11, html.md .col-sm-12, html.md .col-md-0, html.md .col-md-1, html.md .col-md-2, html.md .col-md-3, html.md .col-md-4, html.md .col-md-5, html.md .col-md-6, html.md .col-md-7, html.md .col-md-8, html.md .col-md-9, html.md .col-md-10, html.md .col-md-11, html.md .col-md-12, html.md .col-lg-0, html.md .col-lg-1, html.md .col-lg-2, html.md .col-lg-3, html.md .col-lg-4, html.md .col-lg-5, html.md .col-lg-6, html.md .col-lg-7, html.md .col-lg-8, html.md .col-lg-9, html.md .col-lg-10, html.md .col-lg-11, html.md .col-lg-12 {
-  float: left;
-  direction: ltr;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media screen and (min-width: 992px) {
-  .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    float: left;
-    direction: ltr;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-}
-html.lg .col-0, html.lg .col-1, html.lg .col-2, html.lg .col-3, html.lg .col-4, html.lg .col-5, html.lg .col-6, html.lg .col-7, html.lg .col-8, html.lg .col-9, html.lg .col-10, html.lg .col-11, html.lg .col-12, html.lg .col-xs-0, html.lg .col-xs-1, html.lg .col-xs-2, html.lg .col-xs-3, html.lg .col-xs-4, html.lg .col-xs-5, html.lg .col-xs-6, html.lg .col-xs-7, html.lg .col-xs-8, html.lg .col-xs-9, html.lg .col-xs-10, html.lg .col-xs-11, html.lg .col-xs-12, html.lg .col-sm-0, html.lg .col-sm-1, html.lg .col-sm-2, html.lg .col-sm-3, html.lg .col-sm-4, html.lg .col-sm-5, html.lg .col-sm-6, html.lg .col-sm-7, html.lg .col-sm-8, html.lg .col-sm-9, html.lg .col-sm-10, html.lg .col-sm-11, html.lg .col-sm-12, html.lg .col-md-0, html.lg .col-md-1, html.lg .col-md-2, html.lg .col-md-3, html.lg .col-md-4, html.lg .col-md-5, html.lg .col-md-6, html.lg .col-md-7, html.lg .col-md-8, html.lg .col-md-9, html.lg .col-md-10, html.lg .col-md-11, html.lg .col-md-12, html.lg .col-lg-0, html.lg .col-lg-1, html.lg .col-lg-2, html.lg .col-lg-3, html.lg .col-lg-4, html.lg .col-lg-5, html.lg .col-lg-6, html.lg .col-lg-7, html.lg .col-lg-8, html.lg .col-lg-9, html.lg .col-lg-10, html.lg .col-lg-11, html.lg .col-lg-12 {
-  float: left;
-  direction: ltr;
-  padding-left: 15px;
-  padding-right: 15px;
-}
-@media screen and (min-width: 1200px) {
-  .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
-    float: left;
-    direction: ltr;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
 }
 
 html.default {

@@ -61,32 +61,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * Import grid settings :
  * This to be able to use gridle mixins, etc...
  */
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-size: 50px 90%;
-  background-position: 0 50%;
-  background-repeat: repeat-x;
-}
-
 #myCoolItem {
   position: relative;
-}
-
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-color: #daeff5;
-}
-.gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before, .gridle-debug #myCoolItem:after, #myCoolItem.gridle-debug:after {
-  content: "";
-  display: block;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
-  margin: 10px 0;
-  padding: 5px 0;
-  text-align: center;
-  color: white;
-  font-size: 11px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: block !important;
 }
 
 #myCoolItem {
@@ -97,6 +73,15 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   box-sizing: border-box;
 }
 
+/**
+ * Str replace
+ *
+ * @param {string}  $string    String that you want to replace
+ * @param {string}  $substr    String that is to be replaced by `$newsubstr`
+ * @param {string}  $newsubstr String that replaces `$substr`
+ * @param {number*} $all       Flag for replaceing all (1+) or not (0)
+ * @return {string}
+ */
 /**
  * Map set
  *
@@ -232,9 +217,6 @@ ul#medias li.active, ul#medias li:hover {
   background: white;
   color: black;
 }
-html.default ul#medias {
-  display: none;
-}
 @media screen and (max-width: 620px) {
   ul#medias {
     display: none;
@@ -248,24 +230,15 @@ html {
   font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 }
 
-html.mobile body {
-  text-align: center;
-}
 @media screen and (max-width: 480px) {
   body {
     text-align: center;
   }
 }
-html.tablet body {
-  text-align: center;
-}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   body {
     text-align: center;
   }
-}
-html.ipad-landscape body {
-  font-size: 16px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   body {
@@ -283,173 +256,22 @@ html.ipad-landscape body {
   padding-right: 10px;
   width: 66.66667%;
   left: 16.66667%;
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-html.default #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-html.mobile #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-@media screen and (max-width: 480px) {
-  #myCoolItem {
-    float: left;
-    direction: ltr;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-html.tablet #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
-    float: left;
-    direction: ltr;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-html.ipad-landscape #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 0;
-  padding-right: 0;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
-    float: left;
-    direction: ltr;
     padding-left: 0;
     padding-right: 0;
   }
-}
-html.default #myCoolItem {
-  width: 66.66667%;
-}
-.gridle-debug html.default #myCoolItem:before, html.default #myCoolItem.gridle-debug:before {
-  content: "grid-default-8";
-}
-.gridle-debug html.default #myCoolItem.parent:before, html.default #myCoolItem.gridle-debug.parent:before {
-  content: "grid-parent-default-8";
-}
-.gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before {
-  content: "grid-default-8";
-}
-.gridle-debug #myCoolItem.parent:before, #myCoolItem.gridle-debug.parent:before {
-  content: "grid-parent-default-8";
-}
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-color: #f4efdf !important;
-}
-html.default #myCoolItem {
-  left: 16.66667%;
-}
-.gridle-debug html.default #myCoolItem:after, html.default #myCoolItem.gridle-debug:after {
-  content: "push-default-2";
-}
-.gridle-debug #myCoolItem:after, #myCoolItem.gridle-debug:after {
-  content: "push-default-2";
-}
-html.default #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-html.mobile #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-@media screen and (max-width: 480px) {
-  #myCoolItem {
-    float: left;
-    direction: ltr;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-html.tablet #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
-    float: left;
-    direction: ltr;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-}
-html.ipad-landscape #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 0;
-  padding-right: 0;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #myCoolItem {
-    float: left;
-    direction: ltr;
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-html.tablet #myCoolItem {
-  width: 100%;
-}
-.gridle-debug html.tablet #myCoolItem:before, html.tablet #myCoolItem.gridle-debug:before {
-  content: "grid-tablet-12" !important;
-}
-.gridle-debug html.tablet #myCoolItem.parent:before, html.tablet #myCoolItem.gridle-debug.parent:before {
-  content: "grid-parent-tablet-12" !important;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     width: 100%;
   }
-  .gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before {
-    content: "grid-tablet-12" !important;
-  }
-  .gridle-debug #myCoolItem.parent:before, #myCoolItem.gridle-debug.parent:before {
-    content: "grid-parent-tablet-12" !important;
-  }
-}
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-color: #f4efdf !important;
-}
-html.tablet #myCoolItem {
-  left: 0%;
-}
-.gridle-debug html.tablet #myCoolItem:after, html.tablet #myCoolItem.gridle-debug:after {
-  content: "push-tablet-0" !important;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     left: 0%;
   }
-  .gridle-debug #myCoolItem:after, #myCoolItem.gridle-debug:after {
-    content: "push-tablet-0" !important;
-  }
-}
-html.mobile #myCoolItem {
-  visibility: hidden;
 }
 @media screen and (max-width: 480px) {
   #myCoolItem {

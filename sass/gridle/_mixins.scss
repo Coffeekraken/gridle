@@ -183,34 +183,58 @@
 // Set the width of the specified grid column :
 @mixin gridle(
 	$columns,
+	$state-or-context : default,
 	$state : default
 ) {
+	// manage state and context :
+	$context : null;
+	@if type-of($state-or-context) == number {
+		$context : $state-or-context;
+	} @else {
+		$state : $state-or-context;
+	}
+
 	// common :
 	@include _gridle_grid_common();
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle($columns, $state);
+			@include _gridle($columns, $state, $context);
 		}
 	} @else {
-		@include _gridle($columns, $state);
+		@include _gridle($columns, $state, $context);
 	}
 }
 @mixin _gridle(
 	$columns,
-	$state : default
+	$state : default,
+	$context : null
 ) {
 	// vars :
 	$name : _gridle_get_var_value(name, $state);
-	$context : _gridle_get_var_value(context, $state);
+	@if type-of($context) != number {
+		$context : _gridle_get_var_value(context, $state);
+	}
 	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
 	$gutter-width : _gridle_get_var_value(gutter-width, $state);
 	$ie7-support : _gridle_get_var_value(ie7-support, $state);
 	$debug : _gridle_get_var_value(debug, $state);
 	$debug-show-class-names : _gridle_get_var_value(debug-show-class-names, $state);
 
+	// manage columns
+	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+		// the columns is a saved one, get the context and column value
+		$column : map-get($_gridle_columns, $columns);
+		$context : map-get($column, context);
+		$columns : map-get($column, columns);
+	} @else if type-of($columns) == number {
+		$columns : $columns / $name-multiplicator;
+	} @else {
+		@error "the column #{$columns} does not exist...";
+	}
+
 	// vars :
-	$width : percentage(1 / $context * ($columns / $name-multiplicator) );
+	$width : percentage(1 / $context * $columns);
 
 	// set value :
 	width:$width;
@@ -246,27 +270,39 @@
 // Push the element of the count of column wanted
 @mixin gridle_push(
 	$columns,
+	$state-or-context : default,
 	$state : default
 ) {
+	// manage state and context
+	$context : null;
+	@if type-of($state-or-context) == number {
+		$context : $state-or-context;
+	} @else {
+		$state : $state-or-context;
+	}
+
 	// common :
 	@include _gridle_push_common($state);
 
 	// check if need media query :
 	@if $state {
 		@include gridle_state($state) {
-			@include _gridle_push($columns,$state);
+			@include _gridle_push($columns, $state, $context);
 		}
 	} @else {
-		@include _gridle_push($columns,$state);
+		@include _gridle_push($columns, $state, $context);
 	}
 }
 @mixin _gridle_push(
 	$columns,
-	$state : default
+	$state : default,
+	$context : null
 ) {
 	// variables :
 	$name : _gridle_get_var_value(name, $state);
-	$context : _gridle_get_var_value(context, $state);
+	@if type-of($context) != number {
+		$context : _gridle_get_var_value(context, $state);
+	}
 	$direction : _gridle_get_var_value(direction, $state);
 	$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
 	$debug : _gridle_get_var_value(debug, $state);

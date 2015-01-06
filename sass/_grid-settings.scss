@@ -5,11 +5,11 @@
 @include gridle_setup((
 	context : 12,
 	gutter-width : 20px,
-	debug : true
+	debug : false
 ));
 
 // register special columns :
-@include gridle_register_column('1on5', 1, 5);
+@include gridle_register_column("1on5", 1, 5);
 
 // clear each classes :
 @include gridle_register_clear_each(2, left);
@@ -19,5 +19,5 @@
 @include gridle_register_default_states();
 @include gridle_register_state(ipad-landscape, (
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
-	gutter-width :0
+	gutter-width : 0
 ));

@@ -1,0 +1,601 @@
+.grid-parent:before, .grid-parent-set:before, .grid-parent:after, .grid-parent-set:after {
+  content: "";
+  display: table;
+}
+.grid-parent:after, .grid-parent-set:after {
+  clear: both;
+}
+.grid-parent, .grid-parent-set {
+  zoom: 1;
+}
+
+.push-6, .push-12-mobile, .push-set, .pull-6, .pull-12-mobile, .pull-set, .gridle-set {
+  position: relative;
+}
+
+.grid-parent, .grid-parent-set {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.grid-12, .grid-1on5, .grid-12-on-100, .grid-15-on-100-on-mobile, .grid-30-on-100-on-mobile-and-tablet, .gridle-set, .gridle-set-multiple {
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/**
+ * Str replace
+ *
+ * @param {string}  $string    String that you want to replace
+ * @param {string}  $substr    String that is to be replaced by `$newsubstr`
+ * @param {string}  $newsubstr String that replaces `$substr`
+ * @param {number*} $all       Flag for replaceing all (1+) or not (0)
+ * @return {string}
+ */
+/**
+ * Map set
+ *
+ * @param 	Map 	$map 		The map to use
+ * @param 	String 	$key 		The key to update
+ * @param 	Mixed 	$value 		The new value
+ * @return 	Map 			The new map
+ */
+/**
+ * Get the column width in percent for the global or a specific context
+ *
+ * @param 	int 		$columns 					The number of columns to calculate
+ * @param 	int 		$context : $gridle-columns-count 	 	The context to use
+ * @return 	percentage 							The width in percent
+ */
+/**
+ *  Get a state map
+ *
+ * @param 	string 		$name 		The name of the state to get
+ * @return 	map 				A state map object
+ */
+/**
+ * Check if a state exist :
+ *
+ * @param 	string 		$name 		The name of the state to check
+ * @return 	Boolean 			true is exist
+ */
+/**
+ * Get the media queries variables :
+ *
+ * @param 	int 		$index 	 	The media query indes
+ * @param 	String 		$var 		The media query variable name
+ * @return 	String|int 			The variable value
+ */
+/**
+ * Get a variable
+ *
+ * @param 	String 		$varName 				The variable name
+ * @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
+ * @return 	Mixed 							The finded value
+ */
+/**
+ * Set a variable in a state
+ * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+ * @param  	String $var                    		Variable name to assign
+ * @param  	Mixed $newValue          		The new value to assign
+ * @return 	List                         			The states list (full)
+ */
+/**
+ * Generate a column
+ *
+ * @param 	String 		$name 			The column name (often count)
+ * @param 	int 		$columns 		The column count that the column will take
+ * @param 	int 		$context 		The context on witch the with will be calculed
+ * @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
+ */
+/**
+ * Generate classname
+ *
+ * @param 	List 		$parrern 	The pattern to use to generate classname
+ * @param 	String 		$state 		The state
+ * @param 	int 		$count 		The column count
+ */
+/**
+ * Get the media query for a particular state, or with, etc...
+ *
+ * @param 	Mixed 		$state-or-min-width 		The state name of the min with
+ * @param 	Mixed 		$max-width 			The max width if first param is a min width
+ * @return 	String 						The media query string without the @media
+ */
+/**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
+ * Setup
+ */
+/**
+ *  Register a clear each class
+ */
+/**
+ * Register a special class
+ */
+/**
+ * Register default states
+ */
+/**
+ * Register default mobile first states :
+ */
+/**
+ * Set the debug device (not used for now)
+ * 
+ * @param 	String 		$state 		The state to update
+ * @para m 	String 		$device 	The device to use (iphone, etc...)
+ */
+/**
+ * Parent clear each
+ */
+/**
+ * Vertical align :
+ */
+/**
+ * Show inline
+ *
+ * @param 	String 		$state 		The state name
+ */
+/**
+ * Generate a custom class for all the states
+ *
+ * @param 	list 	$pattern 		The name pattern of the class
+ * @param 	list 	$statesNames 		The states names to generate
+ */
+.grid-12 {
+  float: left;
+  direction: ltr;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-12 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.grid-1on5 {
+  float: left;
+  direction: ltr;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 20%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-1on5 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.grid-12-on-100 {
+  float: left;
+  direction: ltr;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 12%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-12-on-100 {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.grid-15-on-100-on-mobile {
+  float: left;
+  direction: ltr;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-15-on-100-on-mobile {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .grid-15-on-100-on-mobile {
+    width: 15%;
+  }
+}
+
+.grid-30-on-100-on-mobile-and-tablet {
+  float: left;
+  direction: ltr;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 30%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-30-on-100-on-mobile-and-tablet {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .grid-30-on-100-on-mobile-and-tablet {
+    width: 30%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .grid-30-on-100-on-mobile-and-tablet {
+    width: 30%;
+  }
+}
+
+.grid-parent {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.grid-parent-set {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.clear-each-2 > *:nth-child(2n+1) {
+  clear: both;
+}
+
+.clear-each-2-left > *:nth-child(2n+1) {
+  clear: left;
+}
+
+@media screen and (max-width: 480px) {
+  .clear-each-2-left-mobile > *:nth-child(2n+1) {
+    clear: left;
+  }
+}
+
+.clear-each-2-set > *:nth-child(2n+1) {
+  clear: left;
+}
+
+.centered {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
+
+@media screen and (max-width: 480px) {
+  .centered-mobile {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important;
+  }
+}
+
+.vertical-align {
+  font-size: 0;
+  clear: both;
+}
+.vertical-align > * {
+  display: inline-block;
+  float: none !important;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+.vertical-align-bottom {
+  font-size: 0;
+  clear: both;
+}
+.vertical-align-bottom > * {
+  display: inline-block;
+  float: none !important;
+  vertical-align: bottom;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 480px) {
+  .vertical-align-top-mobile {
+    font-size: 0;
+    clear: both;
+  }
+  .vertical-align-top-mobile > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: top;
+    font-size: 1rem;
+  }
+}
+
+.vertical-align-set {
+  font-size: 0;
+  clear: both;
+}
+.vertical-align-set > * {
+  display: inline-block;
+  float: none !important;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+
+.push-6 {
+  left: 50.0%;
+}
+
+@media screen and (max-width: 480px) {
+  .push-12-mobile {
+    left: 100.0%;
+  }
+}
+
+.push-set {
+  left: 25.0%;
+}
+
+.pull-6 {
+  right: 50.0%;
+}
+
+@media screen and (max-width: 480px) {
+  .pull-12-mobile {
+    right: 100.0%;
+  }
+}
+
+.pull-set {
+  right: 25.0%;
+}
+
+.prefix-6 {
+  margin-left: 50.0%;
+}
+
+@media screen and (max-width: 480px) {
+  .prefix-12-mobile {
+    margin-left: 100.0%;
+  }
+}
+
+.prefix-set {
+  margin-left: 25.0%;
+}
+
+.suffix-6 {
+  margin-right: 50.0%;
+}
+
+@media screen and (max-width: 480px) {
+  .suffix-12-mobile {
+    margin-right: 100.0%;
+  }
+}
+
+.suffix-set {
+  margin-right: 25.0%;
+}
+
+.hide {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .hide-mobile {
+    display: none;
+  }
+}
+
+.hide-set {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+@media screen and (max-width: 480px) {
+  .show-mobile {
+    display: block;
+  }
+}
+
+.show-set {
+  display: none;
+}
+
+.show_inline {
+  display: inline-block;
+}
+
+@media screen and (max-width: 480px) {
+  .show_inline-mobile {
+    display: inline-block;
+  }
+}
+
+.show_inline-set {
+  display: inline-block;
+}
+
+.not_visible {
+  visibility: hidden;
+}
+
+@media screen and (max-width: 480px) {
+  .not_visible-mobile {
+    visibility: hidden;
+  }
+}
+
+.not_visible-set {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+@media screen and (max-width: 480px) {
+  .visible-mobile {
+    visibility: visible;
+  }
+}
+
+.visible-set {
+  visibility: hidden;
+}
+
+.gridle-state {
+  background: red;
+}
+@media screen and (max-width: 480px) {
+  .gridle-state {
+    background: pink;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .gridle-state {
+    background: pink;
+  }
+}
+@media only print {
+  .gridle-state {
+    background: yellow;
+  }
+}
+@media screen and (max-width: 200px) {
+  .gridle-state {
+    background: green;
+  }
+}
+
+.gridle-set {
+  float: left;
+  direction: ltr;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 50%;
+  left: 16.66667%;
+  clear: left;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-set {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .gridle-set {
+    width: 66.66667%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .gridle-set {
+    left: 0%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .gridle-set {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .gridle-set {
+    left: 0%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .gridle-set {
+    right: 0%;
+  }
+}
+
+.gridle-set-multiple {
+  float: left;
+  direction: ltr;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 50%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-set-multiple {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .gridle-set-multiple {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .gridle-set-multiple {
+    width: 100%;
+  }
+}
+
+.float-right {
+  float: right;
+}
+
+@media screen and (max-width: 480px) {
+  .float-left-mobile {
+    float: left;
+  }
+}
+
+.float-set {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+@media screen and (max-width: 480px) {
+  .clear-left-mobile {
+    clear: left;
+  }
+}
+
+.clear-set {
+  clear: left;
+}
+
+.gutters {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.gutters-left {
+  padding-left: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .gutters-side-mobile {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+.no-gutter {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.no-gutter-left {
+  padding-left: 0;
+}
+
+@media screen and (max-width: 480px) {
+  .no-gutter-side-mobile {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}

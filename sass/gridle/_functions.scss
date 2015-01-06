@@ -4,6 +4,41 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
+/**
+ * Str replace
+ *
+ * @param {string}  $string    String that you want to replace
+ * @param {string}  $substr    String that is to be replaced by `$newsubstr`
+ * @param {string}  $newsubstr String that replaces `$substr`
+ * @param {number*} $all       Flag for replaceing all (1+) or not (0)
+ * @return {string}
+ */
+@function str-replace($string, $substr, $newsubstr, $all: 0) {
+	$position-found: str-index($string, $substr);
+	$processed: ();
+
+	@while ($position-found and $position-found > 0) {
+		$length-substr: str-length($substr);
+		$processed: append($processed, str-slice($string, 0, $position-found - 1));
+		$processed: append($processed, $newsubstr);
+		$string: str-slice($string, $position-found + $length-substr);
+
+		$position-found: 0;
+
+		@if ($all > 0) {
+			$position-found: str-index($string, $substr);
+		}
+	}
+
+	$processed: append($processed, $string);
+	$string: "";
+
+	@each $s in $processed {
+		$string: #{$string}#{$s};
+	}
+
+	@return $string;
+}
 
 /**
  * Map set
@@ -43,14 +78,14 @@
 @function _gridle_get_state(
 	$stateMap-or-stateName
 ) {
-	// check if has a state named like this :
+	// check if has a state named like this
 	@if (type-of($stateMap-or-stateName) == string
 		and  map-has-key($_gridle_states, unquote($stateMap-or-stateName)))
 	{
 		@return map-get($_gridle_states, unquote($stateMap-or-stateName));
 	} 
 
-	// nothing finded, so return the default state :
+	// a map is passed, so it's a state himself
 	@if $stateMap-or-stateName
 		and type-of($stateMap-or-stateName) == map
 	{
@@ -63,7 +98,7 @@
 		@return map-get($_gridle_states, default);
 	}
 
-	// nothing finded, return the default state :
+	// nothing finded, return the default state
 	@return $_gridle-settings;
 }
 

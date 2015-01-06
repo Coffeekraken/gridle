@@ -1,4 +1,4 @@
-# gridle (v1.3.33)
+# gridle (v1.3.34)
 
 
 One grid system to rule them all (.scss)
@@ -114,6 +114,28 @@ Gridle allows you to generate custom classes that will be available for each of 
 ```
 
 This will produce the classes : center, center-mobile, center-tablet and center-landscape automatically
+
+
+## Set multiple grid properties at one
+
+Gridle offer you multiple ways to set grid properties on your elements, the gridle_set is one of these ways
+
+```scss
+#sidebar {
+	@include gridle_set((
+		grid : 8,
+		push : 4,
+		tablet : (
+			grid : 10,
+			push : 2
+		),
+		mobile : (
+			grid : 12,
+			push : 0
+		)
+	));
+}
+```
 
 
 ## More control with Gridle{.js}

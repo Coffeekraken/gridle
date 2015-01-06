@@ -1,0 +1,280 @@
+// Import grid settings :
+@import 'grid-settings';
+
+// standard grid mixins :
+.grid-12 {
+	@include gridle(12);
+}
+.grid-1on5 {
+	@include gridle("1on5");
+}
+.grid-12-on-100 {
+	@include gridle(12, 100);
+}
+.grid-15-on-100-on-mobile {
+	@include gridle(15, 100, mobile);
+}
+.grid-30-on-100-on-mobile-and-tablet {
+	@include gridle(30, 100);
+	@include gridle(30, 100, mobile tablet);
+}
+
+// parent
+.grid-parent {
+	@include gridle_parent();
+}
+.grid-parent-set {
+	@include gridle_set((
+		parent : true
+	));
+}
+
+// clear each
+.clear-each-2 {
+	@include gridle_clear_each(2);
+}
+.clear-each-2-left {
+	@include gridle_clear_each(2, left);
+}
+.clear-each-2-left-mobile {
+	@include gridle_clear_each(2, left, mobile);
+}
+.clear-each-2-set {
+	@include gridle_set((
+		clear_each : ( 2, left )
+	));
+}
+
+// centered
+.centered {
+	@include gridle_centered();
+}
+.centered-mobile {
+	@include gridle_centered(mobile);
+}
+
+// certical align
+.vertical-align {
+	@include gridle_vertical_align();
+}
+.vertical-align-bottom {
+	@include gridle_vertical_align(bottom);
+}
+.vertical-align-top-mobile {
+	@include gridle_vertical_align(top, mobile);
+}
+.vertical-align-set {
+	@include gridle_set((
+		vertical_align : middle
+	));
+}
+
+// push
+.push-6 {
+	@include gridle_push(6);
+}
+.push-12-mobile {
+	@include gridle_push(12, mobile);
+}
+.push-set {
+	@include gridle_set((
+		push : 3
+	));
+}
+
+// pull
+.pull-6 {
+	@include gridle_pull(6);
+}
+.pull-12-mobile {
+	@include gridle_pull(12, mobile);
+}
+.pull-set {
+	@include gridle_set((
+		pull : 3
+	));
+}
+
+// prefix
+.prefix-6 {
+	@include gridle_prefix(6);
+}
+.prefix-12-mobile {
+	@include gridle_prefix(12, mobile);
+}
+.prefix-set {
+	@include gridle_set((
+		prefix : 3
+	));
+}
+
+// suffix
+.suffix-6 {
+	@include gridle_suffix(6);
+}
+.suffix-12-mobile {
+	@include gridle_suffix(12, mobile);
+}
+.suffix-set {
+	@include gridle_set((
+		suffix : 3
+	));
+}
+
+// hide
+.hide {
+	@include gridle_hide();
+}
+.hide-mobile {
+	@include gridle_hide(mobile);
+}
+.hide-set {
+	@include gridle_set((
+		hide : true
+	));
+}
+
+// show
+.show {
+	@include gridle_show();
+}
+.show-mobile {
+	@include gridle_show(mobile);
+}
+.show-set {
+	@include gridle_set((
+		show : false
+	));
+}
+
+// show_inline
+.show_inline {
+	@include gridle_show_inline();
+}
+.show_inline-mobile {
+	@include gridle_show_inline(mobile);
+}
+.show_inline-set {
+	@include gridle_set((
+		show_inline : true
+	));
+}
+
+// not_visible
+.not_visible {
+	@include gridle_not_visible();
+}
+.not_visible-mobile {
+	@include gridle_not_visible(mobile);
+}
+.not_visible-set {
+	@include gridle_set((
+		not_visible : true
+	));
+}
+
+// visible
+.visible {
+	@include gridle_visible();
+}
+.visible-mobile {
+	@include gridle_visible(mobile);
+}
+.visible-set {
+	@include gridle_set((
+		visible : false
+	));
+}
+
+// gridle state
+.gridle-state {
+	background: red;
+
+	@include gridle_state(mobile tablet) {
+		background: pink;
+	}
+	@include gridle_state((
+		query : "only print"
+	)) {
+		background: yellow;
+	}
+	@include gridle_state((
+		max-width : 200px
+	)) {
+		background: green;
+	}
+}
+
+// gridle set
+.gridle-set {
+	@include gridle_set((
+		grid : 6,
+		push : 2,
+		tablet : (
+			grid : 8,
+			push : 0,
+		),
+		clear : left,
+		mobile : (
+			grid : 12,
+			push : 0,
+			pull : 0
+		)
+	));
+}
+.gridle-set-multiple {
+	@include gridle_set((
+		grid : 6
+	));
+	@include gridle_set((
+		grid : 12
+	), mobile tablet);
+}
+
+// float-right
+.float-right {
+	@include gridle_float(right);
+}
+.float-left-mobile {
+	@include gridle_float(left, mobile);
+}
+.float-set {
+	@include gridle_set((
+		float : right
+	));
+}
+
+// clear
+.clear {
+	@include gridle_clear();
+}
+.clear-left-mobile {
+	@include gridle_clear(left, mobile);
+}
+.clear-set {
+	@include gridle_set((
+		clear : left
+	));
+}
+
+// gutters
+.gutters {
+	@include gridle_gutter();
+}
+.gutters-left {
+	@include gridle_gutter(left);
+}
+.gutters-side-mobile {
+	@include gridle_gutter(left right, mobile);
+}
+
+// no-gutter
+.no-gutter {
+	@include gridle_no_gutter();
+}
+.no-gutter-left {
+	@include gridle_no_gutter(left);
+}
+.no-gutter-side-mobile {
+	@include gridle_no_gutter(left right, mobile);
+}
