@@ -80,10 +80,10 @@
 ) {
 	// check if has a state named like this
 	@if (type-of($stateMap-or-stateName) == string
-		and  map-has-key($_gridle_states, unquote($stateMap-or-stateName)))
+		and  map-has-key($_gridle_states, unquote("#{$stateMap-or-stateName}")))
 	{
-		@return map-get($_gridle_states, unquote($stateMap-or-stateName));
-	} 
+		@return map-get($_gridle_states, unquote("#{$stateMap-or-stateName}"));
+	}
 
 	// a map is passed, so it's a state himself
 	@if $stateMap-or-stateName
@@ -112,7 +112,7 @@
 @function _gridle_has_state(
 	$stateName
 ) {
-	@if map-has-key($_gridle_states, unquote($stateName)) {
+	@if map-has-key($_gridle_states, unquote("#{$stateName}")) {
 		@return true;
 	} @else {
 		@return false;
@@ -137,9 +137,9 @@
 
 	// check ig state and if has the variable :
 	@if $state
-	      and map-has-key($state,unquote($var))
+		  and map-has-key($state,unquote("#{$var}"))
 	{
-		@return map-get($state,unquote($var));
+		@return map-get($state,unquote("#{$var}"));
 	}
 
 	// nothing getted :
@@ -166,9 +166,9 @@
 
 	// extend default state with given state :
 	$props : map-merge($_gridle-settings, $state);
-	
-	@if map-has-key($props, unquote($varName)) {
-		@return map-get($state, unquote($varName));
+
+	@if map-has-key($props, unquote("#{$varName}")) {
+		@return map-get($state, unquote("#{$varName}"));
 	}
 	
 	// nothing finded :
@@ -193,13 +193,13 @@
 
 	// check ig state and if has the variable :
 	@if $state
-	      and map-has-key($state,unquote($var))
+		  and map-has-key($state,unquote("#{$var}"))
 	{
 		// set new value in state :
-		$state : map-set($state, unquote($var), $newValue);
+		$state : map-set($state, unquote("#{$var}"), $newValue);
 
 		// set states :
-		$_gridle_states : map-set($_gridle_states, unquote($stateName), $state);
+		$_gridle_states : map-set($_gridle_states, unquote("#{$stateName}"), $state);
 
 		// return new state :
 		@return $state;
@@ -250,7 +250,7 @@
 	$sel : ".";
 
 	// delete default :
-	@if unquote($state) == default {
+	@if unquote("#{$state}") == default {
 		$state : null;
 	}
 	
