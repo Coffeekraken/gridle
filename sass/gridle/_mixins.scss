@@ -13,7 +13,7 @@
 	// loop on each settings
 	@each $settingName, $settingValue in $settings
 	{
-		$sn : unquote($settingName);
+		$sn : unquote("#{$settingName}");
 		$sv : $settingValue;
 
 		// check if setting name is a state :
