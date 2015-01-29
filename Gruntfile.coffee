@@ -74,21 +74,10 @@ module.exports = (grunt) ->
 					title:'Grunt watcher'
 					message: 'Coffee files where processed'
 			
-
-
-	grunt.loadNpmTasks 'grunt-contrib-clean'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-compass'
-	grunt.loadNpmTasks 'grunt-contrib-concat'
-	grunt.loadNpmTasks 'grunt-contrib-copy'
-	grunt.loadNpmTasks 'grunt-contrib-imagemin'
-	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-notify'
-	grunt.loadNpmTasks 'grunt-styleguide'
-	grunt.loadNpmTasks 'grunt-svgmin'
-	grunt.loadNpmTasks 'grunt-webfont'
-
 
 	grunt.registerTask 'default', [
 		'compass:development'
