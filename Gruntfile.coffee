@@ -53,6 +53,10 @@ module.exports = (grunt) ->
 					ext: '.min.css'
 				}]
 			
+		uglify:
+			my_target:
+				files:
+					'js/gridle.min.js': 'js/gridle.js'
 		watch:
 			livereload:
 				options:
@@ -70,7 +74,7 @@ module.exports = (grunt) ->
 				tasks: ['compass:development', 'cssmin', 'notify:compass']
 			coffee:
 				files: paths.coffee.cwd+'/'+paths.coffee.src
-				tasks: ['coffee', 'notify:coffee']
+				tasks: ['coffee', 'uglify', 'notify:coffee']
 
 		notify:
 			default:
@@ -91,10 +95,12 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-watch'
 	grunt.loadNpmTasks 'grunt-contrib-cssmin'
 	grunt.loadNpmTasks 'grunt-notify'
+	grunt.loadNpmTasks 'grunt-contrib-uglify'
 
 	grunt.registerTask 'default', [
 		'compass:development'
 		'cssmin'
 		'coffee'
+		'uglify'
 		'notify:default'
 	]
