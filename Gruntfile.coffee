@@ -41,6 +41,18 @@ module.exports = (grunt) ->
 					ext: '.js'
 				]
 
+		cssmin:
+			options:
+				shorthandCompacting: false
+			target:
+				files: [{
+					expand: true,
+					cwd: 'css',
+					src: ['*.css', '!*.min.css'],
+					dest: 'css',
+					ext: '.min.css'
+				}]
+			
 		watch:
 			livereload:
 				options:
@@ -55,7 +67,7 @@ module.exports = (grunt) ->
 				tasks: ['notify:default']
 			compass:
 				files: paths.compass.files
-				tasks: ['compass:development', 'notify:compass']
+				tasks: ['compass:development', 'cssmin', 'notify:compass']
 			coffee:
 				files: paths.coffee.cwd+'/'+paths.coffee.src
 				tasks: ['coffee', 'notify:coffee']
@@ -77,10 +89,12 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-compass'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
+	grunt.loadNpmTasks 'grunt-contrib-cssmin'
 	grunt.loadNpmTasks 'grunt-notify'
 
 	grunt.registerTask 'default', [
 		'compass:development'
+		'cssmin'
 		'coffee'
 		'notify:default'
 	]

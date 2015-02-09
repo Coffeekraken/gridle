@@ -5,8 +5,8 @@
 #
 # @author 	Olivier Bossel <olivier.bossel@gmail.com>
 # @created 	20.05.14
-# @updated 	08.07.14
-# @version 	1.0.11
+# @updated 	09.02.15
+# @version 	1.0.12
 ###
 do ->
 
@@ -132,7 +132,9 @@ do ->
 							return false
 
 						# try to find settings in css
-						settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\';/) && RegExp.$1;
+						settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\'(;\s*|\s*)\}/) && RegExp.$1;
+
+						console.log 'settings', settings
 
 						# stop if no settings
 						if not settings
