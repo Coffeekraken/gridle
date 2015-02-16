@@ -4,6 +4,30 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
+@mixin init_silent_classes() {
+
+	.hello {
+		content : "world";
+	}
+
+		// loop on all states
+		@each $stateName, $state in $_gridle_states {
+
+			$name : gridle_get_state_var(name, $state);
+
+			// init silent classes
+			
+			@include gridle_state($stateName) {
+				%#{$stateName}-grid {
+					// @include _gridle_grid_common();
+					content : "#{$stateName}";
+				}
+			}
+		}
+	
+
+}
+
 // Helper to apply multiple config for a certain state with one mixin
 @mixin gridle_set(
 	$settings,
@@ -118,15 +142,15 @@
 			$stateName : gridle_get_state_var(name, $state);
 
 			// check if is a state :
-			@if ($html-states-classes or $debug)
-				and $stateName {
-				// html class :
-				@if $has-parent {
-					html#{_gridle_classname("#{$stateName}")} & { @content; }
-				} @else {
-					html#{_gridle_classname("#{$stateName}")} { @content; }
-				}
-			}
+			// @if ($html-states-classes or $debug)
+			// 	and $stateName {
+			// 	// html class :
+			// 	@if $has-parent {
+			// 		html#{_gridle_classname("#{$stateName}")} & { @content; }
+			// 	} @else {
+			// 		html#{_gridle_classname("#{$stateName}")} { @content; }
+			// 	}
+			// }
 
 			// get the media query :
 			$q : _gridle_get_media_query($state);
@@ -151,15 +175,15 @@
 		$stateName : gridle_get_state_var(name, $states);
 
 		// check if is a state :
-		@if ($html-states-classes or $debug)
-			and $stateName {
-			// html class :
-			@if $has-parent {
-				html#{_gridle_classname("#{$stateName}")} & { @content; }
-			} @else {
-				html#{_gridle_classname("#{$stateName}")} { @content; }
-			}
-		}
+		// @if ($html-states-classes or $debug)
+		// 	and $stateName {
+		// 	// html class :
+		// 	@if $has-parent {
+		// 		html#{_gridle_classname("#{$stateName}")} & { @content; }
+		// 	} @else {
+		// 		html#{_gridle_classname("#{$stateName}")} { @content; }
+		// 	}
+		// }
 
 		// get the media query :
 		$q : _gridle_get_media_query($states);
@@ -204,6 +228,34 @@
 	}
 }
 
+@mixin gridle_generate_silent_class(
+	$for,
+	$state : default
+) {
+	$map : map-get($_gridle_generated_extends, $for);
+	@if $map == null { $map : (); }
+	$stateName : gridle_get_state_var(name, $state);
+	$extend : map-get($map, $stateName);
+	@if $extend == null {
+		$map : map-set($map, $stateName, true);
+		$_gridle_generated_extends : map-set($_gridle_generated_extends, $for, $map) !global;
+		// @at-root {
+			// @include gridle_state($stateName) {
+				%#{$stateName}-#{$for} {
+				 	@content;
+				}
+				// %#{$stateName}-#{$for} {
+				// 	@content;
+				// }
+		// 	}
+		// }
+		// @at-root {
+		// 	%#{$stateName}-#{$for} {
+		// 		@content;
+		// 	}
+		// }
+	}
+}
 
 // Grid mixin :
 // Set the width of the specified grid column :
@@ -220,11 +272,9 @@
 		$state : $states-or-context;
 	}
 
-	// common :
-	@include _gridle_grid_common();
-
 	// check if need media query :
 	@each $s in $states {
+		// generate silent class for grid and state
 		@include gridle_state($s) {
 			@include _gridle($columns, $s, $context);
 		}
@@ -235,6 +285,7 @@
 	$state : default,
 	$context : null
 ) {
+
 	// vars :
 	$name : gridle_get_state_var(name, $state);
 	@if type-of($context) != number {
@@ -245,6 +296,9 @@
 	$ie7-support : gridle_get_state_var(ie7-support, $state);
 	$debug : gridle_get_state_var(debug, $state);
 	$debug-show-class-names : gridle_get_state_var(debug-show-class-names, $state);
+
+	// extend
+	@extend .#{$name}-grid;
 
 	// manage columns
 	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {

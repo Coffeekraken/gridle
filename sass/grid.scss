@@ -22,3 +22,20 @@
 	max-width:960px;
 	@include gridle_grid_background();
 }
+
+
+@mixin coco() {
+	@include gridle_state(mobile) {
+		@content;
+	}
+}
+
+@mixin co() {
+	@include coco();
+}
+
+.coco {
+	@include coco() {
+		content : "hello coco";
+	}
+}
