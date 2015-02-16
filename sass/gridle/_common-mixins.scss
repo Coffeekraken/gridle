@@ -10,7 +10,7 @@
 	@extend %gridle-simple-clearfix;
 	@extend %gridle-container-common;
 	// debug part
-	$debug : _gridle_get_var_value(debug, $state);
+	$debug : gridle_get_state_var(debug, $state);
 	@if ($debug == true) {
 		#{$gridle-debug-selector} {
 			@extend %gridle-container-debug-common;
@@ -22,8 +22,8 @@ $_gridle-already-generated : ();
 	@extend %gridle-grid-common;
 
 	// default values
-	$default-gutter-width : _gridle_get_var_value(gutter-width, default);
-	$default-direction : _gridle_get_var_value(direction, default);
+	$default-gutter-width : gridle_get_state_var(gutter-width, default);
+	$default-direction : gridle_get_state_var(direction, default);
 
 	// loop on each states :
 	@each $stateName, $state in $_gridle-states
@@ -35,10 +35,10 @@ $_gridle-already-generated : ();
 		$already-generated : map-has-key($_gridle-already-generated, $key);
 
 		// vars
-		$direction : _gridle_get_var_value(direction, $state);
-		$classes : _gridle_get_var_value(classes, $state);
-		$gutter-width : _gridle_get_var_value(gutter-width, $state);
-		$debug : _gridle_get_var_value(debug, $state);
+		$direction : gridle_get_state_var(direction, $state);
+		$classes : gridle_get_state_var(classes, $state);
+		$gutter-width : gridle_get_state_var(gutter-width, $state);
+		$debug : gridle_get_state_var(debug, $state);
 
 		@if $already-generated != true and $classes and ( ($default-direction != $direction or $default-gutter-width != $gutter-width) or $stateName == default)
 		{
@@ -78,7 +78,7 @@ $_gridle-already-generated : ();
 @mixin _gridle_push_common(
 	$state : default
 ) {
-	$debug : _gridle_get_var_value(debug, $state);
+	$debug : gridle_get_state_var(debug, $state);
 
 	// extend common :
 	@extend %gridle-push-pull-common;
@@ -92,7 +92,7 @@ $_gridle-already-generated : ();
 @mixin _gridle_pull_common(
 	$state : default
 ) {
-	$debug : _gridle_get_var_value(debug, $state);
+	$debug : gridle_get_state_var(debug, $state);
 
 	@extend %gridle-push-pull-common;
 	@if $debug == true {
@@ -105,7 +105,7 @@ $_gridle-already-generated : ();
 @mixin _gridle_prefix_common(
 	$state : default
 ) {
-	$debug : _gridle_get_var_value(debug, $state);
+	$debug : gridle_get_state_var(debug, $state);
 	@if $debug == true {
 		#{$gridle-debug-selector} {
 			@extend %gridle-prefix-debug-common;
@@ -115,7 +115,7 @@ $_gridle-already-generated : ();
 @mixin _gridle_suffix_common(
 	$state : default
 ) {
-	$debug : _gridle_get_var_value(debug, $state);
+	$debug : gridle_get_state_var(debug, $state);
 	@if $debug == true {
 		#{$gridle-debug-selector} {
 			@extend %gridle-suffix-debug-common;

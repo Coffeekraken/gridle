@@ -17,6 +17,8 @@ output_style = :expanded
 line_comments = false
 color_output = false
 
+# if you need more precision in decimal calculation
+# Sass::Script::Number.precision = 8
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:

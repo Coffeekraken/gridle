@@ -55,6 +55,16 @@
 
 
 /**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+@function gridle_get_states_count() {
+	@return length($_gridle_states);
+}
+
+
+/**
  * Get the column width in percent for the global or a specific context
  *
  * @param 	int 		$columns 					The number of columns to calculate
@@ -65,6 +75,7 @@
 	$columns : 1,
 	$stateMap-or-stateName : null
 ) {
+	$context : gridle_get_state_var(context, $stateMap-or-stateName);
 	@return percentage(1 / $context * $columns);
 }
 
@@ -75,8 +86,8 @@
  * @param 	string 		$name 		The name of the state to get
  * @return 	map 				A state map object
  */
-@function _gridle_get_state(
-	$stateMap-or-stateName
+@function gridle_get_state(
+	$stateMap-or-stateName : default
 ) {
 	// check if has a state named like this
 	@if (type-of($stateMap-or-stateName) == string
@@ -109,7 +120,7 @@
  * @param 	string 		$name 		The name of the state to check
  * @return 	Boolean 			true is exist
  */
-@function _gridle_has_state(
+@function gridle_has_state(
 	$stateName
 ) {
 	@if map-has-key($_gridle_states, unquote("#{$stateName}")) {
@@ -121,40 +132,13 @@
 
 
 /**
- * Get the media queries variables :
- *
- * @param 	int 		$index 	 	The media query indes
- * @param 	String 		$var 		The media query variable name
- * @return 	String|int 			The variable value
- */
-@function _gridle_get_state_var(
-	$stateName,
-	$var 	: "name"
-) {
-
-	// get the state :
-	$state : _gridle_get_state($stateName);
-
-	// check ig state and if has the variable :
-	@if $state
-		  and map-has-key($state,unquote("#{$var}"))
-	{
-		@return map-get($state,unquote("#{$var}"));
-	}
-
-	// nothing getted :
-	@return null;
-}
-
-
-/**
  * Get a variable
  *
  * @param 	String 		$varName 				The variable name
  * @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
  * @return 	Mixed 							The finded value
  */
-@function _gridle_get_var_value(
+@function gridle_get_state_var(
 	$varName,
 	$stateMap-or-stateName : null
 ) {
@@ -162,7 +146,7 @@
 	$state : null;
 
 	// get the state (if no state find, return the default one) :
-	$state : _gridle_get_state($stateMap-or-stateName);
+	$state : gridle_get_state($stateMap-or-stateName);
 
 	// extend default state with given state :
 	$props : map-merge($_gridle-settings, $state);
@@ -183,13 +167,13 @@
  * @param  	Mixed $newValue          		The new value to assign
  * @return 	List                         			The states list (full)
  */
-@function _gridle_set_state_var(
-	$stateName,
+@function gridle_set_state_var(
 	$var,
-	$newValue
+	$newValue,
+	$stateName : default
 ) {
 	// get the state :
-	$state : _gridle_get_state($stateName);
+	$state : gridle_get_state($stateName);
 
 	// check ig state and if has the variable :
 	@if $state
@@ -207,6 +191,46 @@
 
 	// nothing getted :
 	@return null;
+}
+
+
+/**
+ * Get gridle selector
+ */
+@mixin gridle_extent_classes(
+	$for,
+	$extend,
+	$stateName : default
+) {
+	$map : map-get($_gridle_extend_classes_content, $for);
+
+	// create the map if not exist
+	@if $map == null { $map : (); }
+
+	// check if is for the default state
+	@if map-get($map, $stateName) == null { $map : map-set($map, $stateName, $extend); }
+
+	// set the map in the gridle global variable
+	$_gridle_extend_classes_content : map-set($_gridle_extend_classes_content, $for, $map) !global;
+}
+
+
+/**
+ * Get the extend map for a certain class and state
+ */
+@function gridle_get_extend_class_map(
+	$for,
+	$stateName : default
+) {	
+	$map : map-get($_gridle_extend_classes_content, $for);
+	@if $map == null { @return null; }
+	$extend : map-get($map, $stateName);
+	@if $extend == null { @return null; }
+	@if $stateName != default and map-get($map, default) {
+		// merge the default with the state
+		$extend : map-merge(map-get($map, default), $extend);
+	}
+	@return $extend;
 }
 
 
@@ -327,7 +351,7 @@
 	$state : null;
 	@if type-of($state-or-settings) == string
 	{
-		$state : _gridle_get_state($state-or-settings);
+		$state : gridle_get_state($state-or-settings);
 	}
 	@else if $state-or-settings == null
 	{
@@ -374,14 +398,4 @@
 	{
 		@return null;
 	}
-}
-
-
-/**
- * Get states count
- * 
- * @return 	int 	The number of states defined
- */
-@function _gridle_get_states_count() {
-	@return length($_gridle_states) / length($_gridle_states_vars_pattern);
 }

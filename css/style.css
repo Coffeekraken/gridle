@@ -115,6 +115,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * @return 	Map 			The new map
  */
 /**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
  * Get the column width in percent for the global or a specific context
  *
  * @param 	int 		$columns 					The number of columns to calculate
@@ -134,13 +139,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * @return 	Boolean 			true is exist
  */
 /**
- * Get the media queries variables :
- *
- * @param 	int 		$index 	 	The media query indes
- * @param 	String 		$var 		The media query variable name
- * @return 	String|int 			The variable value
- */
-/**
  * Get a variable
  *
  * @param 	String 		$varName 				The variable name
@@ -153,6 +151,12 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * @param  	String $var                    		Variable name to assign
  * @param  	Mixed $newValue          		The new value to assign
  * @return 	List                         			The states list (full)
+ */
+/**
+ * Get gridle selector
+ */
+/**
+ * Get the extend map for a certain class and state
  */
 /**
  * Generate a column
@@ -175,11 +179,6 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * @param 	Mixed 		$state-or-min-width 		The state name of the min with
  * @param 	Mixed 		$max-width 			The max width if first param is a min width
  * @return 	String 						The media query string without the @media
- */
-/**
- * Get states count
- * 
- * @return 	int 	The number of states defined
  */
 /**
  * Setup
@@ -292,6 +291,7 @@ html.ipad-landscape body {
   padding-right: 10px;
   width: 66.66667%;
   left: 16.66667%;
+  width: 100%;
 }
 html.default #myCoolItem {
   float: left;
@@ -336,25 +336,20 @@ html.default #myCoolItem {
 .gridle-debug #myCoolItem:after, #myCoolItem.gridle-debug:after {
   content: "push-default-2";
 }
-html.tablet #myCoolItem {
+html.default #myCoolItem {
   width: 100%;
 }
-.gridle-debug html.tablet #myCoolItem:before, html.tablet #myCoolItem.gridle-debug:before {
-  content: "grid-tablet-12" !important;
+.gridle-debug html.default #myCoolItem:before, html.default #myCoolItem.gridle-debug:before {
+  content: "grid-default-12";
 }
-.gridle-debug html.tablet #myCoolItem.parent:before, html.tablet #myCoolItem.gridle-debug.parent:before {
-  content: "grid-parent-tablet-12" !important;
+.gridle-debug html.default #myCoolItem.parent:before, html.default #myCoolItem.gridle-debug.parent:before {
+  content: "grid-parent-default-12";
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
-    width: 100%;
-  }
-  .gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before {
-    content: "grid-tablet-12" !important;
-  }
-  .gridle-debug #myCoolItem.parent:before, #myCoolItem.gridle-debug.parent:before {
-    content: "grid-parent-tablet-12" !important;
-  }
+.gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before {
+  content: "grid-default-12";
+}
+.gridle-debug #myCoolItem.parent:before, #myCoolItem.gridle-debug.parent:before {
+  content: "grid-parent-default-12";
 }
 .gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
   background-color: #f4efdf !important;

@@ -35,7 +35,7 @@
 		}
 
 		// classes :
-		$classes : _gridle_get_var_value(classes, $stateName);
+		$classes : gridle_get_state_var(classes, $stateName);
 
 		// genrate the classname :
 		@if $classes
@@ -202,7 +202,7 @@
 	}
 
 	// debug colors :
-	$debug : _gridle_get_var_value(debug, $state);
+	$debug : gridle_get_state_var(debug, $state);
 	@if $debug and ( $what == null or index($what, debug_colors) or index($what, helpers) ) {
 		// debug color classes :
 		#{_gridle_classname($gridle-debug-color-name-pattern, $state, 1)} {
@@ -420,8 +420,8 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	// | Set the list of states to generate
 	// | ------------------------
 	$states : $_gridle_states;
-	@if $stateName and _gridle_has_state($stateName) {
-		$states : map-set((), $stateName, _gridle_get_state($stateName));
+	@if $stateName and gridle_has_state($stateName) {
+		$states : map-set((), $stateName, gridle_get_state($stateName));
 	}
 
 
@@ -449,10 +449,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		$classes : map-get($state, classes);
 		$context : map-get($state, context);
 		$name-multiplicator : map-get($state, name-multiplicator);
-		$generate-push-classes : _gridle_get_var_value(generate-push-classes, $state);
-		$generate-pull-classes : _gridle_get_var_value(generate-pull-classes, $state);
-		$generate-prefix-classes : _gridle_get_var_value(generate-prefix-classes, $state);
-		$generate-suffix-classes : _gridle_get_var_value(generate-suffix-classes, $state);
+		$generate-push-classes : gridle_get_state_var(generate-push-classes, $state);
+		$generate-pull-classes : gridle_get_state_var(generate-pull-classes, $state);
+		$generate-prefix-classes : gridle_get_state_var(generate-prefix-classes, $state);
+		$generate-suffix-classes : gridle_get_state_var(generate-suffix-classes, $state);
 
 		// generate classes :   
 		@if $classes == true and $context {
@@ -533,14 +533,14 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	@each $stateName, $state in $states {
 		
 		// setup vars :
-		$classes : _gridle_get_var_value(classes, $state);
-		$context : _gridle_get_var_value(context, $state);
-		$name-multiplicator : _gridle_get_var_value(name-multiplicator, $state);
-		$generate-push-classes : _gridle_get_var_value(generate-push-classes, $state);
-		$generate-pull-classes : _gridle_get_var_value(generate-pull-classes, $state);
-		$generate-prefix-classes : _gridle_get_var_value(generate-prefix-classes, $state);
-		$generate-suffix-classes : _gridle_get_var_value(generate-suffix-classes, $state);
-		$generate-helpers-classes : _gridle_get_var_value(generate-helpers-classes, $state);
+		$classes : gridle_get_state_var(classes, $state);
+		$context : gridle_get_state_var(context, $state);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
+		$generate-push-classes : gridle_get_state_var(generate-push-classes, $state);
+		$generate-pull-classes : gridle_get_state_var(generate-pull-classes, $state);
+		$generate-prefix-classes : gridle_get_state_var(generate-prefix-classes, $state);
+		$generate-suffix-classes : gridle_get_state_var(generate-suffix-classes, $state);
+		$generate-helpers-classes : gridle_get_state_var(generate-helpers-classes, $state);
 
 		// generate all media queries grid classes :
 		@if $classes == true {

@@ -203,6 +203,10 @@
 	)) {
 		background: green;
 	}
+
+	@include gridle_state(200px, 600px) {
+		background: white;
+	}
 }
 
 // gridle set
@@ -277,4 +281,49 @@
 }
 .no-gutter-side-mobile {
 	@include gridle_no_gutter(left right, mobile);
+}
+
+// gridle_get_states_count
+.gridle_get_states_count {
+	content: gridle_get_states_count();
+}
+
+// gridle_get_column_width
+.gridle_get_column_width {
+	content: gridle_get_column_width();
+}
+.gridle_get_column_width-mobile {
+	content: gridle_get_column_width(1, mobile);
+}
+.gridle_get_column_width-2 {
+	content: gridle_get_column_width(2);
+}
+
+// gridle_get_state
+.gridle_get_state {
+	content: "#{inspect(gridle_get_state(mobile))}";
+}
+.gridle_get_state-custom {
+	content: "#{inspect(gridle_get_state((
+		min-width : 200px,
+		max-width : 600px
+	)))}";
+}
+
+// gridle_has_state
+.gridle_has_state {
+	content : gridle_has_state(mobile);
+}
+.gridle_has_state-coco {
+	content: gridle_has_state(coco);
+}
+
+// gridle_get_state_var
+.gridle_get_state_var-context-mobile {
+	content: gridle_get_state_var(context, mobile);
+}
+
+// gridle_set_state_var
+.gridle_set_state_var {
+	content : inspect(gridle_set_state_var(name, coucou, mobile));
 }

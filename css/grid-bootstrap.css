@@ -57,6 +57,11 @@
  * @return 	Map 			The new map
  */
 /**
+ * Get states count
+ * 
+ * @return 	int 	The number of states defined
+ */
+/**
  * Get the column width in percent for the global or a specific context
  *
  * @param 	int 		$columns 					The number of columns to calculate
@@ -76,13 +81,6 @@
  * @return 	Boolean 			true is exist
  */
 /**
- * Get the media queries variables :
- *
- * @param 	int 		$index 	 	The media query indes
- * @param 	String 		$var 		The media query variable name
- * @return 	String|int 			The variable value
- */
-/**
  * Get a variable
  *
  * @param 	String 		$varName 				The variable name
@@ -95,6 +93,12 @@
  * @param  	String $var                    		Variable name to assign
  * @param  	Mixed $newValue          		The new value to assign
  * @return 	List                         			The states list (full)
+ */
+/**
+ * Get gridle selector
+ */
+/**
+ * Get the extend map for a certain class and state
  */
 /**
  * Generate a column
@@ -117,11 +121,6 @@
  * @param 	Mixed 		$state-or-min-width 		The state name of the min with
  * @param 	Mixed 		$max-width 			The max width if first param is a min width
  * @return 	String 						The media query string without the @media
- */
-/**
- * Get states count
- * 
- * @return 	int 	The number of states defined
  */
 /**
  * Setup
@@ -183,7 +182,7 @@
   }
 }
 #gridle-settings {
-  content: '{ "version" : "1.3.38", "states" : { "retina":{ "query" : "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)", "classes" : false, "name" : "retina", "_gridle" : true }, "tv":{ "query" : "only tv", "classes" : false, "name" : "tv", "_gridle" : true }, "print":{ "query" : "only print", "classes" : false, "name" : "print", "_gridle" : true }, "portrait":{ "query" : "only screen and (orientation: portrait)", "classes" : false, "name" : "portrait", "_gridle" : true }, "landscape":{ "query" : "only screen and (orientation: landscape)", "classes" : false, "name" : "landscape", "_gridle" : true }, "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "xs":{ "name" : "xs", "min-width" : null, "max-width" : "768px", "query" : "screen and (max-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "sm":{ "name" : "sm", "min-width" : "768px", "max-width" : null, "query" : "screen and (min-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "md":{ "name" : "md", "min-width" : "992px", "max-width" : null, "query" : "screen and (min-width: 992px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "lg":{ "name" : "lg", "min-width" : "1200px", "max-width" : null, "query" : "screen and (min-width: 1200px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
+  content: '{ "version" : "1.3.39", "states" : { "retina":{ "query" : "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx)", "classes" : false, "name" : "retina", "_gridle" : true }, "tv":{ "query" : "only tv", "classes" : false, "name" : "tv", "_gridle" : true }, "print":{ "query" : "only print", "classes" : false, "name" : "print", "_gridle" : true }, "portrait":{ "query" : "only screen and (orientation: portrait)", "classes" : false, "name" : "portrait", "_gridle" : true }, "landscape":{ "query" : "only screen and (orientation: landscape)", "classes" : false, "name" : "landscape", "_gridle" : true }, "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "xs":{ "name" : "xs", "min-width" : null, "max-width" : "768px", "query" : "screen and (max-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "sm":{ "name" : "sm", "min-width" : "768px", "max-width" : null, "query" : "screen and (min-width: 768px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "md":{ "name" : "md", "min-width" : "992px", "max-width" : null, "query" : "screen and (min-width: 992px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "lg":{ "name" : "lg", "min-width" : "1200px", "max-width" : null, "query" : "screen and (min-width: 1200px)", "classes" : true, "context" : "12", "gutter-width" : "30px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "ie7-support" : false, "html-states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
 }
 
 .col-0, .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col-xs-0, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm-0, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md-0, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg-0, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12 {
@@ -526,6 +525,13 @@ html.default .centered {
   margin-right: auto !important;
   clear: both !important;
 }
+html.default html.default .centered {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
 html.default .row {
   padding-left: 0;
   padding-right: 0;
@@ -567,16 +573,31 @@ html.default .vertical-align-bottom > * {
 html.default .hidden {
   display: none;
 }
+html.default html.default .hidden {
+  display: none;
+}
 html.default .not-visible {
+  visibility: hidden;
+}
+html.default html.default .not-visible {
   visibility: hidden;
 }
 html.default .visible {
   display: block;
 }
+html.default html.default .visible {
+  display: block;
+}
 html.default .show-inline {
   display: inline-block;
 }
+html.default html.default .show-inline {
+  display: inline-block;
+}
 html.default .visible {
+  visibility: visible;
+}
+html.default html.default .visible {
   visibility: visible;
 }
 
@@ -980,6 +1001,13 @@ html.default .gutter-bottom, html.default
   margin-right: auto !important;
   clear: both !important;
 }
+html.default .centered {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
 
 .row {
   padding-left: 0;
@@ -1029,20 +1057,35 @@ html.default .row {
 .hidden {
   display: none;
 }
+html.default .hidden {
+  display: none;
+}
 
 .not-visible {
+  visibility: hidden;
+}
+html.default .not-visible {
   visibility: hidden;
 }
 
 .visible {
   display: block;
 }
+html.default .visible {
+  display: block;
+}
 
 .show-inline {
   display: inline-block;
 }
+html.default .show-inline {
+  display: inline-block;
+}
 
 .visible {
+  visibility: visible;
+}
+html.default .visible {
   visibility: visible;
 }
 
@@ -1376,6 +1419,13 @@ html.xs .centered-xs {
   margin-right: auto !important;
   clear: both !important;
 }
+html.default html.xs .centered-xs {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
 html.xs .row-xs {
   padding-left: 0;
   padding-right: 0;
@@ -1417,16 +1467,31 @@ html.xs .vertical-align-xs-bottom > * {
 html.xs .hidden-xs {
   display: none;
 }
+html.default html.xs .hidden-xs {
+  display: none;
+}
 html.xs .not-visible-xs {
+  visibility: hidden;
+}
+html.default html.xs .not-visible-xs {
   visibility: hidden;
 }
 html.xs .visible-xs {
   display: block;
 }
+html.default html.xs .visible-xs {
+  display: block;
+}
 html.xs .show-inline-xs {
   display: inline-block;
 }
+html.default html.xs .show-inline-xs {
+  display: inline-block;
+}
 html.xs .visible-xs {
+  visibility: visible;
+}
+html.default html.xs .visible-xs {
   visibility: visible;
 }
 
@@ -1831,6 +1896,13 @@ html.xs .visible-xs {
     margin-right: auto !important;
     clear: both !important;
   }
+  html.default .centered-xs {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important;
+  }
 
   .row-xs {
     padding-left: 0;
@@ -1880,20 +1952,35 @@ html.xs .visible-xs {
   .hidden-xs {
     display: none;
   }
+  html.default .hidden-xs {
+    display: none;
+  }
 
   .not-visible-xs {
+    visibility: hidden;
+  }
+  html.default .not-visible-xs {
     visibility: hidden;
   }
 
   .visible-xs {
     display: block;
   }
+  html.default .visible-xs {
+    display: block;
+  }
 
   .show-inline-xs {
     display: inline-block;
   }
+  html.default .show-inline-xs {
+    display: inline-block;
+  }
 
   .visible-xs {
+    visibility: visible;
+  }
+  html.default .visible-xs {
     visibility: visible;
   }
 
@@ -2228,6 +2315,13 @@ html.sm .centered-sm {
   margin-right: auto !important;
   clear: both !important;
 }
+html.default html.sm .centered-sm {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
 html.sm .row-sm {
   padding-left: 0;
   padding-right: 0;
@@ -2269,16 +2363,31 @@ html.sm .vertical-align-sm-bottom > * {
 html.sm .hidden-sm {
   display: none;
 }
+html.default html.sm .hidden-sm {
+  display: none;
+}
 html.sm .not-visible-sm {
+  visibility: hidden;
+}
+html.default html.sm .not-visible-sm {
   visibility: hidden;
 }
 html.sm .visible-sm {
   display: block;
 }
+html.default html.sm .visible-sm {
+  display: block;
+}
 html.sm .show-inline-sm {
   display: inline-block;
 }
+html.default html.sm .show-inline-sm {
+  display: inline-block;
+}
 html.sm .visible-sm {
+  visibility: visible;
+}
+html.default html.sm .visible-sm {
   visibility: visible;
 }
 
@@ -2683,6 +2792,13 @@ html.sm .visible-sm {
     margin-right: auto !important;
     clear: both !important;
   }
+  html.default .centered-sm {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important;
+  }
 
   .row-sm {
     padding-left: 0;
@@ -2732,20 +2848,35 @@ html.sm .visible-sm {
   .hidden-sm {
     display: none;
   }
+  html.default .hidden-sm {
+    display: none;
+  }
 
   .not-visible-sm {
+    visibility: hidden;
+  }
+  html.default .not-visible-sm {
     visibility: hidden;
   }
 
   .visible-sm {
     display: block;
   }
+  html.default .visible-sm {
+    display: block;
+  }
 
   .show-inline-sm {
     display: inline-block;
   }
+  html.default .show-inline-sm {
+    display: inline-block;
+  }
 
   .visible-sm {
+    visibility: visible;
+  }
+  html.default .visible-sm {
     visibility: visible;
   }
 
@@ -3080,6 +3211,13 @@ html.md .centered-md {
   margin-right: auto !important;
   clear: both !important;
 }
+html.default html.md .centered-md {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
 html.md .row-md {
   padding-left: 0;
   padding-right: 0;
@@ -3121,16 +3259,31 @@ html.md .vertical-align-md-bottom > * {
 html.md .hidden-md {
   display: none;
 }
+html.default html.md .hidden-md {
+  display: none;
+}
 html.md .not-visible-md {
+  visibility: hidden;
+}
+html.default html.md .not-visible-md {
   visibility: hidden;
 }
 html.md .visible-md {
   display: block;
 }
+html.default html.md .visible-md {
+  display: block;
+}
 html.md .show-inline-md {
   display: inline-block;
 }
+html.default html.md .show-inline-md {
+  display: inline-block;
+}
 html.md .visible-md {
+  visibility: visible;
+}
+html.default html.md .visible-md {
   visibility: visible;
 }
 
@@ -3535,6 +3688,13 @@ html.md .visible-md {
     margin-right: auto !important;
     clear: both !important;
   }
+  html.default .centered-md {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important;
+  }
 
   .row-md {
     padding-left: 0;
@@ -3584,20 +3744,35 @@ html.md .visible-md {
   .hidden-md {
     display: none;
   }
+  html.default .hidden-md {
+    display: none;
+  }
 
   .not-visible-md {
+    visibility: hidden;
+  }
+  html.default .not-visible-md {
     visibility: hidden;
   }
 
   .visible-md {
     display: block;
   }
+  html.default .visible-md {
+    display: block;
+  }
 
   .show-inline-md {
     display: inline-block;
   }
+  html.default .show-inline-md {
+    display: inline-block;
+  }
 
   .visible-md {
+    visibility: visible;
+  }
+  html.default .visible-md {
     visibility: visible;
   }
 
@@ -3932,6 +4107,13 @@ html.lg .centered-lg {
   margin-right: auto !important;
   clear: both !important;
 }
+html.default html.lg .centered-lg {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
 html.lg .row-lg {
   padding-left: 0;
   padding-right: 0;
@@ -3973,16 +4155,31 @@ html.lg .vertical-align-lg-bottom > * {
 html.lg .hidden-lg {
   display: none;
 }
+html.default html.lg .hidden-lg {
+  display: none;
+}
 html.lg .not-visible-lg {
+  visibility: hidden;
+}
+html.default html.lg .not-visible-lg {
   visibility: hidden;
 }
 html.lg .visible-lg {
   display: block;
 }
+html.default html.lg .visible-lg {
+  display: block;
+}
 html.lg .show-inline-lg {
   display: inline-block;
 }
+html.default html.lg .show-inline-lg {
+  display: inline-block;
+}
 html.lg .visible-lg {
+  visibility: visible;
+}
+html.default html.lg .visible-lg {
   visibility: visible;
 }
 
@@ -4387,6 +4584,13 @@ html.lg .visible-lg {
     margin-right: auto !important;
     clear: both !important;
   }
+  html.default .centered-lg {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important;
+  }
 
   .row-lg {
     padding-left: 0;
@@ -4436,20 +4640,35 @@ html.lg .visible-lg {
   .hidden-lg {
     display: none;
   }
+  html.default .hidden-lg {
+    display: none;
+  }
 
   .not-visible-lg {
+    visibility: hidden;
+  }
+  html.default .not-visible-lg {
     visibility: hidden;
   }
 
   .visible-lg {
     display: block;
   }
+  html.default .visible-lg {
+    display: block;
+  }
 
   .show-inline-lg {
     display: inline-block;
   }
+  html.default .show-inline-lg {
+    display: inline-block;
+  }
 
   .visible-lg {
+    visibility: visible;
+  }
+  html.default .visible-lg {
     visibility: visible;
   }
 

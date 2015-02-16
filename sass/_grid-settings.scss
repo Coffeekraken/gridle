@@ -15,6 +15,19 @@
 @include gridle_register_clear_each(2, left);
 @include gridle_register_clear_each(12, both);
 
+// extend framework classes
+// @include gridle_extent_classes(grid, (
+// 	content : "hello world"
+// ));
+
+// @include gridle_extent_classes(push, (
+// 	content : "hello push"
+// ));
+
+// @include gridle_extent_classes(pull, (
+// 	content : "hello pull mobile"
+// ), mobile);
+
 // register states :
 @include gridle_register_default_states();
 @include gridle_register_state(ipad-landscape, (
