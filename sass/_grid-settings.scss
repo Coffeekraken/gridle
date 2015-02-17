@@ -9,7 +9,7 @@
 ));
 
 // register special columns :
-// @include gridle_register_column("1on5", 1, 5);
+@include gridle_register_column("1on5", 1, 5);
 
 // clear each classes :
 @include gridle_register_clear_each(2, left);
