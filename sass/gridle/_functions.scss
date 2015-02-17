@@ -208,41 +208,37 @@
 
 
 /**
- * Get gridle selector
- */
-@mixin gridle_set_extend_class_map(
-	$for,
-	$extend,
-	$stateName : default
-) {
-	$map : map-get($_gridle_extend_classes_content, $for);
-
-	// create the map if not exist
-	@if $map == null { $map : (); }
-
-	// check if is for the default state
-	@if map-get($map, $stateName) == null { $map : map-set($map, $stateName, $extend); }
-
-	// set the map in the gridle global variable
-	$_gridle_extend_classes_content : map-set($_gridle_extend_classes_content, $for, $map) !global;
-}
-
-
-/**
  * Get the extend map for a certain class and state
  */
 @function gridle_get_extend_class_map(
 	$for,
 	$stateName : default
 ) {	
+	// check if has some extend for this mixin "category"
 	$map : map-get($_gridle_extend_classes_content, $for);
 	@if $map == null { @return null; }
+
+	// check if has some extend for the requested state
 	$extend : map-get($map, $stateName);
+
+	// check if has some extend for all states in the "category"
+	$extendAll : map-get($map, all);
+
+	// merge extend if needed
+	@if $extend != null and $extendAll != null {
+		$extend : map-merge($extendAll, $extend);
+	}
+
+	// check if has some extend
 	@if $extend == null { @return null; }
+
+	// merge the default with the extend map
 	@if $stateName != default and map-get($map, default) {
 		// merge the default with the state
 		$extend : map-merge(map-get($map, default), $extend);
 	}
+
+	// return the resulting extend map
 	@return $extend;
 }
 

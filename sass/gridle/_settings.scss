@@ -11,7 +11,7 @@ $gridle-debug-selector 				: ".gridle-debug &, &.gridle-debug" !default;
 $gridle-class-prefix 					: '' !default;
 $gridle-class-separator 				: '-' !default;
 
-$gridle-container-name-pattern 			: ('container') !default;
+$gridle-container-name-pattern 			: ('container','%-','%state') !default;
 
 $gridle-grid-name-pattern 				: ('grid','%-','%state','%-','%count') !default;
 $gridle-push-name-pattern 				: ('push','%-','%state','%-','%count') !default;

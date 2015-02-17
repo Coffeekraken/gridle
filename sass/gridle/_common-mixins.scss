@@ -4,18 +4,27 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-@mixin _gridle_container_common(
+@mixin _gridle_common_container(
 	$state : default
 ) {
-	@extend %gridle-simple-clearfix;
-	@extend %gridle-container-common;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
 	// debug part
 	$debug : gridle_get_state_var(debug, $state);
 	@if ($debug == true) {
 		#{$gridle-debug-selector} {
-			@extend %gridle-container-debug-common;
+			background-color:#f5f5f5;
 		}
 	}
+
+	@include _gridle_extend_common_class(container, $state);
 }
 @mixin _gridle_common_grid(
 	$state : default
@@ -67,9 +76,27 @@
 
 	@include _gridle_extend_common_class(grid, $state);
 }
-@mixin _gridle_parent_common() {
-	@extend %gridle-clearfix;
-	@extend %gridle-parent-common;
+@mixin _gridle_common_parent(
+	$state : default
+) {
+	// For modern browser
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+	// For IE 6/7 (trigger hasLayout
+	& {
+	   zoom:1;
+	}
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+
+	@include _gridle_extend_common_class(parent, $state);
 }
 @mixin _gridle_common_push(
 	$state : default
@@ -86,6 +113,8 @@
 			background-color:#f4efdf !important;
 		}
 	}
+
+	@include _gridle_extend_common_class(push, $state);
 }
 @mixin _gridle_common_pull(
 	$state : default
@@ -102,6 +131,8 @@
 			background-color:#cfe4d5 !important;
 		}
 	}
+
+	@include _gridle_extend_common_class(pull, $state);
 }
 @mixin _gridle_common_prefix(
 	$state : default
@@ -112,6 +143,8 @@
 			background-color:#dae7e9 !important;
 		}
 	}
+
+	@include _gridle_extend_common_class(prefix, $state);
 }
 @mixin _gridle_common_suffix(
 	$state : default
@@ -122,4 +155,84 @@
 			background-color:#dae7e9 !important;
 		}
 	}
+
+	@include _gridle_extend_common_class(suffix, $state);
+}
+
+@mixin _gridle_common_clear_each(
+	$state : default
+) {
+	@include _gridle_extend_common_class(clear_each, $state);
+}
+
+@mixin _gridle_common_centered(
+	$state : default
+) {
+	display:block !important;
+	float:none !important;
+	margin-left:auto !important;
+	margin-right:auto !important;
+	clear:both !important;
+
+	@include _gridle_extend_common_class(centered, $state);
+}
+
+@mixin _gridle_common_vertical_align(
+	$state : default
+) {
+	@include _gridle_extend_common_class(vertical_align, $state);
+}
+
+@mixin _gridle_common_hide(
+	$state : default
+) {
+	@include _gridle_extend_common_class(hide, $state);
+}
+
+@mixin _gridle_common_not_visible(
+	$state : default
+) {
+	@include _gridle_extend_common_class(not_visible, $state);
+}
+
+@mixin _gridle_common_show(
+	$state : default
+) {
+	@include _gridle_extend_common_class(show, $state);
+}
+
+@mixin _gridle_common_show_inline(
+	$state : default
+) {
+	@include _gridle_extend_common_class(show_inline, $state);
+}
+
+@mixin _gridle_common_visible(
+	$state : default
+) {
+	@include _gridle_extend_common_class(visible, $state);
+}
+
+@mixin _gridle_common_float(
+	$state : default
+) {
+	@include _gridle_extend_common_class(float, $state);
+}
+
+@mixin _gridle_common_clear(
+	$state : default
+) {
+	@include _gridle_extend_common_class(clear, $state);
+}
+
+@mixin _gridle_common_no_gutter(
+	$state : default
+) {
+	@include _gridle_extend_common_class(no_gutter, $state);
+}
+
+@mixin _gridle_common_gutter(
+	$state : default
+) {
+	@include _gridle_extend_common_class(gutter, $state);
 }
