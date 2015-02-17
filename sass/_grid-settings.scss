@@ -9,22 +9,22 @@
 ));
 
 // register special columns :
-@include gridle_register_column("1on5", 1, 5);
+// @include gridle_register_column("1on5", 1, 5);
 
 // clear each classes :
 @include gridle_register_clear_each(2, left);
 @include gridle_register_clear_each(12, both);
 
 // extend framework classes
-// @include gridle_extent_classes(grid, (
-// 	content : "hello world"
-// ));
+@include gridle_set_extend_class_map(grid, (
+	content : "hello world"
+));
 
-// @include gridle_extent_classes(push, (
+// @include gridle_set_extend_class_map(push, (
 // 	content : "hello push"
 // ));
 
-// @include gridle_extent_classes(pull, (
+// @include gridle_set_extend_class_map(pull, (
 // 	content : "hello pull mobile"
 // ), mobile);
 
@@ -35,4 +35,4 @@
 	gutter-width : 0
 ));
 
-@include init_silent_classes();
+@include gridle_init();

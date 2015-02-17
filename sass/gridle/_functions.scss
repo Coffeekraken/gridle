@@ -89,6 +89,7 @@
 @function gridle_get_state(
 	$stateMap-or-stateName : default
 ) {
+
 	// check if has a state named like this
 	@if (type-of($stateMap-or-stateName) == string
 		and  map-has-key($_gridle_states, unquote("#{$stateMap-or-stateName}")))
@@ -96,11 +97,25 @@
 		@return map-get($_gridle_states, unquote("#{$stateMap-or-stateName}"));
 	}
 
+	// check if it's a registered state as map passed
+	@if type-of($stateMap-or-stateName) == map
+		and map-get($stateMap-or-stateName, name) {
+		$name : map-get($stateMap-or-stateName, name);
+		@if gridle_has_state($name) {
+			@return $stateMap-or-stateName;
+		}
+	}
+
 	// a map is passed, so it's a state himself
 	@if $stateMap-or-stateName
 		and type-of($stateMap-or-stateName) == map
 	{
-		@return map-merge($_gridle-settings, $stateMap-or-stateName);
+		// create a new state by merging given one with defaul one
+		$state : map-merge($_gridle-settings, $stateMap-or-stateName);
+		// set the name with random name
+		$state : map-set($state, name, unique-id());
+		// return the custom state
+		@return $state;
 	}
 
 	// return the default one if exist
@@ -148,10 +163,8 @@
 	// get the state (if no state find, return the default one) :
 	$state : gridle_get_state($stateMap-or-stateName);
 
-	// extend default state with given state :
-	$props : map-merge($_gridle-settings, $state);
-
-	@if map-has-key($props, unquote("#{$varName}")) {
+	// check if has key
+	@if map-has-key($state, unquote("#{$varName}")) {
 		@return map-get($state, unquote("#{$varName}"));
 	}
 	
@@ -197,7 +210,7 @@
 /**
  * Get gridle selector
  */
-@mixin gridle_extent_classes(
+@mixin gridle_set_extend_class_map(
 	$for,
 	$extend,
 	$stateName : default
@@ -231,6 +244,19 @@
 		$extend : map-merge(map-get($map, default), $extend);
 	}
 	@return $extend;
+}
+
+
+/**
+ * Get if the current state has some extend class properties
+ */
+@function gridle_has_extend_class_map(
+	$for,
+	$stateName : default
+) {
+	$map : gridle_get_extend_class_map($for, $stateName);
+	@if $map == null { @return false; }
+	@else { @return true; }
 }
 
 

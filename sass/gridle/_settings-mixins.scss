@@ -34,6 +34,13 @@
 	// register default state :
 	@include gridle_register_state(default, $_gridle-settings);
 
+	// set current state to default
+	$_gridle_current_state : $_gridle-settings !global;
+	$_gridle_current_stateName : default !global;
+
+	// register default states
+	@include gridle_default_states();
+
 }
 
 // Register an state :
@@ -46,6 +53,8 @@
 
 	// set name :
 	$settings : map-set($settings, name, $name);
+
+	@warn("#{inspect($settings)}");
 
 	// add state in maps :
 	$_gridle_states : map-set($_gridle_states, $name, $settings) !global;

@@ -10,9 +10,9 @@
 // etc...
 
 // generate a center custom class for all the states :
-@include gridle_generate_custom_class( ('center','%-','%state') ) {
-	text-align:center;
-}
+// @include gridle_generate_custom_class( ('center','%-','%state') ) {
+// 	text-align:center;
+// }
 // this will produces classes : center, center-mobile, center-tablet, center-ipad-landscape
 // for separators, you can use the %- (replaced by the $gridle-class-separator option), or -, --, _, __
 
@@ -20,22 +20,33 @@
 .container {
 	margin:0 auto;
 	max-width:960px;
-	@include gridle_grid_background();
+	// @include gridle_grid_background();
 }
 
 
-@mixin coco() {
+.my-cool-grid-element {
+	@include gridle(6);
+
 	@include gridle_state(mobile) {
-		@content;
+		@include gridle(12);
+		@include gridle_push(6);
+		@include gridle_hide();
+		@include gridle_prefix(5);
 	}
 }
 
-@mixin co() {
-	@include coco();
-}
+// @mixin coco() {
+// 	@include gridle_state(mobile) {
+// 		@content;
+// 	}
+// }
 
-.coco {
-	@include coco() {
-		content : "hello coco";
-	}
-}
+// @mixin co() {
+// 	@include coco();
+// }
+
+// .coco {
+// 	@include coco() {
+// 		content : "hello coco";
+// 	}
+// }
