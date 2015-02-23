@@ -95,14 +95,14 @@
 /**
  * Extend a gridle class
  */
-@mixin gridle_extend_class(
+@mixin gridle_extend_base_class(
 	$for,
 	$extend,
 	$states : default
 ) {
 
 	// get the map for the passed mixin "category"
-	$map : map-get($_gridle_extend_classes_content, $for);
+	$map : map-get($_gridle_extend_base_classes_content, $for);
 
 	// create the map if not exist
 	@if $map == null { $map : (); }
@@ -117,8 +117,48 @@
 		@if map-get($map, $stateName) == null { $map : map-set($map, $stateName, $extend); }
 
 		// set the map in the gridle global variable
-		$_gridle_extend_classes_content : map-set($_gridle_extend_classes_content, $for, $map) !global;
+		$_gridle_extend_base_classes_content : map-set($_gridle_extend_base_classes_content, $for, $map) !global;
 
+	}
+}
+
+
+/**
+ * Apply css for
+ */
+@mixin gridle_apply_css_for(
+	$for,
+	$extend,
+	$states : default
+) {
+
+	// loop on each states to register an extend map
+	@each $state in $states {
+
+		// set state name
+		$stateName : $state;
+
+		@at-root {
+			$q : _gridle_get_media_query($state);
+			@warn("query #{$q}");
+			@if $q {
+				@media #{$q} {
+					// make the silent class
+					%apply-#{$stateName}-#{$for} {
+						@each $key, $value in $extend {
+							#{$key}:#{$value};
+						}
+					}
+				}
+			} @else {
+				// make the silent class
+				%apply-#{$stateName}-#{$for} {
+					@each $key, $value in $extend {
+						#{$key}:#{$value};
+					}
+				}
+			}
+		}
 	}
 }
 

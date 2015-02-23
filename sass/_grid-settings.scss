@@ -1,21 +1,21 @@
-// Import gridle :
+// Import gridle
 @import 'gridle/gridle';
 
-// setup the grid (required) :
+// setup the grid (required)
 @include gridle_setup((
 	context : 12,
 	gutter-width : 20px,
 	debug : true
 ));
 
-// register special columns :
+// register special columns
 @include gridle_register_column("1on5", 1, 5);
 
-// clear each classes :
+// clear each classes
 @include gridle_register_clear_each(2, left);
 @include gridle_register_clear_each(12, both);
 
-// register states :
+// register states
 @include gridle_register_default_states();
 @include gridle_register_state(ipad-landscape, (
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
@@ -23,18 +23,21 @@
 ));
 
 // extend framework classes
-@include gridle_extend_class(grid, (
+@include gridle_extend_base_class(grid, (
 	content : "hello world"
 ));
 
-@include gridle_extend_class(visible, (
+@include gridle_extend_base_class(visible, (
 	content : "hello push"
 ));
 
-@include gridle_extend_class(show_inline, (
+@include gridle_extend_base_class(show_inline, (
 	content : "hello show inline mobile"
 ), mobile);
 
-//  
+@include gridle_apply_css_for(grid, (
+	padding : 0 !important
+), ipad-landscape);
 
+// init
 @include gridle_init();

@@ -434,6 +434,18 @@
 }
 
 
+@mixin _gridle_apply_css_for(
+	$for
+) {
+	// loop on each states
+	@each $stateName, $state in $_gridle_states {
+		@if gridle_get_state_var(classes, $state) {
+			@extend %apply-#{$stateName}-#{$for} !optional;
+		}
+	}
+}
+
+
 /**
  * Grid
  */
@@ -472,6 +484,8 @@
 
 	// extend common css
 	@include _gridle_extend(grid);
+
+	@include _gridle_apply_css_for(grid);
 
 	// manage columns
 	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {

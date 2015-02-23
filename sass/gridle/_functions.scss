@@ -215,7 +215,7 @@
 	$stateName : default
 ) {	
 	// check if has some extend for this mixin "category"
-	$map : map-get($_gridle_extend_classes_content, $for);
+	$map : map-get($_gridle_extend_base_classes_content, $for);
 	@if $map == null { @return null; }
 
 	// check if has some extend for the requested state
