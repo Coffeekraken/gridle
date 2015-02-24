@@ -453,26 +453,26 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 							@include gridle($columnsCount, $columnsContext);
 						}
 					}
-					@if $generate-push-classes == true and ($what == null or index($what, push) or index($what, default)) {
-						#{_gridle_classname($gridle-push-name-pattern, $stateName, $columnName)} {
-							@include gridle_push($columnsCount, $columnsContext);
-						}
-					}
-					@if $generate-pull-classes == true and ($what == null or index($what, pull) or index($what, default)) {
-						#{_gridle_classname($gridle-pull-name-pattern, $stateName, $columnName)} {
-							@include gridle_pull($columnsCount, $columnsContext);
-						}
-					}
-					@if $generate-prefix-classes == true and ($what == null or index($what, prefix) or index($what, default)) {
-						#{_gridle_classname($gridle-prefix-name-pattern, $stateName, $columnName)} {
-							@include gridle_prefix($columnsCount, $columnsContext);
-						}
-					}
-					@if $generate-suffix-classes == true and ($what == null or index($what, suffix) or index($what, default)) {
-						#{_gridle_classname($gridle-suffix-name-pattern, $stateName, $columnName)} {
-							@include gridle_suffix($columnsCount, $columnsContext);
-						}   
-					}
+					// @if $generate-push-classes == true and ($what == null or index($what, push) or index($what, default)) {
+					// 	#{_gridle_classname($gridle-push-name-pattern, $stateName, $columnName)} {
+					// 		@include gridle_push($columnsCount, $columnsContext);
+					// 	}
+					// }
+					// @if $generate-pull-classes == true and ($what == null or index($what, pull) or index($what, default)) {
+					// 	#{_gridle_classname($gridle-pull-name-pattern, $stateName, $columnName)} {
+					// 		@include gridle_pull($columnsCount, $columnsContext);
+					// 	}
+					// }
+					// @if $generate-prefix-classes == true and ($what == null or index($what, prefix) or index($what, default)) {
+					// 	#{_gridle_classname($gridle-prefix-name-pattern, $stateName, $columnName)} {
+					// 		@include gridle_prefix($columnsCount, $columnsContext);
+					// 	}
+					// }
+					// @if $generate-suffix-classes == true and ($what == null or index($what, suffix) or index($what, default)) {
+					// 	#{_gridle_classname($gridle-suffix-name-pattern, $stateName, $columnName)} {
+					// 		@include gridle_suffix($columnsCount, $columnsContext);
+					// 	}   
+					// }
 				}
 
 				// media queries helpers classes

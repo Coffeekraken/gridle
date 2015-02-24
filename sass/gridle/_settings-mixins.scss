@@ -132,29 +132,38 @@
 	$states : default
 ) {
 
-	// loop on each states to register an extend map
-	@each $state in $states {
 
-		// set state name
-		$stateName : $state;
+	@each $sn, $s in $_gridle_states {
 
-		@at-root {
-			$q : _gridle_get_media_query($state);
-			@warn("query #{$q}");
-			@if $q {
-				@media #{$q} {
-					// make the silent class
-					%apply-#{$stateName}-#{$for} {
-						@each $key, $value in $extend {
-							#{$key}:#{$value};
+		// make only if the state need classes
+		@if gridle_get_state_var(classes, $s) {
+
+			// loop on each states to register an extend map
+			@each $state in $states {
+
+				// set state name
+				$stateName : $state;
+
+				@at-root {
+					$q : _gridle_get_media_query($s);
+					@if $q {
+						@debug("query #{$q} for %apply-#{$stateName}-#{$for}-in-#{$sn}");
+						@media #{$q} {
+							// make the silent class
+							%apply-#{$stateName}-#{$for}-in-#{$sn} {
+								@each $key, $value in $extend {
+									#{$key}:#{$value};
+								}
+							}
 						}
-					}
-				}
-			} @else {
-				// make the silent class
-				%apply-#{$stateName}-#{$for} {
-					@each $key, $value in $extend {
-						#{$key}:#{$value};
+					} @else {
+						@debug("NO QUERY for %apply-#{$stateName}-#{$for}-in-#{$sn}");
+						// make the silent class
+						%apply-#{$stateName}-#{$for}-in-#{$sn} {
+							@each $key, $value in $extend {
+								#{$key}:#{$value};
+							}
+						}
 					}
 				}
 			}

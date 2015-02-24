@@ -360,9 +360,24 @@
 @mixin _gridle_extend(
 	$for
 ) {
-	// extend
+	// extend using the current state name set in each gridle_state call
 	@extend %#{$_gridle_current_stateName}-#{$for};
 }
+
+
+@mixin _gridle_apply_css_for(
+	$for
+) {
+	@debug($_gridle_current_stateName);
+	// loop on each states
+	@each $stateName, $state in $_gridle_states {
+		@if gridle_get_state_var(classes, $state) {
+			@debug("extend %apply-#{$_gridle_current_stateName}-#{$for}-in-#{$stateName}");
+			@extend %apply-#{$stateName}-#{$for}-in-#{$_gridle_current_stateName} !optional;
+		}
+	}
+}
+
 
 
 /**
@@ -431,18 +446,6 @@
 
 	// extend
 	@include _gridle_extend(parent);
-}
-
-
-@mixin _gridle_apply_css_for(
-	$for
-) {
-	// loop on each states
-	@each $stateName, $state in $_gridle_states {
-		@if gridle_get_state_var(classes, $state) {
-			@extend %apply-#{$stateName}-#{$for} !optional;
-		}
-	}
 }
 
 

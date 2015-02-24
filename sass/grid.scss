@@ -24,16 +24,16 @@
 }
 
 
-.my-cool-grid-element {
-	@include gridle(6);
+// .my-cool-grid-element {
+// 	@include gridle(6);
 
-	@include gridle_state(mobile) {
-		@include gridle(12);
-		@include gridle_push(6);
-		@include gridle_hide();
-		@include gridle_prefix(5);
-	}
-}
+// 	@include gridle_state(mobile) {
+// 		@include gridle(12);
+// 		@include gridle_push(6);
+// 		@include gridle_hide();
+// 		@include gridle_prefix(5);
+// 	}
+// }
 
 // @mixin coco() {
 // 	@include gridle_state(mobile) {
