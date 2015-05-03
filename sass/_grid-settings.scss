@@ -39,5 +39,10 @@
 	padding : 0 !important
 ), mobile);
 
+// @include gridle_extend_base_class(grid, (
+// 	padding-left : 0,
+// 	padding-right : 0
+// ), mobile tablet);
+
 // init
 @include gridle_init();

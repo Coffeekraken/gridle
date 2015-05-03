@@ -28,6 +28,48 @@
 
 
 /**
+ * Set base class
+ */
+@mixin _gridle_set_base_class(
+	$stateName : default
+) {
+
+	// get state variables
+	$direction : gridle_get_state_var(direction, $stateName);
+	$classes : gridle_get_state_var(classes, $stateName);
+	$gutter-width : gridle_get_state_var(gutter-width, $stateName);
+	$debug : gridle_get_state_var(debug, $stateName);
+
+	// calculating gutters
+	$_padding_left : $gutter-width/2;
+	$_padding_right : $gutter-width/2;
+
+	// managing direction
+	$_float : left;
+	$_direction : ltr;
+	@if $direction == rtl {
+		$_float : right;
+		$_direction : rtl;
+	}
+
+	// extend grid class
+	@include gridle_extend_base_class(grid, (
+		display : inline-block,
+		min-height : 1px,
+		-webkit-box-sizing : border-box,
+		-moz-box-sizing : border-box,
+		box-sizing : border-box,
+		float : $_float,
+		direction : $_direction,
+		padding-left : $_padding_left,
+		padding-right : $_padding_right,
+		content : "my grid"
+	), $stateName);
+
+}
+
+
+/**
  * Init silent classes
  */
 @mixin _gridle_init_silent_classes(
@@ -145,11 +187,7 @@
 	$name : gridle_get_state_var(name, $state);
 	$extend : gridle_get_extend_class_map($what, $name);
 	@each $key, $value in $extend {
-		@if type-of($value) == string {
-			#{$key}:"#{$value}";
-		} @else {
-			#{$key}:#{$value};
-		}
+		#{$key}:#{$value};
 	}
 }
 
@@ -368,14 +406,23 @@
 @mixin _gridle_apply_css_for(
 	$for
 ) {
-	@debug($_gridle_current_stateName);
+	// @debug($_gridle_current_stateName);
 	// loop on each states
-	@each $stateName, $state in $_gridle_states {
-		@if gridle_get_state_var(classes, $state) {
-			@debug("extend %apply-#{$_gridle_current_stateName}-#{$for}-in-#{$stateName}");
-			@extend %apply-#{$stateName}-#{$for}-in-#{$_gridle_current_stateName} !optional;
+
+	// @at-root {
+		@each $stateName, $state in $_gridle_states {
+			@if $stateName != $_gridle_current_stateName {
+				$q : _gridle_get_media_query($state);
+				@if $q {
+					@debug("#{&}");
+					@debug("%apply-#{$stateName}-#{$for}-in-#{$_gridle_current_stateName}");
+					@media #{$q} {
+						@extend %apply-#{$stateName}-#{$for}-in-#{$_gridle_current_stateName} !optional;
+					}
+				}
+			}
 		}
-	}
+	// }
 }
 
 

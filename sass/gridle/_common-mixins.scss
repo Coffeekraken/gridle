@@ -35,23 +35,23 @@
 	$gutter-width : gridle_get_state_var(gutter-width, $state);
 	$debug : gridle_get_state_var(debug, $state);
 
-	display:inline-block;
-	min-height:1px;
+	// display:inline-block;
+	// min-height:1px;
 
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
+	// -webkit-box-sizing: border-box;
+	// -moz-box-sizing: border-box;
+	// box-sizing: border-box;
 
-	@if $direction == rtl {
-		float:right;
-		direction:rtl;
-	} @else {
-		float:left;
-		direction:ltr;
-	}
+	// @if $direction == rtl {
+	// 	float:right;
+	// 	direction:rtl;
+	// } @else {
+	// 	float:left;
+	// 	direction:ltr;
+	// }
 
-	padding-left:$gutter-width/2;
-	padding-right:$gutter-width/2;
+	// padding-left:$gutter-width/2;
+	// padding-right:$gutter-width/2;
 
 	@if $debug == true {
 		#{$gridle-debug-selector} {

@@ -55,6 +55,9 @@
 
 	// add state in maps :
 	$_gridle_states : map-set($_gridle_states, $name, $settings) !global;
+
+	// setup the default class properties
+	@include _gridle_set_base_class($name);
 }
 
 
@@ -98,26 +101,40 @@
 @mixin gridle_extend_base_class(
 	$for,
 	$extend,
-	$states : default
+	$statesNames : default
 ) {
 
 	// get the map for the passed mixin "category"
-	$map : map-get($_gridle_extend_base_classes_content, $for);
+	$forMap : map-get($_gridle_extend_base_classes_content, $for);
 
 	// create the map if not exist
-	@if $map == null { $map : (); }
+	@if $forMap == null { $forMap : (); }
+
+	// if $states is all
+	@if $statesNames == all {
+		$statesNames : gridle_get_registered_states_names();
+	}
 
 	// loop on each states to register an extend map
-	@each $state in $states {
-
-		// set state name
-		$stateName : $state;
+	@each $stateName in $statesNames {
 
 		// check if is for the default state
-		@if map-get($map, $stateName) == null { $map : map-set($map, $stateName, $extend); }
+		// @if map-get($map, $stateName) == null { $map : map-set($map, $stateName, $extend); }
+
+		// check if has a map for the state
+		$forStateMap : map-get($forMap, $stateName);
+		@if $forStateMap == null {
+			$forStateMap : ();
+		}
+
+		// merge map
+		$forStateMap : map-merge($forStateMap, $extend);
+
+		// set the new state map into forMap
+		$forMap : map-set($forMap, $stateName, $forStateMap);
 
 		// set the map in the gridle global variable
-		$_gridle_extend_base_classes_content : map-set($_gridle_extend_base_classes_content, $for, $map) !global;
+		$_gridle_extend_base_classes_content : map-set($_gridle_extend_base_classes_content, $for, $forMap) !global;
 
 	}
 }
@@ -129,26 +146,33 @@
 @mixin gridle_apply_css_for(
 	$for,
 	$extend,
-	$states : default
+	$statesNames : default
 ) {
-
 
 	@each $sn, $s in $_gridle_states {
 
 		// make only if the state need classes
-		@if gridle_get_state_var(classes, $s) {
+		@if gridle_get_state_var(classes, $s) and $sn != default {
 
 			// loop on each states to register an extend map
-			@each $state in $states {
+			@each $stateName in $statesNames {
 
-				// set state name
-				$stateName : $state;
+				// @if $stateName != $sn {
 
-				@at-root {
-					$q : _gridle_get_media_query($s);
-					@if $q {
-						@debug("query #{$q} for %apply-#{$stateName}-#{$for}-in-#{$sn}");
-						@media #{$q} {
+					// @at-root {
+						$q : _gridle_get_media_query($s);
+						@if $q {
+							@debug("query #{$q} for %apply-#{$stateName}-#{$for}-in-#{$sn}");
+							@media #{$q} {
+								// make the silent class
+								%apply-#{$stateName}-#{$for}-in-#{$sn} {
+									@each $key, $value in $extend {
+										#{$key}:#{$value};
+									}
+								}
+							}
+						} @else {
+							@debug("NO QUERY for %apply-#{$stateName}-#{$for}-in-#{$sn}");
 							// make the silent class
 							%apply-#{$stateName}-#{$for}-in-#{$sn} {
 								@each $key, $value in $extend {
@@ -156,16 +180,8 @@
 								}
 							}
 						}
-					} @else {
-						@debug("NO QUERY for %apply-#{$stateName}-#{$for}-in-#{$sn}");
-						// make the silent class
-						%apply-#{$stateName}-#{$for}-in-#{$sn} {
-							@each $key, $value in $extend {
-								#{$key}:#{$value};
-							}
-						}
-					}
-				}
+					// }
+				// }
 			}
 		}
 	}
