@@ -5,12 +5,12 @@
 // |------------------------------------------------------
 
 
-/**
- * Generate a custom class for all the states
- *
- * @param 	list 	$pattern 		The name pattern of the class
- * @param 	list 	$statesNames 		The states names to generate
- */
+//
+// Generate a custom class for all the states
+//
+// @param 	list 	$pattern 		The name pattern of the class
+// @param 	list 	$statesNames 		The states names to generate
+//
 @mixin gridle_generate_custom_class(
 	$pattern,
 	$statesNames : null
@@ -50,9 +50,9 @@
 }
 
 
-/**
- * Generate all helpers classes
- */
+//
+// Generate all helpers classes
+//
 @mixin _gridle_generate_helper_classes (
 	$state : null,
 	$what : null
@@ -138,10 +138,10 @@
 	}
 
 	@if $what == null or index($what, container) or index($what, default) {
-			#{_gridle_classname($gridle-container-name-pattern, $state)} {
-				@include gridle_container();
-			}
+		#{_gridle_classname($gridle-container-name-pattern, $state)} {
+			@include gridle_container();
 		}
+	}
 
 	@if $what == null or index($what, parent) or index($what, helpers) {
 		#{_gridle_classname($gridle-parent-name-pattern, $state)} {
@@ -161,9 +161,9 @@
 		}
 	}
 
-	/**
-	 * Visible, hide, etc...
-	 */
+	//
+	// Visible, hide, etc...
+	//
 	@if $what == null or index($what, hide) or index($what, helpers) {
 		#{_gridle_classname($gridle-hide-name-pattern, $state)} {
 			@include gridle_hide();
@@ -191,9 +191,9 @@
 		}
 	}
 
-	/**
-	 * Clear each class :
-	 */
+	//
+	// Clear each class :
+	//
 	@if $what == null or index($what, clear_each) or index($what, helpers) {
 		@each $clearName, $clearMap in $_gridle_clear_classes {
 			// get count :
@@ -245,9 +245,9 @@
 }
 
 
-/**
- * Generate json settings
- */
+//
+// Generate json settings
+//
 @mixin gridle_generate_json_settings() {
 
 	// settings content :
@@ -317,9 +317,9 @@
 }
 
 
-/**
- * Generate classes
- */
+//
+// Generate classes
+//
 @mixin gridle_generate_classes(
 	$stateName : null,
 	$what : null,
@@ -453,26 +453,26 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 							@include gridle($columnsCount, $columnsContext);
 						}
 					}
-					// @if $generate-push-classes == true and ($what == null or index($what, push) or index($what, default)) {
-					// 	#{_gridle_classname($gridle-push-name-pattern, $stateName, $columnName)} {
-					// 		@include gridle_push($columnsCount, $columnsContext);
-					// 	}
-					// }
-					// @if $generate-pull-classes == true and ($what == null or index($what, pull) or index($what, default)) {
-					// 	#{_gridle_classname($gridle-pull-name-pattern, $stateName, $columnName)} {
-					// 		@include gridle_pull($columnsCount, $columnsContext);
-					// 	}
-					// }
-					// @if $generate-prefix-classes == true and ($what == null or index($what, prefix) or index($what, default)) {
-					// 	#{_gridle_classname($gridle-prefix-name-pattern, $stateName, $columnName)} {
-					// 		@include gridle_prefix($columnsCount, $columnsContext);
-					// 	}
-					// }
-					// @if $generate-suffix-classes == true and ($what == null or index($what, suffix) or index($what, default)) {
-					// 	#{_gridle_classname($gridle-suffix-name-pattern, $stateName, $columnName)} {
-					// 		@include gridle_suffix($columnsCount, $columnsContext);
-					// 	}   
-					// }
+					@if $generate-push-classes == true and ($what == null or index($what, push) or index($what, default)) {
+						#{_gridle_classname($gridle-push-name-pattern, $stateName, $columnName)} {
+							@include gridle_push($columnsCount, $columnsContext);
+						}
+					}
+					@if $generate-pull-classes == true and ($what == null or index($what, pull) or index($what, default)) {
+						#{_gridle_classname($gridle-pull-name-pattern, $stateName, $columnName)} {
+							@include gridle_pull($columnsCount, $columnsContext);
+						}
+					}
+					@if $generate-prefix-classes == true and ($what == null or index($what, prefix) or index($what, default)) {
+						#{_gridle_classname($gridle-prefix-name-pattern, $stateName, $columnName)} {
+							@include gridle_prefix($columnsCount, $columnsContext);
+						}
+					}
+					@if $generate-suffix-classes == true and ($what == null or index($what, suffix) or index($what, default)) {
+						#{_gridle_classname($gridle-suffix-name-pattern, $stateName, $columnName)} {
+							@include gridle_suffix($columnsCount, $columnsContext);
+						}   
+					}
 				}
 
 				// media queries helpers classes

@@ -5,9 +5,9 @@
 // |------------------------------------------------------
 
 
-/**
- * Init
- */
+//
+// Init
+//
 @mixin gridle_init() {
 	@each $stateName, $state in $_gridle_states {
 		$classes : gridle_get_state_var(classes, $state);
@@ -27,9 +27,9 @@
 }
 
 
-/**
- * Set base class
- */
+//
+// Set base class
+//
 @mixin _gridle_set_base_class(
 	$stateName : default
 ) {
@@ -41,8 +41,8 @@
 	$debug : gridle_get_state_var(debug, $stateName);
 
 	// calculating gutters
-	$_padding_left : $gutter-width/2;
-	$_padding_right : $gutter-width/2;
+	$_padding_left : $gutter-width * 0.5;
+	$_padding_right : $gutter-width * 0.5;
 
 	// managing direction
 	$_float : left;
@@ -62,16 +62,15 @@
 		float : $_float,
 		direction : $_direction,
 		padding-left : $_padding_left,
-		padding-right : $_padding_right,
-		content : "my grid"
+		padding-right : $_padding_right
 	), $stateName);
 
 }
 
 
-/**
- * Init silent classes
- */
+//
+// Init silent classes
+//
 @mixin _gridle_init_silent_classes(
 	$state : default
 ) {
@@ -175,10 +174,28 @@
 	}
 }
 
+//
+// Transform map to css
+//
+@mixin _gridle_map_2_css(
+	$map
+) {
+	@each $key, $value in $map {
+		@if type-of($value) == map {
+			&#{$key} {
+				@each $k, $v in $value {
+					#{$k}:#{$v};
+				}
+			}
+		} @else {
+			#{$key}:#{$value};
+		}
+	}
+}
 
-/**
- * Extend common class
- */
+//
+// Extend common class
+//
 @mixin _gridle_extend_common_class(
 	$what,
 	$state : default
@@ -186,15 +203,15 @@
 	// extend
 	$name : gridle_get_state_var(name, $state);
 	$extend : gridle_get_extend_class_map($what, $name);
-	@each $key, $value in $extend {
-		#{$key}:#{$value};
+	@if $extend != null {
+		@include _gridle_map_2_css($extend);
 	}
 }
 
 
-/**
- * Helper to apply multiple config for a certain state with one mixin
- */
+//
+// Helper to apply multiple config for a certain state with one mixin
+//
 @mixin gridle_set(
 	$settings,
 	$state : default
@@ -280,12 +297,12 @@
 	}
 }
 
-/**
- * Gridle state
- *
- * @param 	string|map|list 	$states 		A list of states, a state name or a state map
- * @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
- */
+//
+// Gridle state
+//
+// @param 	string|map|list 	$states 		A list of states, a state name or a state map
+// @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
+//
 @mixin gridle_state(
 	$states,
 	$has-parent : true
@@ -392,48 +409,43 @@
 }
 
 
-/**
- * Extend
- */
+//
+// Extend
+//
 @mixin _gridle_extend(
 	$for
 ) {
 	// extend using the current state name set in each gridle_state call
-	@extend %#{$_gridle_current_stateName}-#{$for};
+	@extend %#{$_gridle_current_stateName}-#{$for} !optional;
 }
 
 
 @mixin _gridle_apply_css_for(
 	$for
 ) {
-	// @debug($_gridle_current_stateName);
 	// loop on each states
-
-	// @at-root {
-		@each $stateName, $state in $_gridle_states {
-			@if $stateName != $_gridle_current_stateName {
-				$q : _gridle_get_media_query($state);
-				@if $q {
-					@debug("#{&}");
-					@debug("%apply-#{$stateName}-#{$for}-in-#{$_gridle_current_stateName}");
-					@media #{$q} {
-						@extend %apply-#{$stateName}-#{$for}-in-#{$_gridle_current_stateName} !optional;
-					}
-				}
+	$rulesByStates : map-get($_gridle_apply_css_for_content, $for);
+	@each $stateName, $rules in $rulesByStates {
+		$q : _gridle_get_media_query($stateName);
+		@if $q {
+			@media #{$q} {
+				@include _gridle_map_2_css($rules);
 			}
+		} @else {
+			@include _gridle_map_2_css($rules);
 		}
-	// }
+	}
 }
 
 
 
-/**
- * Call an api mixin by checking if need to loop over states
- * or not.
- * This mixin set also the global variable $_content_arg_state
- * in order to use it in api mixin to refer to the current
- * active state
- */			
+//
+// Call an api mixin by checking if need to loop over states
+// or not.
+// This mixin set also the global variable $_content_arg_state
+// in order to use it in api mixin to refer to the current
+// active state
+//			
 @mixin _gridle_call(
 	$states : default
 ) {
@@ -458,9 +470,9 @@
 }
 
 
-/**
- * Container
- */
+//
+// Container
+//
 @mixin gridle_container(
 	$states : null
 ) {
@@ -476,9 +488,9 @@
 }
 
 
-/**
- * Parent
- */
+//
+// Parent
+//
 @mixin gridle_parent(
 	$states : null
 ) {
@@ -496,9 +508,10 @@
 }
 
 
-/**
- * Grid
- */
+//
+// Grid
+//
+$grid-inited : ();
 @mixin gridle(
 	$columns,
 	$states-or-context : null,
@@ -528,7 +541,6 @@
 		$context : gridle_get_state_var(context, $state);
 	}
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	$ie7-support : gridle_get_state_var(ie7-support, $state);
 	$debug : gridle_get_state_var(debug, $state);
 	$debug-show-class-names : gridle_get_state_var(debug-show-class-names, $state);
 
@@ -555,11 +567,6 @@
 	// set value :
 	width:$width;
 	
-	// ie7 support :
-	@if $ie7-support == true {
-		*width: expression((this.parentNode.clientWidth/#{$context}*#{($columns / $name-multiplicator)} - parseInt(this.currentStyle['paddingLeft']) - parseInt(this.currentStyle['paddingRight'])) + 'px');
-	}
-	
 	// debug :
 	@if $debug == true and $debug-show-class-names == true {
 		#{$gridle-debug-selector} {
@@ -582,9 +589,9 @@
 }
 
 
-/**
- * Push
- */
+//
+// Push
+//
 @mixin gridle_push(
 	$columns,
 	$states-or-context : null,
@@ -640,9 +647,9 @@
 }
 
 
-/**
- * Pull
- */
+//
+// Pull
+//
 @mixin gridle_pull(
 	$columns,
 	$states-or-context : null,
@@ -698,9 +705,9 @@
 }
 
 
-/**
- * Prefix
- */
+//
+// Prefix
+//
 @mixin gridle_prefix(
 	$columns,
 	$states-or-context : null,
@@ -761,9 +768,9 @@
 }
 
 
-/**
- * Suffix
- */
+//
+// Suffix
+//
 @mixin gridle_suffix(
 	$columns,
 	$states-or-context : null,
@@ -824,9 +831,9 @@
 }
 
 
-/**
- * Grid background
- */
+//
+// Grid background
+//
 @mixin gridle_grid_background(
 	$states : null
 ) {
@@ -850,16 +857,15 @@
 		width:100%; height:100% !important;
 		// vars :
 		$width : percentage(1 / $context);
-		background: linear-gradient(to right, rgba(0,0,0,.01) 50% , rgba(0,0,0,.04) 50%); /* Standard syntax */
+		background: linear-gradient(to right, rgba(0,0,0,.01) 50% , rgba(0,0,0,.04) 50%); // Standard syntax
 		background-size:($width*2) 100%;
-		// background-position:$gridle-gutter-width/2 0;
 	}
 }
 
 
-/**
- * Clear each
- */
+//
+// Clear each
+//
 @mixin gridle_clear_each(
 	$clearEach,
 	$clearWhat : both,
@@ -884,9 +890,9 @@
 }
 
 
-/**
- * Centered
- */
+//
+// Centered
+//
 @mixin gridle_centered(
 	$states : null
 ) {
@@ -901,9 +907,9 @@
 }
 
 
-/**
- * Vertical align :
- */
+//
+// Vertical align :
+//
 @mixin gridle_vertical_align(
 	$align : middle,
 	$states : null
@@ -933,9 +939,9 @@
 }
 
 
-/**
- * Hide
- */
+//
+// Hide
+//
 @mixin gridle_hide(
 	$states : null
 ) {
@@ -955,8 +961,11 @@
 }
 
 
-// Not visible on :
+//
+// Not visible on
+//
 // @param 	String 	$media 	What to hide (one of the 3 state classes name)
+//
 @mixin gridle_not_visible(
 	$states : null
 ) {
@@ -976,8 +985,11 @@
 }
 
 
+//
 // Show on
+//
 // @param 	String 	$media 	What to hide (one of the 3 state classes name)
+//
 @mixin gridle_show(
 	$states : null
 ) {
@@ -997,11 +1009,11 @@
 }
 
 
-/**
- * Show inline
- *
- * @param 	String 		$state 		The state name
- */
+//
+// Show inline
+//
+// @param 	String 		$state 		The state name
+//
 @mixin gridle_show_inline(
 	$states : null
 ) {
@@ -1021,8 +1033,10 @@
 }
 
 
+//
 // Visible on :
 // @param 	String 	$media 	On what state
+//
 @mixin gridle_visible(
 	$states : null
 ) {
@@ -1042,7 +1056,9 @@
 }
 
 
-// Gridle Right :
+//
+// Float :
+//
 @mixin gridle_float(
 	$float-direction : left,
 	$states : null
@@ -1064,9 +1080,12 @@
 }
 
 
+//
 // Gridle clear :
+//
 // @param 	String 	$clear-direction 	The direction to clear
 // @param 	String 	$state 				The state
+//
 @mixin gridle_clear(
 	$clear-direction : both,
 	$states : null
@@ -1088,9 +1107,12 @@
 }
 
 
+//
 // Gridle no gutter :
+//
 // @param 	String 	$side 				The side to clear
 // @param 	String 	$state 				The state
+//
 @mixin gridle_no_gutter(
 	$side : left right,
 	$states : null
@@ -1120,9 +1142,12 @@
 }
 
 
+//
 // Gridle gutter :
+//
 // @param 	String 	$side 				The side to clear
 // @param 	String 	$state 				The state
+//
 @mixin gridle_gutter(
 	$side : left right,
 	$states : null

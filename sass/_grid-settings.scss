@@ -23,9 +23,12 @@
 // ));
 
 // extend framework classes
-// @include gridle_extend_base_class(grid, (
-// 	content : "hello world"
-// ));
+@include gridle_extend_base_class(grid, (
+	content : "hello world",
+	":after" : (
+		content : "yop my after content"
+	)
+));
 
 // @include gridle_extend_base_class(visible, (
 // 	content : "hello push"
@@ -36,7 +39,13 @@
 // ), mobile);
 
 @include gridle_apply_css_for(grid, (
-	padding : 0 !important
+	padding : 0 !important,
+	":after" : (
+		content : "my after content"
+	),
+	".active" : (
+		content : 'my active content'
+	)
 ), mobile);
 
 // @include gridle_extend_base_class(grid, (

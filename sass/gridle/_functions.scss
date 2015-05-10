@@ -4,15 +4,15 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-/**
- * Str replace
- *
- * @param {string}  $string    String that you want to replace
- * @param {string}  $substr    String that is to be replaced by `$newsubstr`
- * @param {string}  $newsubstr String that replaces `$substr`
- * @param {number*} $all       Flag for replaceing all (1+) or not (0)
- * @return {string}
- */
+//
+// Str replace
+//
+// @param {string}  $string    String that you want to replace
+// @param {string}  $substr    String that is to be replaced by `$newsubstr`
+// @param {string}  $newsubstr String that replaces `$substr`
+// @param {number*} $all       Flag for replaceing all (1+) or not (0)
+// @return {string}
+//
 @function str-replace($string, $substr, $newsubstr, $all: 0) {
 	$position-found: str-index($string, $substr);
 	$processed: ();
@@ -40,37 +40,37 @@
 	@return $string;
 }
 
-/**
- * Map set
- *
- * @param 	Map 	$map 		The map to use
- * @param 	String 	$key 		The key to update
- * @param 	Mixed 	$value 		The new value
- * @return 	Map 			The new map
- */
+//
+// Map set
+//
+// @param 	Map 	$map 		The map to use
+// @param 	String 	$key 		The key to update
+// @param 	Mixed 	$value 		The new value
+// @return 	Map 			The new map
+//
 @function map-set($map, $key, $value) {
 	$new: ($key: $value);
 	@return map-merge($map, $new);
 }
 
 
-/**
- * Get states count
- * 
- * @return 	int 	The number of states defined
- */
+//
+// Get states count
+// 
+// @return 	int 	The number of states defined
+//
 @function gridle_get_states_count() {
 	@return length($_gridle_states);
 }
 
 
-/**
- * Get the column width in percent for the global or a specific context
- *
- * @param 	int 		$columns 					The number of columns to calculate
- * @param 	int 		$context : $gridle-columns-count 	 	The context to use
- * @return 	percentage 							The width in percent
- */
+//
+// Get the column width in percent for the global or a specific context
+//
+// @param 	int 		$columns 					The number of columns to calculate
+// @param 	int 		$context : $gridle-columns-count 	 	The context to use
+// @return 	percentage 							The width in percent
+//
 @function gridle_get_column_width(
 	$columns : 1,
 	$stateMap-or-stateName : null
@@ -80,12 +80,12 @@
 }
 
 
-/**
- *  Get a state map
- *
- * @param 	string 		$name 		The name of the state to get
- * @return 	map 				A state map object
- */
+//
+//  Get a state map
+//
+// @param 	string 		$name 		The name of the state to get
+// @return 	map 				A state map object
+//
 @function gridle_get_state(
 	$stateMap-or-stateName : default
 ) {
@@ -129,12 +129,12 @@
 }
 
 
-/**
- * Check if a state exist :
- *
- * @param 	string 		$name 		The name of the state to check
- * @return 	Boolean 			true is exist
- */
+//
+// Check if a state exist :
+//
+// @param 	string 		$name 		The name of the state to check
+// @return 	Boolean 			true is exist
+//
 @function gridle_has_state(
 	$stateName
 ) {
@@ -146,13 +146,13 @@
 }
 
 
-/**
- * Get a variable
- *
- * @param 	String 		$varName 				The variable name
- * @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
- * @return 	Mixed 							The finded value
- */
+//
+// Get a variable
+//
+// @param 	String 		$varName 				The variable name
+// @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
+// @return 	Mixed 							The finded value
+//
 @function gridle_get_state_var(
 	$varName,
 	$stateMap-or-stateName : null
@@ -173,13 +173,13 @@
 }
 
 
-/**
- * Set a variable in a state
- * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
- * @param  	String $var                    		Variable name to assign
- * @param  	Mixed $newValue          		The new value to assign
- * @return 	List                         			The states list (full)
- */
+//
+// Set a variable in a state
+// @param 	Mixed $stateName-or-stateIndex 	The state name of state index
+// @param  	String $var                    		Variable name to assign
+// @param  	Mixed $newValue          		The new value to assign
+// @return 	List                         			The states list (full)
+//
 @function gridle_set_state_var(
 	$var,
 	$newValue,
@@ -207,9 +207,9 @@
 }
 
 
-/**
- * Get the states names
- */
+//
+// Get the states names
+//
 @function gridle_get_registered_states_names() {
 	$list : ();
 	@each $stateName, $state in $_gridle_states {
@@ -219,9 +219,9 @@
 }
 
 
-/**
- * Get the extend map for a certain class and state
- */
+//
+// Get the extend map for a certain class and state
+//
 @function gridle_get_extend_class_map(
 	$for,
 	$stateName : default
@@ -238,9 +238,9 @@
 }
 
 
-/**
- * Get if the current state has some extend class properties
- */
+//
+// Get if the current state has some extend class properties
+//
 @function gridle_has_extend_class_map(
 	$for,
 	$stateName : default
@@ -251,14 +251,14 @@
 }
 
 
-/**
- * Generate a column
- *
- * @param 	String 		$name 			The column name (often count)
- * @param 	int 		$columns 		The column count that the column will take
- * @param 	int 		$context 		The context on witch the with will be calculed
- * @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
- */
+//
+// Generate a column
+//
+// @param 	String 		$name 			The column name (often count)
+// @param 	int 		$columns 		The column count that the column will take
+// @param 	int 		$context 		The context on witch the with will be calculed
+// @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
+//
 @function _gridle_create_column(
 	$name,
 	$columns,
@@ -274,13 +274,13 @@
 }
 
 
-/**
- * Generate classname
- *
- * @param 	List 		$parrern 	The pattern to use to generate classname
- * @param 	String 		$state 		The state
- * @param 	int 		$count 		The column count
- */
+//
+// Generate classname
+//
+// @param 	List 		$parrern 	The pattern to use to generate classname
+// @param 	String 		$state 		The state
+// @param 	int 		$count 		The column count
+//
 @function _gridle_classname(
 	$pattern,
 	$state : null,
@@ -354,13 +354,13 @@
 }
 
 
-/**
- * Get the media query for a particular state, or with, etc...
- *
- * @param 	Mixed 		$state-or-min-width 		The state name of the min with
- * @param 	Mixed 		$max-width 			The max width if first param is a min width
- * @return 	String 						The media query string without the @media
- */
+//
+// Get the media query for a particular state, or with, etc...
+//
+// @param 	Mixed 		$state-or-min-width 		The state name of the min with
+// @param 	Mixed 		$max-width 			The max width if first param is a min width
+// @return 	String 						The media query string without the @media
+//
 @function _gridle_get_media_query(
 	$state-or-settings
 ) {
