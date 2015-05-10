@@ -61,7 +61,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
  * Import grid settings :
  * This to be able to use gridle mixins, etc...
  */
-html.default #myCoolItem, #myCoolItem {
+#myCoolItem, html.default #myCoolItem {
   display: inline-block;
   min-height: 1px;
   -webkit-box-sizing: border-box;
@@ -73,7 +73,7 @@ html.default #myCoolItem, #myCoolItem {
   padding-right: 10px;
   content: hello world;
 }
-.gridle-debug html.default #myCoolItem, html.default .gridle-debug #myCoolItem, .gridle-debug #myCoolItem, html.default .gridle-debug#myCoolItem, .gridle-debug#myCoolItem {
+.gridle-debug #myCoolItem, .gridle-debug html.default #myCoolItem, html.default .gridle-debug #myCoolItem, .gridle-debug#myCoolItem, html.default .gridle-debug#myCoolItem {
   background-color: #daeff5;
 }
 .gridle-debug #myCoolItem:before, .gridle-debug #myCoolItem:after, .gridle-debug#myCoolItem:before, .gridle-debug#myCoolItem:after {
@@ -90,14 +90,14 @@ html.default #myCoolItem, #myCoolItem {
   box-sizing: border-box;
   display: block !important;
 }
-html.default #myCoolItem:after, #myCoolItem:after {
+#myCoolItem:after, html.default #myCoolItem:after {
   content: yop my after content;
 }
 
-html.default #myCoolItem, #myCoolItem {
+#myCoolItem, html.default #myCoolItem {
   position: relative;
 }
-.gridle-debug html.default #myCoolItem, html.default .gridle-debug #myCoolItem, .gridle-debug #myCoolItem, html.default .gridle-debug#myCoolItem, .gridle-debug#myCoolItem {
+.gridle-debug #myCoolItem, .gridle-debug html.default #myCoolItem, html.default .gridle-debug #myCoolItem, .gridle-debug#myCoolItem, html.default .gridle-debug#myCoolItem {
   background-size: 50px 90%;
   background-position: 0 50%;
   background-repeat: repeat-x;
@@ -111,10 +111,10 @@ html.default #myCoolItem, #myCoolItem {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    float: right;
-    direction: rtl;
-    padding-left: 25px;
-    padding-right: 25px;
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .gridle-debug html.tablet #myCoolItem, html.tablet .gridle-debug #myCoolItem, .gridle-debug #myCoolItem, html.tablet .gridle-debug#myCoolItem, .gridle-debug#myCoolItem {
     background-color: #daeff5;
@@ -166,7 +166,7 @@ ul#medias li.active, ul#medias li:hover {
   background: white;
   color: black;
 }
-html.ub385ei8g ul#medias {
+html.uuc0cyjjk ul#medias {
   display: none;
 }
 @media screen and (max-width: 620px) {
@@ -182,9 +182,6 @@ html {
   font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 }
 
-body {
-  font-size: 16px;
-}
 html.mobile body {
   text-align: center;
 }
@@ -201,8 +198,13 @@ html.tablet body {
     text-align: center;
   }
 }
-html.default body {
+html.ipad-landscape body {
   font-size: 16px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  body {
+    font-size: 16px;
+  }
 }
 
 /**
@@ -215,12 +217,10 @@ html.default body {
 html.default #myCoolItem {
   width: 66.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -240,12 +240,10 @@ html.default #myCoolItem {
 .gridle-debug html.default #myCoolItem.parent:before, html.default #myCoolItem.gridle-debug.parent:before {
   content: "grid-parent-default-8";
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -277,12 +275,10 @@ html.default #myCoolItem {
 html.tablet #myCoolItem {
   width: 100%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -307,12 +303,10 @@ html.tablet #myCoolItem {
     width: 100%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {

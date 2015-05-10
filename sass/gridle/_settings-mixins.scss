@@ -207,9 +207,7 @@
 	));
 	@include gridle_register_state(tablet, (
 		min-width : 481px,
-		max-width : 1024px,
-		gutter-width : 50px,
-		direction : rtl
+		max-width : 1024px
 	));
 }
 

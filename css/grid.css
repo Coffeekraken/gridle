@@ -213,10 +213,10 @@ html.default .centered, .centered {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    float: right;
-    direction: rtl;
-    padding-left: 25px;
-    padding-right: 25px;
+    float: left;
+    direction: ltr;
+    padding-left: 10px;
+    padding-right: 10px;
   }
   .gridle-debug html.tablet .grid-tablet-1on5, html.tablet .gridle-debug .grid-tablet-1on5, .gridle-debug html.tablet .grid-tablet-0, html.tablet .gridle-debug .grid-tablet-0, .gridle-debug html.tablet .grid-tablet-1, html.tablet .gridle-debug .grid-tablet-1, .gridle-debug html.tablet .grid-tablet-2, html.tablet .gridle-debug .grid-tablet-2, .gridle-debug html.tablet .grid-tablet-3, html.tablet .gridle-debug .grid-tablet-3, .gridle-debug html.tablet .grid-tablet-4, html.tablet .gridle-debug .grid-tablet-4, .gridle-debug html.tablet .grid-tablet-5, html.tablet .gridle-debug .grid-tablet-5, .gridle-debug html.tablet .grid-tablet-6, html.tablet .gridle-debug .grid-tablet-6, .gridle-debug html.tablet .grid-tablet-7, html.tablet .gridle-debug .grid-tablet-7, .gridle-debug html.tablet .grid-tablet-8, html.tablet .gridle-debug .grid-tablet-8, .gridle-debug html.tablet .grid-tablet-9, html.tablet .gridle-debug .grid-tablet-9, .gridle-debug html.tablet .grid-tablet-10, html.tablet .gridle-debug .grid-tablet-10, .gridle-debug html.tablet .grid-tablet-11, html.tablet .gridle-debug .grid-tablet-11, .gridle-debug html.tablet .grid-tablet-12, html.tablet .gridle-debug .grid-tablet-12, .gridle-debug .grid-tablet-1on5, .gridle-debug .grid-tablet-0, .gridle-debug .grid-tablet-1, .gridle-debug .grid-tablet-2, .gridle-debug .grid-tablet-3, .gridle-debug .grid-tablet-4, .gridle-debug .grid-tablet-5, .gridle-debug .grid-tablet-6, .gridle-debug .grid-tablet-7, .gridle-debug .grid-tablet-8, .gridle-debug .grid-tablet-9, .gridle-debug .grid-tablet-10, .gridle-debug .grid-tablet-11, .gridle-debug .grid-tablet-12, html.tablet .gridle-debug.grid-tablet-1on5, html.tablet .gridle-debug.grid-tablet-0, html.tablet .gridle-debug.grid-tablet-1, html.tablet .gridle-debug.grid-tablet-2, html.tablet .gridle-debug.grid-tablet-3, html.tablet .gridle-debug.grid-tablet-4, html.tablet .gridle-debug.grid-tablet-5, html.tablet .gridle-debug.grid-tablet-6, html.tablet .gridle-debug.grid-tablet-7, html.tablet .gridle-debug.grid-tablet-8, html.tablet .gridle-debug.grid-tablet-9, html.tablet .gridle-debug.grid-tablet-10, html.tablet .gridle-debug.grid-tablet-11, html.tablet .gridle-debug.grid-tablet-12, .gridle-debug.grid-tablet-1on5, .gridle-debug.grid-tablet-0, .gridle-debug.grid-tablet-1, .gridle-debug.grid-tablet-2, .gridle-debug.grid-tablet-3, .gridle-debug.grid-tablet-4, .gridle-debug.grid-tablet-5, .gridle-debug.grid-tablet-6, .gridle-debug.grid-tablet-7, .gridle-debug.grid-tablet-8, .gridle-debug.grid-tablet-9, .gridle-debug.grid-tablet-10, .gridle-debug.grid-tablet-11, .gridle-debug.grid-tablet-12 {
     background-color: #daeff5;
@@ -264,24 +264,110 @@ html.default .centered, .centered {
     clear: both !important;
   }
 }
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .container-ipad-landscape, .container-ipad-landscape {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  html.ipad-landscape .container-ipad-landscape:after, .container-ipad-landscape:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  .gridle-debug html.ipad-landscape .container-ipad-landscape, html.ipad-landscape .gridle-debug .container-ipad-landscape, .gridle-debug .container-ipad-landscape, html.ipad-landscape .gridle-debug.container-ipad-landscape, .gridle-debug.container-ipad-landscape {
+    background-color: #f5f5f5;
+  }
+
+  html.ipad-landscape .parent-ipad-landscape, .parent-ipad-landscape {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  html.ipad-landscape .parent-ipad-landscape:before, .parent-ipad-landscape:before, html.ipad-landscape .parent-ipad-landscape:after, .parent-ipad-landscape:after {
+    content: "";
+    display: table;
+  }
+  html.ipad-landscape .parent-ipad-landscape:after, .parent-ipad-landscape:after {
+    clear: both;
+  }
+  html.ipad-landscape .parent-ipad-landscape, .parent-ipad-landscape {
+    zoom: 1;
+  }
+
+  html.ipad-landscape .grid-ipad-landscape-1on5, html.ipad-landscape .grid-ipad-landscape-0, html.ipad-landscape .grid-ipad-landscape-1, html.ipad-landscape .grid-ipad-landscape-2, html.ipad-landscape .grid-ipad-landscape-3, html.ipad-landscape .grid-ipad-landscape-4, html.ipad-landscape .grid-ipad-landscape-5, html.ipad-landscape .grid-ipad-landscape-6, html.ipad-landscape .grid-ipad-landscape-7, html.ipad-landscape .grid-ipad-landscape-8, html.ipad-landscape .grid-ipad-landscape-9, html.ipad-landscape .grid-ipad-landscape-10, html.ipad-landscape .grid-ipad-landscape-11, html.ipad-landscape .grid-ipad-landscape-12, .grid-ipad-landscape-1on5, .grid-ipad-landscape-0, .grid-ipad-landscape-1, .grid-ipad-landscape-2, .grid-ipad-landscape-3, .grid-ipad-landscape-4, .grid-ipad-landscape-5, .grid-ipad-landscape-6, .grid-ipad-landscape-7, .grid-ipad-landscape-8, .grid-ipad-landscape-9, .grid-ipad-landscape-10, .grid-ipad-landscape-11, .grid-ipad-landscape-12 {
+    display: inline-block;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    direction: ltr;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5, html.ipad-landscape .gridle-debug .grid-ipad-landscape-1on5, .gridle-debug html.ipad-landscape .grid-ipad-landscape-0, html.ipad-landscape .gridle-debug .grid-ipad-landscape-0, .gridle-debug html.ipad-landscape .grid-ipad-landscape-1, html.ipad-landscape .gridle-debug .grid-ipad-landscape-1, .gridle-debug html.ipad-landscape .grid-ipad-landscape-2, html.ipad-landscape .gridle-debug .grid-ipad-landscape-2, .gridle-debug html.ipad-landscape .grid-ipad-landscape-3, html.ipad-landscape .gridle-debug .grid-ipad-landscape-3, .gridle-debug html.ipad-landscape .grid-ipad-landscape-4, html.ipad-landscape .gridle-debug .grid-ipad-landscape-4, .gridle-debug html.ipad-landscape .grid-ipad-landscape-5, html.ipad-landscape .gridle-debug .grid-ipad-landscape-5, .gridle-debug html.ipad-landscape .grid-ipad-landscape-6, html.ipad-landscape .gridle-debug .grid-ipad-landscape-6, .gridle-debug html.ipad-landscape .grid-ipad-landscape-7, html.ipad-landscape .gridle-debug .grid-ipad-landscape-7, .gridle-debug html.ipad-landscape .grid-ipad-landscape-8, html.ipad-landscape .gridle-debug .grid-ipad-landscape-8, .gridle-debug html.ipad-landscape .grid-ipad-landscape-9, html.ipad-landscape .gridle-debug .grid-ipad-landscape-9, .gridle-debug html.ipad-landscape .grid-ipad-landscape-10, html.ipad-landscape .gridle-debug .grid-ipad-landscape-10, .gridle-debug html.ipad-landscape .grid-ipad-landscape-11, html.ipad-landscape .gridle-debug .grid-ipad-landscape-11, .gridle-debug html.ipad-landscape .grid-ipad-landscape-12, html.ipad-landscape .gridle-debug .grid-ipad-landscape-12, .gridle-debug .grid-ipad-landscape-1on5, .gridle-debug .grid-ipad-landscape-0, .gridle-debug .grid-ipad-landscape-1, .gridle-debug .grid-ipad-landscape-2, .gridle-debug .grid-ipad-landscape-3, .gridle-debug .grid-ipad-landscape-4, .gridle-debug .grid-ipad-landscape-5, .gridle-debug .grid-ipad-landscape-6, .gridle-debug .grid-ipad-landscape-7, .gridle-debug .grid-ipad-landscape-8, .gridle-debug .grid-ipad-landscape-9, .gridle-debug .grid-ipad-landscape-10, .gridle-debug .grid-ipad-landscape-11, .gridle-debug .grid-ipad-landscape-12, html.ipad-landscape .gridle-debug.grid-ipad-landscape-1on5, html.ipad-landscape .gridle-debug.grid-ipad-landscape-0, html.ipad-landscape .gridle-debug.grid-ipad-landscape-1, html.ipad-landscape .gridle-debug.grid-ipad-landscape-2, html.ipad-landscape .gridle-debug.grid-ipad-landscape-3, html.ipad-landscape .gridle-debug.grid-ipad-landscape-4, html.ipad-landscape .gridle-debug.grid-ipad-landscape-5, html.ipad-landscape .gridle-debug.grid-ipad-landscape-6, html.ipad-landscape .gridle-debug.grid-ipad-landscape-7, html.ipad-landscape .gridle-debug.grid-ipad-landscape-8, html.ipad-landscape .gridle-debug.grid-ipad-landscape-9, html.ipad-landscape .gridle-debug.grid-ipad-landscape-10, html.ipad-landscape .gridle-debug.grid-ipad-landscape-11, html.ipad-landscape .gridle-debug.grid-ipad-landscape-12, .gridle-debug.grid-ipad-landscape-1on5, .gridle-debug.grid-ipad-landscape-0, .gridle-debug.grid-ipad-landscape-1, .gridle-debug.grid-ipad-landscape-2, .gridle-debug.grid-ipad-landscape-3, .gridle-debug.grid-ipad-landscape-4, .gridle-debug.grid-ipad-landscape-5, .gridle-debug.grid-ipad-landscape-6, .gridle-debug.grid-ipad-landscape-7, .gridle-debug.grid-ipad-landscape-8, .gridle-debug.grid-ipad-landscape-9, .gridle-debug.grid-ipad-landscape-10, .gridle-debug.grid-ipad-landscape-11, .gridle-debug.grid-ipad-landscape-12 {
+    background-color: #daeff5;
+  }
+  .gridle-debug .grid-ipad-landscape-1on5:before, .gridle-debug .grid-ipad-landscape-0:before, .gridle-debug .grid-ipad-landscape-1:before, .gridle-debug .grid-ipad-landscape-2:before, .gridle-debug .grid-ipad-landscape-3:before, .gridle-debug .grid-ipad-landscape-4:before, .gridle-debug .grid-ipad-landscape-5:before, .gridle-debug .grid-ipad-landscape-6:before, .gridle-debug .grid-ipad-landscape-7:before, .gridle-debug .grid-ipad-landscape-8:before, .gridle-debug .grid-ipad-landscape-9:before, .gridle-debug .grid-ipad-landscape-10:before, .gridle-debug .grid-ipad-landscape-11:before, .gridle-debug .grid-ipad-landscape-12:before, .gridle-debug .grid-ipad-landscape-1on5:after, .gridle-debug .grid-ipad-landscape-0:after, .gridle-debug .grid-ipad-landscape-1:after, .gridle-debug .grid-ipad-landscape-2:after, .gridle-debug .grid-ipad-landscape-3:after, .gridle-debug .grid-ipad-landscape-4:after, .gridle-debug .grid-ipad-landscape-5:after, .gridle-debug .grid-ipad-landscape-6:after, .gridle-debug .grid-ipad-landscape-7:after, .gridle-debug .grid-ipad-landscape-8:after, .gridle-debug .grid-ipad-landscape-9:after, .gridle-debug .grid-ipad-landscape-10:after, .gridle-debug .grid-ipad-landscape-11:after, .gridle-debug .grid-ipad-landscape-12:after, .gridle-debug.grid-ipad-landscape-1on5:before, .gridle-debug.grid-ipad-landscape-0:before, .gridle-debug.grid-ipad-landscape-1:before, .gridle-debug.grid-ipad-landscape-2:before, .gridle-debug.grid-ipad-landscape-3:before, .gridle-debug.grid-ipad-landscape-4:before, .gridle-debug.grid-ipad-landscape-5:before, .gridle-debug.grid-ipad-landscape-6:before, .gridle-debug.grid-ipad-landscape-7:before, .gridle-debug.grid-ipad-landscape-8:before, .gridle-debug.grid-ipad-landscape-9:before, .gridle-debug.grid-ipad-landscape-10:before, .gridle-debug.grid-ipad-landscape-11:before, .gridle-debug.grid-ipad-landscape-12:before, .gridle-debug.grid-ipad-landscape-1on5:after, .gridle-debug.grid-ipad-landscape-0:after, .gridle-debug.grid-ipad-landscape-1:after, .gridle-debug.grid-ipad-landscape-2:after, .gridle-debug.grid-ipad-landscape-3:after, .gridle-debug.grid-ipad-landscape-4:after, .gridle-debug.grid-ipad-landscape-5:after, .gridle-debug.grid-ipad-landscape-6:after, .gridle-debug.grid-ipad-landscape-7:after, .gridle-debug.grid-ipad-landscape-8:after, .gridle-debug.grid-ipad-landscape-9:after, .gridle-debug.grid-ipad-landscape-10:after, .gridle-debug.grid-ipad-landscape-11:after, .gridle-debug.grid-ipad-landscape-12:after {
+    content: "";
+    display: block;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
+    margin: 10px 0;
+    padding: 5px 0;
+    text-align: center;
+    color: white;
+    font-size: 11px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    display: block !important;
+  }
+
+  html.ipad-landscape .push-ipad-landscape-1on5, html.ipad-landscape .push-ipad-landscape-0, html.ipad-landscape .push-ipad-landscape-1, html.ipad-landscape .push-ipad-landscape-2, html.ipad-landscape .push-ipad-landscape-3, html.ipad-landscape .push-ipad-landscape-4, html.ipad-landscape .push-ipad-landscape-5, html.ipad-landscape .push-ipad-landscape-6, html.ipad-landscape .push-ipad-landscape-7, html.ipad-landscape .push-ipad-landscape-8, html.ipad-landscape .push-ipad-landscape-9, html.ipad-landscape .push-ipad-landscape-10, html.ipad-landscape .push-ipad-landscape-11, html.ipad-landscape .push-ipad-landscape-12, .push-ipad-landscape-1on5, .push-ipad-landscape-0, .push-ipad-landscape-1, .push-ipad-landscape-2, .push-ipad-landscape-3, .push-ipad-landscape-4, .push-ipad-landscape-5, .push-ipad-landscape-6, .push-ipad-landscape-7, .push-ipad-landscape-8, .push-ipad-landscape-9, .push-ipad-landscape-10, .push-ipad-landscape-11, .push-ipad-landscape-12 {
+    position: relative;
+  }
+  .gridle-debug html.ipad-landscape .push-ipad-landscape-1on5, html.ipad-landscape .gridle-debug .push-ipad-landscape-1on5, .gridle-debug html.ipad-landscape .push-ipad-landscape-0, html.ipad-landscape .gridle-debug .push-ipad-landscape-0, .gridle-debug html.ipad-landscape .push-ipad-landscape-1, html.ipad-landscape .gridle-debug .push-ipad-landscape-1, .gridle-debug html.ipad-landscape .push-ipad-landscape-2, html.ipad-landscape .gridle-debug .push-ipad-landscape-2, .gridle-debug html.ipad-landscape .push-ipad-landscape-3, html.ipad-landscape .gridle-debug .push-ipad-landscape-3, .gridle-debug html.ipad-landscape .push-ipad-landscape-4, html.ipad-landscape .gridle-debug .push-ipad-landscape-4, .gridle-debug html.ipad-landscape .push-ipad-landscape-5, html.ipad-landscape .gridle-debug .push-ipad-landscape-5, .gridle-debug html.ipad-landscape .push-ipad-landscape-6, html.ipad-landscape .gridle-debug .push-ipad-landscape-6, .gridle-debug html.ipad-landscape .push-ipad-landscape-7, html.ipad-landscape .gridle-debug .push-ipad-landscape-7, .gridle-debug html.ipad-landscape .push-ipad-landscape-8, html.ipad-landscape .gridle-debug .push-ipad-landscape-8, .gridle-debug html.ipad-landscape .push-ipad-landscape-9, html.ipad-landscape .gridle-debug .push-ipad-landscape-9, .gridle-debug html.ipad-landscape .push-ipad-landscape-10, html.ipad-landscape .gridle-debug .push-ipad-landscape-10, .gridle-debug html.ipad-landscape .push-ipad-landscape-11, html.ipad-landscape .gridle-debug .push-ipad-landscape-11, .gridle-debug html.ipad-landscape .push-ipad-landscape-12, html.ipad-landscape .gridle-debug .push-ipad-landscape-12, .gridle-debug .push-ipad-landscape-1on5, .gridle-debug .push-ipad-landscape-0, .gridle-debug .push-ipad-landscape-1, .gridle-debug .push-ipad-landscape-2, .gridle-debug .push-ipad-landscape-3, .gridle-debug .push-ipad-landscape-4, .gridle-debug .push-ipad-landscape-5, .gridle-debug .push-ipad-landscape-6, .gridle-debug .push-ipad-landscape-7, .gridle-debug .push-ipad-landscape-8, .gridle-debug .push-ipad-landscape-9, .gridle-debug .push-ipad-landscape-10, .gridle-debug .push-ipad-landscape-11, .gridle-debug .push-ipad-landscape-12, html.ipad-landscape .gridle-debug.push-ipad-landscape-1on5, html.ipad-landscape .gridle-debug.push-ipad-landscape-0, html.ipad-landscape .gridle-debug.push-ipad-landscape-1, html.ipad-landscape .gridle-debug.push-ipad-landscape-2, html.ipad-landscape .gridle-debug.push-ipad-landscape-3, html.ipad-landscape .gridle-debug.push-ipad-landscape-4, html.ipad-landscape .gridle-debug.push-ipad-landscape-5, html.ipad-landscape .gridle-debug.push-ipad-landscape-6, html.ipad-landscape .gridle-debug.push-ipad-landscape-7, html.ipad-landscape .gridle-debug.push-ipad-landscape-8, html.ipad-landscape .gridle-debug.push-ipad-landscape-9, html.ipad-landscape .gridle-debug.push-ipad-landscape-10, html.ipad-landscape .gridle-debug.push-ipad-landscape-11, html.ipad-landscape .gridle-debug.push-ipad-landscape-12, .gridle-debug.push-ipad-landscape-1on5, .gridle-debug.push-ipad-landscape-0, .gridle-debug.push-ipad-landscape-1, .gridle-debug.push-ipad-landscape-2, .gridle-debug.push-ipad-landscape-3, .gridle-debug.push-ipad-landscape-4, .gridle-debug.push-ipad-landscape-5, .gridle-debug.push-ipad-landscape-6, .gridle-debug.push-ipad-landscape-7, .gridle-debug.push-ipad-landscape-8, .gridle-debug.push-ipad-landscape-9, .gridle-debug.push-ipad-landscape-10, .gridle-debug.push-ipad-landscape-11, .gridle-debug.push-ipad-landscape-12 {
+    background-size: 50px 90%;
+    background-position: 0 50%;
+    background-repeat: repeat-x;
+    background-color: #f4efdf !important;
+  }
+
+  html.ipad-landscape .pull-ipad-landscape-1on5, html.ipad-landscape .pull-ipad-landscape-0, html.ipad-landscape .pull-ipad-landscape-1, html.ipad-landscape .pull-ipad-landscape-2, html.ipad-landscape .pull-ipad-landscape-3, html.ipad-landscape .pull-ipad-landscape-4, html.ipad-landscape .pull-ipad-landscape-5, html.ipad-landscape .pull-ipad-landscape-6, html.ipad-landscape .pull-ipad-landscape-7, html.ipad-landscape .pull-ipad-landscape-8, html.ipad-landscape .pull-ipad-landscape-9, html.ipad-landscape .pull-ipad-landscape-10, html.ipad-landscape .pull-ipad-landscape-11, html.ipad-landscape .pull-ipad-landscape-12, .pull-ipad-landscape-1on5, .pull-ipad-landscape-0, .pull-ipad-landscape-1, .pull-ipad-landscape-2, .pull-ipad-landscape-3, .pull-ipad-landscape-4, .pull-ipad-landscape-5, .pull-ipad-landscape-6, .pull-ipad-landscape-7, .pull-ipad-landscape-8, .pull-ipad-landscape-9, .pull-ipad-landscape-10, .pull-ipad-landscape-11, .pull-ipad-landscape-12 {
+    position: relative;
+  }
+  .gridle-debug html.ipad-landscape .pull-ipad-landscape-1on5, html.ipad-landscape .gridle-debug .pull-ipad-landscape-1on5, .gridle-debug html.ipad-landscape .pull-ipad-landscape-0, html.ipad-landscape .gridle-debug .pull-ipad-landscape-0, .gridle-debug html.ipad-landscape .pull-ipad-landscape-1, html.ipad-landscape .gridle-debug .pull-ipad-landscape-1, .gridle-debug html.ipad-landscape .pull-ipad-landscape-2, html.ipad-landscape .gridle-debug .pull-ipad-landscape-2, .gridle-debug html.ipad-landscape .pull-ipad-landscape-3, html.ipad-landscape .gridle-debug .pull-ipad-landscape-3, .gridle-debug html.ipad-landscape .pull-ipad-landscape-4, html.ipad-landscape .gridle-debug .pull-ipad-landscape-4, .gridle-debug html.ipad-landscape .pull-ipad-landscape-5, html.ipad-landscape .gridle-debug .pull-ipad-landscape-5, .gridle-debug html.ipad-landscape .pull-ipad-landscape-6, html.ipad-landscape .gridle-debug .pull-ipad-landscape-6, .gridle-debug html.ipad-landscape .pull-ipad-landscape-7, html.ipad-landscape .gridle-debug .pull-ipad-landscape-7, .gridle-debug html.ipad-landscape .pull-ipad-landscape-8, html.ipad-landscape .gridle-debug .pull-ipad-landscape-8, .gridle-debug html.ipad-landscape .pull-ipad-landscape-9, html.ipad-landscape .gridle-debug .pull-ipad-landscape-9, .gridle-debug html.ipad-landscape .pull-ipad-landscape-10, html.ipad-landscape .gridle-debug .pull-ipad-landscape-10, .gridle-debug html.ipad-landscape .pull-ipad-landscape-11, html.ipad-landscape .gridle-debug .pull-ipad-landscape-11, .gridle-debug html.ipad-landscape .pull-ipad-landscape-12, html.ipad-landscape .gridle-debug .pull-ipad-landscape-12, .gridle-debug .pull-ipad-landscape-1on5, .gridle-debug .pull-ipad-landscape-0, .gridle-debug .pull-ipad-landscape-1, .gridle-debug .pull-ipad-landscape-2, .gridle-debug .pull-ipad-landscape-3, .gridle-debug .pull-ipad-landscape-4, .gridle-debug .pull-ipad-landscape-5, .gridle-debug .pull-ipad-landscape-6, .gridle-debug .pull-ipad-landscape-7, .gridle-debug .pull-ipad-landscape-8, .gridle-debug .pull-ipad-landscape-9, .gridle-debug .pull-ipad-landscape-10, .gridle-debug .pull-ipad-landscape-11, .gridle-debug .pull-ipad-landscape-12, html.ipad-landscape .gridle-debug.pull-ipad-landscape-1on5, html.ipad-landscape .gridle-debug.pull-ipad-landscape-0, html.ipad-landscape .gridle-debug.pull-ipad-landscape-1, html.ipad-landscape .gridle-debug.pull-ipad-landscape-2, html.ipad-landscape .gridle-debug.pull-ipad-landscape-3, html.ipad-landscape .gridle-debug.pull-ipad-landscape-4, html.ipad-landscape .gridle-debug.pull-ipad-landscape-5, html.ipad-landscape .gridle-debug.pull-ipad-landscape-6, html.ipad-landscape .gridle-debug.pull-ipad-landscape-7, html.ipad-landscape .gridle-debug.pull-ipad-landscape-8, html.ipad-landscape .gridle-debug.pull-ipad-landscape-9, html.ipad-landscape .gridle-debug.pull-ipad-landscape-10, html.ipad-landscape .gridle-debug.pull-ipad-landscape-11, html.ipad-landscape .gridle-debug.pull-ipad-landscape-12, .gridle-debug.pull-ipad-landscape-1on5, .gridle-debug.pull-ipad-landscape-0, .gridle-debug.pull-ipad-landscape-1, .gridle-debug.pull-ipad-landscape-2, .gridle-debug.pull-ipad-landscape-3, .gridle-debug.pull-ipad-landscape-4, .gridle-debug.pull-ipad-landscape-5, .gridle-debug.pull-ipad-landscape-6, .gridle-debug.pull-ipad-landscape-7, .gridle-debug.pull-ipad-landscape-8, .gridle-debug.pull-ipad-landscape-9, .gridle-debug.pull-ipad-landscape-10, .gridle-debug.pull-ipad-landscape-11, .gridle-debug.pull-ipad-landscape-12 {
+    background-size: 50px 90%;
+    background-position: 0 50%;
+    background-repeat: repeat-x;
+    background-color: #cfe4d5 !important;
+  }
+
+  html.ipad-landscape .centered-ipad-landscape, .centered-ipad-landscape {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important;
+  }
+}
 @media screen and (max-width: 400px) {
   @-ms-viewport {
     width: device-width;
   }
 }
 #gridle-settings {
-  content: '{ "version" : "1.3.39", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : true, "debug-show-class-names" : true, "html-states-classes" : false, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : true, "debug-show-class-names" : true, "html-states-classes" : false, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "50px", "direction" : "rtl", "name-multiplicator" : "1", "debug" : true, "debug-show-class-names" : true, "html-states-classes" : false, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
+  content: '{ "version" : "1.3.39", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : true, "debug-show-class-names" : true, "html-states-classes" : false, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : true, "debug-show-class-names" : true, "html-states-classes" : false, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : true, "debug-show-class-names" : true, "html-states-classes" : false, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "0px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : true, "debug-show-class-names" : true, "html-states-classes" : false, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
 }
 
 html.default .grid-1on5 {
   width: 20%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-1on5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -328,12 +414,10 @@ html.default .suffix-1on5 {
 html.default .grid-0 {
   width: 0%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-0 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -380,12 +464,10 @@ html.default .suffix-0 {
 html.default .grid-1 {
   width: 8.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-1 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -432,12 +514,10 @@ html.default .suffix-1 {
 html.default .grid-2 {
   width: 16.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-2 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -484,12 +564,10 @@ html.default .suffix-2 {
 html.default .grid-3 {
   width: 25%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-3 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -536,12 +614,10 @@ html.default .suffix-3 {
 html.default .grid-4 {
   width: 33.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-4 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -588,12 +664,10 @@ html.default .suffix-4 {
 html.default .grid-5 {
   width: 41.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -640,12 +714,10 @@ html.default .suffix-5 {
 html.default .grid-6 {
   width: 50%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-6 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -692,12 +764,10 @@ html.default .suffix-6 {
 html.default .grid-7 {
   width: 58.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-7 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -744,12 +814,10 @@ html.default .suffix-7 {
 html.default .grid-8 {
   width: 66.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-8 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -796,12 +864,10 @@ html.default .suffix-8 {
 html.default .grid-9 {
   width: 75%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-9 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -848,12 +914,10 @@ html.default .suffix-9 {
 html.default .grid-10 {
   width: 83.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-10 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -900,12 +964,10 @@ html.default .suffix-10 {
 html.default .grid-11 {
   width: 91.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-11 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -952,12 +1014,10 @@ html.default .suffix-11 {
 html.default .grid-12 {
   width: 100%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.default .grid-12 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1138,12 +1198,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-1on5 {
   width: 20%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-1on5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1195,12 +1253,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-0 {
   width: 0%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-0 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1252,12 +1308,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-1 {
   width: 8.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-1 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1309,12 +1363,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-2 {
   width: 16.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-2 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1366,12 +1418,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-3 {
   width: 25%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-3 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1423,12 +1473,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-4 {
   width: 33.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-4 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1480,12 +1528,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-5 {
   width: 41.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1537,12 +1583,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-6 {
   width: 50%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-6 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1594,12 +1638,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-7 {
   width: 58.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-7 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1651,12 +1693,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-8 {
   width: 66.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-8 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1708,12 +1748,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-9 {
   width: 75%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-9 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1765,12 +1803,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-10 {
   width: 83.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-10 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1822,12 +1858,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-11 {
   width: 91.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-11 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1879,12 +1913,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 .grid-12 {
   width: 100%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-12 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2102,12 +2134,10 @@ html.default .clear-each-12 > *:nth-child(12n+1) {
 html.mobile .grid-mobile-1on5 {
   width: 20%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-1on5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2154,12 +2184,10 @@ html.mobile .suffix-mobile-1on5 {
 html.mobile .grid-mobile-0 {
   width: 0%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-0 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2206,12 +2234,10 @@ html.mobile .suffix-mobile-0 {
 html.mobile .grid-mobile-1 {
   width: 8.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-1 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2258,12 +2284,10 @@ html.mobile .suffix-mobile-1 {
 html.mobile .grid-mobile-2 {
   width: 16.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-2 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2310,12 +2334,10 @@ html.mobile .suffix-mobile-2 {
 html.mobile .grid-mobile-3 {
   width: 25%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-3 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2362,12 +2384,10 @@ html.mobile .suffix-mobile-3 {
 html.mobile .grid-mobile-4 {
   width: 33.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-4 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2414,12 +2434,10 @@ html.mobile .suffix-mobile-4 {
 html.mobile .grid-mobile-5 {
   width: 41.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2466,12 +2484,10 @@ html.mobile .suffix-mobile-5 {
 html.mobile .grid-mobile-6 {
   width: 50%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-6 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2518,12 +2534,10 @@ html.mobile .suffix-mobile-6 {
 html.mobile .grid-mobile-7 {
   width: 58.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-7 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2570,12 +2584,10 @@ html.mobile .suffix-mobile-7 {
 html.mobile .grid-mobile-8 {
   width: 66.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-8 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2622,12 +2634,10 @@ html.mobile .suffix-mobile-8 {
 html.mobile .grid-mobile-9 {
   width: 75%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-9 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2674,12 +2684,10 @@ html.mobile .suffix-mobile-9 {
 html.mobile .grid-mobile-10 {
   width: 83.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-10 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2726,12 +2734,10 @@ html.mobile .suffix-mobile-10 {
 html.mobile .grid-mobile-11 {
   width: 91.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-11 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2778,12 +2784,10 @@ html.mobile .suffix-mobile-11 {
 html.mobile .grid-mobile-12 {
   width: 100%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.mobile .grid-mobile-12 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -2966,12 +2970,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 20%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-1on5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3025,12 +3027,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 0%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-0 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3084,12 +3084,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 8.33333%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-1 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3143,12 +3141,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 16.66667%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-2 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3202,12 +3198,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 25%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-3 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3261,12 +3255,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 33.33333%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-4 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3320,12 +3312,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 41.66667%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3379,12 +3369,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 50%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-6 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3438,12 +3426,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 58.33333%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-7 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3497,12 +3483,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 66.66667%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-8 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3556,12 +3540,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 75%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-9 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3615,12 +3597,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 83.33333%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-10 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3674,12 +3654,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 91.66667%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-11 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3733,12 +3711,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
     width: 100%;
   }
 }
-@media screen and (max-width: 480px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-mobile-12 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) and (max-width: 480px) {
@@ -3957,12 +3933,10 @@ html.mobile .clear-each-mobile-12 > *:nth-child(12n+1) {
 html.tablet .grid-tablet-1on5 {
   width: 20%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-1on5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -3983,25 +3957,25 @@ html.tablet .grid-tablet-1on5 {
   content: "grid-parent-tablet-1" !important;
 }
 html.tablet .push-tablet-1on5 {
-  left: -20%;
+  left: 20%;
 }
 .gridle-debug html.tablet .push-tablet-1on5:after, html.tablet .push-tablet-1on5.gridle-debug:after {
   content: "push-tablet-1" !important;
 }
 html.tablet .pull-tablet-1on5 {
-  right: -20%;
+  right: 20%;
 }
 .gridle-debug html.tablet .pull-tablet-1on5:after, html.tablet .pull-tablet-1on5.gridle-debug:after {
   content: "pull-tablet-1" !important;
 }
 html.tablet .prefix-tablet-1on5 {
-  margin-right: 20%;
+  margin-left: 20%;
 }
 .gridle-debug html.tablet .prefix-tablet-1on5:after, html.tablet .prefix-tablet-1on5.gridle-debug:after {
   content: "prefix-tablet-1" !important;
 }
 html.tablet .suffix-tablet-1on5 {
-  margin-left: 20%;
+  margin-right: 20%;
 }
 .gridle-debug html.tablet .suffix-tablet-1on5:after, html.tablet .suffix-tablet-1on5.gridle-debug:after {
   content: "suffix-tablet-1" !important;
@@ -4009,12 +3983,10 @@ html.tablet .suffix-tablet-1on5 {
 html.tablet .grid-tablet-0 {
   width: 0%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-0 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4047,13 +4019,13 @@ html.tablet .pull-tablet-0 {
   content: "pull-tablet-0" !important;
 }
 html.tablet .prefix-tablet-0 {
-  margin-right: 0%;
+  margin-left: 0%;
 }
 .gridle-debug html.tablet .prefix-tablet-0:after, html.tablet .prefix-tablet-0.gridle-debug:after {
   content: "prefix-tablet-0" !important;
 }
 html.tablet .suffix-tablet-0 {
-  margin-left: 0%;
+  margin-right: 0%;
 }
 .gridle-debug html.tablet .suffix-tablet-0:after, html.tablet .suffix-tablet-0.gridle-debug:after {
   content: "suffix-tablet-0" !important;
@@ -4061,12 +4033,10 @@ html.tablet .suffix-tablet-0 {
 html.tablet .grid-tablet-1 {
   width: 8.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-1 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4087,25 +4057,25 @@ html.tablet .grid-tablet-1 {
   content: "grid-parent-tablet-1" !important;
 }
 html.tablet .push-tablet-1 {
-  left: -8.33333%;
+  left: 8.33333%;
 }
 .gridle-debug html.tablet .push-tablet-1:after, html.tablet .push-tablet-1.gridle-debug:after {
   content: "push-tablet-1" !important;
 }
 html.tablet .pull-tablet-1 {
-  right: -8.33333%;
+  right: 8.33333%;
 }
 .gridle-debug html.tablet .pull-tablet-1:after, html.tablet .pull-tablet-1.gridle-debug:after {
   content: "pull-tablet-1" !important;
 }
 html.tablet .prefix-tablet-1 {
-  margin-right: 8.33333%;
+  margin-left: 8.33333%;
 }
 .gridle-debug html.tablet .prefix-tablet-1:after, html.tablet .prefix-tablet-1.gridle-debug:after {
   content: "prefix-tablet-1" !important;
 }
 html.tablet .suffix-tablet-1 {
-  margin-left: 8.33333%;
+  margin-right: 8.33333%;
 }
 .gridle-debug html.tablet .suffix-tablet-1:after, html.tablet .suffix-tablet-1.gridle-debug:after {
   content: "suffix-tablet-1" !important;
@@ -4113,12 +4083,10 @@ html.tablet .suffix-tablet-1 {
 html.tablet .grid-tablet-2 {
   width: 16.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-2 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4139,25 +4107,25 @@ html.tablet .grid-tablet-2 {
   content: "grid-parent-tablet-2" !important;
 }
 html.tablet .push-tablet-2 {
-  left: -16.66667%;
+  left: 16.66667%;
 }
 .gridle-debug html.tablet .push-tablet-2:after, html.tablet .push-tablet-2.gridle-debug:after {
   content: "push-tablet-2" !important;
 }
 html.tablet .pull-tablet-2 {
-  right: -16.66667%;
+  right: 16.66667%;
 }
 .gridle-debug html.tablet .pull-tablet-2:after, html.tablet .pull-tablet-2.gridle-debug:after {
   content: "pull-tablet-2" !important;
 }
 html.tablet .prefix-tablet-2 {
-  margin-right: 16.66667%;
+  margin-left: 16.66667%;
 }
 .gridle-debug html.tablet .prefix-tablet-2:after, html.tablet .prefix-tablet-2.gridle-debug:after {
   content: "prefix-tablet-2" !important;
 }
 html.tablet .suffix-tablet-2 {
-  margin-left: 16.66667%;
+  margin-right: 16.66667%;
 }
 .gridle-debug html.tablet .suffix-tablet-2:after, html.tablet .suffix-tablet-2.gridle-debug:after {
   content: "suffix-tablet-2" !important;
@@ -4165,12 +4133,10 @@ html.tablet .suffix-tablet-2 {
 html.tablet .grid-tablet-3 {
   width: 25%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-3 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4191,25 +4157,25 @@ html.tablet .grid-tablet-3 {
   content: "grid-parent-tablet-3" !important;
 }
 html.tablet .push-tablet-3 {
-  left: -25.0%;
+  left: 25.0%;
 }
 .gridle-debug html.tablet .push-tablet-3:after, html.tablet .push-tablet-3.gridle-debug:after {
   content: "push-tablet-3" !important;
 }
 html.tablet .pull-tablet-3 {
-  right: -25.0%;
+  right: 25.0%;
 }
 .gridle-debug html.tablet .pull-tablet-3:after, html.tablet .pull-tablet-3.gridle-debug:after {
   content: "pull-tablet-3" !important;
 }
 html.tablet .prefix-tablet-3 {
-  margin-right: 25.0%;
+  margin-left: 25.0%;
 }
 .gridle-debug html.tablet .prefix-tablet-3:after, html.tablet .prefix-tablet-3.gridle-debug:after {
   content: "prefix-tablet-3" !important;
 }
 html.tablet .suffix-tablet-3 {
-  margin-left: 25.0%;
+  margin-right: 25.0%;
 }
 .gridle-debug html.tablet .suffix-tablet-3:after, html.tablet .suffix-tablet-3.gridle-debug:after {
   content: "suffix-tablet-3" !important;
@@ -4217,12 +4183,10 @@ html.tablet .suffix-tablet-3 {
 html.tablet .grid-tablet-4 {
   width: 33.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-4 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4243,25 +4207,25 @@ html.tablet .grid-tablet-4 {
   content: "grid-parent-tablet-4" !important;
 }
 html.tablet .push-tablet-4 {
-  left: -33.33333%;
+  left: 33.33333%;
 }
 .gridle-debug html.tablet .push-tablet-4:after, html.tablet .push-tablet-4.gridle-debug:after {
   content: "push-tablet-4" !important;
 }
 html.tablet .pull-tablet-4 {
-  right: -33.33333%;
+  right: 33.33333%;
 }
 .gridle-debug html.tablet .pull-tablet-4:after, html.tablet .pull-tablet-4.gridle-debug:after {
   content: "pull-tablet-4" !important;
 }
 html.tablet .prefix-tablet-4 {
-  margin-right: 33.33333%;
+  margin-left: 33.33333%;
 }
 .gridle-debug html.tablet .prefix-tablet-4:after, html.tablet .prefix-tablet-4.gridle-debug:after {
   content: "prefix-tablet-4" !important;
 }
 html.tablet .suffix-tablet-4 {
-  margin-left: 33.33333%;
+  margin-right: 33.33333%;
 }
 .gridle-debug html.tablet .suffix-tablet-4:after, html.tablet .suffix-tablet-4.gridle-debug:after {
   content: "suffix-tablet-4" !important;
@@ -4269,12 +4233,10 @@ html.tablet .suffix-tablet-4 {
 html.tablet .grid-tablet-5 {
   width: 41.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4295,25 +4257,25 @@ html.tablet .grid-tablet-5 {
   content: "grid-parent-tablet-5" !important;
 }
 html.tablet .push-tablet-5 {
-  left: -41.66667%;
+  left: 41.66667%;
 }
 .gridle-debug html.tablet .push-tablet-5:after, html.tablet .push-tablet-5.gridle-debug:after {
   content: "push-tablet-5" !important;
 }
 html.tablet .pull-tablet-5 {
-  right: -41.66667%;
+  right: 41.66667%;
 }
 .gridle-debug html.tablet .pull-tablet-5:after, html.tablet .pull-tablet-5.gridle-debug:after {
   content: "pull-tablet-5" !important;
 }
 html.tablet .prefix-tablet-5 {
-  margin-right: 41.66667%;
+  margin-left: 41.66667%;
 }
 .gridle-debug html.tablet .prefix-tablet-5:after, html.tablet .prefix-tablet-5.gridle-debug:after {
   content: "prefix-tablet-5" !important;
 }
 html.tablet .suffix-tablet-5 {
-  margin-left: 41.66667%;
+  margin-right: 41.66667%;
 }
 .gridle-debug html.tablet .suffix-tablet-5:after, html.tablet .suffix-tablet-5.gridle-debug:after {
   content: "suffix-tablet-5" !important;
@@ -4321,12 +4283,10 @@ html.tablet .suffix-tablet-5 {
 html.tablet .grid-tablet-6 {
   width: 50%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-6 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4347,25 +4307,25 @@ html.tablet .grid-tablet-6 {
   content: "grid-parent-tablet-6" !important;
 }
 html.tablet .push-tablet-6 {
-  left: -50.0%;
+  left: 50.0%;
 }
 .gridle-debug html.tablet .push-tablet-6:after, html.tablet .push-tablet-6.gridle-debug:after {
   content: "push-tablet-6" !important;
 }
 html.tablet .pull-tablet-6 {
-  right: -50.0%;
+  right: 50.0%;
 }
 .gridle-debug html.tablet .pull-tablet-6:after, html.tablet .pull-tablet-6.gridle-debug:after {
   content: "pull-tablet-6" !important;
 }
 html.tablet .prefix-tablet-6 {
-  margin-right: 50.0%;
+  margin-left: 50.0%;
 }
 .gridle-debug html.tablet .prefix-tablet-6:after, html.tablet .prefix-tablet-6.gridle-debug:after {
   content: "prefix-tablet-6" !important;
 }
 html.tablet .suffix-tablet-6 {
-  margin-left: 50.0%;
+  margin-right: 50.0%;
 }
 .gridle-debug html.tablet .suffix-tablet-6:after, html.tablet .suffix-tablet-6.gridle-debug:after {
   content: "suffix-tablet-6" !important;
@@ -4373,12 +4333,10 @@ html.tablet .suffix-tablet-6 {
 html.tablet .grid-tablet-7 {
   width: 58.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-7 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4399,25 +4357,25 @@ html.tablet .grid-tablet-7 {
   content: "grid-parent-tablet-7" !important;
 }
 html.tablet .push-tablet-7 {
-  left: -58.33333%;
+  left: 58.33333%;
 }
 .gridle-debug html.tablet .push-tablet-7:after, html.tablet .push-tablet-7.gridle-debug:after {
   content: "push-tablet-7" !important;
 }
 html.tablet .pull-tablet-7 {
-  right: -58.33333%;
+  right: 58.33333%;
 }
 .gridle-debug html.tablet .pull-tablet-7:after, html.tablet .pull-tablet-7.gridle-debug:after {
   content: "pull-tablet-7" !important;
 }
 html.tablet .prefix-tablet-7 {
-  margin-right: 58.33333%;
+  margin-left: 58.33333%;
 }
 .gridle-debug html.tablet .prefix-tablet-7:after, html.tablet .prefix-tablet-7.gridle-debug:after {
   content: "prefix-tablet-7" !important;
 }
 html.tablet .suffix-tablet-7 {
-  margin-left: 58.33333%;
+  margin-right: 58.33333%;
 }
 .gridle-debug html.tablet .suffix-tablet-7:after, html.tablet .suffix-tablet-7.gridle-debug:after {
   content: "suffix-tablet-7" !important;
@@ -4425,12 +4383,10 @@ html.tablet .suffix-tablet-7 {
 html.tablet .grid-tablet-8 {
   width: 66.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-8 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4451,25 +4407,25 @@ html.tablet .grid-tablet-8 {
   content: "grid-parent-tablet-8" !important;
 }
 html.tablet .push-tablet-8 {
-  left: -66.66667%;
+  left: 66.66667%;
 }
 .gridle-debug html.tablet .push-tablet-8:after, html.tablet .push-tablet-8.gridle-debug:after {
   content: "push-tablet-8" !important;
 }
 html.tablet .pull-tablet-8 {
-  right: -66.66667%;
+  right: 66.66667%;
 }
 .gridle-debug html.tablet .pull-tablet-8:after, html.tablet .pull-tablet-8.gridle-debug:after {
   content: "pull-tablet-8" !important;
 }
 html.tablet .prefix-tablet-8 {
-  margin-right: 66.66667%;
+  margin-left: 66.66667%;
 }
 .gridle-debug html.tablet .prefix-tablet-8:after, html.tablet .prefix-tablet-8.gridle-debug:after {
   content: "prefix-tablet-8" !important;
 }
 html.tablet .suffix-tablet-8 {
-  margin-left: 66.66667%;
+  margin-right: 66.66667%;
 }
 .gridle-debug html.tablet .suffix-tablet-8:after, html.tablet .suffix-tablet-8.gridle-debug:after {
   content: "suffix-tablet-8" !important;
@@ -4477,12 +4433,10 @@ html.tablet .suffix-tablet-8 {
 html.tablet .grid-tablet-9 {
   width: 75%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-9 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4503,25 +4457,25 @@ html.tablet .grid-tablet-9 {
   content: "grid-parent-tablet-9" !important;
 }
 html.tablet .push-tablet-9 {
-  left: -75.0%;
+  left: 75.0%;
 }
 .gridle-debug html.tablet .push-tablet-9:after, html.tablet .push-tablet-9.gridle-debug:after {
   content: "push-tablet-9" !important;
 }
 html.tablet .pull-tablet-9 {
-  right: -75.0%;
+  right: 75.0%;
 }
 .gridle-debug html.tablet .pull-tablet-9:after, html.tablet .pull-tablet-9.gridle-debug:after {
   content: "pull-tablet-9" !important;
 }
 html.tablet .prefix-tablet-9 {
-  margin-right: 75.0%;
+  margin-left: 75.0%;
 }
 .gridle-debug html.tablet .prefix-tablet-9:after, html.tablet .prefix-tablet-9.gridle-debug:after {
   content: "prefix-tablet-9" !important;
 }
 html.tablet .suffix-tablet-9 {
-  margin-left: 75.0%;
+  margin-right: 75.0%;
 }
 .gridle-debug html.tablet .suffix-tablet-9:after, html.tablet .suffix-tablet-9.gridle-debug:after {
   content: "suffix-tablet-9" !important;
@@ -4529,12 +4483,10 @@ html.tablet .suffix-tablet-9 {
 html.tablet .grid-tablet-10 {
   width: 83.33333%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-10 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4555,25 +4507,25 @@ html.tablet .grid-tablet-10 {
   content: "grid-parent-tablet-10" !important;
 }
 html.tablet .push-tablet-10 {
-  left: -83.33333%;
+  left: 83.33333%;
 }
 .gridle-debug html.tablet .push-tablet-10:after, html.tablet .push-tablet-10.gridle-debug:after {
   content: "push-tablet-10" !important;
 }
 html.tablet .pull-tablet-10 {
-  right: -83.33333%;
+  right: 83.33333%;
 }
 .gridle-debug html.tablet .pull-tablet-10:after, html.tablet .pull-tablet-10.gridle-debug:after {
   content: "pull-tablet-10" !important;
 }
 html.tablet .prefix-tablet-10 {
-  margin-right: 83.33333%;
+  margin-left: 83.33333%;
 }
 .gridle-debug html.tablet .prefix-tablet-10:after, html.tablet .prefix-tablet-10.gridle-debug:after {
   content: "prefix-tablet-10" !important;
 }
 html.tablet .suffix-tablet-10 {
-  margin-left: 83.33333%;
+  margin-right: 83.33333%;
 }
 .gridle-debug html.tablet .suffix-tablet-10:after, html.tablet .suffix-tablet-10.gridle-debug:after {
   content: "suffix-tablet-10" !important;
@@ -4581,12 +4533,10 @@ html.tablet .suffix-tablet-10 {
 html.tablet .grid-tablet-11 {
   width: 91.66667%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-11 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4607,25 +4557,25 @@ html.tablet .grid-tablet-11 {
   content: "grid-parent-tablet-11" !important;
 }
 html.tablet .push-tablet-11 {
-  left: -91.66667%;
+  left: 91.66667%;
 }
 .gridle-debug html.tablet .push-tablet-11:after, html.tablet .push-tablet-11.gridle-debug:after {
   content: "push-tablet-11" !important;
 }
 html.tablet .pull-tablet-11 {
-  right: -91.66667%;
+  right: 91.66667%;
 }
 .gridle-debug html.tablet .pull-tablet-11:after, html.tablet .pull-tablet-11.gridle-debug:after {
   content: "pull-tablet-11" !important;
 }
 html.tablet .prefix-tablet-11 {
-  margin-right: 91.66667%;
+  margin-left: 91.66667%;
 }
 .gridle-debug html.tablet .prefix-tablet-11:after, html.tablet .prefix-tablet-11.gridle-debug:after {
   content: "prefix-tablet-11" !important;
 }
 html.tablet .suffix-tablet-11 {
-  margin-left: 91.66667%;
+  margin-right: 91.66667%;
 }
 .gridle-debug html.tablet .suffix-tablet-11:after, html.tablet .suffix-tablet-11.gridle-debug:after {
   content: "suffix-tablet-11" !important;
@@ -4633,12 +4583,10 @@ html.tablet .suffix-tablet-11 {
 html.tablet .grid-tablet-12 {
   width: 100%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   html.tablet .grid-tablet-12 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -4659,25 +4607,25 @@ html.tablet .grid-tablet-12 {
   content: "grid-parent-tablet-12" !important;
 }
 html.tablet .push-tablet-12 {
-  left: -100.0%;
+  left: 100.0%;
 }
 .gridle-debug html.tablet .push-tablet-12:after, html.tablet .push-tablet-12.gridle-debug:after {
   content: "push-tablet-12" !important;
 }
 html.tablet .pull-tablet-12 {
-  right: -100.0%;
+  right: 100.0%;
 }
 .gridle-debug html.tablet .pull-tablet-12:after, html.tablet .pull-tablet-12.gridle-debug:after {
   content: "pull-tablet-12" !important;
 }
 html.tablet .prefix-tablet-12 {
-  margin-right: 100.0%;
+  margin-left: 100.0%;
 }
 .gridle-debug html.tablet .prefix-tablet-12:after, html.tablet .prefix-tablet-12.gridle-debug:after {
   content: "prefix-tablet-12" !important;
 }
 html.tablet .suffix-tablet-12 {
-  margin-left: 100.0%;
+  margin-right: 100.0%;
 }
 .gridle-debug html.tablet .suffix-tablet-12:after, html.tablet .suffix-tablet-12.gridle-debug:after {
   content: "suffix-tablet-12" !important;
@@ -4720,24 +4668,24 @@ html.tablet .no-margin-tablet-bottom {
 }
 html.tablet .gutter-tablet,
 html.tablet .margins-tablet {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 html.tablet .gutter-tablet-left,
 html.tablet .margin-tablet-left {
-  padding-left: 25px;
+  padding-left: 10px;
 }
 html.tablet .gutter-tablet-right,
 html.tablet .margin-tablet-right {
-  padding-right: 25px;
+  padding-right: 10px;
 }
 html.tablet .gutter-tablet-top,
 html.tablet .margin-tablet-top {
-  padding-top: 25px;
+  padding-top: 10px;
 }
 html.tablet .gutter-tablet-bottom,
 html.tablet .margin-tablet-bottom {
-  padding-bottom: 25px;
+  padding-bottom: 10px;
 }
 html.tablet .auto-height-tablet {
   height: inherit;
@@ -4821,12 +4769,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 20%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-1on5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -4849,28 +4795,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-1on5 {
-    left: -20%;
+    left: 20%;
   }
   .gridle-debug .push-tablet-1on5:after, .push-tablet-1on5.gridle-debug:after {
     content: "push-tablet-1" !important;
   }
 
   .pull-tablet-1on5 {
-    right: -20%;
+    right: 20%;
   }
   .gridle-debug .pull-tablet-1on5:after, .pull-tablet-1on5.gridle-debug:after {
     content: "pull-tablet-1" !important;
   }
 
   .prefix-tablet-1on5 {
-    margin-right: 20%;
+    margin-left: 20%;
   }
   .gridle-debug .prefix-tablet-1on5:after, .prefix-tablet-1on5.gridle-debug:after {
     content: "prefix-tablet-1" !important;
   }
 
   .suffix-tablet-1on5 {
-    margin-left: 20%;
+    margin-right: 20%;
   }
   .gridle-debug .suffix-tablet-1on5:after, .suffix-tablet-1on5.gridle-debug:after {
     content: "suffix-tablet-1" !important;
@@ -4880,12 +4826,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 0%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-0 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -4922,14 +4866,14 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .prefix-tablet-0 {
-    margin-right: 0%;
+    margin-left: 0%;
   }
   .gridle-debug .prefix-tablet-0:after, .prefix-tablet-0.gridle-debug:after {
     content: "prefix-tablet-0" !important;
   }
 
   .suffix-tablet-0 {
-    margin-left: 0%;
+    margin-right: 0%;
   }
   .gridle-debug .suffix-tablet-0:after, .suffix-tablet-0.gridle-debug:after {
     content: "suffix-tablet-0" !important;
@@ -4939,12 +4883,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 8.33333%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-1 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -4967,28 +4909,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-1 {
-    left: -8.33333%;
+    left: 8.33333%;
   }
   .gridle-debug .push-tablet-1:after, .push-tablet-1.gridle-debug:after {
     content: "push-tablet-1" !important;
   }
 
   .pull-tablet-1 {
-    right: -8.33333%;
+    right: 8.33333%;
   }
   .gridle-debug .pull-tablet-1:after, .pull-tablet-1.gridle-debug:after {
     content: "pull-tablet-1" !important;
   }
 
   .prefix-tablet-1 {
-    margin-right: 8.33333%;
+    margin-left: 8.33333%;
   }
   .gridle-debug .prefix-tablet-1:after, .prefix-tablet-1.gridle-debug:after {
     content: "prefix-tablet-1" !important;
   }
 
   .suffix-tablet-1 {
-    margin-left: 8.33333%;
+    margin-right: 8.33333%;
   }
   .gridle-debug .suffix-tablet-1:after, .suffix-tablet-1.gridle-debug:after {
     content: "suffix-tablet-1" !important;
@@ -4998,12 +4940,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 16.66667%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-2 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5026,28 +4966,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-2 {
-    left: -16.66667%;
+    left: 16.66667%;
   }
   .gridle-debug .push-tablet-2:after, .push-tablet-2.gridle-debug:after {
     content: "push-tablet-2" !important;
   }
 
   .pull-tablet-2 {
-    right: -16.66667%;
+    right: 16.66667%;
   }
   .gridle-debug .pull-tablet-2:after, .pull-tablet-2.gridle-debug:after {
     content: "pull-tablet-2" !important;
   }
 
   .prefix-tablet-2 {
-    margin-right: 16.66667%;
+    margin-left: 16.66667%;
   }
   .gridle-debug .prefix-tablet-2:after, .prefix-tablet-2.gridle-debug:after {
     content: "prefix-tablet-2" !important;
   }
 
   .suffix-tablet-2 {
-    margin-left: 16.66667%;
+    margin-right: 16.66667%;
   }
   .gridle-debug .suffix-tablet-2:after, .suffix-tablet-2.gridle-debug:after {
     content: "suffix-tablet-2" !important;
@@ -5057,12 +4997,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 25%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-3 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5085,28 +5023,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-3 {
-    left: -25.0%;
+    left: 25.0%;
   }
   .gridle-debug .push-tablet-3:after, .push-tablet-3.gridle-debug:after {
     content: "push-tablet-3" !important;
   }
 
   .pull-tablet-3 {
-    right: -25.0%;
+    right: 25.0%;
   }
   .gridle-debug .pull-tablet-3:after, .pull-tablet-3.gridle-debug:after {
     content: "pull-tablet-3" !important;
   }
 
   .prefix-tablet-3 {
-    margin-right: 25.0%;
+    margin-left: 25.0%;
   }
   .gridle-debug .prefix-tablet-3:after, .prefix-tablet-3.gridle-debug:after {
     content: "prefix-tablet-3" !important;
   }
 
   .suffix-tablet-3 {
-    margin-left: 25.0%;
+    margin-right: 25.0%;
   }
   .gridle-debug .suffix-tablet-3:after, .suffix-tablet-3.gridle-debug:after {
     content: "suffix-tablet-3" !important;
@@ -5116,12 +5054,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 33.33333%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-4 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5144,28 +5080,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-4 {
-    left: -33.33333%;
+    left: 33.33333%;
   }
   .gridle-debug .push-tablet-4:after, .push-tablet-4.gridle-debug:after {
     content: "push-tablet-4" !important;
   }
 
   .pull-tablet-4 {
-    right: -33.33333%;
+    right: 33.33333%;
   }
   .gridle-debug .pull-tablet-4:after, .pull-tablet-4.gridle-debug:after {
     content: "pull-tablet-4" !important;
   }
 
   .prefix-tablet-4 {
-    margin-right: 33.33333%;
+    margin-left: 33.33333%;
   }
   .gridle-debug .prefix-tablet-4:after, .prefix-tablet-4.gridle-debug:after {
     content: "prefix-tablet-4" !important;
   }
 
   .suffix-tablet-4 {
-    margin-left: 33.33333%;
+    margin-right: 33.33333%;
   }
   .gridle-debug .suffix-tablet-4:after, .suffix-tablet-4.gridle-debug:after {
     content: "suffix-tablet-4" !important;
@@ -5175,12 +5111,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 41.66667%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-5 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5203,28 +5137,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-5 {
-    left: -41.66667%;
+    left: 41.66667%;
   }
   .gridle-debug .push-tablet-5:after, .push-tablet-5.gridle-debug:after {
     content: "push-tablet-5" !important;
   }
 
   .pull-tablet-5 {
-    right: -41.66667%;
+    right: 41.66667%;
   }
   .gridle-debug .pull-tablet-5:after, .pull-tablet-5.gridle-debug:after {
     content: "pull-tablet-5" !important;
   }
 
   .prefix-tablet-5 {
-    margin-right: 41.66667%;
+    margin-left: 41.66667%;
   }
   .gridle-debug .prefix-tablet-5:after, .prefix-tablet-5.gridle-debug:after {
     content: "prefix-tablet-5" !important;
   }
 
   .suffix-tablet-5 {
-    margin-left: 41.66667%;
+    margin-right: 41.66667%;
   }
   .gridle-debug .suffix-tablet-5:after, .suffix-tablet-5.gridle-debug:after {
     content: "suffix-tablet-5" !important;
@@ -5234,12 +5168,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 50%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-6 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5262,28 +5194,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-6 {
-    left: -50.0%;
+    left: 50.0%;
   }
   .gridle-debug .push-tablet-6:after, .push-tablet-6.gridle-debug:after {
     content: "push-tablet-6" !important;
   }
 
   .pull-tablet-6 {
-    right: -50.0%;
+    right: 50.0%;
   }
   .gridle-debug .pull-tablet-6:after, .pull-tablet-6.gridle-debug:after {
     content: "pull-tablet-6" !important;
   }
 
   .prefix-tablet-6 {
-    margin-right: 50.0%;
+    margin-left: 50.0%;
   }
   .gridle-debug .prefix-tablet-6:after, .prefix-tablet-6.gridle-debug:after {
     content: "prefix-tablet-6" !important;
   }
 
   .suffix-tablet-6 {
-    margin-left: 50.0%;
+    margin-right: 50.0%;
   }
   .gridle-debug .suffix-tablet-6:after, .suffix-tablet-6.gridle-debug:after {
     content: "suffix-tablet-6" !important;
@@ -5293,12 +5225,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 58.33333%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-7 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5321,28 +5251,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-7 {
-    left: -58.33333%;
+    left: 58.33333%;
   }
   .gridle-debug .push-tablet-7:after, .push-tablet-7.gridle-debug:after {
     content: "push-tablet-7" !important;
   }
 
   .pull-tablet-7 {
-    right: -58.33333%;
+    right: 58.33333%;
   }
   .gridle-debug .pull-tablet-7:after, .pull-tablet-7.gridle-debug:after {
     content: "pull-tablet-7" !important;
   }
 
   .prefix-tablet-7 {
-    margin-right: 58.33333%;
+    margin-left: 58.33333%;
   }
   .gridle-debug .prefix-tablet-7:after, .prefix-tablet-7.gridle-debug:after {
     content: "prefix-tablet-7" !important;
   }
 
   .suffix-tablet-7 {
-    margin-left: 58.33333%;
+    margin-right: 58.33333%;
   }
   .gridle-debug .suffix-tablet-7:after, .suffix-tablet-7.gridle-debug:after {
     content: "suffix-tablet-7" !important;
@@ -5352,12 +5282,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 66.66667%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-8 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5380,28 +5308,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-8 {
-    left: -66.66667%;
+    left: 66.66667%;
   }
   .gridle-debug .push-tablet-8:after, .push-tablet-8.gridle-debug:after {
     content: "push-tablet-8" !important;
   }
 
   .pull-tablet-8 {
-    right: -66.66667%;
+    right: 66.66667%;
   }
   .gridle-debug .pull-tablet-8:after, .pull-tablet-8.gridle-debug:after {
     content: "pull-tablet-8" !important;
   }
 
   .prefix-tablet-8 {
-    margin-right: 66.66667%;
+    margin-left: 66.66667%;
   }
   .gridle-debug .prefix-tablet-8:after, .prefix-tablet-8.gridle-debug:after {
     content: "prefix-tablet-8" !important;
   }
 
   .suffix-tablet-8 {
-    margin-left: 66.66667%;
+    margin-right: 66.66667%;
   }
   .gridle-debug .suffix-tablet-8:after, .suffix-tablet-8.gridle-debug:after {
     content: "suffix-tablet-8" !important;
@@ -5411,12 +5339,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 75%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-9 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5439,28 +5365,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-9 {
-    left: -75.0%;
+    left: 75.0%;
   }
   .gridle-debug .push-tablet-9:after, .push-tablet-9.gridle-debug:after {
     content: "push-tablet-9" !important;
   }
 
   .pull-tablet-9 {
-    right: -75.0%;
+    right: 75.0%;
   }
   .gridle-debug .pull-tablet-9:after, .pull-tablet-9.gridle-debug:after {
     content: "pull-tablet-9" !important;
   }
 
   .prefix-tablet-9 {
-    margin-right: 75.0%;
+    margin-left: 75.0%;
   }
   .gridle-debug .prefix-tablet-9:after, .prefix-tablet-9.gridle-debug:after {
     content: "prefix-tablet-9" !important;
   }
 
   .suffix-tablet-9 {
-    margin-left: 75.0%;
+    margin-right: 75.0%;
   }
   .gridle-debug .suffix-tablet-9:after, .suffix-tablet-9.gridle-debug:after {
     content: "suffix-tablet-9" !important;
@@ -5470,12 +5396,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 83.33333%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-10 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5498,28 +5422,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-10 {
-    left: -83.33333%;
+    left: 83.33333%;
   }
   .gridle-debug .push-tablet-10:after, .push-tablet-10.gridle-debug:after {
     content: "push-tablet-10" !important;
   }
 
   .pull-tablet-10 {
-    right: -83.33333%;
+    right: 83.33333%;
   }
   .gridle-debug .pull-tablet-10:after, .pull-tablet-10.gridle-debug:after {
     content: "pull-tablet-10" !important;
   }
 
   .prefix-tablet-10 {
-    margin-right: 83.33333%;
+    margin-left: 83.33333%;
   }
   .gridle-debug .prefix-tablet-10:after, .prefix-tablet-10.gridle-debug:after {
     content: "prefix-tablet-10" !important;
   }
 
   .suffix-tablet-10 {
-    margin-left: 83.33333%;
+    margin-right: 83.33333%;
   }
   .gridle-debug .suffix-tablet-10:after, .suffix-tablet-10.gridle-debug:after {
     content: "suffix-tablet-10" !important;
@@ -5529,12 +5453,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 91.66667%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-11 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5557,28 +5479,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-11 {
-    left: -91.66667%;
+    left: 91.66667%;
   }
   .gridle-debug .push-tablet-11:after, .push-tablet-11.gridle-debug:after {
     content: "push-tablet-11" !important;
   }
 
   .pull-tablet-11 {
-    right: -91.66667%;
+    right: 91.66667%;
   }
   .gridle-debug .pull-tablet-11:after, .pull-tablet-11.gridle-debug:after {
     content: "pull-tablet-11" !important;
   }
 
   .prefix-tablet-11 {
-    margin-right: 91.66667%;
+    margin-left: 91.66667%;
   }
   .gridle-debug .prefix-tablet-11:after, .prefix-tablet-11.gridle-debug:after {
     content: "prefix-tablet-11" !important;
   }
 
   .suffix-tablet-11 {
-    margin-left: 91.66667%;
+    margin-right: 91.66667%;
   }
   .gridle-debug .suffix-tablet-11:after, .suffix-tablet-11.gridle-debug:after {
     content: "suffix-tablet-11" !important;
@@ -5588,12 +5510,10 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
     width: 100%;
   }
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) and (min-width: 481px) and (max-width: 1024px) {
+@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-tablet-12 {
-    padding-left: 25px;
-    padding-right: 25px;
-    direction: rtl;
-    float: right;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) and (max-width: 480px) {
@@ -5616,28 +5536,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .push-tablet-12 {
-    left: -100.0%;
+    left: 100.0%;
   }
   .gridle-debug .push-tablet-12:after, .push-tablet-12.gridle-debug:after {
     content: "push-tablet-12" !important;
   }
 
   .pull-tablet-12 {
-    right: -100.0%;
+    right: 100.0%;
   }
   .gridle-debug .pull-tablet-12:after, .pull-tablet-12.gridle-debug:after {
     content: "pull-tablet-12" !important;
   }
 
   .prefix-tablet-12 {
-    margin-right: 100.0%;
+    margin-left: 100.0%;
   }
   .gridle-debug .prefix-tablet-12:after, .prefix-tablet-12.gridle-debug:after {
     content: "prefix-tablet-12" !important;
   }
 
   .suffix-tablet-12 {
-    margin-left: 100.0%;
+    margin-right: 100.0%;
   }
   .gridle-debug .suffix-tablet-12:after, .suffix-tablet-12.gridle-debug:after {
     content: "suffix-tablet-12" !important;
@@ -5691,28 +5611,28 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
 
   .gutter-tablet,
   .margins-tablet {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 
   .gutter-tablet-left,
   .margin-tablet-left {
-    padding-left: 25px;
+    padding-left: 10px;
   }
 
   .gutter-tablet-right,
   .margin-tablet-right {
-    padding-right: 25px;
+    padding-right: 10px;
   }
 
   .gutter-tablet-top,
   .margin-tablet-top {
-    padding-top: 25px;
+    padding-top: 10px;
   }
 
   .gutter-tablet-bottom,
   .margin-tablet-bottom {
-    padding-bottom: 25px;
+    padding-bottom: 10px;
   }
 
   .auto-height-tablet {
@@ -5806,6 +5726,1805 @@ html.tablet .clear-each-tablet-12 > *:nth-child(12n+1) {
   }
 
   .gridle-debug .debug-color-tablet-6, .debug-color-tablet-6.gridle-debug {
+    background-color: #b2d8ee;
+  }
+}
+html.ipad-landscape .grid-ipad-landscape-1on5 {
+  width: 20%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-1on5 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-1on5 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-1on5:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-1on5.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug:before {
+  content: "grid-ipad-landscape-1" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-1on5.parent:before, html.ipad-landscape .grid-ipad-landscape-1on5.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-1" !important;
+}
+html.ipad-landscape .push-ipad-landscape-1on5 {
+  left: 20%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-1on5:after, html.ipad-landscape .push-ipad-landscape-1on5.gridle-debug:after {
+  content: "push-ipad-landscape-1" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-1on5 {
+  right: 20%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-1on5:after, html.ipad-landscape .pull-ipad-landscape-1on5.gridle-debug:after {
+  content: "pull-ipad-landscape-1" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-1on5 {
+  margin-left: 20%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-1on5:after, html.ipad-landscape .prefix-ipad-landscape-1on5.gridle-debug:after {
+  content: "prefix-ipad-landscape-1" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-1on5 {
+  margin-right: 20%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-1on5:after, html.ipad-landscape .suffix-ipad-landscape-1on5.gridle-debug:after {
+  content: "suffix-ipad-landscape-1" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-0 {
+  width: 0%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-0 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-0:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-0.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-0:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug:before {
+  content: "grid-ipad-landscape-0" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-0.parent:before, html.ipad-landscape .grid-ipad-landscape-0.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-0" !important;
+}
+html.ipad-landscape .push-ipad-landscape-0 {
+  left: 0%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-0:after, html.ipad-landscape .push-ipad-landscape-0.gridle-debug:after {
+  content: "push-ipad-landscape-0" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-0 {
+  right: 0%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-0:after, html.ipad-landscape .pull-ipad-landscape-0.gridle-debug:after {
+  content: "pull-ipad-landscape-0" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-0 {
+  margin-left: 0%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-0:after, html.ipad-landscape .prefix-ipad-landscape-0.gridle-debug:after {
+  content: "prefix-ipad-landscape-0" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-0 {
+  margin-right: 0%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-0:after, html.ipad-landscape .suffix-ipad-landscape-0.gridle-debug:after {
+  content: "suffix-ipad-landscape-0" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-1 {
+  width: 8.33333%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-1 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-1 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-1:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-1.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-1:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug:before {
+  content: "grid-ipad-landscape-1" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-1.parent:before, html.ipad-landscape .grid-ipad-landscape-1.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-1" !important;
+}
+html.ipad-landscape .push-ipad-landscape-1 {
+  left: 8.33333%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-1:after, html.ipad-landscape .push-ipad-landscape-1.gridle-debug:after {
+  content: "push-ipad-landscape-1" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-1 {
+  right: 8.33333%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-1:after, html.ipad-landscape .pull-ipad-landscape-1.gridle-debug:after {
+  content: "pull-ipad-landscape-1" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-1 {
+  margin-left: 8.33333%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-1:after, html.ipad-landscape .prefix-ipad-landscape-1.gridle-debug:after {
+  content: "prefix-ipad-landscape-1" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-1 {
+  margin-right: 8.33333%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-1:after, html.ipad-landscape .suffix-ipad-landscape-1.gridle-debug:after {
+  content: "suffix-ipad-landscape-1" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-2 {
+  width: 16.66667%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-2 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-2 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-2:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-2.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-2:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug:before {
+  content: "grid-ipad-landscape-2" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-2.parent:before, html.ipad-landscape .grid-ipad-landscape-2.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-2" !important;
+}
+html.ipad-landscape .push-ipad-landscape-2 {
+  left: 16.66667%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-2:after, html.ipad-landscape .push-ipad-landscape-2.gridle-debug:after {
+  content: "push-ipad-landscape-2" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-2 {
+  right: 16.66667%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-2:after, html.ipad-landscape .pull-ipad-landscape-2.gridle-debug:after {
+  content: "pull-ipad-landscape-2" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-2 {
+  margin-left: 16.66667%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-2:after, html.ipad-landscape .prefix-ipad-landscape-2.gridle-debug:after {
+  content: "prefix-ipad-landscape-2" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-2 {
+  margin-right: 16.66667%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-2:after, html.ipad-landscape .suffix-ipad-landscape-2.gridle-debug:after {
+  content: "suffix-ipad-landscape-2" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-3 {
+  width: 25%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-3 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-3 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-3:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-3.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-3:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug:before {
+  content: "grid-ipad-landscape-3" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-3.parent:before, html.ipad-landscape .grid-ipad-landscape-3.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-3" !important;
+}
+html.ipad-landscape .push-ipad-landscape-3 {
+  left: 25.0%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-3:after, html.ipad-landscape .push-ipad-landscape-3.gridle-debug:after {
+  content: "push-ipad-landscape-3" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-3 {
+  right: 25.0%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-3:after, html.ipad-landscape .pull-ipad-landscape-3.gridle-debug:after {
+  content: "pull-ipad-landscape-3" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-3 {
+  margin-left: 25.0%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-3:after, html.ipad-landscape .prefix-ipad-landscape-3.gridle-debug:after {
+  content: "prefix-ipad-landscape-3" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-3 {
+  margin-right: 25.0%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-3:after, html.ipad-landscape .suffix-ipad-landscape-3.gridle-debug:after {
+  content: "suffix-ipad-landscape-3" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-4 {
+  width: 33.33333%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-4 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-4:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-4.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-4:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug:before {
+  content: "grid-ipad-landscape-4" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-4.parent:before, html.ipad-landscape .grid-ipad-landscape-4.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-4" !important;
+}
+html.ipad-landscape .push-ipad-landscape-4 {
+  left: 33.33333%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-4:after, html.ipad-landscape .push-ipad-landscape-4.gridle-debug:after {
+  content: "push-ipad-landscape-4" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-4 {
+  right: 33.33333%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-4:after, html.ipad-landscape .pull-ipad-landscape-4.gridle-debug:after {
+  content: "pull-ipad-landscape-4" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-4 {
+  margin-left: 33.33333%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-4:after, html.ipad-landscape .prefix-ipad-landscape-4.gridle-debug:after {
+  content: "prefix-ipad-landscape-4" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-4 {
+  margin-right: 33.33333%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-4:after, html.ipad-landscape .suffix-ipad-landscape-4.gridle-debug:after {
+  content: "suffix-ipad-landscape-4" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-5 {
+  width: 41.66667%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-5 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-5 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-5:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-5.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-5:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug:before {
+  content: "grid-ipad-landscape-5" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-5.parent:before, html.ipad-landscape .grid-ipad-landscape-5.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-5" !important;
+}
+html.ipad-landscape .push-ipad-landscape-5 {
+  left: 41.66667%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-5:after, html.ipad-landscape .push-ipad-landscape-5.gridle-debug:after {
+  content: "push-ipad-landscape-5" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-5 {
+  right: 41.66667%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-5:after, html.ipad-landscape .pull-ipad-landscape-5.gridle-debug:after {
+  content: "pull-ipad-landscape-5" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-5 {
+  margin-left: 41.66667%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-5:after, html.ipad-landscape .prefix-ipad-landscape-5.gridle-debug:after {
+  content: "prefix-ipad-landscape-5" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-5 {
+  margin-right: 41.66667%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-5:after, html.ipad-landscape .suffix-ipad-landscape-5.gridle-debug:after {
+  content: "suffix-ipad-landscape-5" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-6 {
+  width: 50%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-6 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-6:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-6.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-6:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug:before {
+  content: "grid-ipad-landscape-6" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-6.parent:before, html.ipad-landscape .grid-ipad-landscape-6.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-6" !important;
+}
+html.ipad-landscape .push-ipad-landscape-6 {
+  left: 50.0%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-6:after, html.ipad-landscape .push-ipad-landscape-6.gridle-debug:after {
+  content: "push-ipad-landscape-6" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-6 {
+  right: 50.0%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-6:after, html.ipad-landscape .pull-ipad-landscape-6.gridle-debug:after {
+  content: "pull-ipad-landscape-6" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-6 {
+  margin-left: 50.0%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-6:after, html.ipad-landscape .prefix-ipad-landscape-6.gridle-debug:after {
+  content: "prefix-ipad-landscape-6" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-6 {
+  margin-right: 50.0%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-6:after, html.ipad-landscape .suffix-ipad-landscape-6.gridle-debug:after {
+  content: "suffix-ipad-landscape-6" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-7 {
+  width: 58.33333%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-7 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-7 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-7:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-7.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-7:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug:before {
+  content: "grid-ipad-landscape-7" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-7.parent:before, html.ipad-landscape .grid-ipad-landscape-7.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-7" !important;
+}
+html.ipad-landscape .push-ipad-landscape-7 {
+  left: 58.33333%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-7:after, html.ipad-landscape .push-ipad-landscape-7.gridle-debug:after {
+  content: "push-ipad-landscape-7" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-7 {
+  right: 58.33333%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-7:after, html.ipad-landscape .pull-ipad-landscape-7.gridle-debug:after {
+  content: "pull-ipad-landscape-7" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-7 {
+  margin-left: 58.33333%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-7:after, html.ipad-landscape .prefix-ipad-landscape-7.gridle-debug:after {
+  content: "prefix-ipad-landscape-7" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-7 {
+  margin-right: 58.33333%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-7:after, html.ipad-landscape .suffix-ipad-landscape-7.gridle-debug:after {
+  content: "suffix-ipad-landscape-7" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-8 {
+  width: 66.66667%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-8 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-8 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-8:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-8.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-8:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug:before {
+  content: "grid-ipad-landscape-8" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-8.parent:before, html.ipad-landscape .grid-ipad-landscape-8.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-8" !important;
+}
+html.ipad-landscape .push-ipad-landscape-8 {
+  left: 66.66667%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-8:after, html.ipad-landscape .push-ipad-landscape-8.gridle-debug:after {
+  content: "push-ipad-landscape-8" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-8 {
+  right: 66.66667%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-8:after, html.ipad-landscape .pull-ipad-landscape-8.gridle-debug:after {
+  content: "pull-ipad-landscape-8" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-8 {
+  margin-left: 66.66667%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-8:after, html.ipad-landscape .prefix-ipad-landscape-8.gridle-debug:after {
+  content: "prefix-ipad-landscape-8" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-8 {
+  margin-right: 66.66667%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-8:after, html.ipad-landscape .suffix-ipad-landscape-8.gridle-debug:after {
+  content: "suffix-ipad-landscape-8" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-9 {
+  width: 75%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-9 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-9 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-9:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-9.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-9:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug:before {
+  content: "grid-ipad-landscape-9" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-9.parent:before, html.ipad-landscape .grid-ipad-landscape-9.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-9" !important;
+}
+html.ipad-landscape .push-ipad-landscape-9 {
+  left: 75.0%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-9:after, html.ipad-landscape .push-ipad-landscape-9.gridle-debug:after {
+  content: "push-ipad-landscape-9" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-9 {
+  right: 75.0%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-9:after, html.ipad-landscape .pull-ipad-landscape-9.gridle-debug:after {
+  content: "pull-ipad-landscape-9" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-9 {
+  margin-left: 75.0%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-9:after, html.ipad-landscape .prefix-ipad-landscape-9.gridle-debug:after {
+  content: "prefix-ipad-landscape-9" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-9 {
+  margin-right: 75.0%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-9:after, html.ipad-landscape .suffix-ipad-landscape-9.gridle-debug:after {
+  content: "suffix-ipad-landscape-9" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-10 {
+  width: 83.33333%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-10 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-10 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-10:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-10.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-10:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug:before {
+  content: "grid-ipad-landscape-10" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-10.parent:before, html.ipad-landscape .grid-ipad-landscape-10.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-10" !important;
+}
+html.ipad-landscape .push-ipad-landscape-10 {
+  left: 83.33333%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-10:after, html.ipad-landscape .push-ipad-landscape-10.gridle-debug:after {
+  content: "push-ipad-landscape-10" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-10 {
+  right: 83.33333%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-10:after, html.ipad-landscape .pull-ipad-landscape-10.gridle-debug:after {
+  content: "pull-ipad-landscape-10" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-10 {
+  margin-left: 83.33333%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-10:after, html.ipad-landscape .prefix-ipad-landscape-10.gridle-debug:after {
+  content: "prefix-ipad-landscape-10" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-10 {
+  margin-right: 83.33333%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-10:after, html.ipad-landscape .suffix-ipad-landscape-10.gridle-debug:after {
+  content: "suffix-ipad-landscape-10" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-11 {
+  width: 91.66667%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-11 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-11 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-11:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-11.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-11:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug:before {
+  content: "grid-ipad-landscape-11" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-11.parent:before, html.ipad-landscape .grid-ipad-landscape-11.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-11" !important;
+}
+html.ipad-landscape .push-ipad-landscape-11 {
+  left: 91.66667%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-11:after, html.ipad-landscape .push-ipad-landscape-11.gridle-debug:after {
+  content: "push-ipad-landscape-11" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-11 {
+  right: 91.66667%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-11:after, html.ipad-landscape .pull-ipad-landscape-11.gridle-debug:after {
+  content: "pull-ipad-landscape-11" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-11 {
+  margin-left: 91.66667%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-11:after, html.ipad-landscape .prefix-ipad-landscape-11.gridle-debug:after {
+  content: "prefix-ipad-landscape-11" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-11 {
+  margin-right: 91.66667%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-11:after, html.ipad-landscape .suffix-ipad-landscape-11.gridle-debug:after {
+  content: "suffix-ipad-landscape-11" !important;
+}
+html.ipad-landscape .grid-ipad-landscape-12 {
+  width: 100%;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  html.ipad-landscape .grid-ipad-landscape-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media screen and (max-width: 480px) {
+  html.ipad-landscape .grid-ipad-landscape-12 {
+    padding: 0 !important;
+  }
+  html.ipad-landscape .grid-ipad-landscape-12:after {
+    content: my after content;
+  }
+  html.ipad-landscape .grid-ipad-landscape-12.active {
+    content: my active content;
+  }
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-12:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug:before {
+  content: "grid-ipad-landscape-12" !important;
+}
+.gridle-debug html.ipad-landscape .grid-ipad-landscape-12.parent:before, html.ipad-landscape .grid-ipad-landscape-12.gridle-debug.parent:before {
+  content: "grid-parent-ipad-landscape-12" !important;
+}
+html.ipad-landscape .push-ipad-landscape-12 {
+  left: 100.0%;
+}
+.gridle-debug html.ipad-landscape .push-ipad-landscape-12:after, html.ipad-landscape .push-ipad-landscape-12.gridle-debug:after {
+  content: "push-ipad-landscape-12" !important;
+}
+html.ipad-landscape .pull-ipad-landscape-12 {
+  right: 100.0%;
+}
+.gridle-debug html.ipad-landscape .pull-ipad-landscape-12:after, html.ipad-landscape .pull-ipad-landscape-12.gridle-debug:after {
+  content: "pull-ipad-landscape-12" !important;
+}
+html.ipad-landscape .prefix-ipad-landscape-12 {
+  margin-left: 100.0%;
+}
+.gridle-debug html.ipad-landscape .prefix-ipad-landscape-12:after, html.ipad-landscape .prefix-ipad-landscape-12.gridle-debug:after {
+  content: "prefix-ipad-landscape-12" !important;
+}
+html.ipad-landscape .suffix-ipad-landscape-12 {
+  margin-right: 100.0%;
+}
+.gridle-debug html.ipad-landscape .suffix-ipad-landscape-12:after, html.ipad-landscape .suffix-ipad-landscape-12.gridle-debug:after {
+  content: "suffix-ipad-landscape-12" !important;
+}
+html.ipad-landscape .float-ipad-landscape-left {
+  float: left;
+}
+html.ipad-landscape .float-ipad-landscape-right {
+  float: right;
+}
+html.ipad-landscape .clear-ipad-landscape {
+  clear: both;
+}
+html.ipad-landscape .clear-ipad-landscape-left {
+  clear: left;
+}
+html.ipad-landscape .clear-ipad-landscape-right {
+  clear: right;
+}
+html.ipad-landscape .no-gutter-ipad-landscape,
+html.ipad-landscape .no-margin-ipad-landscape {
+  padding-left: 0;
+  padding-right: 0;
+}
+html.ipad-landscape .no-gutter-ipad-landscape-left,
+html.ipad-landscape .no-margin-ipad-landscape-left {
+  padding-left: 0;
+}
+html.ipad-landscape .no-gutter-ipad-landscape-right,
+html.ipad-landscape .no-margin-ipad-landscape-right {
+  padding-right: 0;
+}
+html.ipad-landscape .no-gutter-ipad-landscape-top,
+html.ipad-landscape .no-margin-ipad-landscape-top {
+  padding-top: 0;
+}
+html.ipad-landscape .no-gutter-ipad-landscape-bottom,
+html.ipad-landscape .no-margin-ipad-landscape-bottom {
+  padding-bottom: 0;
+}
+html.ipad-landscape .gutter-ipad-landscape,
+html.ipad-landscape .margins-ipad-landscape {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+html.ipad-landscape .gutter-ipad-landscape-left,
+html.ipad-landscape .margin-ipad-landscape-left {
+  padding-left: 0px;
+}
+html.ipad-landscape .gutter-ipad-landscape-right,
+html.ipad-landscape .margin-ipad-landscape-right {
+  padding-right: 0px;
+}
+html.ipad-landscape .gutter-ipad-landscape-top,
+html.ipad-landscape .margin-ipad-landscape-top {
+  padding-top: 0px;
+}
+html.ipad-landscape .gutter-ipad-landscape-bottom,
+html.ipad-landscape .margin-ipad-landscape-bottom {
+  padding-bottom: 0px;
+}
+html.ipad-landscape .auto-height-ipad-landscape {
+  height: inherit;
+}
+html.ipad-landscape .parent-ipad-landscape {
+  padding-left: 0;
+  padding-right: 0;
+}
+html.ipad-landscape .vertical-align-ipad-landscape-middle {
+  font-size: 0;
+  clear: both;
+}
+html.ipad-landscape .vertical-align-ipad-landscape-middle > * {
+  display: inline-block;
+  float: none !important;
+  vertical-align: middle;
+  font-size: 1rem;
+}
+html.ipad-landscape .vertical-align-ipad-landscape-top {
+  font-size: 0;
+  clear: both;
+}
+html.ipad-landscape .vertical-align-ipad-landscape-top > * {
+  display: inline-block;
+  float: none !important;
+  vertical-align: top;
+  font-size: 1rem;
+}
+html.ipad-landscape .vertical-align-ipad-landscape-bottom {
+  font-size: 0;
+  clear: both;
+}
+html.ipad-landscape .vertical-align-ipad-landscape-bottom > * {
+  display: inline-block;
+  float: none !important;
+  vertical-align: bottom;
+  font-size: 1rem;
+}
+html.ipad-landscape .hide-ipad-landscape {
+  display: none;
+}
+html.ipad-landscape .not-visible-ipad-landscape {
+  visibility: hidden;
+}
+html.ipad-landscape .show-ipad-landscape {
+  display: block;
+}
+html.ipad-landscape .show-inline-ipad-landscape {
+  display: inline-block;
+}
+html.ipad-landscape .visible-ipad-landscape {
+  visibility: visible;
+}
+html.ipad-landscape .clear-each-ipad-landscape-2 > *:nth-child(2n+1) {
+  clear: left;
+}
+html.ipad-landscape .clear-each-ipad-landscape-12 > *:nth-child(12n+1) {
+  clear: both;
+}
+.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-1, html.ipad-landscape .debug-color-ipad-landscape-1.gridle-debug {
+  background-color: #edeeb2;
+}
+.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-2, html.ipad-landscape .debug-color-ipad-landscape-2.gridle-debug {
+  background-color: #fae4a7;
+}
+.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-3, html.ipad-landscape .debug-color-ipad-landscape-3.gridle-debug {
+  background-color: #f5eacc;
+}
+.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-4, html.ipad-landscape .debug-color-ipad-landscape-4.gridle-debug {
+  background-color: #eebdb2;
+}
+.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-5, html.ipad-landscape .debug-color-ipad-landscape-5.gridle-debug {
+  background-color: #d4b2ee;
+}
+.gridle-debug html.ipad-landscape .debug-color-ipad-landscape-6, html.ipad-landscape .debug-color-ipad-landscape-6.gridle-debug {
+  background-color: #b2d8ee;
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-1on5 {
+    width: 20%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-1on5 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-1on5 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-1on5:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-1on5.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-1on5:before, .grid-ipad-landscape-1on5.gridle-debug:before {
+    content: "grid-ipad-landscape-1" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-1on5.parent:before, .grid-ipad-landscape-1on5.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-1" !important;
+  }
+
+  .push-ipad-landscape-1on5 {
+    left: 20%;
+  }
+  .gridle-debug .push-ipad-landscape-1on5:after, .push-ipad-landscape-1on5.gridle-debug:after {
+    content: "push-ipad-landscape-1" !important;
+  }
+
+  .pull-ipad-landscape-1on5 {
+    right: 20%;
+  }
+  .gridle-debug .pull-ipad-landscape-1on5:after, .pull-ipad-landscape-1on5.gridle-debug:after {
+    content: "pull-ipad-landscape-1" !important;
+  }
+
+  .prefix-ipad-landscape-1on5 {
+    margin-left: 20%;
+  }
+  .gridle-debug .prefix-ipad-landscape-1on5:after, .prefix-ipad-landscape-1on5.gridle-debug:after {
+    content: "prefix-ipad-landscape-1" !important;
+  }
+
+  .suffix-ipad-landscape-1on5 {
+    margin-right: 20%;
+  }
+  .gridle-debug .suffix-ipad-landscape-1on5:after, .suffix-ipad-landscape-1on5.gridle-debug:after {
+    content: "suffix-ipad-landscape-1" !important;
+  }
+
+  .grid-ipad-landscape-0 {
+    width: 0%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-0 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-0:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-0.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-0:before, .grid-ipad-landscape-0.gridle-debug:before {
+    content: "grid-ipad-landscape-0" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-0.parent:before, .grid-ipad-landscape-0.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-0" !important;
+  }
+
+  .push-ipad-landscape-0 {
+    left: 0%;
+  }
+  .gridle-debug .push-ipad-landscape-0:after, .push-ipad-landscape-0.gridle-debug:after {
+    content: "push-ipad-landscape-0" !important;
+  }
+
+  .pull-ipad-landscape-0 {
+    right: 0%;
+  }
+  .gridle-debug .pull-ipad-landscape-0:after, .pull-ipad-landscape-0.gridle-debug:after {
+    content: "pull-ipad-landscape-0" !important;
+  }
+
+  .prefix-ipad-landscape-0 {
+    margin-left: 0%;
+  }
+  .gridle-debug .prefix-ipad-landscape-0:after, .prefix-ipad-landscape-0.gridle-debug:after {
+    content: "prefix-ipad-landscape-0" !important;
+  }
+
+  .suffix-ipad-landscape-0 {
+    margin-right: 0%;
+  }
+  .gridle-debug .suffix-ipad-landscape-0:after, .suffix-ipad-landscape-0.gridle-debug:after {
+    content: "suffix-ipad-landscape-0" !important;
+  }
+
+  .grid-ipad-landscape-1 {
+    width: 8.33333%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-1 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-1 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-1:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-1.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-1:before, .grid-ipad-landscape-1.gridle-debug:before {
+    content: "grid-ipad-landscape-1" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-1.parent:before, .grid-ipad-landscape-1.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-1" !important;
+  }
+
+  .push-ipad-landscape-1 {
+    left: 8.33333%;
+  }
+  .gridle-debug .push-ipad-landscape-1:after, .push-ipad-landscape-1.gridle-debug:after {
+    content: "push-ipad-landscape-1" !important;
+  }
+
+  .pull-ipad-landscape-1 {
+    right: 8.33333%;
+  }
+  .gridle-debug .pull-ipad-landscape-1:after, .pull-ipad-landscape-1.gridle-debug:after {
+    content: "pull-ipad-landscape-1" !important;
+  }
+
+  .prefix-ipad-landscape-1 {
+    margin-left: 8.33333%;
+  }
+  .gridle-debug .prefix-ipad-landscape-1:after, .prefix-ipad-landscape-1.gridle-debug:after {
+    content: "prefix-ipad-landscape-1" !important;
+  }
+
+  .suffix-ipad-landscape-1 {
+    margin-right: 8.33333%;
+  }
+  .gridle-debug .suffix-ipad-landscape-1:after, .suffix-ipad-landscape-1.gridle-debug:after {
+    content: "suffix-ipad-landscape-1" !important;
+  }
+
+  .grid-ipad-landscape-2 {
+    width: 16.66667%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-2 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-2 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-2:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-2.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-2:before, .grid-ipad-landscape-2.gridle-debug:before {
+    content: "grid-ipad-landscape-2" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-2.parent:before, .grid-ipad-landscape-2.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-2" !important;
+  }
+
+  .push-ipad-landscape-2 {
+    left: 16.66667%;
+  }
+  .gridle-debug .push-ipad-landscape-2:after, .push-ipad-landscape-2.gridle-debug:after {
+    content: "push-ipad-landscape-2" !important;
+  }
+
+  .pull-ipad-landscape-2 {
+    right: 16.66667%;
+  }
+  .gridle-debug .pull-ipad-landscape-2:after, .pull-ipad-landscape-2.gridle-debug:after {
+    content: "pull-ipad-landscape-2" !important;
+  }
+
+  .prefix-ipad-landscape-2 {
+    margin-left: 16.66667%;
+  }
+  .gridle-debug .prefix-ipad-landscape-2:after, .prefix-ipad-landscape-2.gridle-debug:after {
+    content: "prefix-ipad-landscape-2" !important;
+  }
+
+  .suffix-ipad-landscape-2 {
+    margin-right: 16.66667%;
+  }
+  .gridle-debug .suffix-ipad-landscape-2:after, .suffix-ipad-landscape-2.gridle-debug:after {
+    content: "suffix-ipad-landscape-2" !important;
+  }
+
+  .grid-ipad-landscape-3 {
+    width: 25%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-3 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-3 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-3:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-3.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-3:before, .grid-ipad-landscape-3.gridle-debug:before {
+    content: "grid-ipad-landscape-3" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-3.parent:before, .grid-ipad-landscape-3.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-3" !important;
+  }
+
+  .push-ipad-landscape-3 {
+    left: 25.0%;
+  }
+  .gridle-debug .push-ipad-landscape-3:after, .push-ipad-landscape-3.gridle-debug:after {
+    content: "push-ipad-landscape-3" !important;
+  }
+
+  .pull-ipad-landscape-3 {
+    right: 25.0%;
+  }
+  .gridle-debug .pull-ipad-landscape-3:after, .pull-ipad-landscape-3.gridle-debug:after {
+    content: "pull-ipad-landscape-3" !important;
+  }
+
+  .prefix-ipad-landscape-3 {
+    margin-left: 25.0%;
+  }
+  .gridle-debug .prefix-ipad-landscape-3:after, .prefix-ipad-landscape-3.gridle-debug:after {
+    content: "prefix-ipad-landscape-3" !important;
+  }
+
+  .suffix-ipad-landscape-3 {
+    margin-right: 25.0%;
+  }
+  .gridle-debug .suffix-ipad-landscape-3:after, .suffix-ipad-landscape-3.gridle-debug:after {
+    content: "suffix-ipad-landscape-3" !important;
+  }
+
+  .grid-ipad-landscape-4 {
+    width: 33.33333%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-4 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-4:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-4.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-4:before, .grid-ipad-landscape-4.gridle-debug:before {
+    content: "grid-ipad-landscape-4" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-4.parent:before, .grid-ipad-landscape-4.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-4" !important;
+  }
+
+  .push-ipad-landscape-4 {
+    left: 33.33333%;
+  }
+  .gridle-debug .push-ipad-landscape-4:after, .push-ipad-landscape-4.gridle-debug:after {
+    content: "push-ipad-landscape-4" !important;
+  }
+
+  .pull-ipad-landscape-4 {
+    right: 33.33333%;
+  }
+  .gridle-debug .pull-ipad-landscape-4:after, .pull-ipad-landscape-4.gridle-debug:after {
+    content: "pull-ipad-landscape-4" !important;
+  }
+
+  .prefix-ipad-landscape-4 {
+    margin-left: 33.33333%;
+  }
+  .gridle-debug .prefix-ipad-landscape-4:after, .prefix-ipad-landscape-4.gridle-debug:after {
+    content: "prefix-ipad-landscape-4" !important;
+  }
+
+  .suffix-ipad-landscape-4 {
+    margin-right: 33.33333%;
+  }
+  .gridle-debug .suffix-ipad-landscape-4:after, .suffix-ipad-landscape-4.gridle-debug:after {
+    content: "suffix-ipad-landscape-4" !important;
+  }
+
+  .grid-ipad-landscape-5 {
+    width: 41.66667%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-5 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-5 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-5:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-5.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-5:before, .grid-ipad-landscape-5.gridle-debug:before {
+    content: "grid-ipad-landscape-5" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-5.parent:before, .grid-ipad-landscape-5.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-5" !important;
+  }
+
+  .push-ipad-landscape-5 {
+    left: 41.66667%;
+  }
+  .gridle-debug .push-ipad-landscape-5:after, .push-ipad-landscape-5.gridle-debug:after {
+    content: "push-ipad-landscape-5" !important;
+  }
+
+  .pull-ipad-landscape-5 {
+    right: 41.66667%;
+  }
+  .gridle-debug .pull-ipad-landscape-5:after, .pull-ipad-landscape-5.gridle-debug:after {
+    content: "pull-ipad-landscape-5" !important;
+  }
+
+  .prefix-ipad-landscape-5 {
+    margin-left: 41.66667%;
+  }
+  .gridle-debug .prefix-ipad-landscape-5:after, .prefix-ipad-landscape-5.gridle-debug:after {
+    content: "prefix-ipad-landscape-5" !important;
+  }
+
+  .suffix-ipad-landscape-5 {
+    margin-right: 41.66667%;
+  }
+  .gridle-debug .suffix-ipad-landscape-5:after, .suffix-ipad-landscape-5.gridle-debug:after {
+    content: "suffix-ipad-landscape-5" !important;
+  }
+
+  .grid-ipad-landscape-6 {
+    width: 50%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-6 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-6 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-6:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-6.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-6:before, .grid-ipad-landscape-6.gridle-debug:before {
+    content: "grid-ipad-landscape-6" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-6.parent:before, .grid-ipad-landscape-6.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-6" !important;
+  }
+
+  .push-ipad-landscape-6 {
+    left: 50.0%;
+  }
+  .gridle-debug .push-ipad-landscape-6:after, .push-ipad-landscape-6.gridle-debug:after {
+    content: "push-ipad-landscape-6" !important;
+  }
+
+  .pull-ipad-landscape-6 {
+    right: 50.0%;
+  }
+  .gridle-debug .pull-ipad-landscape-6:after, .pull-ipad-landscape-6.gridle-debug:after {
+    content: "pull-ipad-landscape-6" !important;
+  }
+
+  .prefix-ipad-landscape-6 {
+    margin-left: 50.0%;
+  }
+  .gridle-debug .prefix-ipad-landscape-6:after, .prefix-ipad-landscape-6.gridle-debug:after {
+    content: "prefix-ipad-landscape-6" !important;
+  }
+
+  .suffix-ipad-landscape-6 {
+    margin-right: 50.0%;
+  }
+  .gridle-debug .suffix-ipad-landscape-6:after, .suffix-ipad-landscape-6.gridle-debug:after {
+    content: "suffix-ipad-landscape-6" !important;
+  }
+
+  .grid-ipad-landscape-7 {
+    width: 58.33333%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-7 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-7 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-7:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-7.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-7:before, .grid-ipad-landscape-7.gridle-debug:before {
+    content: "grid-ipad-landscape-7" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-7.parent:before, .grid-ipad-landscape-7.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-7" !important;
+  }
+
+  .push-ipad-landscape-7 {
+    left: 58.33333%;
+  }
+  .gridle-debug .push-ipad-landscape-7:after, .push-ipad-landscape-7.gridle-debug:after {
+    content: "push-ipad-landscape-7" !important;
+  }
+
+  .pull-ipad-landscape-7 {
+    right: 58.33333%;
+  }
+  .gridle-debug .pull-ipad-landscape-7:after, .pull-ipad-landscape-7.gridle-debug:after {
+    content: "pull-ipad-landscape-7" !important;
+  }
+
+  .prefix-ipad-landscape-7 {
+    margin-left: 58.33333%;
+  }
+  .gridle-debug .prefix-ipad-landscape-7:after, .prefix-ipad-landscape-7.gridle-debug:after {
+    content: "prefix-ipad-landscape-7" !important;
+  }
+
+  .suffix-ipad-landscape-7 {
+    margin-right: 58.33333%;
+  }
+  .gridle-debug .suffix-ipad-landscape-7:after, .suffix-ipad-landscape-7.gridle-debug:after {
+    content: "suffix-ipad-landscape-7" !important;
+  }
+
+  .grid-ipad-landscape-8 {
+    width: 66.66667%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-8 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-8 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-8:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-8.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-8:before, .grid-ipad-landscape-8.gridle-debug:before {
+    content: "grid-ipad-landscape-8" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-8.parent:before, .grid-ipad-landscape-8.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-8" !important;
+  }
+
+  .push-ipad-landscape-8 {
+    left: 66.66667%;
+  }
+  .gridle-debug .push-ipad-landscape-8:after, .push-ipad-landscape-8.gridle-debug:after {
+    content: "push-ipad-landscape-8" !important;
+  }
+
+  .pull-ipad-landscape-8 {
+    right: 66.66667%;
+  }
+  .gridle-debug .pull-ipad-landscape-8:after, .pull-ipad-landscape-8.gridle-debug:after {
+    content: "pull-ipad-landscape-8" !important;
+  }
+
+  .prefix-ipad-landscape-8 {
+    margin-left: 66.66667%;
+  }
+  .gridle-debug .prefix-ipad-landscape-8:after, .prefix-ipad-landscape-8.gridle-debug:after {
+    content: "prefix-ipad-landscape-8" !important;
+  }
+
+  .suffix-ipad-landscape-8 {
+    margin-right: 66.66667%;
+  }
+  .gridle-debug .suffix-ipad-landscape-8:after, .suffix-ipad-landscape-8.gridle-debug:after {
+    content: "suffix-ipad-landscape-8" !important;
+  }
+
+  .grid-ipad-landscape-9 {
+    width: 75%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-9 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-9 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-9:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-9.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-9:before, .grid-ipad-landscape-9.gridle-debug:before {
+    content: "grid-ipad-landscape-9" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-9.parent:before, .grid-ipad-landscape-9.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-9" !important;
+  }
+
+  .push-ipad-landscape-9 {
+    left: 75.0%;
+  }
+  .gridle-debug .push-ipad-landscape-9:after, .push-ipad-landscape-9.gridle-debug:after {
+    content: "push-ipad-landscape-9" !important;
+  }
+
+  .pull-ipad-landscape-9 {
+    right: 75.0%;
+  }
+  .gridle-debug .pull-ipad-landscape-9:after, .pull-ipad-landscape-9.gridle-debug:after {
+    content: "pull-ipad-landscape-9" !important;
+  }
+
+  .prefix-ipad-landscape-9 {
+    margin-left: 75.0%;
+  }
+  .gridle-debug .prefix-ipad-landscape-9:after, .prefix-ipad-landscape-9.gridle-debug:after {
+    content: "prefix-ipad-landscape-9" !important;
+  }
+
+  .suffix-ipad-landscape-9 {
+    margin-right: 75.0%;
+  }
+  .gridle-debug .suffix-ipad-landscape-9:after, .suffix-ipad-landscape-9.gridle-debug:after {
+    content: "suffix-ipad-landscape-9" !important;
+  }
+
+  .grid-ipad-landscape-10 {
+    width: 83.33333%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-10 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-10 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-10:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-10.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-10:before, .grid-ipad-landscape-10.gridle-debug:before {
+    content: "grid-ipad-landscape-10" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-10.parent:before, .grid-ipad-landscape-10.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-10" !important;
+  }
+
+  .push-ipad-landscape-10 {
+    left: 83.33333%;
+  }
+  .gridle-debug .push-ipad-landscape-10:after, .push-ipad-landscape-10.gridle-debug:after {
+    content: "push-ipad-landscape-10" !important;
+  }
+
+  .pull-ipad-landscape-10 {
+    right: 83.33333%;
+  }
+  .gridle-debug .pull-ipad-landscape-10:after, .pull-ipad-landscape-10.gridle-debug:after {
+    content: "pull-ipad-landscape-10" !important;
+  }
+
+  .prefix-ipad-landscape-10 {
+    margin-left: 83.33333%;
+  }
+  .gridle-debug .prefix-ipad-landscape-10:after, .prefix-ipad-landscape-10.gridle-debug:after {
+    content: "prefix-ipad-landscape-10" !important;
+  }
+
+  .suffix-ipad-landscape-10 {
+    margin-right: 83.33333%;
+  }
+  .gridle-debug .suffix-ipad-landscape-10:after, .suffix-ipad-landscape-10.gridle-debug:after {
+    content: "suffix-ipad-landscape-10" !important;
+  }
+
+  .grid-ipad-landscape-11 {
+    width: 91.66667%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-11 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-11 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-11:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-11.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-11:before, .grid-ipad-landscape-11.gridle-debug:before {
+    content: "grid-ipad-landscape-11" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-11.parent:before, .grid-ipad-landscape-11.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-11" !important;
+  }
+
+  .push-ipad-landscape-11 {
+    left: 91.66667%;
+  }
+  .gridle-debug .push-ipad-landscape-11:after, .push-ipad-landscape-11.gridle-debug:after {
+    content: "push-ipad-landscape-11" !important;
+  }
+
+  .pull-ipad-landscape-11 {
+    right: 91.66667%;
+  }
+  .gridle-debug .pull-ipad-landscape-11:after, .pull-ipad-landscape-11.gridle-debug:after {
+    content: "pull-ipad-landscape-11" !important;
+  }
+
+  .prefix-ipad-landscape-11 {
+    margin-left: 91.66667%;
+  }
+  .gridle-debug .prefix-ipad-landscape-11:after, .prefix-ipad-landscape-11.gridle-debug:after {
+    content: "prefix-ipad-landscape-11" !important;
+  }
+
+  .suffix-ipad-landscape-11 {
+    margin-right: 91.66667%;
+  }
+  .gridle-debug .suffix-ipad-landscape-11:after, .suffix-ipad-landscape-11.gridle-debug:after {
+    content: "suffix-ipad-landscape-11" !important;
+  }
+
+  .grid-ipad-landscape-12 {
+    width: 100%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-ipad-landscape-12 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (max-width: 480px) {
+  .grid-ipad-landscape-12 {
+    padding: 0 !important;
+  }
+  .grid-ipad-landscape-12:after {
+    content: my after content;
+  }
+  .grid-ipad-landscape-12.active {
+    content: my active content;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-debug .grid-ipad-landscape-12:before, .grid-ipad-landscape-12.gridle-debug:before {
+    content: "grid-ipad-landscape-12" !important;
+  }
+  .gridle-debug .grid-ipad-landscape-12.parent:before, .grid-ipad-landscape-12.gridle-debug.parent:before {
+    content: "grid-parent-ipad-landscape-12" !important;
+  }
+
+  .push-ipad-landscape-12 {
+    left: 100.0%;
+  }
+  .gridle-debug .push-ipad-landscape-12:after, .push-ipad-landscape-12.gridle-debug:after {
+    content: "push-ipad-landscape-12" !important;
+  }
+
+  .pull-ipad-landscape-12 {
+    right: 100.0%;
+  }
+  .gridle-debug .pull-ipad-landscape-12:after, .pull-ipad-landscape-12.gridle-debug:after {
+    content: "pull-ipad-landscape-12" !important;
+  }
+
+  .prefix-ipad-landscape-12 {
+    margin-left: 100.0%;
+  }
+  .gridle-debug .prefix-ipad-landscape-12:after, .prefix-ipad-landscape-12.gridle-debug:after {
+    content: "prefix-ipad-landscape-12" !important;
+  }
+
+  .suffix-ipad-landscape-12 {
+    margin-right: 100.0%;
+  }
+  .gridle-debug .suffix-ipad-landscape-12:after, .suffix-ipad-landscape-12.gridle-debug:after {
+    content: "suffix-ipad-landscape-12" !important;
+  }
+
+  .float-ipad-landscape-left {
+    float: left;
+  }
+
+  .float-ipad-landscape-right {
+    float: right;
+  }
+
+  .clear-ipad-landscape {
+    clear: both;
+  }
+
+  .clear-ipad-landscape-left {
+    clear: left;
+  }
+
+  .clear-ipad-landscape-right {
+    clear: right;
+  }
+
+  .no-gutter-ipad-landscape,
+  .no-margin-ipad-landscape {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .no-gutter-ipad-landscape-left,
+  .no-margin-ipad-landscape-left {
+    padding-left: 0;
+  }
+
+  .no-gutter-ipad-landscape-right,
+  .no-margin-ipad-landscape-right {
+    padding-right: 0;
+  }
+
+  .no-gutter-ipad-landscape-top,
+  .no-margin-ipad-landscape-top {
+    padding-top: 0;
+  }
+
+  .no-gutter-ipad-landscape-bottom,
+  .no-margin-ipad-landscape-bottom {
+    padding-bottom: 0;
+  }
+
+  .gutter-ipad-landscape,
+  .margins-ipad-landscape {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .gutter-ipad-landscape-left,
+  .margin-ipad-landscape-left {
+    padding-left: 0px;
+  }
+
+  .gutter-ipad-landscape-right,
+  .margin-ipad-landscape-right {
+    padding-right: 0px;
+  }
+
+  .gutter-ipad-landscape-top,
+  .margin-ipad-landscape-top {
+    padding-top: 0px;
+  }
+
+  .gutter-ipad-landscape-bottom,
+  .margin-ipad-landscape-bottom {
+    padding-bottom: 0px;
+  }
+
+  .auto-height-ipad-landscape {
+    height: inherit;
+  }
+
+  .parent-ipad-landscape {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .vertical-align-ipad-landscape-middle {
+    font-size: 0;
+    clear: both;
+  }
+  .vertical-align-ipad-landscape-middle > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: middle;
+    font-size: 1rem;
+  }
+
+  .vertical-align-ipad-landscape-top {
+    font-size: 0;
+    clear: both;
+  }
+  .vertical-align-ipad-landscape-top > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: top;
+    font-size: 1rem;
+  }
+
+  .vertical-align-ipad-landscape-bottom {
+    font-size: 0;
+    clear: both;
+  }
+  .vertical-align-ipad-landscape-bottom > * {
+    display: inline-block;
+    float: none !important;
+    vertical-align: bottom;
+    font-size: 1rem;
+  }
+
+  .hide-ipad-landscape {
+    display: none;
+  }
+
+  .not-visible-ipad-landscape {
+    visibility: hidden;
+  }
+
+  .show-ipad-landscape {
+    display: block;
+  }
+
+  .show-inline-ipad-landscape {
+    display: inline-block;
+  }
+
+  .visible-ipad-landscape {
+    visibility: visible;
+  }
+
+  .clear-each-ipad-landscape-2 > *:nth-child(2n+1) {
+    clear: left;
+  }
+
+  .clear-each-ipad-landscape-12 > *:nth-child(12n+1) {
+    clear: both;
+  }
+
+  .gridle-debug .debug-color-ipad-landscape-1, .debug-color-ipad-landscape-1.gridle-debug {
+    background-color: #edeeb2;
+  }
+
+  .gridle-debug .debug-color-ipad-landscape-2, .debug-color-ipad-landscape-2.gridle-debug {
+    background-color: #fae4a7;
+  }
+
+  .gridle-debug .debug-color-ipad-landscape-3, .debug-color-ipad-landscape-3.gridle-debug {
+    background-color: #f5eacc;
+  }
+
+  .gridle-debug .debug-color-ipad-landscape-4, .debug-color-ipad-landscape-4.gridle-debug {
+    background-color: #eebdb2;
+  }
+
+  .gridle-debug .debug-color-ipad-landscape-5, .debug-color-ipad-landscape-5.gridle-debug {
+    background-color: #d4b2ee;
+  }
+
+  .gridle-debug .debug-color-ipad-landscape-6, .debug-color-ipad-landscape-6.gridle-debug {
     background-color: #b2d8ee;
   }
 }

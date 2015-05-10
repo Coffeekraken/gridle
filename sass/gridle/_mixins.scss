@@ -344,10 +344,12 @@
 			@if ($html-states-classes or $debug)
 				and $stateName {
 				// html class :
-				@if $has-parent {
-					html#{_gridle_classname("#{$stateName}")} & { @content; }
-				} @else {
-					html#{_gridle_classname("#{$stateName}")} { @content; }
+				@at-root {
+					@if $has-parent {
+						html#{_gridle_classname("#{$stateName}")} & { @content; }
+					} @else {
+						html#{_gridle_classname("#{$stateName}")} { @content; }
+					}
 				}
 			}
 
