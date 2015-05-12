@@ -220,6 +220,25 @@
 
 
 //
+// Get the apply css for map for a certain class and state
+//
+@function gridle_get_apply_css_for_map(
+	$for,
+	$stateName : default
+) {	
+	// check if has some extend for this mixin "category"
+	$map : map-get($_gridle_apply_css_for_content, $for);
+	@if $map == null { @return null; }
+
+	// check if has some extend for the requested state
+	$extend : map-get($map, $stateName);
+	
+	// return the resulting extend map
+	@return $extend;
+}
+
+
+//
 // Get the extend map for a certain class and state
 //
 @function gridle_get_extend_class_map(
@@ -246,6 +265,19 @@
 	$stateName : default
 ) {
 	$map : gridle_get_extend_class_map($for, $stateName);
+	@if $map == null { @return false; }
+	@else { @return true; }
+}
+
+
+//
+// Get if the current state has some css to apply
+//
+@function gridle_has_apply_css_for_map(
+	$for,
+	$stateName : default
+) {
+	$map : gridle_get_apply_css_for_map($for, $stateName);
 	@if $map == null { @return false; }
 	@else { @return true; }
 }

@@ -22,7 +22,7 @@
 		name-multiplicator : 1,
 		debug : false,
 		debug-show-class-names : true,
-		html-states-classes : false,
+		states-classes : false,
 		generate-push-classes : true,
 		generate-pull-classes : true,
 		generate-prefix-classes : true,
@@ -58,9 +58,14 @@
 	// add rules if gutter is different
 	$gutter-width : map-get($settings, gutter-width);
 	@if $gutter-width != map-get($_gridle-settings, gutter-width) {
+		@debug("different gutters for #{$name}");
 		@include gridle_apply_css_for(grid, (
 			padding-left : $gutter-width / 2,
-			padding-right : $gutter-width / 2
+			padding-right : $gutter-width / 2,
+		), $name);
+		@include gridle_apply_css_for(flex-grid, (
+			padding-left : $gutter-width / 2,
+			padding-right : $gutter-width / 2,
 		), $name);
 	}
 

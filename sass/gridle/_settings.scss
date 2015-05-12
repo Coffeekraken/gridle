@@ -20,6 +20,19 @@ $gridle-prefix-name-pattern 				: ('prefix','%-','%state','%-','%count') !defaul
 $gridle-suffix-name-pattern 				: ('suffix','%-','%state','%-','%count') !default;
 
 $gridle-parent-name-pattern 				: ('parent','%-','%state') !default;
+$gridle-row-name-pattern 					: ('row','%-','%state') !default;
+
+$gridle-flex-parent-name-pattern 			: ('flex','%-','parent','%-','%state') !default;
+$gridle-flex-row-name-pattern 				: ('flex','%-','row','%-','%state') !default;
+$gridle-flex-grid-name-pattern 				: ('flex','%-','grid','%-','%state','%-','%count') !default;
+$gridle-flex-grow-name-pattern 				: ('flex','%-','grow','%-','%state') !default;
+$gridle-flex-align-left-name-pattern 		: ('flex','%-','align','%-','%state','%-','left') !default;
+$gridle-flex-align-center-name-pattern 		: ('flex','%-','align','%-','%state','%-','center') !default;
+$gridle-flex-align-right-name-pattern 		: ('flex','%-','align','%-','%state','%-','right') !default;
+$gridle-flex-align-top-name-pattern 		: ('flex','%-','align','%-','%state','%-','top') !default;
+$gridle-flex-align-middle-name-pattern 		: ('flex','%-','align','%-','%state','%-','middle') !default;
+$gridle-flex-align-bottom-name-pattern 		: ('flex','%-','align','%-','%state','%-','bottom') !default;
+
 $gridle-centered-name-pattern 			: ('centered','%-','%state') !default;
 
 $gridle-vertical-align-middle-name-pattern 		: ('vertical','%-','align','%-','%state','%-','middle') !default;

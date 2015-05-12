@@ -134,8 +134,6 @@ do ->
 						# try to find settings in css
 						settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\'(;\s*|\s*)\}/) && RegExp.$1;
 
-						console.log 'settings', settings
-
 						# stop if no settings
 						if not settings
 							@_noSettingsFindedInThisCss link

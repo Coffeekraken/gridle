@@ -38,8 +38,7 @@
 	$direction : gridle_get_state_var(direction, $stateName);
 	$classes : gridle_get_state_var(classes, $stateName);
 	$gutter-width : gridle_get_state_var(gutter-width, $stateName);
-	$debug : gridle_get_state_var(debug, $stateName);
-
+	
 	// calculating gutters
 	$_padding_left : $gutter-width * 0.5;
 	$_padding_right : $gutter-width * 0.5;
@@ -80,6 +79,26 @@
 	// container
 	%#{$stateName}-container {
 		@include _gridle_common_container($state);
+	}
+
+	// flex row
+	%#{$stateName}-flex-row {
+		@include _gridle_common_flex_row($state);
+	}
+
+	// flex grid
+	%#{$stateName}-flex-grid {
+		@include _gridle_common_flex_grid($state);
+	}
+
+	// flex grow
+	%#{$stateName}-flex-grow {
+		@include _gridle_common_flex_grow($state);
+	}
+
+	// flex align
+	%#{$stateName}-flex-align {
+		@include _gridle_common_flex_align($state);
 	}
 
 	// parent
@@ -230,6 +249,14 @@
 		} @else {
 			@if $sn == container {
 				@include gridle_container($state);
+			} @else if $sn == flex-grid {
+				@include gridle_flex_grid($sv, $state);
+			} @else if $sn == flex-parent or $sn == flex-row {
+				@include gridle_flex_row($state);
+			} @else if $sn == flex-grow {
+				@include gridle_flex_grow($state);
+			} @else if $sn == flex-align {
+				@include gridle_flex_align($sv, $state);
 			} @else if $sn == grid {
 				@include gridle($sv, $state);
 			} @else if $sn == push {
@@ -246,7 +273,7 @@
 				@include gridle_clear_each(nth($sv,1), nth($sv,2), $state);
 			} @else if $sn == centered {
 				@include gridle_centered($state);
-			} @else if $sn == parent {
+			} @else if $sn == parent or $sn == row {
 				@include gridle_parent($state);
 			} @else if $sn == vertical_align {
 				@include gridle_vertical_align($sv, $state);
@@ -335,33 +362,8 @@
 			$_gridle_current_state : $state !global;
 			$_gridle_current_stateName : gridle_get_state_var(name, $state) !global;
 
-			// variables :
-			$html-states-classes : gridle_get_state_var(html-states-classes, $state);
-			$debug : gridle_get_state_var(debug, $state);
-			$stateName : gridle_get_state_var(name, $state);
-
-			// check if is a state :
-			@if ($html-states-classes or $debug)
-				and $stateName {
-				// html class :
-				@at-root {
-					@if $has-parent {
-						html#{_gridle_classname("#{$stateName}")} & { @content; }
-					} @else {
-						html#{_gridle_classname("#{$stateName}")} { @content; }
-					}
-				}
-			}
-
-			// get the media query :
-			$q : _gridle_get_media_query($state);
-
-			// make the media query if a query exist :
-			@if $q {
-				@media #{$q} {
-					@content;
-				}
-			} @else {
+			// make gridle state
+			@include _gridle_state($state, $has-parent) {
 				@content;
 			}
 		}
@@ -375,31 +377,8 @@
 		$_gridle_current_state : $states !global;
 		$_gridle_current_stateName : gridle_get_state_var(name, $states) !global;
 
-		// variables :
-		$html-states-classes : gridle_get_state_var(html-states-classes, $states);
-		$debug : gridle_get_state_var(debug, $states);
-		$stateName : gridle_get_state_var(name, $states);
-
-		// check if is a state :
-		@if ($html-states-classes or $debug)
-			and $stateName {
-			// html class :
-			@if $has-parent {
-				html#{_gridle_classname("#{$stateName}")} & { @content; }
-			} @else {
-				html#{_gridle_classname("#{$stateName}")} { @content; }
-			}
-		}
-
-		// get the media query :
-		$q : _gridle_get_media_query($states);
-
-		// make the media query if a query exist :
-		@if $q {
-			@media #{$q} {
-				@content;
-			}
-		} @else {
+		// make gridle state
+		@include _gridle_state($state, $has-parent) {
 			@content;
 		}
 	}
@@ -407,6 +386,46 @@
 	// reset current state to default
 	$_gridle_current_state : $_gridle_settings !global;
 	$_gridle_current_stateName : default !global;
+
+}
+
+
+//
+// Gridle state
+//
+@mixin _gridle_state(
+	$state : default,
+	$has-parent : true
+) {
+
+	// variables :
+	$states-classes : gridle_get_state_var(states-classes, $state);
+	$stateName : gridle_get_state_var(name, $state);
+
+	// check if is a state :
+	@if ($states-classes)
+		and $stateName {
+		// html class :
+		@at-root {
+			@if $has-parent {
+				.state-#{$stateName} & { @content; }
+			} @else {
+				.state-#{$stateName} { @content; }
+			}
+		}
+	}
+
+	// get the media query :
+	$q : _gridle_get_media_query($state);
+
+	// make the media query if a query exist :
+	@if $q {
+		@media #{$q} {
+			@content;
+		}
+	} @else {
+		@content;
+	}
 
 }
 
@@ -428,17 +447,11 @@
 	// loop on each states
 	$rulesByStates : map-get($_gridle_apply_css_for_content, $for);
 	@each $stateName, $rules in $rulesByStates {
-		$q : _gridle_get_media_query($stateName);
-		@if $q {
-			@media #{$q} {
-				@include _gridle_map_2_css($rules);
-			}
-		} @else {
+		@include _gridle_state($stateName) {
 			@include _gridle_map_2_css($rules);
 		}
 	}
 }
-
 
 
 //
@@ -449,13 +462,20 @@
 // active state
 //			
 @mixin _gridle_call(
-	$states : default
+	$states : default,
+	$for : null
 ) {
+
 	// check if need media query :
 	@if type-of($states) == map {
 		@include gridle_state($states) {
 			$_content_arg_state : $states !global;
 			@content;
+
+			@if $for {
+				@include _gridle_extend($for);
+				@include _gridle_apply_css_for($for);
+			}
 		}
 	} @elseif $states {
 		@each $s in $states {
@@ -463,11 +483,21 @@
 			@include gridle_state($s) {
 				$_content_arg_state : $s !global;
 				@content;
+
+				@if $for {
+					@include _gridle_extend($for);
+					@include _gridle_apply_css_for($for);
+				}
 			}
 		}
 	} @else {
 		$_content_arg_state : $_gridle_current_state !global;
 		@content;
+
+		@if $for {
+			@include _gridle_extend($for);
+			@include _gridle_apply_css_for($for);
+		}
 	}
 }
 
@@ -478,7 +508,7 @@
 @mixin gridle_container(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, container) {
 		@include _gridle_container($_content_arg_state);
 	}
 }
@@ -486,7 +516,7 @@
 	$state : default
 ) {
 	// extend common css
-	@include _gridle_extend(container);
+	// @include _gridle_extend(container);
 }
 
 
@@ -496,7 +526,7 @@
 @mixin gridle_parent(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, parent) {
 		@include _gridle_parent($_content_arg_state);
 	}
 }
@@ -506,14 +536,154 @@
 	@include gridle_no_gutter();
 
 	// extend
-	@include _gridle_extend(parent);
+	// @include _gridle_extend(parent);
+}
+
+
+//
+// flex row
+//
+@mixin gridle_flex_row(
+	$states : null
+) {
+	@include _gridle_call($states, flex-row) {
+		@include _gridle_flex_row($_content_arg_state);
+	}
+}
+@mixin _gridle_flex_row(
+	$state : default
+) {
+	
+}
+
+
+//
+// flex grid
+//
+@mixin gridle_flex_grid(
+	$columns,
+	$states-or-context : null,
+	$states : null
+) {
+	// manage state and context :
+	$context : null;
+	@if type-of($states-or-context) == number {
+		$context : $states-or-context;
+	} @else {
+		$states : $states-or-context;
+	}
+
+	@include _gridle_call($states, flex-grid) {
+		@include _gridle_flex_grid($columns, $_content_arg_state, $context);
+	}
+}
+@mixin _gridle_flex_grid(
+	$columns,
+	$state : default,
+	$context : null
+) {
+
+	// vars :
+	$name : gridle_get_state_var(name, $state);
+	@if type-of($context) != number {
+		$context : gridle_get_state_var(context, $state);
+	}
+	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
+	
+	// manage columns
+	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+		// the columns is a saved one, get the context and column value
+		$column : map-get($_gridle_columns, $columns);
+		$context : map-get($column, context);
+		$columns : map-get($column, columns);
+	} @else if type-of($columns) == number {
+		$columns : $columns / $name-multiplicator;
+	} @else {
+		@error "the column #{$columns} does not exist...";
+	}
+
+	// vars :
+	$width : percentage(1 / $context * $columns);
+
+	// set value :
+	@include flex-basis($width);
+	max-width : $width;
+}
+
+
+//
+// flex grow
+//
+@mixin gridle_flex_grow(
+	$states : null
+) {
+	@include _gridle_call($states, flex-grow) {
+		@include _gridle_flex_grow($_content_arg_state);
+	}
+}
+@mixin _gridle_flex_grow(
+	$state : default
+) {
+}
+
+
+//
+// flex align
+//
+@mixin gridle_flex_align(
+	$align : left,
+	$states : null
+) {
+	@include _gridle_call($states, flex-align) {
+		@include _gridle_flex_align($align, $_content_arg_state);
+	}
+}
+@mixin _gridle_flex_align(
+	$align : left,
+	$state : default
+) {
+	@each $al in $align {
+		@if $al == left {
+			-webkit-box-pack: start;
+			-webkit-justify-content: flex-start;
+			-ms-flex-pack: start;
+			justify-content: flex-start;
+			//text-align: start;
+		} @else if $al == center {
+			-webkit-box-pack: center;
+			-webkit-justify-content: center;
+			-ms-flex-pack: center;
+			justify-content: center;
+			//text-align: center;
+		} @else if $al == right {
+			-webkit-box-pack: end;
+			-webkit-justify-content: flex-end;
+			-ms-flex-pack: end;
+			justify-content: flex-end;
+			// text-align: end;
+		} @else if $al == top {
+			-webkit-box-align: start;
+			-webkit-align-items: flex-start;
+			-ms-flex-align: start;
+			align-items: flex-start;
+		} @else if $al == middle {
+			-webkit-box-align: center;
+			-webkit-align-items: center;
+			-ms-flex-align: center;
+			align-items: center;
+		} @else if $al == bottom {
+			-webkit-box-align: end;
+			-webkit-align-items: flex-end;
+			-ms-flex-align: end;
+			align-items: flex-end;
+		}
+	}
 }
 
 
 //
 // Grid
 //
-$grid-inited : ();
 @mixin gridle(
 	$columns,
 	$states-or-context : null,
@@ -527,7 +697,7 @@ $grid-inited : ();
 		$states : $states-or-context;
 	}
 
-	@include _gridle_call($states) {
+	@include _gridle_call($states, grid) {
 		@include _gridle($columns, $_content_arg_state, $context);
 	}
 }
@@ -543,13 +713,9 @@ $grid-inited : ();
 		$context : gridle_get_state_var(context, $state);
 	}
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	$debug : gridle_get_state_var(debug, $state);
-	$debug-show-class-names : gridle_get_state_var(debug-show-class-names, $state);
-
+	
 	// extend common css
-	@include _gridle_extend(grid);
-
-	@include _gridle_apply_css_for(grid);
+	// @include _gridle_extend(grid);
 
 	// manage columns
 	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
@@ -568,26 +734,6 @@ $grid-inited : ();
 
 	// set value :
 	width:$width;
-	
-	// debug :
-	@if $debug == true and $debug-show-class-names == true {
-		#{$gridle-debug-selector} {
-			&:before {
-				@if $name == default {
-					content:"grid-#{$name}-#{$columns}";
-				} @else {
-					content:"grid-#{$name}-#{$columns}" !important;
-				}
-			}
-			&.parent:before {
-				@if $name == default {
-					content:"grid-parent-#{$name}-#{$columns}";
-				} @else {
-					content:"grid-parent-#{$name}-#{$columns}" !important;
-				}
-			}
-		}
-	}
 }
 
 
@@ -607,7 +753,7 @@ $grid-inited : ();
 		$states : $states-or-context;
 	}
 
-	@include _gridle_call($states) {
+	@include _gridle_call($states, push) {
 		@include _gridle_push($columns, $_content_arg_state, $context);
 	}
 }
@@ -623,29 +769,14 @@ $grid-inited : ();
 	}
 	$direction : gridle_get_state_var(direction, $state);
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	$debug : gridle_get_state_var(debug, $state);
-	$debug-show-class-names : gridle_get_state_var(debug-show-class-names, $state);
-
+	
 	// extend common css
-	@include _gridle_extend(push);
+	// @include _gridle_extend(push);
 
 	// vars :
 	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	@if $direction == rtl { $width : $width*-1; }
 	left:$width;
-
-	// debug css :
-	@if $debug == true and $debug-show-class-names == true {
-		#{$gridle-debug-selector} {
-			&:after {
-				@if $name == default {
-					content:"push-#{$name}-#{$columns}";
-				} @else {
-					content:"push-#{$name}-#{$columns}" !important;
-				}
-			}
-		}
-	}
 }
 
 
@@ -665,7 +796,7 @@ $grid-inited : ();
 		$states : $states-or-context;
 	}
 
-	@include _gridle_call($states) {
+	@include _gridle_call($states, pull) {
 		@include _gridle_pull($columns, $_content_arg_state, $context);
 	}
 }
@@ -681,29 +812,11 @@ $grid-inited : ();
 	}
 	$direction : gridle_get_state_var(direction, $state);
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	$debug : gridle_get_state_var(debug, $state);
-	$debug-show-class-names : gridle_get_state_var(debug-show-class-names, $state);
-
-	// extend common css
-	@include _gridle_extend(pull);
-
+	
 	// vars :
 	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	@if $direction == rtl { $width : $width*-1; }
 	right:$width;
-
-	// debug css :
-	@if $debug == true and $debug-show-class-names == true {
-		#{$gridle-debug-selector} {
-			&:after {
-				@if $name == default {
-					content:"pull-#{$name}-#{$columns}";
-				} @else {
-					content:"pull-#{$name}-#{$columns}" !important;
-				}
-			}
-		}
-	}
 }
 
 
@@ -723,7 +836,7 @@ $grid-inited : ();
 		$states : $states-or-context;
 	}
 
-	@include _gridle_call($states) {
+	@include _gridle_call($states, prefix) {
 		@include _gridle_prefix($columns, $_content_arg_state, $context);
 	}
 }
@@ -740,33 +853,13 @@ $grid-inited : ();
 	$direction : gridle_get_state_var(direction, $state);
 	$gutter-width : gridle_get_state_var(gutter-width, $state);
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	$debug : gridle_get_state_var(debug, $state);
-	$debug-show-class-names : gridle_get_state_var(debug-show-class-names, $state);
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(prefix, $name) {
-		@include _gridle_extend(prefix);
-	}
-
+	
 	// vars :
 	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 
 	// set value :
 	@if $direction == rtl { margin-right:$width; }
 	@else { margin-left:$width; }
-
-	// debug css :
-	@if $debug == true and $debug-show-class-names == true {
-		#{$gridle-debug-selector} {
-			&:after {
-				@if $name == default {
-					content:"prefix-#{$name}-#{$columns}";
-				} @else {
-					content:"prefix-#{$name}-#{$columns}" !important;
-				}
-			}
-		}
-	}
 }
 
 
@@ -786,7 +879,7 @@ $grid-inited : ();
 		$states : $states-or-context;
 	}
 
-	@include _gridle_call($states) {
+	@include _gridle_call($states, suffix) {
 		@include _gridle_suffix($columns, $_content_arg_state, $context);
 	}
 }
@@ -803,33 +896,13 @@ $grid-inited : ();
 	$direction : gridle_get_state_var(direction, $state);
 	$gutter-width : gridle_get_state_var(gutter-width, $state);
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	$debug : gridle_get_state_var(debug, $state);
-	$debug-show-class-names : gridle_get_state_var(debug-show-class-names, $state);
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(suffix, $name) {
-		@include _gridle_extend(suffix);
-	}
-
+	
 	// vars :
 	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 	
 	// set value :
 	@if $direction == rtl { margin-left:$width; }
 	@else { margin-right:$width; }
-
-	// debug css :
-	@if $debug == true and $debug-show-class-names == true {
-		#{$gridle-debug-selector} {
-			&:after {
-				@if $name == default {
-					content:"suffix-#{$name}-#{$columns}";
-				} @else {
-					content:"suffix-#{$name}-#{$columns}" !important;
-				}
-			}
-		}
-	}
 }
 
 
@@ -839,7 +912,7 @@ $grid-inited : ();
 @mixin gridle_grid_background(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, background) {
 		@include _gridle_grid_background($_content_arg_state);
 	}
 }
@@ -859,7 +932,7 @@ $grid-inited : ();
 		width:100%; height:100% !important;
 		// vars :
 		$width : percentage(1 / $context);
-		background: linear-gradient(to right, rgba(0,0,0,.01) 50% , rgba(0,0,0,.04) 50%); // Standard syntax
+		background: linear-gradient(to right, rgba(0,0,0,0) 50% , rgba(0,0,0,.02) 50%); // Standard syntax
 		background-size:($width*2) 100%;
 	}
 }
@@ -873,7 +946,7 @@ $grid-inited : ();
 	$clearWhat : both,
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, clear-each) {
 		@include _gridle_clear_each($clearEach, $clearWhat, $_content_arg_state);
 	}
 }
@@ -885,10 +958,6 @@ $grid-inited : ();
 	> *:nth-child(#{$clearEach}n+1) {
 		clear : $clearWhat;
 	}
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(clear_each, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(clear-each);
-	}
 }
 
 
@@ -898,14 +967,13 @@ $grid-inited : ();
 @mixin gridle_centered(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, centered) {
 		@include _gridle_centered($_content_arg_state);
 	}
 }
 @mixin _gridle_centered(
 	$state : default
 ) {
-	@include _gridle_extend(centered);
 }
 
 
@@ -916,7 +984,7 @@ $grid-inited : ();
 	$align : middle,
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, vertical-align) {
 		@include _gridle_vertical_align($align, $_content_arg_state);
 	}
 }
@@ -933,11 +1001,6 @@ $grid-inited : ();
 		vertical-align:$align;
 		font-size:1rem;
 	}
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(vertical_align, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(vertical-align);
-	}
 }
 
 
@@ -947,7 +1010,7 @@ $grid-inited : ();
 @mixin gridle_hide(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, hide) {
 		@include _gridle_hide($_content_arg_state);
 	}
 }
@@ -955,11 +1018,6 @@ $grid-inited : ();
 	$state : default
 ) {
 	display:none;
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(hide, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(hide);
-	}
 }
 
 
@@ -971,7 +1029,7 @@ $grid-inited : ();
 @mixin gridle_not_visible(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, not-visible) {
 		@include _gridle_not_visible($_content_arg_state);
 	}
 }
@@ -981,9 +1039,9 @@ $grid-inited : ();
 	visibility:hidden;
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(not_visible, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(not-visible);
-	}
+	// @if gridle_has_extend_class_map(not_visible, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(not-visible);
+	// }
 }
 
 
@@ -995,7 +1053,7 @@ $grid-inited : ();
 @mixin gridle_show(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, show) {
 		@include _gridle_show($_content_arg_state);
 	}
 }
@@ -1005,9 +1063,9 @@ $grid-inited : ();
 	display:block;
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(show, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(show);
-	}
+	// @if gridle_has_extend_class_map(show, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(show);
+	// }
 }
 
 
@@ -1019,7 +1077,7 @@ $grid-inited : ();
 @mixin gridle_show_inline(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, show-inline) {
 		@include _gridle_show_inline($_content_arg_state);
 	}
 }
@@ -1029,9 +1087,9 @@ $grid-inited : ();
 	display:inline-block;
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(show_inline, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(show-inline);
-	}
+	// @if gridle_has_extend_class_map(show_inline, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(show-inline);
+	// }
 }
 
 
@@ -1042,7 +1100,7 @@ $grid-inited : ();
 @mixin gridle_visible(
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, visible) {
 		@include _gridle_visible($_content_arg_state);
 	}
 }
@@ -1052,9 +1110,9 @@ $grid-inited : ();
 	visibility:visible;
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(visible, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(visible);
-	}
+	// @if gridle_has_extend_class_map(visible, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(visible);
+	// }
 }
 
 
@@ -1065,7 +1123,7 @@ $grid-inited : ();
 	$float-direction : left,
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, float) {
 		@include _gridle_float($float-direction, $_content_arg_state);
 	}
 }
@@ -1076,9 +1134,9 @@ $grid-inited : ();
 	float:#{$float-direction};
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(float, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(float);
-	}
+	// @if gridle_has_extend_class_map(float, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(float);
+	// }
 }
 
 
@@ -1092,7 +1150,7 @@ $grid-inited : ();
 	$clear-direction : both,
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, clear) {
 		@include _gridle_clear($clear-direction, $_content_arg_state);
 	}
 }
@@ -1103,9 +1161,9 @@ $grid-inited : ();
 	clear:#{$clear-direction};
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(clear, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(clear);
-	}
+	// @if gridle_has_extend_class_map(clear, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(clear);
+	// }
 }
 
 
@@ -1119,7 +1177,7 @@ $grid-inited : ();
 	$side : left right,
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, no-gutter) {
 		@include _gridle_no_gutter($side, $_content_arg_state);
 	}
 }
@@ -1138,9 +1196,9 @@ $grid-inited : ();
 	}
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(no_gutter, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(no-gutter);
-	}
+	// @if gridle_has_extend_class_map(no_gutter, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(no-gutter);
+	// }
 }
 
 
@@ -1154,7 +1212,7 @@ $grid-inited : ();
 	$side : left right,
 	$states : null
 ) {
-	@include _gridle_call($states) {
+	@include _gridle_call($states, gutter) {
 		@include _gridle_gutter($side, $_content_arg_state);
 	}
 }
@@ -1175,7 +1233,7 @@ $grid-inited : ();
 	}
 
 	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	@if gridle_has_extend_class_map(gutter, gridle_get_state_var(name, $state)) {
-		@include _gridle_extend(gutter);
-	}
+	// @if gridle_has_extend_class_map(gutter, gridle_get_state_var(name, $state)) {
+	// 	@include _gridle_extend(gutter);
+	// }
 }

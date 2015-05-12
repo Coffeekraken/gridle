@@ -143,9 +143,44 @@
 		}
 	}
 
-	@if $what == null or index($what, parent) or index($what, helpers) {
-		#{_gridle_classname($gridle-parent-name-pattern, $state)} {
+	@if $what == null or index($what, parent) or index($what, row) or index($what, helpers) {
+		#{_gridle_classname($gridle-parent-name-pattern, $state)},
+		#{_gridle_classname($gridle-row-name-pattern, $state)} {
 			@include gridle_parent();
+		}
+	}
+
+	@if $what == null or index($what, flex-parent) or index($what, flex-row) or index($what, flex) {
+		#{_gridle_classname($gridle-flex-parent-name-pattern, $state)},
+		#{_gridle_classname($gridle-flex-row-name-pattern, $state)} {
+			@include gridle_flex_row();
+		}
+	}
+
+	@if $what == null or index($what, flex-grow) or index($what, flex) {
+		#{_gridle_classname($gridle-flex-grow-name-pattern, $state)} {
+			@include gridle_flex_grow();
+		}
+	}
+
+	@if $what == null or index($what, flex-align) or index($what, flex) {
+		#{_gridle_classname($gridle-flex-align-left-name-pattern, $state)} {
+			@include gridle_flex_align(left);
+		}
+		#{_gridle_classname($gridle-flex-align-center-name-pattern, $state)} {
+			@include gridle_flex_align(center);
+		}
+		#{_gridle_classname($gridle-flex-align-right-name-pattern, $state)} {
+			@include gridle_flex_align(right);
+		}
+		#{_gridle_classname($gridle-flex-align-top-name-pattern, $state)} {
+			@include gridle_flex_align(top);
+		}
+		#{_gridle_classname($gridle-flex-align-middle-name-pattern, $state)} {
+			@include gridle_flex_align(middle);
+		}
+		#{_gridle_classname($gridle-flex-align-bottom-name-pattern, $state)} {
+			@include gridle_flex_align(bottom);
 		}
 	}
 
@@ -451,6 +486,11 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					@if $what == null or index($what, grid) or index($what, default) {
 						#{_gridle_classname($gridle-grid-name-pattern, $stateName, $columnName)} {
 							@include gridle($columnsCount, $columnsContext);
+						}
+					}
+					@if $what == null or index($what, flex-grid) or index($what, flex) {
+						#{_gridle_classname($gridle-flex-grid-name-pattern, $stateName, $columnName)} {
+							@include gridle_flex_grid($columnsCount, $columnsContext);
 						}
 					}
 					@if $generate-push-classes == true and ($what == null or index($what, push) or index($what, default)) {

@@ -4,6 +4,7 @@
 
 	<meta charset="utf-8" />
 
+	<link async href="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/grid.min.css" rel="stylesheet" type="text/css" />
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
 
@@ -15,205 +16,284 @@
 
 	<script src="js/gridle.min.js"></script>
 	<script src="js/jquery.js"></script>
-	<script>
-
-		// init gridle
-		Gridle.init({
-			debug : true,
-			// cssPath : 'css/grid.css'
-		});
-
-		// listen for update in gridle js :
-		Gridle.on('update', function(e, updatedStates, activeStates, unactiveStates) {
-			console.log('gridle update', updatedStates, activeStates, unactiveStates);
-			if (Gridle.isActive('mobile')) console.log('Mobile State Active');
-		});
-
-		// states switch :
-		jQuery(function($) {
-			$('#medias li').click(function(e) {
-				e.preventDefault();
-				$('#medias li').removeClass('active');
-				$('html').attr('class','').addClass($(this).data('class'));
-				$(this).addClass('active');
-			})
-		});
-
-	</script>
+	<script src="js/demo.js"></script>
 
 </head>
 <body>
 
-	<ul id="medias">
-		<li data-class="">Default</li>
-		<li data-class="tablet">Tablet</li>
-		<li data-class="mobile">Mobile</li>
-		<li data-class="print">Print</li>
-		<li data-class="ipad-landscape">iPad landscape</li>
-	</ul>
+	<div class="container">
 
-	<div class="container gridle-debug">
+		<div class="grid-12">
 
-		<div class="parent">
-
-			<div class="grid-3 grid-mobile-12 grid-ipad-landscape-12 hide-print">Logo</div>
-			<div class="grid-5 grid-mobile-12 grid-ipad-landscape-12 hide-print">Search</div>
-			<div class="grid-4 grid-mobile-12 hide-ipad-landscape hide-mobile hide-print">Login</div>
-
-			<div class="grid-12 hide-print debug-color-1">Primary navigation</div>
+			<h2 class="h2">Basic usage</h2>
+			<p class="p">
+				Here's a simple grid usage
+			</p>
 
 		</div>
 
+		<div class="grid-12">
 
-		<div class="grid-12 parent">
+<div class="container gridle-debug">
 
-			<div class="grid-8 grid-tablet-12 grid-mobile-12 debug-color-3">
-				<div class="content" style="height:242px;">
-					Slideshow content
+	<div class="grid-2"></div>
+	<div class="grid-2"></div>
+	<div class="grid-2"></div>
+	<div class="grid-2"></div>
+	<div class="grid-2"></div>
+	<div class="grid-2"></div>
+
+	<div class="grid-3 grid-tablet-6"></div>
+	<div class="grid-6 grid-tablet-6"></div>
+	<div class="grid-3 grid-tablet-12"></div>
+
+	<div class="grid-6"></div>
+	<div class="grid-6"></div>
+
+</div>
+
+			<pre></pre>
+
+		</div>
+
+		<div class="grid-12">
+
+			<h2 class="h2">Push & pull</h2>
+			<p class="p">
+				Here's how you can use push and pull into your grid
+			</p>
+
+		</div>
+
+		<div class="grid-12">
+
+			<div class="container gridle-debug">
+
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+
+				<div class="grid-3"></div>
+				<div class="grid-3 push-3"></div>
+				<div class="grid-3 pull-3"></div>
+				<div class="grid-3"></div>
+
+			</div>
+
+		</div>
+
+		<div class="grid-12">
+
+			<h2 class="h2">Prefix & suffix</h2>
+			<p class="p">
+				Here's how you can use prefix and suffix into your grid
+			</p>
+
+		</div>
+
+		<div class="grid-12">
+
+			<div class="container gridle-debug">
+
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+
+				<div class="grid-3 prefix-1"></div>
+				<div class="grid-2 suffix-2"></div>
+				<div class="grid-3 prefix-1"></div>
+
+			</div>
+
+		</div>
+
+		<div class="grid-12">
+
+			<h2 class="h2">Clear each</h2>
+			<p class="p">
+				Here's how you can use clear-each-x in your grid
+			</p>
+
+		</div>
+
+		<div class="grid-12">
+
+			<div class="container gridle-debug"
+				data-options="clear-each-3,clear-each-2">
+
+				<div class="grid-4">
+					Cras at velit vel leo tincidunt varius nec vel felis. Suspendisse potenti. Aliquam ut enim efficitur nisl placerat scelerisque nec.
 				</div>
-			</div>
+				<div class="grid-4"></div>
+				<div class="grid-4"></div>
+				<div class="grid-4"></div>
+				<div class="grid-4">
+					Cras at velit vel leo tincidunt varius nec vel felis. Suspendisse potenti. Aliquam ut enim efficitur nisl placerat scelerisque nec.
+				</div>
+				<div class="grid-4"></div>
 
-			<div class="grid-4 grid-tablet-4 grid-mobile-12 debug-color-2">
-				<div class="content" style="height:30px;">
-					Slideshow menu 1
-				</div>
-			</div>
-			<div class="grid-4 grid-tablet-4 grid-mobile-12 debug-color-2">
-				<div class="content" style="height:30px;">
-					Slideshow menu 2
-				</div>
-			</div>
-			<div class="grid-4 grid-tablet-4 grid-mobile-12 debug-color-2">
-				<div class="content" style="height:30px;">
-					Slideshow menu 3
-				</div>
 			</div>
 
 		</div>
 
-		<div class="grid-12 debug-color-1">Breadcrumb</div>
+		<div class="grid-12">
 
-		<div class="grid-4 grid-ipad-landscape-6 grid-tablet-6 grid-mobile-12 push-tablet-6">
-			<div class="content" style="height:100px;">
-				Highlight 1
-			</div>
-		</div>
-		
-		<div class="grid-4 grid-ipad-landscape-6 grid-tablet-6 grid-mobile-12 pull-tablet-6">
-			<div class="content" style="height:100px;">
-				Highlight 2
-			</div>
-		</div>
-		<div class="grid-4 grid-ipad-landscape-12 grid-tablet-12 grid-mobile-12 grid-tablet-clear">
-			<div class="content" style="height:100px;">
-				Highlight 3
-			</div>
+			<h2 class="h2">Centered</h2>
+			<p class="p">
+				Here's how you can simply center one of your grid item
+			</p>
+
 		</div>
 
-		<div class="grid-6 grid-mobile-12 debug-color-3">
-			<div class="content" style="height:100px">
-				Custom box 1
-			</div>
-		</div>
-		<div class="grid-6 grid-mobile-12 debug-color-3">
-			<div class="content" style="height:100px">
-				Custom box 2
-			</div>
-		</div>
+		<div class="grid-12">
 
-		<div class="parent vertical-align-middle">
-	
-			<div class="grid-4 grid-tablet-6 grid-mobile-12 parent clear-each-2">
-				
-				<div class="grid-6 debug-color-6">
-					I have not the same height of my neighbours
-					<br />
-					And it's me the reason
-					<br />
-					...
-				</div>
-				<div class="grid-6">
-					I have not the same height of my neighbours
-				</div>
-				<div class="grid-6">
-					I have not the same height of my neighbours
-				</div>
-				<div class="grid-6 debug-color-6">
-					I have not the same height of my neighbours
-					<br />
-					And it's me the reason
-					<br />
-					...
+			<div class="container gridle-debug">
+
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-6 centered">
 				</div>
 
 			</div>
 
-			<div class="grid-4 grid-tablet-6 grid-mobile-12">
-				<div class="content">
-					I'm a content that has different height of my neighbours... <br />
-				</div>	
-			</div>
+		</div>
 
-			<div class="grid-4 grid-tablet-12 grid-mobile-12">
-				<div class="content">
-					I'm a content that has different height of my neighbours... <br />
-					I'm a content that has different height of my neighbours... <br />
-					I'm a content that has different height of my neighbours... <br />
-					I'm a content that has different height of my neighbours... <br />
-					I'm a content that has different height of my neighbours... <br />
-					I'm a content that has different height of my neighbours... <br />
-				</div>	
-			</div>
+		<div class="grid-12">
+
+			<h2 class="h2">Show, hide, visible, etc...</h2>
+			<p class="p">
+				Here's how you can hide or show some of your elements depending of the state you are in...
+			</p>
 
 		</div>
 
-		<div class="parent">
-			<div class="grid-2 prefix-1 suffix-2">
-				I have a suffix of 2 and a prefix of 1
+		<div class="grid-12">
+
+			<div class="container gridle-debug">
+
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-2"></div>
+				<div class="grid-4 hide-tablet">
+					I will be hided on tablet
+				</div>
+				<div class="grid-4"></div>
+				<div class="grid-4 hide-tablet">
+					I will be not visible on tablet
+				</div>
+				<div class="grid-8 hide show-tablet">
+					Hello tablet!
+				</div>
+
 			</div>
-			<div class="grid-2 suffix-3">
-				I have a suffix of 3
-			</div>
-			<div class="grid-2">
-				I have nothing	
-			</div>
+
 		</div>
 
-		<div class="grid-4 grid-tablet-8 grid-mobile-12 centered">
-			<div class="content">
-				I'm a centered column
-			</div>
+		<div class="grid-12">
+
+			<h2 class="h2">Flex grid</h2>
+			<p class="p">
+				Gridle has a built in flex system that you can use with your normal grid
+			</p>
+
 		</div>
 
-		<div class="grid-1on5 grid-ipad-landscape-6 grid-tablet-6 grid-mobile-12 grid-tablet-clear debug-color-4">
-			<div class="content" style="height:100px;">
-				1 on 5 (special column)
-			</div>
-		</div>
-		<div class="grid-1on5 grid-ipad-landscape-6 grid-tablet-6 grid-mobile-12 grid-tablet-clear debug-color-4">
-			<div class="content" style="height:100px;">
-				1 on 5 (special column)
-			</div>
-		</div>
-		<div class="grid-1on5 grid-ipad-landscape-12 grid-tablet-4 grid-mobile-12 grid-tablet-clear debug-color-4">
-			<div class="content" style="height:100px;">
-				1 on 5 (special column)
-			</div>
-		</div>
-		<div class="grid-1on5 grid-ipad-landscape-6 grid-tablet-4 grid-mobile-12 grid-tablet-clear debug-color-4">
-			<div class="content" style="height:100px;">
-				1 on 5 (special column)
-			</div>
-		</div>
-		<div class="grid-1on5 grid-ipad-landscape-6 grid-tablet-4 grid-mobile-12 grid-tablet-clear debug-color-4">
-			<div class="content" style="height:100px;">
-				1 on 5 (special column)
-			</div>
+		<div class="grid-12">
+
+			<h2 class="h3">Basic usage</h2>
+
 		</div>
 
-		<div class="grid-12 hide-print">Footer</div>
+		<div class="grid-12">
+
+			<div class="container gridle-debug">
+
+				<div class="row">
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+				</div>
+
+				<div class="flex-row">
+					<div class="flex-grid-4 flex-grid-tablet-5">
+						Cras interdum quis urna ullamcorper aliquam. Duis gravida odio et nisi porttitor elementum. Duis turpis ex, finibus quis enim sit.
+					</div>
+					<div class="flex-grid-3 hide-tablet"></div>
+					<div class="flex-grow">
+						I will take the place that my neighbours let me...
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+				</div>
+
+			</div>
+
+		</div>
+
+		<div class="grid-12">
+
+			<h2 class="h2">Flex grid - Alignements</h2>
+			<p class="p">
+				Gridle has a built in flex system that you can use with your normal grid
+			</p>
+
+		</div>
+
+		<div class="grid-12">
+
+			<div class="container gridle-debug">
+
+				<div class="row">
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+				</div>
+
+				<div class="flex-row" data-options="flex-align-top,flex-align-middle,flex-align-bottom|flex-align-left,flex-align-center,flex-align-right">
+					<div class="flex-grid-4 flex-grid-tablet-5">
+						Praesent at condimentum lorem. Nam volutpat iaculis mauris, fringilla eleifend libero sodales et. Aenean semper cursus ipsum id convallis. Proin in elementum leo. Suspendisse molestie tortor leo, quis convallis tortor dictum at. Pellentesque vel enim finibus, suscipit libero vitae, laoreet nisi. In in urna eros.
+					</div>
+					<div class="flex-grid-3 hide-tablet"></div>
+				</div>
+
+				<div class="row">
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+				</div>
+
+			</div>
+
+		</div>
 
 	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js" data-manual></script>
 
 </body>
 </html>

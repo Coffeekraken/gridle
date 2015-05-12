@@ -1,11 +1,12 @@
 // Import gridle
+@import "compass/css3/flexbox";
 @import 'gridle/gridle';
 
 // setup the grid (required)
 @include gridle_setup((
 	context : 12,
 	gutter-width : 20px,
-	debug : true
+	states-classes : true
 ));
 
 // register special columns
@@ -13,6 +14,7 @@
 
 // clear each classes
 @include gridle_register_clear_each(2, left);
+@include gridle_register_clear_each(3, left);
 @include gridle_register_clear_each(12, both);
 
 // register states
@@ -38,15 +40,6 @@
 // 	content : "hello show inline mobile"
 // ), mobile);
 
-@include gridle_apply_css_for(grid, (
-	padding : 0 !important,
-	":after" : (
-		content : "my after content"
-	),
-	".active" : (
-		content : 'my active content'
-	)
-), mobile);
 
 // @include gridle_extend_base_class(grid, (
 // 	padding-left : 0,

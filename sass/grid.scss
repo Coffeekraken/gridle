@@ -20,33 +20,33 @@
 .container {
 	margin:0 auto;
 	max-width:960px;
+}
+.gridle-debug.container,
+.gridle-debug .container {
 	// @include gridle_grid_background();
+	margin-top: 20px;
 }
 
-
-// .my-cool-grid-element {
-// 	@include gridle(6);
-
-// 	@include gridle_state(mobile) {
-// 		@include gridle(12);
-// 		@include gridle_push(6);
-// 		@include gridle_hide();
-// 		@include gridle_prefix(5);
-// 	}
-// }
-
-// @mixin coco() {
-// 	@include gridle_state(mobile) {
-// 		@content;
-// 	}
-// }
-
-// @mixin co() {
-// 	@include coco();
-// }
-
-// .coco {
-// 	@include coco() {
-// 		content : "hello coco";
-// 	}
-// }
+[class*="flex-grid-"],
+[class*="flex-grow"] {
+	@include gridle_set((
+		mobile : (
+			push : 0,
+			pull : 0,
+			flex-grid : 12,
+			prefix : 0,
+			suffix : 0
+		)
+	));
+}
+[class*="grid-"] {
+	@include gridle_set((
+		mobile : (
+			push : 0,
+			pull : 0,
+			grid : 12,
+			prefix : 0,
+			suffix : 0
+		)
+	));
+}

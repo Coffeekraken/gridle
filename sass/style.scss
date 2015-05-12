@@ -2,12 +2,18 @@
  * Imports :
  */
 @import 'compass/reset';
+@import 'compass/css3';
 
 /**
  * Import grid settings :
  * This to be able to use gridle mixins, etc...
  */
 @import 'grid-settings';
+
+/**
+ * Variables
+ */
+$primary-color : #eaedef;
 
 /**
  * Medias :
@@ -46,15 +52,101 @@ ul#medias {
  */
 html {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+	color: darken($primary-color, 60%);
 }
 body {
-	@include gridle_state(mobile tablet) {
+	@include gridle_state(mobile) {
 		text-align:center;
 	}
 
 	@include gridle_state(ipad-landscape) {
 		font-size:16px;
 	}
+}
+
+
+/**
+ * Typography
+ */
+.h1 {
+
+}
+.h2 {
+	margin: 20px 0 0 0;
+	font-size:30px;
+}
+.h3 {
+	margin: 15px 0 0 0;
+	font-size: 20px;
+}
+.p {
+	margin-top: 10px;
+	font-size:16px;
+	color: darken($primary-color, 35%);
+}
+
+
+/**
+ * Prism
+ */
+pre {
+	background-color: $primary-color !important;
+}
+
+
+/**
+ * State selector
+ */
+.state-selector {
+	margin-top: 10px;
+	background: $primary-color;
+	padding:5px;
+	@include border-radius(3px);
+	display:inline-block;
+	margin-right:10px;
+
+	li {
+		display:inline-block;
+		padding:5px 10px;
+		@include border-radius(3px);
+		cursor:pointer;
+		margin-right: 2px;
+	}
+	li:hover,
+	li.active {
+		background-color: darken($primary-color, 60%);
+		color:white;
+	}
+}
+
+
+/**
+ * Debug grid
+ */
+.gridle-debug {
+
+	[class*="grid-"],
+	[class*="flex-grid"],
+	[class*="flex-grow"] {
+		background: $primary-color;
+		border: 1px solid darken($primary-color, 5%);
+		padding-top: 10px;
+		padding-bottom: 10px;
+		content: " hello";
+
+		&:before {
+			display:block;
+			content: attr(class);
+			font-weight: bold;
+		}
+	}
+	[class*="push-"] {
+		background: darken($primary-color, 15%);
+	}
+	[class*="pull-"] {
+		background: darken($primary-color, 20%);
+	}
+
 }
 
 
