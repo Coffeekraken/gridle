@@ -10,26 +10,33 @@ jQuery ($) ->
 
 
 	# listen for update in gridle js :
-	Gridle.on 'update', (e, updatedStates, activeStates, unactiveStates) ->
-		console.log 'gridle update', updatedStates, activeStates, unactiveStates
-		if Gridle.isActive('mobile')
-			console.log 'Mobile State Active'
-		return
+	Gridle.on 'update', (updatedStates, activeStates, unactiveStates) ->
+		
+		# change state
+		# if activeStates[0]?
+		# 	$('li[data-state="' + activeStates[0].name + '"]').trigger 'click'
+		# else
+		# 	$('li[data-state="default"]').trigger 'click'
+
+		# if Gridle.isActive('mobile')
+		# 	console.log 'Mobile State Active'
+		# return
 
 	# when ready
 	Gridle.on 'ready', (e) ->
 		states = Gridle.getRegisteredStates()
 		$('.container.gridle-debug').each ->
 			$this = $(this)
-			$ul = $('<ul class="state-selector" />')
+			$ul = $('<ul class="selector selector--states" />')
 			$.each states, (idx, item) ->
-				$li = $('<li>' + item.name + '</li>')
+				$li = $('<li data-state="'+item.name+'">' + item.name + '</li>')
 				$li.bind 'click', (e) ->
 					$(this).siblings().removeClass 'active'
 					$(this).addClass 'active'
 					$container = $(this).parent().siblings('.container.gridle-debug')
 					previous_class = $container.attr('data-active-state')
-					$container.removeClass(previous_class).addClass('state-' + item.name).attr 'data-active-state', 'state-' + item.name
+					$container.removeClass(previous_class).attr 'data-active-state', 'state-' + item.name
+					$container.addClass('state-' + item.name) if item.name != 'default'
 					return
 				$ul.append $li
 				$li.trigger('click') if idx is 0
@@ -52,7 +59,7 @@ jQuery ($) ->
 		groups = options.split('|')
 		$(groups).each (idx, item) ->
 			opts = item.split(',')
-			$ul = $('<ul class="state-selector" />')
+			$ul = $('<ul class="selector selector--options" />')
 			$.each opts, (idx, item) ->
 				$li = $('<li>' + item + '</li>')
 				$li.bind 'click', (e) ->

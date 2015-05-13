@@ -1,9 +1,9 @@
 
 /*
  * Gridle.js
-#
+ *
  * This little js file allow you to detect witch or your gridle state is active, when states changes, etc...
-#
+ *
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  * @created 	20.05.14
  * @updated 	09.02.15
@@ -23,13 +23,13 @@
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, i, len, ref;
+        var handler, _i, _len, _ref;
         if (!handlers[eventName]) {
           return;
         }
-        ref = handlers[eventName];
-        for (i = 0, len = ref.length; i < len; i++) {
-          handler = ref[i];
+        _ref = handlers[eventName];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          handler = _ref[_i];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
           continue;
         }
@@ -67,21 +67,21 @@
     		Init
      */
     init: function(settings) {
-      var _cssLinks, index, link, ref, ref1;
+      var index, link, _cssLinks, _ref, _ref1;
       this._inited = true;
       if (settings != null) {
         this._settings = settings;
       }
       if (settings && (settings.debug != null)) {
-                if ((ref = this._settings.debug) != null) {
-          ref;
+                if ((_ref = this._settings.debug) != null) {
+          _ref;
         } else {
           settings.debug;
         };
       }
       if (settings && (settings.onStatesChange != null)) {
-                if ((ref1 = this._settings.onStatesChange) != null) {
-          ref1;
+                if ((_ref1 = this._settings.onStatesChange) != null) {
+          _ref1;
         } else {
           settings.onStatesChange;
         };
@@ -108,10 +108,10 @@
     		Load and parse css
      */
     _loadAndParseCss: function() {
-      var index, link, ref;
-      ref = this._cssLinks;
-      for (index in ref) {
-        link = ref[index];
+      var index, link, _ref;
+      _ref = this._cssLinks;
+      for (index in _ref) {
+        link = _ref[index];
         if (this._statesFindedInCss) {
           return false;
         }
@@ -177,11 +177,11 @@
     		Process finded states
      */
     _processFindedStates: function() {
-      var name, query, ref;
+      var name, query, _ref;
       this._debug('begin process finded states in css');
-      ref = this._statesInCss;
-      for (name in ref) {
-        query = ref[name];
+      _ref = this._statesInCss;
+      for (name in _ref) {
+        query = _ref[name];
         this._registerState(name, query);
       }
       return this._launch();
@@ -235,16 +235,16 @@
     		Update states status
      */
     _updateStatesStatus: function() {
-      var key, ref, state;
+      var key, state, _ref;
       this._activeStates = [];
       this._activeStatesNames = [];
       this._inactiveStates = [];
       this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
-      ref = this._states;
-      for (key in ref) {
-        state = ref[key];
+      _ref = this._states;
+      for (key in _ref) {
+        state = _ref[key];
         if (!state.updateOnResize) {
           continue;
         }
@@ -402,11 +402,11 @@
     		Check is a state is active
      */
     isActive: function(stateName) {
-      var index, isActive, name, ref;
+      var index, isActive, name, _ref;
       isActive = false;
-      ref = this._activeStatesNames;
-      for (index in ref) {
-        name = ref[index];
+      _ref = this._activeStatesNames;
+      for (index in _ref) {
+        name = _ref[index];
         if (stateName === name) {
           isActive = true;
         }

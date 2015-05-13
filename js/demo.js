@@ -5,29 +5,27 @@ jQuery(function($) {
     $('html').attr('class', '').addClass($(this).data('class'));
     $(this).addClass('active');
   });
-  Gridle.on('update', function(e, updatedStates, activeStates, unactiveStates) {
-    console.log('gridle update', updatedStates, activeStates, unactiveStates);
-    if (Gridle.isActive('mobile')) {
-      console.log('Mobile State Active');
-    }
-  });
+  Gridle.on('update', function(updatedStates, activeStates, unactiveStates) {});
   Gridle.on('ready', function(e) {
     var states;
     states = Gridle.getRegisteredStates();
     $('.container.gridle-debug').each(function() {
       var $this, $ul;
       $this = $(this);
-      $ul = $('<ul class="state-selector" />');
+      $ul = $('<ul class="selector selector--states" />');
       $.each(states, function(idx, item) {
         var $li;
-        $li = $('<li>' + item.name + '</li>');
+        $li = $('<li data-state="' + item.name + '">' + item.name + '</li>');
         $li.bind('click', function(e) {
           var $container, previous_class;
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
           $container = $(this).parent().siblings('.container.gridle-debug');
           previous_class = $container.attr('data-active-state');
-          $container.removeClass(previous_class).addClass('state-' + item.name).attr('data-active-state', 'state-' + item.name);
+          $container.removeClass(previous_class).attr('data-active-state', 'state-' + item.name);
+          if (item.name !== 'default') {
+            $container.addClass('state-' + item.name);
+          }
         });
         $ul.append($li);
         if (idx === 0) {
@@ -52,7 +50,7 @@ jQuery(function($) {
     $(groups).each(function(idx, item) {
       var $ul, opts;
       opts = item.split(',');
-      $ul = $('<ul class="state-selector" />');
+      $ul = $('<ul class="selector selector--options" />');
       $.each(opts, function(idx, item) {
         var $li;
         $li = $('<li>' + item + '</li>');

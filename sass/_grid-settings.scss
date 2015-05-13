@@ -21,7 +21,7 @@
 @include gridle_register_default_states();
 @include gridle_register_state(ipad-landscape, (
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
-	gutter-width : 0px
+	gutter-width : 50px
 ));
 
 // extend framework classes

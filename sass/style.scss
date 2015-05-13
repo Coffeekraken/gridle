@@ -14,54 +14,78 @@
  * Variables
  */
 $primary-color : #eaedef;
+$green : #eeefea;
+
+$braun : #999588;
+$orange : #f2ca2b;
+
+$title : #3b3b3b;
+$text : #b1b1b1;
+
+$light : #f6f6f6;
+$medium : #999588;
+$dark : #605d54;
+
+$footer-dark : #266778;
+
+$complementary : #f2ca2b;
+
+$error : #d39c7b;
+$success : #ced37b;
+
+$green : #e5f382;
+$blue : #5aecf1;
+$red : #ee243c;
+
+$new : #ffb554; 
+
 
 /**
- * Medias :
+ * Gradients
  */
-ul#medias {
-	background:black;
-	text-align:center;
-	margin-bottom:30px;
-
-	li {
-		display:inline-block;
-		height:50px;
-		line-height:50px;
-		padding:0 30px;
-		color:white;
-		font-size:16px;
-		cursor:pointer;
-		margin:0;
-
-		&.active,
-		&:hover {
-			background:white;
-			color:black;
-		}
-	}
-
-	@include gridle_state((
-		max-width : 620px
-	)) {
-		display:none;
+@mixin gradiented($color) {
+	@include filter-gradient($color, darken($color,5%));
+	@include background-image(linear-gradient($color, darken($color,5%)));
+	
+	&.active,
+	&:hover {
+		@include filter-gradient(darken($color,5%), $color);
+		@include background-image(linear-gradient(darken($color,5%), $color));	
 	}
 }
 
 /**
  * Basic formatting :
  */
+* {
+	@include box-sizing(border-box);
+}
 html {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 	color: darken($primary-color, 60%);
 }
-body {
-	@include gridle_state(mobile) {
-		text-align:center;
-	}
-
-	@include gridle_state(ipad-landscape) {
-		font-size:16px;
-	}
+#header {
+	background-image:url('http://gridle.org/img/highlight-bkg.jpg?1399559324');
+	background-size:cover;
+	background-position:50% 50%;
+	min-height:150px;
+	color: white;
+	padding:50px 0;
+	line-height:1;
+}
+#head {
+	background: $light;
+	margin-bottom:50px;
+	padding: 50px 0;
+}
+.separator {
+	width:100%;
+	height:1px;
+	background: $primary-color;
+	margin-bottom:50px;
+}
+.complementary {
+	color: $complementary;
 }
 
 
@@ -69,20 +93,32 @@ body {
  * Typography
  */
 .h1 {
-
+	font-size:50px;
+	font-weight:100;
 }
 .h2 {
-	margin: 20px 0 0 0;
+	margin: 0 0 15px 0;
 	font-size:30px;
 }
 .h3 {
-	margin: 15px 0 0 0;
+	margin: 0 0 10px 0;
 	font-size: 20px;
 }
 .p {
-	margin-top: 10px;
+	margin-bottom: 20px;
 	font-size:16px;
 	color: darken($primary-color, 35%);
+}
+.subtitle {
+	font-size:30px;
+	font-weight:200;
+}
+.heading {
+	font-size:20px;
+}
+a {
+	color: darken($complementary,5%);
+	text-decoration: none;
 }
 
 
@@ -97,25 +133,62 @@ pre {
 /**
  * State selector
  */
-.state-selector {
-	margin-top: 10px;
-	background: $primary-color;
+.selector {
+	margin-bottom: 15px;
 	padding:5px;
 	@include border-radius(3px);
 	display:inline-block;
 	margin-right:10px;
+	@include gradiented(lighten($complementary,20%));
+
 
 	li {
+		color:darken($complementary,60%);
 		display:inline-block;
 		padding:5px 10px;
 		@include border-radius(3px);
 		cursor:pointer;
 		margin-right: 2px;
+		@include gradiented($complementary);
+
+		@each $stateName in gridle_get_registered_states_names() {
+			@if $stateName != default {
+				@include gridle_state($stateName) {
+					&[data-state="#{$stateName}"] {
+						outline: 2px solid $red;
+					}
+				}
+			}
+		}
+
+		&.active {
+			color: white;
+			background:darken($complementary,20%) !important;
+		}
 	}
-	li:hover,
-	li.active {
-		background-color: darken($primary-color, 60%);
-		color:white;
+
+	&.selector--options {
+		@include gradiented(lighten($braun,20%));
+
+		li {
+			color:darken($braun,60%);
+			@include gradiented($braun);
+
+			&.active {
+				background:darken($braun,20%) !important;
+				color: white;
+			}
+		}
+	}
+
+	@include gridle_state(mobile) {
+		display:block;
+		margin:0 0 15px 0;
+
+		li {
+			display: block;
+			padding:10px;
+		}
 	}
 }
 
@@ -124,6 +197,7 @@ pre {
  * Debug grid
  */
 .gridle-debug {
+	margin-bottom:50px;
 
 	[class*="grid-"],
 	[class*="flex-grid"],
@@ -140,10 +214,12 @@ pre {
 			font-weight: bold;
 		}
 	}
-	[class*="push-"] {
+	[class*="push-"],
+	[class*="prefix-"] {
 		background: darken($primary-color, 15%);
 	}
-	[class*="pull-"] {
+	[class*="pull-"],
+	[class*="suffix-"] {
 		background: darken($primary-color, 20%);
 	}
 

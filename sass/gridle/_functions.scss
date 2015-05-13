@@ -208,6 +208,14 @@
 
 
 //
+// get the registered gridle states
+//
+@function gridle_get_registered_states() {
+	@return $_gridle_states;
+}
+
+
+//
 // Get the states names
 //
 @function gridle_get_registered_states_names() {
