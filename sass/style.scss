@@ -120,6 +120,9 @@ a {
 	color: darken($complementary,5%);
 	text-decoration: none;
 }
+small {
+	font-size:0.6em;
+}
 
 
 /**
@@ -206,7 +209,6 @@ pre {
 		border: 1px solid darken($primary-color, 5%);
 		padding-top: 10px;
 		padding-bottom: 10px;
-		content: " hello";
 
 		&:before {
 			display:block;
@@ -221,6 +223,17 @@ pre {
 	[class*="pull-"],
 	[class*="suffix-"] {
 		background: darken($primary-color, 20%);
+	}
+
+	.parent,
+	.row,
+	.col {
+		padding-top: 0;
+		padding-bottom: 0;
+
+		&:before {
+			content: "";
+		}
 	}
 
 }

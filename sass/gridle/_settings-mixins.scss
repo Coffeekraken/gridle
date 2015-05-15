@@ -81,9 +81,6 @@
 			float : $float
 		), $name);
 	}
-
-	// setup the default class properties
-	@include _gridle_set_base_class($name);
 }
 
 

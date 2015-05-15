@@ -1,5 +1,4 @@
 // Import gridle
-@import "compass/css3/flexbox";
 @import 'gridle/gridle';
 
 // setup the grid (required)
@@ -23,28 +22,3 @@
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
 	gutter-width : 50px
 ));
-
-// extend framework classes
-@include gridle_extend_base_class(grid, (
-	content : "hello world",
-	":after" : (
-		content : "yop my after content"
-	)
-));
-
-// @include gridle_extend_base_class(visible, (
-// 	content : "hello push"
-// ));
-
-// @include gridle_extend_base_class(show_inline, (
-// 	content : "hello show inline mobile"
-// ), mobile);
-
-
-// @include gridle_extend_base_class(grid, (
-// 	padding-left : 0,
-// 	padding-right : 0
-// ), mobile tablet);
-
-// init
-@include gridle_init();

@@ -7,448 +7,25 @@
 
 //
 // Init
+// called by _gridle_call mixin multiple times
 //
 @mixin gridle_init() {
-	@each $stateName, $state in $_gridle_states {
-		$classes : gridle_get_state_var(classes, $state);
-		@if $classes {
-			@at-root {
-				$q : _gridle_get_media_query($state);
-				@if $q {
-					@media #{$q} {
-						@include _gridle_init_silent_classes($state);
+	@if $_gridle_inited == false {
+		$_gridle_inited : true !global;
+		@each $stateName, $state in $_gridle_states {
+			$classes : gridle_get_state_var(classes, $state);
+			@if $classes {
+				@at-root {
+					$q : _gridle_get_media_query($state);
+					@if $q {
+						@media #{$q} {
+							@include _gridle_init_common_silent_classes($state);
+						}
+					} @else {
+						@include _gridle_init_common_silent_classes($state);
 					}
-				} @else {
-					@include _gridle_init_silent_classes($state);
 				}
 			}
-		}
-	}
-}
-
-
-//
-// Set base class
-//
-@mixin _gridle_set_base_class(
-	$stateName : default
-) {
-
-	// get state variables
-	$direction : gridle_get_state_var(direction, $stateName);
-	$classes : gridle_get_state_var(classes, $stateName);
-	$gutter-width : gridle_get_state_var(gutter-width, $stateName);
-	
-	// calculating gutters
-	$_padding_left : $gutter-width * 0.5;
-	$_padding_right : $gutter-width * 0.5;
-
-	// managing direction
-	$_float : left;
-	$_direction : ltr;
-	@if $direction == rtl {
-		$_float : right;
-		$_direction : rtl;
-	}
-
-	// extend grid class
-	@include gridle_extend_base_class(grid, (
-		display : inline-block,
-		min-height : 1px,
-		-webkit-box-sizing : border-box,
-		-moz-box-sizing : border-box,
-		box-sizing : border-box,
-		float : $_float,
-		direction : $_direction,
-		padding-left : $_padding_left,
-		padding-right : $_padding_right
-	), $stateName);
-
-}
-
-
-//
-// Init silent classes
-//
-@mixin _gridle_init_silent_classes(
-	$state : default
-) {
-	// get state name
-	$stateName : gridle_get_state_var(name, $state);
-
-	// container
-	%#{$stateName}-container {
-		@include _gridle_common_container($state);
-	}
-
-	// flex row
-	%#{$stateName}-flex-row {
-		@include _gridle_common_flex_row($state);
-	}
-
-	// flex grid
-	%#{$stateName}-flex-grid {
-		@include _gridle_common_flex_grid($state);
-	}
-
-	// flex grow
-	%#{$stateName}-flex-grow {
-		@include _gridle_common_flex_grow($state);
-	}
-
-	// flex align
-	%#{$stateName}-flex-align {
-		@include _gridle_common_flex_align($state);
-	}
-
-	// parent
-	%#{$stateName}-parent {
-		@include _gridle_common_parent($state);
-	}
-
-	// grid
-	%#{$stateName}-grid {
-		@include _gridle_common_grid($state);
-	}
-
-	// push
-	%#{$stateName}-push {
-		@include _gridle_common_push($state);
-	}
-
-	// pull
-	%#{$stateName}-pull {
-		@include _gridle_common_pull($state);
-	}
-
-	// prefix
-	%#{$stateName}-prefix {
-		@include _gridle_common_prefix($state);
-	}
-
-	
-	// suffix
-	%#{$stateName}-suffix {
-		@include _gridle_common_suffix($state);
-	}
-
-	// clear-each
-	%#{$stateName}-clear-each {
-		@include _gridle_common_clear_each($state);
-	}
-
-	// centered
-	%#{$stateName}-centered {
-		@include _gridle_common_centered($state);
-	}
-
-	// vertical-align
-	%#{$stateName}-vertical-align {
-		@include _gridle_common_vertical_align($state);
-	}
-
-	// hide
-	%#{$stateName}-hide {
-		@include _gridle_common_hide($state);
-	}
-
-	// not-visible
-	%#{$stateName}-not-visible {
-		@include _gridle_common_not_visible($state);
-	}
-
-	// show
-	%#{$stateName}-show {
-		@include _gridle_common_show($state);
-	}
-
-	// show-inline
-	%#{$stateName}-show-inline {
-		@include _gridle_common_show_inline($state);
-	}
-
-	// visible
-	%#{$stateName}-visible {
-		@include _gridle_common_visible($state);
-	}
-
-	// float
-	%#{$stateName}-float {
-		@include _gridle_common_float($state);
-	}
-
-	// clear
-	%#{$stateName}-clear {
-		@include _gridle_common_clear($state);
-	}
-
-	// no-gutter
-	%#{$stateName}-no-gutter {
-		@include _gridle_common_no_gutter($state);
-	}
-
-	// gutter
-	%#{$stateName}-gutter {
-		@include _gridle_common_gutter($state);
-	}
-}
-
-//
-// Transform map to css
-//
-@mixin _gridle_map_2_css(
-	$map
-) {
-	@each $key, $value in $map {
-		@if type-of($value) == map {
-			&#{$key} {
-				@each $k, $v in $value {
-					#{$k}:#{$v};
-				}
-			}
-		} @else {
-			#{$key}:#{$value};
-		}
-	}
-}
-
-//
-// Extend common class
-//
-@mixin _gridle_extend_common_class(
-	$what,
-	$state : default
-) {
-	// extend
-	$name : gridle_get_state_var(name, $state);
-	$extend : gridle_get_extend_class_map($what, $name);
-	@if $extend != null {
-		@include _gridle_map_2_css($extend);
-	}
-}
-
-
-//
-// Helper to apply multiple config for a certain state with one mixin
-//
-@mixin gridle_set(
-	$settings,
-	$state : default
-) {
-	
-	// loop on each settings
-	@each $settingName, $settingValue in $settings
-	{
-		$sn : unquote("#{$settingName}");
-		$sv : $settingValue;
-
-		// check if setting name is a state :
-		@if gridle_has_state($sn) {
-			// process the state
-			@include gridle_set($sv, $sn);
-		} @else {
-			@if $sn == container {
-				@include gridle_container($state);
-			} @else if $sn == flex-grid {
-				@include gridle_flex_grid($sv, $state);
-			} @else if $sn == flex-parent or $sn == flex-row {
-				@include gridle_flex_row($state);
-			} @else if $sn == flex-grow {
-				@include gridle_flex_grow($state);
-			} @else if $sn == flex-align {
-				@include gridle_flex_align($sv, $state);
-			} @else if $sn == grid {
-				@include gridle($sv, $state);
-			} @else if $sn == push {
-				@include gridle_push($sv, $state);
-			} @else if $sn == pull {
-				@include gridle_pull($sv, $state);
-			} @else if $sn == prefix {
-				@include gridle_prefix($sv, $state);
-			} @else if $sn == suffix {
-				@include gridle_suffix($sv, $state);
-			} @else if $sn == pull {
-				@include gridle_pull($sv, $state);
-			} @else if $sn == clear_each {
-				@include gridle_clear_each(nth($sv,1), nth($sv,2), $state);
-			} @else if $sn == centered {
-				@include gridle_centered($state);
-			} @else if $sn == parent or $sn == row {
-				@include gridle_parent($state);
-			} @else if $sn == vertical_align {
-				@include gridle_vertical_align($sv, $state);
-			} @else if $sn == hide {
-				@if $sv == true {
-					@include gridle_hide($state);
-				} @else {
-					@include gridle_show($state);
-				}
-			} @else if $sn == show {
-				@if $sv == true {
-					@include gridle_show($state);
-				} @else {
-					@include gridle_hide($state);
-				}
-			} @else if $sn == visible {
-				@if $sv == true {
-					@include gridle_visible($state);
-				} @else {
-					@include gridle_not_visible($state);
-				}
-			} @else if $sn == not_visible {
-				@if $sv == true {
-					@include gridle_not_visible($state);
-				} @else {
-					@include gridle_visible($state);
-				}
-			} @else if $sn == show_inline {
-				@if $sv == true {
-					@include gridle_show_inline($state);
-				} @else {
-					@include gridle_hide($state);
-				}
-			} @else if $sn == float {
-				@include gridle_float($sv, $state);
-			} @else if $sn == clear {
-				@include gridle_clear($sv, $state);
-			} @else if $sn == no_gutter
-				or $sn == no_margin {
-				@include gridle_no_gutter($sv, $state);
-			} @else if $sn == gutter
-				or $sn == margin {
-				@include gridle_gutter($sv, $state);
-			} @else {
-				// we do nothing
-			}
-		}
-	}
-}
-
-//
-// Gridle state
-//
-// @param 	string|map|list 	$states 		A list of states, a state name or a state map
-// @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
-//
-@mixin gridle_state(
-	$states,
-	$has-parent : true
-) {
-
-	// check if is a min-max witdh query (compatibility layer)
-	@if type-of($states) == number and type-of($has-parent) == number {
-
-		// get a new state from settings passed
-		$state : gridle_get_state((
-			min-width : $states,
-			max-width : $has-parent
-		));
-
-		// make a query
-		@include gridle_state($state) {
-			@content;
-		}
-
-	} @elseif type-of($states) == list
-		or type-of($states) == string {
-
-		// loop on each states :
-		@each $state in $states
-		{
-			// make sure we have the state object
-			$state : gridle_get_state($state);
-
-			// save current state
-			$_gridle_current_state : $state !global;
-			$_gridle_current_stateName : gridle_get_state_var(name, $state) !global;
-
-			// make gridle state
-			@include _gridle_state($state, $has-parent) {
-				@content;
-			}
-		}
-
-	} @elseif type-of($states) == map {
-
-		// get a state from the passed one
-		$state : gridle_get_state($states);
-
-		// save current state
-		$_gridle_current_state : $states !global;
-		$_gridle_current_stateName : gridle_get_state_var(name, $states) !global;
-
-		// make gridle state
-		@include _gridle_state($state, $has-parent) {
-			@content;
-		}
-	}
-
-	// reset current state to default
-	$_gridle_current_state : $_gridle_settings !global;
-	$_gridle_current_stateName : default !global;
-
-}
-
-
-//
-// Gridle state
-//
-@mixin _gridle_state(
-	$state : default,
-	$has-parent : true
-) {
-
-	// variables :
-	$states-classes : gridle_get_state_var(states-classes, $state);
-	$stateName : gridle_get_state_var(name, $state);
-
-	// check if is a state :
-	@if ($states-classes)
-		and $stateName {
-		// html class :
-		@at-root {
-			@if $has-parent {
-				.state-#{$stateName} & { @content; }
-			} @else {
-				.state-#{$stateName} { @content; }
-			}
-		}
-	}
-
-	// get the media query :
-	$q : _gridle_get_media_query($state);
-
-	// make the media query if a query exist :
-	@if $q {
-		@media #{$q} {
-			@content;
-		}
-	} @else {
-		@content;
-	}
-
-}
-
-
-//
-// Extend
-//
-@mixin _gridle_extend(
-	$for
-) {
-	// extend using the current state name set in each gridle_state call
-	@extend %#{$_gridle_current_stateName}-#{$for} !optional;
-}
-
-
-@mixin _gridle_apply_css_for(
-	$for
-) {
-	// loop on each states
-	$rulesByStates : map-get($_gridle_apply_css_for_content, $for);
-	@each $stateName, $rules in $rulesByStates {
-		@include _gridle_state($stateName) {
-			@include _gridle_map_2_css($rules);
 		}
 	}
 }
@@ -465,6 +42,8 @@
 	$states : default,
 	$for : null
 ) {
+	// init if needed
+	@include gridle_init();
 
 	// check if need media query :
 	@if type-of($states) == map {
@@ -503,737 +82,294 @@
 
 
 //
-// Container
+// Init silent classes
 //
-@mixin gridle_container(
-	$states : null
+@mixin _gridle_common_silent_class_name(
+	$for,
+	$stateName : default
 ) {
-	@include _gridle_call($states, container) {
-		@include _gridle_container($_content_arg_state);
+	%#{$stateName}-#{$for} {
+		// inject content
+		@content;
+		// extend common class by the registered css
+		@include _gridle_extend_common_class($for, $stateName);
+	}
+	@at-root (without: media) {
+		%at-root-#{$stateName}-#{$for} {
+			// inject content
+			@content;
+			// extend common class by the registered css
+			@include _gridle_extend_common_class($for, $stateName);
+		}
 	}
 }
-@mixin _gridle_container(
+@mixin _gridle_init_common_silent_classes(
 	$state : default
 ) {
-	// extend common css
-	// @include _gridle_extend(container);
-}
+	// get state name
+	$stateName : gridle_get_state_var(name, $state);
 
-
-//
-// Parent
-//
-@mixin gridle_parent(
-	$states : null
-) {
-	@include _gridle_call($states, parent) {
-		@include _gridle_parent($_content_arg_state);
+	// container
+	@include _gridle_common_silent_class_name(container, $stateName) {
+		@include _gridle_common_container($state);
 	}
-}
-@mixin _gridle_parent(
-	$state : default
-) {
-	@include gridle_no_gutter();
 
-	// extend
-	// @include _gridle_extend(parent);
-}
-
-
-//
-// flex row
-//
-@mixin gridle_flex_row(
-	$states : null
-) {
-	@include _gridle_call($states, flex-row) {
-		@include _gridle_flex_row($_content_arg_state);
+	// flex grid
+	@include _gridle_common_silent_class_name(flex-grid, $stateName) {
+		@include _gridle_common_flex_grid($state);
 	}
-}
-@mixin _gridle_flex_row(
-	$state : default
-) {
+
+	// flex order
+	@include _gridle_common_silent_class_name(flex-order, $stateName) {
+		@include _gridle_common_flex_order($state);
+	}
+
+	// flex grow
+	@include _gridle_common_silent_class_name(flex-grow, $stateName) {
+		@include _gridle_common_flex_grow($state);
+	}
+
+	// flex row
+	@include _gridle_common_silent_class_name(flex-row, $stateName) {
+		@include _gridle_common_flex_row($state);
+	}
+
+	// flex col
+	@include _gridle_common_silent_class_name(flex-col, $stateName) {
+		@include _gridle_common_flex_col($state);
+	}
+
+	// flex align
+	@include _gridle_common_silent_class_name(flex-align, $stateName) {
+		@include _gridle_common_flex_align($state);
+	}
+
+	// flex distribution
+	@include _gridle_common_silent_class_name(flex-distribution, $stateName) {
+		@include _gridle_common_flex_distribution($state);
+	}
+
+	// parent
+	@include _gridle_common_silent_class_name(parent, $stateName) {
+		@include _gridle_common_parent($state);
+	}
+
+	// grid
+	@include _gridle_common_silent_class_name(grid, $stateName) {
+		@include _gridle_common_grid($state);
+	}
+
+	// push
+	@include _gridle_common_silent_class_name(push, $stateName) {
+		@include _gridle_common_push($state);
+	}
+
+	// pull
+	@include _gridle_common_silent_class_name(pull, $stateName) {
+		@include _gridle_common_pull($state);
+	}
+
+	// prefix
+	@include _gridle_common_silent_class_name(prefix, $stateName) {
+		@include _gridle_common_prefix($state);
+	}
+
 	
+	// suffix
+	@include _gridle_common_silent_class_name(suffix, $stateName) {
+		@include _gridle_common_suffix($state);
+	}
+
+	// clear-each
+	@include _gridle_common_silent_class_name(clear-each, $stateName) {
+		@include _gridle_common_clear_each($state);
+	}
+
+	// centered
+	@include _gridle_common_silent_class_name(centered, $stateName) {
+		@include _gridle_common_centered($state);
+	}
+
+	// align
+	@include _gridle_common_silent_class_name(align, $stateName) {
+		@include _gridle_common_align($state);
+	}
+
+	// hide
+	@include _gridle_common_silent_class_name(hide, $stateName) {
+		@include _gridle_common_hide($state);
+	}
+
+	// not-visible
+	@include _gridle_common_silent_class_name(not-visible, $stateName) {
+		@include _gridle_common_not_visible($state);
+	}
+
+	// show
+	@include _gridle_common_silent_class_name(show, $stateName) {
+		@include _gridle_common_show($state);
+	}
+
+	// show-inline
+	@include _gridle_common_silent_class_name(show-inline, $stateName) {
+		@include _gridle_common_show_inline($state);
+	}
+
+	// visible
+	@include _gridle_common_silent_class_name(visible, $stateName) {
+		@include _gridle_common_visible($state);
+	}
+
+	// float
+	@include _gridle_common_silent_class_name(float, $stateName) {
+		@include _gridle_common_float($state);
+	}
+
+	// clear
+	@include _gridle_common_silent_class_name(clear, $stateName) {
+		@include _gridle_common_clear($state);
+	}
+
+	// no-gutter
+	@include _gridle_common_silent_class_name(no-gutter, $stateName) {
+		@include _gridle_common_no_gutter($state);
+	}
+
+	// gutter
+	@include _gridle_common_silent_class_name(gutter, $stateName) {
+		@include _gridle_common_gutter($state);
+	}
 }
 
 
 //
-// flex grid
+// Gridle state
 //
-@mixin gridle_flex_grid(
-	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context :
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, flex-grid) {
-		@include _gridle_flex_grid($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_flex_grid(
-	$columns,
+// @param 	string|map|list 	$states 		A list of states, a state name or a state map
+// @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
+//
+@mixin _gridle_state(
 	$state : default,
-	$context : null
+	$has-parent : true,
+	$track-current-state : false
 ) {
 
-	// vars :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
+	// variables :
+	$states-classes : gridle_get_state_var(states-classes, $state);
+	$stateName : gridle_get_state_var(name, $state);
+
+	// check if need to tack the current state
+	@if $track-current-state {
+		// save current state
+		$_gridle_current_state : $state !global;
+		$_gridle_current_stateName : $stateName !global;
 	}
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// manage columns
-	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
-		// the columns is a saved one, get the context and column value
-		$column : map-get($_gridle_columns, $columns);
-		$context : map-get($column, context);
-		$columns : map-get($column, columns);
-	} @else if type-of($columns) == number {
-		$columns : $columns / $name-multiplicator;
+
+	// check if is a state :
+	@if ($states-classes)
+		and $stateName {
+		// html class :
+		@at-root (without: media) {
+			@if $has-parent {
+				.state-#{$stateName} & { 
+					@content;
+				}
+			} @else {
+				.state-#{$stateName} {
+					@content;
+				}
+			}
+		}
+	}
+
+	// get the media query :
+	$q : _gridle_get_media_query($state);
+
+	// make the media query if a query exist :
+	@if $q {
+		@media #{$q} {
+			@content;
+		}
 	} @else {
-		@error "the column #{$columns} does not exist...";
+		@content;
 	}
 
-	// vars :
-	$width : percentage(1 / $context * $columns);
-
-	// set value :
-	@include flex-basis($width);
-	max-width : $width;
-}
-
-
-//
-// flex grow
-//
-@mixin gridle_flex_grow(
-	$states : null
-) {
-	@include _gridle_call($states, flex-grow) {
-		@include _gridle_flex_grow($_content_arg_state);
+	// reset current state to default
+	@if $track-current-state {
+		$_gridle_current_state : $_gridle_settings !global;
+		$_gridle_current_stateName : default !global;
 	}
 }
-@mixin _gridle_flex_grow(
-	$state : default
-) {
-}
 
 
 //
-// flex align
+// Transform map to css
 //
-@mixin gridle_flex_align(
-	$align : left,
-	$states : null
+@mixin _gridle_map_2_css(
+	$map
 ) {
-	@include _gridle_call($states, flex-align) {
-		@include _gridle_flex_align($align, $_content_arg_state);
-	}
-}
-@mixin _gridle_flex_align(
-	$align : left,
-	$state : default
-) {
-	@each $al in $align {
-		@if $al == left {
-			-webkit-box-pack: start;
-			-webkit-justify-content: flex-start;
-			-ms-flex-pack: start;
-			justify-content: flex-start;
-			//text-align: start;
-		} @else if $al == center {
-			-webkit-box-pack: center;
-			-webkit-justify-content: center;
-			-ms-flex-pack: center;
-			justify-content: center;
-			//text-align: center;
-		} @else if $al == right {
-			-webkit-box-pack: end;
-			-webkit-justify-content: flex-end;
-			-ms-flex-pack: end;
-			justify-content: flex-end;
-			// text-align: end;
-		} @else if $al == top {
-			-webkit-box-align: start;
-			-webkit-align-items: flex-start;
-			-ms-flex-align: start;
-			align-items: flex-start;
-		} @else if $al == middle {
-			-webkit-box-align: center;
-			-webkit-align-items: center;
-			-ms-flex-align: center;
-			align-items: center;
-		} @else if $al == bottom {
-			-webkit-box-align: end;
-			-webkit-align-items: flex-end;
-			-ms-flex-align: end;
-			align-items: flex-end;
+	@each $key, $value in $map {
+		@if type-of($value) == map {
+			&#{$key} {
+				@each $k, $v in $value {
+					#{$k}:#{$v};
+				}
+			}
+		} @else {
+			#{$key}:#{$value};
 		}
 	}
 }
 
-
 //
-// Grid
+// Extend common class
 //
-@mixin gridle(
-	$columns,
-	$states-or-context : null,
-	$states : null
+@mixin _gridle_extend_common_class(
+	$what,
+	$state : default
 ) {
-	// manage state and context :
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, grid) {
-		@include _gridle($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle(
-	$columns,
-	$state : default,
-	$context : null
-) {
-
-	// vars :
+	// extend
 	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
+	$extend : gridle_get_extend_class_map($what, $name);
+	@if $extend != null {
+		@include _gridle_map_2_css($extend);
 	}
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// extend common css
-	// @include _gridle_extend(grid);
+}
 
-	// manage columns
-	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
-		// the columns is a saved one, get the context and column value
-		$column : map-get($_gridle_columns, $columns);
-		$context : map-get($column, context);
-		$columns : map-get($column, columns);
-	} @else if type-of($columns) == number {
-		$columns : $columns / $name-multiplicator;
+
+//
+// Extend
+//
+@mixin _gridle_extend(
+	$for
+) {
+	// check if we need the state classes
+	$states-classes : gridle_get_state_var(states-classes, $_gridle_current_state);
+
+	// extend the "at-root" version for the .state-{stateName} classes
+	@if $states-classes and str-index(#{&}, unquote(".state-#{$_gridle_current_stateName}")) {
+		@at-root (without: media) {
+			@extend %at-root-#{$_gridle_current_stateName}-#{$for} !optional;
+		}
 	} @else {
-		@error "the column #{$columns} does not exist...";
-	}
-
-	// vars :
-	$width : percentage(1 / $context * $columns);
-
-	// set value :
-	width:$width;
-}
-
-
-//
-// Push
-//
-@mixin gridle_push(
-	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, push) {
-		@include _gridle_push($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_push(
-	$columns,
-	$state : default,
-	$context : null
-) {
-	// variables :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// extend common css
-	// @include _gridle_extend(push);
-
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-	@if $direction == rtl { $width : $width*-1; }
-	left:$width;
-}
-
-
-//
-// Pull
-//
-@mixin gridle_pull(
-	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, pull) {
-		@include _gridle_pull($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_pull(
-	$columns,
-	$state : default,
-	$context : null
-) {
-	// variables :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-	@if $direction == rtl { $width : $width*-1; }
-	right:$width;
-}
-
-
-//
-// Prefix
-//
-@mixin gridle_prefix(
-	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, prefix) {
-		@include _gridle_prefix($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_prefix(
-	$columns,
-	$state : default,
-	$context : null
-) {
-	// vars :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$gutter-width : gridle_get_state_var(gutter-width, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-
-	// set value :
-	@if $direction == rtl { margin-right:$width; }
-	@else { margin-left:$width; }
-}
-
-
-//
-// Suffix
-//
-@mixin gridle_suffix(
-	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, suffix) {
-		@include _gridle_suffix($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_suffix(
-	$columns,
-	$state : default,
-	$context : null
-) {
-	// vars :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$gutter-width : gridle_get_state_var(gutter-width, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-	
-	// set value :
-	@if $direction == rtl { margin-left:$width; }
-	@else { margin-right:$width; }
-}
-
-
-//
-// Grid background
-//
-@mixin gridle_grid_background(
-	$states : null
-) {
-	@include _gridle_call($states, background) {
-		@include _gridle_grid_background($_content_arg_state);
-	}
-}
-@mixin _gridle_grid_background(
-	$state : default
-) {
-	
-	// variables :
-	$context : gridle_get_state_var(context, $state);
-
-	position:relative;
-	z-index:9999;
-	&:before {
-		content:'';
-		position:absolute;
-		top:0; left:0;
-		width:100%; height:100% !important;
-		// vars :
-		$width : percentage(1 / $context);
-		background: linear-gradient(to right, rgba(0,0,0,0) 50% , rgba(0,0,0,.02) 50%); // Standard syntax
-		background-size:($width*2) 100%;
+		// extend using the current state name set in each gridle_state call
+		@extend %#{$_gridle_current_stateName}-#{$for} !optional;
 	}
 }
 
 
 //
-// Clear each
+// Apply the registered css for a certain type (grid, push, etc...)
+// in each states
 //
-@mixin gridle_clear_each(
-	$clearEach,
-	$clearWhat : both,
-	$states : null
+@mixin _gridle_apply_css_for(
+	$for
 ) {
-	@include _gridle_call($states, clear-each) {
-		@include _gridle_clear_each($clearEach, $clearWhat, $_content_arg_state);
+	// loop on each states
+	$rulesByStates : map-get($_gridle_apply_css_for_content, $for);
+	@each $stateName, $rules in $rulesByStates {
+		@include _gridle_state($stateName) {
+			@include _gridle_map_2_css($rules);
+		}
 	}
-}
-@mixin _gridle_clear_each(
-	$clearEach,
-	$clearWhat,
-	$state : default
-) {
-	> *:nth-child(#{$clearEach}n+1) {
-		clear : $clearWhat;
-	}
-}
-
-
-//
-// Centered
-//
-@mixin gridle_centered(
-	$states : null
-) {
-	@include _gridle_call($states, centered) {
-		@include _gridle_centered($_content_arg_state);
-	}
-}
-@mixin _gridle_centered(
-	$state : default
-) {
-}
-
-
-//
-// Vertical align :
-//
-@mixin gridle_vertical_align(
-	$align : middle,
-	$states : null
-) {
-	@include _gridle_call($states, vertical-align) {
-		@include _gridle_vertical_align($align, $_content_arg_state);
-	}
-}
-@mixin _gridle_vertical_align(
-	$align : middle,
-	$state : default
-) {
-	font-size:0;
-	clear:both;
-
-	> * {
-		display:inline-block;
-		float:none !important;
-		vertical-align:$align;
-		font-size:1rem;
-	}
-}
-
-
-//
-// Hide
-//
-@mixin gridle_hide(
-	$states : null
-) {
-	@include _gridle_call($states, hide) {
-		@include _gridle_hide($_content_arg_state);
-	}
-}
-@mixin _gridle_hide(
-	$state : default
-) {
-	display:none;
-}
-
-
-//
-// Not visible on
-//
-// @param 	String 	$media 	What to hide (one of the 3 state classes name)
-//
-@mixin gridle_not_visible(
-	$states : null
-) {
-	@include _gridle_call($states, not-visible) {
-		@include _gridle_not_visible($_content_arg_state);
-	}
-}
-@mixin _gridle_not_visible(
-	$state : default
-) {
-	visibility:hidden;
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(not_visible, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(not-visible);
-	// }
-}
-
-
-//
-// Show on
-//
-// @param 	String 	$media 	What to hide (one of the 3 state classes name)
-//
-@mixin gridle_show(
-	$states : null
-) {
-	@include _gridle_call($states, show) {
-		@include _gridle_show($_content_arg_state);
-	}
-}
-@mixin _gridle_show(
-	$state : default
-) {
-	display:block;
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(show, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(show);
-	// }
-}
-
-
-//
-// Show inline
-//
-// @param 	String 		$state 		The state name
-//
-@mixin gridle_show_inline(
-	$states : null
-) {
-	@include _gridle_call($states, show-inline) {
-		@include _gridle_show_inline($_content_arg_state);
-	}
-}
-@mixin _gridle_show_inline(
-	$state : default
-) {
-	display:inline-block;
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(show_inline, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(show-inline);
-	// }
-}
-
-
-//
-// Visible on :
-// @param 	String 	$media 	On what state
-//
-@mixin gridle_visible(
-	$states : null
-) {
-	@include _gridle_call($states, visible) {
-		@include _gridle_visible($_content_arg_state);
-	}
-}
-@mixin _gridle_visible(
-	$state : default
-) {
-	visibility:visible;
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(visible, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(visible);
-	// }
-}
-
-
-//
-// Float :
-//
-@mixin gridle_float(
-	$float-direction : left,
-	$states : null
-) {
-	@include _gridle_call($states, float) {
-		@include _gridle_float($float-direction, $_content_arg_state);
-	}
-}
-@mixin _gridle_float(
-	$float-direction : left,
-	$state : default
-) {
-	float:#{$float-direction};
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(float, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(float);
-	// }
-}
-
-
-//
-// Gridle clear :
-//
-// @param 	String 	$clear-direction 	The direction to clear
-// @param 	String 	$state 				The state
-//
-@mixin gridle_clear(
-	$clear-direction : both,
-	$states : null
-) {
-	@include _gridle_call($states, clear) {
-		@include _gridle_clear($clear-direction, $_content_arg_state);
-	}
-}
-@mixin _gridle_clear(
-	$clear-direction : both,
-	$state : default
-) {
-	clear:#{$clear-direction};
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(clear, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(clear);
-	// }
-}
-
-
-//
-// Gridle no gutter :
-//
-// @param 	String 	$side 				The side to clear
-// @param 	String 	$state 				The state
-//
-@mixin gridle_no_gutter(
-	$side : left right,
-	$states : null
-) {
-	@include _gridle_call($states, no-gutter) {
-		@include _gridle_no_gutter($side, $_content_arg_state);
-	}
-}
-@mixin gridle_no_margin(
-	$side : left right,
-	$state : null
-) {
-	@include gridle_no_gutter($side, $state);
-}
-@mixin _gridle_no_gutter(
-	$side : left right,
-	$state : default
-) {
-	@each $s in $side {
-		padding-#{$s} : 0;
-	}
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(no_gutter, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(no-gutter);
-	// }
-}
-
-
-//
-// Gridle gutter :
-//
-// @param 	String 	$side 				The side to clear
-// @param 	String 	$state 				The state
-//
-@mixin gridle_gutter(
-	$side : left right,
-	$states : null
-) {
-	@include _gridle_call($states, gutter) {
-		@include _gridle_gutter($side, $_content_arg_state);
-	}
-}
-// shortcut :
-@mixin gridle_margin(
-	$side : left right,
-	$state : null
-) {
-	@include gridle_gutter($side, $state);
-}
-@mixin _gridle_gutter(
-	$side : left right,
-	$state : default
-) {
-	$gutter-width : gridle_get_state_var(gutter-width, $state);
-	@each $s in $side {
-		padding-#{$s} : $gutter-width / 2;
-	}
-
-	// extend common css only if there's some css in common class (otherwise sass will throw an error...)
-	// @if gridle_has_extend_class_map(gutter, gridle_get_state_var(name, $state)) {
-	// 	@include _gridle_extend(gutter);
-	// }
 }

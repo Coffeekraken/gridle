@@ -157,6 +157,12 @@
 		}
 	}
 
+	@if $what == null or index($what, flex-col) or index($what, flex) {
+		#{_gridle_classname($gridle-flex-col-name-pattern, $state)} {
+			@include gridle_flex_col();
+		}
+	}
+
 	@if $what == null or index($what, flex-grow) or index($what, flex) {
 		#{_gridle_classname($gridle-flex-grow-name-pattern, $state)} {
 			@include gridle_flex_grow();
@@ -184,15 +190,33 @@
 		}
 	}
 
-	@if $what == null or index($what, vertical_align) or index($what, helpers) {
-		#{_gridle_classname($gridle-vertical-align-middle-name-pattern, $state)} {
-			@include gridle_vertical_align();
+	@if $what == null or index($what, flex-distribution) or index($what, flex) {
+		#{_gridle_classname($gridle-flex-distribution-around-name-pattern, $state)} {
+			@include gridle_flex_distribution(around);
 		}
-		#{_gridle_classname($gridle-vertical-align-top-name-pattern, $state)} {
-			@include gridle_vertical_align(top);
+		#{_gridle_classname($gridle-flex-distribution-between-name-pattern, $state)} {
+			@include gridle_flex_distribution(between);
 		}
-		#{_gridle_classname($gridle-vertical-align-bottom-name-pattern, $state)} {
-			@include gridle_vertical_align(bottom);
+	}
+
+	@if $what == null or index($what, align) or index($what, helpers) {
+		#{_gridle_classname($gridle-align-left-name-pattern, $state)} {
+			@include gridle_align(left);
+		}
+		#{_gridle_classname($gridle-align-center-name-pattern, $state)} {
+			@include gridle_align(center);
+		}
+		#{_gridle_classname($gridle-align-right-name-pattern, $state)} {
+			@include gridle_align(right);
+		}
+		#{_gridle_classname($gridle-align-middle-name-pattern, $state)} {
+			@include gridle_align(middle);
+		}
+		#{_gridle_classname($gridle-align-top-name-pattern, $state)} {
+			@include gridle_align(top);
+		}
+		#{_gridle_classname($gridle-align-bottom-name-pattern, $state)} {
+			@include gridle_align(bottom);
 		}
 	}
 
@@ -469,6 +493,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 				}
 
 				// generate all classes for columns
+				$i : 0;
 				@each $columnName, $column in $columnsMap {
 
 					// variables
@@ -513,6 +538,20 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 							@include gridle_suffix($columnsCount, $columnsContext);
 						}   
 					}
+					@if $what == null or index($what, flex-order) or index($what, flex) {
+						#{_gridle_classname($gridle-flex-order-name-pattern, $stateName, first)} {
+							@include gridle_flex_order(-1);
+						} 
+						#{_gridle_classname($gridle-flex-order-name-pattern, $stateName, $i)} {
+							@include gridle_flex_order($i);
+						}  
+						#{_gridle_classname($gridle-flex-order-name-pattern, $stateName, last)} {
+							@include gridle_flex_order(9999);
+						} 
+					}
+
+					// up $i
+					$i : $i + 1;
 				}
 
 				// media queries helpers classes

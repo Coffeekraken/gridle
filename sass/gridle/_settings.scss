@@ -24,7 +24,9 @@ $gridle-row-name-pattern 					: ('row','%-','%state') !default;
 
 $gridle-flex-parent-name-pattern 			: ('flex','%-','parent','%-','%state') !default;
 $gridle-flex-row-name-pattern 				: ('flex','%-','row','%-','%state') !default;
+$gridle-flex-col-name-pattern 				: ('flex','%-','col','%-','%state') !default;
 $gridle-flex-grid-name-pattern 				: ('flex','%-','grid','%-','%state','%-','%count') !default;
+$gridle-flex-order-name-pattern 			: ('flex','%-','order','%-','%state','%-','%count') !default;
 $gridle-flex-grow-name-pattern 				: ('flex','%-','grow','%-','%state') !default;
 $gridle-flex-align-left-name-pattern 		: ('flex','%-','align','%-','%state','%-','left') !default;
 $gridle-flex-align-center-name-pattern 		: ('flex','%-','align','%-','%state','%-','center') !default;
@@ -32,12 +34,17 @@ $gridle-flex-align-right-name-pattern 		: ('flex','%-','align','%-','%state','%-
 $gridle-flex-align-top-name-pattern 		: ('flex','%-','align','%-','%state','%-','top') !default;
 $gridle-flex-align-middle-name-pattern 		: ('flex','%-','align','%-','%state','%-','middle') !default;
 $gridle-flex-align-bottom-name-pattern 		: ('flex','%-','align','%-','%state','%-','bottom') !default;
+$gridle-flex-distribution-around-name-pattern : ('flex','%-','distribution','%-','%state','%-','around') !default;
+$gridle-flex-distribution-between-name-pattern : ('flex','%-','distribution','%-','%state','%-','between') !default;
 
 $gridle-centered-name-pattern 			: ('centered','%-','%state') !default;
 
-$gridle-vertical-align-middle-name-pattern 		: ('vertical','%-','align','%-','%state','%-','middle') !default;
-$gridle-vertical-align-top-name-pattern 		: ('vertical','%-','align','%-','%state','%-','top') !default;
-$gridle-vertical-align-bottom-name-pattern 		: ('vertical','%-','align','%-','%state','%-','bottom') !default;
+$gridle-align-left-name-pattern 		: ('align','%-','%state','%-','left') !default;
+$gridle-align-center-name-pattern 		: ('align','%-','%state','%-','center') !default;
+$gridle-align-right-name-pattern 		: ('align','%-','%state','%-','right') !default;
+$gridle-align-top-name-pattern 			: ('align','%-','%state','%-','top') !default;
+$gridle-align-middle-name-pattern 		: ('align','%-','%state','%-','middle') !default;
+$gridle-align-bottom-name-pattern 		: ('align','%-','%state','%-','bottom') !default;
 
 $gridle-hide-name-pattern 				: ('hide','%-','%state') !default;
 $gridle-show-name-pattern 				: ('show','%-','%state') !default;
