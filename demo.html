@@ -245,9 +245,9 @@
 
 		<div class="grid-12">
 
-			<h2 class="h2">Vertical align</h2>
+			<h2 class="h2">Alignements</h2>
 			<p class="p">
-				This is how you can align verticaly your grid items
+				This is how you can align your grid items
 			</p>
 
 		</div>
@@ -476,7 +476,7 @@
 						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
 						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
 					</div>
-					<div class="parent flex-grid-4 flex-grid-tablet-12 flex-col flex-row-tablet">
+					<div class="row flex-grid-4 flex-grid-tablet-12 flex-col flex-row-tablet">
 						<div class="flex-grow grid-tablet-4">
 							<div>Morbi eu sem tellus. Duis non ante ut nisi luctus.
 							</div>
@@ -533,13 +533,88 @@
 
 				<div class="flex-row">
 					<div class="flex-grid-4 flex-order-2 flex-order-tablet-3">
-						<div>I'm the <strong>#1</strong> in the html</div>
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
 					</div>
 					<div class="flex-grid-4 flex-order-1 flex-order-tablet-2">
-						<div>I'm the <strong>#2</strong> in the html</div>
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
 					</div>
 					<div class="flex-grid-4 flex-order-3 flex-order-tablet-1">
-						<div>I'm the <strong>#3</strong> in the html</div>
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="flex-row">
+					<div class="flex-grid-4 flex-order-last">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="flex-grid-4">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="flex-grid-4 flex-order-first">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+					<div class="grid-3"></div>
+				</div>
+
+			</div>
+	
+			<div class="separator"></div>
+
+		</div>
+
+
+
+
+
+		<div class="grid-12">
+
+			<h2 class="h2">Flex - Reverse <small>IE10+</small></h2>
+			<p class="p">
+				Gridle has a built in flex system that you can use with your normal grid
+			</p>
+
+		</div>
+
+		<div class="grid-12">
+
+			<div class="container gridle-debug">
+
+				<div class="row">
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+					<div class="grid-2"></div>
+				</div>
+
+				<div class="flex-row flex-row-reverse-tablet">
+					<div class="flex-grid-4">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="flex-grid-4">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="flex-grid-4">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="flex-row flex-col-reverse-tablet">
+					<div class="flex-grid-4 flex-grow-tablet">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="flex-grid-4 flex-grow-tablet">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="flex-grid-4 flex-grow-tablet">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
 					</div>
 				</div>
 

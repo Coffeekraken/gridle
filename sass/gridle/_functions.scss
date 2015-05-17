@@ -235,7 +235,7 @@
 	$stateName : default
 ) {	
 	// check if has some extend for this mixin "category"
-	$map : map-get($_gridle_apply_css_for_content, $for);
+	$map : map-get($_gridle_apply_css_for, $for);
 	@if $map == null { @return null; }
 
 	// check if has some extend for the requested state
@@ -254,7 +254,7 @@
 	$stateName : default
 ) {	
 	// check if has some extend for this mixin "category"
-	$map : map-get($_gridle_extend_base_classes_content, $for);
+	$map : map-get($_gridle_extend_base_classes, $for);
 	@if $map == null { @return null; }
 
 	// check if has some extend for the requested state
@@ -315,6 +315,21 @@
 
 
 //
+// Get the attribute selector
+@function _gridle_states_classname(
+	$pattern,
+	$count : null
+) {
+	$sel : ();
+	@each $stateName, $state in $_gridle_states {
+		$sel : append($sel, _gridle_classname($pattern, $stateName, $count), comma);
+	}
+	@return $sel;
+}
+
+
+
+//
 // Generate classname
 //
 // @param 	List 		$parrern 	The pattern to use to generate classname
@@ -322,10 +337,16 @@
 // @param 	int 		$count 		The column count
 //
 @function _gridle_classname(
-	$pattern,
+	$for,
 	$state : null,
-	$count : null
+	$value : null
 ) {
+
+	// get the pattern
+	$pattern : $for;
+	@if type-of($for) == string {
+		$pattern : map-get($_gridle-names-patterns, $for);
+	}
 
 	// init selector :
 	$sel : ".";
@@ -350,33 +371,33 @@
 		// replace tokens :
 		@if $var == '%state' and $state {
 			$sel : "#{$sel}#{$state}";
-		} 
-		@if $var == '%count' and $count {
-			$sel : "#{$sel}#{$count}";
+		}
+		@if $var == '%value' and $value != null { 
+			$sel : "#{$sel}#{$value}";
 		}  
-		@if $var != '%state' and $var != '%count' and $var != '%-' and $var != '-' and $var != '--' and $var != '_' and $var != '__' and $var != '%prefix' {
+		@if $var != '%state' and $var != '%value' and $var != '%-' and $var != '-' and $var != '--' and $var != '_' and $var != '__' and $var != '%prefix' {
 			$sel : "#{$sel}#{$var}";
 		}
 
 		// handle separators :
 		@if ($var == '%-' or $var == '-' or $var == '--' or $var == '_' or $var == '__') and $i < length($pattern) {
 			$index : $i + 1;
-			$value : nth($pattern, $index);
-			@if $value != '%state' and $value != '%count' and $value != '%-' and $value != '-' and $value != '--' and $value != '_' and $value != '__' and $value != '%prefix' {
+			$val : nth($pattern, $index);
+			@if $val != '%state' and $val != '%value' and $val != '%-' and $val != '-' and $val != '--' and $val != '_' and $val != '__' and $val != '%prefix' {
 				@if $var == '%-' {
 					$sel : "#{$sel}#{$gridle-class-separator}";
 				} @else {
 					$sel : "#{$sel}#{$var}";
 				}
 			}
-			@if $value == '%state' and $state {
+			@if $val == '%state' and $state {
 				@if $var == '%-' {
 					$sel : "#{$sel}#{$gridle-class-separator}";
 				} @else {
 					$sel : "#{$sel}#{$var}";
 				}
 			}
-			@if $value == '%count' and $count {
+			@if $val == '%value' and $value {
 				@if $var == '%-' {
 					$sel : "#{$sel}#{$gridle-class-separator}";
 				} @else {
@@ -391,6 +412,35 @@
 
 	// return generated class :
 	@return $sel;
+}
+
+
+//
+// Check if we need to generate the class or not
+//
+// @param 	List 		$for 			Name of the class map
+// @param 	List 		$what 			The map that set which class map to include and exclude
+// @return 	Boolean 					true if need to generate, false if not
+//
+@function _gridle_need_to_generate(
+	$classmap-name,
+	$what
+) {
+	// $return : true;
+	@if $what {
+		$return : false;
+		@each $name in $classmap-name {
+			// if we don't want the specified element, return false directly
+			@if index($what, unquote("-#{$name}")) {
+				@return false;
+			}
+			@if index($what, $name) {
+				$return : true;
+			}
+		}
+		@return $return;
+	}
+	@return true;
 }
 
 

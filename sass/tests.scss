@@ -19,13 +19,13 @@
 	@include gridle(30, 100, mobile tablet);
 }
 
-// parent
-.grid-parent {
-	@include gridle_parent();
+// row
+.grid-row {
+	@include gridle_row();
 }
-.grid-parent-set {
+.grid-row-set {
 	@include gridle_set((
-		parent : true
+		row : true
 	));
 }
 
@@ -54,19 +54,11 @@
 }
 
 // certical align
-.vertical-align {
-	@include gridle_vertical_align();
-}
-.vertical-align-bottom {
-	@include gridle_vertical_align(bottom);
-}
-.vertical-align-top-mobile {
-	@include gridle_vertical_align(top, mobile);
-}
-.vertical-align-set {
-	@include gridle_set((
-		vertical_align : middle
-	));
+$align : (left,center,right,top,middle,bottom);
+@each $a in $align {
+	.align-#{$a} {
+		@include gridle_align($a);
+	}
 }
 
 // push
@@ -81,6 +73,12 @@
 		push : 3
 	));
 }
+.push-nested {
+	@include gridle_push(3);
+	@include gridle_state(mobile) {
+		@include gridle_push(0);
+	}
+}
 
 // pull
 .pull-6 {
@@ -93,6 +91,12 @@
 	@include gridle_set((
 		pull : 3
 	));
+}
+.pull-nested {
+	@include gridle_pull(3);
+	@include gridle_state(mobile) {
+		@include gridle_pull(0);
+	}
 }
 
 // prefix
@@ -107,6 +111,12 @@
 		prefix : 3
 	));
 }
+.prefix-nested {
+	@include gridle_prefix(3);
+	@include gridle_state(mobile) {
+		@include gridle_prefix(0);
+	}
+}
 
 // suffix
 .suffix-6 {
@@ -119,6 +129,12 @@
 	@include gridle_set((
 		suffix : 3
 	));
+}
+.pull-suffix {
+	@include gridle_suffix(3);
+	@include gridle_state(mobile) {
+		@include gridle_suffix(0);
+	}
 }
 
 // hide
@@ -189,23 +205,28 @@
 // gridle state
 .gridle-state {
 	background: red;
+	@include gridle(8);
 
 	@include gridle_state(mobile tablet) {
 		background: pink;
+		@include gridle(12);
 	}
 	@include gridle_state((
 		query : "only print"
 	)) {
 		background: yellow;
+		@include gridle(10);
 	}
 	@include gridle_state((
 		max-width : 200px
 	)) {
 		background: green;
+		@include gridle(5);
 	}
 
 	@include gridle_state(200px, 600px) {
 		background: white;
+		@include gridle(3);
 	}
 }
 
@@ -311,7 +332,7 @@
 }
 
 // gridle_has_state
-.gridle_has_state {
+.gridle_has_state-mobile {
 	content : gridle_has_state(mobile);
 }
 .gridle_has_state-coco {

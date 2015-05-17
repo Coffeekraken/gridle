@@ -67,7 +67,7 @@
 
 		// check if setting name is a state :
 		@if gridle_has_state($sn) {
-			// process the state
+			// proces_geners the state
 			@include gridle_set($sv, $sn);
 		} @else {
 			@if $sn == container {
@@ -76,10 +76,12 @@
 				@include gridle_flex_grid($sv, $state);
 			} @else if $sn == flex-order {
 				@include gridle_flex_order($sv, $state);
+			} @else if $sn == flex-reverse {
+				@include gridle_flex_reverse($sv, $state);
 			} @else if $sn == flex-parent or $sn == flex-row {
-				@include gridle_flex_row($state);
+				@include gridle_flex_row($sv, $state);
 			} @else if $sn == flex-col {
-				@include gridle_flex_col($state);
+				@include gridle_flex_col($sv, $state);
 			} @else if $sn == flex-grow {
 				@include gridle_flex_grow($state);
 			} @else if $sn == flex-align {
@@ -102,8 +104,8 @@
 				@include gridle_clear_each(nth($sv,1), nth($sv,2), $state);
 			} @else if $sn == centered {
 				@include gridle_centered($state);
-			} @else if $sn == parent or $sn == row {
-				@include gridle_parent($state);
+			} @else if $sn == row {
+				@include gridle_row($state);
 			} @else if $sn == align {
 				@include gridle_align($sv, $state);
 			} @else if $sn == hide {
@@ -140,11 +142,9 @@
 				@include gridle_float($sv, $state);
 			} @else if $sn == clear {
 				@include gridle_clear($sv, $state);
-			} @else if $sn == no_gutter
-				or $sn == no_margin {
+			} @else if $sn == no_gutter {
 				@include gridle_no_gutter($sv, $state);
-			} @else if $sn == gutter
-				or $sn == margin {
+			} @else if $sn == gutter or $sn == gutter-width {
 				@include gridle_gutter($sv, $state);
 			} @else {
 				// we do nothing
@@ -171,19 +171,18 @@
 
 
 //
-// Parent
+// Row
 //
-@mixin gridle_parent(
+@mixin gridle_row(
 	$states : null
 ) {
 	@include _gridle_call($states, parent) {
-		@include _gridle_parent($_content_arg_state);
+		@include _gridle_row($_content_arg_state);
 	}
 }
-@mixin _gridle_parent(
+@mixin _gridle_row(
 	$state : default
 ) {
-	// @include gridle_no_gutter();
 	padding-left: 0 !important;
 	padding-right: 0 !important;
 }
@@ -193,16 +192,22 @@
 // flex row
 //
 @mixin gridle_flex_row(
+	$reverse : false,
 	$states : null
 ) {
 	@include _gridle_call($states, flex-row) {
-		@include _gridle_flex_row($_content_arg_state);
+		@include _gridle_flex_row($reverse, $_content_arg_state);
 	}
 }
 @mixin _gridle_flex_row(
+	$reverse : false,
 	$state : default
 ) {
-	@include flex-direction(row);
+	@if $reverse {
+		@include flex-direction(row-reverse);
+	} @else {
+		@include flex-direction(row);
+	}
 }
 
 
@@ -210,16 +215,22 @@
 // flex col
 //
 @mixin gridle_flex_col(
+	$reverse : false,
 	$states : null
 ) {
 	@include _gridle_call($states, flex-col) {
-		@include _gridle_flex_col($_content_arg_state);
+		@include _gridle_flex_col($reverse, $_content_arg_state);
 	}
 }
 @mixin _gridle_flex_col(
+	$reverse : false,
 	$state : default
 ) {
-	@include flex-direction(column);
+	@if $reverse {
+		@include flex-direction(column-reverse);
+	} @else {
+		@include flex-direction(column);
+	}
 }
 
 
@@ -278,7 +289,7 @@
 
 
 //
-// flex grid
+// flex order
 //
 @mixin gridle_flex_order(
 	$position,
@@ -338,17 +349,17 @@
 			@include justify-content(flex-end);
 		} @else if $al == top {
 			@include align-items(flex-start);
-			&#{_gridle_classname($gridle-flex-col-name-pattern, $stateName)} {
+			&#{_gridle_classname(flex-col, $stateName)} {
 				@include justify-content(flex-start);
 			}
 		} @else if $al == middle {
 			@include align-items(center);
-			&#{_gridle_classname($gridle-flex-col-name-pattern, $stateName)} {
+			&#{_gridle_classname(flex-col, $stateName)} {
 				@include justify-content(center);
 			}
 		} @else if $al == bottom {
 			@include align-items(flex-end);
-			&#{_gridle_classname($gridle-flex-col-name-pattern, $stateName)} {
+			&#{_gridle_classname(flex-col, $stateName)} {
 				@include justify-content(flex-end);
 			}
 		}
@@ -858,12 +869,6 @@
 		@include _gridle_no_gutter($side, $_content_arg_state);
 	}
 }
-@mixin gridle_no_margin(
-	$side : left right,
-	$state : null
-) {
-	@include gridle_no_gutter($side, $state);
-}
 @mixin _gridle_no_gutter(
 	$side : left right,
 	$state : default
@@ -881,26 +886,29 @@
 // @param 	String 	$state 				The state
 //
 @mixin gridle_gutter(
-	$side : left right,
+	$side-or-size : left right,
 	$states : null
 ) {
 	@include _gridle_call($states, gutter) {
-		@include _gridle_gutter($side, $_content_arg_state);
+		@include _gridle_gutter($side-or-size, $_content_arg_state);
 	}
 }
-// shortcut :
-@mixin gridle_margin(
-	$side : left right,
-	$state : null
-) {
-	@include gridle_gutter($side, $state);
-}
 @mixin _gridle_gutter(
-	$side : left right,
+	$side-or-size : left right,
 	$state : default
 ) {
-	$gutter-width : gridle_get_state_var(gutter-width, $state);
-	@each $s in $side {
-		padding-#{$s} : $gutter-width / 2;
+	// check if is number passed
+	@if type-of($side-or-size) == map {
+		@each $side, $value in $side-or-size {
+			padding-#{$side} : $value;
+		}
+	} @else if type-of($side-or-size) == number {
+		padding-left: $side-or-size * .5;
+		padding-right: $side-or-size * .5;
+	} @else {
+		$gutter-width : gridle_get_state_var(gutter-width, $state);
+		@each $s in $side-or-size {
+			padding-#{$s} : $gutter-width * .5;
+		}
 	}
 }

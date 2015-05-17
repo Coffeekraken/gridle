@@ -31,11 +31,11 @@
 // @created 	25.03.13
 // @updated 	16.02.15
 // @author 	Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.3.39
+// @version 	1.4.0
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-$_gridle-version : "1.3.39";
+$_gridle-version : "1.4.0";
 
 
 
@@ -52,9 +52,8 @@ $_gridle_states : ();							// the variable map for each states
 $_gridle_clear_classes :(); 					// store each automatic clear count
 $_gridle_columns : (); 							// store the registered special columns
 $_gridle_states_debug_devices : (); 			// save the debug states devices
-$_gridle_extend_base_classes_content : (); 		// save the rules that will extend the default gridle onces
-$_gridle_apply_css_for_content : (); 			// save the rules that will be applied for each states on a specified gridle mixin type
-$_gridle_generated_extends : ();
+$_gridle_extend_base_classes : (); 				// save the rules that will extend the default gridle onces
+$_gridle_apply_css_for : (); 					// save the rules that will be applied for each states on a specified gridle mixin type
 
 $_gridle_current_state : ();					// save the current state
 $_gridle_current_stateName : default; 			// save the current state name

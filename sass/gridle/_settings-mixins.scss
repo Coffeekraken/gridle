@@ -119,6 +119,18 @@
 
 
 //
+// Set a classmap
+//
+@mixin gridle_set_classname_map(
+	$for,
+	$pattern
+) {
+	// set the classmap
+	$_gridle-names-patterns : map-set($_gridle-names-patterns, $for, $pattern) !global;
+}
+
+
+//
 // Extend a gridle class
 //
 @mixin gridle_extend_base_class(
@@ -127,7 +139,7 @@
 	$statesNames : default
 ) {
 	// get the map for the passed mixin "category"
-	$forMap : map-get($_gridle_extend_base_classes_content, $for);
+	$forMap : map-get($_gridle_extend_base_classes, $for);
 
 	// create the map if not exist
 	@if $forMap == null { $forMap : (); }
@@ -153,7 +165,7 @@
 		$forMap : map-set($forMap, $stateName, $forStateMap);
 
 		// set the map in the gridle global variable
-		$_gridle_extend_base_classes_content : map-set($_gridle_extend_base_classes_content, $for, $forMap) !global;
+		$_gridle_extend_base_classes : map-set($_gridle_extend_base_classes, $for, $forMap) !global;
 
 	}
 }
@@ -168,7 +180,7 @@
 	$statesNames : default
 ) {
 	// get the map for the passed mixin "category"
-	$forMap : map-get($_gridle_apply_css_for_content, $for);
+	$forMap : map-get($_gridle_apply_css_for, $for);
 
 	// create the map if not exist
 	@if $forMap == null { $forMap : (); }
@@ -194,7 +206,7 @@
 		$forMap : map-set($forMap, $stateName, $forStateMap);
 
 		// set the map in the gridle global variable
-		$_gridle_apply_css_for_content : map-set($_gridle_apply_css_for_content, $for, $forMap) !global;
+		$_gridle_apply_css_for : map-set($_gridle_apply_css_for, $for, $forMap) !global;
 
 	}
 }

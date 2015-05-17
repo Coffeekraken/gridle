@@ -84,8 +84,43 @@ html {
 	background: $primary-color;
 	margin-bottom:50px;
 }
+
+
+/**
+ * Colors
+ */
 .complementary {
 	color: $complementary;
+}
+.red {
+	color: $red;
+}
+.blue {
+	color: $blue;
+}
+.green {
+	color: $green;
+}
+.bg-color {
+	padding:2px 5px;
+	@include border-radius(3px);
+	color: white;
+}
+.bg-complementary {
+	@extend .bg-color;
+	background: $complementary;
+}
+.bg-red {
+	@extend .bg-color;
+	background: $red;
+}
+.bg-blue {
+	@extend .bg-color;
+	background: $blue;
+}
+.bg-green {
+	@extend .bg-color;
+	background: $green;
 }
 
 

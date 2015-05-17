@@ -11,79 +11,32 @@ $gridle-debug-selector 				: ".gridle-debug &, &.gridle-debug" !default;
 $gridle-class-prefix 					: '' !default;
 $gridle-class-separator 				: '-' !default;
 
-$gridle-container-name-pattern 			: ('container','%-','%state') !default;
-
-$gridle-grid-name-pattern 				: ('grid','%-','%state','%-','%count') !default;
-$gridle-push-name-pattern 				: ('push','%-','%state','%-','%count') !default;
-$gridle-pull-name-pattern 				: ('pull','%-','%state','%-','%count') !default;
-$gridle-prefix-name-pattern 				: ('prefix','%-','%state','%-','%count') !default;
-$gridle-suffix-name-pattern 				: ('suffix','%-','%state','%-','%count') !default;
-
-$gridle-parent-name-pattern 				: ('parent','%-','%state') !default;
-$gridle-row-name-pattern 					: ('row','%-','%state') !default;
-
-$gridle-flex-parent-name-pattern 			: ('flex','%-','parent','%-','%state') !default;
-$gridle-flex-row-name-pattern 				: ('flex','%-','row','%-','%state') !default;
-$gridle-flex-col-name-pattern 				: ('flex','%-','col','%-','%state') !default;
-$gridle-flex-grid-name-pattern 				: ('flex','%-','grid','%-','%state','%-','%count') !default;
-$gridle-flex-order-name-pattern 			: ('flex','%-','order','%-','%state','%-','%count') !default;
-$gridle-flex-grow-name-pattern 				: ('flex','%-','grow','%-','%state') !default;
-$gridle-flex-align-left-name-pattern 		: ('flex','%-','align','%-','%state','%-','left') !default;
-$gridle-flex-align-center-name-pattern 		: ('flex','%-','align','%-','%state','%-','center') !default;
-$gridle-flex-align-right-name-pattern 		: ('flex','%-','align','%-','%state','%-','right') !default;
-$gridle-flex-align-top-name-pattern 		: ('flex','%-','align','%-','%state','%-','top') !default;
-$gridle-flex-align-middle-name-pattern 		: ('flex','%-','align','%-','%state','%-','middle') !default;
-$gridle-flex-align-bottom-name-pattern 		: ('flex','%-','align','%-','%state','%-','bottom') !default;
-$gridle-flex-distribution-around-name-pattern : ('flex','%-','distribution','%-','%state','%-','around') !default;
-$gridle-flex-distribution-between-name-pattern : ('flex','%-','distribution','%-','%state','%-','between') !default;
-
-$gridle-centered-name-pattern 			: ('centered','%-','%state') !default;
-
-$gridle-align-left-name-pattern 		: ('align','%-','%state','%-','left') !default;
-$gridle-align-center-name-pattern 		: ('align','%-','%state','%-','center') !default;
-$gridle-align-right-name-pattern 		: ('align','%-','%state','%-','right') !default;
-$gridle-align-top-name-pattern 			: ('align','%-','%state','%-','top') !default;
-$gridle-align-middle-name-pattern 		: ('align','%-','%state','%-','middle') !default;
-$gridle-align-bottom-name-pattern 		: ('align','%-','%state','%-','bottom') !default;
-
-$gridle-hide-name-pattern 				: ('hide','%-','%state') !default;
-$gridle-show-name-pattern 				: ('show','%-','%state') !default;
-$gridle-show-inline-name-pattern 			: ('show','%-','inline','%-','%state') !default;
-$gridle-not-visible-name-pattern 			: ('not','%-','visible','%-','%state') !default;
-$gridle-visible-name-pattern 				: ('visible','%-','%state') !default;
-
-$gridle-float-left-name-pattern 			: ('float','%-','%state','%-','left') !default;
-$gridle-float-right-name-pattern 			: ('float','%-','%state','%-','right') !default;
-
-$gridle-clear-name-pattern 				: ('clear','%-','%state') !default;
-$gridle-clear-left-name-pattern 			: ('clear','%-','%state','%-','left') !default;
-$gridle-clear-right-name-pattern 			: ('clear','%-','%state','%-','right') !default;
-$gridle-clear-each-pattern 				: ('clear','%-','each','%-','%state','%-','%count') !default;
-
-$gridle-no-gutter-name-pattern 			: ('no','%-','gutter','%-','%state') !default;
-$gridle-no-gutter-left-name-pattern 			: ('no','%-','gutter','%-','%state','%-','left') !default;
-$gridle-no-gutter-right-name-pattern 		: ('no','%-','gutter','%-','%state','%-','right') !default;
-$gridle-no-gutter-top-name-pattern 			: ('no','%-','gutter','%-','%state','%-','top') !default;
-$gridle-no-gutter-bottom-name-pattern 		: ('no','%-','gutter','%-','%state','%-','bottom') !default;
-
-$gridle-no-margin-name-pattern 			: ('no','%-','margin','%-','%state') !default;
-$gridle-no-margin-left-name-pattern 		: ('no','%-','margin','%-','%state','%-','left') !default;
-$gridle-no-margin-right-name-pattern 		: ('no','%-','margin','%-','%state','%-','right') !default;
-$gridle-no-margin-top-name-pattern 		: ('no','%-','margin','%-','%state','%-','top') !default;
-$gridle-no-margin-bottom-name-pattern 		: ('no','%-','margin','%-','%state','%-','bottom') !default;
-
-$gridle-gutter-name-pattern 				: ('gutter','%-','%state') !default;
-$gridle-gutter-left-name-pattern 			: ('gutter','%-','%state','%-','left') !default;
-$gridle-gutter-right-name-pattern 			: ('gutter','%-','%state','%-','right') !default;
-$gridle-gutter-top-name-pattern 			: ('gutter','%-','%state','%-','top') !default;
-$gridle-gutter-bottom-name-pattern 		: ('gutter','%-','%state','%-','bottom') !default;
-
-$gridle-margin-name-pattern 			: ('margins','%-','%state') !default;
-$gridle-margin-left-name-pattern 			: ('margin','%-','%state','%-','left') !default;
-$gridle-margin-right-name-pattern 			: ('margin','%-','%state','%-','right') !default;
-$gridle-margin-top-name-pattern 			: ('margin','%-','%state','%-','top') !default;
-$gridle-margin-bottom-name-pattern 		: ('margin','%-','%state','%-','bottom') !default;
-
-$gridle-auto-height-name-pattern 			: ('auto','%-','height','%-','%state') !default;
-
-$gridle-debug-color-name-pattern 			: ('debug','%-','color','%-','%state','%-','%count') !default;
+$_gridle-names-patterns : (
+	container 							: ('container','%-','%state'),
+	grid 								: ('grid','%-','%state','%-','%value'),
+	push 								: ('push','%-','%state','%-','%value'),
+	pull 								: ('pull','%-','%state','%-','%value'),
+	prefix 								: ('prefix','%-','%state','%-','%value'),
+	suffix 								: ('suffix','%-','%state','%-','%value'),
+	row 								: ('row','%-','%state'),
+	centered 							: ('centered','%-','%state'),
+	align 								: ('align','%-','%state','%-','%value'),
+	hide 								: ('hide','%-','%state'),
+	show 								: ('show','%-','%state'),
+	show-inline 						: ('show','%-','inline','%-','%state'),
+	not-visible 						: ('not','%-','visible','%-','%state'),
+	visible 							: ('visible','%-','%state'),
+	float 								: ('float','%-','%state','%-','%value'),
+	clear 								: ('clear','%-','%state','%-','%value'),
+	clear-each 							: ('clear','%-','each','%-','%state','%-','%value'),
+	gutter 								: ('gutter','%-','%state','%-','%value'),
+	no-gutter 							: ('no','%-','gutter','%-','%state','%-','%value'),
+	auto-height 						: ('auto','%-','height','%-','%state'),
+	flex-row 							: ('flex','%-','row','%-','%value','%-','%state'),
+	flex-col 							: ('flex','%-','col','%-','%value','%-','%state'),
+	flex-grid 							: ('flex','%-','grid','%-','%state','%-','%value'),
+	flex-order 							: ('flex','%-','order','%-','%state','%-','%value'),
+	flex-grow 							: ('flex','%-','grow','%-','%state'),
+	flex-align 							: ('flex','%-','align','%-','%state','%-','%value'),
+	flex-distribution 					: ('flex','%-','distribution','%-','%state','%-','%value')
+);
