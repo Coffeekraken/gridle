@@ -1,6 +1,13 @@
 // Import grid settings :
 @import 'grid-settings';
 
+@include gridle_selector(not-visible visible show hide, default mobile) {
+	content : "your css...";
+	@include gridle_state(mobile) {
+		content : "you can even use the gridle_state mixin etc...";
+	}
+}
+
 // standard grid mixins :
 .grid-12 {
 	@include gridle(12);
@@ -42,6 +49,39 @@
 .clear-each-2-set {
 	@include gridle_set((
 		clear_each : ( 2, left )
+	));
+}
+
+// gutter width
+.gutter-width {
+	@include gridle_gutter(100px);
+	@include gridle_gutter((
+		top : 10px,
+		right : 50px,
+		bottom : 10px,
+		left : 50px
+	));
+	@include gridle_gutter(top left);
+}
+.gutter-width-set {
+	@include gridle_set((
+		gutter-width : 100px
+	));
+	content : "multple values";
+	@include gridle_set((
+		gutter-width : (
+			top : 10px,
+			right : 50px,
+			bottom : 10px,
+			left : 50px
+		)
+	));
+	content : "multiple sides";
+	@include gridle_set((
+		gutter-width : top left,
+		mobile : (
+			gutter-width : 100px
+		)
 	));
 }
 
@@ -225,6 +265,7 @@ $align : (left,center,right,top,middle,bottom);
 	}
 
 	@include gridle_state(200px, 600px) {
+		content : "ad hoc state";
 		background: white;
 		@include gridle(3);
 	}

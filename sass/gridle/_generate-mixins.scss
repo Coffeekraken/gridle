@@ -286,7 +286,7 @@
 
 			$value : null;
 			@if $varName == "query" {
-				$value : _gridle_get_media_query($stateName);
+				$value : gridle_get_media_query($stateName);
 			} @else {
 				$value : map-get($state,$varName);
 			}
@@ -362,7 +362,11 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	$states : null, // null mean all states here...
 	$what : (default, helpers),
 	$has-parent : false
-) {
+) {	
+
+	// set that we are in generate phase (that can be used anywhere)
+	$_gridle_is_in_generate_phase : true !global;
+
 	// if no states are provided, mean that we want all states
 	@if $states == null {
 		$states : gridle_get_registered_states_names();
@@ -402,6 +406,9 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		// get the actual state
 		$state : gridle_get_state($stateName);
 
+		// debug
+		@debug("Generate classes for state #{$stateName}");
+
 		// scope all the classes in a media query
 		@include gridle_state($state, false) {
 
@@ -411,32 +418,9 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 			// stop here if no classes wanted
 			@if $classes {
 
-				// debug
-				@debug("Generate classes for state #{$stateName}");
-
-				$context : gridle_get_state_var(context, $state);
-				$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-
-				// get specials columns
-				$columnsMap : map-merge((), $_gridle_columns);
-
-				// register each default columns
-				@for $j from 0 through $context {
-					
-					// name
-					$columnName : "#{$j*$name-multiplicator}";
-					$columnWidth : $j * $name-multiplicator;
-
-					// // create a column
-					$col : _gridle_create_column($columnName, $columnWidth, $context, $name-multiplicator);
-
-					// // add column in columns map
-					$columnsMap : map-set($columnsMap, $columnName,  $col);
-				}
-
 				// generate all classes for columns
 				$i : 0;
-				@each $columnName, $column in $columnsMap {
+				@each $columnName, $column in gridle_get_columns($state) {
 
 					// variables
 					$columnsCount : map-get($column, columns);
@@ -507,4 +491,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 			}
 		}
 	}
+
+	// reset the variable that track if we are in generate phase or not
+	$_gridle_is_in_generate_phase : false !global;
 }

@@ -314,19 +314,103 @@
 }
 
 
+// get columns names in a list
+@function gridle_get_columns(
+	$state : default
+) {
+	// get variables
+	$context : gridle_get_state_var(context, $state);
+	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
+
+	// get specials columns
+	$columnsMap : map-merge((), $_gridle_columns);
+
+	// loop through context
+	@for $i from 0 through $context {
+
+		// name
+		$columnName : "#{$i*$name-multiplicator}";
+		$columnWidth : $i * $name-multiplicator;
+
+		// // create a column
+		$col : _gridle_create_column($columnName, $columnWidth, $context, $name-multiplicator);
+
+		// // add column in columns map
+		$columnsMap : map-set($columnsMap, $columnName,  $col);
+	}	
+
+	// return columns
+	@return $columnsMap;
+}
+
+
 //
 // Get the attribute selector
-@function _gridle_states_classname(
-	$pattern,
-	$count : null
+@function gridle_selector(
+	$for,
+	$states : null
 ) {
 	$sel : ();
-	@each $stateName, $state in $_gridle_states {
-		$sel : append($sel, _gridle_classname($pattern, $stateName, $count), comma);
+
+	@if length($for) > 1 {
+		@each $f in $for {
+			$sel : append($sel, gridle_selector($f, $states), comma);
+		}
+	} @else {
+
+		// get all states if not specified
+		@if $states == null {
+			$states : gridle_get_registered_states_names();
+		}
+
+		// get the pattern
+		$pattern : map-get($_gridle-names-patterns, $for);
+
+		@each $stateName in $states {
+			@if index($pattern, '%column') {
+				@each $columnName, $column in gridle_get_columns() {
+					$sel : append($sel, _gridle_classname($for, $stateName, $columnName), comma);
+				}
+			} @else if index($pattern, '%column-count') {
+				@for $i from 0 through length(gridle_get_columns()) {
+					$sel : append($sel, _gridle_classname($for, $stateName, $i), comma);
+				}
+				@if $for == flex-order {
+					$sel : append($sel, _gridle_classname($for, $stateName, first), comma);
+					$sel : append($sel, _gridle_classname($for, $stateName, last), comma);
+				}
+			} @else if index($pattern, '%align') {
+				@each $a in map-get($_gridle-names-tokens, align) {
+					$sel : append($sel, _gridle_classname($for, $stateName, $a), comma);
+				}
+			} @else if index($pattern, '%count') and $for == clear-each {
+				@each $idx, $clearEach in $_gridle_clear_classes {
+					$count : map-get($clearEach, clearEach);
+					$sel : append($sel, _gridle_classname($for, $stateName, $count), comma);
+				}
+			} @else if index($pattern, '%side') {
+				@each $side in map-get($_gridle-names-tokens, side) {
+					$sel : append($sel, _gridle_classname($for, $stateName, $side), comma);
+				}
+			} @else if index($pattern, '%float') {
+				@each $float in map-get($_gridle-names-tokens, float) {
+					$sel : append($sel, _gridle_classname($for, $stateName, $float), comma);
+				}
+			} @else if index($pattern, '%reverse') {
+				@each $reverse in map-get($_gridle-names-tokens, reverse) {
+					$sel : append($sel, _gridle_classname($for, $stateName, $reverse), comma);
+				}
+			} @else if index($pattern, '%distribution') {
+				@each $distribution in map-get($_gridle-names-tokens, distribution) {
+					$sel : append($sel, _gridle_classname($for, $stateName, $distribution), comma);
+				}
+			} @else {
+				$sel : append($sel, _gridle_classname($for, $stateName), comma);
+			}
+		}
 	}
 	@return $sel;
 }
-
 
 
 //
@@ -348,66 +432,50 @@
 		$pattern : map-get($_gridle-names-patterns, $for);
 	}
 
-	// init selector :
-	$sel : ".";
-
 	// delete default :
 	@if unquote("#{$state}") == default {
 		$state : null;
 	}
-	
-	// add class prefix :
-	@if $gridle-class-prefix and $gridle-class-prefix != '' {
-		$sel : "#{$sel}#{$gridle-class-prefix}";
-		@if $gridle-class-separator {
-			$sel : "#{$sel}#{$gridle-class-separator}";
+
+	// construct class name :
+	$removeSeparator : false;
+	@for $i from length($pattern) through 1 {
+		$var : nth($pattern, $i);
+
+
+		@if index($_gridle_names-separators, $var) {
+			// check if need to remove separator
+			@if $removeSeparator {
+				$pattern : set-nth($pattern, $i, null);
+			}
+			$removeSeparator : false;
+		} @else if $var == "%state" {
+			@if $state == null {
+				$pattern : set-nth($pattern, $i, null);
+				$removeSeparator : true;
+			} @else {
+				$pattern : set-nth($pattern, $i, $state);
+			}
+		} @else if str-index($var, '%') == 1 {
+			$token : str-slice($var, 2);
+			// check that the value is part of the token
+			$tokens : map-get($_gridle-names-tokens, $token);
+			@if $tokens {
+				$pattern : set-nth($pattern, $i, $value);
+				@if $value == null {
+					$removeSeparator : true;
+				}
+			}
 		}
 	}
 
-	// construct class name :
-	$i : 1;
-	@each $var in $pattern {
-		
-		// replace tokens :
-		@if $var == '%state' and $state {
-			$sel : "#{$sel}#{$state}";
+	// build selector
+	$pattern : compact($pattern);
+	$sel : ".";
+	@each $part in $pattern {
+		@if $part {
+			$sel : "#{$sel}#{$part}";
 		}
-		@if $var == '%value' and $value != null { 
-			$sel : "#{$sel}#{$value}";
-		}  
-		@if $var != '%state' and $var != '%value' and $var != '%-' and $var != '-' and $var != '--' and $var != '_' and $var != '__' and $var != '%prefix' {
-			$sel : "#{$sel}#{$var}";
-		}
-
-		// handle separators :
-		@if ($var == '%-' or $var == '-' or $var == '--' or $var == '_' or $var == '__') and $i < length($pattern) {
-			$index : $i + 1;
-			$val : nth($pattern, $index);
-			@if $val != '%state' and $val != '%value' and $val != '%-' and $val != '-' and $val != '--' and $val != '_' and $val != '__' and $val != '%prefix' {
-				@if $var == '%-' {
-					$sel : "#{$sel}#{$gridle-class-separator}";
-				} @else {
-					$sel : "#{$sel}#{$var}";
-				}
-			}
-			@if $val == '%state' and $state {
-				@if $var == '%-' {
-					$sel : "#{$sel}#{$gridle-class-separator}";
-				} @else {
-					$sel : "#{$sel}#{$var}";
-				}
-			}
-			@if $val == '%value' and $value {
-				@if $var == '%-' {
-					$sel : "#{$sel}#{$gridle-class-separator}";
-				} @else {
-					$sel : "#{$sel}#{$var}";
-				}
-			}
-		}
-
-		// update i :
-		$i : $i + 1;
 	}
 
 	// return generated class :
@@ -445,13 +513,21 @@
 
 
 //
+// Check if is in generate mode
+//
+@function _gridle_is_in_generate_phase() {
+	@return $_gridle_is_in_generate_phase;
+}
+
+
+//
 // Get the media query for a particular state, or with, etc...
 //
 // @param 	Mixed 		$state-or-min-width 		The state name of the min with
 // @param 	Mixed 		$max-width 			The max width if first param is a min width
 // @return 	String 						The media query string without the @media
 //
-@function _gridle_get_media_query(
+@function gridle_get_media_query(
 	$state-or-settings
 ) {
 	// check if is a string :

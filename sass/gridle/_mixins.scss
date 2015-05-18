@@ -16,7 +16,7 @@
 			$classes : gridle_get_state_var(classes, $state);
 			@if $classes {
 				@at-root {
-					$q : _gridle_get_media_query($state);
+					$q : gridle_get_media_query($state);
 					@if $q {
 						@media #{$q} {
 							@include _gridle_init_common_silent_classes($state);
@@ -53,7 +53,9 @@
 
 			@if $for {
 				@include _gridle_extend($for);
-				@include _gridle_apply_css_for($for);
+				@if _gridle_is_in_generate_phase() == false {
+					@include _gridle_apply_css_for($for);
+				}
 			}
 		}
 	} @elseif $states {
@@ -65,7 +67,9 @@
 
 				@if $for {
 					@include _gridle_extend($for);
-					@include _gridle_apply_css_for($for);
+					@if _gridle_is_in_generate_phase() == false {
+						@include _gridle_apply_css_for($for);
+					}
 				}
 			}
 		}
@@ -75,9 +79,28 @@
 
 		@if $for {
 			@include _gridle_extend($for);
-			@include _gridle_apply_css_for($for);
+			@if _gridle_is_in_generate_phase() == false {
+				@include _gridle_apply_css_for($for);
+			}
 		}
 	}
+
+	// @if _gridle_is_in_generate_phase() == true {
+
+	// 	// we need the states names as list
+	// 	$statesList : ();
+	// 	@each $state in $states {
+	// 		$stateName : gridle_get_state_var(name, $state);
+	// 		$statesList : append($statesList, $stateName);
+	// 	}
+	// 	@at-root {
+	// 		@debug("Apply for #{$for}");
+	// 		@include gridle_selector($for, $statesList) {
+	// 			@include _gridle_apply_css_for($for);
+	// 		}
+	// 	}
+	// }
+
 }
 
 
@@ -288,7 +311,7 @@
 	}
 
 	// get the media query :
-	$q : _gridle_get_media_query($state);
+	$q : gridle_get_media_query($state);
 
 	// make the media query if a query exist :
 	@if $q {

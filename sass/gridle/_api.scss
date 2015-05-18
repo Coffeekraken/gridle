@@ -52,6 +52,19 @@
 
 
 //
+// Gridle selector
+//
+@mixin gridle_selector(
+	$for,
+	$states : null
+) {
+	#{gridle_selector($for, $states)} {
+		@content;
+	}
+}
+
+
+//
 // Helper to apply multiple config for a certain state with one mixin
 //
 @mixin gridle_set(
@@ -78,7 +91,7 @@
 				@include gridle_flex_order($sv, $state);
 			} @else if $sn == flex-reverse {
 				@include gridle_flex_reverse($sv, $state);
-			} @else if $sn == flex-parent or $sn == flex-row {
+			} @else if $sn == flex-row {
 				@include gridle_flex_row($sv, $state);
 			} @else if $sn == flex-col {
 				@include gridle_flex_col($sv, $state);
@@ -176,7 +189,7 @@
 @mixin gridle_row(
 	$states : null
 ) {
-	@include _gridle_call($states, parent) {
+	@include _gridle_call($states, row) {
 		@include _gridle_row($_content_arg_state);
 	}
 }
@@ -687,7 +700,7 @@
 	$align : middle,
 	$states : null
 ) {
-	@include _gridle_call($states, vertical-align) {
+	@include _gridle_call($states, align) {
 		@include _gridle_align($align, $_content_arg_state);
 	}
 }
