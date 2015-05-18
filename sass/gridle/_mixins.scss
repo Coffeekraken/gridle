@@ -178,7 +178,7 @@
 	}
 
 	// parent
-	@include _gridle_common_silent_class_name(parent, $stateName) {
+	@include _gridle_common_silent_class_name(row, $stateName) {
 		@include _gridle_common_parent($state);
 	}
 

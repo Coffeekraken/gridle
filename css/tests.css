@@ -14,6 +14,37 @@
   width: 100%;
   content: i'm a cool mobile grid;
 }
+.grid-row, .grid-row-set {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.grid-row:before, .grid-row-set:before, .grid-row:after, .grid-row-set:after {
+  content: "";
+  display: table;
+}
+.grid-row:after, .grid-row-set:after {
+  clear: both;
+}
+.grid-row, .grid-row-set {
+  zoom: 1;
+}
+
+.state-default .grid-row-set {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.state-default .grid-row-set:before, .state-default .grid-row-set:after {
+  content: "";
+  display: table;
+}
+.state-default .grid-row-set:after {
+  clear: both;
+}
+.state-default .grid-row-set {
+  zoom: 1;
+}
 .grid-12, .grid-1on5, .grid-12-on-100, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
@@ -789,22 +820,22 @@
   content: i'm a cool mobile grid;
 }
 
-.state-uygrkuu9p .gridle-state {
+.state-umces5xbn .gridle-state {
   background: yellow;
   width: 83.33333%;
   content: i'm a cool mobile grid;
 }
-.state-ipad-landscape .state-uygrkuu9p .gridle-state {
+.state-ipad-landscape .state-umces5xbn .gridle-state {
   padding-left: 25px;
   padding-right: 25px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-uygrkuu9p .gridle-state {
+  .state-umces5xbn .gridle-state {
     padding-left: 25px;
     padding-right: 25px;
   }
 }
-.state-default .state-uygrkuu9p .gridle-state {
+.state-default .state-umces5xbn .gridle-state {
   content: i'm a cool mobile grid;
 }
 @media only print {
@@ -822,22 +853,22 @@
   content: i'm a cool mobile grid;
 }
 
-.state-uygrkuubs .gridle-state {
+.state-umces5xdb .gridle-state {
   background: green;
   width: 41.66667%;
   content: i'm a cool mobile grid;
 }
-.state-ipad-landscape .state-uygrkuubs .gridle-state {
+.state-ipad-landscape .state-umces5xdb .gridle-state {
   padding-left: 25px;
   padding-right: 25px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-uygrkuubs .gridle-state {
+  .state-umces5xdb .gridle-state {
     padding-left: 25px;
     padding-right: 25px;
   }
 }
-.state-default .state-uygrkuubs .gridle-state {
+.state-default .state-umces5xdb .gridle-state {
   content: i'm a cool mobile grid;
 }
 @media screen and (max-width: 200px) {
@@ -861,23 +892,23 @@
   content: i'm a cool mobile grid;
 }
 
-.state-uygrkuudt .gridle-state {
+.state-umces5xf1 .gridle-state {
   content: "ad hoc state";
   background: white;
   width: 25%;
   content: i'm a cool mobile grid;
 }
-.state-ipad-landscape .state-uygrkuudt .gridle-state {
+.state-ipad-landscape .state-umces5xf1 .gridle-state {
   padding-left: 25px;
   padding-right: 25px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-uygrkuudt .gridle-state {
+  .state-umces5xf1 .gridle-state {
     padding-left: 25px;
     padding-right: 25px;
   }
 }
-.state-default .state-uygrkuudt .gridle-state {
+.state-default .state-umces5xf1 .gridle-state {
   content: i'm a cool mobile grid;
 }
 @media screen and (min-width: 200px) and (max-width: 600px) {
@@ -1252,7 +1283,7 @@
 }
 
 .gridle_get_state-custom {
-  content: '(name: uygrkuuf9, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, debug-show-class-names: true, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
+  content: '(name: umces5xgc, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, debug-show-class-names: true, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
 }
 
 .gridle_has_state-mobile {
