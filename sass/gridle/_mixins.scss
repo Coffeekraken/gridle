@@ -11,10 +11,13 @@
 //
 @mixin gridle_init() {
 	@if $_gridle_inited == false {
+		@debug("Init Gridle");
+		@debug("|- Init silent classes for");
 		$_gridle_inited : true !global;
 		@each $stateName, $state in $_gridle_states {
 			$classes : gridle_get_state_var(classes, $state);
 			@if $classes {
+				@debug("|-- #{$stateName}");
 				@at-root {
 					$q : gridle_get_media_query($state);
 					@if $q {
@@ -28,79 +31,6 @@
 			}
 		}
 	}
-}
-
-
-//
-// Call an api mixin by checking if need to loop over states
-// or not.
-// This mixin set also the global variable $_content_arg_state
-// in order to use it in api mixin to refer to the current
-// active state
-//			
-@mixin _gridle_call(
-	$states : default,
-	$for : null
-) {
-	// init if needed
-	@include gridle_init();
-
-	// check if need media query :
-	@if type-of($states) == map {
-		@include gridle_state($states) {
-			$_content_arg_state : $states !global;
-			@content;
-
-			@if $for {
-				@include _gridle_extend($for);
-				@if _gridle_is_in_generate_phase() == false {
-					@include _gridle_apply_css_for($for);
-				}
-			}
-		}
-	} @elseif $states {
-		@each $s in $states {
-			// extend common css for grid and state
-			@include gridle_state($s) {
-				$_content_arg_state : $s !global;
-				@content;
-
-				@if $for {
-					@include _gridle_extend($for);
-					@if _gridle_is_in_generate_phase() == false {
-						@include _gridle_apply_css_for($for);
-					}
-				}
-			}
-		}
-	} @else {
-		$_content_arg_state : $_gridle_current_state !global;
-		@content;
-
-		@if $for {
-			@include _gridle_extend($for);
-			@if _gridle_is_in_generate_phase() == false {
-				@include _gridle_apply_css_for($for);
-			}
-		}
-	}
-
-	// @if _gridle_is_in_generate_phase() == true {
-
-	// 	// we need the states names as list
-	// 	$statesList : ();
-	// 	@each $state in $states {
-	// 		$stateName : gridle_get_state_var(name, $state);
-	// 		$statesList : append($statesList, $stateName);
-	// 	}
-	// 	@at-root {
-	// 		@debug("Apply for #{$for}");
-	// 		@include gridle_selector($for, $statesList) {
-	// 			@include _gridle_apply_css_for($for);
-	// 		}
-	// 	}
-	// }
-
 }
 
 
@@ -145,11 +75,6 @@
 	// flex order
 	@include _gridle_common_silent_class_name(flex-order, $stateName) {
 		@include _gridle_common_flex_order($state);
-	}
-
-	// flex reverse
-	@include _gridle_common_silent_class_name(flex-reverse, $stateName) {
-		@include _gridle_common_flex_reverse($state);
 	}
 
 	// flex grow
@@ -202,7 +127,6 @@
 		@include _gridle_common_prefix($state);
 	}
 
-	
 	// suffix
 	@include _gridle_common_silent_class_name(suffix, $stateName) {
 		@include _gridle_common_suffix($state);
@@ -266,6 +190,80 @@
 	// gutter
 	@include _gridle_common_silent_class_name(gutter, $stateName) {
 		@include _gridle_common_gutter($state);
+	}
+}
+
+
+//
+// Call an api mixin by checking if need to loop over states
+// or not.
+// This mixin set also the global variable $_content_arg_state
+// in order to use it in api mixin to refer to the current
+// active state
+//			
+@mixin _gridle_call(
+	$states : default,
+	$for : null
+) {
+	// init if needed
+	@include gridle_init();
+
+	// check if need media query :
+	@if type-of($states) == map {
+		@include gridle_state($states) {
+			$_content_arg_state : $states !global;
+			@content;
+			@if $for {
+				@include _gridle_extend($for);
+			}
+		}
+		@if _gridle_is_in_generate_phase() == false and $for {
+			@include _gridle_apply_css_for($for);
+		}
+	} @elseif $states {
+		@each $s in $states {
+			// extend common css for grid and state
+			@include gridle_state($s) {
+				$_content_arg_state : $s !global;
+				@content;
+
+				@if $for {
+					@include _gridle_extend($for);
+				}
+			}
+			@if _gridle_is_in_generate_phase() == false and $for {
+				@include _gridle_apply_css_for($for);
+			}
+		}
+	} @else {
+		$_content_arg_state : $_gridle_current_state !global;
+		@content;
+
+		@if $for {
+			@include _gridle_extend($for);
+			@if _gridle_is_in_generate_phase() == false {
+				@include _gridle_apply_css_for($for);
+			}
+		}
+	}
+}
+
+
+//
+// Apply the registered css for a certain type (grid, push, etc...)
+// in each states
+//
+@mixin _gridle_apply_css_for(
+	$for
+) {
+	// loop on each states
+	@each $map in $_gridle_apply_css_for {
+		$rulesByStates : map-get($map, $for);
+		@each $stateName, $rules in $rulesByStates {
+			@include _gridle_state($stateName) {
+				@include _gridle_map_2_css($rules);
+			}
+		}
 	}
 }
 
@@ -382,22 +380,5 @@
 	} @else {
 		// extend using the current state name set in each gridle_state call
 		@extend %#{$_gridle_current_stateName}-#{$for} !optional;
-	}
-}
-
-
-//
-// Apply the registered css for a certain type (grid, push, etc...)
-// in each states
-//
-@mixin _gridle_apply_css_for(
-	$for
-) {
-	// loop on each states
-	$rulesByStates : map-get($_gridle_apply_css_for, $for);
-	@each $stateName, $rules in $rulesByStates {
-		@include _gridle_state($stateName) {
-			@include _gridle_map_2_css($rules);
-		}
 	}
 }

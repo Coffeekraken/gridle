@@ -60,13 +60,9 @@
 	$gutter-width : map-get($settings, gutter-width);
 	@if $gutter-width != map-get($_gridle-settings, gutter-width) {
 		@debug("different gutters for #{$name}");
-		@include gridle_apply_css_for(grid, (
+		@include gridle_apply_css_for(grid flex-grid flex-grow, (
 			padding-left : $gutter-width / 2,
-			padding-right : $gutter-width / 2,
-		), $name);
-		@include gridle_apply_css_for(flex-grid, (
-			padding-left : $gutter-width / 2,
-			padding-right : $gutter-width / 2,
+			padding-right : $gutter-width / 2
 		), $name);
 	}
 
@@ -137,36 +133,40 @@
 @mixin gridle_extend_base_class(
 	$for,
 	$extend,
-	$statesNames : default
+	$statesNames : null
 ) {
-	// get the map for the passed mixin "category"
-	$forMap : map-get($_gridle_extend_base_classes, $for);
-
-	// create the map if not exist
-	@if $forMap == null { $forMap : (); }
-
 	// if $states is all
-	@if $statesNames == all {
+	@if $statesNames == null {
 		$statesNames : gridle_get_registered_states_names();
 	}
 
-	// loop on each states to register an extend map
-	@each $stateName in $statesNames {
+	@each $f in $for {
 
-		// check if has a map for the state
-		$forStateMap : map-get($forMap, $stateName);
-		@if $forStateMap == null {
-			$forStateMap : ();
+		// get the map for the passed mixin "category"
+		$forMap : map-get($_gridle_extend_base_classes, $f);
+
+		// create the map if not exist
+		@if $forMap == null { $forMap : (); }
+
+		// loop on each states to register an extend map
+		@each $stateName in $statesNames {
+
+			// check if has a map for the state
+			$forStateMap : map-get($forMap, $stateName);
+			@if $forStateMap == null {
+				$forStateMap : ();
+			}
+
+			// merge map
+			$forStateMap : map-merge($forStateMap, $extend);
+
+			// set the new state map into forMap
+			$forMap : map-set($forMap, $stateName, $forStateMap);
+
+			// set the map in the gridle global variable
+			$_gridle_extend_base_classes : map-set($_gridle_extend_base_classes, $f, $forMap) !global;
+
 		}
-		
-		// merge map
-		$forStateMap : map-merge($forStateMap, $extend);
-
-		// set the new state map into forMap
-		$forMap : map-set($forMap, $stateName, $forStateMap);
-
-		// set the map in the gridle global variable
-		$_gridle_extend_base_classes : map-set($_gridle_extend_base_classes, $for, $forMap) !global;
 
 	}
 }
@@ -175,39 +175,50 @@
 //
 // Apply css for
 //
+// map format :
+// (
+// 	(
+// 		grid : (
+// 			mobile : (
+// 				padding : 0,
+// 				margin : 0
+// 			),
+// 			tablet : (
+// 				padding : 0
+// 			)
+// 		)
+// 	),
+// 	(
+// 		etc...
+// 	)
+// )
 @mixin gridle_apply_css_for(
 	$for,
 	$extend,
-	$statesNames : default
+	$statesNames : null
 ) {
-	// get the map for the passed mixin "category"
-	$forMap : map-get($_gridle_apply_css_for, $for);
 
-	// create the map if not exist
-	@if $forMap == null { $forMap : (); }
-
-	// if $states is all
-	@if $statesNames == all {
+	// if statesNames is null, mean that it's all the states
+	@if $statesNames == null {
 		$statesNames : gridle_get_registered_states_names();
 	}
 
-	// loop on each states to register an extend map
-	@each $stateName in $statesNames {
+	@each $f in $for {
 
-		// check if has a map for the state
-		$forStateMap : map-get($forMap, $stateName);
-		@if $forStateMap == null {
-			$forStateMap : ();
+		// get the map for the passed mixin "category"
+		$stateMap : ();
+
+		// loop on each states to register an extend map
+		@each $stateName in $statesNames {
+			// add the css
+			$stateMap : map-set($stateMap, $stateName, $extend);
 		}
 
-		// merge map
-		$forStateMap : map-merge($forStateMap, $extend);
-
-		// set the new state map into forMap
-		$forMap : map-set($forMap, $stateName, $forStateMap);
+		// set in map
+		$forMap : map-set((), $f, $stateMap);
 
 		// set the map in the gridle global variable
-		$_gridle_apply_css_for : map-set($_gridle_apply_css_for, $for, $forMap) !global;
+		$_gridle_apply_css_for : append($_gridle_apply_css_for, $forMap) !global;
 
 	}
 }

@@ -1,6 +1,32 @@
 // Import grid settings :
 @import 'grid-settings';
 
+@include gridle_debug((
+	mobile : (
+		padding : 0,
+		margin : 0,
+		content : "hello world"
+	),
+	tablet : (
+		padding : 0,
+		coco : (
+			myNewMap : "Content",
+			hello : 10px,
+			tablet : (
+				padding : 0,
+				coco : (
+					myNewMap : "Content",
+					hello : 10px
+				)
+			)
+		)
+	)
+));
+@include gridle_debug("coco");
+@include gridle_debug((hello, world));
+
+
+
 @include gridle_selector(not-visible visible show hide, default mobile) {
 	content : "your css...";
 	@include gridle_state(mobile) {

@@ -492,6 +492,23 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		}
 	}
 
+	// apply css for states of each elements
+	$fors : $_gridle-names-patterns;
+	@each $map in $_gridle_apply_css_for {
+		@each $f, $states in $map {	
+			@if map-get($fors, $f) {
+				$statesNames : ();
+				@each $sn, $rules in $states {
+					@include gridle_selector($f, null) {
+						@include _gridle_state($sn) {
+							@include _gridle_map_2_css($rules);
+						}
+					}
+				}
+			}
+		}
+	}
+
 	// reset the variable that track if we are in generate phase or not
 	$_gridle_is_in_generate_phase : false !global;
 }

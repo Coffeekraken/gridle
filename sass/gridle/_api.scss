@@ -89,8 +89,6 @@
 				@include gridle_flex_grid($sv, $state);
 			} @else if $sn == flex-order {
 				@include gridle_flex_order($sv, $state);
-			} @else if $sn == flex-reverse {
-				@include gridle_flex_reverse($sv, $state);
 			} @else if $sn == flex-row {
 				@include gridle_flex_row($sv, $state);
 			} @else if $sn == flex-col {
@@ -161,6 +159,38 @@
 				@include gridle_gutter($sv, $state);
 			} @else {
 				// we do nothing
+			}
+		}
+	}
+}
+
+
+//
+// Debug
+//
+@mixin gridle_debug($what) {
+	@if type-of($what) == map {
+		@include gridle_debug_map($what);
+	} @else {
+		@_ {
+			#{type-of($what)} : inspect($what);
+		}
+	}
+}
+
+
+//
+// Debug a map
+//
+@mixin gridle_debug_map($map, $name : '') {
+	@at-root {
+		@_ #{$name} {
+			@each $key, $value in $map {
+				@if type-of($value) == map {
+					@include gridle_debug_map($value, $key);
+				} @else {
+					#{$key}: inspect($value);
+				}
 			}
 		}
 	}

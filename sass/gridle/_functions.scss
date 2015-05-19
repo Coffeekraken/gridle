@@ -442,7 +442,6 @@
 	@for $i from length($pattern) through 1 {
 		$var : nth($pattern, $i);
 
-
 		@if index($_gridle_names-separators, $var) {
 			// check if need to remove separator
 			@if $removeSeparator {

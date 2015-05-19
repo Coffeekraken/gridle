@@ -4,7 +4,7 @@
   }
 }
 #gridle-settings {
-  content: '{ "version" : "1.4.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "50px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
+  content: '{ "version" : "1.4.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "100px", "direction" : "ltr", "name-multiplicator" : "1", "debug" : false, "debug-show-class-names" : true, "class-separator" : "-", "states-classes" : true, "generate-push-classes" : true, "generate-pull-classes" : true, "generate-prefix-classes" : true, "generate-suffix-classes" : true, "generate-helpers-classes" : true, "_gridle" : true }} }';
 }
 
 .state-default .grid-1on5 {
@@ -51,6 +51,7 @@
   flex-direction: column;
   padding-right: 10px;
   padding-left: 10px;
+  content: i extend the grid class;
 }
 
 .state-default .flex-grid-1on5, .state-default .flex-grid-0, .state-default .flex-grid-1, .state-default .flex-grid-2, .state-default .flex-grid-3, .state-default .flex-grid-4, .state-default .flex-grid-5, .state-default .flex-grid-6, .state-default .flex-grid-7, .state-default .flex-grid-8, .state-default .flex-grid-9, .state-default .flex-grid-10, .state-default .flex-grid-11, .state-default .flex-grid-12 {
@@ -73,6 +74,7 @@
   flex-direction: column;
   padding-right: 10px;
   padding-left: 10px;
+  content: i extend the grid class;
 }
 .flex-grow {
   max-width: 100%;
@@ -222,6 +224,7 @@
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
+  content: i extend the grid class;
 }
 
 .state-default .grid-1on5, .state-default .grid-0, .state-default .grid-1, .state-default .grid-2, .state-default .grid-3, .state-default .grid-4, .state-default .grid-5, .state-default .grid-6, .state-default .grid-7, .state-default .grid-8, .state-default .grid-9, .state-default .grid-10, .state-default .grid-11, .state-default .grid-12 {
@@ -234,6 +237,7 @@
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
+  content: i extend the grid class;
 }
 .push-1on5, .push-0, .push-1, .push-2, .push-3, .push-4, .push-5, .push-6, .push-7, .push-8, .push-9, .push-10, .push-11, .push-12 {
   position: relative;
@@ -308,6 +312,7 @@
     flex-direction: column;
     padding-right: 10px;
     padding-left: 10px;
+    content: i extend the grid class;
   }
 }
 .state-mobile .flex-grid-mobile-1on5, .state-mobile .flex-grid-mobile-0, .state-mobile .flex-grid-mobile-1, .state-mobile .flex-grid-mobile-2, .state-mobile .flex-grid-mobile-3, .state-mobile .flex-grid-mobile-4, .state-mobile .flex-grid-mobile-5, .state-mobile .flex-grid-mobile-6, .state-mobile .flex-grid-mobile-7, .state-mobile .flex-grid-mobile-8, .state-mobile .flex-grid-mobile-9, .state-mobile .flex-grid-mobile-10, .state-mobile .flex-grid-mobile-11, .state-mobile .flex-grid-mobile-12, .state-mobile [class*="flex-grid-"], .state-mobile
@@ -331,6 +336,7 @@
   flex-direction: column;
   padding-right: 10px;
   padding-left: 10px;
+  content: i extend the grid class;
 }
 @media screen and (max-width: 480px) {
   .flex-grow-mobile {
@@ -485,6 +491,7 @@
     direction: ltr;
     padding-left: 10px;
     padding-right: 10px;
+    content: i extend the grid class;
   }
 }
 .state-mobile .grid-mobile-1on5, .state-mobile .grid-mobile-0, .state-mobile .grid-mobile-1, .state-mobile .grid-mobile-2, .state-mobile .grid-mobile-3, .state-mobile .grid-mobile-4, .state-mobile .grid-mobile-5, .state-mobile .grid-mobile-6, .state-mobile .grid-mobile-7, .state-mobile .grid-mobile-8, .state-mobile .grid-mobile-9, .state-mobile .grid-mobile-10, .state-mobile .grid-mobile-11, .state-mobile .grid-mobile-12, .state-mobile [class*="grid-"] {
@@ -497,6 +504,7 @@
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
+  content: i extend the grid class;
 }
 @media screen and (max-width: 480px) {
   .push-mobile-1on5, .push-mobile-0, .push-mobile-1, .push-mobile-2, .push-mobile-3, .push-mobile-4, .push-mobile-5, .push-mobile-6, .push-mobile-7, .push-mobile-8, .push-mobile-9, .push-mobile-10, .push-mobile-11, .push-mobile-12, [class*="flex-grid-"],
@@ -577,6 +585,7 @@
     flex-direction: column;
     padding-right: 10px;
     padding-left: 10px;
+    content: i extend the grid class;
   }
 }
 .state-tablet .flex-grid-tablet-1on5, .state-tablet .flex-grid-tablet-0, .state-tablet .flex-grid-tablet-1, .state-tablet .flex-grid-tablet-2, .state-tablet .flex-grid-tablet-3, .state-tablet .flex-grid-tablet-4, .state-tablet .flex-grid-tablet-5, .state-tablet .flex-grid-tablet-6, .state-tablet .flex-grid-tablet-7, .state-tablet .flex-grid-tablet-8, .state-tablet .flex-grid-tablet-9, .state-tablet .flex-grid-tablet-10, .state-tablet .flex-grid-tablet-11, .state-tablet .flex-grid-tablet-12 {
@@ -599,6 +608,7 @@
   flex-direction: column;
   padding-right: 10px;
   padding-left: 10px;
+  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .flex-grow-tablet {
@@ -753,6 +763,7 @@
     direction: ltr;
     padding-left: 10px;
     padding-right: 10px;
+    content: i extend the grid class;
   }
 }
 .state-tablet .grid-tablet-1on5, .state-tablet .grid-tablet-0, .state-tablet .grid-tablet-1, .state-tablet .grid-tablet-2, .state-tablet .grid-tablet-3, .state-tablet .grid-tablet-4, .state-tablet .grid-tablet-5, .state-tablet .grid-tablet-6, .state-tablet .grid-tablet-7, .state-tablet .grid-tablet-8, .state-tablet .grid-tablet-9, .state-tablet .grid-tablet-10, .state-tablet .grid-tablet-11, .state-tablet .grid-tablet-12 {
@@ -765,6 +776,7 @@
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
+  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .push-tablet-1on5, .push-tablet-0, .push-tablet-1, .push-tablet-2, .push-tablet-3, .push-tablet-4, .push-tablet-5, .push-tablet-6, .push-tablet-7, .push-tablet-8, .push-tablet-9, .push-tablet-10, .push-tablet-11, .push-tablet-12 {
@@ -839,8 +851,9 @@
     -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 50px;
+    padding-left: 50px;
+    content: i extend the grid class;
   }
 }
 .state-ipad-landscape .flex-grid-ipad-landscape-1on5, .state-ipad-landscape .flex-grid-ipad-landscape-0, .state-ipad-landscape .flex-grid-ipad-landscape-1, .state-ipad-landscape .flex-grid-ipad-landscape-2, .state-ipad-landscape .flex-grid-ipad-landscape-3, .state-ipad-landscape .flex-grid-ipad-landscape-4, .state-ipad-landscape .flex-grid-ipad-landscape-5, .state-ipad-landscape .flex-grid-ipad-landscape-6, .state-ipad-landscape .flex-grid-ipad-landscape-7, .state-ipad-landscape .flex-grid-ipad-landscape-8, .state-ipad-landscape .flex-grid-ipad-landscape-9, .state-ipad-landscape .flex-grid-ipad-landscape-10, .state-ipad-landscape .flex-grid-ipad-landscape-11, .state-ipad-landscape .flex-grid-ipad-landscape-12 {
@@ -861,8 +874,9 @@
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding-right: 50px;
+  padding-left: 50px;
+  content: i extend the grid class;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .flex-grow-ipad-landscape {
@@ -884,8 +898,8 @@
     -moz-flex-direction: column;
     -ms-flex-direction: column;
     flex-direction: column;
-    padding-right: 25px;
-    padding-left: 25px;
+    padding-right: 50px;
+    padding-left: 50px;
   }
 }
 .state-ipad-landscape .flex-grow-ipad-landscape {
@@ -907,8 +921,8 @@
   -moz-flex-direction: column;
   -ms-flex-direction: column;
   flex-direction: column;
-  padding-right: 25px;
-  padding-left: 25px;
+  padding-right: 50px;
+  padding-left: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .flex-row-ipad-landscape, .flex-row-reverse-ipad-landscape {
@@ -1015,8 +1029,9 @@
     box-sizing: border-box;
     float: left;
     direction: ltr;
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
+    content: i extend the grid class;
   }
 }
 .state-ipad-landscape .grid-ipad-landscape-1on5, .state-ipad-landscape .grid-ipad-landscape-0, .state-ipad-landscape .grid-ipad-landscape-1, .state-ipad-landscape .grid-ipad-landscape-2, .state-ipad-landscape .grid-ipad-landscape-3, .state-ipad-landscape .grid-ipad-landscape-4, .state-ipad-landscape .grid-ipad-landscape-5, .state-ipad-landscape .grid-ipad-landscape-6, .state-ipad-landscape .grid-ipad-landscape-7, .state-ipad-landscape .grid-ipad-landscape-8, .state-ipad-landscape .grid-ipad-landscape-9, .state-ipad-landscape .grid-ipad-landscape-10, .state-ipad-landscape .grid-ipad-landscape-11, .state-ipad-landscape .grid-ipad-landscape-12 {
@@ -1027,8 +1042,9 @@
   box-sizing: border-box;
   float: left;
   direction: ltr;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
+  content: i extend the grid class;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .push-ipad-landscape-1on5, .push-ipad-landscape-0, .push-ipad-landscape-1, .push-ipad-landscape-2, .push-ipad-landscape-3, .push-ipad-landscape-4, .push-ipad-landscape-5, .push-ipad-landscape-6, .push-ipad-landscape-7, .push-ipad-landscape-8, .push-ipad-landscape-9, .push-ipad-landscape-10, .push-ipad-landscape-11, .push-ipad-landscape-12 {
@@ -8278,6 +8294,73 @@
     clear: both;
   }
 }
+.state-ipad-landscape .grid-1on5, .state-ipad-landscape .grid-0, .state-ipad-landscape .grid-1, .state-ipad-landscape .grid-2, .state-ipad-landscape .grid-3, .state-ipad-landscape .grid-4, .state-ipad-landscape .grid-5, .state-ipad-landscape .grid-6, .state-ipad-landscape .grid-7, .state-ipad-landscape .grid-8, .state-ipad-landscape .grid-9, .state-ipad-landscape .grid-10, .state-ipad-landscape .grid-11, .state-ipad-landscape .grid-12, .state-ipad-landscape .grid-mobile-1on5, .state-ipad-landscape .grid-mobile-0, .state-ipad-landscape .grid-mobile-1, .state-ipad-landscape .grid-mobile-2, .state-ipad-landscape .grid-mobile-3, .state-ipad-landscape .grid-mobile-4, .state-ipad-landscape .grid-mobile-5, .state-ipad-landscape .grid-mobile-6, .state-ipad-landscape .grid-mobile-7, .state-ipad-landscape .grid-mobile-8, .state-ipad-landscape .grid-mobile-9, .state-ipad-landscape .grid-mobile-10, .state-ipad-landscape .grid-mobile-11, .state-ipad-landscape .grid-mobile-12, .state-ipad-landscape .grid-tablet-1on5, .state-ipad-landscape .grid-tablet-0, .state-ipad-landscape .grid-tablet-1, .state-ipad-landscape .grid-tablet-2, .state-ipad-landscape .grid-tablet-3, .state-ipad-landscape .grid-tablet-4, .state-ipad-landscape .grid-tablet-5, .state-ipad-landscape .grid-tablet-6, .state-ipad-landscape .grid-tablet-7, .state-ipad-landscape .grid-tablet-8, .state-ipad-landscape .grid-tablet-9, .state-ipad-landscape .grid-tablet-10, .state-ipad-landscape .grid-tablet-11, .state-ipad-landscape .grid-tablet-12, .state-ipad-landscape .grid-ipad-landscape-1on5, .state-ipad-landscape .grid-ipad-landscape-0, .state-ipad-landscape .grid-ipad-landscape-1, .state-ipad-landscape .grid-ipad-landscape-2, .state-ipad-landscape .grid-ipad-landscape-3, .state-ipad-landscape .grid-ipad-landscape-4, .state-ipad-landscape .grid-ipad-landscape-5, .state-ipad-landscape .grid-ipad-landscape-6, .state-ipad-landscape .grid-ipad-landscape-7, .state-ipad-landscape .grid-ipad-landscape-8, .state-ipad-landscape .grid-ipad-landscape-9, .state-ipad-landscape .grid-ipad-landscape-10, .state-ipad-landscape .grid-ipad-landscape-11, .state-ipad-landscape .grid-ipad-landscape-12 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12, .grid-mobile-1on5, .grid-mobile-0, .grid-mobile-1, .grid-mobile-2, .grid-mobile-3, .grid-mobile-4, .grid-mobile-5, .grid-mobile-6, .grid-mobile-7, .grid-mobile-8, .grid-mobile-9, .grid-mobile-10, .grid-mobile-11, .grid-mobile-12, .grid-tablet-1on5, .grid-tablet-0, .grid-tablet-1, .grid-tablet-2, .grid-tablet-3, .grid-tablet-4, .grid-tablet-5, .grid-tablet-6, .grid-tablet-7, .grid-tablet-8, .grid-tablet-9, .grid-tablet-10, .grid-tablet-11, .grid-tablet-12, .grid-ipad-landscape-1on5, .grid-ipad-landscape-0, .grid-ipad-landscape-1, .grid-ipad-landscape-2, .grid-ipad-landscape-3, .grid-ipad-landscape-4, .grid-ipad-landscape-5, .grid-ipad-landscape-6, .grid-ipad-landscape-7, .grid-ipad-landscape-8, .grid-ipad-landscape-9, .grid-ipad-landscape-10, .grid-ipad-landscape-11, .grid-ipad-landscape-12 {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.state-ipad-landscape .flex-grid-1on5, .state-ipad-landscape .flex-grid-0, .state-ipad-landscape .flex-grid-1, .state-ipad-landscape .flex-grid-2, .state-ipad-landscape .flex-grid-3, .state-ipad-landscape .flex-grid-4, .state-ipad-landscape .flex-grid-5, .state-ipad-landscape .flex-grid-6, .state-ipad-landscape .flex-grid-7, .state-ipad-landscape .flex-grid-8, .state-ipad-landscape .flex-grid-9, .state-ipad-landscape .flex-grid-10, .state-ipad-landscape .flex-grid-11, .state-ipad-landscape .flex-grid-12, .state-ipad-landscape .flex-grid-mobile-1on5, .state-ipad-landscape .flex-grid-mobile-0, .state-ipad-landscape .flex-grid-mobile-1, .state-ipad-landscape .flex-grid-mobile-2, .state-ipad-landscape .flex-grid-mobile-3, .state-ipad-landscape .flex-grid-mobile-4, .state-ipad-landscape .flex-grid-mobile-5, .state-ipad-landscape .flex-grid-mobile-6, .state-ipad-landscape .flex-grid-mobile-7, .state-ipad-landscape .flex-grid-mobile-8, .state-ipad-landscape .flex-grid-mobile-9, .state-ipad-landscape .flex-grid-mobile-10, .state-ipad-landscape .flex-grid-mobile-11, .state-ipad-landscape .flex-grid-mobile-12, .state-ipad-landscape .flex-grid-tablet-1on5, .state-ipad-landscape .flex-grid-tablet-0, .state-ipad-landscape .flex-grid-tablet-1, .state-ipad-landscape .flex-grid-tablet-2, .state-ipad-landscape .flex-grid-tablet-3, .state-ipad-landscape .flex-grid-tablet-4, .state-ipad-landscape .flex-grid-tablet-5, .state-ipad-landscape .flex-grid-tablet-6, .state-ipad-landscape .flex-grid-tablet-7, .state-ipad-landscape .flex-grid-tablet-8, .state-ipad-landscape .flex-grid-tablet-9, .state-ipad-landscape .flex-grid-tablet-10, .state-ipad-landscape .flex-grid-tablet-11, .state-ipad-landscape .flex-grid-tablet-12, .state-ipad-landscape .flex-grid-ipad-landscape-1on5, .state-ipad-landscape .flex-grid-ipad-landscape-0, .state-ipad-landscape .flex-grid-ipad-landscape-1, .state-ipad-landscape .flex-grid-ipad-landscape-2, .state-ipad-landscape .flex-grid-ipad-landscape-3, .state-ipad-landscape .flex-grid-ipad-landscape-4, .state-ipad-landscape .flex-grid-ipad-landscape-5, .state-ipad-landscape .flex-grid-ipad-landscape-6, .state-ipad-landscape .flex-grid-ipad-landscape-7, .state-ipad-landscape .flex-grid-ipad-landscape-8, .state-ipad-landscape .flex-grid-ipad-landscape-9, .state-ipad-landscape .flex-grid-ipad-landscape-10, .state-ipad-landscape .flex-grid-ipad-landscape-11, .state-ipad-landscape .flex-grid-ipad-landscape-12 {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .flex-grid-1on5, .flex-grid-0, .flex-grid-1, .flex-grid-2, .flex-grid-3, .flex-grid-4, .flex-grid-5, .flex-grid-6, .flex-grid-7, .flex-grid-8, .flex-grid-9, .flex-grid-10, .flex-grid-11, .flex-grid-12, .flex-grid-mobile-1on5, .flex-grid-mobile-0, .flex-grid-mobile-1, .flex-grid-mobile-2, .flex-grid-mobile-3, .flex-grid-mobile-4, .flex-grid-mobile-5, .flex-grid-mobile-6, .flex-grid-mobile-7, .flex-grid-mobile-8, .flex-grid-mobile-9, .flex-grid-mobile-10, .flex-grid-mobile-11, .flex-grid-mobile-12, .flex-grid-tablet-1on5, .flex-grid-tablet-0, .flex-grid-tablet-1, .flex-grid-tablet-2, .flex-grid-tablet-3, .flex-grid-tablet-4, .flex-grid-tablet-5, .flex-grid-tablet-6, .flex-grid-tablet-7, .flex-grid-tablet-8, .flex-grid-tablet-9, .flex-grid-tablet-10, .flex-grid-tablet-11, .flex-grid-tablet-12, .flex-grid-ipad-landscape-1on5, .flex-grid-ipad-landscape-0, .flex-grid-ipad-landscape-1, .flex-grid-ipad-landscape-2, .flex-grid-ipad-landscape-3, .flex-grid-ipad-landscape-4, .flex-grid-ipad-landscape-5, .flex-grid-ipad-landscape-6, .flex-grid-ipad-landscape-7, .flex-grid-ipad-landscape-8, .flex-grid-ipad-landscape-9, .flex-grid-ipad-landscape-10, .flex-grid-ipad-landscape-11, .flex-grid-ipad-landscape-12 {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.state-ipad-landscape .flex-grow, .state-ipad-landscape .flex-grow-mobile, .state-ipad-landscape .flex-grow-tablet, .state-ipad-landscape .flex-grow-ipad-landscape {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .flex-grow, .flex-grow-mobile, .flex-grow-tablet, .flex-grow-ipad-landscape {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+.grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12, .grid-mobile-1on5, .grid-mobile-0, .grid-mobile-1, .grid-mobile-2, .grid-mobile-3, .grid-mobile-4, .grid-mobile-5, .grid-mobile-6, .grid-mobile-7, .grid-mobile-8, .grid-mobile-9, .grid-mobile-10, .grid-mobile-11, .grid-mobile-12, .grid-tablet-1on5, .grid-tablet-0, .grid-tablet-1, .grid-tablet-2, .grid-tablet-3, .grid-tablet-4, .grid-tablet-5, .grid-tablet-6, .grid-tablet-7, .grid-tablet-8, .grid-tablet-9, .grid-tablet-10, .grid-tablet-11, .grid-tablet-12, .grid-ipad-landscape-1on5, .grid-ipad-landscape-0, .grid-ipad-landscape-1, .grid-ipad-landscape-2, .grid-ipad-landscape-3, .grid-ipad-landscape-4, .grid-ipad-landscape-5, .grid-ipad-landscape-6, .grid-ipad-landscape-7, .grid-ipad-landscape-8, .grid-ipad-landscape-9, .grid-ipad-landscape-10, .grid-ipad-landscape-11, .grid-ipad-landscape-12 {
+  content: i m a cool mobile grid;
+}
+.state-default .grid-1on5, .state-default .grid-0, .state-default .grid-1, .state-default .grid-2, .state-default .grid-3, .state-default .grid-4, .state-default .grid-5, .state-default .grid-6, .state-default .grid-7, .state-default .grid-8, .state-default .grid-9, .state-default .grid-10, .state-default .grid-11, .state-default .grid-12, .state-default .grid-mobile-1on5, .state-default .grid-mobile-0, .state-default .grid-mobile-1, .state-default .grid-mobile-2, .state-default .grid-mobile-3, .state-default .grid-mobile-4, .state-default .grid-mobile-5, .state-default .grid-mobile-6, .state-default .grid-mobile-7, .state-default .grid-mobile-8, .state-default .grid-mobile-9, .state-default .grid-mobile-10, .state-default .grid-mobile-11, .state-default .grid-mobile-12, .state-default .grid-tablet-1on5, .state-default .grid-tablet-0, .state-default .grid-tablet-1, .state-default .grid-tablet-2, .state-default .grid-tablet-3, .state-default .grid-tablet-4, .state-default .grid-tablet-5, .state-default .grid-tablet-6, .state-default .grid-tablet-7, .state-default .grid-tablet-8, .state-default .grid-tablet-9, .state-default .grid-tablet-10, .state-default .grid-tablet-11, .state-default .grid-tablet-12, .state-default .grid-ipad-landscape-1on5, .state-default .grid-ipad-landscape-0, .state-default .grid-ipad-landscape-1, .state-default .grid-ipad-landscape-2, .state-default .grid-ipad-landscape-3, .state-default .grid-ipad-landscape-4, .state-default .grid-ipad-landscape-5, .state-default .grid-ipad-landscape-6, .state-default .grid-ipad-landscape-7, .state-default .grid-ipad-landscape-8, .state-default .grid-ipad-landscape-9, .state-default .grid-ipad-landscape-10, .state-default .grid-ipad-landscape-11, .state-default .grid-ipad-landscape-12 {
+  content: i m a cool mobile grid;
+}
+
+.state-mobile .grid-1on5, .state-mobile .grid-0, .state-mobile .grid-1, .state-mobile .grid-2, .state-mobile .grid-3, .state-mobile .grid-4, .state-mobile .grid-5, .state-mobile .grid-6, .state-mobile .grid-7, .state-mobile .grid-8, .state-mobile .grid-9, .state-mobile .grid-10, .state-mobile .grid-11, .state-mobile .grid-12, .state-mobile .grid-mobile-1on5, .state-mobile .grid-mobile-0, .state-mobile .grid-mobile-1, .state-mobile .grid-mobile-2, .state-mobile .grid-mobile-3, .state-mobile .grid-mobile-4, .state-mobile .grid-mobile-5, .state-mobile .grid-mobile-6, .state-mobile .grid-mobile-7, .state-mobile .grid-mobile-8, .state-mobile .grid-mobile-9, .state-mobile .grid-mobile-10, .state-mobile .grid-mobile-11, .state-mobile .grid-mobile-12, .state-mobile .grid-tablet-1on5, .state-mobile .grid-tablet-0, .state-mobile .grid-tablet-1, .state-mobile .grid-tablet-2, .state-mobile .grid-tablet-3, .state-mobile .grid-tablet-4, .state-mobile .grid-tablet-5, .state-mobile .grid-tablet-6, .state-mobile .grid-tablet-7, .state-mobile .grid-tablet-8, .state-mobile .grid-tablet-9, .state-mobile .grid-tablet-10, .state-mobile .grid-tablet-11, .state-mobile .grid-tablet-12, .state-mobile .grid-ipad-landscape-1on5, .state-mobile .grid-ipad-landscape-0, .state-mobile .grid-ipad-landscape-1, .state-mobile .grid-ipad-landscape-2, .state-mobile .grid-ipad-landscape-3, .state-mobile .grid-ipad-landscape-4, .state-mobile .grid-ipad-landscape-5, .state-mobile .grid-ipad-landscape-6, .state-mobile .grid-ipad-landscape-7, .state-mobile .grid-ipad-landscape-8, .state-mobile .grid-ipad-landscape-9, .state-mobile .grid-ipad-landscape-10, .state-mobile .grid-ipad-landscape-11, .state-mobile .grid-ipad-landscape-12 {
+  content: i m a cool mobile grid;
+}
+@media screen and (max-width: 480px) {
+  .grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12, .grid-mobile-1on5, .grid-mobile-0, .grid-mobile-1, .grid-mobile-2, .grid-mobile-3, .grid-mobile-4, .grid-mobile-5, .grid-mobile-6, .grid-mobile-7, .grid-mobile-8, .grid-mobile-9, .grid-mobile-10, .grid-mobile-11, .grid-mobile-12, .grid-tablet-1on5, .grid-tablet-0, .grid-tablet-1, .grid-tablet-2, .grid-tablet-3, .grid-tablet-4, .grid-tablet-5, .grid-tablet-6, .grid-tablet-7, .grid-tablet-8, .grid-tablet-9, .grid-tablet-10, .grid-tablet-11, .grid-tablet-12, .grid-ipad-landscape-1on5, .grid-ipad-landscape-0, .grid-ipad-landscape-1, .grid-ipad-landscape-2, .grid-ipad-landscape-3, .grid-ipad-landscape-4, .grid-ipad-landscape-5, .grid-ipad-landscape-6, .grid-ipad-landscape-7, .grid-ipad-landscape-8, .grid-ipad-landscape-9, .grid-ipad-landscape-10, .grid-ipad-landscape-11, .grid-ipad-landscape-12 {
+    content: i m a cool mobile grid;
+  }
+}
+
+.state-tablet .grid-1on5, .state-tablet .grid-0, .state-tablet .grid-1, .state-tablet .grid-2, .state-tablet .grid-3, .state-tablet .grid-4, .state-tablet .grid-5, .state-tablet .grid-6, .state-tablet .grid-7, .state-tablet .grid-8, .state-tablet .grid-9, .state-tablet .grid-10, .state-tablet .grid-11, .state-tablet .grid-12, .state-tablet .grid-mobile-1on5, .state-tablet .grid-mobile-0, .state-tablet .grid-mobile-1, .state-tablet .grid-mobile-2, .state-tablet .grid-mobile-3, .state-tablet .grid-mobile-4, .state-tablet .grid-mobile-5, .state-tablet .grid-mobile-6, .state-tablet .grid-mobile-7, .state-tablet .grid-mobile-8, .state-tablet .grid-mobile-9, .state-tablet .grid-mobile-10, .state-tablet .grid-mobile-11, .state-tablet .grid-mobile-12, .state-tablet .grid-tablet-1on5, .state-tablet .grid-tablet-0, .state-tablet .grid-tablet-1, .state-tablet .grid-tablet-2, .state-tablet .grid-tablet-3, .state-tablet .grid-tablet-4, .state-tablet .grid-tablet-5, .state-tablet .grid-tablet-6, .state-tablet .grid-tablet-7, .state-tablet .grid-tablet-8, .state-tablet .grid-tablet-9, .state-tablet .grid-tablet-10, .state-tablet .grid-tablet-11, .state-tablet .grid-tablet-12, .state-tablet .grid-ipad-landscape-1on5, .state-tablet .grid-ipad-landscape-0, .state-tablet .grid-ipad-landscape-1, .state-tablet .grid-ipad-landscape-2, .state-tablet .grid-ipad-landscape-3, .state-tablet .grid-ipad-landscape-4, .state-tablet .grid-ipad-landscape-5, .state-tablet .grid-ipad-landscape-6, .state-tablet .grid-ipad-landscape-7, .state-tablet .grid-ipad-landscape-8, .state-tablet .grid-ipad-landscape-9, .state-tablet .grid-ipad-landscape-10, .state-tablet .grid-ipad-landscape-11, .state-tablet .grid-ipad-landscape-12 {
+  content: i m a cool mobile grid;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12, .grid-mobile-1on5, .grid-mobile-0, .grid-mobile-1, .grid-mobile-2, .grid-mobile-3, .grid-mobile-4, .grid-mobile-5, .grid-mobile-6, .grid-mobile-7, .grid-mobile-8, .grid-mobile-9, .grid-mobile-10, .grid-mobile-11, .grid-mobile-12, .grid-tablet-1on5, .grid-tablet-0, .grid-tablet-1, .grid-tablet-2, .grid-tablet-3, .grid-tablet-4, .grid-tablet-5, .grid-tablet-6, .grid-tablet-7, .grid-tablet-8, .grid-tablet-9, .grid-tablet-10, .grid-tablet-11, .grid-tablet-12, .grid-ipad-landscape-1on5, .grid-ipad-landscape-0, .grid-ipad-landscape-1, .grid-ipad-landscape-2, .grid-ipad-landscape-3, .grid-ipad-landscape-4, .grid-ipad-landscape-5, .grid-ipad-landscape-6, .grid-ipad-landscape-7, .grid-ipad-landscape-8, .grid-ipad-landscape-9, .grid-ipad-landscape-10, .grid-ipad-landscape-11, .grid-ipad-landscape-12 {
+    content: i m a cool mobile grid;
+  }
+}
+
+.state-mobile .row, .state-mobile .row-mobile, .state-mobile .row-tablet, .state-mobile .row-ipad-landscape {
+  content: I m a row;
+}
+@media screen and (max-width: 480px) {
+  .row, .row-mobile, .row-tablet, .row-ipad-landscape {
+    content: I m a row;
+  }
+}
+
 .container {
   margin: 0 auto;
   max-width: 960px;
@@ -8311,18 +8394,6 @@
   flex-basis: 100%;
   max-width: 100%;
 }
-.state-ipad-landscape .state-mobile [class*="flex-grid-"], .state-ipad-landscape .state-mobile
-[class*="flex-grow"] {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-mobile [class*="flex-grid-"], .state-mobile
-  [class*="flex-grow"] {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
 @media screen and (max-width: 480px) {
   [class*="flex-grid-"],
   [class*="flex-grow"] {
@@ -8335,17 +8406,16 @@
 }
 .state-ipad-landscape [class*="flex-grid-"], .state-ipad-landscape
 [class*="flex-grow"] {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
-@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   [class*="flex-grid-"],
   [class*="flex-grow"] {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
-
 .state-mobile [class*="flex-grid-"], .state-mobile
 [class*="flex-grow"] {
   margin-left: 0%;
@@ -8366,7 +8436,20 @@
     margin-right: 0%;
   }
 }
+.state-mobile [class*="flex-grid-"], .state-mobile
+[class*="flex-grow"] {
+  display: block;
+}
+@media screen and (max-width: 480px) {
+  [class*="flex-grid-"],
+  [class*="flex-grow"] {
+    display: block;
+  }
+}
 
+[class*="grid-"] {
+  content: i m a cool mobile grid;
+}
 .state-mobile [class*="grid-"] {
   left: 0%;
 }
@@ -8385,41 +8468,41 @@
 }
 .state-mobile [class*="grid-"] {
   width: 100%;
-  content: i'm a cool mobile grid;
-}
-.state-ipad-landscape .state-mobile [class*="grid-"] {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-mobile [class*="grid-"] {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
-.state-default .state-mobile [class*="grid-"] {
-  content: i'm a cool mobile grid;
 }
 @media screen and (max-width: 480px) {
   [class*="grid-"] {
     width: 100%;
-    content: i'm a cool mobile grid;
   }
 }
 .state-ipad-landscape [class*="grid-"] {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
-@media only screen and (max-width: 480px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   [class*="grid-"] {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 .state-default [class*="grid-"] {
-  content: i'm a cool mobile grid;
+  content: i m a cool mobile grid;
 }
-
+.state-mobile [class*="grid-"] {
+  content: i m a cool mobile grid;
+}
+@media screen and (max-width: 480px) {
+  [class*="grid-"] {
+    content: i m a cool mobile grid;
+  }
+}
+.state-tablet [class*="grid-"] {
+  content: i m a cool mobile grid;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  [class*="grid-"] {
+    content: i m a cool mobile grid;
+  }
+}
 .state-mobile [class*="grid-"] {
   margin-left: 0%;
 }

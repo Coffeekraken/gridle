@@ -392,8 +392,9 @@ pre {
  */
 #myCoolItem {
   width: 66.66667%;
-  content: i'm a cool mobile grid;
+  content: i m a cool mobile grid;
   left: 16.66667%;
+  content: i m a cool mobile grid;
 }
 #myCoolItem {
   display: inline-block;
@@ -405,6 +406,7 @@ pre {
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
+  content: i extend the grid class;
 }
 
 .state-default #myCoolItem {
@@ -417,6 +419,7 @@ pre {
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
+  content: i extend the grid class;
 }
 #myCoolItem {
   position: relative;
@@ -436,6 +439,7 @@ pre {
     direction: ltr;
     padding-left: 10px;
     padding-right: 10px;
+    content: i extend the grid class;
   }
 }
 .state-tablet #myCoolItem {
@@ -448,6 +452,7 @@ pre {
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
+  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
@@ -459,74 +464,76 @@ pre {
 }
 .state-default #myCoolItem {
   width: 66.66667%;
-  content: i'm a cool mobile grid;
-}
-.state-ipad-landscape .state-default #myCoolItem {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
-.state-default .state-default #myCoolItem {
-  content: i'm a cool mobile grid;
 }
 .state-ipad-landscape #myCoolItem {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 .state-default #myCoolItem {
-  content: i'm a cool mobile grid;
+  content: i m a cool mobile grid;
+}
+.state-mobile #myCoolItem {
+  content: i m a cool mobile grid;
+}
+@media screen and (max-width: 480px) {
+  #myCoolItem {
+    content: i m a cool mobile grid;
+  }
+}
+.state-tablet #myCoolItem {
+  content: i m a cool mobile grid;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  #myCoolItem {
+    content: i m a cool mobile grid;
+  }
 }
 .state-default #myCoolItem {
   left: 16.66667%;
 }
 .state-tablet #myCoolItem {
   width: 100%;
-  content: i'm a cool mobile grid;
-}
-.state-ipad-landscape .state-tablet #myCoolItem {
-  padding-left: 25px;
-  padding-right: 25px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-}
-.state-default .state-tablet #myCoolItem {
-  content: i'm a cool mobile grid;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     width: 100%;
-    content: i'm a cool mobile grid;
   }
 }
 .state-ipad-landscape #myCoolItem {
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
-@media only screen and (min-width: 481px) and (max-width: 1024px) and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 50px;
+    padding-right: 50px;
   }
 }
 .state-default #myCoolItem {
-  content: i'm a cool mobile grid;
+  content: i m a cool mobile grid;
 }
-
+.state-mobile #myCoolItem {
+  content: i m a cool mobile grid;
+}
+@media screen and (max-width: 480px) {
+  #myCoolItem {
+    content: i m a cool mobile grid;
+  }
+}
+.state-tablet #myCoolItem {
+  content: i m a cool mobile grid;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  #myCoolItem {
+    content: i m a cool mobile grid;
+  }
+}
 .state-tablet #myCoolItem {
   left: 0%;
 }
