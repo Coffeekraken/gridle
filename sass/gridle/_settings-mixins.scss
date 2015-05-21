@@ -59,7 +59,6 @@
 	// add rules if gutter is different
 	$gutter-width : map-get($settings, gutter-width);
 	@if $gutter-width != map-get($_gridle-settings, gutter-width) {
-		@debug("different gutters for #{$name}");
 		@include gridle_apply_css_for(grid flex-grid flex-grow, (
 			padding-left : $gutter-width / 2,
 			padding-right : $gutter-width / 2
@@ -130,6 +129,24 @@
 //
 // Extend a gridle class
 //
+// map format :
+// (
+// 	grid : (
+// 		mobile : (
+// 			padding : 10px,
+// 			float : left
+// 		),
+// 		tablet : (
+// 			padding : 10px
+// 		)
+// 	),
+// 	flex-grid : (
+// 		mobile : (
+// 			padding : 10px
+// 		)
+// 	)
+// )
+//
 @mixin gridle_extend_base_class(
 	$for,
 	$extend,
@@ -140,6 +157,7 @@
 		$statesNames : gridle_get_registered_states_names();
 	}
 
+	// allow multiple "$for"
 	@each $f in $for {
 
 		// get the map for the passed mixin "category"
@@ -203,6 +221,7 @@
 		$statesNames : gridle_get_registered_states_names();
 	}
 
+	// allow multiple "$for"
 	@each $f in $for {
 
 		// get the map for the passed mixin "category"

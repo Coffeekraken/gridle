@@ -74,7 +74,7 @@
 }
 .clear-each-2-set {
 	@include gridle_set((
-		clear_each : ( 2, left )
+		clear-each : ( 2, left )
 	));
 }
 
@@ -238,7 +238,7 @@ $align : (left,center,right,top,middle,bottom);
 }
 .show_inline-set {
 	@include gridle_set((
-		show_inline : true
+		show-inline : true
 	));
 }
 
@@ -251,7 +251,7 @@ $align : (left,center,right,top,middle,bottom);
 }
 .not_visible-set {
 	@include gridle_set((
-		not_visible : true
+		not-visible : true
 	));
 }
 

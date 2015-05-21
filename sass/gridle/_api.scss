@@ -97,8 +97,6 @@
 				@include gridle_flex_grow($state);
 			} @else if $sn == flex-align {
 				@include gridle_flex_align($sv, $state);
-			} @else if $sn == flex-distribution {
-				@include gridle_flex_distribution($sv, $state);
 			} @else if $sn == grid {
 				@include gridle($sv, $state);
 			} @else if $sn == push {
@@ -111,7 +109,7 @@
 				@include gridle_suffix($sv, $state);
 			} @else if $sn == pull {
 				@include gridle_pull($sv, $state);
-			} @else if $sn == clear_each {
+			} @else if $sn == clear-each {
 				@include gridle_clear_each(nth($sv,1), nth($sv,2), $state);
 			} @else if $sn == centered {
 				@include gridle_centered($state);
@@ -137,13 +135,13 @@
 				} @else {
 					@include gridle_not_visible($state);
 				}
-			} @else if $sn == not_visible {
+			} @else if $sn == not-visible {
 				@if $sv == true {
 					@include gridle_not_visible($state);
 				} @else {
 					@include gridle_visible($state);
 				}
-			} @else if $sn == show_inline {
+			} @else if $sn == show-inline {
 				@if $sv == true {
 					@include gridle_show_inline($state);
 				} @else {
@@ -153,7 +151,7 @@
 				@include gridle_float($sv, $state);
 			} @else if $sn == clear {
 				@include gridle_clear($sv, $state);
-			} @else if $sn == no_gutter {
+			} @else if $sn == no-gutter {
 				@include gridle_no_gutter($sv, $state);
 			} @else if $sn == gutter or $sn == gutter-width {
 				@include gridle_gutter($sv, $state);
@@ -168,12 +166,21 @@
 //
 // Debug
 //
-@mixin gridle_debug($what) {
-	@if type-of($what) == map {
-		@include gridle_debug_map($what);
-	} @else {
-		@_ {
-			#{type-of($what)} : inspect($what);
+@mixin gridle_debug(
+	$what,
+	$output : shell
+) {
+	@if $gridle-debug {
+		@if $output == shell {
+			@debug(inspect($what));
+		} @else {
+			@if type-of($what) == map {
+				@include gridle_debug_map($what);
+			} @else {
+				@_ {
+					#{type-of($what)} : inspect($what);
+				}
+			}
 		}
 	}
 }
@@ -384,7 +391,11 @@
 	$stateName : gridle_get_state_var(name, $state);
 	
 	@each $al in $align {
-		@if $al == left {
+		@if $al == around {
+			@include justify-content(space-around);
+		} @else if $al == between {
+			@include justify-content(space-between);
+		} @else if $al == left {
 			@include justify-content(flex-start);
 		} @else if $al == center {
 			@include justify-content(center);
@@ -392,43 +403,11 @@
 			@include justify-content(flex-end);
 		} @else if $al == top {
 			@include align-items(flex-start);
-			&#{_gridle_classname(flex-col, $stateName)} {
-				@include justify-content(flex-start);
-			}
 		} @else if $al == middle {
 			@include align-items(center);
-			&#{_gridle_classname(flex-col, $stateName)} {
-				@include justify-content(center);
-			}
 		} @else if $al == bottom {
 			@include align-items(flex-end);
-			&#{_gridle_classname(flex-col, $stateName)} {
-				@include justify-content(flex-end);
-			}
 		}
-	}
-}
-
-
-//
-// Flex distribution
-//
-@mixin gridle_flex_distribution(
-	$distribution : around,
-	$states : null
-) {
-	@include _gridle_call($states, flex-distribution) {
-		@include _gridle_flex_distribution($distribution, $_content_arg_state);
-	}
-}
-@mixin _gridle_flex_distribution(
-	$distribution : around,
-	$state : default
-) {
-	@if $distribution == around {
-		@include justify-content(space-around);
-	} @else if $distribution == between {
-		@include justify-content(space-between);
 	}
 }
 

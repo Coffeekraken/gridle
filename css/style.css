@@ -392,9 +392,7 @@ pre {
  */
 #myCoolItem {
   width: 66.66667%;
-  content: i m a cool mobile grid;
   left: 16.66667%;
-  content: i m a cool mobile grid;
 }
 #myCoolItem {
   display: inline-block;
@@ -406,7 +404,6 @@ pre {
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
-  content: i extend the grid class;
 }
 
 .state-default #myCoolItem {
@@ -419,7 +416,6 @@ pre {
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
-  content: i extend the grid class;
 }
 #myCoolItem {
   position: relative;
@@ -439,7 +435,6 @@ pre {
     direction: ltr;
     padding-left: 10px;
     padding-right: 10px;
-    content: i extend the grid class;
   }
 }
 .state-tablet #myCoolItem {
@@ -452,7 +447,6 @@ pre {
   direction: ltr;
   padding-left: 10px;
   padding-right: 10px;
-  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
@@ -476,25 +470,6 @@ pre {
   }
 }
 .state-default #myCoolItem {
-  content: i m a cool mobile grid;
-}
-.state-mobile #myCoolItem {
-  content: i m a cool mobile grid;
-}
-@media screen and (max-width: 480px) {
-  #myCoolItem {
-    content: i m a cool mobile grid;
-  }
-}
-.state-tablet #myCoolItem {
-  content: i m a cool mobile grid;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
-    content: i m a cool mobile grid;
-  }
-}
-.state-default #myCoolItem {
   left: 16.66667%;
 }
 .state-tablet #myCoolItem {
@@ -515,39 +490,12 @@ pre {
     padding-right: 50px;
   }
 }
-.state-default #myCoolItem {
-  content: i m a cool mobile grid;
-}
-.state-mobile #myCoolItem {
-  content: i m a cool mobile grid;
-}
-@media screen and (max-width: 480px) {
-  #myCoolItem {
-    content: i m a cool mobile grid;
-  }
-}
-.state-tablet #myCoolItem {
-  content: i m a cool mobile grid;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
-    content: i m a cool mobile grid;
-  }
-}
 .state-tablet #myCoolItem {
   left: 0%;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     left: 0%;
-  }
-}
-.state-mobile #myCoolItem {
-  visibility: hidden;
-}
-@media screen and (max-width: 480px) {
-  #myCoolItem {
-    visibility: hidden;
   }
 }
 .state-mobile #myCoolItem {

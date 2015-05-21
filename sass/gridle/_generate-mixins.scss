@@ -182,14 +182,11 @@
 		#{_gridle_classname(flex-align, $state, bottom)} {
 			@include gridle_flex_align(bottom);
 		}
-	}
-
-	@if _gridle_need_to_generate(all flex-distribution flex-helpers, $what) {
-		#{_gridle_classname(flex-distribution, $state, around)} {
-			@include gridle_flex_distribution(around);
+		#{_gridle_classname(flex-align, $state, around)} {
+			@include gridle_flex_align(around);
 		}
-		#{_gridle_classname(flex-distribution, $state, between)} {
-			@include gridle_flex_distribution(between);
+		#{_gridle_classname(flex-align, $state, between)} {
+			@include gridle_flex_align(between);
 		}
 	}
 

@@ -11,13 +11,10 @@
 //
 @mixin gridle_init() {
 	@if $_gridle_inited == false {
-		@debug("Init Gridle");
-		@debug("|- Init silent classes for");
 		$_gridle_inited : true !global;
 		@each $stateName, $state in $_gridle_states {
 			$classes : gridle_get_state_var(classes, $state);
 			@if $classes {
-				@debug("|-- #{$stateName}");
 				@at-root {
 					$q : gridle_get_media_query($state);
 					@if $q {
@@ -95,11 +92,6 @@
 	// flex align
 	@include _gridle_common_silent_class_name(flex-align, $stateName) {
 		@include _gridle_common_flex_align($state);
-	}
-
-	// flex distribution
-	@include _gridle_common_silent_class_name(flex-distribution, $stateName) {
-		@include _gridle_common_flex_distribution($state);
 	}
 
 	// parent

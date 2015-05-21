@@ -5,6 +5,7 @@
 // |------------------------------------------------------
 
 $gridle-generate-json-settings 			: true !default;
+$gridle-debug 							: false !default;
 
 $_gridle-names-separators 				: ('-','--','_','__');
 $_gridle-names-tokens : (
