@@ -23,7 +23,8 @@
 }
 
 [class*="flex-grid-"],
-[class*="flex-grow"] {
+[class*="flex-grow"],
+[class*="flex-adaptive"] {
 	@include gridle_set((
 		mobile : (
 			push : 0,

@@ -239,7 +239,8 @@ pre {
 
 	[class*="grid-"],
 	[class*="flex-grid"],
-	[class*="flex-grow"] {
+	[class*="flex-grow"],
+	[class*="flex-adaptive"] {
 		background: $primary-color;
 		border: 1px solid darken($primary-color, 5%);
 		padding-top: 10px;
@@ -262,7 +263,9 @@ pre {
 
 	.parent,
 	.row,
-	.col {
+	.col
+	[class*="flex-col"],
+	[class*="flex-row"] {
 		padding-top: 0;
 		padding-bottom: 0;
 
@@ -270,12 +273,55 @@ pre {
 			content: "";
 		}
 	}
-
+}
+.no-debug-class {
+	[class*="grid-"]:before,
+	[class*="flex-grid"]:before,
+	[class*="flex-grow"]:before,
+	[class*="flex-adaptive"]:before,
+	&:before {
+		content: "" !important;
+	}
 }
 
-// #{_gridle_states_classname(grid, 1)} {
-// 	content : "yeaaah";
-// }
+/**
+ * Placeholders
+ */
+.img-placeholder {
+	display:inline-block;
+	width:50px;
+	height:50px;
+	@include border-radius(50%);
+	background:darken($primary-color, 10%);
+}
+
+
+/**
+ * List
+ */
+.list {
+	&.list--inline {
+		.list__item {
+			display:inline-block;
+		}
+	}
+}
+
+	.list__title {
+		font-weight:bold;
+		font-size:16px;
+	}
+	.list__description {
+		font-size:12px;
+	}
+	.list__image {
+		@extend .img-placeholder;
+		background-size:cover;
+		background-position:50% 50%;
+	}
+	.list__sharings {
+		font-size:20px;
+	}
 
 
 /**

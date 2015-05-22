@@ -74,6 +74,11 @@
 		@include _gridle_common_flex_order($state);
 	}
 
+	// flex adaptive
+	@include _gridle_common_silent_class_name(flex-adaptive, $stateName) {
+		@include _gridle_common_flex_adaptive($state);
+	}
+
 	// flex grow
 	@include _gridle_common_silent_class_name(flex-grow, $stateName) {
 		@include _gridle_common_flex_grow($state);

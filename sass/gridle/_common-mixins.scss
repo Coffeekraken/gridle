@@ -48,8 +48,6 @@
 	$state : default
 ) {
 	// vars
-	$direction : gridle_get_state_var(direction, $state);
-	$classes : gridle_get_state_var(classes, $state);
 	$gutter-width : gridle_get_state_var(gutter-width, $state);
 	
 	// css
@@ -71,15 +69,31 @@
 
 
 //
+// Flex adaptive
+//
+@mixin _gridle_common_flex_adaptive(
+	$state : default
+) {
+	// vars
+	$gutter-width : gridle_get_state_var(gutter-width, $state);
+
+	// css
+	max-width: 100%;
+	@include flexbox;
+	@include flex(0,1,auto);
+	@include flex-direction(column); // reset direction for inner elements
+	padding-right: $gutter-width * .5;
+	padding-left: $gutter-width * .5;
+}
+
+
+//
 // Flex grow
 //
 @mixin _gridle_common_flex_grow(
 	$state : default
 ) {
 	// vars
-	$stateName : gridle_get_state_var(name, $state);
-	$direction : gridle_get_state_var(direction, $state);
-	$classes : gridle_get_state_var(classes, $state);
 	$gutter-width : gridle_get_state_var(gutter-width, $state);
 	
 	// css

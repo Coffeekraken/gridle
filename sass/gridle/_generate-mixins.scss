@@ -157,9 +157,15 @@
 		}
 	}
 
+	@if _gridle_need_to_generate(all flex-adaptive flex, $what) {
+		#{_gridle_classname(flex-adaptive, $state)} {
+			@include gridle_flex_adaptive();
+		}
+	}
+
 	@if _gridle_need_to_generate(all flex-grow flex, $what) {
 		#{_gridle_classname(flex-grow, $state)} {
-			@include gridle_flex_grow(false);
+			@include gridle_flex_grow();
 		}
 	}
 

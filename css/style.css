@@ -354,7 +354,8 @@ pre {
 }
 .gridle-debug [class*="grid-"],
 .gridle-debug [class*="flex-grid"],
-.gridle-debug [class*="flex-grow"] {
+.gridle-debug [class*="flex-grow"],
+.gridle-debug [class*="flex-adaptive"] {
   background: #eaedef;
   border: 1px solid #dce1e4;
   padding-top: 10px;
@@ -362,7 +363,8 @@ pre {
 }
 .gridle-debug [class*="grid-"]:before,
 .gridle-debug [class*="flex-grid"]:before,
-.gridle-debug [class*="flex-grow"]:before {
+.gridle-debug [class*="flex-grow"]:before,
+.gridle-debug [class*="flex-adaptive"]:before {
   display: block;
   content: attr(class);
   font-weight: bold;
@@ -377,14 +379,63 @@ pre {
 }
 .gridle-debug .parent,
 .gridle-debug .row,
-.gridle-debug .col {
+.gridle-debug .col
+[class*="flex-col"],
+.gridle-debug [class*="flex-row"] {
   padding-top: 0;
   padding-bottom: 0;
 }
 .gridle-debug .parent:before,
 .gridle-debug .row:before,
-.gridle-debug .col:before {
+.gridle-debug .col
+[class*="flex-col"]:before,
+.gridle-debug [class*="flex-row"]:before {
   content: "";
+}
+
+.no-debug-class [class*="grid-"]:before,
+.no-debug-class [class*="flex-grid"]:before,
+.no-debug-class [class*="flex-grow"]:before,
+.no-debug-class [class*="flex-adaptive"]:before, .no-debug-class:before {
+  content: "" !important;
+}
+
+/**
+ * Placeholders
+ */
+.img-placeholder, .list__image {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  background: #cdd4d9;
+}
+
+/**
+ * List
+ */
+.list.list--inline .list__item {
+  display: inline-block;
+}
+
+.list__title {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.list__description {
+  font-size: 12px;
+}
+
+.list__image {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.list__sharings {
+  font-size: 20px;
 }
 
 /**

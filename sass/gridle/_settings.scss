@@ -43,6 +43,7 @@ $_gridle-names-patterns : (
 	flex-col 							: ('flex','-','col','-','%reverse','-','%state'),
 	flex-grid 							: ('flex','-','grid','-','%state','-','%column'),
 	flex-order 							: ('flex','-','order','-','%state','-','%column-count'),
+	flex-adaptive 						: ('flex','-','adaptive','-','%state'),
 	flex-grow 							: ('flex','-','grow','-','%state'),
 	flex-align 							: ('flex','-','align','-','%state','-','%align'),
 	flex-distribution 					: ('flex','-','distribution','-','%state','-','%distribution')

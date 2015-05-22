@@ -258,6 +258,8 @@
 	} @else {
 		@include flex-direction(row);
 	}
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 
@@ -281,6 +283,8 @@
 	} @else {
 		@include flex-direction(column);
 	}
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
 
 
@@ -354,6 +358,22 @@
 	$state : default
 ) {
 	@include order($position);
+}
+
+
+//
+// flex 
+//
+@mixin gridle_flex_adaptive(
+	$states : null
+) {
+	@include _gridle_call($states, flex-adaptive) {
+		@include _gridle_flex_adaptive($_content_arg_state);
+	}
+}
+@mixin _gridle_flex_adaptive(
+	$state : default
+) {
 }
 
 
