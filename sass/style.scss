@@ -239,8 +239,8 @@ pre {
 
 	[class*="grid-"],
 	[class*="flex-grid"],
-	[class*="flex-grow"],
-	[class*="flex-adaptive"] {
+	[class*="grow"],
+	[class*="adapt"] {
 		background: $primary-color;
 		border: 1px solid darken($primary-color, 5%);
 		padding-top: 10px;
@@ -277,8 +277,8 @@ pre {
 .no-debug-class {
 	[class*="grid-"]:before,
 	[class*="flex-grid"]:before,
-	[class*="flex-grow"]:before,
-	[class*="flex-adaptive"]:before,
+	[class*="grow"]:before,
+	[class*="adapt"]:before,
 	&:before {
 		content: "" !important;
 	}

@@ -5,7 +5,6 @@
 // |------------------------------------------------------
 
 $gridle-generate-json-settings 			: true !default;
-$gridle-debug 							: false !default;
 
 $_gridle-names-separators 				: ('-','--','_','__');
 $_gridle-names-tokens : (
@@ -21,6 +20,8 @@ $_gridle-names-tokens : (
 $_gridle-names-patterns : (
 	container 							: ('container','-','%state'),
 	grid 								: ('grid','-','%state','-','%column'),
+	adapt 								: ('adapt','-','%state'),
+	grow 								: ('grow','-','%state'),
 	push 								: ('push','-','%state','-','%column'),
 	pull 								: ('pull','-','%state','-','%column'),
 	prefix 								: ('prefix','-','%state','-','%column'),
@@ -43,7 +44,7 @@ $_gridle-names-patterns : (
 	flex-col 							: ('flex','-','col','-','%reverse','-','%state'),
 	flex-grid 							: ('flex','-','grid','-','%state','-','%column'),
 	flex-order 							: ('flex','-','order','-','%state','-','%column-count'),
-	flex-adaptive 						: ('flex','-','adaptive','-','%state'),
+	flex-adapt 							: ('flex','-','adapt','-','%state'),
 	flex-grow 							: ('flex','-','grow','-','%state'),
 	flex-align 							: ('flex','-','align','-','%state','-','%align'),
 	flex-distribution 					: ('flex','-','distribution','-','%state','-','%distribution')

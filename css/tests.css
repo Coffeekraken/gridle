@@ -397,8 +397,6 @@
   clear: both;
 }
 .align-top > * {
-  display: inline-block;
-  float: none !important;
   vertical-align: top;
   font-size: 1rem;
 }
@@ -408,8 +406,6 @@
   clear: both;
 }
 .align-middle > * {
-  display: inline-block;
-  float: none !important;
   vertical-align: middle;
   font-size: 1rem;
 }
@@ -419,8 +415,6 @@
   clear: both;
 }
 .align-bottom > * {
-  display: inline-block;
-  float: none !important;
   vertical-align: bottom;
   font-size: 1rem;
 }
@@ -727,16 +721,16 @@
     padding-right: 50px;
   }
 }
-.state-u9gntmfxo .gridle-state {
+.state-u6y2qgsgy .gridle-state {
   background: yellow;
   width: 83.33333%;
 }
-.state-ipad-landscape .state-u9gntmfxo .gridle-state {
+.state-ipad-landscape .state-u6y2qgsgy .gridle-state {
   padding-left: 50px;
   padding-right: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u9gntmfxo .gridle-state {
+  .state-u6y2qgsgy .gridle-state {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -751,16 +745,16 @@
   padding-left: 50px;
   padding-right: 50px;
 }
-.state-u9gntmfz6 .gridle-state {
+.state-u6y2qgsip .gridle-state {
   background: green;
   width: 41.66667%;
 }
-.state-ipad-landscape .state-u9gntmfz6 .gridle-state {
+.state-ipad-landscape .state-u6y2qgsip .gridle-state {
   padding-left: 50px;
   padding-right: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u9gntmfz6 .gridle-state {
+  .state-u6y2qgsip .gridle-state {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -781,17 +775,17 @@
     padding-right: 50px;
   }
 }
-.state-u9gntmg0s .gridle-state {
+.state-u6y2qgskt .gridle-state {
   content: "ad hoc state";
   background: white;
   width: 25%;
 }
-.state-ipad-landscape .state-u9gntmg0s .gridle-state {
+.state-ipad-landscape .state-u6y2qgskt .gridle-state {
   padding-left: 50px;
   padding-right: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u9gntmg0s .gridle-state {
+  .state-u6y2qgskt .gridle-state {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -1049,11 +1043,11 @@
 }
 
 .gridle_get_state {
-  content: '(name: mobile, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, debug-show-class-names: true, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
+  content: '(name: mobile, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
 }
 
 .gridle_get_state-custom {
-  content: '(name: u9gntmg1v, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, debug-show-class-names: true, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
+  content: '(name: u6y2qgsmo, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
 }
 
 .gridle_has_state-mobile {
@@ -1069,5 +1063,5 @@
 }
 
 .gridle_set_state_var {
-  content: (name: coucou, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, debug-show-class-names: true, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true);
+  content: (name: coucou, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true);
 }

@@ -139,6 +139,18 @@
 		}
 	}
 
+	@if _gridle_need_to_generate(all adapt default, $what) {
+		#{_gridle_classname(adapt, $state)} {
+			@include gridle_adapt();
+		}
+	}
+
+	@if _gridle_need_to_generate(all grow default, $what) {
+		#{_gridle_classname(grow, $state)} {
+			@include gridle_grow();
+		}
+	}
+
 	@if _gridle_need_to_generate(all flex-row flex, $what) {
 		#{_gridle_classname(flex-row, $state)} {
 			@include gridle_flex_row(false);
@@ -157,9 +169,9 @@
 		}
 	}
 
-	@if _gridle_need_to_generate(all flex-adaptive flex, $what) {
-		#{_gridle_classname(flex-adaptive, $state)} {
-			@include gridle_flex_adaptive();
+	@if _gridle_need_to_generate(all flex-adapt flex, $what) {
+		#{_gridle_classname(flex-adapt, $state)} {
+			@include gridle_flex_adapt();
 		}
 	}
 
@@ -324,13 +336,6 @@
 	// states :
 	$gridle-settings : "#{$gridle-settings}, \"states\" : #{$gridle-settings-states}";
 	
-	// debug devices :
-	$debug_devices : $_gridle_states_debug_devices;
-	@if length($_gridle_states_debug_devices) <= 0 {
-		$debug_devices : null;
-	}
-	// $gridle-settings : "#{$gridle-settings}, \"debugDevices\" : { #{$debug_devices} }";
-
 	// settings :
 	// $gridle-settings : "#{$gridle-settings}, \"classPrefix\" : \"#{$gridle-class-prefix}\"";
 	$gridle-settings : "#{$gridle-settings} }";

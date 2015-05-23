@@ -80,7 +80,7 @@
 
 		// check if setting name is a state :
 		@if gridle_has_state($sn) {
-			// proces_geners the state
+			// process the state
 			@include gridle_set($sv, $sn);
 		} @else {
 			@if $sn == container {
@@ -95,6 +95,8 @@
 				@include gridle_flex_col($sv, $state);
 			} @else if $sn == flex-grow {
 				@include gridle_flex_grow($state);
+			} @else if $sn == flex-adapt {
+				@include gridle_flex_adapt($state);
 			} @else if $sn == flex-align {
 				@include gridle_flex_align($sv, $state);
 			} @else if $sn == grid {
@@ -362,16 +364,16 @@
 
 
 //
-// flex 
+// flex adapt
 //
-@mixin gridle_flex_adaptive(
+@mixin gridle_flex_adapt(
 	$states : null
 ) {
-	@include _gridle_call($states, flex-adaptive) {
-		@include _gridle_flex_adaptive($_content_arg_state);
+	@include _gridle_call($states, flex-adapt) {
+		@include _gridle_flex_adapt($_content_arg_state);
 	}
 }
-@mixin _gridle_flex_adaptive(
+@mixin _gridle_flex_adapt(
 	$state : default
 ) {
 }
@@ -482,6 +484,38 @@
 
 	// set value :
 	width:$width;
+}
+
+
+//
+// grid adapt
+//
+@mixin gridle_adapt(
+	$states : null
+) {
+	@include _gridle_call($states, adapt) {
+		@include _gridle_adapt($_content_arg_state);
+	}
+}
+@mixin _gridle_adapt(
+	$state : default
+) {
+}
+
+
+//
+// grid grow
+//
+@mixin gridle_grow(
+	$states : null
+) {
+	@include _gridle_call($states, grow) {
+		@include _gridle_grow($_content_arg_state);
+	}
+}
+@mixin _gridle_grow(
+	$state : default
+) {
 }
 
 
@@ -743,11 +777,12 @@
 		clear:both;
 
 		> * {
-			display:inline-block;
-			float:none !important;
+			// display:inline-block;
+			// float:none !important;
 			vertical-align:$align;
 			font-size:1rem;
 		}
+
 	} @else {
 		@if $align == left {
 			text-align: left;

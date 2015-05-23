@@ -21,7 +21,6 @@
 		direction : ltr,
 		name-multiplicator : 1,
 		debug : false,
-		debug-show-class-names : true,
 		class-separator : "-",
 		states-classes : false,
 		generate-push-classes : true,
@@ -273,24 +272,4 @@
 	@include gridle_register_state(lg, (
 		min-width : 1200px
 	));
-}
-
-
-//
-// Set the debug device (not used for now)
-// 
-// @param 	String 		$state 		The state to update
-// @para m 	String 		$device 	The device to use (iphone, etc...)
-//
-@mixin gridle_set_debug_device(
-	$state : default,
-	$device : null
-) {
-
-	// check params :
-	@if $state and $device {
-		// set the state device :
-		$_gridle_states_debug_devices : append($_gridle_states_debug_devices, unquote("\"#{$state}\" : \"#{$device}\""), comma);
-	}
-
 }
