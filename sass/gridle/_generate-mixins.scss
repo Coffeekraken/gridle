@@ -139,6 +139,24 @@
 		}
 	}
 
+	@if _gridle_need_to_generate(all grid-table default, $what) {
+		#{_gridle_classname(grid-table, $state)} {
+			@include gridle_grid_table();
+		}
+	}
+
+	@if _gridle_need_to_generate(all row-table default, $what) {
+		#{_gridle_classname(row-table, $state)} {
+			@include gridle_row_table();
+		}
+	}
+
+	@if _gridle_need_to_generate(all row-table-break default, $what) {
+		#{_gridle_classname(row-table-break, $state)} {
+			@include gridle_row_table_break();
+		}
+	}
+
 	@if _gridle_need_to_generate(all adapt default, $what) {
 		#{_gridle_classname(adapt, $state)} {
 			@include gridle_adapt();

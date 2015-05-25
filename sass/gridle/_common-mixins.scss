@@ -145,6 +145,18 @@
 
 
 //
+// Grid table
+//
+@mixin _gridle_common_grid_table(
+	$state : default
+) {
+	// display: table-cell;
+	// float: none;
+	// vertical-align: top;
+}
+
+
+//
 // Grid grow
 //
 @mixin _gridle_common_grow(
@@ -177,9 +189,10 @@
 }
 
 
-
-
-@mixin _gridle_common_parent(
+//
+// Row
+//
+@mixin _gridle_common_row(
 	$state : default
 ) {
 	// For modern browser
@@ -198,6 +211,44 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
+}
+
+
+//
+// Row table
+//
+@mixin _gridle_common_row_table(
+	$state : default
+) {
+	// For modern browser
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+	// For IE 6/7 (trigger hasLayout
+	& {
+	   zoom:1;
+	}
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+//
+// Row table break
+//
+@mixin _gridle_common_row_table_break(
+	$state : default
+) {
+	// width: 100%;
+	// min-height:0.1px;
+	// display: inline-block !important;
+
 }
 
 @mixin _gridle_common_push(

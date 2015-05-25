@@ -525,10 +525,12 @@ pre {
 }
 .state-tablet #myCoolItem {
   width: 100%;
+  display: inline-block;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     width: 100%;
+    display: inline-block;
   }
 }
 .state-ipad-landscape #myCoolItem {

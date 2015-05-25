@@ -99,14 +99,30 @@
 		@include _gridle_common_flex_align($state);
 	}
 
-	// parent
+	// row
 	@include _gridle_common_silent_class_name(row, $stateName) {
-		@include _gridle_common_parent($state);
+		@include _gridle_common_row($state);
+	}
+
+	// row-table
+	// need to be after grid to override display
+	@include _gridle_common_silent_class_name(row-table, $stateName) {
+		@include _gridle_common_row_table($state);
+	}
+
+	// row-table-break
+	@include _gridle_common_silent_class_name(row-table-break, $stateName) {
+		@include _gridle_common_row_table_break($state);
 	}
 
 	// grid
 	@include _gridle_common_silent_class_name(grid, $stateName) {
 		@include _gridle_common_grid($state);
+	}
+
+	// grid-table
+	@include _gridle_common_silent_class_name(grid-table, $stateName) {
+		@include _gridle_common_grid_table($state);
 	}
 
 	// adapt

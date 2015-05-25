@@ -12,6 +12,7 @@
 
 .grid-12 {
   width: 100%;
+  display: inline-block;
 }
 .grid-row, .grid-row-set {
   -webkit-box-sizing: border-box;
@@ -664,6 +665,7 @@
 .state-mobile .gridle-state {
   background: pink;
   width: 100%;
+  display: inline-block;
 }
 .state-ipad-landscape .state-mobile .gridle-state {
   padding-left: 50px;
@@ -679,6 +681,7 @@
   .gridle-state {
     background: pink;
     width: 100%;
+    display: inline-block;
   }
 }
 .state-ipad-landscape .gridle-state {
@@ -694,6 +697,7 @@
 .state-tablet .gridle-state {
   background: pink;
   width: 100%;
+  display: inline-block;
 }
 .state-ipad-landscape .state-tablet .gridle-state {
   padding-left: 50px;
@@ -709,6 +713,7 @@
   .gridle-state {
     background: pink;
     width: 100%;
+    display: inline-block;
   }
 }
 .state-ipad-landscape .gridle-state {
@@ -721,16 +726,16 @@
     padding-right: 50px;
   }
 }
-.state-u6y2qgsgy .gridle-state {
+.state-uq0s08atz .gridle-state {
   background: yellow;
   width: 83.33333%;
 }
-.state-ipad-landscape .state-u6y2qgsgy .gridle-state {
+.state-ipad-landscape .state-uq0s08atz .gridle-state {
   padding-left: 50px;
   padding-right: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u6y2qgsgy .gridle-state {
+  .state-uq0s08atz .gridle-state {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -745,16 +750,16 @@
   padding-left: 50px;
   padding-right: 50px;
 }
-.state-u6y2qgsip .gridle-state {
+.state-uq0s08awc .gridle-state {
   background: green;
   width: 41.66667%;
 }
-.state-ipad-landscape .state-u6y2qgsip .gridle-state {
+.state-ipad-landscape .state-uq0s08awc .gridle-state {
   padding-left: 50px;
   padding-right: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u6y2qgsip .gridle-state {
+  .state-uq0s08awc .gridle-state {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -775,17 +780,17 @@
     padding-right: 50px;
   }
 }
-.state-u6y2qgskt .gridle-state {
+.state-uq0s08ay8 .gridle-state {
   content: "ad hoc state";
   background: white;
   width: 25%;
 }
-.state-ipad-landscape .state-u6y2qgskt .gridle-state {
+.state-ipad-landscape .state-uq0s08ay8 .gridle-state {
   padding-left: 50px;
   padding-right: 50px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u6y2qgskt .gridle-state {
+  .state-uq0s08ay8 .gridle-state {
     padding-left: 50px;
     padding-right: 50px;
   }
@@ -860,10 +865,12 @@
 }
 .state-mobile .gridle-set {
   width: 100%;
+  display: inline-block;
 }
 @media screen and (max-width: 480px) {
   .gridle-set {
     width: 100%;
+    display: inline-block;
   }
 }
 .state-ipad-landscape .gridle-set {
@@ -911,10 +918,12 @@
 }
 .state-mobile .gridle-set-multiple {
   width: 100%;
+  display: inline-block;
 }
 @media screen and (max-width: 480px) {
   .gridle-set-multiple {
     width: 100%;
+    display: inline-block;
   }
 }
 .state-ipad-landscape .gridle-set-multiple {
@@ -929,10 +938,12 @@
 }
 .state-tablet .gridle-set-multiple {
   width: 100%;
+  display: inline-block;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gridle-set-multiple {
     width: 100%;
+    display: inline-block;
   }
 }
 .state-ipad-landscape .gridle-set-multiple {
@@ -1047,7 +1058,7 @@
 }
 
 .gridle_get_state-custom {
-  content: '(name: u6y2qgsmo, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
+  content: '(name: uq0s08azr, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, direction: ltr, name-multiplicator: 1, debug: false, class-separator: "-", states-classes: true, generate-push-classes: true, generate-pull-classes: true, generate-prefix-classes: true, generate-suffix-classes: true, generate-helpers-classes: true)';
 }
 
 .gridle_has_state-mobile {

@@ -20,6 +20,7 @@ $_gridle-names-tokens : (
 $_gridle-names-patterns : (
 	container 							: ('container','-','%state'),
 	grid 								: ('grid','-','%state','-','%column'),
+	grid-table 							: ('grid','-','table','-','%state'),
 	adapt 								: ('adapt','-','%state'),
 	grow 								: ('grow','-','%state'),
 	push 								: ('push','-','%state','-','%column'),
@@ -27,6 +28,8 @@ $_gridle-names-patterns : (
 	prefix 								: ('prefix','-','%state','-','%column'),
 	suffix 								: ('suffix','-','%state','-','%column'),
 	row 								: ('row','-','%state'),
+	row-table 							: ('row','-','table','-','%state'),
+	row-table-break 					: ('row','-','table','-','break','-','%state'),
 	centered 							: ('centered','-','%state'),
 	align 								: ('align','-','%state','-','%align'),
 	hide 								: ('hide','-','%state'),

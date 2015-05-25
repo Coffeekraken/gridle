@@ -348,13 +348,14 @@
 // Get the attribute selector
 @function gridle_selector(
 	$for,
-	$states : null
+	$states : null,
+	$values : null
 ) {
 	$sel : ();
 
 	@if length($for) > 1 {
 		@each $f in $for {
-			$sel : append($sel, gridle_selector($f, $states), comma);
+			$sel : append($sel, gridle_selector($f, $states, $values), comma);
 		}
 	} @else {
 
@@ -367,7 +368,9 @@
 		$pattern : map-get($_gridle-names-patterns, $for);
 
 		@each $stateName in $states {
-			@if index($pattern, '%column') {
+			@if $values != null {
+				$sel : append($sel, _gridle_classname($for, $stateName, $values), comma);
+			} @else if index($pattern, '%column') {
 				@each $columnName, $column in gridle_get_columns() {
 					$sel : append($sel, _gridle_classname($for, $stateName, $columnName), comma);
 				}

@@ -241,6 +241,45 @@
 
 
 //
+// Row table
+//
+@mixin gridle_row_table(
+	$states : null
+) {
+	@include _gridle_call($states, row-table) {
+		@include _gridle_row_table($_content_arg_state);
+	}
+}
+@mixin _gridle_row_table(
+	$state : default
+) {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+	> * {
+		display: table-cell;
+		float: none;
+		vertical-align: top;
+	}
+}
+
+
+//
+// Row table break
+//
+@mixin gridle_row_table_break(
+	$states : null
+) {
+	@include _gridle_call($states, row-table-break) {
+		@include _gridle_row_table_break($_content_arg_state);
+	}
+}
+@mixin _gridle_row_table_break(
+	$state : default
+) {
+}
+
+
+//
 // flex row
 //
 @mixin gridle_flex_row(
@@ -465,6 +504,7 @@
 	@if type-of($context) != number {
 		$context : gridle_get_state_var(context, $state);
 	}
+	$direction : gridle_get_state_var(direction, $state);
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
 	
 	// manage columns
@@ -484,6 +524,43 @@
 
 	// set value :
 	width:$width;
+
+	@if $columns == $context {
+		display: inline-block;
+	}
+
+	// display:inline-block;
+
+	// @if $direction == rtl {
+	// 	float: right;
+	// } @else {
+	// 	float: left;
+	// }
+}
+
+
+//
+// Grid table
+//
+@mixin gridle_grid_table(
+	$states : null
+) {
+	@include _gridle_call($states, grid-table) {
+		@include _gridle_grid_table($_content_arg_state);
+	}
+}
+@mixin _gridle_grid_table(
+	$state : default
+) {
+	display: table-cell;
+	float: none;
+	vertical-align: top;
+
+	&.clear {
+		&:after {
+
+		}
+	}
 }
 
 
