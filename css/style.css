@@ -377,20 +377,10 @@ pre {
 .gridle-debug [class*="suffix-"] {
   background: #b0bbc3;
 }
-.gridle-debug .parent,
-.gridle-debug .row,
-.gridle-debug .col
-[class*="flex-col"],
-.gridle-debug [class*="flex-row"] {
+.gridle-debug [class="row"],
+.gridle-debug [class="col"] {
   padding-top: 0;
   padding-bottom: 0;
-}
-.gridle-debug .parent:before,
-.gridle-debug .row:before,
-.gridle-debug .col
-[class*="flex-col"]:before,
-.gridle-debug [class*="flex-row"]:before {
-  content: "";
 }
 
 .no-debug-class [class*="grid-"]:before,
@@ -448,25 +438,17 @@ pre {
 #myCoolItem {
   display: inline-block;
   min-height: 1px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   float: left;
   direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px 0 20px;
 }
 
 .state-default #myCoolItem {
   display: inline-block;
   min-height: 1px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   float: left;
   direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px 0 20px;
 }
 #myCoolItem {
   position: relative;
@@ -479,25 +461,17 @@ pre {
   #myCoolItem {
     display: inline-block;
     min-height: 1px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
     float: left;
     direction: ltr;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 0 10px 0 20px;
   }
 }
 .state-tablet #myCoolItem {
   display: inline-block;
   min-height: 1px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
   float: left;
   direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px 0 20px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
@@ -510,16 +484,6 @@ pre {
 .state-default #myCoolItem {
   width: 66.66667%;
 }
-.state-ipad-landscape #myCoolItem {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #myCoolItem {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-}
 .state-default #myCoolItem {
   left: 16.66667%;
 }
@@ -531,16 +495,6 @@ pre {
   #myCoolItem {
     width: 100%;
     display: inline-block;
-  }
-}
-.state-ipad-landscape #myCoolItem {
-  padding-left: 50px;
-  padding-right: 50px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #myCoolItem {
-    padding-left: 50px;
-    padding-right: 50px;
   }
 }
 .state-tablet #myCoolItem {

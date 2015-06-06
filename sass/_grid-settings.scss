@@ -7,7 +7,8 @@ $gridle-debug : true;
 // setup the grid (required)
 @include gridle_setup((
 	context : 12,
-	gutter-width : 20px,
+	// gutter-width : 20px,
+	gutter-left : 20px,
 	states-classes : true
 ));
 
@@ -26,7 +27,8 @@ $gridle-debug : true;
 @include gridle_register_default_states();
 @include gridle_register_state(ipad-landscape, (
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
-	gutter-width : 100px
+	gutter-width : 100px,
+	gutter-top : 50px
 ));
 
 

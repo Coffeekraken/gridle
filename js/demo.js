@@ -43,7 +43,7 @@ jQuery(function($) {
     $this = $(this);
     $container = $this;
     if (!$this.hasClass('.gridle-debug')) {
-      $container = $this.closest('.gridle-debug');
+      $container = $this.closest('.container');
     }
     options = $this.data('options');
     groups = options.split('|');

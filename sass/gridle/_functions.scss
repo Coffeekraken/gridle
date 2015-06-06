@@ -65,6 +65,22 @@
 
 
 //
+// Get the current state
+//
+@function gridle_get_current_state() {
+	@return $_gridle_current_state;
+}
+
+
+//
+// Get the current state name
+//
+@function gridle_get_current_state_name() {
+	@return $_gridle_current_stateName;
+}
+
+
+//
 // Get the column width in percent for the global or a specific context
 //
 // @param 	int 		$columns 					The number of columns to calculate
@@ -89,6 +105,11 @@
 @function gridle_get_state(
 	$stateMap-or-stateName : default
 ) {
+
+	// check if need to return the current state
+	@if $stateMap-or-stateName == current {
+		@return gridle_get_current_state();
+	}
 
 	// check if has a state named like this
 	@if (type-of($stateMap-or-stateName) == string
@@ -160,7 +181,7 @@
 	// if is a state :
 	$state : null;
 
-	// get the state (if no state find, return the default one) :
+	// get the state (if no state find, return the current one) :
 	$state : gridle_get_state($stateMap-or-stateName);
 
 	// check if has key
@@ -345,7 +366,131 @@
 
 
 //
+// Get a gutter side value
+//
+@function gridle_get_gutter_width(
+	$side : left right,
+	$state : default
+) {
+	$width : 0;
+	$gutters : gridle_get_state_var(gutters, $state);
+	@each $s in $side {
+		$value : map-get($gutters, $s);
+		@if type-of($value) == number {
+			$width : $width + $value;
+		}
+	}
+	// return the width
+	@return $width;
+}
+
+
+//
+// Format value
+//
+@function _gridle_value_2_json(
+	$name,
+	$value
+) {
+	@if type-of($value) == bool {
+		@return "\"#{$name}\" : #{$value}";
+	}
+	@else if type-of($value) == number {
+		@if unit($value) {
+			@return "\"#{$name}\" : \"#{$value}\"";
+		} @else {
+			@return "\"#{$name}\" : #{$value}";
+		}
+	}
+	@else if type-of($value) == map {
+		$return : "\"#{$name}\" : {";
+		@each $vn, $vv in $value {
+			$return : "#{$return} \"#{$vn}\" : #{$vv},"
+		}
+		$return : "#{$return} }";
+		@return $return;
+	}
+
+}
+
+
+//
+// Get the padding value
+//
+@function _gridle_forge_gutters_map(
+	$side-or-size,
+	$state : default
+) {
+	$map : ();
+	// check if is number passed
+	@if type-of($side-or-size) == map {
+		@each $side in (top right bottom left) {
+			@if map-get($side-or-size, $side) {
+				$map : map-set($map, $side, map-get($side-or-size, $side));
+			} @else {
+				$map : map-set($map, $side, 0);
+			}
+		}
+	} @else if type-of($side-or-size) == number {
+		$map : (
+			top : 0,
+			right : $side-or-size * .5,
+			bottom : 0,
+			left : $side-or-size * .5
+		);
+	} @else if type-of($side-or-size) == list {
+
+		// check if is a full number list	
+		$list-number : true;
+		@each $s in $side-or-size {
+			@if type-of($s) != number {
+				$list-number : false;
+			}
+		}
+
+		@if $list-number {
+			@if length($side-or-size) == 2 {
+				$val1 : nth($side-or-size,1) * .5;
+				$val2 : nth($side-or-size,2) * .5;
+				$map : (
+					top : $val1,
+					right : $val2,
+					bottom : $val1,
+					left : $val2
+				)
+			} @else if length($side-or-size) == 4 {
+				$map : (
+					top : nth($side-or-size,1),
+					right : nth($side-or-size,2),
+					bottom : nth($side-or-size,3),
+					left : nth($side-or-size,4)
+				)
+			}
+		
+		} @else {
+			// forge the map with registered values
+			@each $side in (top right bottom left) {
+				@if index($side-or-size, $side) {
+					$map : map-set($map, $side, gridle_get_state_var(gutter-#{$side}, $state));
+				} @else {
+					$map : map-set($map, $side, 0);
+				}
+			}
+			// @debug("get gutters from registered #{inspect($map)}");
+		}
+	} @else {
+		// unable to generate a gutter map
+		@return false;
+	}
+
+	// return the padding map
+	@return $map;
+}
+
+
+//
 // Get the attribute selector
+// 
 @function gridle_selector(
 	$for,
 	$states : null,

@@ -69,9 +69,10 @@
 //
 @mixin gridle_set(
 	$settings,
-	$state : default
+	$state : default,
+	$inside-media : true
 ) {
-	
+
 	// loop on each settings
 	@each $settingName, $settingValue in $settings
 	{
@@ -81,7 +82,7 @@
 		// check if setting name is a state :
 		@if gridle_has_state($sn) {
 			// process the state
-			@include gridle_set($sv, $sn);
+			@include gridle_set($sv, $sn, $inside-media);
 		} @else {
 			@if $sn == container {
 				@include gridle_container($state);
@@ -449,8 +450,6 @@
 	$align : left,
 	$state : default
 ) {
-	$stateName : gridle_get_state_var(name, $state);
-	
 	@each $al in $align {
 		@if $al == around {
 			@include justify-content(space-around);
@@ -528,14 +527,6 @@
 	@if $columns == $context {
 		display: inline-block;
 	}
-
-	// display:inline-block;
-
-	// @if $direction == rtl {
-	// 	float: right;
-	// } @else {
-	// 	float: left;
-	// }
 }
 
 
@@ -707,7 +698,6 @@
 		$context : gridle_get_state_var(context, $state);
 	}
 	$direction : gridle_get_state_var(direction, $state);
-	$gutter-width : gridle_get_state_var(gutter-width, $state);
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
 	
 	// vars :
@@ -750,7 +740,6 @@
 		$context : gridle_get_state_var(context, $state);
 	}
 	$direction : gridle_get_state_var(direction, $state);
-	$gutter-width : gridle_get_state_var(gutter-width, $state);
 	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
 	
 	// vars :
@@ -854,8 +843,7 @@
 		clear:both;
 
 		> * {
-			// display:inline-block;
-			// float:none !important;
+			float:none !important;
 			vertical-align:$align;
 			font-size:1rem;
 		}
@@ -1040,7 +1028,7 @@
 // @param 	String 	$state 				The state
 //
 @mixin gridle_gutter(
-	$side-or-size : left right,
+	$side-or-size : top right bottom left,
 	$states : null
 ) {
 	@include _gridle_call($states, gutter) {
@@ -1048,21 +1036,15 @@
 	}
 }
 @mixin _gridle_gutter(
-	$side-or-size : left right,
+	$side-or-size : top right bottom left,
 	$state : default
 ) {
-	// check if is number passed
-	@if type-of($side-or-size) == map {
-		@each $side, $value in $side-or-size {
-			padding-#{$side} : $value;
-		}
-	} @else if type-of($side-or-size) == number {
-		padding-left: $side-or-size * .5;
-		padding-right: $side-or-size * .5;
-	} @else {
-		$gutter-width : gridle_get_state_var(gutter-width, $state);
-		@each $s in $side-or-size {
-			padding-#{$s} : $gutter-width * .5;
-		}
+
+	// get a gutter map
+	$gutters : _gridle_forge_gutters_map($side-or-size);
+
+	// check that we have a gutter map
+	@if $gutters {
+		padding: #{map-get($gutters, top)} #{map-get($gutters, right)} #{map-get($gutters, bottom)} #{map-get($gutters, left)};
 	}
 }

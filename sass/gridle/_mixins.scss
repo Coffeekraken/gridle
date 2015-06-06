@@ -361,11 +361,29 @@
 		@if type-of($value) == map {
 			&#{$key} {
 				@each $k, $v in $value {
-					#{$k}:#{$v};
+					@if $k != null and str-index($k, gridle) and mixin-exists($k) {
+						// $set-name : str-replace($k, "gridle_", "");
+						// $set-name : str-replace($set-name, "_", "-", 1);
+						// @debug("set-name #{$set-name}");
+						// @include gridle_set((
+						// 	$set-name : $v
+						// ));
+					} @else {
+						#{$k}:#{$v};
+					}
 				}
 			}
 		} @else {
-			#{$key}:#{$value};
+			@if $key != null and str-index($key, gridle) and mixin-exists($key) {
+				// $set-name : str-replace($key, "gridle_", "");
+				// $set-name : str-replace($set-name, "_", "-", 1);
+				// @debug("set-name #{$set-name}");
+				// @include gridle_set((
+				// 	$set-name : $value
+				// ));
+			} @else {
+				#{$key}:#{$value};
+			}
 		}
 	}
 }

@@ -261,17 +261,10 @@ pre {
 		background: darken($primary-color, 20%);
 	}
 
-	.parent,
-	.row,
-	.col
-	[class*="flex-col"],
-	[class*="flex-row"] {
+	[class="row"],
+	[class="col"] {
 		padding-top: 0;
 		padding-bottom: 0;
-
-		&:before {
-			content: "";
-		}
 	}
 }
 .no-debug-class {
