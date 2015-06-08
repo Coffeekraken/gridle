@@ -103,7 +103,7 @@
 // @return 	map 				A state map object
 //
 @function gridle_get_state(
-	$stateMap-or-stateName : default
+	$stateMap-or-stateName : current
 ) {
 
 	// check if need to return the current state
@@ -255,12 +255,12 @@
 	$for,
 	$stateName : default
 ) {	
-	// check if has some extend for this mixin "category"
-	$map : map-get($_gridle_apply_css_for, $for);
+	// check if has some extend for this state
+	$map : map-get($_gridle_apply_css_for, $stateName);
 	@if $map == null { @return null; }
 
-	// check if has some extend for the requested state
-	$extend : map-get($map, $stateName);
+	// check if has some extend for the requested for
+	$extend : map-get($map, $for);
 	
 	// return the resulting extend map
 	@return $extend;
@@ -274,41 +274,15 @@
 	$for,
 	$stateName : default
 ) {	
-	// check if has some extend for this mixin "category"
-	$map : map-get($_gridle_extend_base_classes, $for);
+	// check if has some extend for this state
+	$map : map-get($_gridle_extend_base_classes, $stateName);
 	@if $map == null { @return null; }
 
-	// check if has some extend for the requested state
-	$extend : map-get($map, $stateName);
+	// check if has some extend for the requested for
+	$extend : map-get($map, $for);
 	
 	// return the resulting extend map
 	@return $extend;
-}
-
-
-//
-// Get if the current state has some extend class properties
-//
-@function gridle_has_extend_class_map(
-	$for,
-	$stateName : default
-) {
-	$map : gridle_get_extend_class_map($for, $stateName);
-	@if $map == null { @return false; }
-	@else { @return true; }
-}
-
-
-//
-// Get if the current state has some css to apply
-//
-@function gridle_has_apply_css_for_map(
-	$for,
-	$stateName : default
-) {
-	$map : gridle_get_apply_css_for_map($for, $stateName);
-	@if $map == null { @return false; }
-	@else { @return true; }
 }
 
 
@@ -366,60 +340,11 @@
 
 
 //
-// Get a gutter side value
-//
-@function gridle_get_gutter_width(
-	$side : left right,
-	$state : default
-) {
-	$width : 0;
-	$gutters : gridle_get_state_var(gutters, $state);
-	@each $s in $side {
-		$value : map-get($gutters, $s);
-		@if type-of($value) == number {
-			$width : $width + $value;
-		}
-	}
-	// return the width
-	@return $width;
-}
-
-
-//
-// Format value
-//
-@function _gridle_value_2_json(
-	$name,
-	$value
-) {
-	@if type-of($value) == bool {
-		@return "\"#{$name}\" : #{$value}";
-	}
-	@else if type-of($value) == number {
-		@if unit($value) {
-			@return "\"#{$name}\" : \"#{$value}\"";
-		} @else {
-			@return "\"#{$name}\" : #{$value}";
-		}
-	}
-	@else if type-of($value) == map {
-		$return : "\"#{$name}\" : {";
-		@each $vn, $vv in $value {
-			$return : "#{$return} \"#{$vn}\" : #{$vv},"
-		}
-		$return : "#{$return} }";
-		@return $return;
-	}
-
-}
-
-
-//
 // Get the padding value
 //
 @function _gridle_forge_gutters_map(
 	$side-or-size,
-	$state : default
+	$state : current
 ) {
 	$map : ();
 	// check if is number passed
@@ -438,7 +363,7 @@
 			bottom : 0,
 			left : $side-or-size * .5
 		);
-	} @else if type-of($side-or-size) == list {
+	} @else if type-of($side-or-size) == list or type-of($side-or-size) == string {
 
 		// check if is a full number list	
 		$list-number : true;
@@ -449,6 +374,7 @@
 		}
 
 		@if $list-number {
+
 			@if length($side-or-size) == 2 {
 				$val1 : nth($side-or-size,1) * .5;
 				$val2 : nth($side-or-size,2) * .5;
@@ -471,7 +397,7 @@
 			// forge the map with registered values
 			@each $side in (top right bottom left) {
 				@if index($side-or-size, $side) {
-					$map : map-set($map, $side, gridle_get_state_var(gutter-#{$side}, $state));
+					$map : map-set($map, $side, gridle_get_state_var("gutter-#{$side}", $state));
 				} @else {
 					$map : map-set($map, $side, 0);
 				}

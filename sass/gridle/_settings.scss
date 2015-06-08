@@ -40,7 +40,7 @@ $_gridle-names-patterns : (
 	float 								: ('float','-','%state','-','%float'),
 	clear 								: ('clear','-','%state','-','%float'),
 	clear-each 							: ('clear','-','each','-','%state','-','%count'),
-	gutter 								: ('gutter','-','%state','-','%value'),
+	gutter 								: ('gutter','-','%state','-','%side'),
 	no-gutter 							: ('no','-','gutter','-','%state','-','%side'),
 	auto-height 						: ('auto','-','height','-','%state'),
 	flex-row 							: ('flex','-','row','-','%reverse','-','%state'),

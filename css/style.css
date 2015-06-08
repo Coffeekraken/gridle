@@ -254,24 +254,15 @@ pre {
   background-image: -webkit-linear-gradient(#f1c413, #f2ca2b);
   background-image: linear-gradient(#f1c413, #f2ca2b);
 }
-.state-mobile .selector li[data-state="mobile"] {
-  outline: 2px solid #ee243c;
-}
 @media screen and (max-width: 480px) {
   .selector li[data-state="mobile"] {
     outline: 2px solid #ee243c;
   }
 }
-.state-tablet .selector li[data-state="tablet"] {
-  outline: 2px solid #ee243c;
-}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .selector li[data-state="tablet"] {
     outline: 2px solid #ee243c;
   }
-}
-.state-ipad-landscape .selector li[data-state="ipad-landscape"] {
-  outline: 2px solid #ee243c;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .selector li[data-state="ipad-landscape"] {
@@ -326,14 +317,6 @@ pre {
 .selector.selector--options li.active {
   background: #656156 !important;
   color: white;
-}
-.state-mobile .selector {
-  display: block;
-  margin: 0 0 15px 0;
-}
-.state-mobile .selector li {
-  display: block;
-  padding: 10px;
 }
 @media screen and (max-width: 480px) {
   .selector {
@@ -440,22 +423,25 @@ pre {
   min-height: 1px;
   float: left;
   direction: ltr;
-  padding: 0 10px 0 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  content: i extend the grid class;
 }
 
-.state-default #myCoolItem {
-  display: inline-block;
-  min-height: 1px;
-  float: left;
-  direction: ltr;
-  padding: 0 10px 0 20px;
-}
 #myCoolItem {
   position: relative;
 }
 
-.state-default #myCoolItem {
-  position: relative;
+@media screen and (max-width: 480px) {
+  #myCoolItem {
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    direction: ltr;
+    padding-right: 10px;
+    padding-left: 10px;
+    content: i extend the grid class;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
@@ -463,53 +449,35 @@ pre {
     min-height: 1px;
     float: left;
     direction: ltr;
-    padding: 0 10px 0 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    content: i extend the grid class;
   }
-}
-.state-tablet #myCoolItem {
-  display: inline-block;
-  min-height: 1px;
-  float: left;
-  direction: ltr;
-  padding: 0 10px 0 20px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     position: relative;
   }
 }
-.state-tablet #myCoolItem {
-  position: relative;
-}
-.state-default #myCoolItem {
-  width: 66.66667%;
-}
-.state-default #myCoolItem {
-  left: 16.66667%;
-}
-.state-tablet #myCoolItem {
-  width: 100%;
-  display: inline-block;
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     width: 100%;
     display: inline-block;
-  }
-}
-.state-tablet #myCoolItem {
-  left: 0%;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
     left: 0%;
   }
 }
-.state-mobile #myCoolItem {
-  visibility: hidden;
-}
 @media screen and (max-width: 480px) {
   #myCoolItem {
+    width: 100%;
+    display: inline-block;
     visibility: hidden;
   }
 }

@@ -52,6 +52,34 @@
 
 
 //
+// Gridle use state
+// This mixin will only set the current state to use and NOT print out any media query
+//
+@mixin gridle_use_state(
+	$state
+) {
+	// get the state
+	$state : gridle_get_state($state);
+	$stateName : gridle_get_state_var(name, $state);
+
+	// save the current state
+	$savedState : $_gridle_current_state;
+	$savedStateName : $_gridle_current_stateName;
+
+	// set the current state
+	$_gridle_current_state : $state !global;
+	$_gridle_current_stateName : $stateName !global;
+
+	// generate content
+	@content;
+
+	// reset the state
+	$_gridle_current_state : $savedState !global;
+	$_gridle_current_stateName : $savedStateName !global;
+}
+
+
+//
 // Gridle selector
 //
 @mixin gridle_selector(
@@ -69,10 +97,18 @@
 //
 @mixin gridle_set(
 	$settings,
-	$state : default,
-	$inside-media : true
+	$state : default
 ) {
-
+	// init if needed
+	@include gridle_init();
+	// wrap in media query
+	@include gridle_state($state) {
+		@include _gridle_set($settings);
+	}
+}
+@mixin _gridle_set(
+	$settings
+) {
 	// loop on each settings
 	@each $settingName, $settingValue in $settings
 	{
@@ -82,82 +118,82 @@
 		// check if setting name is a state :
 		@if gridle_has_state($sn) {
 			// process the state
-			@include gridle_set($sv, $sn, $inside-media);
+			@include gridle_set($sv, $sn);
 		} @else {
 			@if $sn == container {
-				@include gridle_container($state);
+				@include gridle_container();
 			} @else if $sn == flex-grid {
-				@include gridle_flex_grid($sv, $state);
+				@include gridle_flex_grid($sv);
 			} @else if $sn == flex-order {
-				@include gridle_flex_order($sv, $state);
+				@include gridle_flex_order($sv);
 			} @else if $sn == flex-row {
-				@include gridle_flex_row($sv, $state);
+				@include gridle_flex_row($sv);
 			} @else if $sn == flex-col {
-				@include gridle_flex_col($sv, $state);
+				@include gridle_flex_col($sv);
 			} @else if $sn == flex-grow {
-				@include gridle_flex_grow($state);
+				@include gridle_flex_grow();
 			} @else if $sn == flex-adapt {
-				@include gridle_flex_adapt($state);
+				@include gridle_flex_adapt();
 			} @else if $sn == flex-align {
-				@include gridle_flex_align($sv, $state);
+				@include gridle_flex_align($sv);
 			} @else if $sn == grid {
-				@include gridle($sv, $state);
+				@include gridle($sv);
 			} @else if $sn == push {
-				@include gridle_push($sv, $state);
+				@include gridle_push($sv);
 			} @else if $sn == pull {
-				@include gridle_pull($sv, $state);
+				@include gridle_pull($sv);
 			} @else if $sn == prefix {
-				@include gridle_prefix($sv, $state);
+				@include gridle_prefix($sv);
 			} @else if $sn == suffix {
-				@include gridle_suffix($sv, $state);
+				@include gridle_suffix($sv);
 			} @else if $sn == pull {
-				@include gridle_pull($sv, $state);
+				@include gridle_pull($sv);
 			} @else if $sn == clear-each {
-				@include gridle_clear_each(nth($sv,1), nth($sv,2), $state);
+				@include gridle_clear_each(nth($sv,1), nth($sv,2));
 			} @else if $sn == centered {
-				@include gridle_centered($state);
+				@include gridle_centered();
 			} @else if $sn == row {
-				@include gridle_row($state);
+				@include gridle_row();
 			} @else if $sn == align {
-				@include gridle_align($sv, $state);
+				@include gridle_align($sv);
 			} @else if $sn == hide {
 				@if $sv == true {
-					@include gridle_hide($state);
+					@include gridle_hide();
 				} @else {
-					@include gridle_show($state);
+					@include gridle_show();
 				}
 			} @else if $sn == show {
 				@if $sv == true {
-					@include gridle_show($state);
+					@include gridle_show();
 				} @else {
-					@include gridle_hide($state);
+					@include gridle_hide();
 				}
 			} @else if $sn == visible {
 				@if $sv == true {
-					@include gridle_visible($state);
+					@include gridle_visible();
 				} @else {
-					@include gridle_not_visible($state);
+					@include gridle_not_visible();
 				}
 			} @else if $sn == not-visible {
 				@if $sv == true {
-					@include gridle_not_visible($state);
+					@include gridle_not_visible();
 				} @else {
-					@include gridle_visible($state);
+					@include gridle_visible();
 				}
 			} @else if $sn == show-inline {
 				@if $sv == true {
-					@include gridle_show_inline($state);
+					@include gridle_show_inline();
 				} @else {
-					@include gridle_hide($state);
+					@include gridle_hide();
 				}
 			} @else if $sn == float {
-				@include gridle_float($sv, $state);
+				@include gridle_float($sv);
 			} @else if $sn == clear {
-				@include gridle_clear($sv, $state);
+				@include gridle_clear($sv);
 			} @else if $sn == no-gutter {
-				@include gridle_no_gutter($sv, $state);
+				@include gridle_no_gutter($sv);
 			} @else if $sn == gutter or $sn == gutter-width {
-				@include gridle_gutter($sv, $state);
+				@include gridle_gutter($sv);
 			} @else {
 				// we do nothing
 			}
@@ -211,15 +247,9 @@
 // Container
 //
 @mixin gridle_container(
-	$states : null
 ) {
-	@include _gridle_call($states, container) {
-		@include _gridle_container($_content_arg_state);
+	@include _gridle_call(container) {
 	}
-}
-@mixin _gridle_container(
-	$state : default
-) {
 }
 
 
@@ -227,17 +257,11 @@
 // Row
 //
 @mixin gridle_row(
-	$states : null
 ) {
-	@include _gridle_call($states, row) {
-		@include _gridle_row($_content_arg_state);
+	@include _gridle_call(row) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
-}
-@mixin _gridle_row(
-	$state : default
-) {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
 }
 
 
@@ -245,21 +269,15 @@
 // Row table
 //
 @mixin gridle_row_table(
-	$states : null
 ) {
-	@include _gridle_call($states, row-table) {
-		@include _gridle_row_table($_content_arg_state);
-	}
-}
-@mixin _gridle_row_table(
-	$state : default
-) {
-	padding-left: 0 !important;
-	padding-right: 0 !important;
-	> * {
-		display: table-cell;
-		float: none;
-		vertical-align: top;
+	@include _gridle_call(row-table) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		> * {
+			display: table-cell;
+			float: none;
+			vertical-align: top;
+		}
 	}
 }
 
@@ -268,15 +286,9 @@
 // Row table break
 //
 @mixin gridle_row_table_break(
-	$states : null
 ) {
-	@include _gridle_call($states, row-table-break) {
-		@include _gridle_row_table_break($_content_arg_state);
+	@include _gridle_call(row-table-break) {
 	}
-}
-@mixin _gridle_row_table_break(
-	$state : default
-) {
 }
 
 
@@ -284,24 +296,17 @@
 // flex row
 //
 @mixin gridle_flex_row(
-	$reverse : false,
-	$states : null
+	$reverse : false
 ) {
-	@include _gridle_call($states, flex-row) {
-		@include _gridle_flex_row($reverse, $_content_arg_state);
+	@include _gridle_call(flex-row) {
+		@if $reverse {
+			@include flex-direction(row-reverse);
+		} @else {
+			@include flex-direction(row);
+		}
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
-}
-@mixin _gridle_flex_row(
-	$reverse : false,
-	$state : default
-) {
-	@if $reverse {
-		@include flex-direction(row-reverse);
-	} @else {
-		@include flex-direction(row);
-	}
-	padding-left: 0 !important;
-	padding-right: 0 !important;
 }
 
 
@@ -309,24 +314,17 @@
 // flex col
 //
 @mixin gridle_flex_col(
-	$reverse : false,
-	$states : null
+	$reverse : false
 ) {
-	@include _gridle_call($states, flex-col) {
-		@include _gridle_flex_col($reverse, $_content_arg_state);
+	@include _gridle_call(flex-col) {
+		@if $reverse {
+			@include flex-direction(column-reverse);
+		} @else {
+			@include flex-direction(column);
+		}
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
-}
-@mixin _gridle_flex_col(
-	$reverse : false,
-	$state : default
-) {
-	@if $reverse {
-		@include flex-direction(column-reverse);
-	} @else {
-		@include flex-direction(column);
-	}
-	padding-left: 0 !important;
-	padding-right: 0 !important;
 }
 
 
@@ -335,52 +333,35 @@
 //
 @mixin gridle_flex_grid(
 	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context :
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, flex-grid) {
-		@include _gridle_flex_grid($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_flex_grid(
-	$columns,
-	$state : default,
 	$context : null
 ) {
+	@include _gridle_call(flex-grid) {
+		// vars :
+		$name : gridle_get_state_var(name);
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// manage columns
+		@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+			// the columns is a saved one, get the context and column value
+			$column : map-get($_gridle_columns, $columns);
+			$context : map-get($column, context);
+			$columns : map-get($column, columns);
+		} @else if type-of($columns) == number {
+			$columns : $columns / $name-multiplicator;
+		} @else {
+			@error "the column #{$columns} does not exist...";
+		}
 
-	// vars :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
+		// vars :
+		$width : percentage(1 / $context * $columns);
+
+		// set value :
+		@include flex-basis($width);
+		max-width : $width;
 	}
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// manage columns
-	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
-		// the columns is a saved one, get the context and column value
-		$column : map-get($_gridle_columns, $columns);
-		$context : map-get($column, context);
-		$columns : map-get($column, columns);
-	} @else if type-of($columns) == number {
-		$columns : $columns / $name-multiplicator;
-	} @else {
-		@error "the column #{$columns} does not exist...";
-	}
-
-	// vars :
-	$width : percentage(1 / $context * $columns);
-
-	// set value :
-	@include flex-basis($width);
-	max-width : $width;
 }
 
 
@@ -388,18 +369,11 @@
 // flex order
 //
 @mixin gridle_flex_order(
-	$position,
-	$states : null
+	$position
 ) {
-	@include _gridle_call($states, flex-order) {
-		@include _gridle_flex_order($position, $_content_arg_state);
+	@include _gridle_call(flex-order) {
+		@include order($position);
 	}
-}
-@mixin _gridle_flex_order(
-	$position,
-	$state : default
-) {
-	@include order($position);
 }
 
 
@@ -407,14 +381,11 @@
 // flex adapt
 //
 @mixin gridle_flex_adapt(
-	$states : null
 ) {
-	@include _gridle_call($states, flex-adapt) {
-		@include _gridle_flex_adapt($_content_arg_state);
+	@include _gridle_call(flex-adapt) {
 	}
 }
 @mixin _gridle_flex_adapt(
-	$state : default
 ) {
 }
 
@@ -423,15 +394,9 @@
 // flex grow
 //
 @mixin gridle_flex_grow(
-	$states : null
 ) {
-	@include _gridle_call($states, flex-grow) {
-		@include _gridle_flex_grow($_content_arg_state);
+	@include _gridle_call(flex-grow) {
 	}
-}
-@mixin _gridle_flex_grow(
-	$state : default
-) {
 }
 
 
@@ -439,34 +404,27 @@
 // flex align
 //
 @mixin gridle_flex_align(
-	$align : left,
-	$states : null
+	$align : left
 ) {
-	@include _gridle_call($states, flex-align) {
-		@include _gridle_flex_align($align, $_content_arg_state);
-	}
-}
-@mixin _gridle_flex_align(
-	$align : left,
-	$state : default
-) {
-	@each $al in $align {
-		@if $al == around {
-			@include justify-content(space-around);
-		} @else if $al == between {
-			@include justify-content(space-between);
-		} @else if $al == left {
-			@include justify-content(flex-start);
-		} @else if $al == center {
-			@include justify-content(center);
-		} @else if $al == right {
-			@include justify-content(flex-end);
-		} @else if $al == top {
-			@include align-items(flex-start);
-		} @else if $al == middle {
-			@include align-items(center);
-		} @else if $al == bottom {
-			@include align-items(flex-end);
+	@include _gridle_call(flex-align) {
+		@each $al in $align {
+			@if $al == around {
+				@include justify-content(space-around);
+			} @else if $al == between {
+				@include justify-content(space-between);
+			} @else if $al == left {
+				@include justify-content(flex-start);
+			} @else if $al == center {
+				@include justify-content(center);
+			} @else if $al == right {
+				@include justify-content(flex-end);
+			} @else if $al == top {
+				@include align-items(flex-start);
+			} @else if $al == middle {
+				@include align-items(center);
+			} @else if $al == bottom {
+				@include align-items(flex-end);
+			}
 		}
 	}
 }
@@ -477,55 +435,38 @@
 //
 @mixin gridle(
 	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context :
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, grid) {
-		@include _gridle($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle(
-	$columns,
-	$state : default,
 	$context : null
 ) {
+	@include _gridle_call(grid) {
+		// vars :
+		$name : gridle_get_state_var(name);
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// manage columns
+		@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+			// the columns is a saved one, get the context and column value
+			$column : map-get($_gridle_columns, $columns);
+			$context : map-get($column, context);
+			$columns : map-get($column, columns);
+		} @else if type-of($columns) == number {
+			$columns : $columns / $name-multiplicator;
+		} @else {
+			@error "the column #{$columns} does not exist...";
+		}
 
-	// vars :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// manage columns
-	@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
-		// the columns is a saved one, get the context and column value
-		$column : map-get($_gridle_columns, $columns);
-		$context : map-get($column, context);
-		$columns : map-get($column, columns);
-	} @else if type-of($columns) == number {
-		$columns : $columns / $name-multiplicator;
-	} @else {
-		@error "the column #{$columns} does not exist...";
-	}
+		// vars :
+		$width : percentage(1 / $context * $columns);
 
-	// vars :
-	$width : percentage(1 / $context * $columns);
+		// set value :
+		width:$width;
 
-	// set value :
-	width:$width;
-
-	@if $columns == $context {
-		display: inline-block;
+		@if $columns == $context {
+			display: inline-block;
+		}
 	}
 }
 
@@ -534,23 +475,11 @@
 // Grid table
 //
 @mixin gridle_grid_table(
-	$states : null
 ) {
-	@include _gridle_call($states, grid-table) {
-		@include _gridle_grid_table($_content_arg_state);
-	}
-}
-@mixin _gridle_grid_table(
-	$state : default
-) {
-	display: table-cell;
-	float: none;
-	vertical-align: top;
-
-	&.clear {
-		&:after {
-
-		}
+	@include _gridle_call(grid-table) {
+		display: table-cell;
+		float: none;
+		vertical-align: top;
 	}
 }
 
@@ -559,15 +488,9 @@
 // grid adapt
 //
 @mixin gridle_adapt(
-	$states : null
 ) {
-	@include _gridle_call($states, adapt) {
-		@include _gridle_adapt($_content_arg_state);
+	@include _gridle_call(adapt) {
 	}
-}
-@mixin _gridle_adapt(
-	$state : default
-) {
 }
 
 
@@ -575,15 +498,9 @@
 // grid grow
 //
 @mixin gridle_grow(
-	$states : null
 ) {
-	@include _gridle_call($states, grow) {
-		@include _gridle_grow($_content_arg_state);
+	@include _gridle_call(grow) {
 	}
-}
-@mixin _gridle_grow(
-	$state : default
-) {
 }
 
 
@@ -592,38 +509,21 @@
 //
 @mixin gridle_push(
 	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, push) {
-		@include _gridle_push($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_push(
-	$columns,
-	$state : default,
 	$context : null
 ) {
-	// variables :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
+	@include _gridle_call(push) {
+		// variables :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
 
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-	@if $direction == rtl { $width : $width*-1; }
-	left:$width;
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		@if $direction == rtl { $width : $width*-1; }
+		left:$width;
+	}
 }
 
 
@@ -632,38 +532,21 @@
 //
 @mixin gridle_pull(
 	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, pull) {
-		@include _gridle_pull($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_pull(
-	$columns,
-	$state : default,
 	$context : null
 ) {
-	// variables :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
+	@include _gridle_call(pull) {
+		// variables :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		@if $direction == rtl { $width : $width*-1; }
+		right:$width;
 	}
-	$direction : gridle_get_state_var(direction, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-	@if $direction == rtl { $width : $width*-1; }
-	right:$width;
 }
 
 
@@ -672,40 +555,23 @@
 //
 @mixin gridle_prefix(
 	$columns,
-	$states-or-context : null,
-	$states : null
-) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, prefix) {
-		@include _gridle_prefix($columns, $_content_arg_state, $context);
-	}
-}
-@mixin _gridle_prefix(
-	$columns,
-	$state : default,
 	$context : null
 ) {
-	// vars :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
-	
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+	@include _gridle_call(prefix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 
-	// set value :
-	@if $direction == rtl { margin-right:$width; }
-	@else { margin-left:$width; }
+		// set value :
+		@if $direction == rtl { margin-right:$width; }
+		@else { margin-left:$width; }
+	}
 }
 
 
@@ -714,19 +580,22 @@
 //
 @mixin gridle_suffix(
 	$columns,
-	$states-or-context : null,
-	$states : null
+	$context : null
 ) {
-	// manage state and context
-	$context : null;
-	@if type-of($states-or-context) == number {
-		$context : $states-or-context;
-	} @else {
-		$states : $states-or-context;
-	}
-
-	@include _gridle_call($states, suffix) {
-		@include _gridle_suffix($columns, $_content_arg_state, $context);
+	@include _gridle_call(suffix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		
+		// set value :
+		@if $direction == rtl { margin-left:$width; }
+		@else { margin-right:$width; }
 	}
 }
 @mixin _gridle_suffix(
@@ -734,20 +603,7 @@
 	$state : default,
 	$context : null
 ) {
-	// vars :
-	$name : gridle_get_state_var(name, $state);
-	@if type-of($context) != number {
-		$context : gridle_get_state_var(context, $state);
-	}
-	$direction : gridle_get_state_var(direction, $state);
-	$name-multiplicator : gridle_get_state_var(name-multiplicator, $state);
 	
-	// vars :
-	$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-	
-	// set value :
-	@if $direction == rtl { margin-left:$width; }
-	@else { margin-right:$width; }
 }
 
 
@@ -757,28 +613,22 @@
 @mixin gridle_grid_background(
 	$states : null
 ) {
-	@include _gridle_call($states, background) {
-		@include _gridle_grid_background($_content_arg_state);
-	}
-}
-@mixin _gridle_grid_background(
-	$state : default
-) {
-	
-	// variables :
-	$context : gridle_get_state_var(context, $state);
+	@include _gridle_call(background) {
+		// variables :
+		$context : gridle_get_state_var(context);
 
-	position:relative;
-	z-index:9999;
-	&:before {
-		content:'';
-		position:absolute;
-		top:0; left:0;
-		width:100%; height:100% !important;
-		// vars :
-		$width : percentage(1 / $context);
-		background: linear-gradient(to right, rgba(0,0,0,0) 50% , rgba(0,0,0,.02) 50%); // Standard syntax
-		background-size:($width*2) 100%;
+		position:relative;
+		z-index:9999;
+		&:before {
+			content:'';
+			position:absolute;
+			top:0; left:0;
+			width:100%; height:100% !important;
+			// vars :
+			$width : percentage(1 / $context);
+			background: linear-gradient(to right, rgba(0,0,0,0) 50% , rgba(0,0,0,.02) 50%); // Standard syntax
+			background-size:($width*2) 100%;
+		}
 	}
 }
 
@@ -788,20 +638,12 @@
 //
 @mixin gridle_clear_each(
 	$clearEach,
-	$clearWhat : both,
-	$states : null
+	$clearWhat : both
 ) {
-	@include _gridle_call($states, clear-each) {
-		@include _gridle_clear_each($clearEach, $clearWhat, $_content_arg_state);
-	}
-}
-@mixin _gridle_clear_each(
-	$clearEach,
-	$clearWhat,
-	$state : default
-) {
-	> *:nth-child(#{$clearEach}n+1) {
-		clear : $clearWhat;
+	@include _gridle_call(clear-each) {
+		> *:nth-child(#{$clearEach}n+1) {
+			clear : $clearWhat;
+		}
 	}
 }
 
@@ -810,15 +652,9 @@
 // Centered
 //
 @mixin gridle_centered(
-	$states : null
 ) {
-	@include _gridle_call($states, centered) {
-		@include _gridle_centered($_content_arg_state);
+	@include _gridle_call(centered) {
 	}
-}
-@mixin _gridle_centered(
-	$state : default
-) {
 }
 
 
@@ -826,39 +662,32 @@
 // Align :
 //
 @mixin gridle_align(
-	$align : middle,
-	$states : null
+	$align : middle
 ) {
-	@include _gridle_call($states, align) {
-		@include _gridle_align($align, $_content_arg_state);
-	}
-}
-@mixin _gridle_align(
-	$align : left,
-	$state : default
-) {
-	// need to change the way grids items are layed out
-	@if $align == top or $align == middle or $align == bottom {
-		font-size:0;
-		clear:both;
+	@include _gridle_call(align) {
+		// need to change the way grids items are layed out
+		@if $align == top or $align == middle or $align == bottom {
+			font-size:0;
+			clear:both;
 
-		> * {
-			float:none !important;
-			vertical-align:$align;
-			font-size:1rem;
-		}
+			> * {
+				float:none !important;
+				vertical-align:$align;
+				font-size:1rem;
+			}
 
-	} @else {
-		@if $align == left {
-			text-align: left;
-		} @else if $align == center {
-			text-align: center;
-		} @else if $align == right {
-			text-align: right;
-		}
-		// restore text align of the grid items
-		> * {
-			text-align: left;
+		} @else {
+			@if $align == left {
+				text-align: left;
+			} @else if $align == center {
+				text-align: center;
+			} @else if $align == right {
+				text-align: right;
+			}
+			// restore text align of the grid items
+			> * {
+				text-align: left;
+			}
 		}
 	}
 }
@@ -868,16 +697,10 @@
 // Hide
 //
 @mixin gridle_hide(
-	$states : null
 ) {
-	@include _gridle_call($states, hide) {
-		@include _gridle_hide($_content_arg_state);
+	@include _gridle_call(hide) {
+		display:none;
 	}
-}
-@mixin _gridle_hide(
-	$state : default
-) {
-	display:none;
 }
 
 
@@ -887,16 +710,10 @@
 // @param 	String 	$media 	What to hide (one of the 3 state classes name)
 //
 @mixin gridle_not_visible(
-	$states : null
 ) {
-	@include _gridle_call($states, not-visible) {
-		@include _gridle_not_visible($_content_arg_state);
+	@include _gridle_call(not-visible) {
+		visibility:hidden;
 	}
-}
-@mixin _gridle_not_visible(
-	$state : default
-) {
-	visibility:hidden;
 }
 
 
@@ -906,16 +723,10 @@
 // @param 	String 	$media 	What to hide (one of the 3 state classes name)
 //
 @mixin gridle_show(
-	$states : null
 ) {
-	@include _gridle_call($states, show) {
-		@include _gridle_show($_content_arg_state);
+	@include _gridle_call(show) {
+		display:block;
 	}
-}
-@mixin _gridle_show(
-	$state : default
-) {
-	display:block;
 }
 
 
@@ -925,16 +736,10 @@
 // @param 	String 		$state 		The state name
 //
 @mixin gridle_show_inline(
-	$states : null
 ) {
-	@include _gridle_call($states, show-inline) {
-		@include _gridle_show_inline($_content_arg_state);
+	@include _gridle_call(show-inline) {
+		display:inline-block;
 	}
-}
-@mixin _gridle_show_inline(
-	$state : default
-) {
-	display:inline-block;
 }
 
 
@@ -943,16 +748,10 @@
 // @param 	String 	$media 	On what state
 //
 @mixin gridle_visible(
-	$states : null
 ) {
-	@include _gridle_call($states, visible) {
-		@include _gridle_visible($_content_arg_state);
+	@include _gridle_call(visible) {
+		visibility:visible;
 	}
-}
-@mixin _gridle_visible(
-	$state : default
-) {
-	visibility:visible;
 }
 
 
@@ -960,18 +759,11 @@
 // Float :
 //
 @mixin gridle_float(
-	$float-direction : left,
-	$states : null
+	$float-direction : left
 ) {
-	@include _gridle_call($states, float) {
-		@include _gridle_float($float-direction, $_content_arg_state);
+	@include _gridle_call(float) {
+		float:#{$float-direction};
 	}
-}
-@mixin _gridle_float(
-	$float-direction : left,
-	$state : default
-) {
-	float:#{$float-direction};
 }
 
 
@@ -982,18 +774,11 @@
 // @param 	String 	$state 				The state
 //
 @mixin gridle_clear(
-	$clear-direction : both,
-	$states : null
+	$clear-direction : both
 ) {
-	@include _gridle_call($states, clear) {
-		@include _gridle_clear($clear-direction, $_content_arg_state);
+	@include _gridle_call(clear) {
+		clear:#{$clear-direction};
 	}
-}
-@mixin _gridle_clear(
-	$clear-direction : both,
-	$state : default
-) {
-	clear:#{$clear-direction};
 }
 
 
@@ -1004,19 +789,12 @@
 // @param 	String 	$state 				The state
 //
 @mixin gridle_no_gutter(
-	$side : left right,
-	$states : null
+	$side : top right bottom left
 ) {
-	@include _gridle_call($states, no-gutter) {
-		@include _gridle_no_gutter($side, $_content_arg_state);
-	}
-}
-@mixin _gridle_no_gutter(
-	$side : left right,
-	$state : default
-) {
-	@each $s in $side {
-		padding-#{$s} : 0;
+	@include _gridle_call(no-gutter) {
+		@each $s in $side {
+			padding-#{$s} : 0;
+		}
 	}
 }
 
@@ -1028,23 +806,19 @@
 // @param 	String 	$state 				The state
 //
 @mixin gridle_gutter(
-	$side-or-size : top right bottom left,
-	$states : null
+	$side-or-size : top right bottom left
 ) {
-	@include _gridle_call($states, gutter) {
-		@include _gridle_gutter($side-or-size, $_content_arg_state);
-	}
-}
-@mixin _gridle_gutter(
-	$side-or-size : top right bottom left,
-	$state : default
-) {
+	@include _gridle_call(gutter) {
+		
+		// get a gutter map
+		$gutters : _gridle_forge_gutters_map($side-or-size);
 
-	// get a gutter map
-	$gutters : _gridle_forge_gutters_map($side-or-size);
+		// check that we have a gutter map
+		@each $side, $value in $gutters {
+			@if $value > 0 {
+				padding-#{$side} : $value;
+			}
+		}
 
-	// check that we have a gutter map
-	@if $gutters {
-		padding: #{map-get($gutters, top)} #{map-get($gutters, right)} #{map-get($gutters, bottom)} #{map-get($gutters, left)};
 	}
 }

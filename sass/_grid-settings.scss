@@ -7,9 +7,9 @@ $gridle-debug : true;
 // setup the grid (required)
 @include gridle_setup((
 	context : 12,
-	// gutter-width : 20px,
-	gutter-left : 20px,
-	states-classes : true
+	gutter-width : 20px,
+	// gutter-left : 20px,
+	states-classes : false
 ));
 
 
@@ -27,8 +27,8 @@ $gridle-debug : true;
 @include gridle_register_default_states();
 @include gridle_register_state(ipad-landscape, (
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
-	gutter-width : 100px,
-	gutter-top : 50px
+	gutter-height : 50px,
+	gutter-width : 30px
 ));
 
 
@@ -39,16 +39,16 @@ $gridle-debug : true;
 
 // @include gridle_apply_css_for(grid, (
 // 	content : "i m a cool mobile grid"
-// ), default mobile tablet);
+// ), tablet);
 
 
 // you can extend the base classes of the framework by using this mixin
 // here, all the grid and flex-grid elements will be extended with the specified
 // css map
 
-// @include gridle_extend_base_class(grid flex-grid, (
-// 	content : "i extend the grid class"
-// ));
+@include gridle_extend_base_class(grid flex-grid, (
+	content : "i extend the grid class"
+));
 
 // in order to extend only certain states classes, you can specify states like this
 // this will have the effect to apply the css map only on grid-mobile... and grid-tablet... classes

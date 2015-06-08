@@ -49,7 +49,7 @@
 	// @include flexbox;
 	@include flex(0,0,auto);
 	@include flex-direction(column); // reset direction for inner elements
-	@include _gridle_gutter(top right bottom left);
+	@include gridle_gutter(top right bottom left);
 	display: block;
 }
 
@@ -74,7 +74,7 @@
 	@include flexbox;
 	@include flex(0,1,auto);
 	@include flex-direction(column); // reset direction for inner elements
-	@include _gridle_gutter();
+	@include gridle_gutter();
 	
 }
 
@@ -90,7 +90,7 @@
 	@include flexbox;
 	@include flex(1,1,auto);
 	@include flex-direction(column); // reset direction for inner elements
-	@include _gridle_gutter();	
+	@include gridle_gutter();	
 	
 }
 
@@ -123,7 +123,7 @@
 		float:left;
 		direction:ltr;
 	}
-	@include _gridle_gutter();
+	@include gridle_gutter();
 	
 }
 
@@ -134,9 +134,6 @@
 @mixin _gridle_common_grid_table(
 	$state : default
 ) {
-	// display: table-cell;
-	// float: none;
-	// vertical-align: top;
 }
 
 
@@ -148,7 +145,7 @@
 ) {
 	display: table-cell;
 	width:99999px;
-	@include _gridle_gutter();
+	@include gridle_gutter();
 	
 }
 
@@ -162,7 +159,7 @@
 	display: table-cell;
 	width:1px;
 	white-space:nowrap;
-	@include _gridle_gutter();
+	@include gridle_gutter();
 	
 }
 
@@ -191,40 +188,8 @@
 
 
 //
-// Row table
+// Push
 //
-@mixin _gridle_common_row_table(
-	$state : default
-) {
-	// For modern browser
-	&:before,
-	&:after {
-		content:"";
-		display:table;
-	}
-	&:after {
-		clear:both;
-	}
-	// For IE 6/7 (trigger hasLayout
-	& {
-	   zoom:1;
-	}
-	
-}
-
-
-//
-// Row table break
-//
-@mixin _gridle_common_row_table_break(
-	$state : default
-) {
-	// width: 100%;
-	// min-height:0.1px;
-	// display: inline-block !important;
-
-}
-
 @mixin _gridle_common_push(
 	$state : default
 ) {
@@ -232,6 +197,10 @@
 	position:relative;
 }
 
+
+//
+// Pull
+//
 @mixin _gridle_common_pull(
 	$state : default
 ) {
@@ -239,21 +208,37 @@
 	position:relative;
 }
 
+
+//
+// Prefix
+//
 @mixin _gridle_common_prefix(
 	$state : default
 ) {
 }
 
+
+//
+// Suffix
+//
 @mixin _gridle_common_suffix(
 	$state : default
 ) {
 }
 
+
+//
+// Clear each
+//
 @mixin _gridle_common_clear_each(
 	$state : default
 ) {
 }
 
+
+//
+// Centered
+//
 @mixin _gridle_common_centered(
 	$state : default
 ) {
@@ -264,51 +249,91 @@
 	clear:both !important;
 }
 
+
+//
+// Align
+//
 @mixin _gridle_common_align(
 	$state : default
 ) {
 }
 
+
+//
+// Hide
+//
 @mixin _gridle_common_hide(
 	$state : default
 ) {
 }
 
+
+//
+// Not visible
+//
 @mixin _gridle_common_not_visible(
 	$state : default
 ) {
 }
 
+
+//
+// Show
+//
 @mixin _gridle_common_show(
 	$state : default
 ) {
 }
 
+
+//
+// Show inline
+//
 @mixin _gridle_common_show_inline(
 	$state : default
 ) {
 }
 
+
+//
+// Visible
+//
 @mixin _gridle_common_visible(
 	$state : default
 ) {
 }
 
+
+//
+// Float
+//
 @mixin _gridle_common_float(
 	$state : default
 ) {
 }
 
+
+//
+// Clear
+//
 @mixin _gridle_common_clear(
 	$state : default
 ) {
 }
 
+
+//
+// No gutter
+//
 @mixin _gridle_common_no_gutter(
 	$state : default
 ) {
 }
 
+
+//
+// Gutter
+//
 @mixin _gridle_common_gutter(
 	$state : default
 ) {

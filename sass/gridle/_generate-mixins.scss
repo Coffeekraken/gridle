@@ -99,7 +99,7 @@
 
 	@if _gridle_need_to_generate(all gutter helpers, $package) {
 		#{_gridle_classname(gutter, $state)} {
-			@include gridle_gutter(left right);
+			@include gridle_gutter(top right bottom left);
 		}
 		#{_gridle_classname(gutter, $state, left)} {
 			@include gridle_gutter(left);
@@ -520,12 +520,12 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	// apply css for states of each elements
 	$fors : $_gridle-names-patterns;
 	@each $map in $_gridle_apply_css_for {
-		@each $f, $states in $map {	
-			@if map-get($fors, $f) {
-				$statesNames : ();
-				@each $sn, $rules in $states {
-					@include gridle_selector($f, null) {
-						@include _gridle_state($sn) {
+		@each $stateName, $fors in $map {
+			@include _gridle_state($stateName, false) {
+				@each $f, $rules in $fors {
+					@if map-get($fors, $f) {
+						@include gridle_selector($f, null) {
+						// @include gridle_use_state()
 							@include _gridle_map_2_css($rules);
 						}
 					}
