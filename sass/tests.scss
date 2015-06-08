@@ -45,11 +45,15 @@
 	@include gridle(12, 100);
 }
 .grid-15-on-100-on-mobile {
-	@include gridle(15, 100, mobile);
+	@include gridle_state(mobile) {
+		@include gridle(15, 100);
+	}
 }
 .grid-30-on-100-on-mobile-and-tablet {
 	@include gridle(30, 100);
-	@include gridle(30, 100, mobile tablet);
+	@include gridle_state(mobile tablet) {
+		@include gridle(30, 100);
+	}
 }
 
 // row
@@ -70,7 +74,9 @@
 	@include gridle_clear_each(2, left);
 }
 .clear-each-2-left-mobile {
-	@include gridle_clear_each(2, left, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_clear_each(2, left);
+	}
 }
 .clear-each-2-set {
 	@include gridle_set((
@@ -116,7 +122,9 @@
 	@include gridle_centered();
 }
 .centered-mobile {
-	@include gridle_centered(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_centered();
+	}
 }
 
 // certical align
@@ -132,7 +140,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_push(6);
 }
 .push-12-mobile {
-	@include gridle_push(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_push(12);
+	}
 }
 .push-set {
 	@include gridle_set((
@@ -151,7 +161,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_pull(6);
 }
 .pull-12-mobile {
-	@include gridle_pull(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_pull(12);
+	}
 }
 .pull-set {
 	@include gridle_set((
@@ -170,7 +182,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_prefix(6);
 }
 .prefix-12-mobile {
-	@include gridle_prefix(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_prefix(12);
+	}
 }
 .prefix-set {
 	@include gridle_set((
@@ -189,7 +203,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_suffix(6);
 }
 .suffix-12-mobile {
-	@include gridle_suffix(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_suffix(12);
+	}
 }
 .suffix-set {
 	@include gridle_set((
@@ -208,7 +224,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_hide();
 }
 .hide-mobile {
-	@include gridle_hide(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_hide();
+	}
 }
 .hide-set {
 	@include gridle_set((
@@ -221,7 +239,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_show();
 }
 .show-mobile {
-	@include gridle_show(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_show();
+	}
 }
 .show-set {
 	@include gridle_set((
@@ -234,7 +254,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_show_inline();
 }
 .show_inline-mobile {
-	@include gridle_show_inline(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_show_inline();
+	}
 }
 .show_inline-set {
 	@include gridle_set((
@@ -247,7 +269,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_not_visible();
 }
 .not_visible-mobile {
-	@include gridle_not_visible(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_not_visible();
+	}
 }
 .not_visible-set {
 	@include gridle_set((
@@ -260,7 +284,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_visible();
 }
 .visible-mobile {
-	@include gridle_visible(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_visible();
+	}
 }
 .visible-set {
 	@include gridle_set((
@@ -328,7 +354,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_float(right);
 }
 .float-left-mobile {
-	@include gridle_float(left, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_float(left);
+	}
 }
 .float-set {
 	@include gridle_set((
@@ -341,7 +369,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_clear();
 }
 .clear-left-mobile {
-	@include gridle_clear(left, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_clear(left);
+	}
 }
 .clear-set {
 	@include gridle_set((
@@ -357,7 +387,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_gutter(left);
 }
 .gutters-side-mobile {
-	@include gridle_gutter(left right, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_gutter(left right);
+	}
 }
 
 // no-gutter
@@ -368,7 +400,9 @@ $align : (left,center,right,top,middle,bottom);
 	@include gridle_no_gutter(left);
 }
 .no-gutter-side-mobile {
-	@include gridle_no_gutter(left right, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_no_gutter(left right);
+	}
 }
 
 // gridle_get_states_count
