@@ -31,6 +31,7 @@
 		content: "";
 		display: table;
 		clear: both;
+		border-spacing:0;
 	}
 }
 %gridle-clearfix {
@@ -39,6 +40,7 @@
 	&:after {
 		content:"";
 		display:table;
+		border-spacing:0;
 	}
 	&:after {
 		clear:both;
