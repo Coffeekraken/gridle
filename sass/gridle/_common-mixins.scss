@@ -74,6 +74,7 @@ $_gridle-already-generated : ();
 @mixin _gridle_parent_common() {
 	@extend %gridle-clearfix;
 	@extend %gridle-parent-common;
+	border-spacing: 0;
 }
 @mixin _gridle_push_common(
 	$state : default
