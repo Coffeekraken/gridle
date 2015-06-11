@@ -252,7 +252,7 @@
 	
 		$name : $stateName;
 
-		$gridle-settings-states : "#{$gridle-settings-states} \"#{$name}\":{";
+		$gridle-settings-states : '#{$gridle-settings-states} "#{$name}":{';
 	
 		@each $varName, $var in $state {
 
@@ -264,20 +264,20 @@
 			}
 
 			@if $value == null {
-				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : null,";
+				$gridle-settings-states : '#{$gridle-settings-states} "#{$varName}" : null,';
 			} @elseif type-of($value) == bool {
-				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : #{$value},";
+				$gridle-settings-states : '#{$gridle-settings-states} "#{$varName}" : #{$value},';
 			} @else {
-				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : \"#{$value}\",";
+				$gridle-settings-states : '#{$gridle-settings-states} "#{$varName}" : "#{$value}",';
 			}
 		}
 
-		$gridle-settings-states : "#{$gridle-settings-states} \"_gridle\" : true";
+		$gridle-settings-states : '#{$gridle-settings-states} "_gridle" : true';
 
 		@if $i >= $statesCount - 1 {
-			$gridle-settings-states : "#{$gridle-settings-states} }";
+			$gridle-settings-states : '#{$gridle-settings-states} }';
 		} @else {
-			$gridle-settings-states : "#{$gridle-settings-states} },";
+			$gridle-settings-states : '#{$gridle-settings-states} },';
 		}
 	
 		// update i :
@@ -286,23 +286,23 @@
 	}
 
 	 // generate settings json :
-	$gridle-settings-states : "#{$gridle-settings-states}}";
+	$gridle-settings-states : '#{$gridle-settings-states}}';
 	$gridle-settings : "{";
-	$gridle-settings : "#{$gridle-settings} \"version\" : \"#{$_gridle-version}\"";
+	$gridle-settings : '#{$gridle-settings} "version" : "#{$_gridle-version}"';
 	
 	// states :
-	$gridle-settings : "#{$gridle-settings}, \"states\" : #{$gridle-settings-states}";
+	$gridle-settings : '#{$gridle-settings}, "states" : #{$gridle-settings-states}';
 	
 	// debug devices :
 	$debug_devices : $_gridle_states_debug_devices;
 	@if length($_gridle_states_debug_devices) <= 0 {
 		$debug_devices : null;
 	}
-	// $gridle-settings : "#{$gridle-settings}, \"debugDevices\" : { #{$debug_devices} }";
+	// $gridle-settings : '#{$gridle-settings}, "debugDevices" : { #{$debug_devices} }';
 
 	// settings :
-	// $gridle-settings : "#{$gridle-settings}, \"classPrefix\" : \"#{$gridle-class-prefix}\"";
-	$gridle-settings : "#{$gridle-settings} }";
+	// $gridle-settings : '#{$gridle-settings}, "classPrefix" : '#{$gridle-class-prefix}"';
+	$gridle-settings : '#{$gridle-settings} }';
 	#gridle-settings {
 		content : $gridle-settings;
 	}
