@@ -65,39 +65,39 @@
 	}
 
 	// flex grid
-	@include _gridle_common_silent_class_name(flex-grid, $stateName) {
-		@include _gridle_common_flex_grid($state);
-	}
+	// @include _gridle_common_silent_class_name(flex-grid, $stateName) {
+	// 	@include _gridle_common_flex_grid($state);
+	// }
 
-	// flex order
-	@include _gridle_common_silent_class_name(flex-order, $stateName) {
-		@include _gridle_common_flex_order($state);
+	// order
+	@include _gridle_common_silent_class_name(order, $stateName) {
+		@include _gridle_common_order($state);
 	}
 
 	// flex adapt
-	@include _gridle_common_silent_class_name(flex-adapt, $stateName) {
-		@include _gridle_common_flex_adapt($state);
-	}
+	// @include _gridle_common_silent_class_name(flex-adapt, $stateName) {
+	// 	@include _gridle_common_flex_adapt($state);
+	// }
 
 	// flex grow
-	@include _gridle_common_silent_class_name(flex-grow, $stateName) {
-		@include _gridle_common_flex_grow($state);
-	}
+	// @include _gridle_common_silent_class_name(flex-grow, $stateName) {
+	// 	@include _gridle_common_flex_grow($state);
+	// }
 
 	// flex row
-	@include _gridle_common_silent_class_name(flex-row, $stateName) {
-		@include _gridle_common_flex_row($state);
+	// @include _gridle_common_silent_class_name(flex-row, $stateName) {
+	// 	@include _gridle_common_flex_row($state);
+	// }
+
+	// col
+	@include _gridle_common_silent_class_name(col, $stateName) {
+		@include _gridle_common_col($state);
 	}
 
-	// flex col
-	@include _gridle_common_silent_class_name(flex-col, $stateName) {
-		@include _gridle_common_flex_col($state);
-	}
-
-	// flex align
-	@include _gridle_common_silent_class_name(flex-align, $stateName) {
-		@include _gridle_common_flex_align($state);
-	}
+	// // flex align
+	// @include _gridle_common_silent_class_name(flex-align, $stateName) {
+	// 	@include _gridle_common_flex_align($state);
+	// }
 
 	// row
 	@include _gridle_common_silent_class_name(row, $stateName) {

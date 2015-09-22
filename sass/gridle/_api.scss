@@ -257,71 +257,44 @@
 // Row
 //
 @mixin gridle_row(
+	$reverse : false
 ) {
 	@include _gridle_call(row) {
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-	}
-}
-
-
-//
-// Row table
-//
-@mixin gridle_row_table(
-) {
-	@include _gridle_call(row-table) {
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-		> * {
-			display: table-cell;
-			float: none;
-			vertical-align: top;
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
+			@if $reverse {
+				@include flex-direction(row-reverse);
+			} @else {
+				@include flex-direction(row);
+			}
 		}
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
 }
 
 
 //
-// Row table break
+// Col
 //
-@mixin gridle_row_table_break(
-) {
-	@include _gridle_call(row-table-break) {
-	}
-}
-
-
-//
-// flex row
-//
-@mixin gridle_flex_row(
+@mixin gridle_col(
 	$reverse : false
 ) {
-	@include _gridle_call(flex-row) {
-		@if $reverse {
-			@include flex-direction(row-reverse);
+	@include _gridle_call(col) {
+		$flex : gridle_get_state_var(flex);
+		$states-classes : gridle_get_state_var(states-classes);
+		$gutter-left : gridle_get_state_var(gutter-left);
+		$gutter-right : gridle_get_state_var(gutter-right);
+		@if $flex {
+			@if $reverse {
+				@include flex-direction(column-reverse);
+			} @else {
+				@include flex-direction(column);
+			}
 		} @else {
-			@include flex-direction(row);
+			// do nothing
 		}
-		padding-left: 0 !important;
-		padding-right: 0 !important;
-	}
-}
 
-
-//
-// flex col
-//
-@mixin gridle_flex_col(
-	$reverse : false
-) {
-	@include _gridle_call(flex-col) {
-		@if $reverse {
-			@include flex-direction(column-reverse);
-		} @else {
-			@include flex-direction(column);
-		}
 		padding-left: 0 !important;
 		padding-right: 0 !important;
 	}
@@ -368,11 +341,14 @@
 //
 // flex order
 //
-@mixin gridle_flex_order(
+@mixin gridle_order(
 	$position
 ) {
 	@include _gridle_call(flex-order) {
-		@include order($position);
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
+			@include order($position);
+		}
 	}
 }
 
@@ -438,14 +414,16 @@
 	$context : null
 ) {
 	@include _gridle_call(grid) {
-		// vars :
+
+		// vars
 		$name : gridle_get_state_var(name);
 		@if type-of($context) != number {
 			$context : gridle_get_state_var(context);
 		}
-		$direction : gridle_get_state_var(direction);
 		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		
+		$gutter-left : gridle_get_state_var(gutter-left);
+		$gutter-right : gridle_get_state_var(gutter-right);
+
 		// manage columns
 		@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
 			// the columns is a saved one, get the context and column value
@@ -458,16 +436,34 @@
 			@error "the column #{$columns} does not exist...";
 		}
 
-		// vars :
+		// width :
 		$width : percentage(1 / $context * $columns);
 
-		// set value :
-		width:$width;
+		// if flex
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
 
-		@if $columns == $context {
-			display: inline-block;
+			@include flex-basis($width);
+			max-width : $width;
+
+		} @else {
+
+			// set value :
+			width:$width;
+
+			@if $columns == $context {
+				display: inline-block;
+			}
+
 		}
 	}
+}
+// alias to gridle
+@mixin gridle_grid(
+	$columns,
+	$context : null
+) {
+	@include gridle($columns, $context);
 }
 
 
@@ -477,9 +473,17 @@
 @mixin gridle_grid_table(
 ) {
 	@include _gridle_call(grid-table) {
-		display: table-cell;
-		float: none;
-		vertical-align: top;
+
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
+
+		} @else {
+
+			display: table-cell;
+			float: none;
+			vertical-align: top;
+
+		}
 	}
 }
 
@@ -490,6 +494,10 @@
 @mixin gridle_adapt(
 ) {
 	@include _gridle_call(adapt) {
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
+		} @else {
+		}
 	}
 }
 
@@ -500,6 +508,10 @@
 @mixin gridle_grow(
 ) {
 	@include _gridle_call(grow) {
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
+		} @else {
+		}
 	}
 }
 
@@ -641,8 +653,12 @@
 	$clearWhat : both
 ) {
 	@include _gridle_call(clear-each) {
-		> *:nth-child(#{$clearEach}n+1) {
-			clear : $clearWhat;
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
+		} @else {
+			> *:nth-child(#{$clearEach}n+1) {
+				clear : $clearWhat;
+			}
 		}
 	}
 }
@@ -665,29 +681,68 @@
 	$align : middle
 ) {
 	@include _gridle_call(align) {
-		// need to change the way grids items are layed out
-		@if $align == top or $align == middle or $align == bottom {
-			font-size:0;
-			clear:both;
 
-			> * {
-				float:none !important;
-				vertical-align:$align;
-				font-size:1rem;
+		$flex : gridle_get_state_var(flex);
+		@if $flex {
+
+			@each $al in $align {
+				@if $al == around {
+					@include justify-content(space-around);
+				} @else if $al == between {
+					@include justify-content(space-between);
+				} @else if $al == left {
+					@include justify-content(flex-start);
+				} @else if $al == center {
+					@include justify-content(center);
+				} @else if $al == right {
+					@include justify-content(flex-end);
+				} @else if $al == top {
+					@include align-items(flex-start);
+				} @else if $al == middle {
+					@include align-items(center);
+				} @else if $al == bottom {
+					@include align-items(flex-end);
+				}
 			}
 
 		} @else {
-			@if $align == left {
-				text-align: left;
-			} @else if $align == center {
-				text-align: center;
-			} @else if $align == right {
-				text-align: right;
+
+			// need to change the way grids items are layed out
+			@if in-map($align, top) of in-map($align, middle) or in-map($align, bottom) {
+				font-size:0;
+				clear:both;
+
+				> * {
+					float:none !important;
+					vertical-align:$align;
+					font-size:1rem;
+				}
+
+			} 
+
+			@each $a in $align {
+				@if $align == left {
+					text-align: left;
+				} @else if $align == center {
+					text-align: center;
+				} @else if $align == right {
+					text-align: right;
+				} @else if $align == top {
+					vertical-align: top;
+				} @else if $align == middle {
+					vertical-align: middle;
+				} @else if $align == bottom {
+					vertical-align: bottom;
+				}
 			}
-			// restore text align of the grid items
-			> * {
-				text-align: left;
+
+			@if in-map($align, center) or in-map($align, right) {
+				// restore text align of the grid items
+				> * {
+					text-align: left;
+				}
 			}
+
 		}
 	}
 }

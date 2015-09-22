@@ -1,0 +1,43 @@
+// Import grid settings :
+@import 'grid-settings-flex';
+
+// Generate classes :
+@include gridle_generate_classes();
+
+// you can generate classes separately if you need :
+// @include gridle_generate_classes(default);  	// default is the base state always registered
+// @include gridle_generate_classes(mobile); 	// only the mobile state
+// @include gridle_generate_classes(null, all -helpers); // all states, all packages but exclude the helpers
+
+// generate a center custom class for all the states :
+// @include gridle_generate_custom_class( ('center','%-','%state') ) {
+// 	text-align:center;
+// }
+// this will produces classes : center, center-mobile, center-tablet, center-ipad-landscape
+// for separators, you can use the %- (replaced by the $gridle-class-separator option), or -, --, _, __
+
+// Max size :
+.container {
+	margin:0 auto;
+	max-width:960px;
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+[class*="grid-"],
+[class*="grow"],
+[class*="adapt"] {
+	@include gridle_set((
+		mobile : (
+			push : 0,
+			pull : 0,
+			grid : 12,
+			prefix : 0,
+			suffix : 0
+		)
+	));
+}

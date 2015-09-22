@@ -25,7 +25,7 @@ jQuery ($) ->
 	# when ready
 	Gridle.on 'ready', (e) ->
 		states = Gridle.getRegisteredStates()
-		$('.container.gridle-debug').each ->
+		$('.grid-12.gridle-debug').each ->
 			$this = $(this)
 			$ul = $('<ul class="selector selector--states" />')
 			$.each states, (idx, item) ->
@@ -33,7 +33,7 @@ jQuery ($) ->
 				$li.bind 'click', (e) ->
 					$(this).siblings().removeClass 'active'
 					$(this).addClass 'active'
-					$container = $(this).parent().siblings('.container.gridle-debug')
+					$container = $this
 					previous_class = $container.attr('data-active-state')
 					$container.removeClass(previous_class).attr 'data-active-state', 'state-' + item.name
 					$container.addClass('state-' + item.name) if item.name != 'default'
@@ -41,7 +41,7 @@ jQuery ($) ->
 				$ul.append $li
 				$li.trigger('click') if idx is 0
 				return
-			$this.before $ul
+			$this.prepend $ul
 			return
 		return
 
@@ -54,7 +54,7 @@ jQuery ($) ->
 		$this = $(this)
 		$container = $this
 		if !$this.hasClass('.gridle-debug')
-			$container = $this.closest('.container')
+			$container = $this.closest('.grid-12.gridle-debug')
 		options = $this.data('options')
 		groups = options.split('|')
 		$(groups).each (idx, item) ->
@@ -73,7 +73,7 @@ jQuery ($) ->
 				if idx == 0
 					$li.trigger 'click'
 				return
-			$container.before $ul
+			$container.prepend $ul
 			return
 		return
 	# $('.container.gridle-debug').each(function() {

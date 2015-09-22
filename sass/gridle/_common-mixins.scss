@@ -29,42 +29,46 @@
 
 
 //
-// Flex col
+// Col (flex only)
 //
-@mixin _gridle_common_flex_col(
+@mixin _gridle_common_col(
 	$state : default
 ) {
-	@include flexbox;
-	@include flex(0 1 auto);
+	$flex : gridle_get_state_var(flex, $state);
+
+	@if $flex {
+		@include flexbox;
+		@include flex(0 1 auto);
+	}
 }
 
 
 //
-// Flex grid
+// Flex grid OK
 //
-@mixin _gridle_common_flex_grid(
+// @mixin _gridle_common_flex_grid(
+// 	$state : default
+// ) {
+// 	// css
+// 	// @include flexbox;
+// 	@include flex(0,0,auto);
+// 	@include flex-direction(column); // reset direction for inner elements
+// 	@include gridle_gutter(top right bottom left);
+// 	display: block;
+// }
+
+
+//
+// Flex order OK
+//
+@mixin _gridle_common_order(
 	$state : default
 ) {
-	// css
-	// @include flexbox;
-	@include flex(0,0,auto);
-	@include flex-direction(column); // reset direction for inner elements
-	@include gridle_gutter(top right bottom left);
-	display: block;
 }
 
 
 //
-// Flex order
-//
-@mixin _gridle_common_flex_order(
-	$state : default
-) {
-}
-
-
-//
-// Flex adapt
+// Flex adapt OK
 //
 @mixin _gridle_common_flex_adapt(
 	$state : default
@@ -80,7 +84,7 @@
 
 
 //
-// Flex grow
+// Flex grow OK
 //
 @mixin _gridle_common_flex_grow(
 	$state : default
@@ -96,12 +100,12 @@
 
 
 //
-// Flex align
+// Flex align OK
 //
-@mixin _gridle_common_flex_align(
-	$state : default
-) {
-}
+// @mixin _gridle_common_flex_align(
+// 	$state : default
+// ) {
+// }
 
 
 //
@@ -111,18 +115,28 @@
 	$state : default
 ) {
 	// vars
+	$flex : gridle_get_state_var(flex, $state);
 	$direction : gridle_get_state_var(direction, $state);
 	
-	// css
-	display:inline-block;
-	min-height:1px;
-	@if $direction == rtl {
-		float:right;
-		direction:rtl;
+	@if $flex {
+		// @include flexbox;
+		@include flex(0,0,auto);
+		@include flex-direction(column); // reset direction for inner elements
+		@include gridle_gutter(top right bottom left);
+		display: block;
 	} @else {
-		float:left;
-		direction:ltr;
+		// css
+		display:inline-block;
+		min-height:1px;
+		@if $direction == rtl {
+			float:right;
+			direction:rtl;
+		} @else {
+			float:left;
+			direction:ltr;
+		}
 	}
+
 	@include gridle_gutter();
 	
 }
@@ -143,8 +157,19 @@
 @mixin _gridle_common_grow(
 	$state : default
 ) {
-	display: table-cell;
-	width:99999px;
+	$flex : gridle_get_state_var(flex, $state);
+
+	@if $flex {
+		// css
+		max-width: 100%;
+		@include flexbox;
+		@include flex(1,1,auto);
+		@include flex-direction(column); // reset direction for inner elements	
+	} @else {
+		display: table-cell;
+		width:99999px;
+	}
+
 	@include gridle_gutter();
 	
 }
@@ -156,10 +181,21 @@
 @mixin _gridle_common_adapt(
 	$state : default
 ) {
-	display: table-cell;
-	width:1px;
-	white-space:nowrap;
-	@include gridle_gutter();
+	$flex : gridle_get_state_var(flex, $state);
+
+	@if $flex {
+		// css
+		max-width: 100%;
+		@include flexbox;
+		@include flex(0,1,auto);
+		@include flex-direction(column); // reset direction for inner elements
+		@include gridle_gutter();
+	} @else {
+		display: table-cell;
+		width:1px;
+		white-space:nowrap;
+		@include gridle_gutter();
+	}
 	
 }
 
@@ -170,20 +206,27 @@
 @mixin _gridle_common_row(
 	$state : default
 ) {
-	// For modern browser
-	&:before,
-	&:after {
-		content:"";
-		display:table;
+	$flex : gridle_get_state_var(flex, $state);
+
+	@if $flex {
+		@include flexbox;
+		@include flex-wrap(wrap);
+		@include flex(0 1 auto);
+	} @else {
+		// For modern browser
+		&:before,
+		&:after {
+			content:"";
+			display:table;
+		}
+		&:after {
+			clear:both;
+		}
+		// For IE 6/7 (trigger hasLayout
+		& {
+		   zoom:1;
+		}
 	}
-	&:after {
-		clear:both;
-	}
-	// For IE 6/7 (trigger hasLayout
-	& {
-	   zoom:1;
-	}
-	
 }
 
 
@@ -256,6 +299,11 @@
 @mixin _gridle_common_align(
 	$state : default
 ) {
+	$flex : gridle_get_state_var(flex, $state);
+
+	@if $flex {
+	} @else {
+	}
 }
 
 

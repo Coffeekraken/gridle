@@ -9,7 +9,7 @@ jQuery(function($) {
   Gridle.on('ready', function(e) {
     var states;
     states = Gridle.getRegisteredStates();
-    $('.container.gridle-debug').each(function() {
+    $('.grid-12.gridle-debug').each(function() {
       var $this, $ul;
       $this = $(this);
       $ul = $('<ul class="selector selector--states" />');
@@ -20,7 +20,7 @@ jQuery(function($) {
           var $container, previous_class;
           $(this).siblings().removeClass('active');
           $(this).addClass('active');
-          $container = $(this).parent().siblings('.container.gridle-debug');
+          $container = $this;
           previous_class = $container.attr('data-active-state');
           $container.removeClass(previous_class).attr('data-active-state', 'state-' + item.name);
           if (item.name !== 'default') {
@@ -32,7 +32,7 @@ jQuery(function($) {
           $li.trigger('click');
         }
       });
-      $this.before($ul);
+      $this.prepend($ul);
     });
   });
   Gridle.init({
@@ -43,7 +43,7 @@ jQuery(function($) {
     $this = $(this);
     $container = $this;
     if (!$this.hasClass('.gridle-debug')) {
-      $container = $this.closest('.container');
+      $container = $this.closest('.grid-12.gridle-debug');
     }
     options = $this.data('options');
     groups = options.split('|');
@@ -67,7 +67,7 @@ jQuery(function($) {
           $li.trigger('click');
         }
       });
-      $container.before($ul);
+      $container.prepend($ul);
     });
   });
 });

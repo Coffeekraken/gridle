@@ -53,6 +53,76 @@
 	@return map-merge($map, $new);
 }
 
+//
+// Remove item from list
+//
+//
+@function remove-nth($list, $index) {
+  $result: null;
+		
+  @if type-of($index) != number {
+	@warn "$index: #{quote($index)} is not a number for `remove-nth`.";
+  }
+
+  @else if $index == 0 {
+	@warn "List index 0 must be a non-zero integer for `remove-nth`.";
+  }
+
+  @else if abs($index) > length($list) {
+	@warn "List index is #{$index} but list is only #{length($list)} item long for `remove-nth`.";
+  }
+
+  @else {
+	$result: ();
+	$index: if($index < 0, length($list) + $index + 1, $index);  
+
+	@for $i from 1 through length($list) {
+	  @if $i != $index {
+		$result: append($result, nth($list, $i));
+	  }
+	}
+  }
+		
+  @return $result;
+}
+
+//
+// List shift
+//
+// @param 	List 	$list 		The list to use
+// @return 	List 				The processed list
+//
+@function list-shift($list) {
+	@return remove-nth($list,1);
+}
+
+//
+// List pop
+//
+// @param 	List 	$list 		The list to use
+// @return 	List 				The processed list
+//
+@function list-pop($list) {
+	@return remove-nth($list,length($list));
+}
+
+//
+// In map
+// Determine if something is in the provided map
+//
+// @param 	Map 	$map 		The map to use
+// @param 	Mixed 	$needle		What to search
+// @return 	Boolean				True|false
+//
+@function in-map($map, $needle) {
+	@each $v in $map {
+		@if $v == $needle {
+			@return true;
+		}
+	}
+	@return false;
+}
+
 
 //
 // Get states count
@@ -474,10 +544,6 @@
 				@each $reverse in map-get($_gridle-names-tokens, reverse) {
 					$sel : append($sel, _gridle_classname($for, $stateName, $reverse), comma);
 				}
-			} @else if index($pattern, '%distribution') {
-				@each $distribution in map-get($_gridle-names-tokens, distribution) {
-					$sel : append($sel, _gridle_classname($for, $stateName, $distribution), comma);
-				}
 			} @else {
 				$sel : append($sel, _gridle_classname($for, $stateName), comma);
 			}
@@ -529,7 +595,7 @@
 			} @else {
 				$pattern : set-nth($pattern, $i, $state);
 			}
-		} @else if str-index($var, '%') == 1 {
+		} @else if $var and str-index($var, '%') == 1 {
 			$token : str-slice($var, 2);
 			// check that the value is part of the token
 			$tokens : map-get($_gridle-names-tokens, $token);

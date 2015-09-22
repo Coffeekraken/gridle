@@ -1,8 +1,8 @@
-.not-visible, .not-visible-mobile, .visible, .visible-mobile, .show, .show-mobile, .hide, .hide-mobile {
+.not-visible, .not-visible\@mobile, .visible, .visible\@mobile, .show, .show\@mobile, .hide, .hide\@mobile {
   content: "your css...";
 }
 @media screen and (max-width: 480px) {
-  .not-visible, .not-visible-mobile, .visible, .visible-mobile, .show, .show-mobile, .hide, .hide-mobile {
+  .not-visible, .not-visible\@mobile, .visible, .visible\@mobile, .show, .show\@mobile, .hide, .hide\@mobile {
     content: "you can even use the gridle_state mixin etc...";
   }
 }
@@ -220,21 +220,39 @@
 }
 
 .align-left {
+  font-size: 0;
+  clear: both;
   text-align: left;
 }
 .align-left > * {
-  text-align: left;
+  float: none !important;
+  vertical-align: left;
+  font-size: 1rem;
 }
 
 .align-center {
+  font-size: 0;
+  clear: both;
   text-align: center;
+}
+.align-center > * {
+  float: none !important;
+  vertical-align: center;
+  font-size: 1rem;
 }
 .align-center > * {
   text-align: left;
 }
 
 .align-right {
+  font-size: 0;
+  clear: both;
   text-align: right;
+}
+.align-right > * {
+  float: none !important;
+  vertical-align: right;
+  font-size: 1rem;
 }
 .align-right > * {
   text-align: left;
@@ -243,6 +261,7 @@
 .align-top {
   font-size: 0;
   clear: both;
+  vertical-align: top;
 }
 .align-top > * {
   float: none !important;
@@ -253,6 +272,7 @@
 .align-middle {
   font-size: 0;
   clear: both;
+  vertical-align: middle;
 }
 .align-middle > * {
   float: none !important;
@@ -263,6 +283,7 @@
 .align-bottom {
   font-size: 0;
   clear: both;
+  vertical-align: bottom;
 }
 .align-bottom > * {
   float: none !important;
@@ -609,11 +630,11 @@
 }
 
 .gridle_get_state {
-  content: "(name: mobile, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false)";
+  content: "(name: mobile, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false, flex: false)";
 }
 
 .gridle_get_state-custom {
-  content: "(name: utkuihnnu, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false)";
+  content: "(name: ue1iihvay, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false, flex: false)";
 }
 
 .gridle_has_state-mobile {
@@ -629,5 +650,5 @@
 }
 
 .gridle_set_state_var {
-  content: (name: coucou, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false);
+  content: (name: coucou, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false, flex: false);
 }

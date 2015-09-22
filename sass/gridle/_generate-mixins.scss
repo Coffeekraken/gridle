@@ -57,6 +57,9 @@
 	$state : null,
 	$package : null
 ) {
+	// vars
+	$flex : gridle_get_state_var(flex, $state);
+
 	// helpers :
 	@if _gridle_need_to_generate(all float helpers, $package) {
 		#{_gridle_classname(float, $state, left)} {
@@ -135,25 +138,25 @@
 
 	@if _gridle_need_to_generate(all row default, $package) {
 		#{_gridle_classname(row, $state)} {
-			@include gridle_row();
+			@include gridle_row(false);
+		}
+		#{_gridle_classname(row, $state, reverse)} {
+			@include gridle_row(true);
+		}
+	}
+
+	@if _gridle_need_to_generate(all col default, $package) {
+		#{_gridle_classname(col, $state)} {
+			@include gridle_col(false);
+		}
+		#{_gridle_classname(col, $state, reverse)} {
+			@include gridle_col(true);
 		}
 	}
 
 	@if _gridle_need_to_generate(all grid-table default, $package) {
 		#{_gridle_classname(grid-table, $state)} {
 			@include gridle_grid_table();
-		}
-	}
-
-	@if _gridle_need_to_generate(all row-table default, $package) {
-		#{_gridle_classname(row-table, $state)} {
-			@include gridle_row_table();
-		}
-	}
-
-	@if _gridle_need_to_generate(all row-table-break default, $package) {
-		#{_gridle_classname(row-table-break, $state)} {
-			@include gridle_row_table_break();
 		}
 	}
 
@@ -166,63 +169,6 @@
 	@if _gridle_need_to_generate(all grow default, $package) {
 		#{_gridle_classname(grow, $state)} {
 			@include gridle_grow();
-		}
-	}
-
-	@if _gridle_need_to_generate(all flex-row flex, $package) {
-		#{_gridle_classname(flex-row, $state)} {
-			@include gridle_flex_row(false);
-		}
-		#{_gridle_classname(flex-row, $state, reverse)} {
-			@include gridle_flex_row(true);
-		}
-	}
-
-	@if _gridle_need_to_generate(all flex-col flex, $package) {
-		#{_gridle_classname(flex-col, $state)} {
-			@include gridle_flex_col(false);
-		}
-		#{_gridle_classname(flex-col, $state, reverse)} {
-			@include gridle_flex_col(true);
-		}
-	}
-
-	@if _gridle_need_to_generate(all flex-adapt flex, $package) {
-		#{_gridle_classname(flex-adapt, $state)} {
-			@include gridle_flex_adapt();
-		}
-	}
-
-	@if _gridle_need_to_generate(all flex-grow flex, $package) {
-		#{_gridle_classname(flex-grow, $state)} {
-			@include gridle_flex_grow();
-		}
-	}
-
-	@if _gridle_need_to_generate(all flex-align flex-helpers, $package) {
-		#{_gridle_classname(flex-align, $state, left)} {
-			@include gridle_flex_align(left);
-		}
-		#{_gridle_classname(flex-align, $state, center)} {
-			@include gridle_flex_align(center);
-		}
-		#{_gridle_classname(flex-align, $state, right)} {
-			@include gridle_flex_align(right);
-		}
-		#{_gridle_classname(flex-align, $state, top)} {
-			@include gridle_flex_align(top);
-		}
-		#{_gridle_classname(flex-align, $state, middle)} {
-			@include gridle_flex_align(middle);
-		}
-		#{_gridle_classname(flex-align, $state, bottom)} {
-			@include gridle_flex_align(bottom);
-		}
-		#{_gridle_classname(flex-align, $state, around)} {
-			@include gridle_flex_align(around);
-		}
-		#{_gridle_classname(flex-align, $state, between)} {
-			@include gridle_flex_align(between);
 		}
 	}
 
@@ -244,6 +190,14 @@
 		}
 		#{_gridle_classname(align, $state, bottom)} {
 			@include gridle_align(bottom);
+		}
+		@if $flex {
+			#{_gridle_classname(align, $state, around)} {
+				@include gridle_align(around);
+			}
+			#{_gridle_classname(align, $state, between)} {
+				@include gridle_align(between);
+			}
 		}
 	}
 
@@ -374,7 +328,7 @@
 //
 @mixin gridle_generate_classes(
 	$states : null, // null mean all states here...
-	$package : (default, helpers, flex, flex-helpers),
+	$package : (default, helpers),
 	$scope : null
 ) {
 
@@ -471,11 +425,6 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 							@include gridle($columnsCount, $columnsContext);
 						}
 					}
-					@if _gridle_need_to_generate(all flex-grid flex, $package) {
-						#{_gridle_classname(flex-grid, $stateName, $columnName)} {
-							@include gridle_flex_grid($columnsCount, $columnsContext);
-						}
-					}
 					@if _gridle_need_to_generate(all push default, $package) {
 						#{_gridle_classname(push, $stateName, $columnName)} {
 							@include gridle_push($columnsCount, $columnsContext);
@@ -496,15 +445,15 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 							@include gridle_suffix($columnsCount, $columnsContext);
 						}   
 					}
-					@if _gridle_need_to_generate(all flex-order flex, $package) {
-						#{_gridle_classname(flex-order, $stateName, first)} {
-							@include gridle_flex_order(-1);
+					@if _gridle_need_to_generate(all order default, $package) {
+						#{_gridle_classname(order, $stateName, first)} {
+							@include gridle_order(-1);
 						} 
-						#{_gridle_classname(flex-order, $stateName, $i)} {
-							@include gridle_flex_order($i);
+						#{_gridle_classname(order, $stateName, $i)} {
+							@include gridle_order($i);
 						}  
-						#{_gridle_classname(flex-order, $stateName, last)} {
-							@include gridle_flex_order(9999);
+						#{_gridle_classname(order, $stateName, last)} {
+							@include gridle_order(9999);
 						} 
 					}
 					// up $i
@@ -525,11 +474,22 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 				@each $f, $rules in $fors {
 					@if map-get($fors, $f) {
 						@include gridle_selector($f, null) {
-						// @include gridle_use_state()
 							@include _gridle_map_2_css($rules);
 						}
 					}
 				}
+			}
+		}
+	}
+
+	@each $stateName, $state in gridle_get_registered_states() {
+		$gutter-left : gridle_get_state_var(gutter-left, $state);
+		$gutter-right : gridle_get_state_var(gutter-right, $state);
+		@include _gridle_state($stateName, false) {
+			[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(row),2)}"],
+			[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(col),2)}"] {
+				margin-left: -#{$gutter-left};
+				margin-right: -#{$gutter-right};
 			}
 		}
 	}
