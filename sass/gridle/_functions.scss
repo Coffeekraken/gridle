@@ -506,7 +506,8 @@
 		}
 
 		// get the pattern
-		$pattern : map-get($_gridle-names-patterns, $for);
+		$pattern : map-get($_gridle-packages, $for);
+		$pattern : map-get($pattern, classname);
 
 		@each $stateName in $states {
 			@if $values != null {
@@ -569,7 +570,8 @@
 	// get the pattern
 	$pattern : $for;
 	@if type-of($for) == string {
-		$pattern : map-get($_gridle-names-patterns, $for);
+		$pattern : map-get($_gridle-packages, $for);
+		$pattern : map-get($pattern, classname);
 	}
 
 	// delete default :
@@ -623,6 +625,27 @@
 
 
 //
+// Get the current driver
+//
+@function gridle_get_driver() {
+	@return $_gridle-driver;
+}
+
+
+//
+// Is driver
+//
+@function gridle_is_driver($driver) {
+	@each $d in $driver {
+		@if $d == gridle_get_driver() {
+			@return true;
+		}
+	}
+	@return false;
+}
+
+
+//
 // Check if we need to generate the class or not
 //
 // @param 	List 		$for 			Name of the class map
@@ -630,19 +653,21 @@
 // @return 	Boolean 					true if need to generate, false if not
 //
 @function _gridle_need_to_generate(
-	$classmap-name,
+	$package,
 	$what
 ) {
-	// $return : true;
+	@if map-get($_gridle-packages, $package) {
+		$package : map-get($_gridle-packages, $package);
+		$package : map-get($package, package);
+	} @else {
+		@return false;
+	}
 	@if $what {
-		$return : false;
-		@each $name in $classmap-name {
+		$return : true;
+		@each $name in $package {
 			// if we don't want the specified element, return false directly
 			@if index($what, unquote("-#{$name}")) {
 				@return false;
-			}
-			@if index($what, $name) {
-				$return : true;
 			}
 		}
 		@return $return;

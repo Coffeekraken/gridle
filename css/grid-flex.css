@@ -4,10 +4,10 @@
   }
 }
 #gridle-settings {
-  content: '{ "version" : "1.4.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "flex" : true, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "flex" : true, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "flex" : true, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "flex" : true, "_" : true }} }';
+  content: '{ "version" : "1.4.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "_" : true }} }';
 }
 
-.state-default .grid-1on5 {
+.state-default .gr-1on5 {
   -webkit-flex-basis: 20%;
   -moz-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
@@ -24,33 +24,6 @@
   content: "";
   display: table;
   clear: both;
-}
-.col, .col-reverse {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -moz-box-flex: 0;
-  -moz-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-}
-
-.state-default .col, .state-default .col-reverse {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -moz-box-flex: 0;
-  -moz-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
 }
 .row, .row-reverse {
   display: -webkit-box;
@@ -87,7 +60,7 @@
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
 }
-.grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {
+.gr-1on5, .gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -moz-box-flex: 0;
@@ -108,7 +81,7 @@
   content: i extend the grid class;
 }
 
-.state-default .grid-1on5, .state-default .grid-0, .state-default .grid-1, .state-default .grid-2, .state-default .grid-3, .state-default .grid-4, .state-default .grid-5, .state-default .grid-6, .state-default .grid-7, .state-default .grid-8, .state-default .grid-9, .state-default .grid-10, .state-default .grid-11, .state-default .grid-12 {
+.state-default .gr-1on5, .state-default .gr-0, .state-default .gr-1, .state-default .gr-2, .state-default .gr-3, .state-default .gr-4, .state-default .gr-5, .state-default .gr-6, .state-default .gr-7, .state-default .gr-8, .state-default .gr-9, .state-default .gr-10, .state-default .gr-11, .state-default .gr-12 {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -moz-box-flex: 0;
@@ -128,7 +101,7 @@
   padding-left: 10px;
   content: i extend the grid class;
 }
-.adapt {
+.gr-adapt {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -151,7 +124,7 @@
   padding-left: 10px;
 }
 
-.state-default .adapt {
+.state-default .gr-adapt {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -173,7 +146,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.grow {
+.gr-grow {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -196,7 +169,7 @@
   padding-left: 10px;
 }
 
-.state-default .grow {
+.state-default .gr-grow {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -232,7 +205,7 @@
 .state-default .pull-1on5, .state-default .pull-0, .state-default .pull-1, .state-default .pull-2, .state-default .pull-3, .state-default .pull-4, .state-default .pull-5, .state-default .pull-6, .state-default .pull-7, .state-default .pull-8, .state-default .pull-9, .state-default .pull-10, .state-default .pull-11, .state-default .pull-12 {
   position: relative;
 }
-.centered {
+.gr-centered {
   display: block !important;
   float: none !important;
   margin-left: auto !important;
@@ -240,7 +213,7 @@
   clear: both !important;
 }
 
-.state-default .centered {
+.state-default .gr-centered {
   display: block !important;
   float: none !important;
   margin-left: auto !important;
@@ -258,34 +231,6 @@
   content: "";
   display: table;
   clear: both;
-}
-@media screen and (max-width: 480px) {
-  .col\@mobile, .col-reverse\@mobile {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 1 auto;
-    -moz-box-flex: 0;
-    -moz-flex: 0 1 auto;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-  }
-}
-.state-mobile .col\@mobile, .state-mobile .col-reverse\@mobile {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -moz-box-flex: 0;
-  -moz-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
 }
 @media screen and (max-width: 480px) {
   .row\@mobile, .row-reverse\@mobile {
@@ -324,11 +269,7 @@
   flex: 0 1 auto;
 }
 @media screen and (max-width: 480px) {
-  .grid-1on5\@mobile, .grid-0\@mobile, .grid-1\@mobile, .grid-2\@mobile, .grid-3\@mobile, .grid-4\@mobile, .grid-5\@mobile, .grid-6\@mobile, .grid-7\@mobile, .grid-8\@mobile, .grid-9\@mobile, .grid-10\@mobile, .grid-11\@mobile, .grid-12\@mobile, .state-default [class*="grid-"], .state-default
-  [class*="grow"], .state-default
-  [class*="adapt"], [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  .gr-1on5\@mobile, .gr-0\@mobile, .gr-1\@mobile, .gr-2\@mobile, .gr-3\@mobile, .gr-4\@mobile, .gr-5\@mobile, .gr-6\@mobile, .gr-7\@mobile, .gr-8\@mobile, .gr-9\@mobile, .gr-10\@mobile, .gr-11\@mobile, .gr-12\@mobile, .state-default [class*="gr-"], [class*="gr-"] {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -moz-box-flex: 0;
@@ -349,11 +290,7 @@
     content: i extend the grid class;
   }
 }
-.state-mobile .grid-1on5\@mobile, .state-mobile .grid-0\@mobile, .state-mobile .grid-1\@mobile, .state-mobile .grid-2\@mobile, .state-mobile .grid-3\@mobile, .state-mobile .grid-4\@mobile, .state-mobile .grid-5\@mobile, .state-mobile .grid-6\@mobile, .state-mobile .grid-7\@mobile, .state-mobile .grid-8\@mobile, .state-mobile .grid-9\@mobile, .state-mobile .grid-10\@mobile, .state-mobile .grid-11\@mobile, .state-mobile .grid-12\@mobile, .state-mobile .state-default [class*="grid-"], .state-mobile .state-default
-[class*="grow"], .state-mobile .state-default
-[class*="adapt"], .state-mobile [class*="grid-"], .state-mobile
-[class*="grow"], .state-mobile
-[class*="adapt"] {
+.state-mobile .gr-1on5\@mobile, .state-mobile .gr-0\@mobile, .state-mobile .gr-1\@mobile, .state-mobile .gr-2\@mobile, .state-mobile .gr-3\@mobile, .state-mobile .gr-4\@mobile, .state-mobile .gr-5\@mobile, .state-mobile .gr-6\@mobile, .state-mobile .gr-7\@mobile, .state-mobile .gr-8\@mobile, .state-mobile .gr-9\@mobile, .state-mobile .gr-10\@mobile, .state-mobile .gr-11\@mobile, .state-mobile .gr-12\@mobile, .state-mobile .state-default [class*="gr-"], .state-mobile [class*="gr-"] {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -moz-box-flex: 0;
@@ -374,7 +311,7 @@
   content: i extend the grid class;
 }
 @media screen and (max-width: 480px) {
-  .adapt\@mobile {
+  .gr-adapt\@mobile {
     max-width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -397,7 +334,7 @@
     padding-left: 10px;
   }
 }
-.state-mobile .adapt\@mobile {
+.state-mobile .gr-adapt\@mobile {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -420,7 +357,7 @@
   padding-left: 10px;
 }
 @media screen and (max-width: 480px) {
-  .grow\@mobile {
+  .gr-grow\@mobile {
     max-width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -443,7 +380,7 @@
     padding-left: 10px;
   }
 }
-.state-mobile .grow\@mobile {
+.state-mobile .gr-grow\@mobile {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -466,39 +403,23 @@
   padding-left: 10px;
 }
 @media screen and (max-width: 480px) {
-  .push-1on5\@mobile, .push-0\@mobile, .push-1\@mobile, .push-2\@mobile, .push-3\@mobile, .push-4\@mobile, .push-5\@mobile, .push-6\@mobile, .push-7\@mobile, .push-8\@mobile, .push-9\@mobile, .push-10\@mobile, .push-11\@mobile, .push-12\@mobile, .state-default [class*="grid-"], .state-default
-  [class*="grow"], .state-default
-  [class*="adapt"], [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  .push-1on5\@mobile, .push-0\@mobile, .push-1\@mobile, .push-2\@mobile, .push-3\@mobile, .push-4\@mobile, .push-5\@mobile, .push-6\@mobile, .push-7\@mobile, .push-8\@mobile, .push-9\@mobile, .push-10\@mobile, .push-11\@mobile, .push-12\@mobile, .state-default [class*="gr-"], [class*="gr-"] {
     position: relative;
   }
 }
-.state-mobile .push-1on5\@mobile, .state-mobile .push-0\@mobile, .state-mobile .push-1\@mobile, .state-mobile .push-2\@mobile, .state-mobile .push-3\@mobile, .state-mobile .push-4\@mobile, .state-mobile .push-5\@mobile, .state-mobile .push-6\@mobile, .state-mobile .push-7\@mobile, .state-mobile .push-8\@mobile, .state-mobile .push-9\@mobile, .state-mobile .push-10\@mobile, .state-mobile .push-11\@mobile, .state-mobile .push-12\@mobile, .state-mobile .state-default [class*="grid-"], .state-mobile .state-default
-[class*="grow"], .state-mobile .state-default
-[class*="adapt"], .state-mobile [class*="grid-"], .state-mobile
-[class*="grow"], .state-mobile
-[class*="adapt"] {
+.state-mobile .push-1on5\@mobile, .state-mobile .push-0\@mobile, .state-mobile .push-1\@mobile, .state-mobile .push-2\@mobile, .state-mobile .push-3\@mobile, .state-mobile .push-4\@mobile, .state-mobile .push-5\@mobile, .state-mobile .push-6\@mobile, .state-mobile .push-7\@mobile, .state-mobile .push-8\@mobile, .state-mobile .push-9\@mobile, .state-mobile .push-10\@mobile, .state-mobile .push-11\@mobile, .state-mobile .push-12\@mobile, .state-mobile .state-default [class*="gr-"], .state-mobile [class*="gr-"] {
   position: relative;
 }
 @media screen and (max-width: 480px) {
-  .pull-1on5\@mobile, .pull-0\@mobile, .pull-1\@mobile, .pull-2\@mobile, .pull-3\@mobile, .pull-4\@mobile, .pull-5\@mobile, .pull-6\@mobile, .pull-7\@mobile, .pull-8\@mobile, .pull-9\@mobile, .pull-10\@mobile, .pull-11\@mobile, .pull-12\@mobile, .state-default [class*="grid-"], .state-default
-  [class*="grow"], .state-default
-  [class*="adapt"], [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  .pull-1on5\@mobile, .pull-0\@mobile, .pull-1\@mobile, .pull-2\@mobile, .pull-3\@mobile, .pull-4\@mobile, .pull-5\@mobile, .pull-6\@mobile, .pull-7\@mobile, .pull-8\@mobile, .pull-9\@mobile, .pull-10\@mobile, .pull-11\@mobile, .pull-12\@mobile, .state-default [class*="gr-"], [class*="gr-"] {
     position: relative;
   }
 }
-.state-mobile .pull-1on5\@mobile, .state-mobile .pull-0\@mobile, .state-mobile .pull-1\@mobile, .state-mobile .pull-2\@mobile, .state-mobile .pull-3\@mobile, .state-mobile .pull-4\@mobile, .state-mobile .pull-5\@mobile, .state-mobile .pull-6\@mobile, .state-mobile .pull-7\@mobile, .state-mobile .pull-8\@mobile, .state-mobile .pull-9\@mobile, .state-mobile .pull-10\@mobile, .state-mobile .pull-11\@mobile, .state-mobile .pull-12\@mobile, .state-mobile .state-default [class*="grid-"], .state-mobile .state-default
-[class*="grow"], .state-mobile .state-default
-[class*="adapt"], .state-mobile [class*="grid-"], .state-mobile
-[class*="grow"], .state-mobile
-[class*="adapt"] {
+.state-mobile .pull-1on5\@mobile, .state-mobile .pull-0\@mobile, .state-mobile .pull-1\@mobile, .state-mobile .pull-2\@mobile, .state-mobile .pull-3\@mobile, .state-mobile .pull-4\@mobile, .state-mobile .pull-5\@mobile, .state-mobile .pull-6\@mobile, .state-mobile .pull-7\@mobile, .state-mobile .pull-8\@mobile, .state-mobile .pull-9\@mobile, .state-mobile .pull-10\@mobile, .state-mobile .pull-11\@mobile, .state-mobile .pull-12\@mobile, .state-mobile .state-default [class*="gr-"], .state-mobile [class*="gr-"] {
   position: relative;
 }
 @media screen and (max-width: 480px) {
-  .centered\@mobile {
+  .gr-centered\@mobile {
     display: block !important;
     float: none !important;
     margin-left: auto !important;
@@ -506,7 +427,7 @@
     clear: both !important;
   }
 }
-.state-mobile .centered\@mobile {
+.state-mobile .gr-centered\@mobile {
   display: block !important;
   float: none !important;
   margin-left: auto !important;
@@ -524,34 +445,6 @@
   content: "";
   display: table;
   clear: both;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .col\@tablet, .col-reverse\@tablet {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 1 auto;
-    -moz-box-flex: 0;
-    -moz-flex: 0 1 auto;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-  }
-}
-.state-tablet .col\@tablet, .state-tablet .col-reverse\@tablet {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -moz-box-flex: 0;
-  -moz-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .row\@tablet, .row-reverse\@tablet {
@@ -590,7 +483,7 @@
   flex: 0 1 auto;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .grid-1on5\@tablet, .grid-0\@tablet, .grid-1\@tablet, .grid-2\@tablet, .grid-3\@tablet, .grid-4\@tablet, .grid-5\@tablet, .grid-6\@tablet, .grid-7\@tablet, .grid-8\@tablet, .grid-9\@tablet, .grid-10\@tablet, .grid-11\@tablet, .grid-12\@tablet {
+  .gr-1on5\@tablet, .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -moz-box-flex: 0;
@@ -611,7 +504,7 @@
     content: i extend the grid class;
   }
 }
-.state-tablet .grid-1on5\@tablet, .state-tablet .grid-0\@tablet, .state-tablet .grid-1\@tablet, .state-tablet .grid-2\@tablet, .state-tablet .grid-3\@tablet, .state-tablet .grid-4\@tablet, .state-tablet .grid-5\@tablet, .state-tablet .grid-6\@tablet, .state-tablet .grid-7\@tablet, .state-tablet .grid-8\@tablet, .state-tablet .grid-9\@tablet, .state-tablet .grid-10\@tablet, .state-tablet .grid-11\@tablet, .state-tablet .grid-12\@tablet {
+.state-tablet .gr-1on5\@tablet, .state-tablet .gr-0\@tablet, .state-tablet .gr-1\@tablet, .state-tablet .gr-2\@tablet, .state-tablet .gr-3\@tablet, .state-tablet .gr-4\@tablet, .state-tablet .gr-5\@tablet, .state-tablet .gr-6\@tablet, .state-tablet .gr-7\@tablet, .state-tablet .gr-8\@tablet, .state-tablet .gr-9\@tablet, .state-tablet .gr-10\@tablet, .state-tablet .gr-11\@tablet, .state-tablet .gr-12\@tablet {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -moz-box-flex: 0;
@@ -632,7 +525,7 @@
   content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .adapt\@tablet {
+  .gr-adapt\@tablet {
     max-width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -655,7 +548,7 @@
     padding-left: 10px;
   }
 }
-.state-tablet .adapt\@tablet {
+.state-tablet .gr-adapt\@tablet {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -678,7 +571,7 @@
   padding-left: 10px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .grow\@tablet {
+  .gr-grow\@tablet {
     max-width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -701,7 +594,7 @@
     padding-left: 10px;
   }
 }
-.state-tablet .grow\@tablet {
+.state-tablet .gr-grow\@tablet {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -740,7 +633,7 @@
   position: relative;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .centered\@tablet {
+  .gr-centered\@tablet {
     display: block !important;
     float: none !important;
     margin-left: auto !important;
@@ -748,7 +641,7 @@
     clear: both !important;
   }
 }
-.state-tablet .centered\@tablet {
+.state-tablet .gr-centered\@tablet {
   display: block !important;
   float: none !important;
   margin-left: auto !important;
@@ -766,34 +659,6 @@
   content: "";
   display: table;
   clear: both;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .col\@ipad-landscape, .col-reverse\@ipad-landscape {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-flex: 0;
-    -webkit-flex: 0 1 auto;
-    -moz-box-flex: 0;
-    -moz-flex: 0 1 auto;
-    -ms-flex: 0 1 auto;
-    flex: 0 1 auto;
-  }
-}
-.state-ipad-landscape .col\@ipad-landscape, .state-ipad-landscape .col-reverse\@ipad-landscape {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -moz-box-flex: 0;
-  -moz-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .row\@ipad-landscape, .row-reverse\@ipad-landscape {
@@ -832,7 +697,7 @@
   flex: 0 1 auto;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grid-1on5\@ipad-landscape, .grid-0\@ipad-landscape, .grid-1\@ipad-landscape, .grid-2\@ipad-landscape, .grid-3\@ipad-landscape, .grid-4\@ipad-landscape, .grid-5\@ipad-landscape, .grid-6\@ipad-landscape, .grid-7\@ipad-landscape, .grid-8\@ipad-landscape, .grid-9\@ipad-landscape, .grid-10\@ipad-landscape, .grid-11\@ipad-landscape, .grid-12\@ipad-landscape {
+  .gr-1on5\@ipad-landscape, .gr-0\@ipad-landscape, .gr-1\@ipad-landscape, .gr-2\@ipad-landscape, .gr-3\@ipad-landscape, .gr-4\@ipad-landscape, .gr-5\@ipad-landscape, .gr-6\@ipad-landscape, .gr-7\@ipad-landscape, .gr-8\@ipad-landscape, .gr-9\@ipad-landscape, .gr-10\@ipad-landscape, .gr-11\@ipad-landscape, .gr-12\@ipad-landscape {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 auto;
     -moz-box-flex: 0;
@@ -853,7 +718,7 @@
     content: i extend the grid class;
   }
 }
-.state-ipad-landscape .grid-1on5\@ipad-landscape, .state-ipad-landscape .grid-0\@ipad-landscape, .state-ipad-landscape .grid-1\@ipad-landscape, .state-ipad-landscape .grid-2\@ipad-landscape, .state-ipad-landscape .grid-3\@ipad-landscape, .state-ipad-landscape .grid-4\@ipad-landscape, .state-ipad-landscape .grid-5\@ipad-landscape, .state-ipad-landscape .grid-6\@ipad-landscape, .state-ipad-landscape .grid-7\@ipad-landscape, .state-ipad-landscape .grid-8\@ipad-landscape, .state-ipad-landscape .grid-9\@ipad-landscape, .state-ipad-landscape .grid-10\@ipad-landscape, .state-ipad-landscape .grid-11\@ipad-landscape, .state-ipad-landscape .grid-12\@ipad-landscape {
+.state-ipad-landscape .gr-1on5\@ipad-landscape, .state-ipad-landscape .gr-0\@ipad-landscape, .state-ipad-landscape .gr-1\@ipad-landscape, .state-ipad-landscape .gr-2\@ipad-landscape, .state-ipad-landscape .gr-3\@ipad-landscape, .state-ipad-landscape .gr-4\@ipad-landscape, .state-ipad-landscape .gr-5\@ipad-landscape, .state-ipad-landscape .gr-6\@ipad-landscape, .state-ipad-landscape .gr-7\@ipad-landscape, .state-ipad-landscape .gr-8\@ipad-landscape, .state-ipad-landscape .gr-9\@ipad-landscape, .state-ipad-landscape .gr-10\@ipad-landscape, .state-ipad-landscape .gr-11\@ipad-landscape, .state-ipad-landscape .gr-12\@ipad-landscape {
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 auto;
   -moz-box-flex: 0;
@@ -874,7 +739,7 @@
   content: i extend the grid class;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .adapt\@ipad-landscape {
+  .gr-adapt\@ipad-landscape {
     max-width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -897,7 +762,7 @@
     padding-left: 10px;
   }
 }
-.state-ipad-landscape .adapt\@ipad-landscape {
+.state-ipad-landscape .gr-adapt\@ipad-landscape {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -920,7 +785,7 @@
   padding-left: 10px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grow\@ipad-landscape {
+  .gr-grow\@ipad-landscape {
     max-width: 100%;
     display: -webkit-box;
     display: -webkit-flex;
@@ -943,7 +808,7 @@
     padding-left: 10px;
   }
 }
-.state-ipad-landscape .grow\@ipad-landscape {
+.state-ipad-landscape .gr-grow\@ipad-landscape {
   max-width: 100%;
   display: -webkit-box;
   display: -webkit-flex;
@@ -982,7 +847,7 @@
   position: relative;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .centered\@ipad-landscape {
+  .gr-centered\@ipad-landscape {
     display: block !important;
     float: none !important;
     margin-left: auto !important;
@@ -990,7 +855,7 @@
     clear: both !important;
   }
 }
-.state-ipad-landscape .centered\@ipad-landscape {
+.state-ipad-landscape .gr-centered\@ipad-landscape {
   display: block !important;
   float: none !important;
   margin-left: auto !important;
@@ -1030,7 +895,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-0 {
+.state-default .gr-0 {
   -webkit-flex-basis: 0%;
   -moz-flex-basis: 0%;
   -ms-flex-preferred-size: 0%;
@@ -1070,7 +935,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-1 {
+.state-default .gr-1 {
   -webkit-flex-basis: 8.33333%;
   -moz-flex-basis: 8.33333%;
   -ms-flex-preferred-size: 8.33333%;
@@ -1110,7 +975,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-2 {
+.state-default .gr-2 {
   -webkit-flex-basis: 16.66667%;
   -moz-flex-basis: 16.66667%;
   -ms-flex-preferred-size: 16.66667%;
@@ -1150,7 +1015,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-3 {
+.state-default .gr-3 {
   -webkit-flex-basis: 25%;
   -moz-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
@@ -1190,7 +1055,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-4 {
+.state-default .gr-4 {
   -webkit-flex-basis: 33.33333%;
   -moz-flex-basis: 33.33333%;
   -ms-flex-preferred-size: 33.33333%;
@@ -1230,7 +1095,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-5 {
+.state-default .gr-5 {
   -webkit-flex-basis: 41.66667%;
   -moz-flex-basis: 41.66667%;
   -ms-flex-preferred-size: 41.66667%;
@@ -1270,7 +1135,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-6 {
+.state-default .gr-6 {
   -webkit-flex-basis: 50%;
   -moz-flex-basis: 50%;
   -ms-flex-preferred-size: 50%;
@@ -1310,7 +1175,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-7 {
+.state-default .gr-7 {
   -webkit-flex-basis: 58.33333%;
   -moz-flex-basis: 58.33333%;
   -ms-flex-preferred-size: 58.33333%;
@@ -1350,7 +1215,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-8 {
+.state-default .gr-8 {
   -webkit-flex-basis: 66.66667%;
   -moz-flex-basis: 66.66667%;
   -ms-flex-preferred-size: 66.66667%;
@@ -1390,7 +1255,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-9 {
+.state-default .gr-9 {
   -webkit-flex-basis: 75%;
   -moz-flex-basis: 75%;
   -ms-flex-preferred-size: 75%;
@@ -1430,7 +1295,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-10 {
+.state-default .gr-10 {
   -webkit-flex-basis: 83.33333%;
   -moz-flex-basis: 83.33333%;
   -ms-flex-preferred-size: 83.33333%;
@@ -1470,7 +1335,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-11 {
+.state-default .gr-11 {
   -webkit-flex-basis: 91.66667%;
   -moz-flex-basis: 91.66667%;
   -ms-flex-preferred-size: 91.66667%;
@@ -1510,7 +1375,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-default .grid-12 {
+.state-default .gr-12 {
   -webkit-flex-basis: 100%;
   -moz-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
@@ -1636,55 +1501,55 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-.state-default .align-left {
+.state-default .row-align-left {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   -moz-justify-content: flex-start;
   justify-content: flex-start;
 }
-.state-default .align-center {
+.state-default .row-align-center {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center;
 }
-.state-default .align-right {
+.state-default .row-align-right {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   -moz-justify-content: flex-end;
   justify-content: flex-end;
 }
-.state-default .align-middle {
+.state-default .row-align-middle {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
 }
-.state-default .align-top {
+.state-default .row-align-top {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
   -moz-align-items: flex-start;
   align-items: flex-start;
 }
-.state-default .align-bottom {
+.state-default .row-align-bottom {
   -webkit-box-align: end;
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
   -moz-align-items: flex-end;
   align-items: flex-end;
 }
-.state-default .align-around {
+.state-default .row-align-around {
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   justify-content: space-around;
 }
-.state-default .align-between {
+.state-default .row-align-between {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
@@ -1706,7 +1571,7 @@
 .state-default .visible {
   visibility: visible;
 }
-.grid-1on5 {
+.gr-1on5 {
   -webkit-flex-basis: 20%;
   -moz-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
@@ -1754,7 +1619,7 @@
   order: 9999;
 }
 
-.grid-0 {
+.gr-0 {
   -webkit-flex-basis: 0%;
   -moz-flex-basis: 0%;
   -ms-flex-preferred-size: 0%;
@@ -1802,7 +1667,7 @@
   order: 9999;
 }
 
-.grid-1 {
+.gr-1 {
   -webkit-flex-basis: 8.33333%;
   -moz-flex-basis: 8.33333%;
   -ms-flex-preferred-size: 8.33333%;
@@ -1850,7 +1715,7 @@
   order: 9999;
 }
 
-.grid-2 {
+.gr-2 {
   -webkit-flex-basis: 16.66667%;
   -moz-flex-basis: 16.66667%;
   -ms-flex-preferred-size: 16.66667%;
@@ -1898,7 +1763,7 @@
   order: 9999;
 }
 
-.grid-3 {
+.gr-3 {
   -webkit-flex-basis: 25%;
   -moz-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
@@ -1946,7 +1811,7 @@
   order: 9999;
 }
 
-.grid-4 {
+.gr-4 {
   -webkit-flex-basis: 33.33333%;
   -moz-flex-basis: 33.33333%;
   -ms-flex-preferred-size: 33.33333%;
@@ -1994,7 +1859,7 @@
   order: 9999;
 }
 
-.grid-5 {
+.gr-5 {
   -webkit-flex-basis: 41.66667%;
   -moz-flex-basis: 41.66667%;
   -ms-flex-preferred-size: 41.66667%;
@@ -2042,7 +1907,7 @@
   order: 9999;
 }
 
-.grid-6 {
+.gr-6 {
   -webkit-flex-basis: 50%;
   -moz-flex-basis: 50%;
   -ms-flex-preferred-size: 50%;
@@ -2090,7 +1955,7 @@
   order: 9999;
 }
 
-.grid-7 {
+.gr-7 {
   -webkit-flex-basis: 58.33333%;
   -moz-flex-basis: 58.33333%;
   -ms-flex-preferred-size: 58.33333%;
@@ -2138,7 +2003,7 @@
   order: 9999;
 }
 
-.grid-8 {
+.gr-8 {
   -webkit-flex-basis: 66.66667%;
   -moz-flex-basis: 66.66667%;
   -ms-flex-preferred-size: 66.66667%;
@@ -2186,7 +2051,7 @@
   order: 9999;
 }
 
-.grid-9 {
+.gr-9 {
   -webkit-flex-basis: 75%;
   -moz-flex-basis: 75%;
   -ms-flex-preferred-size: 75%;
@@ -2234,7 +2099,7 @@
   order: 9999;
 }
 
-.grid-10 {
+.gr-10 {
   -webkit-flex-basis: 83.33333%;
   -moz-flex-basis: 83.33333%;
   -ms-flex-preferred-size: 83.33333%;
@@ -2282,7 +2147,7 @@
   order: 9999;
 }
 
-.grid-11 {
+.gr-11 {
   -webkit-flex-basis: 91.66667%;
   -moz-flex-basis: 91.66667%;
   -ms-flex-preferred-size: 91.66667%;
@@ -2330,7 +2195,7 @@
   order: 9999;
 }
 
-.grid-12 {
+.gr-12 {
   -webkit-flex-basis: 100%;
   -moz-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
@@ -2482,7 +2347,7 @@
   padding-right: 0 !important;
 }
 
-.align-left {
+.row-align-left {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
@@ -2490,7 +2355,7 @@
   justify-content: flex-start;
 }
 
-.align-center {
+.row-align-center {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
@@ -2498,7 +2363,7 @@
   justify-content: center;
 }
 
-.align-right {
+.row-align-right {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
@@ -2506,7 +2371,7 @@
   justify-content: flex-end;
 }
 
-.align-middle {
+.row-align-middle {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
@@ -2514,7 +2379,7 @@
   align-items: center;
 }
 
-.align-top {
+.row-align-top {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
@@ -2522,7 +2387,7 @@
   align-items: flex-start;
 }
 
-.align-bottom {
+.row-align-bottom {
   -webkit-box-align: end;
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
@@ -2530,14 +2395,14 @@
   align-items: flex-end;
 }
 
-.align-around {
+.row-align-around {
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   justify-content: space-around;
 }
 
-.align-between {
+.row-align-between {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
@@ -2565,7 +2430,7 @@
   visibility: visible;
 }
 
-.state-mobile .grid-1on5\@mobile {
+.state-mobile .gr-1on5\@mobile {
   -webkit-flex-basis: 20%;
   -moz-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
@@ -2605,7 +2470,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-0\@mobile {
+.state-mobile .gr-0\@mobile {
   -webkit-flex-basis: 0%;
   -moz-flex-basis: 0%;
   -ms-flex-preferred-size: 0%;
@@ -2645,7 +2510,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-1\@mobile {
+.state-mobile .gr-1\@mobile {
   -webkit-flex-basis: 8.33333%;
   -moz-flex-basis: 8.33333%;
   -ms-flex-preferred-size: 8.33333%;
@@ -2685,7 +2550,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-2\@mobile {
+.state-mobile .gr-2\@mobile {
   -webkit-flex-basis: 16.66667%;
   -moz-flex-basis: 16.66667%;
   -ms-flex-preferred-size: 16.66667%;
@@ -2725,7 +2590,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-3\@mobile {
+.state-mobile .gr-3\@mobile {
   -webkit-flex-basis: 25%;
   -moz-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
@@ -2765,7 +2630,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-4\@mobile {
+.state-mobile .gr-4\@mobile {
   -webkit-flex-basis: 33.33333%;
   -moz-flex-basis: 33.33333%;
   -ms-flex-preferred-size: 33.33333%;
@@ -2805,7 +2670,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-5\@mobile {
+.state-mobile .gr-5\@mobile {
   -webkit-flex-basis: 41.66667%;
   -moz-flex-basis: 41.66667%;
   -ms-flex-preferred-size: 41.66667%;
@@ -2845,7 +2710,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-6\@mobile {
+.state-mobile .gr-6\@mobile {
   -webkit-flex-basis: 50%;
   -moz-flex-basis: 50%;
   -ms-flex-preferred-size: 50%;
@@ -2885,7 +2750,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-7\@mobile {
+.state-mobile .gr-7\@mobile {
   -webkit-flex-basis: 58.33333%;
   -moz-flex-basis: 58.33333%;
   -ms-flex-preferred-size: 58.33333%;
@@ -2925,7 +2790,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-8\@mobile {
+.state-mobile .gr-8\@mobile {
   -webkit-flex-basis: 66.66667%;
   -moz-flex-basis: 66.66667%;
   -ms-flex-preferred-size: 66.66667%;
@@ -2965,7 +2830,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-9\@mobile {
+.state-mobile .gr-9\@mobile {
   -webkit-flex-basis: 75%;
   -moz-flex-basis: 75%;
   -ms-flex-preferred-size: 75%;
@@ -3005,7 +2870,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-10\@mobile {
+.state-mobile .gr-10\@mobile {
   -webkit-flex-basis: 83.33333%;
   -moz-flex-basis: 83.33333%;
   -ms-flex-preferred-size: 83.33333%;
@@ -3045,7 +2910,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-11\@mobile {
+.state-mobile .gr-11\@mobile {
   -webkit-flex-basis: 91.66667%;
   -moz-flex-basis: 91.66667%;
   -ms-flex-preferred-size: 91.66667%;
@@ -3085,7 +2950,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-mobile .grid-12\@mobile {
+.state-mobile .gr-12\@mobile {
   -webkit-flex-basis: 100%;
   -moz-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
@@ -3211,55 +3076,55 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-.state-mobile .align-left\@mobile {
+.state-mobile .row-align-left\@mobile {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   -moz-justify-content: flex-start;
   justify-content: flex-start;
 }
-.state-mobile .align-center\@mobile {
+.state-mobile .row-align-center\@mobile {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center;
 }
-.state-mobile .align-right\@mobile {
+.state-mobile .row-align-right\@mobile {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   -moz-justify-content: flex-end;
   justify-content: flex-end;
 }
-.state-mobile .align-middle\@mobile {
+.state-mobile .row-align-middle\@mobile {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
 }
-.state-mobile .align-top\@mobile {
+.state-mobile .row-align-top\@mobile {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
   -moz-align-items: flex-start;
   align-items: flex-start;
 }
-.state-mobile .align-bottom\@mobile {
+.state-mobile .row-align-bottom\@mobile {
   -webkit-box-align: end;
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
   -moz-align-items: flex-end;
   align-items: flex-end;
 }
-.state-mobile .align-around\@mobile {
+.state-mobile .row-align-around\@mobile {
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   justify-content: space-around;
 }
-.state-mobile .align-between\@mobile {
+.state-mobile .row-align-between\@mobile {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
@@ -3282,7 +3147,7 @@
   visibility: visible;
 }
 @media screen and (max-width: 480px) {
-  .grid-1on5\@mobile {
+  .gr-1on5\@mobile {
     -webkit-flex-basis: 20%;
     -moz-flex-basis: 20%;
     -ms-flex-preferred-size: 20%;
@@ -3330,7 +3195,7 @@
     order: 9999;
   }
 
-  .grid-0\@mobile {
+  .gr-0\@mobile {
     -webkit-flex-basis: 0%;
     -moz-flex-basis: 0%;
     -ms-flex-preferred-size: 0%;
@@ -3378,7 +3243,7 @@
     order: 9999;
   }
 
-  .grid-1\@mobile {
+  .gr-1\@mobile {
     -webkit-flex-basis: 8.33333%;
     -moz-flex-basis: 8.33333%;
     -ms-flex-preferred-size: 8.33333%;
@@ -3426,7 +3291,7 @@
     order: 9999;
   }
 
-  .grid-2\@mobile {
+  .gr-2\@mobile {
     -webkit-flex-basis: 16.66667%;
     -moz-flex-basis: 16.66667%;
     -ms-flex-preferred-size: 16.66667%;
@@ -3474,7 +3339,7 @@
     order: 9999;
   }
 
-  .grid-3\@mobile {
+  .gr-3\@mobile {
     -webkit-flex-basis: 25%;
     -moz-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
@@ -3522,7 +3387,7 @@
     order: 9999;
   }
 
-  .grid-4\@mobile {
+  .gr-4\@mobile {
     -webkit-flex-basis: 33.33333%;
     -moz-flex-basis: 33.33333%;
     -ms-flex-preferred-size: 33.33333%;
@@ -3570,7 +3435,7 @@
     order: 9999;
   }
 
-  .grid-5\@mobile {
+  .gr-5\@mobile {
     -webkit-flex-basis: 41.66667%;
     -moz-flex-basis: 41.66667%;
     -ms-flex-preferred-size: 41.66667%;
@@ -3618,7 +3483,7 @@
     order: 9999;
   }
 
-  .grid-6\@mobile {
+  .gr-6\@mobile {
     -webkit-flex-basis: 50%;
     -moz-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
@@ -3666,7 +3531,7 @@
     order: 9999;
   }
 
-  .grid-7\@mobile {
+  .gr-7\@mobile {
     -webkit-flex-basis: 58.33333%;
     -moz-flex-basis: 58.33333%;
     -ms-flex-preferred-size: 58.33333%;
@@ -3714,7 +3579,7 @@
     order: 9999;
   }
 
-  .grid-8\@mobile {
+  .gr-8\@mobile {
     -webkit-flex-basis: 66.66667%;
     -moz-flex-basis: 66.66667%;
     -ms-flex-preferred-size: 66.66667%;
@@ -3762,7 +3627,7 @@
     order: 9999;
   }
 
-  .grid-9\@mobile {
+  .gr-9\@mobile {
     -webkit-flex-basis: 75%;
     -moz-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
@@ -3810,7 +3675,7 @@
     order: 9999;
   }
 
-  .grid-10\@mobile {
+  .gr-10\@mobile {
     -webkit-flex-basis: 83.33333%;
     -moz-flex-basis: 83.33333%;
     -ms-flex-preferred-size: 83.33333%;
@@ -3858,7 +3723,7 @@
     order: 9999;
   }
 
-  .grid-11\@mobile {
+  .gr-11\@mobile {
     -webkit-flex-basis: 91.66667%;
     -moz-flex-basis: 91.66667%;
     -ms-flex-preferred-size: 91.66667%;
@@ -3906,7 +3771,7 @@
     order: 9999;
   }
 
-  .grid-12\@mobile {
+  .gr-12\@mobile {
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -4058,7 +3923,7 @@
     padding-right: 0 !important;
   }
 
-  .align-left\@mobile {
+  .row-align-left\@mobile {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     -webkit-justify-content: flex-start;
@@ -4066,7 +3931,7 @@
     justify-content: flex-start;
   }
 
-  .align-center\@mobile {
+  .row-align-center\@mobile {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -4074,7 +3939,7 @@
     justify-content: center;
   }
 
-  .align-right\@mobile {
+  .row-align-right\@mobile {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     -webkit-justify-content: flex-end;
@@ -4082,7 +3947,7 @@
     justify-content: flex-end;
   }
 
-  .align-middle\@mobile {
+  .row-align-middle\@mobile {
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
@@ -4090,7 +3955,7 @@
     align-items: center;
   }
 
-  .align-top\@mobile {
+  .row-align-top\@mobile {
     -webkit-box-align: start;
     -ms-flex-align: start;
     -webkit-align-items: flex-start;
@@ -4098,7 +3963,7 @@
     align-items: flex-start;
   }
 
-  .align-bottom\@mobile {
+  .row-align-bottom\@mobile {
     -webkit-box-align: end;
     -ms-flex-align: end;
     -webkit-align-items: flex-end;
@@ -4106,14 +3971,14 @@
     align-items: flex-end;
   }
 
-  .align-around\@mobile {
+  .row-align-around\@mobile {
     -ms-flex-pack: distribute;
     -webkit-justify-content: space-around;
     -moz-justify-content: space-around;
     justify-content: space-around;
   }
 
-  .align-between\@mobile {
+  .row-align-between\@mobile {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
@@ -4141,7 +4006,7 @@
     visibility: visible;
   }
 }
-.state-tablet .grid-1on5\@tablet {
+.state-tablet .gr-1on5\@tablet {
   -webkit-flex-basis: 20%;
   -moz-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
@@ -4181,7 +4046,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-0\@tablet {
+.state-tablet .gr-0\@tablet {
   -webkit-flex-basis: 0%;
   -moz-flex-basis: 0%;
   -ms-flex-preferred-size: 0%;
@@ -4221,7 +4086,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-1\@tablet {
+.state-tablet .gr-1\@tablet {
   -webkit-flex-basis: 8.33333%;
   -moz-flex-basis: 8.33333%;
   -ms-flex-preferred-size: 8.33333%;
@@ -4261,7 +4126,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-2\@tablet {
+.state-tablet .gr-2\@tablet {
   -webkit-flex-basis: 16.66667%;
   -moz-flex-basis: 16.66667%;
   -ms-flex-preferred-size: 16.66667%;
@@ -4301,7 +4166,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-3\@tablet {
+.state-tablet .gr-3\@tablet {
   -webkit-flex-basis: 25%;
   -moz-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
@@ -4341,7 +4206,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-4\@tablet {
+.state-tablet .gr-4\@tablet {
   -webkit-flex-basis: 33.33333%;
   -moz-flex-basis: 33.33333%;
   -ms-flex-preferred-size: 33.33333%;
@@ -4381,7 +4246,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-5\@tablet {
+.state-tablet .gr-5\@tablet {
   -webkit-flex-basis: 41.66667%;
   -moz-flex-basis: 41.66667%;
   -ms-flex-preferred-size: 41.66667%;
@@ -4421,7 +4286,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-6\@tablet {
+.state-tablet .gr-6\@tablet {
   -webkit-flex-basis: 50%;
   -moz-flex-basis: 50%;
   -ms-flex-preferred-size: 50%;
@@ -4461,7 +4326,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-7\@tablet {
+.state-tablet .gr-7\@tablet {
   -webkit-flex-basis: 58.33333%;
   -moz-flex-basis: 58.33333%;
   -ms-flex-preferred-size: 58.33333%;
@@ -4501,7 +4366,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-8\@tablet {
+.state-tablet .gr-8\@tablet {
   -webkit-flex-basis: 66.66667%;
   -moz-flex-basis: 66.66667%;
   -ms-flex-preferred-size: 66.66667%;
@@ -4541,7 +4406,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-9\@tablet {
+.state-tablet .gr-9\@tablet {
   -webkit-flex-basis: 75%;
   -moz-flex-basis: 75%;
   -ms-flex-preferred-size: 75%;
@@ -4581,7 +4446,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-10\@tablet {
+.state-tablet .gr-10\@tablet {
   -webkit-flex-basis: 83.33333%;
   -moz-flex-basis: 83.33333%;
   -ms-flex-preferred-size: 83.33333%;
@@ -4621,7 +4486,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-11\@tablet {
+.state-tablet .gr-11\@tablet {
   -webkit-flex-basis: 91.66667%;
   -moz-flex-basis: 91.66667%;
   -ms-flex-preferred-size: 91.66667%;
@@ -4661,7 +4526,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-tablet .grid-12\@tablet {
+.state-tablet .gr-12\@tablet {
   -webkit-flex-basis: 100%;
   -moz-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
@@ -4787,55 +4652,55 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-.state-tablet .align-left\@tablet {
+.state-tablet .row-align-left\@tablet {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   -moz-justify-content: flex-start;
   justify-content: flex-start;
 }
-.state-tablet .align-center\@tablet {
+.state-tablet .row-align-center\@tablet {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center;
 }
-.state-tablet .align-right\@tablet {
+.state-tablet .row-align-right\@tablet {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   -moz-justify-content: flex-end;
   justify-content: flex-end;
 }
-.state-tablet .align-middle\@tablet {
+.state-tablet .row-align-middle\@tablet {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
 }
-.state-tablet .align-top\@tablet {
+.state-tablet .row-align-top\@tablet {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
   -moz-align-items: flex-start;
   align-items: flex-start;
 }
-.state-tablet .align-bottom\@tablet {
+.state-tablet .row-align-bottom\@tablet {
   -webkit-box-align: end;
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
   -moz-align-items: flex-end;
   align-items: flex-end;
 }
-.state-tablet .align-around\@tablet {
+.state-tablet .row-align-around\@tablet {
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   justify-content: space-around;
 }
-.state-tablet .align-between\@tablet {
+.state-tablet .row-align-between\@tablet {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
@@ -4858,7 +4723,7 @@
   visibility: visible;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .grid-1on5\@tablet {
+  .gr-1on5\@tablet {
     -webkit-flex-basis: 20%;
     -moz-flex-basis: 20%;
     -ms-flex-preferred-size: 20%;
@@ -4906,7 +4771,7 @@
     order: 9999;
   }
 
-  .grid-0\@tablet {
+  .gr-0\@tablet {
     -webkit-flex-basis: 0%;
     -moz-flex-basis: 0%;
     -ms-flex-preferred-size: 0%;
@@ -4954,7 +4819,7 @@
     order: 9999;
   }
 
-  .grid-1\@tablet {
+  .gr-1\@tablet {
     -webkit-flex-basis: 8.33333%;
     -moz-flex-basis: 8.33333%;
     -ms-flex-preferred-size: 8.33333%;
@@ -5002,7 +4867,7 @@
     order: 9999;
   }
 
-  .grid-2\@tablet {
+  .gr-2\@tablet {
     -webkit-flex-basis: 16.66667%;
     -moz-flex-basis: 16.66667%;
     -ms-flex-preferred-size: 16.66667%;
@@ -5050,7 +4915,7 @@
     order: 9999;
   }
 
-  .grid-3\@tablet {
+  .gr-3\@tablet {
     -webkit-flex-basis: 25%;
     -moz-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
@@ -5098,7 +4963,7 @@
     order: 9999;
   }
 
-  .grid-4\@tablet {
+  .gr-4\@tablet {
     -webkit-flex-basis: 33.33333%;
     -moz-flex-basis: 33.33333%;
     -ms-flex-preferred-size: 33.33333%;
@@ -5146,7 +5011,7 @@
     order: 9999;
   }
 
-  .grid-5\@tablet {
+  .gr-5\@tablet {
     -webkit-flex-basis: 41.66667%;
     -moz-flex-basis: 41.66667%;
     -ms-flex-preferred-size: 41.66667%;
@@ -5194,7 +5059,7 @@
     order: 9999;
   }
 
-  .grid-6\@tablet {
+  .gr-6\@tablet {
     -webkit-flex-basis: 50%;
     -moz-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
@@ -5242,7 +5107,7 @@
     order: 9999;
   }
 
-  .grid-7\@tablet {
+  .gr-7\@tablet {
     -webkit-flex-basis: 58.33333%;
     -moz-flex-basis: 58.33333%;
     -ms-flex-preferred-size: 58.33333%;
@@ -5290,7 +5155,7 @@
     order: 9999;
   }
 
-  .grid-8\@tablet {
+  .gr-8\@tablet {
     -webkit-flex-basis: 66.66667%;
     -moz-flex-basis: 66.66667%;
     -ms-flex-preferred-size: 66.66667%;
@@ -5338,7 +5203,7 @@
     order: 9999;
   }
 
-  .grid-9\@tablet {
+  .gr-9\@tablet {
     -webkit-flex-basis: 75%;
     -moz-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
@@ -5386,7 +5251,7 @@
     order: 9999;
   }
 
-  .grid-10\@tablet {
+  .gr-10\@tablet {
     -webkit-flex-basis: 83.33333%;
     -moz-flex-basis: 83.33333%;
     -ms-flex-preferred-size: 83.33333%;
@@ -5434,7 +5299,7 @@
     order: 9999;
   }
 
-  .grid-11\@tablet {
+  .gr-11\@tablet {
     -webkit-flex-basis: 91.66667%;
     -moz-flex-basis: 91.66667%;
     -ms-flex-preferred-size: 91.66667%;
@@ -5482,7 +5347,7 @@
     order: 9999;
   }
 
-  .grid-12\@tablet {
+  .gr-12\@tablet {
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -5634,7 +5499,7 @@
     padding-right: 0 !important;
   }
 
-  .align-left\@tablet {
+  .row-align-left\@tablet {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     -webkit-justify-content: flex-start;
@@ -5642,7 +5507,7 @@
     justify-content: flex-start;
   }
 
-  .align-center\@tablet {
+  .row-align-center\@tablet {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -5650,7 +5515,7 @@
     justify-content: center;
   }
 
-  .align-right\@tablet {
+  .row-align-right\@tablet {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     -webkit-justify-content: flex-end;
@@ -5658,7 +5523,7 @@
     justify-content: flex-end;
   }
 
-  .align-middle\@tablet {
+  .row-align-middle\@tablet {
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
@@ -5666,7 +5531,7 @@
     align-items: center;
   }
 
-  .align-top\@tablet {
+  .row-align-top\@tablet {
     -webkit-box-align: start;
     -ms-flex-align: start;
     -webkit-align-items: flex-start;
@@ -5674,7 +5539,7 @@
     align-items: flex-start;
   }
 
-  .align-bottom\@tablet {
+  .row-align-bottom\@tablet {
     -webkit-box-align: end;
     -ms-flex-align: end;
     -webkit-align-items: flex-end;
@@ -5682,14 +5547,14 @@
     align-items: flex-end;
   }
 
-  .align-around\@tablet {
+  .row-align-around\@tablet {
     -ms-flex-pack: distribute;
     -webkit-justify-content: space-around;
     -moz-justify-content: space-around;
     justify-content: space-around;
   }
 
-  .align-between\@tablet {
+  .row-align-between\@tablet {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
@@ -5717,7 +5582,7 @@
     visibility: visible;
   }
 }
-.state-ipad-landscape .grid-1on5\@ipad-landscape {
+.state-ipad-landscape .gr-1on5\@ipad-landscape {
   -webkit-flex-basis: 20%;
   -moz-flex-basis: 20%;
   -ms-flex-preferred-size: 20%;
@@ -5757,7 +5622,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-0\@ipad-landscape {
+.state-ipad-landscape .gr-0\@ipad-landscape {
   -webkit-flex-basis: 0%;
   -moz-flex-basis: 0%;
   -ms-flex-preferred-size: 0%;
@@ -5797,7 +5662,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-1\@ipad-landscape {
+.state-ipad-landscape .gr-1\@ipad-landscape {
   -webkit-flex-basis: 8.33333%;
   -moz-flex-basis: 8.33333%;
   -ms-flex-preferred-size: 8.33333%;
@@ -5837,7 +5702,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-2\@ipad-landscape {
+.state-ipad-landscape .gr-2\@ipad-landscape {
   -webkit-flex-basis: 16.66667%;
   -moz-flex-basis: 16.66667%;
   -ms-flex-preferred-size: 16.66667%;
@@ -5877,7 +5742,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-3\@ipad-landscape {
+.state-ipad-landscape .gr-3\@ipad-landscape {
   -webkit-flex-basis: 25%;
   -moz-flex-basis: 25%;
   -ms-flex-preferred-size: 25%;
@@ -5917,7 +5782,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-4\@ipad-landscape {
+.state-ipad-landscape .gr-4\@ipad-landscape {
   -webkit-flex-basis: 33.33333%;
   -moz-flex-basis: 33.33333%;
   -ms-flex-preferred-size: 33.33333%;
@@ -5957,7 +5822,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-5\@ipad-landscape {
+.state-ipad-landscape .gr-5\@ipad-landscape {
   -webkit-flex-basis: 41.66667%;
   -moz-flex-basis: 41.66667%;
   -ms-flex-preferred-size: 41.66667%;
@@ -5997,7 +5862,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-6\@ipad-landscape {
+.state-ipad-landscape .gr-6\@ipad-landscape {
   -webkit-flex-basis: 50%;
   -moz-flex-basis: 50%;
   -ms-flex-preferred-size: 50%;
@@ -6037,7 +5902,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-7\@ipad-landscape {
+.state-ipad-landscape .gr-7\@ipad-landscape {
   -webkit-flex-basis: 58.33333%;
   -moz-flex-basis: 58.33333%;
   -ms-flex-preferred-size: 58.33333%;
@@ -6077,7 +5942,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-8\@ipad-landscape {
+.state-ipad-landscape .gr-8\@ipad-landscape {
   -webkit-flex-basis: 66.66667%;
   -moz-flex-basis: 66.66667%;
   -ms-flex-preferred-size: 66.66667%;
@@ -6117,7 +5982,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-9\@ipad-landscape {
+.state-ipad-landscape .gr-9\@ipad-landscape {
   -webkit-flex-basis: 75%;
   -moz-flex-basis: 75%;
   -ms-flex-preferred-size: 75%;
@@ -6157,7 +6022,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-10\@ipad-landscape {
+.state-ipad-landscape .gr-10\@ipad-landscape {
   -webkit-flex-basis: 83.33333%;
   -moz-flex-basis: 83.33333%;
   -ms-flex-preferred-size: 83.33333%;
@@ -6197,7 +6062,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-11\@ipad-landscape {
+.state-ipad-landscape .gr-11\@ipad-landscape {
   -webkit-flex-basis: 91.66667%;
   -moz-flex-basis: 91.66667%;
   -ms-flex-preferred-size: 91.66667%;
@@ -6237,7 +6102,7 @@
   -ms-flex-order: 9999;
   order: 9999;
 }
-.state-ipad-landscape .grid-12\@ipad-landscape {
+.state-ipad-landscape .gr-12\@ipad-landscape {
   -webkit-flex-basis: 100%;
   -moz-flex-basis: 100%;
   -ms-flex-preferred-size: 100%;
@@ -6371,55 +6236,55 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
-.state-ipad-landscape .align-left\@ipad-landscape {
+.state-ipad-landscape .row-align-left\@ipad-landscape {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   -webkit-justify-content: flex-start;
   -moz-justify-content: flex-start;
   justify-content: flex-start;
 }
-.state-ipad-landscape .align-center\@ipad-landscape {
+.state-ipad-landscape .row-align-center\@ipad-landscape {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   -webkit-justify-content: center;
   -moz-justify-content: center;
   justify-content: center;
 }
-.state-ipad-landscape .align-right\@ipad-landscape {
+.state-ipad-landscape .row-align-right\@ipad-landscape {
   -webkit-box-pack: end;
   -ms-flex-pack: end;
   -webkit-justify-content: flex-end;
   -moz-justify-content: flex-end;
   justify-content: flex-end;
 }
-.state-ipad-landscape .align-middle\@ipad-landscape {
+.state-ipad-landscape .row-align-middle\@ipad-landscape {
   -webkit-box-align: center;
   -ms-flex-align: center;
   -webkit-align-items: center;
   -moz-align-items: center;
   align-items: center;
 }
-.state-ipad-landscape .align-top\@ipad-landscape {
+.state-ipad-landscape .row-align-top\@ipad-landscape {
   -webkit-box-align: start;
   -ms-flex-align: start;
   -webkit-align-items: flex-start;
   -moz-align-items: flex-start;
   align-items: flex-start;
 }
-.state-ipad-landscape .align-bottom\@ipad-landscape {
+.state-ipad-landscape .row-align-bottom\@ipad-landscape {
   -webkit-box-align: end;
   -ms-flex-align: end;
   -webkit-align-items: flex-end;
   -moz-align-items: flex-end;
   align-items: flex-end;
 }
-.state-ipad-landscape .align-around\@ipad-landscape {
+.state-ipad-landscape .row-align-around\@ipad-landscape {
   -ms-flex-pack: distribute;
   -webkit-justify-content: space-around;
   -moz-justify-content: space-around;
   justify-content: space-around;
 }
-.state-ipad-landscape .align-between\@ipad-landscape {
+.state-ipad-landscape .row-align-between\@ipad-landscape {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   -webkit-justify-content: space-between;
@@ -6442,7 +6307,7 @@
   visibility: visible;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grid-1on5\@ipad-landscape {
+  .gr-1on5\@ipad-landscape {
     -webkit-flex-basis: 20%;
     -moz-flex-basis: 20%;
     -ms-flex-preferred-size: 20%;
@@ -6490,7 +6355,7 @@
     order: 9999;
   }
 
-  .grid-0\@ipad-landscape {
+  .gr-0\@ipad-landscape {
     -webkit-flex-basis: 0%;
     -moz-flex-basis: 0%;
     -ms-flex-preferred-size: 0%;
@@ -6538,7 +6403,7 @@
     order: 9999;
   }
 
-  .grid-1\@ipad-landscape {
+  .gr-1\@ipad-landscape {
     -webkit-flex-basis: 8.33333%;
     -moz-flex-basis: 8.33333%;
     -ms-flex-preferred-size: 8.33333%;
@@ -6586,7 +6451,7 @@
     order: 9999;
   }
 
-  .grid-2\@ipad-landscape {
+  .gr-2\@ipad-landscape {
     -webkit-flex-basis: 16.66667%;
     -moz-flex-basis: 16.66667%;
     -ms-flex-preferred-size: 16.66667%;
@@ -6634,7 +6499,7 @@
     order: 9999;
   }
 
-  .grid-3\@ipad-landscape {
+  .gr-3\@ipad-landscape {
     -webkit-flex-basis: 25%;
     -moz-flex-basis: 25%;
     -ms-flex-preferred-size: 25%;
@@ -6682,7 +6547,7 @@
     order: 9999;
   }
 
-  .grid-4\@ipad-landscape {
+  .gr-4\@ipad-landscape {
     -webkit-flex-basis: 33.33333%;
     -moz-flex-basis: 33.33333%;
     -ms-flex-preferred-size: 33.33333%;
@@ -6730,7 +6595,7 @@
     order: 9999;
   }
 
-  .grid-5\@ipad-landscape {
+  .gr-5\@ipad-landscape {
     -webkit-flex-basis: 41.66667%;
     -moz-flex-basis: 41.66667%;
     -ms-flex-preferred-size: 41.66667%;
@@ -6778,7 +6643,7 @@
     order: 9999;
   }
 
-  .grid-6\@ipad-landscape {
+  .gr-6\@ipad-landscape {
     -webkit-flex-basis: 50%;
     -moz-flex-basis: 50%;
     -ms-flex-preferred-size: 50%;
@@ -6826,7 +6691,7 @@
     order: 9999;
   }
 
-  .grid-7\@ipad-landscape {
+  .gr-7\@ipad-landscape {
     -webkit-flex-basis: 58.33333%;
     -moz-flex-basis: 58.33333%;
     -ms-flex-preferred-size: 58.33333%;
@@ -6874,7 +6739,7 @@
     order: 9999;
   }
 
-  .grid-8\@ipad-landscape {
+  .gr-8\@ipad-landscape {
     -webkit-flex-basis: 66.66667%;
     -moz-flex-basis: 66.66667%;
     -ms-flex-preferred-size: 66.66667%;
@@ -6922,7 +6787,7 @@
     order: 9999;
   }
 
-  .grid-9\@ipad-landscape {
+  .gr-9\@ipad-landscape {
     -webkit-flex-basis: 75%;
     -moz-flex-basis: 75%;
     -ms-flex-preferred-size: 75%;
@@ -6970,7 +6835,7 @@
     order: 9999;
   }
 
-  .grid-10\@ipad-landscape {
+  .gr-10\@ipad-landscape {
     -webkit-flex-basis: 83.33333%;
     -moz-flex-basis: 83.33333%;
     -ms-flex-preferred-size: 83.33333%;
@@ -7018,7 +6883,7 @@
     order: 9999;
   }
 
-  .grid-11\@ipad-landscape {
+  .gr-11\@ipad-landscape {
     -webkit-flex-basis: 91.66667%;
     -moz-flex-basis: 91.66667%;
     -ms-flex-preferred-size: 91.66667%;
@@ -7066,7 +6931,7 @@
     order: 9999;
   }
 
-  .grid-12\@ipad-landscape {
+  .gr-12\@ipad-landscape {
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
     -ms-flex-preferred-size: 100%;
@@ -7228,7 +7093,7 @@
     padding-right: 0 !important;
   }
 
-  .align-left\@ipad-landscape {
+  .row-align-left\@ipad-landscape {
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     -webkit-justify-content: flex-start;
@@ -7236,7 +7101,7 @@
     justify-content: flex-start;
   }
 
-  .align-center\@ipad-landscape {
+  .row-align-center\@ipad-landscape {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -7244,7 +7109,7 @@
     justify-content: center;
   }
 
-  .align-right\@ipad-landscape {
+  .row-align-right\@ipad-landscape {
     -webkit-box-pack: end;
     -ms-flex-pack: end;
     -webkit-justify-content: flex-end;
@@ -7252,7 +7117,7 @@
     justify-content: flex-end;
   }
 
-  .align-middle\@ipad-landscape {
+  .row-align-middle\@ipad-landscape {
     -webkit-box-align: center;
     -ms-flex-align: center;
     -webkit-align-items: center;
@@ -7260,7 +7125,7 @@
     align-items: center;
   }
 
-  .align-top\@ipad-landscape {
+  .row-align-top\@ipad-landscape {
     -webkit-box-align: start;
     -ms-flex-align: start;
     -webkit-align-items: flex-start;
@@ -7268,7 +7133,7 @@
     align-items: flex-start;
   }
 
-  .align-bottom\@ipad-landscape {
+  .row-align-bottom\@ipad-landscape {
     -webkit-box-align: end;
     -ms-flex-align: end;
     -webkit-align-items: flex-end;
@@ -7276,14 +7141,14 @@
     align-items: flex-end;
   }
 
-  .align-around\@ipad-landscape {
+  .row-align-around\@ipad-landscape {
     -ms-flex-pack: distribute;
     -webkit-justify-content: space-around;
     -moz-justify-content: space-around;
     justify-content: space-around;
   }
 
-  .align-between\@ipad-landscape {
+  .row-align-between\@ipad-landscape {
     -webkit-box-pack: justify;
     -ms-flex-pack: justify;
     -webkit-justify-content: space-between;
@@ -7311,89 +7176,89 @@
     visibility: visible;
   }
 }
-.state-ipad-landscape .grid-1on5, .state-ipad-landscape .grid-0, .state-ipad-landscape .grid-1, .state-ipad-landscape .grid-2, .state-ipad-landscape .grid-3, .state-ipad-landscape .grid-4, .state-ipad-landscape .grid-5, .state-ipad-landscape .grid-6, .state-ipad-landscape .grid-7, .state-ipad-landscape .grid-8, .state-ipad-landscape .grid-9, .state-ipad-landscape .grid-10, .state-ipad-landscape .grid-11, .state-ipad-landscape .grid-12, .state-ipad-landscape .grid-1on5\@mobile, .state-ipad-landscape .grid-0\@mobile, .state-ipad-landscape .grid-1\@mobile, .state-ipad-landscape .grid-2\@mobile, .state-ipad-landscape .grid-3\@mobile, .state-ipad-landscape .grid-4\@mobile, .state-ipad-landscape .grid-5\@mobile, .state-ipad-landscape .grid-6\@mobile, .state-ipad-landscape .grid-7\@mobile, .state-ipad-landscape .grid-8\@mobile, .state-ipad-landscape .grid-9\@mobile, .state-ipad-landscape .grid-10\@mobile, .state-ipad-landscape .grid-11\@mobile, .state-ipad-landscape .grid-12\@mobile, .state-ipad-landscape .grid-1on5\@tablet, .state-ipad-landscape .grid-0\@tablet, .state-ipad-landscape .grid-1\@tablet, .state-ipad-landscape .grid-2\@tablet, .state-ipad-landscape .grid-3\@tablet, .state-ipad-landscape .grid-4\@tablet, .state-ipad-landscape .grid-5\@tablet, .state-ipad-landscape .grid-6\@tablet, .state-ipad-landscape .grid-7\@tablet, .state-ipad-landscape .grid-8\@tablet, .state-ipad-landscape .grid-9\@tablet, .state-ipad-landscape .grid-10\@tablet, .state-ipad-landscape .grid-11\@tablet, .state-ipad-landscape .grid-12\@tablet, .state-ipad-landscape .grid-1on5\@ipad-landscape, .state-ipad-landscape .grid-0\@ipad-landscape, .state-ipad-landscape .grid-1\@ipad-landscape, .state-ipad-landscape .grid-2\@ipad-landscape, .state-ipad-landscape .grid-3\@ipad-landscape, .state-ipad-landscape .grid-4\@ipad-landscape, .state-ipad-landscape .grid-5\@ipad-landscape, .state-ipad-landscape .grid-6\@ipad-landscape, .state-ipad-landscape .grid-7\@ipad-landscape, .state-ipad-landscape .grid-8\@ipad-landscape, .state-ipad-landscape .grid-9\@ipad-landscape, .state-ipad-landscape .grid-10\@ipad-landscape, .state-ipad-landscape .grid-11\@ipad-landscape, .state-ipad-landscape .grid-12\@ipad-landscape {
+.state-ipad-landscape .gr-1on5, .state-ipad-landscape .gr-0, .state-ipad-landscape .gr-1, .state-ipad-landscape .gr-2, .state-ipad-landscape .gr-3, .state-ipad-landscape .gr-4, .state-ipad-landscape .gr-5, .state-ipad-landscape .gr-6, .state-ipad-landscape .gr-7, .state-ipad-landscape .gr-8, .state-ipad-landscape .gr-9, .state-ipad-landscape .gr-10, .state-ipad-landscape .gr-11, .state-ipad-landscape .gr-12, .state-ipad-landscape .gr-1on5\@mobile, .state-ipad-landscape .gr-0\@mobile, .state-ipad-landscape .gr-1\@mobile, .state-ipad-landscape .gr-2\@mobile, .state-ipad-landscape .gr-3\@mobile, .state-ipad-landscape .gr-4\@mobile, .state-ipad-landscape .gr-5\@mobile, .state-ipad-landscape .gr-6\@mobile, .state-ipad-landscape .gr-7\@mobile, .state-ipad-landscape .gr-8\@mobile, .state-ipad-landscape .gr-9\@mobile, .state-ipad-landscape .gr-10\@mobile, .state-ipad-landscape .gr-11\@mobile, .state-ipad-landscape .gr-12\@mobile, .state-ipad-landscape .gr-1on5\@tablet, .state-ipad-landscape .gr-0\@tablet, .state-ipad-landscape .gr-1\@tablet, .state-ipad-landscape .gr-2\@tablet, .state-ipad-landscape .gr-3\@tablet, .state-ipad-landscape .gr-4\@tablet, .state-ipad-landscape .gr-5\@tablet, .state-ipad-landscape .gr-6\@tablet, .state-ipad-landscape .gr-7\@tablet, .state-ipad-landscape .gr-8\@tablet, .state-ipad-landscape .gr-9\@tablet, .state-ipad-landscape .gr-10\@tablet, .state-ipad-landscape .gr-11\@tablet, .state-ipad-landscape .gr-12\@tablet, .state-ipad-landscape .gr-1on5\@ipad-landscape, .state-ipad-landscape .gr-0\@ipad-landscape, .state-ipad-landscape .gr-1\@ipad-landscape, .state-ipad-landscape .gr-2\@ipad-landscape, .state-ipad-landscape .gr-3\@ipad-landscape, .state-ipad-landscape .gr-4\@ipad-landscape, .state-ipad-landscape .gr-5\@ipad-landscape, .state-ipad-landscape .gr-6\@ipad-landscape, .state-ipad-landscape .gr-7\@ipad-landscape, .state-ipad-landscape .gr-8\@ipad-landscape, .state-ipad-landscape .gr-9\@ipad-landscape, .state-ipad-landscape .gr-10\@ipad-landscape, .state-ipad-landscape .gr-11\@ipad-landscape, .state-ipad-landscape .gr-12\@ipad-landscape {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
-.state-ipad-landscape .grow, .state-ipad-landscape .grow\@mobile, .state-ipad-landscape .grow\@tablet, .state-ipad-landscape .grow\@ipad-landscape {
+.state-ipad-landscape .gr-grow, .state-ipad-landscape .gr-grow\@mobile, .state-ipad-landscape .gr-grow\@tablet, .state-ipad-landscape .gr-grow\@ipad-landscape {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
-.state-ipad-landscape .adapt, .state-ipad-landscape .adapt\@mobile, .state-ipad-landscape .adapt\@tablet, .state-ipad-landscape .adapt\@ipad-landscape {
+.state-ipad-landscape .gr-adapt, .state-ipad-landscape .gr-adapt\@mobile, .state-ipad-landscape .gr-adapt\@tablet, .state-ipad-landscape .gr-adapt\@ipad-landscape {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12, .grid-1on5\@mobile, .grid-0\@mobile, .grid-1\@mobile, .grid-2\@mobile, .grid-3\@mobile, .grid-4\@mobile, .grid-5\@mobile, .grid-6\@mobile, .grid-7\@mobile, .grid-8\@mobile, .grid-9\@mobile, .grid-10\@mobile, .grid-11\@mobile, .grid-12\@mobile, .grid-1on5\@tablet, .grid-0\@tablet, .grid-1\@tablet, .grid-2\@tablet, .grid-3\@tablet, .grid-4\@tablet, .grid-5\@tablet, .grid-6\@tablet, .grid-7\@tablet, .grid-8\@tablet, .grid-9\@tablet, .grid-10\@tablet, .grid-11\@tablet, .grid-12\@tablet, .grid-1on5\@ipad-landscape, .grid-0\@ipad-landscape, .grid-1\@ipad-landscape, .grid-2\@ipad-landscape, .grid-3\@ipad-landscape, .grid-4\@ipad-landscape, .grid-5\@ipad-landscape, .grid-6\@ipad-landscape, .grid-7\@ipad-landscape, .grid-8\@ipad-landscape, .grid-9\@ipad-landscape, .grid-10\@ipad-landscape, .grid-11\@ipad-landscape, .grid-12\@ipad-landscape {
+  .gr-1on5, .gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12, .gr-1on5\@mobile, .gr-0\@mobile, .gr-1\@mobile, .gr-2\@mobile, .gr-3\@mobile, .gr-4\@mobile, .gr-5\@mobile, .gr-6\@mobile, .gr-7\@mobile, .gr-8\@mobile, .gr-9\@mobile, .gr-10\@mobile, .gr-11\@mobile, .gr-12\@mobile, .gr-1on5\@tablet, .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet, .gr-1on5\@ipad-landscape, .gr-0\@ipad-landscape, .gr-1\@ipad-landscape, .gr-2\@ipad-landscape, .gr-3\@ipad-landscape, .gr-4\@ipad-landscape, .gr-5\@ipad-landscape, .gr-6\@ipad-landscape, .gr-7\@ipad-landscape, .gr-8\@ipad-landscape, .gr-9\@ipad-landscape, .gr-10\@ipad-landscape, .gr-11\@ipad-landscape, .gr-12\@ipad-landscape {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 
-  .grow, .grow\@mobile, .grow\@tablet, .grow\@ipad-landscape {
+  .gr-grow, .gr-grow\@mobile, .gr-grow\@tablet, .gr-grow\@ipad-landscape {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 
-  .adapt, .adapt\@mobile, .adapt\@tablet, .adapt\@ipad-landscape {
+  .gr-adapt, .gr-adapt\@mobile, .gr-adapt\@tablet, .gr-adapt\@ipad-landscape {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 }
-.state-default [class*="grid"] > [class*="row"],
-.state-default [class*="grid"] > [class*="col"] {
+.state-default [class*="gr"] > [class*="row"],
+.state-default [class*="gr"] > [class*="col"] {
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="grid"] > [class*="row"],
-[class*="grid"] > [class*="col"] {
+[class*="gr"] > [class*="row"],
+[class*="gr"] > [class*="col"] {
   margin-left: -10px;
   margin-right: -10px;
 }
 
-.state-mobile [class*="grid"] > [class*="row"],
-.state-mobile [class*="grid"] > [class*="col"] {
+.state-mobile [class*="gr"] > [class*="row"],
+.state-mobile [class*="gr"] > [class*="col"] {
   margin-left: -10px;
   margin-right: -10px;
 }
 @media screen and (max-width: 480px) {
-  [class*="grid"] > [class*="row"],
-  [class*="grid"] > [class*="col"] {
+  [class*="gr"] > [class*="row"],
+  [class*="gr"] > [class*="col"] {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
-.state-tablet [class*="grid"] > [class*="row"],
-.state-tablet [class*="grid"] > [class*="col"] {
+.state-tablet [class*="gr"] > [class*="row"],
+.state-tablet [class*="gr"] > [class*="col"] {
   margin-left: -10px;
   margin-right: -10px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  [class*="grid"] > [class*="row"],
-  [class*="grid"] > [class*="col"] {
+  [class*="gr"] > [class*="row"],
+  [class*="gr"] > [class*="col"] {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
-.state-ipad-landscape [class*="grid"] > [class*="row"],
-.state-ipad-landscape [class*="grid"] > [class*="col"] {
+.state-ipad-landscape [class*="gr"] > [class*="row"],
+.state-ipad-landscape [class*="gr"] > [class*="col"] {
   margin-left: -15px;
   margin-right: -15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  [class*="grid"] > [class*="row"],
-  [class*="grid"] > [class*="col"] {
+  [class*="gr"] > [class*="row"],
+  [class*="gr"] > [class*="col"] {
     margin-left: -15px;
     margin-right: -15px;
   }
@@ -7409,9 +7274,7 @@
   box-sizing: border-box;
 }
 
-.state-mobile .state-default [class*="grid-"], .state-mobile .state-default
-[class*="grow"], .state-mobile .state-default
-[class*="adapt"] {
+.state-mobile .state-default [class*="gr-"] {
   left: 0%;
   right: 0%;
   -webkit-flex-basis: 100%;
@@ -7422,18 +7285,14 @@
   margin-left: 0%;
   margin-right: 0%;
 }
-.state-ipad-landscape .state-mobile .state-default [class*="grid-"], .state-ipad-landscape .state-mobile .state-default
-[class*="grow"], .state-ipad-landscape .state-mobile .state-default
-[class*="adapt"] {
+.state-ipad-landscape .state-mobile .state-default [class*="gr-"] {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-mobile .state-default [class*="grid-"], .state-mobile .state-default
-  [class*="grow"], .state-mobile .state-default
-  [class*="adapt"] {
+  .state-mobile .state-default [class*="gr-"] {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -7441,9 +7300,7 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .state-default [class*="grid-"], .state-default
-  [class*="grow"], .state-default
-  [class*="adapt"] {
+  .state-default [class*="gr-"] {
     left: 0%;
     right: 0%;
     -webkit-flex-basis: 100%;
@@ -7455,18 +7312,14 @@
     margin-right: 0%;
   }
 }
-.state-ipad-landscape .state-default [class*="grid-"], .state-ipad-landscape .state-default
-[class*="grow"], .state-ipad-landscape .state-default
-[class*="adapt"] {
+.state-ipad-landscape .state-default [class*="gr-"] {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default [class*="grid-"], .state-default
-  [class*="grow"], .state-default
-  [class*="adapt"] {
+  .state-default [class*="gr-"] {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -7474,9 +7327,7 @@
   }
 }
 
-.state-mobile [class*="grid-"], .state-mobile
-[class*="grow"], .state-mobile
-[class*="adapt"] {
+.state-mobile [class*="gr-"] {
   left: 0%;
   right: 0%;
   -webkit-flex-basis: 100%;
@@ -7487,18 +7338,14 @@
   margin-left: 0%;
   margin-right: 0%;
 }
-.state-ipad-landscape .state-mobile [class*="grid-"], .state-ipad-landscape .state-mobile
-[class*="grow"], .state-ipad-landscape .state-mobile
-[class*="adapt"] {
+.state-ipad-landscape .state-mobile [class*="gr-"] {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-mobile [class*="grid-"], .state-mobile
-  [class*="grow"], .state-mobile
-  [class*="adapt"] {
+  .state-mobile [class*="gr-"] {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -7506,9 +7353,7 @@
   }
 }
 @media screen and (max-width: 480px) {
-  [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  [class*="gr-"] {
     left: 0%;
     right: 0%;
     -webkit-flex-basis: 100%;
@@ -7520,18 +7365,14 @@
     margin-right: 0%;
   }
 }
-.state-ipad-landscape [class*="grid-"], .state-ipad-landscape
-[class*="grow"], .state-ipad-landscape
-[class*="adapt"] {
+.state-ipad-landscape [class*="gr-"] {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  [class*="gr-"] {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;

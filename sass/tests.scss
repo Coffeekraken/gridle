@@ -119,19 +119,19 @@
 
 // centered
 .centered {
-	@include gridle_centered();
+	@include gridle_grid_centered();
 }
 .centered-mobile {
 	@include gridle_state(mobile) {
-		@include gridle_centered();
+		@include gridle_grid_centered();
 	}
 }
 
-// certical align
+// align
 $align : (left,center,right,top,middle,bottom);
 @each $a in $align {
 	.align-#{$a} {
-		@include gridle_align($a);
+		@include gridle_row_align($a);
 	}
 }
 

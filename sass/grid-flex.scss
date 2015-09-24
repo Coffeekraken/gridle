@@ -28,9 +28,7 @@
 	box-sizing: border-box;
 }
 
-[class*="grid-"],
-[class*="grow"],
-[class*="adapt"] {
+[class*="gr-"] {
 	@include gridle_set((
 		mobile : (
 			push : 0,

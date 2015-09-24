@@ -237,10 +237,7 @@ pre {
 .gridle-debug {
 	margin-bottom:50px;
 
-	[class*="grid-"],
-	[class*="flex-grid"],
-	[class*="grow"],
-	[class*="adapt"] {
+	[class*="gr-"] {
 		background: $primary-color;
 		border: 1px solid darken($primary-color, 5%);
 		padding-top: 10px;
@@ -268,10 +265,7 @@ pre {
 	}
 }
 .no-debug-class {
-	[class*="grid-"]:before,
-	[class*="flex-grid"]:before,
-	[class*="grow"]:before,
-	[class*="adapt"]:before,
+	[class*="gr-"]:before,
 	&:before {
 		content: "" !important;
 	}

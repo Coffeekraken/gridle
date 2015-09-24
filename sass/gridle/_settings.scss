@@ -16,30 +16,109 @@ $_gridle-names-tokens : (
 	side 								: top right bottom left,
 	reverse 							: '' reverse
 );
-$_gridle-names-patterns : (
-	container 							: ('container','\\@','%state'),
-	grid 								: ('grid','-','%column','\\@','%state'),
-	grid-table 							: ('grid','-','table','\\@','%state'),
-	adapt 								: ('adapt','\\@','%state'),
-	grow 								: ('grow','\\@','%state'),
-	push 								: ('push','-','%column','\\@','%state'),
-	pull 								: ('pull','-','%column','\\@','%state'),
-	prefix 								: ('prefix','-','%column','\\@','%state'),
-	suffix 								: ('suffix','-','%column','\\@','%state'),
-	row 								: ('row','-','%reverse','\\@','%state'),
-	col 								: ('col','-','%reverse','\\@','%state'),
-	centered 							: ('centered','\\@','%state'),
-	align 								: ('align','-','%align','\\@','%state'),
-	hide 								: ('hide','\\@','%state'),
-	show 								: ('show','\\@','%state'),
-	show-inline 						: ('show','-','inline','\\@','%state'),
-	not-visible 						: ('not','-','visible','\\@','%state'),
-	visible 							: ('visible','\\@','%state'),
-	float 								: ('float','-','%float','\\@','%state'),
-	clear 								: ('clear','-','%float','\\@','%state'),
-	clear-each 							: ('clear','-','each','-','%count','\\@','%state'),
-	gutter 								: ('gutter','-','%side','\\@','%state'),
-	no-gutter 							: ('no','-','gutter','-','%side','\\@','%state'),
-	auto-height 						: ('auto','-','height','\\@','%state'),
-	order 								: ('order','-','%state','-','%column-count')
+$_gridle-packages : (
+	container 							: (
+		classname 							: ('container','\\@','%state'),
+		package 							: default container
+	),
+	row 								: (
+		classname 							: ('row','-','%reverse','\\@','%state'),
+		package 							: default row
+	),
+	col 								: (
+		classname 							: ('col','-','%reverse','\\@','%state'),
+		package 							: default col
+	),
+	grid 								: (
+		classname 							: ('gr','-','%column','\\@','%state'),
+		package 							: default grid
+	),
+	grid-table 							: ( 
+		classname 							: ('gr','-','table','\\@','%state'),
+		package 							: default grid-table
+	),
+	grid-full 							: (
+		classname 							: ('gr','-','full','\\@','%state'),
+		package 							: default grid-full
+	),
+	grid-adapt 							: (
+		classname 							: ('gr','-','adapt','\\@','%state'),
+		package 							: default grid-adapt
+	),
+	grid-grow 							: (
+		classname 							: ('gr','-','grow','\\@','%state'),
+		package 							: default grid-grow
+	),
+	grid-centered 						: (
+		classname 							: ('gr','-','centered','\\@','%state'),
+		package 							: default grid-centered
+	),
+	push 								: (
+		classname 							: ('push','-','%column','\\@','%state'),
+		package								: default push
+	),
+	pull 								: (
+		classname 							: ('pull','-','%column','\\@','%state'),
+		package 							: default pull
+	),
+	prefix 								: (
+		classname 							: ('prefix','-','%column','\\@','%state'),
+		package 							: default prefix
+	),
+	suffix 								: (
+		classname 							: ('suffix','-','%column','\\@','%state'),
+		package 							: default suffix
+	),
+	row-align 							: (
+		classname 							: ('row','-','align','-','%align','\\@','%state'),
+		package 							: default row-align
+	),
+	hide 								: (
+		classname 							: ('hide','\\@','%state'),
+		package 							: helpers hide
+	),
+	show 								: (
+		classname 							: ('show','\\@','%state'),
+		package 							: helpers show
+	),
+	show-inline 						: (
+		classname 							: ('show','-','inline','\\@','%state'),
+		package 							: helpers show-inline
+	),
+	not-visible 						: (
+		classname 							: ('not','-','visible','\\@','%state'),
+		package 							: helpers not-visible
+	),
+	visible 							: (
+		classname 							: ('visible','\\@','%state'),
+		package 							: helpers visible
+	),
+	float 								: (
+		classname 							: ('float','-','%float','\\@','%state'),
+		package								: helpers float
+	),
+	clear 								: (
+		classname 							: ('clear','-','%float','\\@','%state'),
+		package 							: helpers clear
+	),
+	clear-each 							: (
+		classname							: ('clear','-','each','-','%count','\\@','%state'),
+		package 							: helpers clear-each
+	),
+	gutter 								: (
+		classname 							: ('gutter','-','%side','\\@','%state'),
+		package 							: helpers gutter
+	),
+	no-gutter 							: (
+		classname 							: ('no','-','gutter','-','%side','\\@','%state'),
+		package 							: helpers no-gutter
+	),
+	auto-height 						: (
+		classname 							: ('auto','-','height','\\@','%state'),
+		package								: helpers auto-height
+	),
+	order 								: (
+		classname 							: ('order','-','%state','-','%column-count'),
+		package 							: helpers order
+	)
 );

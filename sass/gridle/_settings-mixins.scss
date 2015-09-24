@@ -50,8 +50,7 @@
 		gutter-left : 10px,
 		direction : ltr,
 		name-multiplicator : 1,
-		states-classes : false,
-		flex : false
+		states-classes : false
 	), $settings) !global;
 
 	// register default state :
@@ -115,7 +114,7 @@
 		or $gutter-bottom != map-get($_gridle-settings, gutter-bottom)
 		or $gutter-left != map-get($_gridle-settings, gutter-left) {
 		$gutters : _gridle_forge_gutters_map(top right bottom left, $name);
-		@include gridle_apply_css_for(grid grow adapt, (
+		@include gridle_apply_css_for(grid grid-grow grid-adapt, (
 			gridle_gutter : top right bottom left
 		), $name);
 	}
@@ -176,8 +175,12 @@
 	$for,
 	$pattern
 ) {
+	// get the map
+	$map : map-get($_gridle-packages, $for);
+	// set the new classname
+	$map : map-set($map, classname, $pattern);
 	// set the classmap
-	$_gridle-names-patterns : map-set($_gridle-names-patterns, $for, $pattern) !global;
+	$_gridle-packages : map-set($_gridle-packages, $for, $map) !global;
 }
 
 

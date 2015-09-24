@@ -335,19 +335,13 @@ pre {
 .gridle-debug {
   margin-bottom: 50px;
 }
-.gridle-debug [class*="grid-"],
-.gridle-debug [class*="flex-grid"],
-.gridle-debug [class*="grow"],
-.gridle-debug [class*="adapt"] {
+.gridle-debug [class*="gr-"] {
   background: #eaedef;
   border: 1px solid #dce1e4;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-.gridle-debug [class*="grid-"]:before,
-.gridle-debug [class*="flex-grid"]:before,
-.gridle-debug [class*="grow"]:before,
-.gridle-debug [class*="adapt"]:before {
+.gridle-debug [class*="gr-"]:before {
   display: block;
   content: attr(class);
   font-weight: bold;
@@ -366,10 +360,7 @@ pre {
   padding-bottom: 0;
 }
 
-.no-debug-class [class*="grid-"]:before,
-.no-debug-class [class*="flex-grid"]:before,
-.no-debug-class [class*="grow"]:before,
-.no-debug-class [class*="adapt"]:before, .no-debug-class:before {
+.no-debug-class [class*="gr-"]:before, .no-debug-class:before {
   content: "" !important;
 }
 

@@ -4,10 +4,10 @@
   }
 }
 #gridle-settings {
-  content: '{ "version" : "1.4.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "flex" : false, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "flex" : false, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "flex" : false, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "flex" : false, "_" : true }} }';
+  content: '{ "version" : "1.4.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : false, "_" : true }} }';
 }
 
-.grid-1on5 {
+.gr-1on5 {
   width: 20%;
 }
 .container:after {
@@ -27,7 +27,7 @@
   zoom: 1;
 }
 
-.grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12 {
+.gr-1on5, .gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
   display: inline-block;
   min-height: 1px;
   float: left;
@@ -37,7 +37,7 @@
   content: i extend the grid class;
 }
 
-.adapt {
+.gr-adapt {
   display: table-cell;
   width: 1px;
   white-space: nowrap;
@@ -45,9 +45,10 @@
   padding-left: 10px;
 }
 
-.grow {
+.gr-grow {
   display: table-cell;
   width: 99999px;
+  white-space: nowrap;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -60,7 +61,7 @@
   position: relative;
 }
 
-.centered {
+.gr-centered {
   display: block !important;
   float: none !important;
   margin-left: auto !important;
@@ -88,9 +89,7 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .grid-1on5\@mobile, .grid-0\@mobile, .grid-1\@mobile, .grid-2\@mobile, .grid-3\@mobile, .grid-4\@mobile, .grid-5\@mobile, .grid-6\@mobile, .grid-7\@mobile, .grid-8\@mobile, .grid-9\@mobile, .grid-10\@mobile, .grid-11\@mobile, .grid-12\@mobile, [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  .gr-1on5\@mobile, .gr-0\@mobile, .gr-1\@mobile, .gr-2\@mobile, .gr-3\@mobile, .gr-4\@mobile, .gr-5\@mobile, .gr-6\@mobile, .gr-7\@mobile, .gr-8\@mobile, .gr-9\@mobile, .gr-10\@mobile, .gr-11\@mobile, .gr-12\@mobile, [class*="gr-"] {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -101,7 +100,7 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .adapt\@mobile {
+  .gr-adapt\@mobile {
     display: table-cell;
     width: 1px;
     white-space: nowrap;
@@ -110,29 +109,26 @@
   }
 }
 @media screen and (max-width: 480px) {
-  .grow\@mobile {
+  .gr-grow\@mobile {
     display: table-cell;
     width: 99999px;
+    white-space: nowrap;
     padding-right: 10px;
     padding-left: 10px;
   }
 }
 @media screen and (max-width: 480px) {
-  .push-1on5\@mobile, .push-0\@mobile, .push-1\@mobile, .push-2\@mobile, .push-3\@mobile, .push-4\@mobile, .push-5\@mobile, .push-6\@mobile, .push-7\@mobile, .push-8\@mobile, .push-9\@mobile, .push-10\@mobile, .push-11\@mobile, .push-12\@mobile, [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  .push-1on5\@mobile, .push-0\@mobile, .push-1\@mobile, .push-2\@mobile, .push-3\@mobile, .push-4\@mobile, .push-5\@mobile, .push-6\@mobile, .push-7\@mobile, .push-8\@mobile, .push-9\@mobile, .push-10\@mobile, .push-11\@mobile, .push-12\@mobile, [class*="gr-"] {
     position: relative;
   }
 }
 @media screen and (max-width: 480px) {
-  .pull-1on5\@mobile, .pull-0\@mobile, .pull-1\@mobile, .pull-2\@mobile, .pull-3\@mobile, .pull-4\@mobile, .pull-5\@mobile, .pull-6\@mobile, .pull-7\@mobile, .pull-8\@mobile, .pull-9\@mobile, .pull-10\@mobile, .pull-11\@mobile, .pull-12\@mobile, [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  .pull-1on5\@mobile, .pull-0\@mobile, .pull-1\@mobile, .pull-2\@mobile, .pull-3\@mobile, .pull-4\@mobile, .pull-5\@mobile, .pull-6\@mobile, .pull-7\@mobile, .pull-8\@mobile, .pull-9\@mobile, .pull-10\@mobile, .pull-11\@mobile, .pull-12\@mobile, [class*="gr-"] {
     position: relative;
   }
 }
 @media screen and (max-width: 480px) {
-  .centered\@mobile {
+  .gr-centered\@mobile {
     display: block !important;
     float: none !important;
     margin-left: auto !important;
@@ -160,7 +156,7 @@
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .grid-1on5\@tablet, .grid-0\@tablet, .grid-1\@tablet, .grid-2\@tablet, .grid-3\@tablet, .grid-4\@tablet, .grid-5\@tablet, .grid-6\@tablet, .grid-7\@tablet, .grid-8\@tablet, .grid-9\@tablet, .grid-10\@tablet, .grid-11\@tablet, .grid-12\@tablet {
+  .gr-1on5\@tablet, .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -171,7 +167,7 @@
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .adapt\@tablet {
+  .gr-adapt\@tablet {
     display: table-cell;
     width: 1px;
     white-space: nowrap;
@@ -180,9 +176,10 @@
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .grow\@tablet {
+  .gr-grow\@tablet {
     display: table-cell;
     width: 99999px;
+    white-space: nowrap;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -198,7 +195,7 @@
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .centered\@tablet {
+  .gr-centered\@tablet {
     display: block !important;
     float: none !important;
     margin-left: auto !important;
@@ -226,7 +223,7 @@
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grid-1on5\@ipad-landscape, .grid-0\@ipad-landscape, .grid-1\@ipad-landscape, .grid-2\@ipad-landscape, .grid-3\@ipad-landscape, .grid-4\@ipad-landscape, .grid-5\@ipad-landscape, .grid-6\@ipad-landscape, .grid-7\@ipad-landscape, .grid-8\@ipad-landscape, .grid-9\@ipad-landscape, .grid-10\@ipad-landscape, .grid-11\@ipad-landscape, .grid-12\@ipad-landscape {
+  .gr-1on5\@ipad-landscape, .gr-0\@ipad-landscape, .gr-1\@ipad-landscape, .gr-2\@ipad-landscape, .gr-3\@ipad-landscape, .gr-4\@ipad-landscape, .gr-5\@ipad-landscape, .gr-6\@ipad-landscape, .gr-7\@ipad-landscape, .gr-8\@ipad-landscape, .gr-9\@ipad-landscape, .gr-10\@ipad-landscape, .gr-11\@ipad-landscape, .gr-12\@ipad-landscape {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -237,7 +234,7 @@
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .adapt\@ipad-landscape {
+  .gr-adapt\@ipad-landscape {
     display: table-cell;
     width: 1px;
     white-space: nowrap;
@@ -246,9 +243,10 @@
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grow\@ipad-landscape {
+  .gr-grow\@ipad-landscape {
     display: table-cell;
     width: 99999px;
+    white-space: nowrap;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -264,7 +262,7 @@
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .centered\@ipad-landscape {
+  .gr-centered\@ipad-landscape {
     display: block !important;
     float: none !important;
     margin-left: auto !important;
@@ -288,7 +286,7 @@
   margin-right: 20%;
 }
 
-.grid-0 {
+.gr-0 {
   width: 0%;
 }
 
@@ -308,7 +306,7 @@
   margin-right: 0%;
 }
 
-.grid-1 {
+.gr-1 {
   width: 8.33333%;
 }
 
@@ -328,7 +326,7 @@
   margin-right: 8.33333%;
 }
 
-.grid-2 {
+.gr-2 {
   width: 16.66667%;
 }
 
@@ -348,7 +346,7 @@
   margin-right: 16.66667%;
 }
 
-.grid-3 {
+.gr-3 {
   width: 25%;
 }
 
@@ -368,7 +366,7 @@
   margin-right: 25.0%;
 }
 
-.grid-4 {
+.gr-4 {
   width: 33.33333%;
 }
 
@@ -388,7 +386,7 @@
   margin-right: 33.33333%;
 }
 
-.grid-5 {
+.gr-5 {
   width: 41.66667%;
 }
 
@@ -408,7 +406,7 @@
   margin-right: 41.66667%;
 }
 
-.grid-6 {
+.gr-6 {
   width: 50%;
 }
 
@@ -428,7 +426,7 @@
   margin-right: 50.0%;
 }
 
-.grid-7 {
+.gr-7 {
   width: 58.33333%;
 }
 
@@ -448,7 +446,7 @@
   margin-right: 58.33333%;
 }
 
-.grid-8 {
+.gr-8 {
   width: 66.66667%;
 }
 
@@ -468,7 +466,7 @@
   margin-right: 66.66667%;
 }
 
-.grid-9 {
+.gr-9 {
   width: 75%;
 }
 
@@ -488,7 +486,7 @@
   margin-right: 75.0%;
 }
 
-.grid-10 {
+.gr-10 {
   width: 83.33333%;
 }
 
@@ -508,7 +506,7 @@
   margin-right: 83.33333%;
 }
 
-.grid-11 {
+.gr-11 {
   width: 91.66667%;
 }
 
@@ -528,7 +526,7 @@
   margin-right: 91.66667%;
 }
 
-.grid-12 {
+.gr-12 {
   width: 100%;
   display: inline-block;
 }
@@ -629,79 +627,90 @@
   padding-right: 0 !important;
 }
 
-.grid-table {
+.gr-table {
   display: table-cell;
   float: none;
   vertical-align: top;
 }
 
-.align-left {
+.gr-full {
+  display: block;
+  width: 100vw;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transition: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%);
+}
+
+.row-align-left {
   font-size: 0;
   clear: both;
   text-align: left;
 }
-.align-left > * {
+.row-align-left > * {
   float: none !important;
   vertical-align: left;
   font-size: 1rem;
 }
 
-.align-center {
+.row-align-center {
   font-size: 0;
   clear: both;
   text-align: center;
 }
-.align-center > * {
+.row-align-center > * {
   float: none !important;
   vertical-align: center;
   font-size: 1rem;
 }
-.align-center > * {
+.row-align-center > * {
   text-align: left;
 }
 
-.align-right {
+.row-align-right {
   font-size: 0;
   clear: both;
   text-align: right;
 }
-.align-right > * {
+.row-align-right > * {
   float: none !important;
   vertical-align: right;
   font-size: 1rem;
 }
-.align-right > * {
+.row-align-right > * {
   text-align: left;
 }
 
-.align-middle {
+.row-align-middle {
   font-size: 0;
   clear: both;
   vertical-align: middle;
 }
-.align-middle > * {
+.row-align-middle > * {
   float: none !important;
   vertical-align: middle;
   font-size: 1rem;
 }
 
-.align-top {
+.row-align-top {
   font-size: 0;
   clear: both;
   vertical-align: top;
 }
-.align-top > * {
+.row-align-top > * {
   float: none !important;
   vertical-align: top;
   font-size: 1rem;
 }
 
-.align-bottom {
+.row-align-bottom {
   font-size: 0;
   clear: both;
   vertical-align: bottom;
 }
-.align-bottom > * {
+.row-align-bottom > * {
   float: none !important;
   vertical-align: bottom;
   font-size: 1rem;
@@ -740,7 +749,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .grid-1on5\@mobile {
+  .gr-1on5\@mobile {
     width: 20%;
   }
 
@@ -760,7 +769,7 @@
     margin-right: 20%;
   }
 
-  .grid-0\@mobile {
+  .gr-0\@mobile {
     width: 0%;
   }
 
@@ -780,7 +789,7 @@
     margin-right: 0%;
   }
 
-  .grid-1\@mobile {
+  .gr-1\@mobile {
     width: 8.33333%;
   }
 
@@ -800,7 +809,7 @@
     margin-right: 8.33333%;
   }
 
-  .grid-2\@mobile {
+  .gr-2\@mobile {
     width: 16.66667%;
   }
 
@@ -820,7 +829,7 @@
     margin-right: 16.66667%;
   }
 
-  .grid-3\@mobile {
+  .gr-3\@mobile {
     width: 25%;
   }
 
@@ -840,7 +849,7 @@
     margin-right: 25.0%;
   }
 
-  .grid-4\@mobile {
+  .gr-4\@mobile {
     width: 33.33333%;
   }
 
@@ -860,7 +869,7 @@
     margin-right: 33.33333%;
   }
 
-  .grid-5\@mobile {
+  .gr-5\@mobile {
     width: 41.66667%;
   }
 
@@ -880,7 +889,7 @@
     margin-right: 41.66667%;
   }
 
-  .grid-6\@mobile {
+  .gr-6\@mobile {
     width: 50%;
   }
 
@@ -900,7 +909,7 @@
     margin-right: 50.0%;
   }
 
-  .grid-7\@mobile {
+  .gr-7\@mobile {
     width: 58.33333%;
   }
 
@@ -920,7 +929,7 @@
     margin-right: 58.33333%;
   }
 
-  .grid-8\@mobile {
+  .gr-8\@mobile {
     width: 66.66667%;
   }
 
@@ -940,7 +949,7 @@
     margin-right: 66.66667%;
   }
 
-  .grid-9\@mobile {
+  .gr-9\@mobile {
     width: 75%;
   }
 
@@ -960,7 +969,7 @@
     margin-right: 75.0%;
   }
 
-  .grid-10\@mobile {
+  .gr-10\@mobile {
     width: 83.33333%;
   }
 
@@ -980,7 +989,7 @@
     margin-right: 83.33333%;
   }
 
-  .grid-11\@mobile {
+  .gr-11\@mobile {
     width: 91.66667%;
   }
 
@@ -1000,7 +1009,7 @@
     margin-right: 91.66667%;
   }
 
-  .grid-12\@mobile {
+  .gr-12\@mobile {
     width: 100%;
     display: inline-block;
   }
@@ -1101,79 +1110,90 @@
     padding-right: 0 !important;
   }
 
-  .grid-table\@mobile {
+  .gr-table\@mobile {
     display: table-cell;
     float: none;
     vertical-align: top;
   }
 
-  .align-left\@mobile {
+  .gr-full\@mobile {
+    display: block;
+    width: 100vw;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transition: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .row-align-left\@mobile {
     font-size: 0;
     clear: both;
     text-align: left;
   }
-  .align-left\@mobile > * {
+  .row-align-left\@mobile > * {
     float: none !important;
     vertical-align: left;
     font-size: 1rem;
   }
 
-  .align-center\@mobile {
+  .row-align-center\@mobile {
     font-size: 0;
     clear: both;
     text-align: center;
   }
-  .align-center\@mobile > * {
+  .row-align-center\@mobile > * {
     float: none !important;
     vertical-align: center;
     font-size: 1rem;
   }
-  .align-center\@mobile > * {
+  .row-align-center\@mobile > * {
     text-align: left;
   }
 
-  .align-right\@mobile {
+  .row-align-right\@mobile {
     font-size: 0;
     clear: both;
     text-align: right;
   }
-  .align-right\@mobile > * {
+  .row-align-right\@mobile > * {
     float: none !important;
     vertical-align: right;
     font-size: 1rem;
   }
-  .align-right\@mobile > * {
+  .row-align-right\@mobile > * {
     text-align: left;
   }
 
-  .align-middle\@mobile {
+  .row-align-middle\@mobile {
     font-size: 0;
     clear: both;
     vertical-align: middle;
   }
-  .align-middle\@mobile > * {
+  .row-align-middle\@mobile > * {
     float: none !important;
     vertical-align: middle;
     font-size: 1rem;
   }
 
-  .align-top\@mobile {
+  .row-align-top\@mobile {
     font-size: 0;
     clear: both;
     vertical-align: top;
   }
-  .align-top\@mobile > * {
+  .row-align-top\@mobile > * {
     float: none !important;
     vertical-align: top;
     font-size: 1rem;
   }
 
-  .align-bottom\@mobile {
+  .row-align-bottom\@mobile {
     font-size: 0;
     clear: both;
     vertical-align: bottom;
   }
-  .align-bottom\@mobile > * {
+  .row-align-bottom\@mobile > * {
     float: none !important;
     vertical-align: bottom;
     font-size: 1rem;
@@ -1212,7 +1232,7 @@
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .grid-1on5\@tablet {
+  .gr-1on5\@tablet {
     width: 20%;
   }
 
@@ -1232,7 +1252,7 @@
     margin-right: 20%;
   }
 
-  .grid-0\@tablet {
+  .gr-0\@tablet {
     width: 0%;
   }
 
@@ -1252,7 +1272,7 @@
     margin-right: 0%;
   }
 
-  .grid-1\@tablet {
+  .gr-1\@tablet {
     width: 8.33333%;
   }
 
@@ -1272,7 +1292,7 @@
     margin-right: 8.33333%;
   }
 
-  .grid-2\@tablet {
+  .gr-2\@tablet {
     width: 16.66667%;
   }
 
@@ -1292,7 +1312,7 @@
     margin-right: 16.66667%;
   }
 
-  .grid-3\@tablet {
+  .gr-3\@tablet {
     width: 25%;
   }
 
@@ -1312,7 +1332,7 @@
     margin-right: 25.0%;
   }
 
-  .grid-4\@tablet {
+  .gr-4\@tablet {
     width: 33.33333%;
   }
 
@@ -1332,7 +1352,7 @@
     margin-right: 33.33333%;
   }
 
-  .grid-5\@tablet {
+  .gr-5\@tablet {
     width: 41.66667%;
   }
 
@@ -1352,7 +1372,7 @@
     margin-right: 41.66667%;
   }
 
-  .grid-6\@tablet {
+  .gr-6\@tablet {
     width: 50%;
   }
 
@@ -1372,7 +1392,7 @@
     margin-right: 50.0%;
   }
 
-  .grid-7\@tablet {
+  .gr-7\@tablet {
     width: 58.33333%;
   }
 
@@ -1392,7 +1412,7 @@
     margin-right: 58.33333%;
   }
 
-  .grid-8\@tablet {
+  .gr-8\@tablet {
     width: 66.66667%;
   }
 
@@ -1412,7 +1432,7 @@
     margin-right: 66.66667%;
   }
 
-  .grid-9\@tablet {
+  .gr-9\@tablet {
     width: 75%;
   }
 
@@ -1432,7 +1452,7 @@
     margin-right: 75.0%;
   }
 
-  .grid-10\@tablet {
+  .gr-10\@tablet {
     width: 83.33333%;
   }
 
@@ -1452,7 +1472,7 @@
     margin-right: 83.33333%;
   }
 
-  .grid-11\@tablet {
+  .gr-11\@tablet {
     width: 91.66667%;
   }
 
@@ -1472,7 +1492,7 @@
     margin-right: 91.66667%;
   }
 
-  .grid-12\@tablet {
+  .gr-12\@tablet {
     width: 100%;
     display: inline-block;
   }
@@ -1573,79 +1593,90 @@
     padding-right: 0 !important;
   }
 
-  .grid-table\@tablet {
+  .gr-table\@tablet {
     display: table-cell;
     float: none;
     vertical-align: top;
   }
 
-  .align-left\@tablet {
+  .gr-full\@tablet {
+    display: block;
+    width: 100vw;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transition: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .row-align-left\@tablet {
     font-size: 0;
     clear: both;
     text-align: left;
   }
-  .align-left\@tablet > * {
+  .row-align-left\@tablet > * {
     float: none !important;
     vertical-align: left;
     font-size: 1rem;
   }
 
-  .align-center\@tablet {
+  .row-align-center\@tablet {
     font-size: 0;
     clear: both;
     text-align: center;
   }
-  .align-center\@tablet > * {
+  .row-align-center\@tablet > * {
     float: none !important;
     vertical-align: center;
     font-size: 1rem;
   }
-  .align-center\@tablet > * {
+  .row-align-center\@tablet > * {
     text-align: left;
   }
 
-  .align-right\@tablet {
+  .row-align-right\@tablet {
     font-size: 0;
     clear: both;
     text-align: right;
   }
-  .align-right\@tablet > * {
+  .row-align-right\@tablet > * {
     float: none !important;
     vertical-align: right;
     font-size: 1rem;
   }
-  .align-right\@tablet > * {
+  .row-align-right\@tablet > * {
     text-align: left;
   }
 
-  .align-middle\@tablet {
+  .row-align-middle\@tablet {
     font-size: 0;
     clear: both;
     vertical-align: middle;
   }
-  .align-middle\@tablet > * {
+  .row-align-middle\@tablet > * {
     float: none !important;
     vertical-align: middle;
     font-size: 1rem;
   }
 
-  .align-top\@tablet {
+  .row-align-top\@tablet {
     font-size: 0;
     clear: both;
     vertical-align: top;
   }
-  .align-top\@tablet > * {
+  .row-align-top\@tablet > * {
     float: none !important;
     vertical-align: top;
     font-size: 1rem;
   }
 
-  .align-bottom\@tablet {
+  .row-align-bottom\@tablet {
     font-size: 0;
     clear: both;
     vertical-align: bottom;
   }
-  .align-bottom\@tablet > * {
+  .row-align-bottom\@tablet > * {
     float: none !important;
     vertical-align: bottom;
     font-size: 1rem;
@@ -1684,7 +1715,7 @@
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grid-1on5\@ipad-landscape {
+  .gr-1on5\@ipad-landscape {
     width: 20%;
   }
 
@@ -1704,7 +1735,7 @@
     margin-right: 20%;
   }
 
-  .grid-0\@ipad-landscape {
+  .gr-0\@ipad-landscape {
     width: 0%;
   }
 
@@ -1724,7 +1755,7 @@
     margin-right: 0%;
   }
 
-  .grid-1\@ipad-landscape {
+  .gr-1\@ipad-landscape {
     width: 8.33333%;
   }
 
@@ -1744,7 +1775,7 @@
     margin-right: 8.33333%;
   }
 
-  .grid-2\@ipad-landscape {
+  .gr-2\@ipad-landscape {
     width: 16.66667%;
   }
 
@@ -1764,7 +1795,7 @@
     margin-right: 16.66667%;
   }
 
-  .grid-3\@ipad-landscape {
+  .gr-3\@ipad-landscape {
     width: 25%;
   }
 
@@ -1784,7 +1815,7 @@
     margin-right: 25.0%;
   }
 
-  .grid-4\@ipad-landscape {
+  .gr-4\@ipad-landscape {
     width: 33.33333%;
   }
 
@@ -1804,7 +1835,7 @@
     margin-right: 33.33333%;
   }
 
-  .grid-5\@ipad-landscape {
+  .gr-5\@ipad-landscape {
     width: 41.66667%;
   }
 
@@ -1824,7 +1855,7 @@
     margin-right: 41.66667%;
   }
 
-  .grid-6\@ipad-landscape {
+  .gr-6\@ipad-landscape {
     width: 50%;
   }
 
@@ -1844,7 +1875,7 @@
     margin-right: 50.0%;
   }
 
-  .grid-7\@ipad-landscape {
+  .gr-7\@ipad-landscape {
     width: 58.33333%;
   }
 
@@ -1864,7 +1895,7 @@
     margin-right: 58.33333%;
   }
 
-  .grid-8\@ipad-landscape {
+  .gr-8\@ipad-landscape {
     width: 66.66667%;
   }
 
@@ -1884,7 +1915,7 @@
     margin-right: 66.66667%;
   }
 
-  .grid-9\@ipad-landscape {
+  .gr-9\@ipad-landscape {
     width: 75%;
   }
 
@@ -1904,7 +1935,7 @@
     margin-right: 75.0%;
   }
 
-  .grid-10\@ipad-landscape {
+  .gr-10\@ipad-landscape {
     width: 83.33333%;
   }
 
@@ -1924,7 +1955,7 @@
     margin-right: 83.33333%;
   }
 
-  .grid-11\@ipad-landscape {
+  .gr-11\@ipad-landscape {
     width: 91.66667%;
   }
 
@@ -1944,7 +1975,7 @@
     margin-right: 91.66667%;
   }
 
-  .grid-12\@ipad-landscape {
+  .gr-12\@ipad-landscape {
     width: 100%;
     display: inline-block;
   }
@@ -2055,79 +2086,90 @@
     padding-right: 0 !important;
   }
 
-  .grid-table\@ipad-landscape {
+  .gr-table\@ipad-landscape {
     display: table-cell;
     float: none;
     vertical-align: top;
   }
 
-  .align-left\@ipad-landscape {
+  .gr-full\@ipad-landscape {
+    display: block;
+    width: 100vw;
+    margin-left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transition: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+  }
+
+  .row-align-left\@ipad-landscape {
     font-size: 0;
     clear: both;
     text-align: left;
   }
-  .align-left\@ipad-landscape > * {
+  .row-align-left\@ipad-landscape > * {
     float: none !important;
     vertical-align: left;
     font-size: 1rem;
   }
 
-  .align-center\@ipad-landscape {
+  .row-align-center\@ipad-landscape {
     font-size: 0;
     clear: both;
     text-align: center;
   }
-  .align-center\@ipad-landscape > * {
+  .row-align-center\@ipad-landscape > * {
     float: none !important;
     vertical-align: center;
     font-size: 1rem;
   }
-  .align-center\@ipad-landscape > * {
+  .row-align-center\@ipad-landscape > * {
     text-align: left;
   }
 
-  .align-right\@ipad-landscape {
+  .row-align-right\@ipad-landscape {
     font-size: 0;
     clear: both;
     text-align: right;
   }
-  .align-right\@ipad-landscape > * {
+  .row-align-right\@ipad-landscape > * {
     float: none !important;
     vertical-align: right;
     font-size: 1rem;
   }
-  .align-right\@ipad-landscape > * {
+  .row-align-right\@ipad-landscape > * {
     text-align: left;
   }
 
-  .align-middle\@ipad-landscape {
+  .row-align-middle\@ipad-landscape {
     font-size: 0;
     clear: both;
     vertical-align: middle;
   }
-  .align-middle\@ipad-landscape > * {
+  .row-align-middle\@ipad-landscape > * {
     float: none !important;
     vertical-align: middle;
     font-size: 1rem;
   }
 
-  .align-top\@ipad-landscape {
+  .row-align-top\@ipad-landscape {
     font-size: 0;
     clear: both;
     vertical-align: top;
   }
-  .align-top\@ipad-landscape > * {
+  .row-align-top\@ipad-landscape > * {
     float: none !important;
     vertical-align: top;
     font-size: 1rem;
   }
 
-  .align-bottom\@ipad-landscape {
+  .row-align-bottom\@ipad-landscape {
     font-size: 0;
     clear: both;
     vertical-align: bottom;
   }
-  .align-bottom\@ipad-landscape > * {
+  .row-align-bottom\@ipad-landscape > * {
     float: none !important;
     vertical-align: bottom;
     font-size: 1rem;
@@ -2166,50 +2208,50 @@
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .grid-1on5, .grid-0, .grid-1, .grid-2, .grid-3, .grid-4, .grid-5, .grid-6, .grid-7, .grid-8, .grid-9, .grid-10, .grid-11, .grid-12, .grid-1on5\@mobile, .grid-0\@mobile, .grid-1\@mobile, .grid-2\@mobile, .grid-3\@mobile, .grid-4\@mobile, .grid-5\@mobile, .grid-6\@mobile, .grid-7\@mobile, .grid-8\@mobile, .grid-9\@mobile, .grid-10\@mobile, .grid-11\@mobile, .grid-12\@mobile, .grid-1on5\@tablet, .grid-0\@tablet, .grid-1\@tablet, .grid-2\@tablet, .grid-3\@tablet, .grid-4\@tablet, .grid-5\@tablet, .grid-6\@tablet, .grid-7\@tablet, .grid-8\@tablet, .grid-9\@tablet, .grid-10\@tablet, .grid-11\@tablet, .grid-12\@tablet, .grid-1on5\@ipad-landscape, .grid-0\@ipad-landscape, .grid-1\@ipad-landscape, .grid-2\@ipad-landscape, .grid-3\@ipad-landscape, .grid-4\@ipad-landscape, .grid-5\@ipad-landscape, .grid-6\@ipad-landscape, .grid-7\@ipad-landscape, .grid-8\@ipad-landscape, .grid-9\@ipad-landscape, .grid-10\@ipad-landscape, .grid-11\@ipad-landscape, .grid-12\@ipad-landscape {
+  .gr-1on5, .gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12, .gr-1on5\@mobile, .gr-0\@mobile, .gr-1\@mobile, .gr-2\@mobile, .gr-3\@mobile, .gr-4\@mobile, .gr-5\@mobile, .gr-6\@mobile, .gr-7\@mobile, .gr-8\@mobile, .gr-9\@mobile, .gr-10\@mobile, .gr-11\@mobile, .gr-12\@mobile, .gr-1on5\@tablet, .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet, .gr-1on5\@ipad-landscape, .gr-0\@ipad-landscape, .gr-1\@ipad-landscape, .gr-2\@ipad-landscape, .gr-3\@ipad-landscape, .gr-4\@ipad-landscape, .gr-5\@ipad-landscape, .gr-6\@ipad-landscape, .gr-7\@ipad-landscape, .gr-8\@ipad-landscape, .gr-9\@ipad-landscape, .gr-10\@ipad-landscape, .gr-11\@ipad-landscape, .gr-12\@ipad-landscape {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 
-  .grow, .grow\@mobile, .grow\@tablet, .grow\@ipad-landscape {
+  .gr-grow, .gr-grow\@mobile, .gr-grow\@tablet, .gr-grow\@ipad-landscape {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 
-  .adapt, .adapt\@mobile, .adapt\@tablet, .adapt\@ipad-landscape {
+  .gr-adapt, .gr-adapt\@mobile, .gr-adapt\@tablet, .gr-adapt\@ipad-landscape {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 }
-[class*="grid"] > [class*="row"],
-[class*="grid"] > [class*="col"] {
+[class*="gr"] > [class*="row"],
+[class*="gr"] > [class*="col"] {
   margin-left: -10px;
   margin-right: -10px;
 }
 
 @media screen and (max-width: 480px) {
-  [class*="grid"] > [class*="row"],
-  [class*="grid"] > [class*="col"] {
+  [class*="gr"] > [class*="row"],
+  [class*="gr"] > [class*="col"] {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  [class*="grid"] > [class*="row"],
-  [class*="grid"] > [class*="col"] {
+  [class*="gr"] > [class*="row"],
+  [class*="gr"] > [class*="col"] {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  [class*="grid"] > [class*="row"],
-  [class*="grid"] > [class*="col"] {
+  [class*="gr"] > [class*="row"],
+  [class*="gr"] > [class*="col"] {
     margin-left: -15px;
     margin-right: -15px;
   }
@@ -2226,9 +2268,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  [class*="gr-"] {
     left: 0%;
     right: 0%;
     width: 100%;
@@ -2238,24 +2278,10 @@
   }
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  [class*="grid-"],
-  [class*="grow"],
-  [class*="adapt"] {
+  [class*="gr-"] {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  [class*="flex-grid-"],
-  [class*="flex-grow"],
-  [class*="flex-adapt"] {
-    -webkit-flex-basis: 100%;
-    -moz-flex-basis: 100%;
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%;
-    max-width: 100%;
   }
 }
