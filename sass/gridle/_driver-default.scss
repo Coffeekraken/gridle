@@ -31,12 +31,48 @@
 //
 // Col
 //
+@mixin _gridle_common_col(
+	$state : default
+) {
+}
 @mixin gridle_col(
 	$reverse : false
 ) {
 	@include _gridle_call(col) {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
+	}
+}
+
+
+//
+// Nowrap
+//
+@mixin _gridle_common_nowrap(
+	$state : default
+) {
+	white-space: nowrap;
+
+	> * {
+		white-space: normal;
+	}
+}
+@mixin gridle_nowrap() {
+	@include _gridle_call(nowrap) {
+	}
+}
+
+
+//
+// Wrap
+//
+@mixin _gridle_common_wrap(
+	$state : default
+) {
+	white-space:normal;
+}
+@mixin gridle_wrap() {
+	@include _gridle_call(wrap) {
 	}
 }
 
@@ -128,18 +164,18 @@
 
 
 //
-// Grid full
+// Row full
 //
-@mixin _gridle_common_grid_full(
+@mixin _gridle_common_row_full(
 	$state : default
 ) {
 }
-@mixin gridle_grid_full(
+@mixin gridle_row_full(
 ) {
-	@include _gridle_call(grid-full) {
-		display: block;
+	@include _gridle_call(row-full) {
 		width: 100vw;
-		margin-left: 50%;
+		margin-left:50% !important;
+		margin-right:0 !important;
 		-webkit-transform: translateX(-50%);
 		-moz-transition: translateX(-50%);
 		-ms-transform: translateX(-50%);
@@ -157,7 +193,7 @@
 ) {
 	display: table-cell;
 	width:1px;
-	white-space:nowrap;
+	white-space:nowrap !important;
 	@include gridle_gutter();
 }
 @mixin gridle_grid_adapt(

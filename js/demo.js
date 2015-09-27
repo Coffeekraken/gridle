@@ -9,7 +9,7 @@ jQuery(function($) {
   Gridle.on('ready', function(e) {
     var states;
     states = Gridle.getRegisteredStates();
-    $('.grid-12.gridle-debug').each(function() {
+    $('.gr-12.gridle-debug').each(function() {
       var $this, $ul;
       $this = $(this);
       $ul = $('<ul class="selector selector--states" />');
@@ -43,7 +43,7 @@ jQuery(function($) {
     $this = $(this);
     $container = $this;
     if (!$this.hasClass('.gridle-debug')) {
-      $container = $this.closest('.grid-12.gridle-debug');
+      $container = $this.closest('.gr-12.gridle-debug');
     }
     options = $this.data('options');
     groups = options.split('|');

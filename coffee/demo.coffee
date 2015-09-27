@@ -25,7 +25,7 @@ jQuery ($) ->
 	# when ready
 	Gridle.on 'ready', (e) ->
 		states = Gridle.getRegisteredStates()
-		$('.grid-12.gridle-debug').each ->
+		$('.gr-12.gridle-debug').each ->
 			$this = $(this)
 			$ul = $('<ul class="selector selector--states" />')
 			$.each states, (idx, item) ->
@@ -54,7 +54,7 @@ jQuery ($) ->
 		$this = $(this)
 		$container = $this
 		if !$this.hasClass('.gridle-debug')
-			$container = $this.closest('.grid-12.gridle-debug')
+			$container = $this.closest('.gr-12.gridle-debug')
 		options = $this.data('options')
 		groups = options.split('|')
 		$(groups).each (idx, item) ->

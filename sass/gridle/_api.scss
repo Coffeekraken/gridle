@@ -121,9 +121,23 @@
 			@include gridle_set($sv, $sn);
 		} @else {
 			@if $sn == container {
-				@include gridle_container();
+				@if $sv == true {
+					@include gridle_container();
+				}
 			} @else if $sn == grid {
 				@include gridle($sv);
+			} @else if $sn == grid-grow {
+				@if $sv == true {
+					@include gridle_grid_grow();
+				}
+			} @else if $sn == grid-adapt {
+				@if $sv == true {
+					@include gridle_grid_adapt();
+				}
+			} @else if $sn == grid-table {
+				@if $sv == true {
+					@include gridle_grid_table();
+				}
 			} @else if $sn == push {
 				@include gridle_push($sv);
 			} @else if $sn == pull {
@@ -136,12 +150,32 @@
 				@include gridle_pull($sv);
 			} @else if $sn == row-clear-each {
 				@include gridle_row_clear_each(nth($sv,1), nth($sv,2));
-			} @else if $sn == grid-centered {
+			} @else if $sn == grid-centered and $sv == true {
 				@include gridle_grid_centered();
-			} @else if $sn == row {
+			} @else if $sn == row and $sv == true {
 				@include gridle_row();
+			} @else if $sn == row-full {
+				@if $sv == true {
+					@include gridle_row_full();
+				}
+			} @else if $sn == col and $sv == true {
+				@include gridle_col();
 			} @else if $sn == row-align {
 				@include gridle_row_align($sv);
+			} @else if $sn == nowrap {
+				@if $sv == true {
+					@include gridle_nowrap();
+				} @else {
+					@include gridle_wrap();
+				}
+			} @else if $sn == wrap {
+				@if $sv == true {
+					@include gridle_wrap();
+				} @else {
+					@include gridle_nowrap();
+				}
+			} @else if $sn == order {
+				@include gridle_order($sv);
 			} @else if $sn == hide {
 				@if $sv == true {
 					@include gridle_hide();

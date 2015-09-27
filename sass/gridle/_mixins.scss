@@ -76,6 +76,11 @@
 		@include _gridle_common_row($state);
 	}
 
+	// row-full
+	@include _gridle_common_silent_class_name(row-full, $stateName) {
+		@include _gridle_common_row_full($state);
+	}
+
 	// col
 	@include _gridle_common_silent_class_name(col, $stateName) {
 		@include _gridle_common_col($state);
@@ -91,17 +96,12 @@
 		@include _gridle_common_grid_table($state);
 	}
 
-	// grid-full
-	@include _gridle_common_silent_class_name(grid-full, $stateName) {
-		@include _gridle_common_grid_full($state);
-	}
-
-	// adapt
+	// grid-adapt
 	@include _gridle_common_silent_class_name(grid-adapt, $stateName) {
 		@include _gridle_common_grid_adapt($state);
 	}
 
-	// grow
+	// grid-grow
 	@include _gridle_common_silent_class_name(grid-grow, $stateName) {
 		@include _gridle_common_grid_grow($state);
 	}
@@ -124,6 +124,16 @@
 	// suffix
 	@include _gridle_common_silent_class_name(suffix, $stateName) {
 		@include _gridle_common_suffix($state);
+	}
+
+	// nowrap
+	@include _gridle_common_silent_class_name(nowrap, $stateName) {
+		@include _gridle_common_nowrap($state);
+	}
+
+	// wrap
+	@include _gridle_common_silent_class_name(wrap, $stateName) {
+		@include _gridle_common_wrap($state);
 	}
 
 	// clear-each

@@ -56,7 +56,6 @@
 //
 // Remove item from list
 //
-//
 @function remove-nth($list, $index) {
   $result: null;
 		
@@ -656,22 +655,32 @@
 	$package,
 	$what
 ) {
+	// check that the wanted package exist in system
 	@if map-get($_gridle-packages, $package) {
 		$package : map-get($_gridle-packages, $package);
 		$package : map-get($package, package);
 	} @else {
 		@return false;
 	}
+	// if we have a what param, need to check if the package is needed
 	@if $what {
-		$return : true;
-		@each $name in $package {
-			// if we don't want the specified element, return false directly
-			@if index($what, unquote("-#{$name}")) {
-				@return false;
+		@if index($what, all) {
+			@each $name in $package {
+				@if index($what, unquote("-#{$name}")) {
+					@return false;
+				}
 			}
+			@return true;
+		} @else {
+			@each $name in $package {
+				@if index($what, unquote("#{$name}")) {
+					@return true;
+				}
+			}
+			@return false;
 		}
-		@return $return;
 	}
+	// we don't have a what param so the package is
 	@return true;
 }
 

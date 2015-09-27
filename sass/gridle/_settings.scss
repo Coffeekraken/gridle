@@ -25,6 +25,18 @@ $_gridle-packages : (
 		classname 							: ('row','-','%reverse','\\@','%state'),
 		package 							: default row
 	),
+	row-full 							: (
+		classname 							: ('row','-','full','\\@','%state'),
+		package 							: default row-full
+	),
+	nowrap 							: (
+		classname 							: ('nowrap','\\@','%state'),
+		package 							: default nowrap
+	),
+	wrap 							: (
+		classname 							: ('wrap','\\@','%state'),
+		package 							: default wrap
+	),
 	col 								: (
 		classname 							: ('col','-','%reverse','\\@','%state'),
 		package 							: default col
@@ -36,10 +48,6 @@ $_gridle-packages : (
 	grid-table 							: ( 
 		classname 							: ('gr','-','table','\\@','%state'),
 		package 							: default grid-table
-	),
-	grid-full 							: (
-		classname 							: ('gr','-','full','\\@','%state'),
-		package 							: default grid-full
 	),
 	grid-adapt 							: (
 		classname 							: ('gr','-','adapt','\\@','%state'),

@@ -13,7 +13,7 @@
 		<script src="js/respond.js"></script>
 	<!-- <![endif]-->
 
-	<title>Gridle - Demo</title>
+	<title>Gridle - Flex - Demo</title>
 
 	<script src="js/gridle.min.js"></script>
 	<script src="js/jquery.js"></script>
@@ -29,8 +29,8 @@
 			<div class="row">
 
 				<div class="gr-12">
-					<h1 class="h1">Gridle{.scss}</h1>
-					<h2 class="subtitle">Quick <span class="complementary">features overview</span></h2>
+					<h1 class="h1">Gridle{.scss} <small>Flex driver</small></h1>
+					<h2 class="subtitle">Quick <span class="complementary">flex features</span> overview</h2>
 				</div>
 
 			</div>
@@ -47,7 +47,7 @@
 
 				<div class="gr-12">
 					<p class="heading">
-						This page is just a quick overview of the gridle features. This is not a replacement for the official documentation that you can find <a href="http://gridle.org" target="_blank">here</a>
+						This page is just a quick overview of the gridle flex features. This is not a replacement for the official documentation that you can find <a href="http://gridle.org" target="_blank">here</a>
 					</p>
 				</div>
 
@@ -101,7 +101,7 @@
 
 				<h2 class="h2">Nested grids</h2>
 				<p class="p">
-					Here's a simple grid usage
+					Here's a simple nested grid usage
 				</p>
 
 			</div>
@@ -202,6 +202,9 @@
 
 			</div>
 
+
+
+
 			<div class="gr-12">
 
 				<h2 class="h2">Centered</h2>
@@ -229,6 +232,55 @@
 				<div class="separator"></div>
 
 			</div>
+
+
+
+
+			<div class="gr-12">
+
+				<h2 class="h2">Full width row</h2>
+				<p class="p">
+					Sometimes it's useful to have a grid column that take the entire screen width. Here's how you can do this without closing all your container and grid tags...
+				</p>
+
+			</div>
+
+			<div class="gr-12 gridle-debug">
+
+				<div class="row">
+
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+
+				</div>
+
+				<div class="row row-full">
+					<div class="gr-4"></div>
+					<div class="gr-4"></div>
+					<div class="gr-4"></div>
+				</div>
+
+				<div class="row">
+
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+
+				</div>
+			
+				<div class="separator"></div>
+
+			</div>
+
+
+
 
 			<div class="gr-12">
 
@@ -318,7 +370,7 @@
 
 				<h2 class="h2">Grow / adapt</h2>
 				<p class="p">
-					Gridle has a built in flex system that you can use with your normal grid
+					This is how you can simply use adaptive grid elements to create complexe layout.
 				</p>
 
 			</div>
@@ -334,13 +386,15 @@
 					<div class="gr-2"></div>
 				</div>
 
-				<div class="row">
-					<div class="gr-4 gr-5@tablet">
+				<div class="row nowrap wrap@tablet">
+					<div class="gr-adapt gr-6@tablet">
+						<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
+					</div>
+					<div class="gr-4 gr-6@tablet">
 						Cras interdum quis urna ullamcorper aliquam. Duis gravida odio et nisi porttitor elementum. Duis turpis ex, finibus quis enim sit.
 					</div>
-					<div class="gr-3 hide@tablet"></div>
 					<div class="gr-grow">
-						I will take the place that my neighbours let me...
+						Donec quis ex mi. Donec diam magna, efficitur in consectetur vel, finibus et ipsum. Ut quis metus commodo urna convallis facilisis a semper nibh. Curabitur et commodo quam. Ut et tristique ante. Integer a faucibus erat. Aenean accumsan quam et urna fermentum suscipit. Morbi non aliquam ex. Morbi scelerisque tellus. Donec quis ex mi. Donec diam magna, efficitur in consectetur vel, finibus et ipsum. Ut quis metus commodo urna convallis facilisis a semper nibh. Curabitur et commodo quam. Ut et tristique ante. Integer a faucibus erat. Aenean accumsan quam et urna fermentum suscipit. Morbi non aliquam ex. Morbi scelerisque tellus
 					</div>
 				</div>
 
@@ -354,15 +408,15 @@
 					</div>
 				</div>
 
-				<div class="row row-align-top no-debug-class" data-options="row-align-top,row-align-middle,row-align-bottom">
-					<div class="gr-adapt gr-12@tablet">
+				<div class="row nowrap row-align-middle no-debug-class">
+					<div class="gr-adapt">
 						<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 					</div>
 					<div class="gr-grow">
 						Donec quis ex mi. Donec diam magna, efficitur in consectetur vel, finibus et ipsum. Ut quis metus commodo urna convallis facilisis a semper nibh. Curabitur et commodo quam. Ut et tristique ante. Integer a faucibus erat. Aenean accumsan quam et urna fermentum suscipit. Morbi non aliquam ex. Morbi scelerisque tellus. Donec quis ex mi. Donec diam magna, efficitur in consectetur vel, finibus et ipsum. Ut quis metus commodo urna convallis facilisis a semper nibh. Curabitur et commodo quam. Ut et tristique ante. Integer a faucibus erat. Aenean accumsan quam et urna fermentum suscipit. Morbi non aliquam ex. Morbi scelerisque tellus
 					</div>
-					<div class="gr-adapt gr-mobile-12 list__sharings">
-						<ul class="list list--inline">
+					<div class="gr-adapt list__sharings">
+						<ul class="list list--inline nowrap">
 							<li class="list__item"><i class="fa fa-facebook-square"></i></li>
 							<li class="list__item"><i class="fa fa-twitter-square"></i></li>
 							<li class="list__item"><i class="fa fa-pinterest-square"></i></li>
@@ -386,9 +440,9 @@
 
 			<div class="gr-12">
 
-				<h2 class="h2">Flex - List <small>IE10+</small></h2>
+				<h2 class="h2">List</h2>
 				<p class="p">
-					With gridle flex capabilities, it's become easy to create complexe list layout
+					With gridle capabilities, it's become easy to create complexe list layout
 				</p>
 
 			</div>
@@ -396,7 +450,7 @@
 			<div class="gr-12 gridle-debug no-debug-class">
 
 				<ul>
-					<li class="row row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -419,7 +473,7 @@
 							</ul>
 						</div>
 					</li>
-					<li class="row row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -432,7 +486,7 @@
 							</span>
 						</div>
 					</li>
-					<li class="row row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -452,7 +506,7 @@
 							</ul>
 						</div>
 					</li>
-					<li class="row row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -468,7 +522,7 @@
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
 					</li>
-					<li class="row row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -499,9 +553,9 @@
 
 			<div class="gr-12">
 
-				<h2 class="h2">Flex - Column <small>IE10+</small></h2>
+				<h2 class="h2">Column</h2>
 				<p class="p">
-					Gridle has a built in flex system that you can use with your normal grid
+					You can easly change the layout of your row by using this
 				</p>
 
 			</div>
@@ -561,57 +615,53 @@
 
 			<div class="gr-12">
 
-				<h2 class="h2">Flex - Order <small>IE10+</small></h2>
+				<h2 class="h2">Order</h2>
 				<p class="p">
-					Gridle has a built in flex system that you can use with your normal grid
+					Gridle order classes allows you display your columns in another order that their defined in your html. Here's how
 				</p>
 
 			</div>
 
-			<div class="gr-12">
+			<div class="gr-12 gridle-debug">
 
-				<div class="container gridle-debug">
+				<div class="row">
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+				</div>
 
-					<div class="row">
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
+				<div class="row">
+					<div class="gr-4 order-2 order-3@tablet">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
 					</div>
-
-					<div class="row">
-						<div class="gr-4 order-2 order-3@tablet">
-							<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
-						</div>
-						<div class="gr-4 order-1 order-2@tablet">
-							<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
-						</div>
-						<div class="gr-4 order-3 order-1@tablet">
-							<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
-						</div>
+					<div class="gr-4 order-1 order-2@tablet">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
 					</div>
-
-					<div class="row">
-						<div class="gr-4 order-last">
-							<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
-						</div>
-						<div class="gr-4">
-							<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
-						</div>
-						<div class="gr-4 order-first">
-							<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
-						</div>
+					<div class="gr-4 order-3 order-1@tablet">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
 					</div>
+				</div>
 
-					<div class="row">
-						<div class="gr-3"></div>
-						<div class="gr-3"></div>
-						<div class="gr-3"></div>
-						<div class="gr-3"></div>
+				<div class="row">
+					<div class="gr-4 order-last">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
 					</div>
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="gr-4 order-first">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
 
+				<div class="row">
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
 				</div>
 		
 				<div class="separator"></div>
@@ -624,62 +674,58 @@
 
 			<div class="gr-12">
 
-				<h2 class="h2">Flex - Reverse <small>IE10+</small></h2>
+				<h2 class="h2">Reverse</h2>
 				<p class="p">
-					Gridle has a built in flex system that you can use with your normal grid
+					The same way as the order, you can reverse your columns order easly by using this
 				</p>
 
 			</div>
 
-			<div class="gr-12">
+			<div class="gr-12 gridle-debug">
 
-				<div class="container gridle-debug">
-
-					<div class="row">
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-						<div class="gr-2"></div>
-					</div>
-
-					<div class="row row-reverse@tablet">
-						<div class="gr-4">
-							<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
-						</div>
-						<div class="gr-4">
-							<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
-						</div>
-						<div class="gr-4">
-							<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
-						</div>
-					</div>
-
-					<div class="row col-reverse@tablet">
-						<div class="gr-4 grow@tablet">
-							<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
-						</div>
-						<div class="gr-4 grow@tablet">
-							<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
-						</div>
-						<div class="gr-4 grow@tablet">
-							<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
-						</div>
-					</div>
-
-					<div class="row">
-						<div class="gr-3"></div>
-						<div class="gr-3"></div>
-						<div class="gr-3"></div>
-						<div class="gr-3"></div>
-					</div>
-
+				<div class="row">
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
 				</div>
-		
-				<div class="separator"></div>
+
+				<div class="row row-reverse">
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="row col-reverse@tablet">
+					<div class="gr-4 grow@tablet">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="gr-4 grow@tablet">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="gr-4 grow@tablet">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+				</div>
 
 			</div>
+	
+			<div class="separator"></div>
 
 		</div>
 

@@ -64,6 +64,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 /**
  * Variables
  */
+.coco {
+  color: red;
+}
+
 /**
  * Gradients
  */
@@ -254,15 +258,24 @@ pre {
   background-image: -webkit-linear-gradient(#f1c413, #f2ca2b);
   background-image: linear-gradient(#f1c413, #f2ca2b);
 }
+.state-mobile .selector li[data-state="mobile"] {
+  outline: 2px solid #ee243c;
+}
 @media screen and (max-width: 480px) {
   .selector li[data-state="mobile"] {
     outline: 2px solid #ee243c;
   }
 }
+.state-tablet .selector li[data-state="tablet"] {
+  outline: 2px solid #ee243c;
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .selector li[data-state="tablet"] {
     outline: 2px solid #ee243c;
   }
+}
+.state-ipad-landscape .selector li[data-state="ipad-landscape"] {
+  outline: 2px solid #ee243c;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .selector li[data-state="ipad-landscape"] {
@@ -317,6 +330,14 @@ pre {
 .selector.selector--options li.active {
   background: #656156 !important;
   color: white;
+}
+.state-mobile .selector {
+  display: block;
+  margin: 0 0 15px 0;
+}
+.state-mobile .selector li {
+  display: block;
+  padding: 10px;
 }
 @media screen and (max-width: 480px) {
   .selector {
@@ -399,7 +420,7 @@ pre {
 }
 
 .list__sharings {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
 /**
@@ -419,12 +440,24 @@ pre {
   content: i extend the grid class;
 }
 
+.state-default #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  direction: ltr;
+  padding-right: 10px;
+  padding-left: 10px;
+  content: i extend the grid class;
+}
 #myCoolItem {
   position: relative;
 }
 
+.state-default #myCoolItem {
+  position: relative;
+}
 @media screen and (max-width: 480px) {
-  #myCoolItem {
+  .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -434,8 +467,17 @@ pre {
     content: i extend the grid class;
   }
 }
+.state-mobile .state-default #myCoolItem, .state-mobile #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  direction: ltr;
+  padding-right: 10px;
+  padding-left: 10px;
+  content: i extend the grid class;
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
+  .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -445,13 +487,120 @@ pre {
     content: i extend the grid class;
   }
 }
+.state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  direction: ltr;
+  padding-right: 10px;
+  padding-left: 10px;
+  content: i extend the grid class;
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
+  .state-default #myCoolItem, #myCoolItem {
     position: relative;
   }
 }
+.state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+  position: relative;
+}
+.state-default #myCoolItem {
+  width: 66.66667%;
+  left: 16.66667%;
+}
+.state-ipad-landscape .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-default #myCoolItem {
+  width: 100%;
+  display: inline-block;
+  left: 0%;
+}
+.state-ipad-landscape .state-tablet .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default #myCoolItem {
+    width: 100%;
+    display: inline-block;
+    left: 0%;
+  }
+}
+.state-mobile .state-default #myCoolItem {
+  width: 100%;
+  display: inline-block;
+  visibility: hidden;
+}
+.state-ipad-landscape .state-mobile .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .state-default #myCoolItem {
+    width: 100%;
+    display: inline-block;
+    visibility: hidden;
+  }
+}
+.state-ipad-landscape #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet #myCoolItem {
+  width: 100%;
+  display: inline-block;
+  left: 0%;
+}
+.state-ipad-landscape .state-tablet #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet #myCoolItem {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -463,6 +612,25 @@ pre {
     width: 100%;
     display: inline-block;
     left: 0%;
+  }
+}
+.state-mobile #myCoolItem {
+  width: 100%;
+  display: inline-block;
+  visibility: hidden;
+}
+.state-ipad-landscape .state-mobile #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
 @media screen and (max-width: 480px) {

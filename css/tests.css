@@ -1,6 +1,9 @@
 .not-visible, .not-visible\@mobile, .visible, .visible\@mobile, .show, .show\@mobile, .hide, .hide\@mobile {
   content: "your css...";
 }
+.state-mobile .not-visible, .state-mobile .not-visible\@mobile, .state-mobile .visible, .state-mobile .visible\@mobile, .state-mobile .show, .state-mobile .show\@mobile, .state-mobile .hide, .state-mobile .hide\@mobile {
+  content: "you can even use the gridle_state mixin etc...";
+}
 @media screen and (max-width: 480px) {
   .not-visible, .not-visible\@mobile, .visible, .visible\@mobile, .show, .show\@mobile, .hide, .hide\@mobile {
     content: "you can even use the gridle_state mixin etc...";
@@ -22,6 +25,16 @@
   zoom: 1;
 }
 
+.state-default .grid-row-set:before, .state-default .grid-row-set:after {
+  content: "";
+  display: table;
+}
+.state-default .grid-row-set:after {
+  clear: both;
+}
+.state-default .grid-row-set {
+  zoom: 1;
+}
 .grid-12, .grid-1on5, .grid-12-on-100, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
@@ -32,14 +45,29 @@
   content: i extend the grid class;
 }
 
+.state-default .gridle-set, .state-default .gridle-set-multiple {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  direction: ltr;
+  padding-right: 10px;
+  padding-left: 10px;
+  content: i extend the grid class;
+}
 .push-6, .push-set, .push-nested, .gridle-set {
   position: relative;
 }
 
+.state-default .push-set, .state-default .gridle-set {
+  position: relative;
+}
 .pull-6, .pull-set, .pull-nested {
   position: relative;
 }
 
+.state-default .pull-set {
+  position: relative;
+}
 .centered {
   display: block !important;
   float: none !important;
@@ -49,7 +77,7 @@
 }
 
 @media screen and (max-width: 480px) {
-  .grid-15-on-100-on-mobile, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
+  .grid-15-on-100-on-mobile, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .state-default .gridle-set, .gridle-set, .gridle-set-multiple {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -59,15 +87,30 @@
     content: i extend the grid class;
   }
 }
+.state-mobile .grid-15-on-100-on-mobile, .state-mobile .grid-30-on-100-on-mobile-and-tablet, .state-mobile .gridle-state, .state-mobile .state-default .gridle-set, .state-mobile .gridle-set, .state-mobile .gridle-set-multiple {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  direction: ltr;
+  padding-right: 10px;
+  padding-left: 10px;
+  content: i extend the grid class;
+}
 @media screen and (max-width: 480px) {
-  .push-12-mobile, .push-nested, .gridle-set {
+  .push-12-mobile, .push-nested, .state-default .gridle-set, .gridle-set {
     position: relative;
   }
 }
+.state-mobile .push-12-mobile, .state-mobile .push-nested, .state-mobile .state-default .gridle-set, .state-mobile .gridle-set {
+  position: relative;
+}
 @media screen and (max-width: 480px) {
-  .pull-12-mobile, .pull-nested, .gridle-set {
+  .pull-12-mobile, .pull-nested, .state-default .gridle-set, .gridle-set {
     position: relative;
   }
+}
+.state-mobile .pull-12-mobile, .state-mobile .pull-nested, .state-mobile .state-default .gridle-set, .state-mobile .gridle-set {
+  position: relative;
 }
 @media screen and (max-width: 480px) {
   .centered-mobile {
@@ -78,8 +121,15 @@
     clear: both !important;
   }
 }
+.state-mobile .centered-mobile {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important;
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
+  .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .state-default .gridle-set, .gridle-set, .gridle-set-multiple {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -89,10 +139,28 @@
     content: i extend the grid class;
   }
 }
+.state-tablet .grid-30-on-100-on-mobile-and-tablet, .state-tablet .gridle-state, .state-tablet .state-default .gridle-set, .state-tablet .gridle-set, .state-tablet .gridle-set-multiple {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  direction: ltr;
+  padding-right: 10px;
+  padding-left: 10px;
+  content: i extend the grid class;
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .gridle-set {
+  .state-default .gridle-set, .gridle-set {
     position: relative;
   }
+}
+.state-tablet .state-default .gridle-set, .state-tablet .gridle-set {
+  position: relative;
+}
+.state-ipad-landscape .grid-12 {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-12 {
@@ -106,6 +174,12 @@
 .grid-1on5 {
   width: 20%;
 }
+.state-ipad-landscape .grid-1on5 {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-1on5 {
     padding-top: 25px;
@@ -118,6 +192,12 @@
 .grid-12-on-100 {
   width: 12%;
 }
+.state-ipad-landscape .grid-12-on-100 {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-12-on-100 {
     padding-top: 25px;
@@ -127,10 +207,33 @@
   }
 }
 
+.state-mobile .grid-15-on-100-on-mobile {
+  width: 15%;
+}
+.state-ipad-landscape .state-mobile .grid-15-on-100-on-mobile {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .grid-15-on-100-on-mobile {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
 @media screen and (max-width: 480px) {
   .grid-15-on-100-on-mobile {
     width: 15%;
   }
+}
+.state-ipad-landscape .grid-15-on-100-on-mobile {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-15-on-100-on-mobile {
@@ -144,8 +247,31 @@
 .grid-30-on-100-on-mobile-and-tablet {
   width: 30%;
 }
+.state-ipad-landscape .grid-30-on-100-on-mobile-and-tablet {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-30-on-100-on-mobile-and-tablet {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-mobile .grid-30-on-100-on-mobile-and-tablet {
+  width: 30%;
+}
+.state-ipad-landscape .state-mobile .grid-30-on-100-on-mobile-and-tablet {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .grid-30-on-100-on-mobile-and-tablet {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -155,6 +281,23 @@
 @media screen and (max-width: 480px) {
   .grid-30-on-100-on-mobile-and-tablet {
     width: 30%;
+  }
+}
+.state-tablet .grid-30-on-100-on-mobile-and-tablet {
+  width: 30%;
+}
+.state-ipad-landscape .state-tablet .grid-30-on-100-on-mobile-and-tablet {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .grid-30-on-100-on-mobile-and-tablet {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
@@ -172,6 +315,10 @@
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
+.state-default .grid-row-set {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
 
 .clear-each-2 > *:nth-child(2n+1) {
   clear: both;
@@ -181,6 +328,9 @@
   clear: left;
 }
 
+.state-mobile .clear-each-2-left-mobile > *:nth-child(2n+1) {
+  clear: left;
+}
 @media screen and (max-width: 480px) {
   .clear-each-2-left-mobile > *:nth-child(2n+1) {
     clear: left;
@@ -207,6 +357,33 @@
   padding-left: 50px;
   content: "multiple sides";
   padding-left: 10px;
+}
+.state-default .gutter-width-set {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+.state-default .gutter-width-set {
+  padding-top: 10px;
+  padding-right: 50px;
+  padding-bottom: 10px;
+  padding-left: 50px;
+}
+.state-default .gutter-width-set {
+  padding-left: 10px;
+}
+.state-mobile .state-default .gutter-width-set {
+  padding-right: 50px;
+  padding-left: 50px;
+}
+@media screen and (max-width: 480px) {
+  .state-default .gutter-width-set {
+    padding-right: 50px;
+    padding-left: 50px;
+  }
+}
+.state-mobile .gutter-width-set {
+  padding-right: 50px;
+  padding-left: 50px;
 }
 @media screen and (max-width: 480px) {
   .gutter-width-set {
@@ -291,6 +468,9 @@
   left: 50.0%;
 }
 
+.state-mobile .push-12-mobile {
+  left: 100.0%;
+}
 @media screen and (max-width: 480px) {
   .push-12-mobile {
     left: 100.0%;
@@ -300,9 +480,15 @@
 .push-set {
   left: 25.0%;
 }
+.state-default .push-set {
+  left: 25.0%;
+}
 
 .push-nested {
   left: 25.0%;
+}
+.state-mobile .push-nested {
+  left: 0%;
 }
 @media screen and (max-width: 480px) {
   .push-nested {
@@ -314,6 +500,9 @@
   right: 50.0%;
 }
 
+.state-mobile .pull-12-mobile {
+  right: 100.0%;
+}
 @media screen and (max-width: 480px) {
   .pull-12-mobile {
     right: 100.0%;
@@ -323,9 +512,15 @@
 .pull-set {
   right: 25.0%;
 }
+.state-default .pull-set {
+  right: 25.0%;
+}
 
 .pull-nested {
   right: 25.0%;
+}
+.state-mobile .pull-nested {
+  right: 0%;
 }
 @media screen and (max-width: 480px) {
   .pull-nested {
@@ -337,6 +532,9 @@
   margin-left: 50.0%;
 }
 
+.state-mobile .prefix-12-mobile {
+  margin-left: 100.0%;
+}
 @media screen and (max-width: 480px) {
   .prefix-12-mobile {
     margin-left: 100.0%;
@@ -346,9 +544,15 @@
 .prefix-set {
   margin-left: 25.0%;
 }
+.state-default .prefix-set {
+  margin-left: 25.0%;
+}
 
 .prefix-nested {
   margin-left: 25.0%;
+}
+.state-mobile .prefix-nested {
+  margin-left: 0%;
 }
 @media screen and (max-width: 480px) {
   .prefix-nested {
@@ -360,6 +564,9 @@
   margin-right: 50.0%;
 }
 
+.state-mobile .suffix-12-mobile {
+  margin-right: 100.0%;
+}
 @media screen and (max-width: 480px) {
   .suffix-12-mobile {
     margin-right: 100.0%;
@@ -369,9 +576,15 @@
 .suffix-set {
   margin-right: 25.0%;
 }
+.state-default .suffix-set {
+  margin-right: 25.0%;
+}
 
 .pull-suffix {
   margin-right: 25.0%;
+}
+.state-mobile .pull-suffix {
+  margin-right: 0%;
 }
 @media screen and (max-width: 480px) {
   .pull-suffix {
@@ -383,6 +596,9 @@
   display: none;
 }
 
+.state-mobile .hide-mobile {
+  display: none;
+}
 @media screen and (max-width: 480px) {
   .hide-mobile {
     display: none;
@@ -392,11 +608,17 @@
 .hide-set {
   display: none;
 }
+.state-default .hide-set {
+  display: none;
+}
 
 .show {
   display: block;
 }
 
+.state-mobile .show-mobile {
+  display: block;
+}
 @media screen and (max-width: 480px) {
   .show-mobile {
     display: block;
@@ -406,11 +628,17 @@
 .show-set {
   display: none;
 }
+.state-default .show-set {
+  display: none;
+}
 
 .show_inline {
   display: inline-block;
 }
 
+.state-mobile .show_inline-mobile {
+  display: inline-block;
+}
 @media screen and (max-width: 480px) {
   .show_inline-mobile {
     display: inline-block;
@@ -420,11 +648,17 @@
 .show_inline-set {
   display: inline-block;
 }
+.state-default .show_inline-set {
+  display: inline-block;
+}
 
 .not_visible {
   visibility: hidden;
 }
 
+.state-mobile .not_visible-mobile {
+  visibility: hidden;
+}
 @media screen and (max-width: 480px) {
   .not_visible-mobile {
     visibility: hidden;
@@ -434,11 +668,17 @@
 .not_visible-set {
   visibility: hidden;
 }
+.state-default .not_visible-set {
+  visibility: hidden;
+}
 
 .visible {
   visibility: visible;
 }
 
+.state-mobile .visible-mobile {
+  visibility: visible;
+}
 @media screen and (max-width: 480px) {
   .visible-mobile {
     visibility: visible;
@@ -448,13 +688,41 @@
 .visible-set {
   visibility: hidden;
 }
+.state-default .visible-set {
+  visibility: hidden;
+}
 
 .gridle-state {
   background: red;
   width: 66.66667%;
 }
+.state-ipad-landscape .gridle-state {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .gridle-state {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-mobile .gridle-state {
+  background: pink;
+  width: 100%;
+  display: inline-block;
+}
+.state-ipad-landscape .state-mobile .gridle-state {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -468,11 +736,48 @@
     display: inline-block;
   }
 }
+.state-tablet .gridle-state {
+  background: pink;
+  width: 100%;
+  display: inline-block;
+}
+.state-ipad-landscape .state-tablet .gridle-state {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-state {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gridle-state {
     background: pink;
     width: 100%;
     display: inline-block;
+  }
+}
+.state-u4rd8acq6 .gridle-state {
+  background: yellow;
+  width: 83.33333%;
+}
+.state-ipad-landscape .state-u4rd8acq6 .gridle-state {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u4rd8acq6 .gridle-state {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
 @media only print {
@@ -481,10 +786,47 @@
     width: 83.33333%;
   }
 }
+.state-u4rd8acqh .gridle-state {
+  background: green;
+  width: 41.66667%;
+}
+.state-ipad-landscape .state-u4rd8acqh .gridle-state {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u4rd8acqh .gridle-state {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
 @media screen and (max-width: 200px) {
   .gridle-state {
     background: green;
     width: 41.66667%;
+  }
+}
+.state-u4rd8acrc .gridle-state {
+  content: "ad hoc state";
+  background: white;
+  width: 25%;
+}
+.state-ipad-landscape .state-u4rd8acrc .gridle-state {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u4rd8acrc .gridle-state {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
 @media screen and (min-width: 200px) and (max-width: 600px) {
@@ -500,8 +842,103 @@
   left: 16.66667%;
   clear: left;
 }
+.state-default .gridle-set {
+  width: 50%;
+  left: 16.66667%;
+  clear: left;
+}
+.state-ipad-landscape .state-default .gridle-set {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle-set {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-default .gridle-set {
+  width: 66.66667%;
+  left: 0%;
+}
+.state-ipad-landscape .state-tablet .state-default .gridle-set {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default .gridle-set {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default .gridle-set {
+    width: 66.66667%;
+    left: 0%;
+  }
+}
+.state-mobile .state-default .gridle-set {
+  width: 100%;
+  display: inline-block;
+  left: 0%;
+  right: 0%;
+}
+.state-ipad-landscape .state-mobile .state-default .gridle-set {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default .gridle-set {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .state-default .gridle-set {
+    width: 100%;
+    display: inline-block;
+    left: 0%;
+    right: 0%;
+  }
+}
+.state-ipad-landscape .gridle-set {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .gridle-set {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .gridle-set {
+  width: 66.66667%;
+  left: 0%;
+}
+.state-ipad-landscape .state-tablet .gridle-set {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-set {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -512,6 +949,26 @@
   .gridle-set {
     width: 66.66667%;
     left: 0%;
+  }
+}
+.state-mobile .gridle-set {
+  width: 100%;
+  display: inline-block;
+  left: 0%;
+  right: 0%;
+}
+.state-ipad-landscape .state-mobile .gridle-set {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-set {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
 @media screen and (max-width: 480px) {
@@ -526,8 +983,49 @@
 .gridle-set-multiple {
   width: 50%;
 }
+.state-default .gridle-set-multiple {
+  width: 50%;
+}
+.state-ipad-landscape .state-default .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle-set-multiple {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .gridle-set-multiple {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-mobile .gridle-set-multiple {
+  width: 100%;
+  display: inline-block;
+}
+.state-ipad-landscape .state-mobile .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-set-multiple {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -538,6 +1036,24 @@
   .gridle-set-multiple {
     width: 100%;
     display: inline-block;
+  }
+}
+.state-tablet .gridle-set-multiple {
+  width: 100%;
+  display: inline-block;
+}
+.state-ipad-landscape .state-tablet .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-set-multiple {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
@@ -551,6 +1067,9 @@
   float: right;
 }
 
+.state-mobile .float-left-mobile {
+  float: left;
+}
 @media screen and (max-width: 480px) {
   .float-left-mobile {
     float: left;
@@ -560,11 +1079,17 @@
 .float-set {
   float: right;
 }
+.state-default .float-set {
+  float: right;
+}
 
 .clear {
   clear: both;
 }
 
+.state-mobile .clear-left-mobile {
+  clear: left;
+}
 @media screen and (max-width: 480px) {
   .clear-left-mobile {
     clear: left;
@@ -572,6 +1097,9 @@
 }
 
 .clear-set {
+  clear: left;
+}
+.state-default .clear-set {
   clear: left;
 }
 
@@ -584,6 +1112,10 @@
   padding-left: 10px;
 }
 
+.state-mobile .gutters-side-mobile {
+  padding-right: 10px;
+  padding-left: 10px;
+}
 @media screen and (max-width: 480px) {
   .gutters-side-mobile {
     padding-right: 10px;
@@ -602,6 +1134,10 @@
   padding-left: 0;
 }
 
+.state-mobile .no-gutter-side-mobile {
+  padding-left: 0;
+  padding-right: 0;
+}
 @media screen and (max-width: 480px) {
   .no-gutter-side-mobile {
     padding-left: 0;
@@ -626,11 +1162,11 @@
 }
 
 .gridle_get_state {
-  content: "(name: mobile, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false)";
+  content: "(name: mobile, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true)";
 }
 
 .gridle_get_state-custom {
-  content: "(name: ua9ju7q7y, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false)";
+  content: "(name: u4rd8acrm, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true)";
 }
 
 .gridle_has_state-mobile {
@@ -646,5 +1182,5 @@
 }
 
 .gridle_set_state_var {
-  content: (name: coucou, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false);
+  content: (name: coucou, min-width: null, max-width: 480px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true);
 }

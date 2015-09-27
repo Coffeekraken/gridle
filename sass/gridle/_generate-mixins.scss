@@ -142,6 +142,12 @@
 		}
 	}
 
+	@if _gridle_need_to_generate(row-full, $package) {
+		#{_gridle_classname(row-full, $state)} {
+			@include gridle_row_full();
+		}
+	}
+
 	@if _gridle_need_to_generate(col, $package) {
 		#{_gridle_classname(col, $state)} {
 			@include gridle_col(false);
@@ -154,12 +160,6 @@
 	@if _gridle_need_to_generate(grid-table, $package) {
 		#{_gridle_classname(grid-table, $state)} {
 			@include gridle_grid_table();
-		}
-	}
-
-	@if _gridle_need_to_generate(grid-full, $package) {
-		#{_gridle_classname(grid-full, $state)} {
-			@include gridle_grid_full();
 		}
 	}
 
@@ -201,6 +201,20 @@
 			#{_gridle_classname(row-align, $state, between)} {
 				@include gridle_row_align(between);
 			}
+		}
+	}
+
+	//
+	// Wrapping
+	//
+	@if _gridle_need_to_generate(nowrap, $package) {
+		#{_gridle_classname(nowrap, $state)} {
+			@include gridle_nowrap();
+		}
+	}
+	@if _gridle_need_to_generate(wrap, $package) {
+		#{_gridle_classname(wrap, $state)} {
+			@include gridle_wrap();
 		}
 	}
 
@@ -330,8 +344,8 @@
 // Generate classes
 //
 @mixin gridle_generate_classes(
-	$package : (default, helpers),
-	$states : null, // null mean all states here...
+	$states : all,
+	$package : all,
 	$scope : null
 ) {
 
@@ -339,27 +353,53 @@
 	@if $scope {
 		// wrapp grid into scope
 		.#{$scope} {
-			@include _gridle_generate_classes($package, $states, true);
+			@include _gridle_generate_classes($states, $package, true);
 		}
 	} @else {
 		// generate classes
-		@include _gridle_generate_classes($package, $states, false);
+		@include _gridle_generate_classes($states, $package, false);
 	}
 }
 $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 @mixin _gridle_generate_classes(
-	$package : (default, helpers),
-	$states : null, // null mean all states here...
+	$states : all,
+	$package : all,
 	$has-parent : false
 ) {	
 
 	// set that we are in generate phase (that can be used anywhere)
 	$_gridle_is_in_generate_phase : true !global;
 
-	// if no states are provided, mean that we want all states
-	@if $states == null {
-		$states : gridle_get_registered_states_names();
+	// get all the registered states that will be processed after
+	// to determine which states to generate
+	$generate-states : gridle_get_registered_states_names();
+
+	// if we have provided some states to generate
+	@if $states != null and $states != all {
+		// check if we have only some - in the states list
+		// mean that we want to only remove these specified states
+		// from the all states list
+		$onlyRemove : true;
+		@each $stateName in $states {
+			@if str-slice($stateName,1,1) != '-' {
+				$onlyRemove : false;
+			}
+		}
+		// if we want to only remove some states
+		@if $onlyRemove {
+			// loop on all the states to remove
+			@each $stateName in $states {
+				$sn : str-slice($stateName,2);
+				$idx : index($generate-states, $sn);
+				@if $idx != null {
+					$generate-states : remove-nth($generate-states,$idx);
+				}
+			}
+		} @else {
+			$generate-states : $states;
+		}
 	}
+
 
 	// generate these classes only once
 	@if $_gridle_generateOnlyOnce
@@ -390,7 +430,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	}
 
 	// loop on each states to generate all the classes
-	@each $stateName in $states {
+	@each $stateName in $generate-states {
 
 		// get the actual state
 		$state : gridle_get_state($stateName);
@@ -475,8 +515,10 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 			@include _gridle_state($stateName, false) {
 				@each $f, $rules in $fors {
 					@if map-get($fors, $f) {
-						@include gridle_selector($f, null) {
-							@include _gridle_map_2_css($rules);
+						@if _gridle_need_to_generate($f, $package) {
+							@include gridle_selector($f, null) {
+								@include _gridle_map_2_css($rules);
+							}
 						}
 					}
 				}
@@ -484,14 +526,17 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		}
 	}
 
-	@each $stateName, $state in gridle_get_registered_states() {
-		$gutter-left : gridle_get_state_var(gutter-left, $state);
-		$gutter-right : gridle_get_state_var(gutter-right, $state);
-		@include _gridle_state($stateName, false) {
-			[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(row),2)}"],
-			[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(col),2)}"] {
-				margin-left: -#{$gutter-left};
-				margin-right: -#{$gutter-right};
+	// make nested grids working automatically
+	@if _gridle_need_to_generate(col, $package) or _gridle_need_to_generate(row, $package) {
+		@each $stateName, $state in gridle_get_registered_states() {
+			$gutter-left : gridle_get_state_var(gutter-left, $state);
+			$gutter-right : gridle_get_state_var(gutter-right, $state);
+			@include _gridle_state($stateName, false) {
+				[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(row),2)}"],
+				[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(col),2)}"] {
+					margin-left: -#{$gutter-left};
+					margin-right: -#{$gutter-right};
+				}
 			}
 		}
 	}
