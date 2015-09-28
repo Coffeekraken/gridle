@@ -103,37 +103,44 @@
 	$columns,
 	$context : null
 ) {
-	@include _gridle_call(grid) {
+	@if $columns == grow {
+		@include gridle_grid_grow();
+	} @else if $columns == adapt {
+		@include gridle_grow_adapt();
+	} @else {
+		
+		@include _gridle_call(grid) {
 
-		// vars
-		$name : gridle_get_state_var(name);
-		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
-		}
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		$gutter-left : gridle_get_state_var(gutter-left);
-		$gutter-right : gridle_get_state_var(gutter-right);
+			// vars
+			$name : gridle_get_state_var(name);
+			@if type-of($context) != number {
+				$context : gridle_get_state_var(context);
+			}
+			$name-multiplicator : gridle_get_state_var(name-multiplicator);
+			$gutter-left : gridle_get_state_var(gutter-left);
+			$gutter-right : gridle_get_state_var(gutter-right);
 
-		// manage columns
-		@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
-			// the columns is a saved one, get the context and column value
-			$column : map-get($_gridle_columns, $columns);
-			$context : map-get($column, context);
-			$columns : map-get($column, columns);
-		} @else if type-of($columns) == number {
-			$columns : $columns / $name-multiplicator;
-		} @else {
-			@error "the column #{$columns} does not exist...";
-		}
+			// manage columns
+			@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+				// the columns is a saved one, get the context and column value
+				$column : map-get($_gridle_columns, $columns);
+				$context : map-get($column, context);
+				$columns : map-get($column, columns);
+			} @else if type-of($columns) == number {
+				$columns : $columns / $name-multiplicator;
+			} @else {
+				@error "the column #{$columns} does not exist...";
+			}
 
-		// width :
-		$width : percentage(1 / $context * $columns);
+			// width :
+			$width : percentage(1 / $context * $columns);
 
-		// set value :
-		width:$width;
+			// set value :
+			width:$width;
 
-		@if $columns == $context {
-			display: inline-block;
+			@if $columns == $context {
+				display: inline-block;
+			}
 		}
 	}
 }

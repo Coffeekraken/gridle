@@ -300,7 +300,7 @@
 //
 // get the registered gridle states
 //
-@function gridle_get_registered_states() {
+@function gridle_get_states() {
 	@return $_gridle_states;
 }
 
@@ -308,7 +308,7 @@
 //
 // Get the states names
 //
-@function gridle_get_registered_states_names() {
+@function gridle_get_states_names() {
 	$list : ();
 	@each $stateName, $state in $_gridle_states {
 		$list : append($list, $stateName);
@@ -501,7 +501,7 @@
 
 		// get all states if not specified
 		@if $states == null {
-			$states : gridle_get_registered_states_names();
+			$states : gridle_get_states_names();
 		}
 
 		// get the pattern
@@ -582,6 +582,10 @@
 	$removeSeparator : false;
 	@for $i from length($pattern) through 1 {
 		$var : nth($pattern, $i);
+
+		@if $var == '@' {
+			$pattern : set-nth($pattern, $i, '\\@');
+		}
 
 		@if index($_gridle_names-separators, $var) {
 			// check if need to remove separator
@@ -701,7 +705,7 @@
 // @return 	String 						The media query string without the @media
 //
 @function gridle_get_media_query(
-	$state-or-settings
+	$state-or-settings : current
 ) {
 	// check if is a string :
 	$state : null;

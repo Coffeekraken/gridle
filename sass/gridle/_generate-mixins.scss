@@ -372,7 +372,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 
 	// get all the registered states that will be processed after
 	// to determine which states to generate
-	$generate-states : gridle_get_registered_states_names();
+	$generate-states : gridle_get_states_names();
 
 	// if we have provided some states to generate
 	@if $states != null and $states != all {
@@ -528,7 +528,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 
 	// make nested grids working automatically
 	@if _gridle_need_to_generate(col, $package) or _gridle_need_to_generate(row, $package) {
-		@each $stateName, $state in gridle_get_registered_states() {
+		@each $stateName, $state in gridle_get_states() {
 			$gutter-left : gridle_get_state_var(gutter-left, $state);
 			$gutter-right : gridle_get_state_var(gutter-right, $state);
 			@include _gridle_state($stateName, false) {

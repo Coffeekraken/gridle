@@ -212,7 +212,7 @@
 // ) {
 // 	// if $states is all
 // 	@if $statesNames == null {
-// 		$statesNames : gridle_get_registered_states_names();
+// 		$statesNames : gridle_get_states_names();
 // 	}
 
 // 	// allow multiple "$for"
@@ -253,7 +253,7 @@
 ) {
 	// if $states is all
 	@if $statesNames == null {
-		$statesNames : gridle_get_registered_states_names();
+		$statesNames : gridle_get_states_names();
 	}
 
 	// allow multiple "$for"
@@ -314,7 +314,7 @@
 
 // 	// if statesNames is null, mean that it's all the states
 // 	@if $statesNames == null {
-// 		$statesNames : gridle_get_registered_states_names();
+// 		$statesNames : gridle_get_states_names();
 // 	}
 
 // 	// allow multiple "$for"
@@ -345,7 +345,7 @@
 
 	// if statesNames is null, mean that it's all the states
 	@if $statesNames == null {
-		$statesNames : gridle_get_registered_states_names();
+		$statesNames : gridle_get_states_names();
 	}
 
 	// allow multiple "$for"

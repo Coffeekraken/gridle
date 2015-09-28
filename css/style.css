@@ -258,29 +258,11 @@ pre {
   background-image: -webkit-linear-gradient(#f1c413, #f2ca2b);
   background-image: linear-gradient(#f1c413, #f2ca2b);
 }
-.state-mobile .selector li[data-state="mobile"] {
+.state-default .selector li[data-state="gridle_get_registered_states_names()"] {
   outline: 2px solid #ee243c;
 }
-@media screen and (max-width: 480px) {
-  .selector li[data-state="mobile"] {
-    outline: 2px solid #ee243c;
-  }
-}
-.state-tablet .selector li[data-state="tablet"] {
+.selector li[data-state="gridle_get_registered_states_names()"] {
   outline: 2px solid #ee243c;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .selector li[data-state="tablet"] {
-    outline: 2px solid #ee243c;
-  }
-}
-.state-ipad-landscape .selector li[data-state="ipad-landscape"] {
-  outline: 2px solid #ee243c;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .selector li[data-state="ipad-landscape"] {
-    outline: 2px solid #ee243c;
-  }
 }
 .selector li.active {
   color: white;

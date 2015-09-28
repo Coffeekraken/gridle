@@ -10,11 +10,11 @@
 // @include gridle_generate_classes(all, all -helpers); // all states, all packages but exclude the helpers
 
 // generate a center custom class for all the states :
-// @include gridle_generate_custom_class( ('center','%-','%state') ) {
+// @include gridle_generate_custom_class( ('center','@','%state') ) {
 // 	text-align:center;
 // }
-// this will produces classes : center, center-mobile, center-tablet, center-ipad-landscape
-// for separators, you can use the %- (replaced by the $gridle-class-separator option), or -, --, _, __
+// this will produces classes : center, center@mobile, center@tablet, center@ipad-landscape
+// for separators, you can use -, --, _, __ or @
 
 // Max size :
 .container {
