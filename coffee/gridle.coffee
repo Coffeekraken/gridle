@@ -5,8 +5,8 @@
 #
 # @author 	Olivier Bossel <olivier.bossel@gmail.com>
 # @created 	20.05.14
-# @updated 	09.02.15
-# @version 	1.0.12
+# @updated 	29.09.15
+# @version 	1.0.13
 ###
 do ->
 
@@ -139,7 +139,10 @@ do ->
 							@_noSettingsFindedInThisCss link
 							return false
 
+						
+
 						# parse settings to json
+						settings = settings.toString().replace(/\\/g,'');
 						settings = JSON.parse settings;
 						@_cssSettings = settings;
 
@@ -236,6 +239,11 @@ do ->
 			# update states status
 			@_updateStatesStatus()
 
+			# debug
+			@_debug 'active states', @getActiveStatesNames().join(',') if @getActiveStatesNames().length
+			@_debug 'inactive states', @getInactiveStatesNames().join(',') if @getInactiveStatesNames().length
+			@_debug 'updated states', @getUpdatedStatesNames().join(',') if @getUpdatedStatesNames().length
+
 		###
 		Register a state
 		###
@@ -259,6 +267,11 @@ do ->
 		Update states status
 		###
 		_updateStatesStatus : ->
+
+			# check if was default state
+			defaultState = @getDefaultState()
+			defaultStateIdx = @_states.indexOf defaultState
+			wasDefault = defaultState.status
 
 			# reset trackings arrays
 			@_activeStates = [];
@@ -295,14 +308,14 @@ do ->
 					@_activeStatesNames.push state.name
 
 				# the state is not active
-				else
+				else if state.name != 'default'
 
 					# check is status has changed 
 					if @_states[key].status
 
 						# add state in changed ones
 						@_updatedStates.push state
-						@_updatedStatesNames.push state
+						@_updatedStatesNames.push state.name
 
 					# update status
 					@_states[key].status = false
@@ -310,6 +323,22 @@ do ->
 					# add state in unactives
 					@_inactiveStates.push state
 					@_inactiveStatesNames.push state.name
+
+			# if no states are active, set the default one
+			if not @_activeStates.length
+				@_states[defaultStateIdx].status = true
+				@_activeStates.push defaultState
+				@_activeStatesNames.push 'default'
+				if not wasDefault
+					@_updatedStates.push defaultState
+					@_updatedStatesNames.push 'default'
+			else
+				@_states[defaultStateIdx].status = false
+				@_inactiveStates.push defaultState
+				@_inactiveStatesNames.push 'default'
+				if wasDefault
+					@_updatedStates.push defaultState
+					@_updatedStatesNames.push 'default'
 
 			# trigger events if needed
 			@_crossEmit 'update', @_updatedStates, @_activeStates, @_inactiveStates if @_updatedStates.length
@@ -375,7 +404,7 @@ do ->
 			http.context = args.context if args.context
 
 			# open connexion
-			http.open args.type, args.url, false
+			http.open args.type, args.url, true
 
 			# listen state change
 			http.onreadystatechange = ->
@@ -403,39 +432,46 @@ do ->
 			http.send()
 
 		###
+		Get default state
+		###
+		getDefaultState : ->
+			for state in @getRegisteredStates()
+				return state if state.name is 'default'
+
+		###
 		Get registered states
 		###
-		getRegisteredStates : ->return @_states
+		getRegisteredStates : -> @_states
 
 		###
 		Get changes states
 		###
-		getUpdatedStates : -> return @_updatedStates
+		getUpdatedStates : -> @_updatedStates
 
 		###
 		Get changes states names
 		###
-		getUpdatedStatesNames : -> return @_updatedStatesNames
+		getUpdatedStatesNames : -> @_updatedStatesNames
 
 		###
 		Get active states
 		###
-		getActiveStates : -> return @_activeStates
+		getActiveStates : -> @_activeStates
 
 		###
 		Get active states names
 		###
-		getActiveStatesNames : -> return @_activeStatesNames
+		getActiveStatesNames : -> @_activeStatesNames
 
 		###
 		Get unactive states
 		###
-		getInactiveStates : -> return @_inactiveStates
+		getInactiveStates : -> @_inactiveStates
 
 		###
 		Get unactive states names
 		###
-		getInactiveStatesNames : -> return @_inactiveStatesNames
+		getInactiveStatesNames : -> @_inactiveStatesNames
 
 		###
 		Check is a state is active

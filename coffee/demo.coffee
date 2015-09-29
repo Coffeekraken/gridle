@@ -47,7 +47,7 @@ jQuery ($) ->
 
 	# init gridle
 	Gridle.init
-		debug: false
+		debug: true
 
 	# options
 	$('[data-options]').each ->

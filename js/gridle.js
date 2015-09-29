@@ -6,8 +6,8 @@
  *
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  * @created 	20.05.14
- * @updated 	09.02.15
- * @version 	1.0.12
+ * @updated 	29.09.15
+ * @version 	1.0.13
  */
 (function() {
 
@@ -23,13 +23,13 @@
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, _i, _len, _ref;
+        var handler, i, len, ref;
         if (!handlers[eventName]) {
           return;
         }
-        _ref = handlers[eventName];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          handler = _ref[_i];
+        ref = handlers[eventName];
+        for (i = 0, len = ref.length; i < len; i++) {
+          handler = ref[i];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
           continue;
         }
@@ -67,21 +67,21 @@
     		Init
      */
     init: function(settings) {
-      var index, link, _cssLinks, _ref, _ref1;
+      var _cssLinks, index, link, ref, ref1;
       this._inited = true;
       if (settings != null) {
         this._settings = settings;
       }
       if (settings && (settings.debug != null)) {
-                if ((_ref = this._settings.debug) != null) {
-          _ref;
+                if ((ref = this._settings.debug) != null) {
+          ref;
         } else {
           settings.debug;
         };
       }
       if (settings && (settings.onStatesChange != null)) {
-                if ((_ref1 = this._settings.onStatesChange) != null) {
-          _ref1;
+                if ((ref1 = this._settings.onStatesChange) != null) {
+          ref1;
         } else {
           settings.onStatesChange;
         };
@@ -108,10 +108,10 @@
     		Load and parse css
      */
     _loadAndParseCss: function() {
-      var index, link, _ref;
-      _ref = this._cssLinks;
-      for (index in _ref) {
-        link = _ref[index];
+      var index, link, ref;
+      ref = this._cssLinks;
+      for (index in ref) {
+        link = ref[index];
         if (this._statesFindedInCss) {
           return false;
         }
@@ -137,6 +137,7 @@
                 _this._noSettingsFindedInThisCss(link);
                 return false;
               }
+              settings = settings.toString().replace(/\\/g, '');
               settings = JSON.parse(settings);
               _this._cssSettings = settings;
               if (!settings.states) {
@@ -177,11 +178,11 @@
     		Process finded states
      */
     _processFindedStates: function() {
-      var name, query, _ref;
+      var name, query, ref;
       this._debug('begin process finded states in css');
-      _ref = this._statesInCss;
-      for (name in _ref) {
-        query = _ref[name];
+      ref = this._statesInCss;
+      for (name in ref) {
+        query = ref[name];
         this._registerState(name, query);
       }
       return this._launch();
@@ -211,7 +212,16 @@
     _onResize: function() {
       var updatedStates;
       updatedStates = [];
-      return this._updateStatesStatus();
+      this._updateStatesStatus();
+      if (this.getActiveStatesNames().length) {
+        this._debug('active states', this.getActiveStatesNames().join(','));
+      }
+      if (this.getInactiveStatesNames().length) {
+        this._debug('inactive states', this.getInactiveStatesNames().join(','));
+      }
+      if (this.getUpdatedStatesNames().length) {
+        return this._debug('updated states', this.getUpdatedStatesNames().join(','));
+      }
     },
 
     /*
@@ -235,16 +245,19 @@
     		Update states status
      */
     _updateStatesStatus: function() {
-      var key, state, _ref;
+      var defaultState, defaultStateIdx, key, ref, state, wasDefault;
+      defaultState = this.getDefaultState();
+      defaultStateIdx = this._states.indexOf(defaultState);
+      wasDefault = defaultState.status;
       this._activeStates = [];
       this._activeStatesNames = [];
       this._inactiveStates = [];
       this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
-      _ref = this._states;
-      for (key in _ref) {
-        state = _ref[key];
+      ref = this._states;
+      for (key in ref) {
+        state = ref[key];
         if (!state.updateOnResize) {
           continue;
         }
@@ -257,14 +270,31 @@
           this._states[key].status = true;
           this._activeStates.push(state);
           this._activeStatesNames.push(state.name);
-        } else {
+        } else if (state.name !== 'default') {
           if (this._states[key].status) {
             this._updatedStates.push(state);
-            this._updatedStatesNames.push(state);
+            this._updatedStatesNames.push(state.name);
           }
           this._states[key].status = false;
           this._inactiveStates.push(state);
           this._inactiveStatesNames.push(state.name);
+        }
+      }
+      if (!this._activeStates.length) {
+        this._states[defaultStateIdx].status = true;
+        this._activeStates.push(defaultState);
+        this._activeStatesNames.push('default');
+        if (!wasDefault) {
+          this._updatedStates.push(defaultState);
+          this._updatedStatesNames.push('default');
+        }
+      } else {
+        this._states[defaultStateIdx].status = false;
+        this._inactiveStates.push(defaultState);
+        this._inactiveStatesNames.push('default');
+        if (wasDefault) {
+          this._updatedStates.push(defaultState);
+          this._updatedStatesNames.push('default');
         }
       }
       if (this._updatedStates.length) {
@@ -326,7 +356,7 @@
       if (args.context) {
         http.context = args.context;
       }
-      http.open(args.type, args.url, false);
+      http.open(args.type, args.url, true);
       http.onreadystatechange = function() {
         var response;
         if (http.readyState !== 4) {
@@ -347,6 +377,20 @@
         }
       };
       return http.send();
+    },
+
+    /*
+    		Get default state
+     */
+    getDefaultState: function() {
+      var i, len, ref, state;
+      ref = this.getRegisteredStates();
+      for (i = 0, len = ref.length; i < len; i++) {
+        state = ref[i];
+        if (state.name === 'default') {
+          return state;
+        }
+      }
     },
 
     /*
@@ -402,11 +446,11 @@
     		Check is a state is active
      */
     isActive: function(stateName) {
-      var index, isActive, name, _ref;
+      var index, isActive, name, ref;
       isActive = false;
-      _ref = this._activeStatesNames;
-      for (index in _ref) {
-        name = _ref[index];
+      ref = this._activeStatesNames;
+      for (index in ref) {
+        name = ref[index];
         if (stateName === name) {
           isActive = true;
         }

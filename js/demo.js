@@ -36,7 +36,7 @@ jQuery(function($) {
     });
   });
   Gridle.init({
-    debug: false
+    debug: true
   });
   $('[data-options]').each(function() {
     var $container, $this, groups, options;

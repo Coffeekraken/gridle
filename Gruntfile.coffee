@@ -2,8 +2,8 @@ module.exports = (grunt) ->
 
 	paths =
 		compass:
-			files: 'sass/**/*.scss'
-			src: 'sass'
+			cwd: 'sass'
+			src: '**/*.scss'
 			dest: 'css'
 		coffee:
 			cwd: 'coffee'
@@ -19,14 +19,24 @@ module.exports = (grunt) ->
 		compass:
 			options:
 				config: 'config.rb'
-			development:
-				options:
-					environment: 'development'
-					outputStyle: 'expanded'
-			production:
-				options:
-					environment: 'production'
-					outputStyle: 'compressed'
+			dist:
+				environment: 'development'
+				outputStyle: 'expanded'			
+
+		sass:
+			options:
+				sourceMap: false
+			dist:
+				# files:
+				# 	'css/grid.css':'sass/grid.scss'
+				# 	'css/style.css':'sass/style.scss'
+				files: [
+					expand: true
+					cwd: paths.compass.cwd
+					src: paths.compass.src
+					dest: paths.compass.dest
+					ext: '.css'
+				]
 
 		coffee:
 			options: 
@@ -69,9 +79,9 @@ module.exports = (grunt) ->
 			html:
 				files: 'index.html'
 				tasks: ['notify:default']
-			compass:
-				files: paths.compass.files
-				tasks: ['compass:development', 'cssmin', 'notify:compass']
+			sass:
+				files: paths.compass.cwd + '/' + paths.compass.src
+				tasks: ['compass', 'cssmin', 'notify:compass']
 			coffee:
 				files: paths.coffee.cwd+'/'+paths.coffee.src
 				tasks: ['coffee', 'uglify', 'notify:coffee']
@@ -89,7 +99,9 @@ module.exports = (grunt) ->
 				options:
 					title:'Grunt watcher'
 					message: 'Coffee files where processed'
-			
+		
+
+	grunt.loadNpmTasks 'grunt-sass'
 	grunt.loadNpmTasks 'grunt-contrib-coffee'
 	grunt.loadNpmTasks 'grunt-contrib-compass'
 	grunt.loadNpmTasks 'grunt-contrib-watch'
@@ -98,7 +110,7 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 
 	grunt.registerTask 'default', [
-		'compass:development'
+		'compass'
 		'cssmin'
 		'coffee'
 		'uglify'

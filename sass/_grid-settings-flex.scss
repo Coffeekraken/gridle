@@ -25,9 +25,6 @@ $gridle-debug : true;
 
 // register states
 @include gridle_register_default_states();
-// @include gridle_register_state(desktop, (
-// 	min-width : 1025px
-// ));
 @include gridle_register_state(ipad-landscape, (
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
 	gutter-height : 50px,

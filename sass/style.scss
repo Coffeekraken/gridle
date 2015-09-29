@@ -1,14 +1,19 @@
 /**
  * Imports :
  */
-@import 'compass/reset';
-@import 'compass/css3';
+// @import 'compass/reset';
+// @import 'compass/css3';
 
 /**
  * Import grid settings :
  * This to be able to use gridle mixins, etc...
  */
 @import 'grid-settings';
+
+/**
+ * Resets
+ */
+@import 'tools/reset';
 
 /**
  * Variables
@@ -39,29 +44,11 @@ $red : #ee243c;
 
 $new : #ffb554; 
 
-.coco {
-	color:red;
-}
-
-/**
- * Gradients
- */
-@mixin gradiented($color) {
-	@include filter-gradient($color, darken($color,5%));
-	@include background-image(linear-gradient($color, darken($color,5%)));
-	
-	&.active,
-	&:hover {
-		@include filter-gradient(darken($color,5%), $color);
-		@include background-image(linear-gradient(darken($color,5%), $color));	
-	}
-}
-
 /**
  * Basic formatting :
  */
 * {
-	@include box-sizing(border-box);
+	box-sizing:border-box;
 }
 html {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
@@ -86,6 +73,7 @@ html {
 	height:1px;
 	background: $primary-color;
 	margin-bottom:50px;
+	margin-top:50px;
 }
 
 
@@ -106,7 +94,7 @@ html {
 }
 .bg-color {
 	padding:2px 5px;
-	@include border-radius(3px);
+	border-radius:3px;
 	color: white;
 }
 .bg-complementary {
@@ -177,20 +165,20 @@ pre {
 .selector {
 	margin-bottom: 15px;
 	padding:5px;
-	@include border-radius(3px);
+	border-radius:3px;
 	display:inline-block;
 	margin-right:10px;
-	@include gradiented(lighten($complementary,20%));
+	// @include gradiented(lighten($complementary,20%));
+	background:$complementary;
 
 
 	li {
 		color:darken($complementary,60%);
 		display:inline-block;
 		padding:5px 10px;
-		@include border-radius(3px);
+		border-radius:3px;
 		cursor:pointer;
 		margin-right: 2px;
-		@include gradiented($complementary);
 
 		@each $stateName in gridle_get_registered_states_names() {
 			@if $stateName != default {
@@ -209,11 +197,11 @@ pre {
 	}
 
 	&.selector--options {
-		@include gradiented(lighten($braun,20%));
+		background:lighten($braun,20%);
 
 		li {
 			color:darken($braun,60%);
-			@include gradiented($braun);
+			background:$braun;
 
 			&.active {
 				background:darken($braun,20%) !important;
@@ -281,7 +269,7 @@ pre {
 	display:inline-block;
 	width:50px;
 	height:50px;
-	@include border-radius(50%);
+	border-radius:50%;
 	background:darken($primary-color, 10%);
 }
 

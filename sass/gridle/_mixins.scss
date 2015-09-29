@@ -15,7 +15,7 @@
 		@each $stateName, $state in $_gridle_states {
 			$classes : gridle_get_state_var(classes, $state);
 			@if $classes {
-				@at-root {
+				@at-root (without:all) {
 					$q : gridle_get_media_query($state);
 					@if $q {
 						@media #{$q} {
@@ -221,6 +221,31 @@
 
 
 //
+// Extend
+// @stateContext
+// @calledBy 		_gridle_call
+//
+@mixin _gridle_extend(
+	$for
+) {
+	// check if we need the state classes
+	$states-classes : gridle_get_state_var(states-classes);
+
+	// extend the "at-root" version for the .state-{stateName} classes
+	@if $states-classes and str-index(#{&}, unquote(".state-#{$_gridle_current_stateName}")) {
+		@at-root (without: media) {
+			// @debug("%at-root-#{$_gridle_current_stateName}-#{$for}");
+			@extend %at-root-#{$_gridle_current_stateName}-#{$for} !optional;
+		}
+	} @else {
+		// extend using the current state name set in each gridle_state call
+		// @debug("%#{$_gridle_current_stateName}-#{$for}");
+		@extend %#{$_gridle_current_stateName}-#{$for} !optional;
+	}
+}
+
+
+//
 // Apply the registered css for a certain type (grid, push, etc...)
 // in each states
 //
@@ -358,28 +383,5 @@ $_gridle_applied_for : ();
 	$extend : gridle_get_extend_class_map($what, $stateName);
 	@if $extend != null {
 		@include _gridle_map_2_css($extend);
-	}
-}
-
-
-//
-// Extend
-// @stateContext
-// @calledBy 		_gridle_call
-//
-@mixin _gridle_extend(
-	$for
-) {
-	// check if we need the state classes
-	$states-classes : gridle_get_state_var(states-classes);
-
-	// extend the "at-root" version for the .state-{stateName} classes
-	@if $states-classes and str-index(#{&}, unquote(".state-#{$_gridle_current_stateName}")) {
-		@at-root (without: media) {
-			@extend %at-root-#{$_gridle_current_stateName}-#{$for} !optional;
-		}
-	} @else {
-		// extend using the current state name set in each gridle_state call
-		@extend %#{$_gridle_current_stateName}-#{$for} !optional;
 	}
 }

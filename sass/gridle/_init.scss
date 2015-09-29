@@ -1,9 +1,9 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 // @created 	25.03.13
-// @updated 	16.02.15
+// @updated 	29.09.15
 // @author 		Olivier Bossel <olivier.bossel@gmail.com>
-// @version 	1.4.0
+// @version 	2.0.0
 // |------------------------------------------------------
 // |------------------------------------------------------
 
@@ -16,7 +16,7 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-$_gridle-version : "1.4.0";
+$_gridle-version : "2.0.0";
 
 
 
@@ -41,6 +41,7 @@ $_gridle_current_stateName : default; 			// save the current state name
 
 $_content_arg_state : null; 					// this variable is used to pass state through global variable into an @content
 
+$gridle-vendor-prefix : false; 					// set if need to add vendor prefixes when needed
 
 
 

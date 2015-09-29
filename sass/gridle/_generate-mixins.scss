@@ -349,6 +349,9 @@
 	$scope : null
 ) {
 
+	// init gridle
+	@include gridle_init();
+
 	// check if a scope exist
 	@if $scope {
 		// wrapp grid into scope

@@ -613,9 +613,18 @@
 		}
 	}
 
+	// clean selector
+	$list: ();
+    @each $var in $pattern {
+        @if $var {
+            $list: append($list, $var);
+        }
+    }
+    $pattern : $list;
+
 	// build selector
-	$pattern : compact($pattern);
-	$sel : ".";
+	$prefix : gridle_get_state_var(classes-prefix, $state);
+	$sel : ".#{$prefix}";
 	@each $part in $pattern {
 		@if $part {
 			$sel : "#{$sel}#{$part}";
