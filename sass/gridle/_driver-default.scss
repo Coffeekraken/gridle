@@ -183,10 +183,12 @@
 		width: 100vw;
 		margin-left:50% !important;
 		margin-right:0 !important;
-		-webkit-transform: translateX(-50%);
-		-moz-transition: translateX(-50%);
-		-ms-transform: translateX(-50%);
-		-o-transform: translateX(-50%);
+		@if $gridle-vendor-prefix {
+			-webkit-transform: translateX(-50%);
+			-moz-transition: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			-o-transform: translateX(-50%);
+		}
 		transform: translateX(-50%);
 	}
 }

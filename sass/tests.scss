@@ -26,6 +26,12 @@
 // @include gridle_debug((hello, world));
 
 
+@include gridle_generate_custom_class( ('txt','-','align','-','center','@','%state') ) {
+	text-align: center;
+	content : "#{gridle_get_current_state_name()}";
+}
+
+
 
 @include gridle_selector(not-visible visible show hide, default mobile) {
 	content : "your css...";

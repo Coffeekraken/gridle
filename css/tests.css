@@ -1,3 +1,42 @@
+.state-default .txt-align-center {
+  text-align: center;
+  content: "gridle_get_current_state_name()";
+}
+.txt-align-center {
+  text-align: center;
+  content: "gridle_get_current_state_name()";
+}
+
+.state-mobile .txt-align-center\@mobile {
+  text-align: center;
+  content: "gridle_get_current_state_name()";
+}
+@media screen and (max-width: 480px) {
+  .txt-align-center\@mobile {
+    text-align: center;
+    content: "gridle_get_current_state_name()";
+  }
+}
+.state-tablet .txt-align-center\@tablet {
+  text-align: center;
+  content: "gridle_get_current_state_name()";
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .txt-align-center\@tablet {
+    text-align: center;
+    content: "gridle_get_current_state_name()";
+  }
+}
+.state-ipad-landscape .txt-align-center\@ipad-landscape {
+  text-align: center;
+  content: "gridle_get_current_state_name()";
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .txt-align-center\@ipad-landscape {
+    text-align: center;
+    content: "gridle_get_current_state_name()";
+  }
+}
 .not-visible, .not-visible\@mobile, .visible, .visible\@mobile, .show, .show\@mobile, .hide, .hide\@mobile {
   content: "your css...";
 }
@@ -762,18 +801,18 @@
     display: inline-block;
   }
 }
-.state-uaokmdp1n .gridle-state {
+.state-u21lsv5b2 .gridle-state {
   background: yellow;
   width: 83.33333%;
 }
-.state-ipad-landscape .state-uaokmdp1n .gridle-state {
+.state-ipad-landscape .state-u21lsv5b2 .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-uaokmdp1n .gridle-state {
+  .state-u21lsv5b2 .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -786,18 +825,18 @@
     width: 83.33333%;
   }
 }
-.state-uaokmdp1z .gridle-state {
+.state-u21lsv5bn .gridle-state {
   background: green;
   width: 41.66667%;
 }
-.state-ipad-landscape .state-uaokmdp1z .gridle-state {
+.state-ipad-landscape .state-u21lsv5bn .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-uaokmdp1z .gridle-state {
+  .state-u21lsv5bn .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -810,19 +849,19 @@
     width: 41.66667%;
   }
 }
-.state-uaokmdp2k .gridle-state {
+.state-u21lsv5cl .gridle-state {
   content: "ad hoc state";
   background: white;
   width: 25%;
 }
-.state-ipad-landscape .state-uaokmdp2k .gridle-state {
+.state-ipad-landscape .state-u21lsv5cl .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-uaokmdp2k .gridle-state {
+  .state-u21lsv5cl .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -1146,19 +1185,19 @@
 }
 
 .gridle_get_states_count {
-  content: 4;
+  content: gridle_get_states_count();
 }
 
 .gridle_get_column_width {
-  content: 8.33333%;
+  content: gridle_get_column_width();
 }
 
 .gridle_get_column_width-mobile {
-  content: 8.33333%;
+  content: gridle_get_column_width(1, mobile);
 }
 
 .gridle_get_column_width-2 {
-  content: 16.66667%;
+  content: gridle_get_column_width(2);
 }
 
 .gridle_get_state {
@@ -1166,7 +1205,7 @@
 }
 
 .gridle_get_state-custom {
-  content: "(name: uaokmdp2s, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
+  content: "(name: u21lsv5cq, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
 }
 
 .gridle_has_state-mobile {

@@ -128,7 +128,7 @@
 // 
 // @return 	int 	The number of states defined
 //
-@function gridle_get_states_count() {
+@function gridle_states_count() {
 	@return length($_gridle_states);
 }
 
@@ -136,7 +136,7 @@
 //
 // Get the current state
 //
-@function gridle_get_current_state() {
+@function gridle_current_state() {
 	@return $_gridle_current_state;
 }
 
@@ -144,7 +144,7 @@
 //
 // Get the current state name
 //
-@function gridle_get_current_state_name() {
+@function gridle_current_state_name() {
 	@return $_gridle_current_stateName;
 }
 
@@ -156,7 +156,7 @@
 // @param 	int 		$context : $gridle-columns-count 	 	The context to use
 // @return 	percentage 							The width in percent
 //
-@function gridle_get_column_width(
+@function gridle_column_width(
 	$columns : 1,
 	$stateMap-or-stateName : null
 ) {
@@ -177,7 +177,7 @@
 
 	// check if need to return the current state
 	@if $stateMap-or-stateName == current {
-		@return gridle_get_current_state();
+		@return gridle_current_state();
 	}
 
 	// check if has a state named like this
@@ -623,12 +623,17 @@
     $pattern : $list;
 
 	// build selector
+	$sel : "";
 	$prefix : gridle_get_state_var(classes-prefix, $state);
-	$sel : ".#{$prefix}";
 	@each $part in $pattern {
 		@if $part {
 			$sel : "#{$sel}#{$part}";
 		}
+	}
+	@if $prefix and str-slice($sel,1,str_length($prefix)) != $prefix {
+		$sel : ".#{$prefix}#{$sel}";
+	} @else {
+		$sel : ".#{$sel}";
 	}
 
 	// return generated class :
@@ -675,9 +680,21 @@
 	} @else {
 		@return false;
 	}
+
 	// if we have a what param, need to check if the package is needed
-	@if $what {
-		@if index($what, all) {
+	@if $what and $what != all {
+
+		// check if we have only some - in the states list
+		// mean that we want to only remove these specified states
+		// from the all states list
+		$onlyRemove : true;
+		@each $w in $what {
+			@if str-slice($w,1,1) != '-' {
+				$onlyRemove : false;
+			}
+		}
+
+		@if $onlyRemove {
 			@each $name in $package {
 				@if index($what, unquote("-#{$name}")) {
 					@return false;

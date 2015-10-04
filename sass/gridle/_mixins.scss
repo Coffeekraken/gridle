@@ -137,8 +137,8 @@
 	}
 
 	// clear-each
-	@include _gridle_common_silent_class_name(row-clear-each, $stateName) {
-		@include _gridle_common_row_clear_each($state);
+	@include _gridle_common_silent_class_name(clear-each, $stateName) {
+		@include _gridle_common_clear_each($state);
 	}
 
 	// centered

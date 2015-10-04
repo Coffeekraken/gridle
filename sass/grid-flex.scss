@@ -7,7 +7,7 @@
 // you can generate classes separately if you need :
 // @include gridle_generate_classes(default);  	// default is the base state always registered
 // @include gridle_generate_classes(mobile); 	// only the mobile state
-// @include gridle_generate_classes(all, all -helpers); // all states, all packages but exclude the helpers
+// @include gridle_generate_classes(all, -helpers); // all states, all packages but exclude the helpers
 
 // generate a center custom class for all the states :
 // @include gridle_generate_custom_class( ('center','@','%state') ) {
