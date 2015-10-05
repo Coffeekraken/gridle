@@ -195,6 +195,11 @@
 	@include _gridle_common_silent_class_name(gutter, $stateName) {
 		@include _gridle_common_gutter($state);
 	}
+
+	// row debug
+	@include _gridle_common_silent_class_name(row-debug, $stateName) {
+		@include _gridle_common_row_debug($state);
+	}
 }
 
 

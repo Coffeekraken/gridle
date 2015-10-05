@@ -1,6 +1,4 @@
 // Import gridle
-$gridle-debug : true;
-
 @import 'gridle/gridle';
 
 
@@ -9,6 +7,7 @@ $gridle-debug : true;
 	context : 12,
 	gutter-width : 20px,
 	// gutter-left : 20px,
+	// direction : rtl,
 	states-classes : true,
 	// classes-prefix : 'gr-'
 ));
@@ -47,9 +46,9 @@ $gridle-debug : true;
 // here, all the grid and flex-grid elements will be extended with the specified
 // css map
 
-@include gridle_extend_base_class(grid flex-grid, (
-	content : "i extend the grid class"
-));
+// @include gridle_extend_base_class(grid flex-grid, (
+// 	content : "i extend the grid class"
+// ));
 
 // in order to extend only certain states classes, you can specify states like this
 // this will have the effect to apply the css map only on grid-mobile... and grid-tablet... classes

@@ -125,7 +125,11 @@
 					@include gridle_container();
 				}
 			} @else if $sn == grid {
-				@include gridle($sv);
+				@if length($sv) == 2 {
+					@include gridle(nth($sv,1), nth($sv,2));
+				} @else {
+					@include gridle($sv);
+				}
 			} @else if $sn == grid-grow {
 				@if $sv == true {
 					@include gridle_grid_grow();
@@ -139,25 +143,37 @@
 					@include gridle_grid_table();
 				}
 			} @else if $sn == push {
-				@include gridle_push($sv);
+				@if length($sv) == 2 {
+					@include gridle_push(nth($sv,1), nth($sv,2));
+				} @else {
+					@include gridle_push($sv);
+				}
 			} @else if $sn == pull {
-				@include gridle_pull($sv);
+				@if length($sv) == 2 {
+					@include gridle_pull(nth($sv,1), nth($sv,2));
+				} @else {
+					@include gridle_pull($sv);
+				}
 			} @else if $sn == prefix {
-				@include gridle_prefix($sv);
+				@if length($sv) == 2 {
+					@include gridle_prefix(nth($sv,1), nth($sv,2));
+				} @else {
+					@include gridle_prefix($sv);
+				}
 			} @else if $sn == suffix {
-				@include gridle_suffix($sv);
-			} @else if $sn == pull {
-				@include gridle_pull($sv);
-			} @else if $sn == row-clear-each {
-				@include gridle_row_clear_each(nth($sv,1), nth($sv,2));
+				@if length($sv) == 2 {
+					@include gridle_suffix(nth($sv,1), nth($sv,2));
+				} @else {
+					@include gridle_suffix($sv);
+				}
+			} @else if $sn == clear-each {
+				@include gridle_clear_each(nth($sv,1), nth($sv,2));
 			} @else if $sn == grid-centered and $sv == true {
 				@include gridle_grid_centered();
 			} @else if $sn == row and $sv == true {
 				@include gridle_row();
-			} @else if $sn == row-full {
-				@if $sv == true {
-					@include gridle_row_full();
-				}
+			} @else if $sn == row-full and $sv == true {
+				@include gridle_row_full();
 			} @else if $sn == col and $sv == true {
 				@include gridle_col();
 			} @else if $sn == row-align {
@@ -223,26 +239,34 @@
 
 
 //
-// Grid background
+// Row debug
 //
-@mixin gridle_grid_background(
+@mixin _gridle_common_row_debug(
+	$state : default
+) {
+}
+@mixin gridle_row_debug(
 	$states : null
 ) {
-	@include _gridle_call(background) {
+	@include _gridle_call(row-debug) {
 		// variables :
 		$context : gridle_get_state_var(context);
 
 		position:relative;
-		z-index:9999;
+		z-index:99999;
+		overflow:hidden;
+
 		&:before {
+			pointer-events: none;
 			content:'';
 			position:absolute;
 			top:0; left:0;
-			width:100%; height:100% !important;
+			width:100%; height:99999px;
 			// vars :
 			$width : percentage(1 / $context);
 			background: linear-gradient(to right, rgba(0,0,0,0) 50% , rgba(0,0,0,.02) 50%); // Standard syntax
 			background-size:($width*2) 100%;
+			z-index:99999;
 		}
 	}
 }

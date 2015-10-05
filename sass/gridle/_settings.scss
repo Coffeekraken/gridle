@@ -25,9 +25,17 @@ $_gridle-packages : (
 		classname 							: ('row','-','%reverse','@','%state'),
 		package 							: default row
 	),
+	row-align 							: (
+		classname 							: ('row','-','align','-','%align','@','%state'),
+		package 							: default row-align
+	),
 	row-full 							: (
 		classname 							: ('row','-','full','@','%state'),
 		package 							: default row-full
+	),
+	row-debug							: (
+		classname 							: ('row','-','debug','@','%state'),
+		package 							: debug row-debug
 	),
 	nowrap 							: (
 		classname 							: ('nowrap','@','%state'),
@@ -76,10 +84,6 @@ $_gridle-packages : (
 	suffix 								: (
 		classname 							: ('suffix','-','%column','@','%state'),
 		package 							: default suffix
-	),
-	row-align 							: (
-		classname 							: ('row','-','align','-','%align','@','%state'),
-		package 							: default row-align
 	),
 	hide 								: (
 		classname 							: ('hide','@','%state'),

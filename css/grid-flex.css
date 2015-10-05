@@ -62,7 +62,6 @@
   display: block;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 
 .state-default .gr-1on5, .state-default .gr-0, .state-default .gr-1, .state-default .gr-2, .state-default .gr-3, .state-default .gr-4, .state-default .gr-5, .state-default .gr-6, .state-default .gr-7, .state-default .gr-8, .state-default .gr-9, .state-default .gr-10, .state-default .gr-11, .state-default .gr-12 {
@@ -83,7 +82,6 @@
   display: block;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 .gr-adapt {
   max-width: 100%;
@@ -307,7 +305,6 @@
     display: block;
     padding-right: 10px;
     padding-left: 10px;
-    content: i extend the grid class;
   }
 }
 .state-mobile .gr-1on5\@mobile, .state-mobile .gr-0\@mobile, .state-mobile .gr-1\@mobile, .state-mobile .gr-2\@mobile, .state-mobile .gr-3\@mobile, .state-mobile .gr-4\@mobile, .state-mobile .gr-5\@mobile, .state-mobile .gr-6\@mobile, .state-mobile .gr-7\@mobile, .state-mobile .gr-8\@mobile, .state-mobile .gr-9\@mobile, .state-mobile .gr-10\@mobile, .state-mobile .gr-11\@mobile, .state-mobile .gr-12\@mobile, .state-mobile .state-default [class*="gr-"], .state-mobile [class*="gr-"] {
@@ -328,7 +325,6 @@
   display: block;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 @media screen and (max-width: 480px) {
   .gr-adapt\@mobile {
@@ -559,7 +555,6 @@
     display: block;
     padding-right: 10px;
     padding-left: 10px;
-    content: i extend the grid class;
   }
 }
 .state-tablet .gr-1on5\@tablet, .state-tablet .gr-0\@tablet, .state-tablet .gr-1\@tablet, .state-tablet .gr-2\@tablet, .state-tablet .gr-3\@tablet, .state-tablet .gr-4\@tablet, .state-tablet .gr-5\@tablet, .state-tablet .gr-6\@tablet, .state-tablet .gr-7\@tablet, .state-tablet .gr-8\@tablet, .state-tablet .gr-9\@tablet, .state-tablet .gr-10\@tablet, .state-tablet .gr-11\@tablet, .state-tablet .gr-12\@tablet {
@@ -580,7 +575,6 @@
   display: block;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gr-adapt\@tablet {
@@ -811,7 +805,6 @@
     display: block;
     padding-right: 10px;
     padding-left: 10px;
-    content: i extend the grid class;
   }
 }
 .state-ipad-landscape .gr-1on5\@ipad-landscape, .state-ipad-landscape .gr-0\@ipad-landscape, .state-ipad-landscape .gr-1\@ipad-landscape, .state-ipad-landscape .gr-2\@ipad-landscape, .state-ipad-landscape .gr-3\@ipad-landscape, .state-ipad-landscape .gr-4\@ipad-landscape, .state-ipad-landscape .gr-5\@ipad-landscape, .state-ipad-landscape .gr-6\@ipad-landscape, .state-ipad-landscape .gr-7\@ipad-landscape, .state-ipad-landscape .gr-8\@ipad-landscape, .state-ipad-landscape .gr-9\@ipad-landscape, .state-ipad-landscape .gr-10\@ipad-landscape, .state-ipad-landscape .gr-11\@ipad-landscape, .state-ipad-landscape .gr-12\@ipad-landscape {
@@ -832,7 +825,6 @@
   display: block;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .gr-adapt\@ipad-landscape {
@@ -1731,6 +1723,26 @@
 .state-default .visible {
   visibility: visible;
 }
+.state-default .row-debug {
+  position: relative;
+  z-index: 99999;
+  overflow: hidden;
+}
+.state-default .row-debug:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99999px;
+  background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+  background-size: 16.66667% 100%;
+  z-index: 99999;
+}
+.state-default body {
+  direction: ltr;
+}
 .gr-1on5 {
   -webkit-flex-basis: 20%;
   -moz-flex-basis: 20%;
@@ -2601,6 +2613,28 @@
   visibility: visible;
 }
 
+.row-debug {
+  position: relative;
+  z-index: 99999;
+  overflow: hidden;
+}
+.row-debug:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99999px;
+  background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+  background-size: 16.66667% 100%;
+  z-index: 99999;
+}
+
+body {
+  direction: ltr;
+}
+
 .state-mobile .gr-1on5\@mobile {
   -webkit-flex-basis: 20%;
   -moz-flex-basis: 20%;
@@ -3326,6 +3360,26 @@
 }
 .state-mobile .visible\@mobile {
   visibility: visible;
+}
+.state-mobile .row-debug\@mobile {
+  position: relative;
+  z-index: 99999;
+  overflow: hidden;
+}
+.state-mobile .row-debug\@mobile:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99999px;
+  background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+  background-size: 16.66667% 100%;
+  z-index: 99999;
+}
+.state-mobile body {
+  direction: ltr;
 }
 @media screen and (max-width: 480px) {
   .gr-1on5\@mobile {
@@ -4197,6 +4251,28 @@
   .visible\@mobile {
     visibility: visible;
   }
+
+  .row-debug\@mobile {
+    position: relative;
+    z-index: 99999;
+    overflow: hidden;
+  }
+  .row-debug\@mobile:before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99999px;
+    background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+    background-size: 16.66667% 100%;
+    z-index: 99999;
+  }
+
+  body {
+    direction: ltr;
+  }
 }
 .state-tablet .gr-1on5\@tablet {
   -webkit-flex-basis: 20%;
@@ -4923,6 +4999,26 @@
 }
 .state-tablet .visible\@tablet {
   visibility: visible;
+}
+.state-tablet .row-debug\@tablet {
+  position: relative;
+  z-index: 99999;
+  overflow: hidden;
+}
+.state-tablet .row-debug\@tablet:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99999px;
+  background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+  background-size: 16.66667% 100%;
+  z-index: 99999;
+}
+.state-tablet body {
+  direction: ltr;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gr-1on5\@tablet {
@@ -5794,6 +5890,28 @@
   .visible\@tablet {
     visibility: visible;
   }
+
+  .row-debug\@tablet {
+    position: relative;
+    z-index: 99999;
+    overflow: hidden;
+  }
+  .row-debug\@tablet:before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99999px;
+    background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+    background-size: 16.66667% 100%;
+    z-index: 99999;
+  }
+
+  body {
+    direction: ltr;
+  }
 }
 .state-ipad-landscape .gr-1on5\@ipad-landscape {
   -webkit-flex-basis: 20%;
@@ -6528,6 +6646,26 @@
 }
 .state-ipad-landscape .visible\@ipad-landscape {
   visibility: visible;
+}
+.state-ipad-landscape .row-debug\@ipad-landscape {
+  position: relative;
+  z-index: 99999;
+  overflow: hidden;
+}
+.state-ipad-landscape .row-debug\@ipad-landscape:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99999px;
+  background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+  background-size: 16.66667% 100%;
+  z-index: 99999;
+}
+.state-ipad-landscape body {
+  direction: ltr;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .gr-1on5\@ipad-landscape {
@@ -7408,6 +7546,28 @@
 
   .visible\@ipad-landscape {
     visibility: visible;
+  }
+
+  .row-debug\@ipad-landscape {
+    position: relative;
+    z-index: 99999;
+    overflow: hidden;
+  }
+  .row-debug\@ipad-landscape:before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99999px;
+    background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+    background-size: 16.66667% 100%;
+    z-index: 99999;
+  }
+
+  body {
+    direction: ltr;
   }
 }
 .state-ipad-landscape .gr-1on5, .state-ipad-landscape .gr-0, .state-ipad-landscape .gr-1, .state-ipad-landscape .gr-2, .state-ipad-landscape .gr-3, .state-ipad-landscape .gr-4, .state-ipad-landscape .gr-5, .state-ipad-landscape .gr-6, .state-ipad-landscape .gr-7, .state-ipad-landscape .gr-8, .state-ipad-landscape .gr-9, .state-ipad-landscape .gr-10, .state-ipad-landscape .gr-11, .state-ipad-landscape .gr-12, .state-ipad-landscape .gr-1on5\@mobile, .state-ipad-landscape .gr-0\@mobile, .state-ipad-landscape .gr-1\@mobile, .state-ipad-landscape .gr-2\@mobile, .state-ipad-landscape .gr-3\@mobile, .state-ipad-landscape .gr-4\@mobile, .state-ipad-landscape .gr-5\@mobile, .state-ipad-landscape .gr-6\@mobile, .state-ipad-landscape .gr-7\@mobile, .state-ipad-landscape .gr-8\@mobile, .state-ipad-landscape .gr-9\@mobile, .state-ipad-landscape .gr-10\@mobile, .state-ipad-landscape .gr-11\@mobile, .state-ipad-landscape .gr-12\@mobile, .state-ipad-landscape .gr-1on5\@tablet, .state-ipad-landscape .gr-0\@tablet, .state-ipad-landscape .gr-1\@tablet, .state-ipad-landscape .gr-2\@tablet, .state-ipad-landscape .gr-3\@tablet, .state-ipad-landscape .gr-4\@tablet, .state-ipad-landscape .gr-5\@tablet, .state-ipad-landscape .gr-6\@tablet, .state-ipad-landscape .gr-7\@tablet, .state-ipad-landscape .gr-8\@tablet, .state-ipad-landscape .gr-9\@tablet, .state-ipad-landscape .gr-10\@tablet, .state-ipad-landscape .gr-11\@tablet, .state-ipad-landscape .gr-12\@tablet, .state-ipad-landscape .gr-1on5\@ipad-landscape, .state-ipad-landscape .gr-0\@ipad-landscape, .state-ipad-landscape .gr-1\@ipad-landscape, .state-ipad-landscape .gr-2\@ipad-landscape, .state-ipad-landscape .gr-3\@ipad-landscape, .state-ipad-landscape .gr-4\@ipad-landscape, .state-ipad-landscape .gr-5\@ipad-landscape, .state-ipad-landscape .gr-6\@ipad-landscape, .state-ipad-landscape .gr-7\@ipad-landscape, .state-ipad-landscape .gr-8\@ipad-landscape, .state-ipad-landscape .gr-9\@ipad-landscape, .state-ipad-landscape .gr-10\@ipad-landscape, .state-ipad-landscape .gr-11\@ipad-landscape, .state-ipad-landscape .gr-12\@ipad-landscape {

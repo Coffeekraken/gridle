@@ -1,40 +1,40 @@
 .state-default .txt-align-center {
   text-align: center;
-  content: "gridle_get_current_state_name()";
+  content: "default";
 }
 .txt-align-center {
   text-align: center;
-  content: "gridle_get_current_state_name()";
+  content: "default";
 }
 
 .state-mobile .txt-align-center\@mobile {
   text-align: center;
-  content: "gridle_get_current_state_name()";
+  content: "mobile";
 }
 @media screen and (max-width: 480px) {
   .txt-align-center\@mobile {
     text-align: center;
-    content: "gridle_get_current_state_name()";
+    content: "mobile";
   }
 }
 .state-tablet .txt-align-center\@tablet {
   text-align: center;
-  content: "gridle_get_current_state_name()";
+  content: "tablet";
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .txt-align-center\@tablet {
     text-align: center;
-    content: "gridle_get_current_state_name()";
+    content: "tablet";
   }
 }
 .state-ipad-landscape .txt-align-center\@ipad-landscape {
   text-align: center;
-  content: "gridle_get_current_state_name()";
+  content: "ipad-landscape";
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .txt-align-center\@ipad-landscape {
     text-align: center;
-    content: "gridle_get_current_state_name()";
+    content: "ipad-landscape";
   }
 }
 .not-visible, .not-visible\@mobile, .visible, .visible\@mobile, .show, .show\@mobile, .hide, .hide\@mobile {
@@ -47,6 +47,22 @@
   .not-visible, .not-visible\@mobile, .visible, .visible\@mobile, .show, .show\@mobile, .hide, .hide\@mobile {
     content: "you can even use the gridle_state mixin etc...";
   }
+}
+
+.gr-1on5, .gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12, .gr-1on5\@mobile, .gr-0\@mobile, .gr-1\@mobile, .gr-2\@mobile, .gr-3\@mobile, .gr-4\@mobile, .gr-5\@mobile, .gr-6\@mobile, .gr-7\@mobile, .gr-8\@mobile, .gr-9\@mobile, .gr-10\@mobile, .gr-11\@mobile, .gr-12\@mobile, .gr-1on5\@tablet, .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet, .gr-1on5\@ipad-landscape, .gr-0\@ipad-landscape, .gr-1\@ipad-landscape, .gr-2\@ipad-landscape, .gr-3\@ipad-landscape, .gr-4\@ipad-landscape, .gr-5\@ipad-landscape, .gr-6\@ipad-landscape, .gr-7\@ipad-landscape, .gr-8\@ipad-landscape, .gr-9\@ipad-landscape, .gr-10\@ipad-landscape, .gr-11\@ipad-landscape, .gr-12\@ipad-landscape {
+  content: "all grid selector";
+}
+
+.gr-1on5\@mobile, .gr-0\@mobile, .gr-1\@mobile, .gr-2\@mobile, .gr-3\@mobile, .gr-4\@mobile, .gr-5\@mobile, .gr-6\@mobile, .gr-7\@mobile, .gr-8\@mobile, .gr-9\@mobile, .gr-10\@mobile, .gr-11\@mobile, .gr-12\@mobile {
+  content: "all mobile grid selector";
+}
+
+.gr-1on5\@mobile, .gr-0\@mobile, .gr-1\@mobile, .gr-2\@mobile, .gr-3\@mobile, .gr-4\@mobile, .gr-5\@mobile, .gr-6\@mobile, .gr-7\@mobile, .gr-8\@mobile, .gr-9\@mobile, .gr-10\@mobile, .gr-11\@mobile, .gr-12\@mobile, .gr-1on5\@tablet, .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet {
+  content: "all mobile and tablet grid selector";
+}
+
+.selector .hide, .selector .hide\@mobile, .selector .hide\@tablet, .selector .hide\@ipad-landscape {
+  content: "hide selector nested";
 }
 
 .grid-12 {
@@ -74,24 +90,20 @@
 .state-default .grid-row-set {
   zoom: 1;
 }
-.grid-12, .grid-1on5, .grid-12-on-100, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
+.grid-12, .grid-1on5, .grid-12-on-100, .grid-set-1-on-4, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 
-.state-default .gridle-set, .state-default .gridle-set-multiple {
+.state-default .grid-set-1-on-4, .state-default .gridle-set, .state-default .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 .push-6, .push-set, .push-nested, .gridle-set {
   position: relative;
@@ -120,20 +132,16 @@
     display: inline-block;
     min-height: 1px;
     float: left;
-    direction: ltr;
     padding-right: 10px;
     padding-left: 10px;
-    content: i extend the grid class;
   }
 }
 .state-mobile .grid-15-on-100-on-mobile, .state-mobile .grid-30-on-100-on-mobile-and-tablet, .state-mobile .gridle-state, .state-mobile .state-default .gridle-set, .state-mobile .gridle-set, .state-mobile .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 @media screen and (max-width: 480px) {
   .push-12-mobile, .push-nested, .state-default .gridle-set, .gridle-set {
@@ -172,20 +180,16 @@
     display: inline-block;
     min-height: 1px;
     float: left;
-    direction: ltr;
     padding-right: 10px;
     padding-left: 10px;
-    content: i extend the grid class;
   }
 }
 .state-tablet .grid-30-on-100-on-mobile-and-tablet, .state-tablet .gridle-state, .state-tablet .state-default .gridle-set, .state-tablet .gridle-set, .state-tablet .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .state-default .gridle-set, .gridle-set {
@@ -276,6 +280,41 @@
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .grid-15-on-100-on-mobile {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+
+.grid-set-1-on-4 {
+  width: 25%;
+}
+.state-default .grid-set-1-on-4 {
+  width: 25%;
+}
+.state-ipad-landscape .state-default .grid-set-1-on-4 {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .grid-set-1-on-4 {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .grid-set-1-on-4 {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-set-1-on-4 {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -376,6 +415,13 @@
   }
 }
 
+.state-default .clear-each-2-set > *:nth-child(2n+1) {
+  clear: left;
+}
+.clear-each-2-set > *:nth-child(2n+1) {
+  clear: left;
+}
+
 .gutter-width {
   padding-right: 50px;
   padding-left: 50px;
@@ -429,6 +475,50 @@
     padding-right: 50px;
     padding-left: 50px;
   }
+}
+
+.gutter-with-sizes-inline {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+.gutter-with-sizes-inline--set {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+.state-default .gutter-with-sizes-inline--set {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+.gutter-with-sizes-inline-4 {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+}
+
+.gutter-with-sizes-inline-4--set {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+}
+.state-default .gutter-with-sizes-inline-4--set {
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-bottom: 15px;
+  padding-left: 20px;
 }
 
 .align-left {
@@ -801,18 +891,18 @@
     display: inline-block;
   }
 }
-.state-u21lsv5b2 .gridle-state {
+.state-udyl97bpq .gridle-state {
   background: yellow;
   width: 83.33333%;
 }
-.state-ipad-landscape .state-u21lsv5b2 .gridle-state {
+.state-ipad-landscape .state-udyl97bpq .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u21lsv5b2 .gridle-state {
+  .state-udyl97bpq .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -825,18 +915,18 @@
     width: 83.33333%;
   }
 }
-.state-u21lsv5bn .gridle-state {
+.state-udyl97bq6 .gridle-state {
   background: green;
   width: 41.66667%;
 }
-.state-ipad-landscape .state-u21lsv5bn .gridle-state {
+.state-ipad-landscape .state-udyl97bq6 .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u21lsv5bn .gridle-state {
+  .state-udyl97bq6 .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -849,19 +939,19 @@
     width: 41.66667%;
   }
 }
-.state-u21lsv5cl .gridle-state {
+.state-udyl97br0 .gridle-state {
   content: "ad hoc state";
   background: white;
   width: 25%;
 }
-.state-ipad-landscape .state-u21lsv5cl .gridle-state {
+.state-ipad-landscape .state-udyl97br0 .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-u21lsv5cl .gridle-state {
+  .state-udyl97br0 .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -1205,7 +1295,7 @@
 }
 
 .gridle_get_state-custom {
-  content: "(name: u21lsv5cq, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
+  content: "(name: udyl97br9, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
 }
 
 .gridle_has_state-mobile {

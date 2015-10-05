@@ -28,7 +28,7 @@
 
 @include gridle_generate_custom_class( ('txt','-','align','-','center','@','%state') ) {
 	text-align: center;
-	content : "#{gridle_get_current_state_name()}";
+	content : "#{gridle_current_state_name()}";
 }
 
 
@@ -37,6 +37,21 @@
 	content : "your css...";
 	@include gridle_state(mobile) {
 		content : "you can even use the gridle_state mixin etc...";
+	}
+}
+
+@include gridle_selector(grid) {
+	content : "all grid selector";
+}
+@include gridle_selector(grid, mobile) {
+	content : "all mobile grid selector";
+}
+@include gridle_selector(grid, mobile tablet) {
+	content : "all mobile and tablet grid selector";
+}
+.selector {
+	@include gridle_selector(hide) {
+		content : "hide selector nested";
 	}
 }
 
@@ -54,6 +69,11 @@
 	@include gridle_state(mobile) {
 		@include gridle(15, 100);
 	}
+}
+.grid-set-1-on-4 {
+	@include gridle_set( (
+		grid : (1, 4)
+	) );
 }
 .grid-30-on-100-on-mobile-and-tablet {
 	@include gridle(30, 100);
@@ -103,11 +123,11 @@
 }
 .gutter-width-set {
 	@include gridle_set((
-		gutter-width : 100px
+		gutter : 100px
 	));
 	content : "multple values";
 	@include gridle_set((
-		gutter-width : (
+		gutter : (
 			top : 10px,
 			right : 50px,
 			bottom : 10px,
@@ -116,11 +136,28 @@
 	));
 	content : "multiple sides";
 	@include gridle_set((
-		gutter-width : top left,
+		gutter : top left,
 		mobile : (
-			gutter-width : 100px
+			gutter : 100px
 		)
 	));
+}
+.gutter-with-sizes-inline {
+	@include gridle_gutter(10px 20px);
+}
+.gutter-with-sizes-inline--set {
+	@include gridle_gutter(10px 20px);
+	@include gridle_set( (
+		gutter : 10px 20px
+	) );
+}
+.gutter-with-sizes-inline-4 {
+	@include gridle_gutter(5px 10px 15px 20px);
+}
+.gutter-with-sizes-inline-4--set {
+	@include gridle_set( (
+		gutter : 5px 10px 15px 20px
+	) );
 }
 
 // centered

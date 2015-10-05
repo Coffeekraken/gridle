@@ -76,15 +76,6 @@ jQuery ($) ->
 			$container.prepend $ul
 			return
 		return
-	# $('.container.gridle-debug').each(function() {
-	# 	$this = $(this);
-	# 	$this.after('<pre />');
-	# 	$pre = $this.next('pre');
-	# 	$html = $('<div>').append($this.clone());
-	# 	html = $('<div/>').text($html.html()).html();
-	# 	$pre.html('<code class="language-markup">'+html+'</code>');
-	# 	Prism.highlightElement($pre.find('code').get(0));
-	# });
 	return
 
 # ---

@@ -91,10 +91,10 @@
 	min-height:1px;
 	@if $direction == rtl {
 		float:right;
-		direction:rtl;
+		// direction:rtl;
 	} @else {
 		float:left;
-		direction:ltr;
+		// direction:ltr;
 	}
 	@include gridle_gutter();
 	
@@ -180,16 +180,29 @@
 @mixin gridle_row_full(
 ) {
 	@include _gridle_call(row-full) {
+		$direction : gridle_get_state_var(direction);
 		width: 100vw;
-		margin-left:50% !important;
-		margin-right:0 !important;
-		@if $gridle-vendor-prefix {
-			-webkit-transform: translateX(-50%);
-			-moz-transition: translateX(-50%);
-			-ms-transform: translateX(-50%);
-			-o-transform: translateX(-50%);
+		@if $direction == rtl {
+			margin-right:50% !important;
+			margin-left:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(50%);
+				-moz-transition: translateX(50%);
+				-ms-transform: translateX(50%);
+				-o-transform: translateX(50%);
+			}
+			transform: translateX(50%);
+		} @else {
+			margin-left:50% !important;
+			margin-right:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(-50%);
+				-moz-transition: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+			}
+			transform: translateX(-50%);
 		}
-		transform: translateX(-50%);
 	}
 }
 

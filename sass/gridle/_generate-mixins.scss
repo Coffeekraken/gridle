@@ -266,6 +266,15 @@
 			}
 		}
 	}
+
+	//
+	// debug
+	//
+	@if _gridle_need_to_generate(row-debug, $package) {
+		#{_gridle_classname(row-debug, $state)} {
+			@include gridle_row_debug();
+		}
+	}
 }
 
 
@@ -508,6 +517,11 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 
 				// media queries helpers classes
 				@include _gridle_generate_helper_classes($stateName, $package);
+	
+				// handle direction on body
+				body {
+					direction: gridle_get_state_var(direction);
+				}
 			}
 		}
 	}

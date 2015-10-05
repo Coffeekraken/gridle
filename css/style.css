@@ -74,13 +74,16 @@ html {
 }
 
 #header {
-  background-image: url("http://gridle.org/img/highlight-bkg.jpg?1399559324");
+  background-image: url("/img/highlight-bkg.jpg?1399559324");
   background-size: cover;
   background-position: 50% 50%;
   min-height: 150px;
   color: white;
   padding: 50px 0;
   line-height: 1;
+}
+#header, #header * {
+  text-shadow: black 0 0 10px;
 }
 
 #head {
@@ -95,6 +98,10 @@ html {
   background: #eaedef;
   margin-bottom: 50px;
   margin-top: 50px;
+}
+
+#top-bar {
+  background: black;
 }
 
 /**
@@ -295,7 +302,7 @@ pre {
 /**
  * List
  */
-.list.list--inline .list__item {
+.list.list--inline .list__item, .list.list--top-bar .list__item {
   display: inline-block;
 }
 
@@ -318,6 +325,19 @@ pre {
 }
 
 /**
+ * List top bar
+ */
+.list--top-bar .list__item a {
+  display: inline-block;
+  padding: 10px;
+}
+.list--top-bar .list__item a:hover, .list--top-bar .list__item a.active {
+  color: white;
+  background: #f2ca2b;
+  text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 0;
+}
+
+/**
  * Gridle set sample :
  */
 #myCoolItem {
@@ -328,20 +348,16 @@ pre {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 
 .state-default #myCoolItem {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 #myCoolItem {
   position: relative;
@@ -355,40 +371,32 @@ pre {
     display: inline-block;
     min-height: 1px;
     float: left;
-    direction: ltr;
     padding-right: 10px;
     padding-left: 10px;
-    content: i extend the grid class;
   }
 }
 .state-mobile .state-default #myCoolItem, .state-mobile #myCoolItem {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
     float: left;
-    direction: ltr;
     padding-right: 10px;
     padding-left: 10px;
-    content: i extend the grid class;
   }
 }
 .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
   display: inline-block;
   min-height: 1px;
   float: left;
-  direction: ltr;
   padding-right: 10px;
   padding-left: 10px;
-  content: i extend the grid class;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .state-default #myCoolItem, #myCoolItem {

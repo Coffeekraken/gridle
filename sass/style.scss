@@ -55,13 +55,17 @@ html {
 	color: darken($primary-color, 60%);
 }
 #header {
-	background-image:url('http://gridle.org/img/highlight-bkg.jpg?1399559324');
+	background-image:url('/img/highlight-bkg.jpg?1399559324');
 	background-size:cover;
 	background-position:50% 50%;
 	min-height:150px;
 	color: white;
 	padding:50px 0;
 	line-height:1;
+
+	&, * {
+		text-shadow:rgba(0,0,0,1) 0 0 10px;
+	}
 }
 #head {
 	background: $light;
@@ -74,6 +78,9 @@ html {
 	background: $primary-color;
 	margin-bottom:50px;
 	margin-top:50px;
+}
+#top-bar {
+	background: black;
 }
 
 
@@ -168,7 +175,6 @@ pre {
 	border-radius:3px;
 	display:inline-block;
 	margin-right:10px;
-	// @include gradiented(lighten($complementary,20%));
 	background:$complementary;
 
 
@@ -300,6 +306,30 @@ pre {
 	.list__sharings {
 		font-size:20px !important;
 	}
+
+
+/**
+ * List top bar
+ */
+.list--top-bar {
+	
+	@extend .list--inline;
+
+	.list__item {
+
+		a {
+			display: inline-block;
+			padding:10px;
+
+			&:hover,
+			&.active {
+				color: white;
+				background: $orange;
+				text-shadow:rgba(0,0,0,.3) 1px 1px 0;
+			}
+		}
+	}
+}
 
 
 /**
