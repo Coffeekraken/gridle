@@ -1,6 +1,60 @@
 // Import grid settings :
 @import 'grid-settings';
 
+// @include gridle_debug((
+// 	mobile : (
+// 		padding : 0,
+// 		margin : 0,
+// 		content : "hello world"
+// 	),
+// 	tablet : (
+// 		padding : 0,
+// 		coco : (
+// 			myNewMap : "Content",
+// 			hello : 10px,
+// 			tablet : (
+// 				padding : 0,
+// 				coco : (
+// 					myNewMap : "Content",
+// 					hello : 10px
+// 				)
+// 			)
+// 		)
+// 	)
+// ));
+// @include gridle_debug("coco");
+// @include gridle_debug((hello, world));
+
+
+@include gridle_generate_custom_class( ('txt','-','align','-','center','@','%state') ) {
+	text-align: center;
+	content : "#{gridle_current_state_name()}";
+}
+
+
+
+@include gridle_selector(not-visible visible show hide, default mobile) {
+	content : "your css...";
+	@include gridle_state(mobile) {
+		content : "you can even use the gridle_state mixin etc...";
+	}
+}
+
+@include gridle_selector(grid) {
+	content : "all grid selector";
+}
+@include gridle_selector(grid, mobile) {
+	content : "all mobile grid selector";
+}
+@include gridle_selector(grid, mobile tablet) {
+	content : "all mobile and tablet grid selector";
+}
+.selector {
+	@include gridle_selector(hide) {
+		content : "hide selector nested";
+	}
+}
+
 // standard grid mixins :
 .grid-12 {
 	@include gridle(12);
@@ -12,20 +66,29 @@
 	@include gridle(12, 100);
 }
 .grid-15-on-100-on-mobile {
-	@include gridle(15, 100, mobile);
+	@include gridle_state(mobile) {
+		@include gridle(15, 100);
+	}
+}
+.grid-set-1-on-4 {
+	@include gridle_set( (
+		grid : (1, 4)
+	) );
 }
 .grid-30-on-100-on-mobile-and-tablet {
 	@include gridle(30, 100);
-	@include gridle(30, 100, mobile tablet);
+	@include gridle_state(mobile tablet) {
+		@include gridle(30, 100);
+	}
 }
 
-// parent
-.grid-parent {
-	@include gridle_parent();
+// row
+.grid-row {
+	@include gridle_row();
 }
-.grid-parent-set {
+.grid-row-set {
 	@include gridle_set((
-		parent : true
+		row : true
 	));
 }
 
@@ -37,36 +100,82 @@
 	@include gridle_clear_each(2, left);
 }
 .clear-each-2-left-mobile {
-	@include gridle_clear_each(2, left, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_clear_each(2, left);
+	}
 }
 .clear-each-2-set {
 	@include gridle_set((
-		clear_each : ( 2, left )
+		clear-each : ( 2, left )
 	));
+}
+
+// gutter width
+.gutter-width {
+	@include gridle_gutter(100px);
+	@include gridle_gutter((
+		top : 10px,
+		right : 50px,
+		bottom : 10px,
+		left : 50px
+	));
+	@include gridle_gutter(top left);
+}
+.gutter-width-set {
+	@include gridle_set((
+		gutter : 100px
+	));
+	content : "multple values";
+	@include gridle_set((
+		gutter : (
+			top : 10px,
+			right : 50px,
+			bottom : 10px,
+			left : 50px
+		)
+	));
+	content : "multiple sides";
+	@include gridle_set((
+		gutter : top left,
+		mobile : (
+			gutter : 100px
+		)
+	));
+}
+.gutter-with-sizes-inline {
+	@include gridle_gutter(10px 20px);
+}
+.gutter-with-sizes-inline--set {
+	@include gridle_gutter(10px 20px);
+	@include gridle_set( (
+		gutter : 10px 20px
+	) );
+}
+.gutter-with-sizes-inline-4 {
+	@include gridle_gutter(5px 10px 15px 20px);
+}
+.gutter-with-sizes-inline-4--set {
+	@include gridle_set( (
+		gutter : 5px 10px 15px 20px
+	) );
 }
 
 // centered
 .centered {
-	@include gridle_centered();
+	@include gridle_grid_centered();
 }
 .centered-mobile {
-	@include gridle_centered(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_grid_centered();
+	}
 }
 
-// certical align
-.vertical-align {
-	@include gridle_vertical_align();
-}
-.vertical-align-bottom {
-	@include gridle_vertical_align(bottom);
-}
-.vertical-align-top-mobile {
-	@include gridle_vertical_align(top, mobile);
-}
-.vertical-align-set {
-	@include gridle_set((
-		vertical_align : middle
-	));
+// align
+$align : (left,center,right,top,middle,bottom);
+@each $a in $align {
+	.align-#{$a} {
+		@include gridle_row_align($a);
+	}
 }
 
 // push
@@ -74,12 +183,20 @@
 	@include gridle_push(6);
 }
 .push-12-mobile {
-	@include gridle_push(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_push(12);
+	}
 }
 .push-set {
 	@include gridle_set((
 		push : 3
 	));
+}
+.push-nested {
+	@include gridle_push(3);
+	@include gridle_state(mobile) {
+		@include gridle_push(0);
+	}
 }
 
 // pull
@@ -87,12 +204,20 @@
 	@include gridle_pull(6);
 }
 .pull-12-mobile {
-	@include gridle_pull(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_pull(12);
+	}
 }
 .pull-set {
 	@include gridle_set((
 		pull : 3
 	));
+}
+.pull-nested {
+	@include gridle_pull(3);
+	@include gridle_state(mobile) {
+		@include gridle_pull(0);
+	}
 }
 
 // prefix
@@ -100,12 +225,20 @@
 	@include gridle_prefix(6);
 }
 .prefix-12-mobile {
-	@include gridle_prefix(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_prefix(12);
+	}
 }
 .prefix-set {
 	@include gridle_set((
 		prefix : 3
 	));
+}
+.prefix-nested {
+	@include gridle_prefix(3);
+	@include gridle_state(mobile) {
+		@include gridle_prefix(0);
+	}
 }
 
 // suffix
@@ -113,12 +246,20 @@
 	@include gridle_suffix(6);
 }
 .suffix-12-mobile {
-	@include gridle_suffix(12, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_suffix(12);
+	}
 }
 .suffix-set {
 	@include gridle_set((
 		suffix : 3
 	));
+}
+.pull-suffix {
+	@include gridle_suffix(3);
+	@include gridle_state(mobile) {
+		@include gridle_suffix(0);
+	}
 }
 
 // hide
@@ -126,7 +267,9 @@
 	@include gridle_hide();
 }
 .hide-mobile {
-	@include gridle_hide(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_hide();
+	}
 }
 .hide-set {
 	@include gridle_set((
@@ -139,7 +282,9 @@
 	@include gridle_show();
 }
 .show-mobile {
-	@include gridle_show(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_show();
+	}
 }
 .show-set {
 	@include gridle_set((
@@ -152,11 +297,13 @@
 	@include gridle_show_inline();
 }
 .show_inline-mobile {
-	@include gridle_show_inline(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_show_inline();
+	}
 }
 .show_inline-set {
 	@include gridle_set((
-		show_inline : true
+		show-inline : true
 	));
 }
 
@@ -165,11 +312,13 @@
 	@include gridle_not_visible();
 }
 .not_visible-mobile {
-	@include gridle_not_visible(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_not_visible();
+	}
 }
 .not_visible-set {
 	@include gridle_set((
-		not_visible : true
+		not-visible : true
 	));
 }
 
@@ -178,7 +327,9 @@
 	@include gridle_visible();
 }
 .visible-mobile {
-	@include gridle_visible(mobile);
+	@include gridle_state(mobile) {
+		@include gridle_visible();
+	}
 }
 .visible-set {
 	@include gridle_set((
@@ -189,19 +340,29 @@
 // gridle state
 .gridle-state {
 	background: red;
+	@include gridle(8);
 
 	@include gridle_state(mobile tablet) {
 		background: pink;
+		@include gridle(12);
 	}
 	@include gridle_state((
 		query : "only print"
 	)) {
 		background: yellow;
+		@include gridle(10);
 	}
 	@include gridle_state((
 		max-width : 200px
 	)) {
 		background: green;
+		@include gridle(5);
+	}
+
+	@include gridle_state(200px, 600px) {
+		content : "ad hoc state";
+		background: white;
+		@include gridle(3);
 	}
 }
 
@@ -236,7 +397,9 @@
 	@include gridle_float(right);
 }
 .float-left-mobile {
-	@include gridle_float(left, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_float(left);
+	}
 }
 .float-set {
 	@include gridle_set((
@@ -249,7 +412,9 @@
 	@include gridle_clear();
 }
 .clear-left-mobile {
-	@include gridle_clear(left, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_clear(left);
+	}
 }
 .clear-set {
 	@include gridle_set((
@@ -265,7 +430,9 @@
 	@include gridle_gutter(left);
 }
 .gutters-side-mobile {
-	@include gridle_gutter(left right, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_gutter(left right);
+	}
 }
 
 // no-gutter
@@ -276,5 +443,52 @@
 	@include gridle_no_gutter(left);
 }
 .no-gutter-side-mobile {
-	@include gridle_no_gutter(left right, mobile);
+	@include gridle_state(mobile) {
+		@include gridle_no_gutter(left right);
+	}
+}
+
+// gridle_get_states_count
+.gridle_get_states_count {
+	content: gridle_get_states_count();
+}
+
+// gridle_get_column_width
+.gridle_get_column_width {
+	content: gridle_get_column_width();
+}
+.gridle_get_column_width-mobile {
+	content: gridle_get_column_width(1, mobile);
+}
+.gridle_get_column_width-2 {
+	content: gridle_get_column_width(2);
+}
+
+// gridle_get_state
+.gridle_get_state {
+	content: "#{inspect(gridle_get_state(mobile))}";
+}
+.gridle_get_state-custom {
+	content: "#{inspect(gridle_get_state((
+		min-width : 200px,
+		max-width : 600px
+	)))}";
+}
+
+// gridle_has_state
+.gridle_has_state-mobile {
+	content : gridle_has_state(mobile);
+}
+.gridle_has_state-coco {
+	content: gridle_has_state(coco);
+}
+
+// gridle_get_state_var
+.gridle_get_state_var-context-mobile {
+	content: gridle_get_state_var(context, mobile);
+}
+
+// gridle_set_state_var
+.gridle_set_state_var {
+	content : inspect(gridle_set_state_var(name, coucou, mobile));
 }

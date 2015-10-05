@@ -1,16 +1,13 @@
 // Import grid settings :
-@import 'grid-settings';
-
-// @include gridle_init();
+@import 'grid-settings-flex';
 
 // Generate classes :
-// @include gridle_generate_classes();
 @include gridle_generate_classes();
 
 // you can generate classes separately if you need :
 // @include gridle_generate_classes(default);  	// default is the base state always registered
 // @include gridle_generate_classes(mobile); 	// only the mobile state
-// @include gridle_generate_classes(all, -helpers); // all states, all packages but the helpers
+// @include gridle_generate_classes(all, -helpers); // all states, all packages but exclude the helpers
 
 // generate a center custom class for all the states :
 // @include gridle_generate_custom_class( ('center','@','%state') ) {
@@ -31,6 +28,13 @@
 	box-sizing: border-box;
 }
 
+.row {
+	@include gridle_set((
+		mobile : (
+			wrap : true
+		)
+	));
+}
 [class*="gr-"] {
 	@include gridle_set((
 		mobile : (

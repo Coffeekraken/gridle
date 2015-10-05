@@ -1,0 +1,418 @@
+//
+// Row
+//
+@mixin _gridle_common_row(
+	$state : default
+) {
+	@include flexbox;
+	@include flex-wrap(wrap);
+	@include flex(0 1 auto);
+}
+@mixin gridle_row(
+	$reverse : false
+) {
+	@include _gridle_call(row) {
+		@if $reverse {
+			@include flex-direction(row-reverse);
+		} @else {
+			@include flex-direction(row);
+		}
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
+
+
+//
+// Col
+//
+@mixin _gridle_common_col(
+	$state : default
+) {
+}
+@mixin gridle_col(
+	$reverse : false
+) {
+	@include _gridle_call(col) {
+		@if $reverse {
+			@include flex-direction(column-reverse);
+		} @else {
+			@include flex-direction(column);
+		}
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+	}
+}
+
+
+//
+// Nowrap
+//
+@mixin _gridle_common_nowrap(
+	$state : default
+) {
+	@include flex-wrap(nowrap);
+	white-space:nowrap;
+
+	> * {
+		white-space: normal;
+	}
+}
+@mixin gridle_nowrap() {
+	@include _gridle_call(nowrap) {
+	}
+}
+
+
+//
+// Wrap
+//
+@mixin _gridle_common_wrap(
+	$state : default
+) {
+	@include flex-wrap(wrap);
+	white-space:normal;
+}
+@mixin gridle_wrap() {
+	@include _gridle_call(wrap) {
+	}
+}
+
+
+//
+// Grid
+//
+@mixin _gridle_common_grid(
+	$state : default
+) {
+	// @include flexbox;
+	@include flex(0,0,auto);
+	@include flex-direction(column); // reset direction for inner elements
+	@include gridle_gutter(top right bottom left);
+	display: block;
+	@include gridle_gutter();
+	
+}
+@mixin gridle(
+	$columns,
+	$context : null
+) {
+	@if $columns == grow {
+		@include gridle_grid_grow();
+	} @else if $columns == adapt {
+		@include gridle_grow_adapt();
+	} @else {
+
+		@include _gridle_call(grid) {
+
+			// vars
+			$name : gridle_get_state_var(name);
+			@if type-of($context) != number {
+				$context : gridle_get_state_var(context);
+			}
+			$name-multiplicator : gridle_get_state_var(name-multiplicator);
+			$gutter-left : gridle_get_state_var(gutter-left);
+			$gutter-right : gridle_get_state_var(gutter-right);
+
+			// manage columns
+			@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+				// the columns is a saved one, get the context and column value
+				$column : map-get($_gridle_columns, $columns);
+				$context : map-get($column, context);
+				$columns : map-get($column, columns);
+			} @else if type-of($columns) == number {
+				$columns : $columns / $name-multiplicator;
+			} @else {
+				@error "the column #{$columns} does not exist...";
+			}
+
+			// width :
+			$width : percentage(1 / $context * $columns);
+
+			// if flex
+			@include flex-basis($width);
+			max-width : $width;
+		}
+
+	}
+}
+// alias to gridle
+@mixin gridle_grid(
+	$columns,
+	$context : null
+) {
+	@include gridle($columns, $context);
+}
+
+
+//
+// Grid table
+//
+@mixin _gridle_common_grid_table(
+	$state : default
+) {
+}
+@mixin gridle_grid_table(
+) {
+	@include _gridle_call(grid-table) {
+	}
+}
+
+
+//
+// Row full
+//
+@mixin _gridle_common_row_full(
+	$state : default
+) {
+}
+@mixin gridle_row_full(
+) {
+	@include _gridle_call(row-full) {
+		$direction : gridle_get_state_var(direction);
+		width: 100vw;
+		@if $direction == rtl {
+			margin-right:50% !important;
+			margin-left:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(50%);
+				-moz-transition: translateX(50%);
+				-ms-transform: translateX(50%);
+				-o-transform: translateX(50%);
+			}
+			transform: translateX(50%);
+		} @else {
+			margin-left:50% !important;
+			margin-right:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(-50%);
+				-moz-transition: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+			}
+			transform: translateX(-50%);
+		}
+	}
+}
+
+
+//
+// grid adapt
+//
+@mixin _gridle_common_grid_adapt(
+	$state : default
+) {
+	max-width: 100%;
+	@include flexbox;
+	@include flex(0,1,auto);
+	@include flex-direction(column); // reset direction for inner elements
+	@include gridle_gutter();
+}
+@mixin gridle_grid_adapt(
+) {
+	@include _gridle_call(grid-adapt) {
+	}
+}
+
+
+//
+// Grow
+//
+@mixin _gridle_common_grid_grow(
+	$state : default
+) {
+	max-width: 100%;
+	@include flexbox;
+	@include flex(1,1,auto);
+	@include flex-direction(column); // reset direction for inner elements	
+	@include gridle_gutter();
+	
+}
+@mixin gridle_grid_grow(
+) {
+	@include _gridle_call(grid-grow) {
+	}
+}
+
+
+//
+// Push
+//
+@mixin _gridle_common_push(
+	$state : default
+) {
+	// css
+	position:relative;
+}
+@mixin gridle_push(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(push) {
+		// variables :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		@if $direction == rtl { $width : $width*-1; }
+		left:$width;
+	}
+}
+
+
+//
+// Pull
+//
+@mixin _gridle_common_pull(
+	$state : default
+) {
+	// css
+	position:relative;
+}
+@mixin gridle_pull(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(pull) {
+		// variables :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		@if $direction == rtl { $width : $width*-1; }
+		right:$width;
+	}
+}
+
+
+//
+// Prefix
+//
+@mixin _gridle_common_prefix(
+	$state : default
+) {
+}
+@mixin gridle_prefix(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(prefix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+
+		// set value :
+		@if $direction == rtl { margin-right:$width; }
+		@else { margin-left:$width; }
+	}
+}
+
+
+//
+// Suffix
+//
+@mixin _gridle_common_suffix(
+	$state : default
+) {
+}
+@mixin gridle_suffix(
+	$columns,
+	$context : null
+) {
+	@include _gridle_call(suffix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : gridle_get_state_var(context);
+		}
+		$direction : gridle_get_state_var(direction);
+		$name-multiplicator : gridle_get_state_var(name-multiplicator);
+		
+		// vars :
+		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		
+		// set value :
+		@if $direction == rtl { margin-left:$width; }
+		@else { margin-right:$width; }
+	}
+}
+
+
+//
+// Order
+//
+@mixin _gridle_common_order(
+	$state : default
+) {
+}
+@mixin gridle_order(
+	$position
+) {
+	@include _gridle_call(order) {
+		@include order($position);
+	}
+}
+
+
+//
+// Clear each
+//
+@mixin _gridle_common_clear_each(
+	$state : default
+) {
+}
+@mixin gridle_clear_each(
+	$clearEach,
+	$clearWhat : both
+) {
+	@include _gridle_call(clear-each) {
+	}
+}
+
+
+//
+// Align :
+//
+@mixin _gridle_common_row_align(
+	$state : default
+) {
+}
+
+@mixin gridle_row_align(
+	$align : middle
+) {
+	@include _gridle_call(row-align) {
+		@each $al in $align {
+			@if $al == around {
+				@include justify-content(space-around);
+			} @else if $al == between {
+				@include justify-content(space-between);
+			} @else if $al == left {
+				@include justify-content(flex-start);
+			} @else if $al == center {
+				@include justify-content(center);
+			} @else if $al == right {
+				@include justify-content(flex-end);
+			} @else if $al == top {
+				@include align-items(flex-start);
+			} @else if $al == middle {
+				@include align-items(center);
+			} @else if $al == bottom {
+				@include align-items(flex-end);
+			}
+		}
+	}
+}

@@ -6,17 +6,17 @@
 
 	<link async rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link href="css/style.css" rel="stylesheet" type="text/css" />
-	<link href="css/grid.css" rel="stylesheet" type="text/css" />
+	<link href="css/grid-flex.css" rel="stylesheet" type="text/css" />
 
-	<title>Gridle - Demo</title>
+	<title>Gridle - Flex - Demo</title>
 
-	<script src="js/gridle.js"></script>
+	<script src="js/gridle.min.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/demo.js"></script>
 
 </head>
 <body>
-	
+
 	<section id="top-bar">
 		
 		<div class="container">
@@ -26,12 +26,12 @@
 				<div class="gr-6">
 					<ul class="list list--top-bar">
 						<li class="list__item">
-							<a class="active" href="/demo.html" title="Demo - Default driver">
+							<a href="/demo.html" title="Demo - Default driver">
 								Default driver
 							</a>
 						</li><!--
 						--><li class="list__item">
-							<a href="/demo-flex.html" title="Demo - Flex driver">
+							<a class="active" href="/demo-flex.html" title="Demo - Flex driver">
 								Flex driver
 							</a>
 						</li>
@@ -60,8 +60,8 @@
 			<div class="row">
 
 				<div class="gr-12">
-					<h1 class="h1">Gridle{.scss} <small>Default driver</small></h1>
-					<h2 class="subtitle">Quick <span class="complementary">features</span> overview</h2>
+					<h1 class="h1">Gridle{.scss} <small>Flex driver</small></h1>
+					<h2 class="subtitle">Quick <span class="complementary">flex features</span> overview</h2>
 				</div>
 
 			</div>
@@ -78,7 +78,7 @@
 
 				<div class="gr-12">
 					<p class="heading">
-						This page is just a quick overview of the gridle features. This is not a replacement for the official documentation that you can find <a href="http://gridle.org" target="_blank">here</a>
+						This page is just a quick overview of the gridle flex features. This is not a replacement for the official documentation that you can find <a href="http://gridle.org" target="_blank">here</a>
 					</p>
 				</div>
 
@@ -111,7 +111,7 @@
 					<div class="gr-2"></div>
 					<div class="gr-2"></div>
 				</div>
-
+				
 				<div class="row">
 					<div class="gr-3 gr-6@tablet"></div>
 					<div class="gr-6 gr-6@tablet"></div>
@@ -149,7 +149,7 @@
 					<div class="gr-2"></div>
 					<div class="gr-2"></div>
 				</div>
-	
+
 				<div class="row">
 					<div class="gr-3 gr-6@tablet"></div>
 					<div class="gr-6 gr-6@tablet">
@@ -226,7 +226,7 @@
 					<div class="gr-2"></div>
 					<div class="gr-2"></div>
 				</div>
-				
+
 				<div class="row">
 					<div class="gr-3 prefix-1"></div>
 					<div class="gr-2 suffix-2 prefix-2@tablet suffix-0@tablet"></div>
@@ -374,7 +374,7 @@
 					<div class="gr-2"></div>
 				</div>
 
-				<div class="row" data-options="row-align-top,row-align-middle,row-align-bottom|row-align-left,row-align-center,row-align-right">
+				<div class="row" data-options="row-align-top,row-align-middle,row-align-bottom|row-align-left,row-align-center,row-align-right,row-align-around,row-align-between">
 					<div class="gr-4 gr-5@tablet">
 						Praesent at condimentum lorem. Nam volutpat iaculis mauris, fringilla eleifend libero sodales et. Aenean semper cursus ipsum id convallis. Proin in elementum leo. Suspendisse molestie tortor leo, quis convallis tortor dictum at. Pellentesque vel enim finibus, suscipit libero vitae, laoreet nisi. In in urna eros.
 					</div>
@@ -422,8 +422,8 @@
 					<div class="gr-adapt gr-6@tablet">
 						<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 					</div>
-					<div class="gr-4 gr-6@tablet gr-table">
-						Cras interdum quis urna ullamcorper aliquam. Duis gravida odio et nqisi porttitor elementum. Duis turpis ex, finibus quis enim sit.
+					<div class="gr-4 gr-6@tablet">
+						Cras interdum quis urna ullamcorper aliquam. Duis gravida odio et nisi porttitor elementum. Duis turpis ex, finibus quis enim sit.
 					</div>
 					<div class="gr-grow">
 						Donec quis ex mi. Donec diam magna, efficitur in consectetur vel, finibus et ipsum. Ut quis metus commodo urna convallis facilisis a semper nibh. Curabitur et commodo quam. Ut et tristique ante. Integer a faucibus erat. Aenean accumsan quam et urna fermentum suscipit. Morbi non aliquam ex. Morbi scelerisque tellus. Donec quis ex mi. Donec diam magna, efficitur in consectetur vel, finibus et ipsum. Ut quis metus commodo urna convallis facilisis a semper nibh. Curabitur et commodo quam. Ut et tristique ante. Integer a faucibus erat. Aenean accumsan quam et urna fermentum suscipit. Morbi non aliquam ex. Morbi scelerisque tellus
@@ -431,7 +431,7 @@
 				</div>
 
 				<div class="row row-align-middle">
-					<div class="gr-5 gr-3@tablet gr-table">
+					<div class="gr-5 gr-3@tablet">
 						Cras interdum quis urna ullamcorper aliquam. Duis gravida odio et nisi porttitor elementum. Duis turpis ex, finibus quis enim sit.
 					</div>
 					<div class="gr-grow hide@tablet"></div>
@@ -440,7 +440,7 @@
 					</div>
 				</div>
 
-				<div class="row nowrap wrap@mobile row-align-middle no-debug-class">
+				<div class="row nowrap row-align-middle no-debug-class">
 					<div class="gr-adapt">
 						<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 					</div>
@@ -479,7 +479,7 @@
 
 			</div>
 
-			<div class="gr-12 gridle-debug no-debug-class no-gutter">
+			<div class="gr-12 gridle-debug no-debug-class">
 
 				<ul>
 					<li class="row nowrap wrap@mobile row-align-middle">
@@ -505,7 +505,7 @@
 							</ul>
 						</div>
 					</li>
-					<li class="row nowrap wrap@mobile row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -518,7 +518,7 @@
 							</span>
 						</div>
 					</li>
-					<li class="row nowrap wrap@mobile row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -538,7 +538,7 @@
 							</ul>
 						</div>
 					</li>
-					<li class="row nowrap wrap@mobile row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -554,7 +554,7 @@
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
 					</li>
-					<li class="row nowrap wrap@mobile row-align-middle">
+					<li class="row nowrap row-align-middle">
 						<div class="gr-adapt">
 							<span class="list__image" style="background-image:url('http://auto.img.v4.skyrock.net/3498/21613498/pics/767896309_small.jpg')"></span>
 						</div>
@@ -580,8 +580,189 @@
 
 			</div>
 
-	</div>
 
+
+
+			<div class="gr-12">
+
+				<h2 class="h2">Column</h2>
+				<p class="p">
+					You can easly change the layout of your row by using this
+				</p>
+
+			</div>
+
+			<div class="gr-12 gridle-debug">
+
+				<div class="row">
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+				</div>
+
+				<div class="row">
+					<div class="gr-8 gr-12@tablet">
+						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
+						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
+						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
+						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
+						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
+						Phasellus efficitur est tortor. Vestibulum at orci ac nulla hendrerit pharetra porta quis felis. Aliquam eleifend vestibulum massa, dictum porta nunc fermentum in. Sed ac fermentum turpis, eu bibendum sapien. Duis et suscipit libero. Vestibulum id aliquam tellus. Sed ultrices viverra justo quis scelerisque. Maecenas et nisl sit amet ex consectetur lobortis. Integer ultrices ipsum sit amet egestas molestie. Nullam.
+					</div>
+					<div class="gr-4 gr-12@tablet no-debug-class">
+						<div class="col row@tablet">
+							<div class="gr-grow gr-4@tablet">
+								<div>Morbi eu sem tellus. Duis non ante ut nisi luctus.
+								</div>
+								<div>Morbi eu sem tellus. Duis non ante ut nisi luctus.
+								</div>
+							</div>
+							<div class="gr-grow gr-4@tablet">
+								Aenean faucibus felis enim, ac convallis neque aliquet rhoncus. Phasellus vitae nibh sit amet nisi tincidunt ultricies in vel ex.
+							</div>
+							<div class="gr-grow gr-4@tablet">
+								Morbi eu sem tellus. Duis non ante ut nisi luctus.
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+				</div>
+		
+				<div class="separator"></div>
+
+			</div>
+
+
+
+
+
+			<div class="gr-12">
+
+				<h2 class="h2">Order</h2>
+				<p class="p">
+					Gridle order classes allows you display your columns in another order that their defined in your html. Here's how
+				</p>
+
+			</div>
+
+			<div class="gr-12 gridle-debug">
+
+				<div class="row">
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+				</div>
+
+				<div class="row">
+					<div class="gr-4 order-2 order-3@tablet">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="gr-4 order-1 order-2@tablet">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="gr-4 order-3 order-1@tablet">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="gr-4 order-last">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="gr-4 order-first">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+				</div>
+		
+				<div class="separator"></div>
+
+			</div>
+
+
+
+
+
+			<div class="gr-12">
+
+				<h2 class="h2">Reverse</h2>
+				<p class="p">
+					The same way as the order, you can reverse your columns order easly by using this
+				</p>
+
+			</div>
+
+			<div class="gr-12 gridle-debug">
+
+				<div class="row">
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+					<div class="gr-2"></div>
+				</div>
+
+				<div class="row row-reverse">
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="gr-4">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="row col-reverse@tablet">
+					<div class="gr-4 grow@tablet">
+						<div>I'm the <strong class="bg-complementary">#1</strong> in the html</div>
+					</div>
+					<div class="gr-4 grow@tablet">
+						<div>I'm the <strong class="bg-red">#2</strong> in the html</div>
+					</div>
+					<div class="gr-4 grow@tablet">
+						<div>I'm the <strong class="bg-blue">#3</strong> in the html</div>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+					<div class="gr-3"></div>
+				</div>
+
+			</div>
+	
+			<div class="separator"></div>
+
+		</div>
+
+	</div>
+	
 	<script type="text/javascript">
 
 		var _gaq = _gaq || [];

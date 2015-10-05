@@ -1,7 +1,8 @@
 /**
  * Imports :
  */
-@import 'compass/reset';
+// @import 'compass/reset';
+// @import 'compass/css3';
 
 /**
  * Import grid settings :
@@ -10,50 +11,323 @@
 @import 'grid-settings';
 
 /**
- * Medias :
+ * Resets
  */
-ul#medias {
-	background:black;
-	text-align:center;
-	margin-bottom:30px;
+@import 'tools/reset';
 
-	li {
-		display:inline-block;
-		height:50px;
-		line-height:50px;
-		padding:0 30px;
-		color:white;
-		font-size:16px;
-		cursor:pointer;
-		margin:0;
+/**
+ * Variables
+ */
+$primary-color : #eaedef;
+$green : #eeefea;
 
-		&.active,
-		&:hover {
-			background:white;
-			color:black;
-		}
-	}
+$braun : #999588;
+$orange : #f2ca2b;
 
-	@include gridle_state((
-		max-width : 620px
-	)) {
-		display:none;
-	}
-}
+$title : #3b3b3b;
+$text : #b1b1b1;
+
+$light : #f6f6f6;
+$medium : #999588;
+$dark : #605d54;
+
+$footer-dark : #266778;
+
+$complementary : #f2ca2b;
+
+$error : #d39c7b;
+$success : #ced37b;
+
+$green : #e5f382;
+$blue : #5aecf1;
+$red : #ee243c;
+
+$new : #ffb554; 
 
 /**
  * Basic formatting :
  */
+* {
+	box-sizing:border-box;
+}
 html {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+	color: darken($primary-color, 60%);
 }
-body {
-	@include gridle_state(mobile tablet) {
-		text-align:center;
+#header {
+	background-image:url('/img/highlight-bkg.jpg?1399559324');
+	background-size:cover;
+	background-position:50% 50%;
+	min-height:150px;
+	color: white;
+	padding:50px 0;
+	line-height:1;
+
+	&, * {
+		text-shadow:rgba(0,0,0,1) 0 0 10px;
+	}
+}
+#head {
+	background: $light;
+	margin-bottom:50px;
+	padding: 50px 0;
+}
+.separator {
+	width:100%;
+	height:1px;
+	background: $primary-color;
+	margin-bottom:50px;
+	margin-top:50px;
+}
+#top-bar {
+	background: black;
+}
+
+
+/**
+ * Colors
+ */
+.complementary {
+	color: $complementary;
+}
+.red {
+	color: $red;
+}
+.blue {
+	color: $blue;
+}
+.green {
+	color: $green;
+}
+.bg-color {
+	padding:2px 5px;
+	border-radius:3px;
+	color: white;
+}
+.bg-complementary {
+	@extend .bg-color;
+	background: $complementary;
+}
+.bg-red {
+	@extend .bg-color;
+	background: $red;
+}
+.bg-blue {
+	@extend .bg-color;
+	background: $blue;
+}
+.bg-green {
+	@extend .bg-color;
+	background: $green;
+}
+
+
+/**
+ * Typography
+ */
+.h1 {
+	font-size:50px;
+	font-weight:100;
+}
+.h2 {
+	margin: 0 0 15px 0;
+	font-size:30px;
+}
+.h3 {
+	margin: 0 0 10px 0;
+	font-size: 20px;
+}
+.p {
+	margin-bottom: 20px;
+	font-size:16px;
+	color: darken($primary-color, 35%);
+}
+.subtitle {
+	font-size:30px;
+	font-weight:200;
+}
+.heading {
+	font-size:20px;
+}
+a {
+	color: darken($complementary,5%);
+	text-decoration: none;
+}
+small {
+	font-size:0.6em;
+}
+
+
+/**
+ * Prism
+ */
+pre {
+	background-color: $primary-color !important;
+}
+
+
+/**
+ * State selector
+ */
+.selector {
+	margin-bottom: 15px;
+	padding:5px;
+	border-radius:3px;
+	display:inline-block;
+	margin-right:10px;
+	background:$complementary;
+
+
+	li {
+		color:darken($complementary,60%);
+		display:inline-block;
+		padding:5px 10px;
+		border-radius:3px;
+		cursor:pointer;
+		margin-right: 2px;
+
+		@each $stateName in gridle_get_registered_states_names() {
+			@if $stateName != default {
+				@include gridle_state($stateName) {
+					&[data-state="#{$stateName}"] {
+						outline: 2px solid $red;
+					}
+				}
+			}
+		}
+
+		&.active {
+			color: white;
+			background:darken($complementary,20%) !important;
+		}
 	}
 
-	@include gridle_state(ipad-landscape) {
+	&.selector--options {
+		background:lighten($braun,20%);
+
+		li {
+			color:darken($braun,60%);
+			background:$braun;
+
+			&.active {
+				background:darken($braun,20%) !important;
+				color: white;
+			}
+		}
+	}
+
+	@include gridle_state(mobile) {
+		display:block;
+		margin:0 0 15px 0;
+
+		li {
+			display: block;
+			padding:10px;
+		}
+	}
+}
+
+
+/**
+ * Debug grid
+ */
+.gridle-debug {
+	margin-bottom:50px;
+
+	[class*="gr-"] {
+		background: $primary-color;
+		border: 1px solid darken($primary-color, 5%);
+		padding-top: 10px;
+		padding-bottom: 10px;
+
+		&:before {
+			display:block;
+			content: attr(class);
+			font-weight: bold;
+		}
+	}
+	[class*="push-"],
+	[class*="prefix-"] {
+		background: darken($primary-color, 15%);
+	}
+	[class*="pull-"],
+	[class*="suffix-"] {
+		background: darken($primary-color, 20%);
+	}
+
+	[class="row"],
+	[class="col"] {
+		padding-top: 0;
+		padding-bottom: 0;
+	}
+}
+.no-debug-class {
+	[class*="gr-"]:before,
+	&:before {
+		content: "" !important;
+	}
+}
+
+/**
+ * Placeholders
+ */
+.img-placeholder {
+	display:inline-block;
+	width:50px;
+	height:50px;
+	border-radius:50%;
+	background:darken($primary-color, 10%);
+}
+
+
+/**
+ * List
+ */
+.list {
+	&.list--inline {
+		.list__item {
+			display:inline-block;
+		}
+	}
+}
+
+	.list__title {
+		font-weight:bold;
 		font-size:16px;
+	}
+	.list__description {
+		font-size:12px;
+	}
+	.list__image {
+		@extend .img-placeholder;
+		background-size:cover;
+		background-position:50% 50%;
+	}
+	.list__sharings {
+		font-size:20px !important;
+	}
+
+
+/**
+ * List top bar
+ */
+.list--top-bar {
+	
+	@extend .list--inline;
+
+	.list__item {
+
+		a {
+			display: inline-block;
+			padding:10px;
+
+			&:hover,
+			&.active {
+				color: white;
+				background: $orange;
+				text-shadow:rgba(0,0,0,.3) 1px 1px 0;
+			}
+		}
 	}
 }
 
@@ -67,9 +341,10 @@ body {
 		push : 2,
 		tablet : (
 			grid : 12,
-			push : 0
+		 	push : 0
 		),
 		mobile : (
+			grid : 12,
 			visible : false
 		)
 	));

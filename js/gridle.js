@@ -6,8 +6,8 @@
  *
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  * @created 	20.05.14
- * @updated 	09.02.15
- * @version 	1.0.12
+ * @updated 	29.09.15
+ * @version 	1.0.13
  */
 (function() {
 
@@ -133,11 +133,11 @@
                 return false;
               }
               settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\'(;\s*|\s*)\}/) && RegExp.$1;
-              console.log('settings', settings);
               if (!settings) {
                 _this._noSettingsFindedInThisCss(link);
                 return false;
               }
+              settings = settings.toString().replace(/\\/g, '');
               settings = JSON.parse(settings);
               _this._cssSettings = settings;
               if (!settings.states) {
@@ -212,7 +212,16 @@
     _onResize: function() {
       var updatedStates;
       updatedStates = [];
-      return this._updateStatesStatus();
+      this._updateStatesStatus();
+      if (this.getActiveStatesNames().length) {
+        this._debug('active states', this.getActiveStatesNames().join(','));
+      }
+      if (this.getInactiveStatesNames().length) {
+        this._debug('inactive states', this.getInactiveStatesNames().join(','));
+      }
+      if (this.getUpdatedStatesNames().length) {
+        return this._debug('updated states', this.getUpdatedStatesNames().join(','));
+      }
     },
 
     /*
@@ -236,7 +245,10 @@
     		Update states status
      */
     _updateStatesStatus: function() {
-      var key, state, _ref;
+      var defaultState, defaultStateIdx, key, state, wasDefault, _ref;
+      defaultState = this.getDefaultState();
+      defaultStateIdx = this._states.indexOf(defaultState);
+      wasDefault = defaultState.status;
       this._activeStates = [];
       this._activeStatesNames = [];
       this._inactiveStates = [];
@@ -258,14 +270,31 @@
           this._states[key].status = true;
           this._activeStates.push(state);
           this._activeStatesNames.push(state.name);
-        } else {
+        } else if (state.name !== 'default') {
           if (this._states[key].status) {
             this._updatedStates.push(state);
-            this._updatedStatesNames.push(state);
+            this._updatedStatesNames.push(state.name);
           }
           this._states[key].status = false;
           this._inactiveStates.push(state);
           this._inactiveStatesNames.push(state.name);
+        }
+      }
+      if (!this._activeStates.length) {
+        this._states[defaultStateIdx].status = true;
+        this._activeStates.push(defaultState);
+        this._activeStatesNames.push('default');
+        if (!wasDefault) {
+          this._updatedStates.push(defaultState);
+          this._updatedStatesNames.push('default');
+        }
+      } else {
+        this._states[defaultStateIdx].status = false;
+        this._inactiveStates.push(defaultState);
+        this._inactiveStatesNames.push('default');
+        if (wasDefault) {
+          this._updatedStates.push(defaultState);
+          this._updatedStatesNames.push('default');
         }
       }
       if (this._updatedStates.length) {
@@ -327,7 +356,7 @@
       if (args.context) {
         http.context = args.context;
       }
-      http.open(args.type, args.url, false);
+      http.open(args.type, args.url, true);
       http.onreadystatechange = function() {
         var response;
         if (http.readyState !== 4) {
@@ -348,6 +377,20 @@
         }
       };
       return http.send();
+    },
+
+    /*
+    		Get default state
+     */
+    getDefaultState: function() {
+      var state, _i, _len, _ref;
+      _ref = this.getRegisteredStates();
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        state = _ref[_i];
+        if (state.name === 'default') {
+          return state;
+        }
+      }
     },
 
     /*

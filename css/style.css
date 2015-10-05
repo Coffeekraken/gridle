@@ -1,6 +1,17 @@
 /**
  * Imports :
  */
+/**
+ * Import grid settings :
+ * This to be able to use gridle mixins, etc...
+ */
+/**
+ * Resets
+ */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -17,17 +28,29 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font: inherit;
   font-size: 100%;
+  font: inherit;
   vertical-align: baseline;
 }
 
-html {
-  line-height: 1;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
 ol, ul {
   list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
 }
 
 table {
@@ -35,349 +58,487 @@ table {
   border-spacing: 0;
 }
 
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-q, blockquote {
-  quotes: none;
-}
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-a img {
-  border: none;
-}
-
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
 /**
- * Import grid settings :
- * This to be able to use gridle mixins, etc...
+ * Variables
  */
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-size: 50px 90%;
-  background-position: 0 50%;
-  background-repeat: repeat-x;
-}
-
-#myCoolItem {
-  position: relative;
-}
-
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-color: #daeff5;
-}
-.gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before, .gridle-debug #myCoolItem:after, #myCoolItem.gridle-debug:after {
-  content: "";
-  display: block;
-  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowRkEzNzVFNTg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowRkEzNzVFNjg1NjgxMUUyOUI4RjhEMzg4QzM4QjZFOCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGQTM3NUUzODU2ODExRTI5QjhGOEQzODhDMzhCNkU4IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjBGQTM3NUU0ODU2ODExRTI5QjhGOEQzODhDMzhCNkU4Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8++5+BhQAAAA9JREFUeNpiYGBgkAIIMAAAHwAbZIBtGgAAAABJRU5ErkJggg==);
-  margin: 10px 0;
-  padding: 5px 0;
-  text-align: center;
-  color: white;
-  font-size: 11px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: block !important;
-}
-
-#myCoolItem {
-  display: inline-block;
-  min-height: 1px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-/**
- * Str replace
- *
- * @param {string}  $string    String that you want to replace
- * @param {string}  $substr    String that is to be replaced by `$newsubstr`
- * @param {string}  $newsubstr String that replaces `$substr`
- * @param {number*} $all       Flag for replaceing all (1+) or not (0)
- * @return {string}
- */
-/**
- * Map set
- *
- * @param 	Map 	$map 		The map to use
- * @param 	String 	$key 		The key to update
- * @param 	Mixed 	$value 		The new value
- * @return 	Map 			The new map
- */
-/**
- * Get the column width in percent for the global or a specific context
- *
- * @param 	int 		$columns 					The number of columns to calculate
- * @param 	int 		$context : $gridle-columns-count 	 	The context to use
- * @return 	percentage 							The width in percent
- */
-/**
- *  Get a state map
- *
- * @param 	string 		$name 		The name of the state to get
- * @return 	map 				A state map object
- */
-/**
- * Check if a state exist :
- *
- * @param 	string 		$name 		The name of the state to check
- * @return 	Boolean 			true is exist
- */
-/**
- * Get the media queries variables :
- *
- * @param 	int 		$index 	 	The media query indes
- * @param 	String 		$var 		The media query variable name
- * @return 	String|int 			The variable value
- */
-/**
- * Get a variable
- *
- * @param 	String 		$varName 				The variable name
- * @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
- * @return 	Mixed 							The finded value
- */
-/**
- * Set a variable in a state
- * @param 	Mixed $stateName-or-stateIndex 	The state name of state index
- * @param  	String $var                    		Variable name to assign
- * @param  	Mixed $newValue          		The new value to assign
- * @return 	List                         			The states list (full)
- */
-/**
- * Generate a column
- *
- * @param 	String 		$name 			The column name (often count)
- * @param 	int 		$columns 		The column count that the column will take
- * @param 	int 		$context 		The context on witch the with will be calculed
- * @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
- */
-/**
- * Generate classname
- *
- * @param 	List 		$parrern 	The pattern to use to generate classname
- * @param 	String 		$state 		The state
- * @param 	int 		$count 		The column count
- */
-/**
- * Get the media query for a particular state, or with, etc...
- *
- * @param 	Mixed 		$state-or-min-width 		The state name of the min with
- * @param 	Mixed 		$max-width 			The max width if first param is a min width
- * @return 	String 						The media query string without the @media
- */
-/**
- * Get states count
- * 
- * @return 	int 	The number of states defined
- */
-/**
- * Setup
- */
-/**
- *  Register a clear each class
- */
-/**
- * Register a special class
- */
-/**
- * Register default states
- */
-/**
- * Register default mobile first states :
- */
-/**
- * Set the debug device (not used for now)
- * 
- * @param 	String 		$state 		The state to update
- * @para m 	String 		$device 	The device to use (iphone, etc...)
- */
-/**
- * Parent clear each
- */
-/**
- * Vertical align :
- */
-/**
- * Show inline
- *
- * @param 	String 		$state 		The state name
- */
-/**
- * Generate a custom class for all the states
- *
- * @param 	list 	$pattern 		The name pattern of the class
- * @param 	list 	$statesNames 		The states names to generate
- */
-/**
- * Medias :
- */
-ul#medias {
-  background: black;
-  text-align: center;
-  margin-bottom: 30px;
-}
-ul#medias li {
-  display: inline-block;
-  height: 50px;
-  line-height: 50px;
-  padding: 0 30px;
-  color: white;
-  font-size: 16px;
-  cursor: pointer;
-  margin: 0;
-}
-ul#medias li.active, ul#medias li:hover {
-  background: white;
-  color: black;
-}
-html.default ul#medias {
-  display: none;
-}
-@media screen and (max-width: 620px) {
-  ul#medias {
-    display: none;
-  }
-}
-
 /**
  * Basic formatting :
  */
-html {
-  font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+* {
+  box-sizing: border-box;
 }
 
-html.mobile body {
-  text-align: center;
+html {
+  font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif;
+  color: #48565f;
+}
+
+#header {
+  background-image: url("/img/highlight-bkg.jpg?1399559324");
+  background-size: cover;
+  background-position: 50% 50%;
+  min-height: 150px;
+  color: white;
+  padding: 50px 0;
+  line-height: 1;
+}
+#header, #header * {
+  text-shadow: black 0 0 10px;
+}
+
+#head {
+  background: #f6f6f6;
+  margin-bottom: 50px;
+  padding: 50px 0;
+}
+
+.separator {
+  width: 100%;
+  height: 1px;
+  background: #eaedef;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+#top-bar {
+  background: black;
+}
+
+/**
+ * Colors
+ */
+.complementary {
+  color: #f2ca2b;
+}
+
+.red {
+  color: #ee243c;
+}
+
+.blue {
+  color: #5aecf1;
+}
+
+.green {
+  color: #e5f382;
+}
+
+.bg-color, .bg-complementary, .bg-red, .bg-blue, .bg-green {
+  padding: 2px 5px;
+  border-radius: 3px;
+  color: white;
+}
+
+.bg-complementary {
+  background: #f2ca2b;
+}
+
+.bg-red {
+  background: #ee243c;
+}
+
+.bg-blue {
+  background: #5aecf1;
+}
+
+.bg-green {
+  background: #e5f382;
+}
+
+/**
+ * Typography
+ */
+.h1 {
+  font-size: 50px;
+  font-weight: 100;
+}
+
+.h2 {
+  margin: 0 0 15px 0;
+  font-size: 30px;
+}
+
+.h3 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+}
+
+.p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #8596a2;
+}
+
+.subtitle {
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.heading {
+  font-size: 20px;
+}
+
+a {
+  color: #f1c413;
+  text-decoration: none;
+}
+
+small {
+  font-size: 0.6em;
+}
+
+/**
+ * Prism
+ */
+pre {
+  background-color: #eaedef !important;
+}
+
+/**
+ * State selector
+ */
+.selector {
+  margin-bottom: 15px;
+  padding: 5px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 10px;
+  background: #f2ca2b;
+}
+.selector li {
+  color: black;
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 2px;
+}
+.state-default .selector li[data-state="gridle_get_registered_states_names()"] {
+  outline: 2px solid #ee243c;
+}
+.selector li[data-state="gridle_get_registered_states_names()"] {
+  outline: 2px solid #ee243c;
+}
+.selector li.active {
+  color: white;
+  background: #ac8c0b !important;
+}
+.selector.selector--options {
+  background: #c8c6bf;
+}
+.selector.selector--options li {
+  color: black;
+  background: #999588;
+}
+.selector.selector--options li.active {
+  background: #656156 !important;
+  color: white;
+}
+.state-mobile .selector {
+  display: block;
+  margin: 0 0 15px 0;
+}
+.state-mobile .selector li {
+  display: block;
+  padding: 10px;
 }
 @media screen and (max-width: 480px) {
-  body {
-    text-align: center;
+  .selector {
+    display: block;
+    margin: 0 0 15px 0;
+  }
+  .selector li {
+    display: block;
+    padding: 10px;
   }
 }
-html.tablet body {
-  text-align: center;
+
+/**
+ * Debug grid
+ */
+.gridle-debug {
+  margin-bottom: 50px;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  body {
-    text-align: center;
-  }
+.gridle-debug [class*="gr-"] {
+  background: #eaedef;
+  border: 1px solid #dce1e4;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-html.ipad-landscape body {
+.gridle-debug [class*="gr-"]:before {
+  display: block;
+  content: attr(class);
+  font-weight: bold;
+}
+.gridle-debug [class*="push-"],
+.gridle-debug [class*="prefix-"] {
+  background: #bfc8ce;
+}
+.gridle-debug [class*="pull-"],
+.gridle-debug [class*="suffix-"] {
+  background: #b0bbc3;
+}
+.gridle-debug [class="row"],
+.gridle-debug [class="col"] {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.no-debug-class [class*="gr-"]:before, .no-debug-class:before {
+  content: "" !important;
+}
+
+/**
+ * Placeholders
+ */
+.img-placeholder, .list__image {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #cdd4d9;
+}
+
+/**
+ * List
+ */
+.list.list--inline .list__item, .list.list--top-bar .list__item {
+  display: inline-block;
+}
+
+.list__title {
+  font-weight: bold;
   font-size: 16px;
 }
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  body {
-    font-size: 16px;
-  }
+
+.list__description {
+  font-size: 12px;
+}
+
+.list__image {
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.list__sharings {
+  font-size: 20px !important;
+}
+
+/**
+ * List top bar
+ */
+.list--top-bar .list__item a {
+  display: inline-block;
+  padding: 10px;
+}
+.list--top-bar .list__item a:hover, .list--top-bar .list__item a.active {
+  color: white;
+  background: #f2ca2b;
+  text-shadow: rgba(0, 0, 0, 0.3) 1px 1px 0;
 }
 
 /**
  * Gridle set sample :
  */
 #myCoolItem {
-  float: left;
-  direction: ltr;
-  padding-left: 10px;
-  padding-right: 10px;
   width: 66.66667%;
   left: 16.66667%;
 }
-html.default #myCoolItem {
+#myCoolItem {
+  display: inline-block;
+  min-height: 1px;
   float: left;
-  direction: ltr;
-  padding-left: 10px;
   padding-right: 10px;
+  padding-left: 10px;
 }
-html.ipad-landscape #myCoolItem {
-  padding-left: 0;
-  padding-right: 0;
+
+.state-default #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#myCoolItem {
+  position: relative;
+}
+
+.state-default #myCoolItem {
+  position: relative;
+}
+@media screen and (max-width: 480px) {
+  .state-default #myCoolItem, #myCoolItem {
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.state-mobile .state-default #myCoolItem, .state-mobile #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default #myCoolItem, #myCoolItem {
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  float: left;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default #myCoolItem, #myCoolItem {
+    position: relative;
+  }
+}
+.state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+  position: relative;
+}
+.state-default #myCoolItem {
+  width: 66.66667%;
+  left: 16.66667%;
+}
+.state-ipad-landscape .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-default #myCoolItem {
+  width: 100%;
+  display: inline-block;
+  left: 0%;
+}
+.state-ipad-landscape .state-tablet .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default #myCoolItem {
+    width: 100%;
+    display: inline-block;
+    left: 0%;
+  }
+}
+.state-mobile .state-default #myCoolItem {
+  width: 100%;
+  display: inline-block;
+  visibility: hidden;
+}
+.state-ipad-landscape .state-mobile .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .state-default #myCoolItem {
+    width: 100%;
+    display: inline-block;
+    visibility: hidden;
+  }
+}
+.state-ipad-landscape #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
-    padding-left: 0;
-    padding-right: 0;
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
-html.default #myCoolItem {
-  width: 66.66667%;
-}
-.gridle-debug html.default #myCoolItem:before, html.default #myCoolItem.gridle-debug:before {
-  content: "grid-default-8";
-}
-.gridle-debug html.default #myCoolItem.parent:before, html.default #myCoolItem.gridle-debug.parent:before {
-  content: "grid-parent-default-8";
-}
-.gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before {
-  content: "grid-default-8";
-}
-.gridle-debug #myCoolItem.parent:before, #myCoolItem.gridle-debug.parent:before {
-  content: "grid-parent-default-8";
-}
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-color: #f4efdf !important;
-}
-html.default #myCoolItem {
-  left: 16.66667%;
-}
-.gridle-debug html.default #myCoolItem:after, html.default #myCoolItem.gridle-debug:after {
-  content: "push-default-2";
-}
-.gridle-debug #myCoolItem:after, #myCoolItem.gridle-debug:after {
-  content: "push-default-2";
-}
-html.tablet #myCoolItem {
+.state-tablet #myCoolItem {
   width: 100%;
+  display: inline-block;
+  left: 0%;
 }
-.gridle-debug html.tablet #myCoolItem:before, html.tablet #myCoolItem.gridle-debug:before {
-  content: "grid-tablet-12" !important;
+.state-ipad-landscape .state-tablet #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
-.gridle-debug html.tablet #myCoolItem.parent:before, html.tablet #myCoolItem.gridle-debug.parent:before {
-  content: "grid-parent-tablet-12" !important;
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     width: 100%;
-  }
-  .gridle-debug #myCoolItem:before, #myCoolItem.gridle-debug:before {
-    content: "grid-tablet-12" !important;
-  }
-  .gridle-debug #myCoolItem.parent:before, #myCoolItem.gridle-debug.parent:before {
-    content: "grid-parent-tablet-12" !important;
-  }
-}
-.gridle-debug #myCoolItem, #myCoolItem.gridle-debug {
-  background-color: #f4efdf !important;
-}
-html.tablet #myCoolItem {
-  left: 0%;
-}
-.gridle-debug html.tablet #myCoolItem:after, html.tablet #myCoolItem.gridle-debug:after {
-  content: "push-tablet-0" !important;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
+    display: inline-block;
     left: 0%;
   }
-  .gridle-debug #myCoolItem:after, #myCoolItem.gridle-debug:after {
-    content: "push-tablet-0" !important;
-  }
 }
-html.mobile #myCoolItem {
+.state-mobile #myCoolItem {
+  width: 100%;
+  display: inline-block;
   visibility: hidden;
+}
+.state-ipad-landscape .state-mobile #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
 }
 @media screen and (max-width: 480px) {
   #myCoolItem {
+    width: 100%;
+    display: inline-block;
     visibility: hidden;
   }
 }
