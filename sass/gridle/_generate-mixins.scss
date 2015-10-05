@@ -5,12 +5,12 @@
 // |------------------------------------------------------
 
 
-/**
- * Generate a custom class for all the states
- *
- * @param 	list 	$pattern 		The name pattern of the class
- * @param 	list 	$statesNames 		The states names to generate
- */
+////
+// Generate a custom class for all the states
+//
+// @param 	list 	$pattern 		The name pattern of the class
+// @param 	list 	$statesNames 		The states names to generate
+////
 @mixin gridle_generate_custom_class(
 	$pattern,
 	$statesNames : null
