@@ -1,17 +1,11 @@
-/**
- * Imports :
- */
+// Imports :
 @import 'compass/reset';
 
-/**
- * Import grid settings :
- * This to be able to use gridle mixins, etc...
- */
+// Import grid settings :
+// This to be able to use gridle mixins, etc...
 @import 'grid-settings';
 
-/**
- * Medias :
- */
+// Medias :
 ul#medias {
 	background:black;
 	text-align:center;
@@ -41,9 +35,7 @@ ul#medias {
 	}
 }
 
-/**
- * Basic formatting :
- */
+// Basic formatting :
 html {
 	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
 }
@@ -57,10 +49,7 @@ body {
 	}
 }
 
-
-/**
- * Gridle set sample :
- */
+// Gridle set sample :
 #myCoolItem {
 	@include gridle_set((
 		grid : 8,
