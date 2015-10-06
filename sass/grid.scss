@@ -25,12 +25,6 @@
 	max-width:960px;
 }
 
-* {
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
-}
-
 [class*="gr-"] {
 	@include gridle_set((
 		mobile : (

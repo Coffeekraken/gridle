@@ -88,8 +88,12 @@
 	// @include flexbox;
 	@include flex(0,0,auto);
 	@include flex-direction(column); // reset direction for inner elements
-	@include gridle_gutter(top right bottom left);
 	display: block;
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
 	@include gridle_gutter();
 	
 }
@@ -206,6 +210,11 @@
 	@include flexbox;
 	@include flex(0,1,auto);
 	@include flex-direction(column); // reset direction for inner elements
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
 	@include gridle_gutter();
 }
 @mixin gridle_grid_adapt(
@@ -225,6 +234,11 @@
 	@include flexbox;
 	@include flex(1,1,auto);
 	@include flex-direction(column); // reset direction for inner elements	
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
 	@include gridle_gutter();
 	
 }

@@ -64,10 +64,6 @@ table {
 /**
  * Basic formatting :
  */
-* {
-  box-sizing: border-box;
-}
-
 html {
   font: 11px/1.5 'Helvetica Neue', Verdana, sans-serif;
   color: #48565f;
@@ -348,6 +344,9 @@ pre {
   display: inline-block;
   min-height: 1px;
   float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -356,6 +355,9 @@ pre {
   display: inline-block;
   min-height: 1px;
   float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -371,6 +373,9 @@ pre {
     display: inline-block;
     min-height: 1px;
     float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -379,6 +384,9 @@ pre {
   display: inline-block;
   min-height: 1px;
   float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -387,6 +395,9 @@ pre {
     display: inline-block;
     min-height: 1px;
     float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     padding-right: 10px;
     padding-left: 10px;
   }
@@ -395,6 +406,9 @@ pre {
   display: inline-block;
   min-height: 1px;
   float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
