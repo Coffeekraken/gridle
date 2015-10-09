@@ -1,4 +1,4 @@
-# gridle (v2.0.0)
+# gridle (v2.0.1)
 
 
 One grid system to rule them all (.scss)
@@ -177,3 +177,6 @@ That's not finished. Gridle offer you a lot of features and advanced settings th
 | <img src="https://www.npmjs.com/static/images/npm-logo.svg" height="20" />  |  NPM  | 2.5.1  |
 | <img src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23114/preview_image/libsass.png" height="20" />  |  Libsass  | 3.3.3  |
 |  <img src="http://rhumaric.com/wp-content/uploads/2013/05/bower-logo.png" height="20" />  |  Grunt  |  0.4.4  |
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/olivierbossel/gridle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
