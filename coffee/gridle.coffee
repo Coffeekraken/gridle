@@ -74,7 +74,6 @@
 
 		# default settings that can be overrided on init
 		_settings :
-			cssPath : null 				# if set, only this css will be fetched
 			onUpdate : null
 			debug : null
 

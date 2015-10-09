@@ -65,7 +65,6 @@
     _updatedStatesNames: [],
     resizeTimeout: null,
     _settings: {
-      cssPath: null,
       onUpdate: null,
       debug: null
     },
