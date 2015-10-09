@@ -96,6 +96,11 @@
 		float:left;
 		// direction:ltr;
 	}
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
 	@include gridle_gutter();
 	
 }
@@ -216,6 +221,11 @@
 	display: table-cell;
 	width:1px;
 	white-space:nowrap !important;
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
 	@include gridle_gutter();
 }
 @mixin gridle_grid_adapt(
@@ -234,6 +244,11 @@
 	display: table-cell;
 	width:99999px;
 	white-space: nowrap;
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
 	@include gridle_gutter();
 	
 }
