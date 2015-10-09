@@ -61,6 +61,18 @@ table {
 /**
  * Variables
  */
+.component {
+  background: red;
+  min-height: 100px;
+  transition: all .2s ease-in-out;
+}
+.component[max-width="400px"] {
+  background: blue;
+}
+.component[min-width="450px"] {
+  background: pink;
+}
+
 /**
  * Basic formatting :
  */

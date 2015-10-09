@@ -44,6 +44,19 @@ $red : #ee243c;
 
 $new : #ffb554; 
 
+.component {
+	background: red;
+	min-height: 100px;
+	transition: all .2s ease-in-out;
+	
+	@include gridle_eq(-400px) {
+		background: blue;
+	}
+	@include gridle_eq(+450px) {
+		background: pink;
+	}
+}
+
 /**
  * Basic formatting :
  */

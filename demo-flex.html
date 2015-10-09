@@ -9,8 +9,12 @@
 	<link href="css/grid-flex.css" rel="stylesheet" type="text/css" />
 
 	<title>Gridle - Flex - Demo</title>
-
-	<script src="js/gridle.min.js"></script>
+	
+	<!--[if lt IE 10]>
+	<script src="js/matchMedia.js"></script>
+	<![endif]-->
+	<script src="js/gridle.js"></script>
+	<script src="js/gridle-eq.js"></script>
 	<script src="js/jquery.js"></script>
 	<script src="js/demo.js"></script>
 
@@ -758,6 +762,33 @@
 			</div>
 	
 			<div class="separator"></div>
+
+			<div class="gr-12">
+
+				<h2 class="h2">Element queries</h2>
+				<p class="p">
+					Here's how you can use element queries in your grid. There's actually nothing to see in the html, you just have to use the gridle_eq mixin in your scss files.
+				</p>
+
+			</div>
+
+			<div class="gr-12 gridle-debug">
+
+				<div class="row">
+					<div class="gr-3 gr-6@tablet">
+						<div class="component"></div>
+					</div>
+					<div class="gr-6 gr-6@tablet">
+						<div class="component"></div>
+					</div>
+					<div class="gr-3 gr-12@tablet">
+						<div class="component"></div>
+					</div>
+				</div>
+
+				<div class="separator"></div>
+
+			</div>
 
 		</div>
 

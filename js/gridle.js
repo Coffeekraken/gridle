@@ -6,15 +6,23 @@
  *
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  * @created 	20.05.14
- * @updated 	29.09.15
- * @version 	1.0.13
+ * @updated 	09.10.15
+ * @version 	1.0.14
  */
-(function() {
+(function(factory) {
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  } else if (typeof exports === 'object') {
+    factory();
+  } else {
+    factory();
+  }
+})(function() {
 
   /*
   	Little smokesignals implementation
    */
-  var smokesignals;
+  var domLoaded, smokesignals, _domLoaded;
   smokesignals = {
     convert: function(obj, handlers) {
       handlers = {};
@@ -47,7 +55,6 @@
     _isReady: false,
     _statesInCss: null,
     _statesFindedInCss: false,
-    _cssLinks: [],
     _cssSettings: [],
     _states: [],
     _activeStates: [],
@@ -67,7 +74,7 @@
     		Init
      */
     init: function(settings) {
-      var index, link, _cssLinks, _ref, _ref1;
+      var _ref, _ref1;
       this._inited = true;
       if (settings != null) {
         this._settings = settings;
@@ -86,91 +93,66 @@
           settings.onStatesChange;
         };
       }
-      this._debug('ajax request on stylesheets to find gridle states');
-      if (this._settings.cssPath) {
-        this._cssLinks.push({
-          href: this._settings.cssPath
-        });
-      } else {
-        _cssLinks = document.getElementsByTagName('link');
-        for (index in _cssLinks) {
-          link = _cssLinks[index];
-          if (!link) {
-            return false;
-          }
-          this._cssLinks.push(link);
-        }
-      }
-      return this._loadAndParseCss(this._cssLinks.length ? void 0 : this._launch);
+      this._debug('waiting for content to be fully loaded');
+      return domLoaded((function(_this) {
+        return function() {
+          return _this._parseCss();
+        };
+      })(this));
     },
 
     /*
     		Load and parse css
      */
-    _loadAndParseCss: function() {
-      var index, link, _ref;
-      _ref = this._cssLinks;
-      for (index in _ref) {
-        link = _ref[index];
-        if (this._statesFindedInCss) {
-          return false;
-        }
-        if (!link || !link.href) {
-          continue;
-        }
-        this._debug('|--- ajax request on ', link.href);
-        this._ajax({
-          async: true,
-          url: link.href,
-          success: (function(_this) {
-            return function(response) {
-              var settings;
-              if (_this._statesFindedInCss) {
-                return false;
-              }
-              if (!response) {
-                _this._noSettingsFindedInThisCss(link);
-                return false;
-              }
-              settings = response.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\'(.+)\'(;\s*|\s*)\}/) && RegExp.$1;
-              if (!settings) {
-                _this._noSettingsFindedInThisCss(link);
-                return false;
-              }
+    _parseCss: function() {
+      var e, i, idx, j, rule, rules, settings, settings_found;
+      i = 0;
+      j = document.styleSheets.length;
+      settings_found = false;
+      while (i < j) {
+        try {
+          rules = document.styleSheets[i].cssText || document.styleSheets[i].cssRules || document.styleSheets[i].rules;
+          if (typeof rules === 'string') {
+            settings = rules.match(/#gridle-settings(?:\s*)\{(?:\s*)content(?:\s*):(?:\s*)\"(.+)\"(;\s*|\s*)\}/) && RegExp.$1;
+            if (settings) {
               settings = settings.toString().replace(/\\/g, '');
               settings = JSON.parse(settings);
-              _this._cssSettings = settings;
-              if (!settings.states) {
-                _this._debug('no queries finded in css');
-                _this._noSettingsFindedInThisCss(link);
-                return false;
+              this._cssSettings = settings;
+              settings_found = true;
+              this._cssSettings = settings;
+              this._statesInCss = settings.states;
+            }
+          } else {
+            for (idx in rules) {
+              rule = rules[idx];
+              if (/#gridle-settings/.test(rule.cssText)) {
+                settings = rule.cssText.toString().match(/:(.*);/) && RegExp.$1;
+                settings = settings.toString().replace(/\\/g, '');
+                settings = settings.trim();
+                settings = settings.substr(1);
+                settings = settings.substr(0, settings.length - 1);
+                settings = JSON.parse(settings);
+                if ((settings != null ? settings.states : void 0) != null) {
+                  this._cssSettings = settings;
+                  this._statesInCss = settings.states;
+                  settings_found = true;
+                  continue;
+                }
               }
-              _this._debug('|--- states finded in', link.href);
-              _this._statesFindedInCss = true;
-              _this._statesInCss = settings.states;
-              return _this._processFindedStates();
-            };
-          })(this),
-          error: (function(_this) {
-            return function(error) {
-              if (_this._statesFindedInCss) {
-                return false;
-              }
-              return _this._noSettingsFindedInThisCss(link);
-            };
-          })(this),
-          dataType: 'text'
-        });
+            }
+          }
+        } catch (_error) {
+          e = _error;
+          if (e.name !== 'SecurityError') {
+            throw e;
+          }
+        }
+        i++;
       }
-    },
-
-    /*
-    		Css link processed
-     */
-    _noSettingsFindedInThisCss: function(link) {
-      this._cssLinks.shift;
-      if (!this._cssLinks.length) {
-        return this._debug('no settings finded in css');
+      if (this._statesInCss) {
+        return this._processFindedStates();
+      } else {
+        return this._debug("no states found...");
       }
     },
 
@@ -308,9 +290,11 @@
     /*
     		Validate state
      */
-    _validateState: function(state) {
-      return matchMedia(state.query).matches;
-    },
+    _validateState: (function(_this) {
+      return function(state) {
+        return matchMedia(state.query).matches;
+      };
+    })(this),
 
     /*
     		Add event
@@ -474,17 +458,87 @@
       }
     }
   };
-  smokesignals.convert(window.Gridle);
-  setTimeout(function() {
-    if (!Gridle._inited) {
-      return Gridle.init();
+
+  /*
+  	 * DomLoaded
+   */
+  _domLoaded = false;
+  domLoaded = function(callback) {
+    var _loaded;
+    _loaded = function(callback) {
+      if (_domLoaded) {
+        callback();
+        return;
+      }
+      return /* Internet Explorer */
+			/*@cc_on
+			@if (@_win32 || @_win64)
+				document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
+				document.getElementById('ieScriptLoad').onreadystatechange = function() {
+					if (this.readyState == 'complete') {
+						_domLoaded = true;
+						callback();
+					}
+				};
+			@end @*/
+			/* Mozilla, Chrome, Opera */
+			if (document.addEventListener) {
+				document.addEventListener('DOMContentLoaded', function() {
+					_domLoaded = true;
+					callback();
+				}, false);
+			}
+			/* Safari, iCab, Konqueror */
+			if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
+				var DOMLoadTimer = setInterval(function () {
+					if (/loaded|complete/i.test(document.readyState)) {
+						_domLoaded = true;
+						callback();
+						clearInterval(DOMLoadTimer);
+					}
+				}, 10);
+			}
+			/* Other web browsers */
+			window.onload = function() {
+				_domLoaded = true;
+				callback();
+			};;
+    };
+    if (window.addEventListener) {
+      window.addEventListener('load', (function(_this) {
+        return function() {
+          _domLoaded = true;
+          return callback();
+        };
+      })(this), false);
+    } else {
+      window.attachEvent('onload', (function(_this) {
+        return function() {
+          _domLoaded = true;
+          return callback();
+        };
+      })(this));
     }
-  }, 500);
+    return _loaded((function(_this) {
+      return function() {
+        return callback();
+      };
+    })(this));
+  };
+  smokesignals.convert(window.Gridle);
+  domLoaded(function() {
+    return setTimeout(function() {
+      if (!Gridle._inited) {
+        return Gridle.init();
+      }
+    }, 500);
+  });
   if (typeof window.define === 'function' && window.define.amd) {
-    return window.define([], function() {
+    window.define([], function() {
       return window.Gridle;
     });
   }
-})();
+  return Gridle;
+});
 
 //# sourceMappingURL=gridle.js.map

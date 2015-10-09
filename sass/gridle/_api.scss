@@ -52,6 +52,35 @@
 
 
 //
+// Element queries
+//
+@mixin gridle_eq(
+	$var,
+	$height : false
+) {
+	$op : "min-width";
+	@if $height {
+		@if $var < 0 {
+			$op : "max-height";
+			$var : $var * -1;
+		} @else {
+			$op : "min-height";
+		}
+	} @else {
+		@if $var < 0 {
+			$op : "max-width";
+			$var : $var * -1;
+		}
+	}
+	
+	
+	&[#{$op}="#{$var}"] {
+		@content;
+	}
+}
+
+
+//
 // Gridle use state
 // This mixin will only set the current state to use and NOT print out any media query
 //

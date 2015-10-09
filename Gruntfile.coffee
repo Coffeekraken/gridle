@@ -23,6 +23,15 @@ module.exports = (grunt) ->
 				environment: 'development'
 				outputStyle: 'expanded'			
 
+		concat:
+			extras:
+				src: [
+					'bower_components/css-element-queries/src/ResizeSensor.js'
+					'bower_components/css-element-queries/src/ElementQueries.js'
+					'js/gridle-eq.js'
+				]
+				dest: 'js/gridle-eq.js'
+
 		sass:
 			options:
 				sourceMap: false
@@ -66,7 +75,17 @@ module.exports = (grunt) ->
 		uglify:
 			my_target:
 				files:
+					'js/matchMedia.js' : 'bower_components/matchMedia/matchMedia.js'
 					'js/gridle.min.js': 'js/gridle.js'
+					'js/gridle.eq.min.js' : 'js/gridle.eq.js'
+					'js/jquery.js' : 'bower_components/jquery/dist/jquery.min.js'
+			full:
+				files:
+					'js/gridle-full.min.js' : [
+						'bower_components/matchMedia/matchMedia.js'
+						'js/gridle.js'
+						'js/gridle-eq.js'
+					]
 		watch:
 			livereload:
 				options:
@@ -84,7 +103,11 @@ module.exports = (grunt) ->
 				tasks: ['compass', 'cssmin', 'notify:compass']
 			coffee:
 				files: paths.coffee.cwd+'/'+paths.coffee.src
-				tasks: ['coffee', 'uglify', 'notify:coffee']
+				tasks: ['clean', 'coffee', 'concat', 'uglify', 'notify:coffee']
+
+		clean: [
+			'js'
+		]
 
 		notify:
 			default:
@@ -108,11 +131,15 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-cssmin'
 	grunt.loadNpmTasks 'grunt-notify'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
+	grunt.loadNpmTasks 'grunt-contrib-concat'
+	grunt.loadNpmTasks 'grunt-contrib-clean'
 
 	grunt.registerTask 'default', [
+		'clean'
 		'compass'
 		'cssmin'
 		'coffee'
+		'concat'
 		'uglify'
 		'notify:default'
 	]

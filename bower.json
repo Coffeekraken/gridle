@@ -1,6 +1,6 @@
 {
   "name": "gridle",
-  "version": "2.0.0",
+  "version": "2.0.2",
   "authors": [
     "Olivier Bossel <olivier.bossel@gmail.com>"
   ],
@@ -22,6 +22,10 @@
     "test",
     "tests"
   ],
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "css-element-queries": "https://github.com/marcj/css-element-queries.git#~0.3.0",
+    "jquery": "~2.1.4",
+    "matchMedia": "https://github.com/paulirish/matchMedia.js.git#~0.2.0"
   }
 }
