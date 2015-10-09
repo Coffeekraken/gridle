@@ -49,11 +49,14 @@ $new : #ffb554;
 	min-height: 100px;
 	transition: all .2s ease-in-out;
 	
+	@include gridle_eq(+450px) {
+		background: pink;
+	}
 	@include gridle_eq(-400px) {
 		background: blue;
 	}
-	@include gridle_eq(+450px) {
-		background: pink;
+	@include gridle_eq(-200px) {
+		background: green;
 	}
 }
 

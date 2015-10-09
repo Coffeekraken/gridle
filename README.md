@@ -110,6 +110,33 @@ Customize your content look and feel with Gridle mixins
 }
 ```
 
+## Element queries support
+
+Gridle has support for element queries with an easy mixin as all the rest of the framework. Thanks to [Marc J Schmidt](https://github.com/marcj/css-element-queries) for his awesome work on the hight efficient "polyfill".
+
+```scss
+.component {
+	background: yellow;
+
+	@include gridle_eq(+600px) {
+		// when the component is 600px and greater
+		background: pink;
+	}
+	@include gridle_eq(-300px) {
+		// when the component is 300px and lower
+		background: green;
+	}
+	@include gridle_eq(-100px) {
+		// when the component is 100px and lower
+		background: black;
+
+		.my-nested-element {
+			display: none;
+		}
+	}
+}
+```
+
 ## Flex as a choice
 
 Gridle allows you to choose between a standard grid generated with float, etc... and a flex one that use the flexbox model. All of this power with the same exact classes.
