@@ -24,6 +24,21 @@
 	@include _gridle_call(row) {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
+		margin-left: -#{gridle_get_state_var(gutter-left)};
+		margin-right: -#{gridle_get_state_var(gutter-right)};
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _gridle_is_in_generate_phase() == false {
+			@each $stateName, $state in gridle_get_states() {
+				@include gridle_state($state) {	
+					& #{str-replace(#{&},".state-#{gridle_get_state_var(name, $state)}","")} {
+						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
+						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -41,6 +56,21 @@
 	@include _gridle_call(col) {
 		padding-left: 0 !important;
 		padding-right: 0 !important;
+		margin-left: -#{gridle_get_state_var(gutter-left)};
+		margin-right: -#{gridle_get_state_var(gutter-right)};
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _gridle_is_in_generate_phase() == false {
+			@each $stateName, $state in gridle_get_states() {
+				@include gridle_state($state) {	
+					& #{str-replace(#{&},".state-#{gridle_get_state_var(name, $state)}","")} {
+						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
+						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
+					}
+				}
+			}
+		}
 	}
 }
 
@@ -111,7 +141,7 @@
 	@if $columns == grow {
 		@include gridle_grid_grow();
 	} @else if $columns == adapt {
-		@include gridle_grow_adapt();
+		@include gridle_grid_adapt();
 	} @else {
 		
 		@include _gridle_call(grid) {

@@ -390,15 +390,15 @@
 //
 @mixin gridle_register_default_mobile_first_states() {
 	@include gridle_register_state(xs, (
-		max-width : 768px
+		max-width : 750px
 	));
 	@include gridle_register_state(sm, (
-		min-width : 768px
+		min-width : 750px
 	));
 	@include gridle_register_state(md, (
-		min-width : 992px
+		min-width : 970px
 	));
 	@include gridle_register_state(lg, (
-		min-width : 1200px
+		min-width : 1170px
 	));
 }

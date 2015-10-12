@@ -405,15 +405,135 @@
 .grid-row {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-default .grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .grid-row .grid-row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .grid-row .grid-row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .grid-row .grid-row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-row .grid-row {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 }
 
 .grid-row-set {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-default .grid-row-set {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-default .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-default .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .state-default .grid-row-set .state-default .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default .grid-row-set .state-default .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .grid-row-set .state-default .grid-row-set {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+.state-default .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .grid-row-set .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .grid-row-set .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .grid-row-set .grid-row-set {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-row-set .grid-row-set {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 }
 
 .clear-each-2 > *:nth-child(2n+1) {
@@ -909,18 +1029,18 @@
     display: inline-block;
   }
 }
-.state-ue3idczry .gridle-state {
+.state-u88pihqsv .gridle-state {
   background: yellow;
   width: 83.33333%;
 }
-.state-ipad-landscape .state-ue3idczry .gridle-state {
+.state-ipad-landscape .state-u88pihqsv .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-ue3idczry .gridle-state {
+  .state-u88pihqsv .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -933,18 +1053,18 @@
     width: 83.33333%;
   }
 }
-.state-ue3idczsg .gridle-state {
+.state-u88pihqtf .gridle-state {
   background: green;
   width: 41.66667%;
 }
-.state-ipad-landscape .state-ue3idczsg .gridle-state {
+.state-ipad-landscape .state-u88pihqtf .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-ue3idczsg .gridle-state {
+  .state-u88pihqtf .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -957,19 +1077,19 @@
     width: 41.66667%;
   }
 }
-.state-ue3idczt0 .gridle-state {
+.state-u88pihqtv .gridle-state {
   content: "ad hoc state";
   background: white;
   width: 25%;
 }
-.state-ipad-landscape .state-ue3idczt0 .gridle-state {
+.state-ipad-landscape .state-u88pihqtv .gridle-state {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-ue3idczt0 .gridle-state {
+  .state-u88pihqtv .gridle-state {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -1313,7 +1433,7 @@
 }
 
 .gridle_get_state-custom {
-  content: "(name: ue3idczt3, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
+  content: "(name: u88pihqtz, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
 }
 
 .gridle_has_state-mobile {

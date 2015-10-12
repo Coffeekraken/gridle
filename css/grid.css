@@ -610,7 +610,7 @@
   }
 }
 #gridle-settings {
-  content: '{ "version" : "2.0.2", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }} }';
+  content: '{ "version" : "2.0.3", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "_" : true }} }';
 }
 
 .state-default .gr-1on5 {
@@ -873,10 +873,14 @@
 .state-default .row {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-default .row-reverse {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-default .row-full {
   width: 100vw;
@@ -891,10 +895,14 @@
 .state-default .col {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-default .col-reverse {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-default .gr-table {
   display: table-cell;
@@ -1355,11 +1363,15 @@
 .row {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
 .row-reverse {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
 .row-full {
@@ -1376,11 +1388,15 @@
 .col {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
 .col-reverse {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 
 .gr-table {
@@ -1775,10 +1791,14 @@ body {
 .state-mobile .row\@mobile {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-mobile .row-reverse\@mobile {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-mobile .row-full\@mobile {
   width: 100vw;
@@ -1793,10 +1813,14 @@ body {
 .state-mobile .col\@mobile {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-mobile .col-reverse\@mobile {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-mobile .gr-table\@mobile {
   display: table-cell;
@@ -2258,11 +2282,15 @@ body {
   .row\@mobile {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .row-reverse\@mobile {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .row-full\@mobile {
@@ -2279,11 +2307,15 @@ body {
   .col\@mobile {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .col-reverse\@mobile {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .gr-table\@mobile {
@@ -2678,10 +2710,14 @@ body {
 .state-tablet .row\@tablet {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-tablet .row-reverse\@tablet {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-tablet .row-full\@tablet {
   width: 100vw;
@@ -2696,10 +2732,14 @@ body {
 .state-tablet .col\@tablet {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-tablet .col-reverse\@tablet {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
 .state-tablet .gr-table\@tablet {
   display: table-cell;
@@ -3161,11 +3201,15 @@ body {
   .row\@tablet {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .row-reverse\@tablet {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .row-full\@tablet {
@@ -3182,11 +3226,15 @@ body {
   .col\@tablet {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .col-reverse\@tablet {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
   .gr-table\@tablet {
@@ -3589,10 +3637,14 @@ body {
 .state-ipad-landscape .row\@ipad-landscape {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .state-ipad-landscape .row-reverse\@ipad-landscape {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .state-ipad-landscape .row-full\@ipad-landscape {
   width: 100vw;
@@ -3607,10 +3659,14 @@ body {
 .state-ipad-landscape .col\@ipad-landscape {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .state-ipad-landscape .col-reverse\@ipad-landscape {
   padding-left: 0 !important;
   padding-right: 0 !important;
+  margin-left: -15px;
+  margin-right: -15px;
 }
 .state-ipad-landscape .gr-table\@ipad-landscape {
   display: table-cell;
@@ -4082,11 +4138,15 @@ body {
   .row\@ipad-landscape {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .row-reverse\@ipad-landscape {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .row-full\@ipad-landscape {
@@ -4103,11 +4163,15 @@ body {
   .col\@ipad-landscape {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .col-reverse\@ipad-landscape {
     padding-left: 0 !important;
     padding-right: 0 !important;
+    margin-left: -15px;
+    margin-right: -15px;
   }
 
   .gr-table\@ipad-landscape {

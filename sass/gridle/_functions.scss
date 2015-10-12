@@ -158,7 +158,7 @@
 //
 @function gridle_column_width(
 	$columns : 1,
-	$stateMap-or-stateName : null
+	$stateMap-or-stateName : current
 ) {
 	$context : gridle_get_state_var(context, $stateMap-or-stateName);
 	@return percentage(1 / $context * $columns);
@@ -245,7 +245,7 @@
 //
 @function gridle_get_state_var(
 	$varName,
-	$stateMap-or-stateName : null
+	$stateMap-or-stateName : current
 ) {
 	// if is a state :
 	$state : null;
