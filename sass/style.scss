@@ -36,6 +36,28 @@
 	}
 }
 
+.module {
+	$context : (
+		columns : 4,
+		rows : 4
+	);
+	@include gridle_layout($context, (
+		'.header' : 4,
+		'.content' : 3,
+		'.sidebar' : 1,
+		'.footer' : 4
+	));
+
+	@include gridle_state(tablet) {
+		@include gridle_layout($context, (
+			'.header' : 2 2,
+			'.content' : 2 2,
+			'.sidebar' : 2 2,
+			'.footer' : 2 2
+		));
+	}
+}
+
 /**
  * Basic formatting :
  */
