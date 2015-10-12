@@ -82,14 +82,16 @@ table {
 .module {
   position: relative;
   width: 100%;
+  background: green;
+  padding-bottom: 50%;
 }
 .module .header {
   background: #f00;
   border: 1px solid white;
-  width: 100%;
-  display: inline-block;
+  position: relative;
+  width: 75%;
 }
-.module .header, .module .content, .module .sidebar, .module .footer, #myCoolItem {
+.module .header, .module .login, .module .content, .module .sidebar, .module .footer, #myCoolItem {
   display: inline-block;
   min-height: 1px;
   float: left;
@@ -140,7 +142,7 @@ table {
   padding-left: 10px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .module .header, .module .content, .module .sidebar, .module .footer, .state-default #myCoolItem, #myCoolItem {
+  .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -151,7 +153,7 @@ table {
     padding-left: 10px;
   }
 }
-.state-tablet .module .header, .state-tablet .module .content, .state-tablet .module .sidebar, .state-tablet .module .footer, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+.state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
   display: inline-block;
   min-height: 1px;
   float: left;
@@ -183,9 +185,56 @@ table {
     padding-left: 15px;
   }
 }
+.module .header:before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 33.33333%;
+}
+.module .header > .layout-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.module .login {
+  background: #f00;
+  border: 1px solid white;
+  position: relative;
+  width: 25%;
+}
+.state-ipad-landscape .module .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.module .login:before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-bottom: 100%;
+}
+.module .login > .layout-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .module .content {
   background: #f00;
   border: 1px solid white;
+  position: relative;
   width: 75%;
 }
 .state-ipad-landscape .module .content {
@@ -202,9 +251,17 @@ table {
     padding-left: 15px;
   }
 }
+.module .content > .layout-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .module .sidebar {
   background: #f00;
   border: 1px solid white;
+  position: relative;
   width: 25%;
 }
 .state-ipad-landscape .module .sidebar {
@@ -221,9 +278,17 @@ table {
     padding-left: 15px;
   }
 }
+.module .sidebar > .layout-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
 .module .footer {
   background: #f00;
   border: 1px solid white;
+  position: relative;
   width: 100%;
   display: inline-block;
 }
@@ -241,111 +306,18 @@ table {
     padding-left: 15px;
   }
 }
-.state-tablet .module {
-  position: relative;
+.module .footer:before {
+  content: "";
+  display: block;
   width: 100%;
+  padding-bottom: 25%;
 }
-.state-tablet .module .header {
-  background: #f00;
-  border: 1px solid white;
-  width: 50%;
-}
-.state-ipad-landscape .state-tablet .module .header {
-  padding-top: 25px;
-  padding-right: 15px;
-  padding-bottom: 25px;
-  padding-left: 15px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .module .header {
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-bottom: 25px;
-    padding-left: 15px;
-  }
-}
-.state-tablet .module .content {
-  background: #f00;
-  border: 1px solid white;
-  width: 50%;
-}
-.state-ipad-landscape .state-tablet .module .content {
-  padding-top: 25px;
-  padding-right: 15px;
-  padding-bottom: 25px;
-  padding-left: 15px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .module .content {
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-bottom: 25px;
-    padding-left: 15px;
-  }
-}
-.state-tablet .module .sidebar {
-  background: #f00;
-  border: 1px solid white;
-  width: 50%;
-}
-.state-ipad-landscape .state-tablet .module .sidebar {
-  padding-top: 25px;
-  padding-right: 15px;
-  padding-bottom: 25px;
-  padding-left: 15px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .module .sidebar {
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-bottom: 25px;
-    padding-left: 15px;
-  }
-}
-.state-tablet .module .footer {
-  background: #f00;
-  border: 1px solid white;
-  width: 50%;
-}
-.state-ipad-landscape .state-tablet .module .footer {
-  padding-top: 25px;
-  padding-right: 15px;
-  padding-bottom: 25px;
-  padding-left: 15px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .module .footer {
-    padding-top: 25px;
-    padding-right: 15px;
-    padding-bottom: 25px;
-    padding-left: 15px;
-  }
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .module {
-    position: relative;
-    width: 100%;
-  }
-  .module .header {
-    background: #f00;
-    border: 1px solid white;
-    width: 50%;
-  }
-  .module .content {
-    background: #f00;
-    border: 1px solid white;
-    width: 50%;
-  }
-  .module .sidebar {
-    background: #f00;
-    border: 1px solid white;
-    width: 50%;
-  }
-  .module .footer {
-    background: #f00;
-    border: 1px solid white;
-    width: 50%;
-  }
+.module .footer > .layout-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 /**

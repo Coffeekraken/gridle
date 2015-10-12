@@ -7,6 +7,34 @@
 	width: 100%;
 	// height: 400px;
 
+	background: green;
+
+	$columns : map-get($context, columns);
+	$rows : map-get($context, rows);
+	
+	$padding-bottom : 0;
+
+	@if $rows {
+		$x : 0;
+		$y : 0;
+		@each $sel, $l in $layout {
+			$col : nth($l,1);
+			$row : null;
+			@if length($l) > 1 {
+				$row : nth($l,2);
+			}
+			@if $x + $col >= $columns {
+				$x : 0;
+				@if $row {
+					$y : $y + $row;
+				}
+			} @else {
+				$x : $x + $col;
+			}
+		}
+		padding-bottom: percentage( 1 / $rows * $y );
+	}
+
 	// &:after {
 	// 	content:"";
 	// 	width: 100%;
@@ -19,10 +47,7 @@
 	$y : 0;
 	@each $sel, $l in $layout {
 		
-		@debug(#{$x} #{$y});
-	
 		$col : nth($l,1);
-
 		$row : null;
 		@if length($l) > 1 {
 			$row : nth($l,2);
@@ -31,6 +56,7 @@
 		#{$sel} {
 			background: #f00;
 			border:1px solid white;
+			position: relative;
 			// float: left;
 			// box-sizing:border-box;
 			// position: absolute;
@@ -39,11 +65,23 @@
 
 			// width: percentage( 1 / map-get($context, columns) * $col );
 			
-			@include gridle_grid($col, map-get($context, columns));
+			@include gridle_grid($col, $columns);
+			
+			@if $row {
+				// height: percentage( 1 / $rows * $row );
+				&:before {
+					content:"";
+					display:block;
+					width:100%;
+					padding-bottom: percentage( 1 / $col );
+				}
+			}
 
-			// @if $row {
-			// 	height: percentage( 1 / map-get($context, rows) * $row );
-			// }
+			> .layout-content {
+				position: absolute;
+				top:0; left:0; right:0; bottom:0;
+			}
+			
 		}
 
 		@if $x + $col >= map-get($context, columns) {
