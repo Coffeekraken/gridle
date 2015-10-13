@@ -55,19 +55,25 @@
 	}
 }
 
+// gridle mixin
+.gridle {
+	@include gridle(2 of 12 at 10 gutter top left grid-centered true);
+	@include gridle(2 of 12 at 10 gutter top left grid-centered true);
+}
+
 // standard grid mixins :
 .grid-12 {
-	@include gridle(12);
+	@include gridle_grid(12);
 }
 .grid-1on5 {
-	@include gridle("1on5");
+	@include gridle_grid("1on5");
 }
 .grid-12-on-100 {
-	@include gridle(12, 100);
+	@include gridle_grid(12, 100);
 }
 .grid-15-on-100-on-mobile {
 	@include gridle_state(mobile) {
-		@include gridle(15, 100);
+		@include gridle_grid(15, 100);
 	}
 }
 .grid-set-1-on-4 {
@@ -76,9 +82,9 @@
 	) );
 }
 .grid-30-on-100-on-mobile-and-tablet {
-	@include gridle(30, 100);
+	@include gridle_grid(30, 100);
 	@include gridle_state(mobile tablet) {
-		@include gridle(30, 100);
+		@include gridle_grid(30, 100);
 	}
 }
 
@@ -340,29 +346,29 @@ $align : (left,center,right,top,middle,bottom);
 // gridle state
 .gridle-state {
 	background: red;
-	@include gridle(8);
+	@include gridle_grid(8);
 
 	@include gridle_state(mobile tablet) {
 		background: pink;
-		@include gridle(12);
+		@include gridle_grid(12);
 	}
 	@include gridle_state((
 		query : "only print"
 	)) {
 		background: yellow;
-		@include gridle(10);
+		@include gridle_grid(10);
 	}
 	@include gridle_state((
 		max-width : 200px
 	)) {
 		background: green;
-		@include gridle(5);
+		@include gridle_grid(5);
 	}
 
 	@include gridle_state(200px, 600px) {
 		content : "ad hoc state";
 		background: white;
-		@include gridle(3);
+		@include gridle_grid(3);
 	}
 }
 

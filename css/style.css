@@ -81,17 +81,25 @@ table {
 
 .module {
   position: relative;
-  width: 100%;
+  overflow: hidden;
   background: green;
-  padding-bottom: 50%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
 }
-.module .header {
-  background: #f00;
-  border: 1px solid white;
-  position: relative;
-  width: 75%;
+.module:before, .module:after {
+  content: "";
+  display: table;
 }
-.module .header, .module .login, .module .content, .module .sidebar, .module .footer, #myCoolItem {
+.module:after {
+  clear: both;
+}
+.module {
+  zoom: 1;
+}
+
+.module > .header, .module > .login, .module > .content, .module > .sidebar, .module > .footer, #myCoolItem {
   display: inline-block;
   min-height: 1px;
   float: left;
@@ -171,153 +179,217 @@ table {
 .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
   position: relative;
 }
-.state-ipad-landscape .module .header {
+.state-default .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .module .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .module .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .module .module {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module .module {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+.module:before {
+  pointer-events: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 99999px;
+  background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+  background-size: 4% 100%;
+  z-index: 99999;
+  margin-left: - 10px;
+  margin-right: - 10px;
+}
+.module > .header {
+  background: #f00;
+  position: relative;
+  width: 80%;
+  padding: 0 !important;
+  height: 600px;
+}
+.state-ipad-landscape .module > .header {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .module .header {
+  .module > .header {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 }
-.module .header:before {
+.module > .header:after {
+  position: absolute;
+  top: 0;
+  left: 0;
   content: "";
   display: block;
   width: 100%;
-  padding-bottom: 33.33333%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+  background-size: 100% 10%;
+  z-index: 99999;
 }
-.module .header > .layout-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.module > .header > .layout-content {
+  padding-right: 10px;
+  padding-left: 10px;
 }
-.module .login {
+.module > .login {
   background: #f00;
-  border: 1px solid white;
   position: relative;
-  width: 25%;
+  width: 20%;
+  padding: 0 !important;
+  height: 600px;
 }
-.state-ipad-landscape .module .login {
+.state-ipad-landscape .module > .login {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .module .login {
+  .module > .login {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 }
-.module .login:before {
+.module > .login:after {
+  position: absolute;
+  top: 0;
+  left: 0;
   content: "";
   display: block;
   width: 100%;
-  padding-bottom: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+  background-size: 100% 10%;
+  z-index: 99999;
 }
-.module .login > .layout-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.module > .login > .layout-content {
+  padding-right: 10px;
+  padding-left: 10px;
 }
-.module .content {
+.module > .content {
   background: #f00;
-  border: 1px solid white;
   position: relative;
-  width: 75%;
+  width: 80%;
+  padding: 0 !important;
 }
-.state-ipad-landscape .module .content {
+.state-ipad-landscape .module > .content {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .module .content {
+  .module > .content {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 }
-.module .content > .layout-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.module > .content > .layout-content {
+  padding-right: 10px;
+  padding-left: 10px;
 }
-.module .sidebar {
+.module > .sidebar {
   background: #f00;
-  border: 1px solid white;
   position: relative;
-  width: 25%;
+  width: 20%;
+  padding: 0 !important;
 }
-.state-ipad-landscape .module .sidebar {
+.state-ipad-landscape .module > .sidebar {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .module .sidebar {
+  .module > .sidebar {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 }
-.module .sidebar > .layout-content {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+.module > .sidebar > .layout-content {
+  padding-right: 10px;
+  padding-left: 10px;
 }
-.module .footer {
+.module > .footer {
   background: #f00;
-  border: 1px solid white;
   position: relative;
   width: 100%;
   display: inline-block;
+  padding: 0 !important;
+  height: 600px;
 }
-.state-ipad-landscape .module .footer {
+.state-ipad-landscape .module > .footer {
   padding-top: 25px;
   padding-right: 15px;
   padding-bottom: 25px;
   padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .module .footer {
+  .module > .footer {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
     padding-left: 15px;
   }
 }
-.module .footer:before {
-  content: "";
-  display: block;
-  width: 100%;
-  padding-bottom: 25%;
-}
-.module .footer > .layout-content {
+.module > .footer:after {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+  background-size: 100% 10%;
+  z-index: 99999;
+}
+.module > .footer > .layout-content {
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 /**
@@ -596,12 +668,12 @@ pre {
  * Gridle set sample :
  */
 #myCoolItem {
-  width: 66.66667%;
-  left: 16.66667%;
+  width: 66.66666667%;
+  left: 16.66666667%;
 }
 .state-default #myCoolItem {
-  width: 66.66667%;
-  left: 16.66667%;
+  width: 66.66666667%;
+  left: 16.66666667%;
 }
 .state-ipad-landscape .state-default #myCoolItem {
   padding-top: 25px;

@@ -409,6 +409,21 @@
 
 
 //
+// Check if has column
+//
+@function gridle_has_column(
+	$name
+) {
+	$column : map-get($_gridle_columns,$name);
+	@if $column {
+		@return true;
+	} @else {
+		@return false;
+	}
+}
+
+
+//
 // Get the padding value
 //
 @function _gridle_forge_gutters_map(
@@ -720,6 +735,75 @@
 //
 @function _gridle_is_in_generate_phase() {
 	@return $_gridle_is_in_generate_phase;
+}
+
+
+//
+// Get set map from string
+//
+@function _gridle_get_gridle_set_map_from_list(
+	$list
+) {
+	// map
+	$map : ();
+
+	// context
+	$context : null;
+	$of : index($list, of);
+	@if $of {
+		$context : nth($list, ($of + 1));
+		$list : remove-nth($list,$of);
+		$list : remove-nth($list,$of);
+	} @else {
+		$ctx : index($list, context);
+		@if $ctx {
+			$context : nth($list, ($ctx + 1));
+			$list : remove-nth($list,$ctx);
+			$list : remove-nth($list,$ctx);
+		}
+	}
+
+	// grid
+	$gr : nth($list, 1);
+	@if type-of($gr) == number or $gr == adapt or $gr == grow or gridle_has_column($gr) {
+		$map : map-set($map, grid, $gr $context);
+		$list : remove-nth($list,1);
+	}
+
+	// prefix
+	$prefix : null;
+	$at : index($list, at);
+	@if $at {
+		$map : map-set($map, prefix, nth($list,($at + 1)) $context);
+		$list : remove-nth($list,$at);
+		$list : remove-nth($list,$at);
+	}
+
+	// loop on each parameters
+	$prop_values : ();
+	$prop_name : null;
+	$list : append($list, _gridle-last);
+	@each $param in $list {
+		
+		@if $param != with and $param != 'and' {
+			@if map-get($_gridle-packages, $param) or $param == _gridle-last {
+				@if $prop_name {
+					$values : true;
+					@if length($prop_values) > 0 {
+						$values : $prop_values;
+						$prop_values : ();
+					}
+					$map : map-set($map, $prop_name, $values);	
+				}
+				$prop_name : $param;
+			} @else {
+				$prop_values : append($prop_values, $param);
+			}
+		}
+	}
+
+	// return the map
+	@return $map;
 }
 
 

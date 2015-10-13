@@ -35,6 +35,7 @@ module.exports = (grunt) ->
 		sass:
 			options:
 				sourceMap: false
+				precision: 8
 			dist:
 				# files:
 				# 	'css/grid.css':'sass/grid.scss'

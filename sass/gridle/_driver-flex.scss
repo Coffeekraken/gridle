@@ -127,7 +127,7 @@
 	@include gridle_gutter();
 	
 }
-@mixin gridle(
+@mixin gridle_grid(
 	$columns,
 	$context : null
 ) {
@@ -170,14 +170,6 @@
 
 	}
 }
-// alias to gridle
-@mixin gridle_grid(
-	$columns,
-	$context : null
-) {
-	@include gridle($columns, $context);
-}
-
 
 //
 // Grid table

@@ -27,6 +27,7 @@ $_gridle-version : "2.0.3";
 // |------------------------------------------------------
 // |------------------------------------------------------
 
+$gridle-debug : true; 							
 $_gridle_is_in_generate_phase : false; 			// keep track if we are in generate phase or not anymore
 $_gridle_inited : false;						// keep track if gridle has been inited (silent classes, etc..) or not
 $_gridle_settings : (); 						// the default settings

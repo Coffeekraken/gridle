@@ -38,15 +38,16 @@
 
 .module {
 	$context : (
-		columns : 4,
-		rows : 4
+		columns : 50,
+		rows : 50,
+		rows-height : 30px
 	);
 	@include gridle_layout($context, (
-		'.header' : 3 1,
-		'.login' : 1 1,
-		'.content' : 3,
-		'.sidebar' : 1,
-		'.footer' : 4 1
+		'.header' : 40 20,
+		'.login' : 10 20,
+		'.content' : 40,
+		'.sidebar' : 10,
+		'.footer' : 50 20
 	));
 
 	// @include gridle_state(tablet) {

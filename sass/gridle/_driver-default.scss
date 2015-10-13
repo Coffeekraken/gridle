@@ -134,7 +134,7 @@
 	@include gridle_gutter();
 	
 }
-@mixin gridle(
+@mixin gridle_grid(
 	$columns,
 	$context : null
 ) {
@@ -156,7 +156,7 @@
 			$gutter-right : gridle_get_state_var(gutter-right);
 
 			// manage columns
-			@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
+			@if type-of($columns) != number and gridle_has_column($columns) {
 				// the columns is a saved one, get the context and column value
 				$column : map-get($_gridle_columns, $columns);
 				$context : map-get($column, context);
@@ -178,13 +178,6 @@
 			}
 		}
 	}
-}
-// alias to gridle
-@mixin gridle_grid(
-	$columns,
-	$context : null
-) {
-	@include gridle($columns, $context);
 }
 
 
