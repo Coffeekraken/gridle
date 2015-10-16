@@ -39,6 +39,8 @@ $_gridle_apply_css_for : (); 					// save the rules that will be applied for eac
 
 $_gridle_current_state : ();					// save the current state
 $_gridle_current_stateName : default; 			// save the current state name
+$_gridle_previous_state : (); 					// save the previous state
+$_gridle_previous_stateName : default; 			// save the previous state name
 
 $_content_arg_state : null; 					// this variable is used to pass state through global variable into an @content
 

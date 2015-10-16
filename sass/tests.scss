@@ -57,8 +57,10 @@
 
 // gridle mixin
 .gridle {
-	@include gridle(2 of 12 at 10 gutter top left grid-centered true);
-	@include gridle(2 of 12 at 10 gutter top left grid-centered true);
+	@include gridle(2 of 12 at 10 gutter top left grid-centered true
+		mobile 2 of 30 at 20
+		tablet 10 gutter 20px 10px
+	);
 }
 
 // standard grid mixins :

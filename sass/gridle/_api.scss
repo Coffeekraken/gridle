@@ -215,12 +215,11 @@
 // Gridle helper
 //
 @mixin gridle($layout) {
-
 	$map : _gridle_get_gridle_set_map_from_list($layout);
-	@include gridle_debug($map);
-
-	@include gridle_set($map);
-
+	@if type-of($map) == map {
+		@include gridle_debug($map);
+		@include gridle_set($map);
+	}
 }
 
 
@@ -229,7 +228,7 @@
 //
 @mixin gridle_set(
 	$settings,
-	$state : default
+	$state : current
 ) {
 	// init if needed
 	@include gridle_init();
@@ -249,6 +248,7 @@
 
 		// check if setting name is a state :
 		@if gridle_has_state($sn) {
+			@debug('SSSSSTAAAAaaaaaTE');
 			// process the state
 			@include gridle_set($sv, $sn);
 		} @else {
@@ -301,7 +301,11 @@
 					@include gridle_suffix($sv);
 				}
 			} @else if $sn == clear-each {
-				@include gridle_clear_each(nth($sv,1), nth($sv,2));
+				@if length($sv) == 2 {
+					@include gridle_clear_each(nth($sv,1), nth($sv,2));
+				} @else {
+					@include gridle_clear_each($sv);
+				}
 			} @else if $sn == grid-centered and $sv == true {
 				@include gridle_grid_centered();
 			} @else if $sn == row and $sv == true {

@@ -60,6 +60,17 @@
 	// }
 }
 
+.state-gutter {
+	@include gridle_state((
+		context : 30,
+		gutter-width : 333px
+	)) {
+		// @include gridle(3 at 12 gutter left right);
+		@include gridle_grid(3);
+		content : #{gridle_get_state_var(gutter-width)};
+	}
+}
+
 /**
  * Basic formatting :
  */
@@ -199,15 +210,15 @@ pre {
 		cursor:pointer;
 		margin-right: 2px;
 
-		@each $stateName in gridle_get_registered_states_names() {
-			@if $stateName != default {
-				@include gridle_state($stateName) {
-					&[data-state="#{$stateName}"] {
-						outline: 2px solid $red;
-					}
-				}
-			}
-		}
+		// @each $stateName in gridle_get_registered_states_names() {
+		// 	@if $stateName != default {
+		// 		@include gridle_state($stateName) {
+		// 			&[data-state="#{$stateName}"] {
+		// 				outline: 2px solid $red;
+		// 			}
+		// 		}
+		// 	}
+		// }
 
 		&.active {
 			color: white;

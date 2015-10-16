@@ -10,29 +10,8 @@
 @mixin gridle_setup(
 	$settings : ()
 ) {
-	// manage gutters
-	$gutter-top : map-get($settings, gutter-top);
-	$gutter-bottom : map-get($settings, gutter-bottom);
-	$gutter-left : map-get($settings, gutter-left);
-	$gutter-right : map-get($settings, gutter-right);
-	$gutter-width : map-get($settings, gutter-width);
-	$gutter-height : map-get($settings, gutter-height);
-	@if $gutter-right and $gutter-left {
-		// calculate the gutter-width
-		$settings : map-set($settings, gutter-width, $gutter-left + $gutter-right);
-	} @else if $gutter-width {
-		// calculate the gutter-left and right
-		$settings : map-set($settings, gutter-left, $gutter-width * .5);
-		$settings : map-set($settings, gutter-right, $gutter-width * .5);
-	}
-	@if $gutter-top and $gutter-bottom {
-		// calculate the gutter-height
-		$settings : map-set($settings, gutter-height, $gutter-bottom + $gutter-top);
-	} @else if $gutter-height {
-		// calculate the gutter-bottom and top
-		$settings : map-set($settings, gutter-bottom, $gutter-height * .5);
-		$settings : map-set($settings, gutter-top, $gutter-height * .5);
-	}
+	// prepare state
+	$settings : _gridle_prepare_state_settings($settings);
 
 	// extend default settings
 	$_gridle-settings : map-merge((
@@ -68,31 +47,10 @@
 //
 @mixin gridle_register_state(
 	$name,
-	$settings
+	$settings : ()
 ) {
-	// manage gutters
-	$gutter-top : map-get($settings, gutter-top);
-	$gutter-bottom : map-get($settings, gutter-bottom);
-	$gutter-left : map-get($settings, gutter-left);
-	$gutter-right : map-get($settings, gutter-right);
-	$gutter-width : map-get($settings, gutter-width);
-	$gutter-height : map-get($settings, gutter-height);
-	@if $gutter-right and $gutter-left {
-		// calculate the gutter-width
-		$settings : map-set($settings, gutter-width, $gutter-left + $gutter-right);
-	} @else if $gutter-width {
-		// calculate the gutter-left and right
-		$settings : map-set($settings, gutter-left, $gutter-width * .5);
-		$settings : map-set($settings, gutter-right, $gutter-width * .5);
-	}
-	@if $gutter-top and $gutter-bottom {
-		// calculate the gutter-height
-		$settings : map-set($settings, gutter-height, $gutter-bottom + $gutter-top);
-	} @else if $gutter-height {
-		// calculate the gutter-bottom and top
-		$settings : map-set($settings, gutter-bottom, $gutter-height * .5);
-		$settings : map-set($settings, gutter-top, $gutter-height * .5);
-	}
+	// prepare state
+	$settings : _gridle_prepare_state_settings($settings);
 
 	// settings :
 	$settings : map-merge($_gridle-settings, $settings);

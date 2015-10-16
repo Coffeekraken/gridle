@@ -358,7 +358,7 @@
 		}
 		$direction : gridle_get_state_var(direction);
 		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		
+
 		// vars :
 		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
 
@@ -451,24 +451,29 @@
 
 			> * {
 				float:none !important;
-				vertical-align:$align;
+				@if in-map($align, top) {
+					vertical-align:top;
+				} @elseif in-map($align, middle) {
+					vertical-align:middle;
+				} @else {
+					vertical-align:bottom;
+				}
 				font-size:1rem;
 			}
-
 		} 
 
 		@each $a in $align {
-			@if $align == left {
+			@if $a == left {
 				text-align: left;
-			} @else if $align == center {
+			} @else if $a == center {
 				text-align: center;
-			} @else if $align == right {
+			} @else if $a == right {
 				text-align: right;
-			} @else if $align == top {
+			} @else if $a == top {
 				vertical-align: top;
-			} @else if $align == middle {
+			} @else if $a == middle {
 				vertical-align: middle;
-			} @else if $align == bottom {
+			} @else if $a == bottom {
 				vertical-align: bottom;
 			}
 		}

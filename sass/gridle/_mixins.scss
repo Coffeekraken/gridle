@@ -9,21 +9,43 @@
 // Init
 // called by _gridle_call mixin multiple times
 //
-@mixin gridle_init() {
-	@if $_gridle_inited == false {
-		$_gridle_inited : true !global;
-		@each $stateName, $state in $_gridle_states {
-			$classes : gridle_get_state_var(classes, $state);
-			@if $classes {
-				@at-root (without:all) {
-					$q : gridle_get_media_query($state);
-					@if $q {
-						@media #{$q} {
+@mixin gridle_init(
+	$state : null
+) {
+	@if $state == null {
+		$states : gridle_get_states();
+		@if $_gridle_inited == false {
+			$_gridle_inited : true !global;
+			@each $stateName, $state in $states {
+				@debug("init #{$stateName}");
+				$classes : gridle_get_state_var(classes, $state);
+				@if $classes {
+					@at-root (without:all) {
+						$q : gridle_get_media_query($state);
+						@if $q {
+							@media #{$q} {
+								@include _gridle_init_common_silent_classes($state);
+							}
+						} @else {
 							@include _gridle_init_common_silent_classes($state);
 						}
-					} @else {
+					}
+				}
+			}
+		}
+	} @else {
+
+		$classes : gridle_get_state_var(classes, $state);
+		@if $classes {
+			@debug("init #{gridle_get_state_var(name, $state)}");
+			@at-root (without:all) {
+				$q : gridle_get_media_query($state);
+				@if $q {
+					@media #{$q} {
 						@include _gridle_init_common_silent_classes($state);
 					}
+				} @else {
+					@include _gridle_init_common_silent_classes($state);
 				}
 			}
 		}
@@ -291,14 +313,24 @@ $_gridle_applied_for : ();
 	$has-parent : true,
 	$track-current-state : true
 ) {
-
 	// variables :
 	$state : gridle_get_state($state);
-	$states-classes : gridle_get_state_var(states-classes, $state);
 	$stateName : gridle_get_state_var(name, $state);
+	$states-classes : gridle_get_state_var(states-classes, $state);
+	
+	@if gridle_has_state($stateName) == false {
+		@include gridle_init($state);
+	}
+
+	$previous_state : null;
+	$previous_stateName : null;
 
 	// check if need to tack the current state
 	@if $track-current-state {
+		@if $_gridle_current_state {
+			$previous_state : $_gridle_current_state;
+			$previous_stateName : $_gridle_current_stateName;
+		}
 		// save current state
 		$_gridle_current_state : $state !global;
 		$_gridle_current_stateName : $stateName !global;
@@ -334,9 +366,9 @@ $_gridle_applied_for : ();
 	}
 
 	// reset current state to default
-	@if $track-current-state {
-		$_gridle_current_state : $_gridle_settings !global;
-		$_gridle_current_stateName : default !global;
+	@if $track-current-state and $previous_state and $previous_stateName {
+		$_gridle_current_state : $previous_state !global;
+		$_gridle_current_stateName : $previous_stateName !global;
 	}
 }
 

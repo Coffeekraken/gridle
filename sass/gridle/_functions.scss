@@ -200,6 +200,8 @@
 	@if $stateMap-or-stateName
 		and type-of($stateMap-or-stateName) == map
 	{
+		// prepare state
+		$stateMap-or-stateName : _gridle_prepare_state_settings($stateMap-or-stateName);	
 		// create a new state by merging given one with defaul one
 		$state : map-merge($_gridle-settings, $stateMap-or-stateName);
 		// set the name with random name
@@ -315,6 +317,9 @@
 	}
 	@return $list;
 }
+@function gridle_states_names() {
+	@return gridle_get_states_names();
+}
 
 
 //
@@ -420,6 +425,38 @@
 	} @else {
 		@return false;
 	}
+}
+
+
+@function _gridle_prepare_state_settings(
+	$settings
+) {
+	// manage gutters
+	$gutter-top : map-get($settings, gutter-top);
+	$gutter-bottom : map-get($settings, gutter-bottom);
+	$gutter-left : map-get($settings, gutter-left);
+	$gutter-right : map-get($settings, gutter-right);
+	$gutter-width : map-get($settings, gutter-width);
+	$gutter-height : map-get($settings, gutter-height);
+	@if $gutter-right and $gutter-left {
+		// calculate the gutter-width
+		$settings : map-set($settings, gutter-width, $gutter-left + $gutter-right);
+	} @else if $gutter-width {
+		// calculate the gutter-left and right
+		$settings : map-set($settings, gutter-left, $gutter-width * .5);
+		$settings : map-set($settings, gutter-right, $gutter-width * .5);
+	}
+	@if $gutter-top and $gutter-bottom {
+		// calculate the gutter-height
+		$settings : map-set($settings, gutter-height, $gutter-bottom + $gutter-top);
+	} @else if $gutter-height {
+		// calculate the gutter-bottom and top
+		$settings : map-set($settings, gutter-bottom, $gutter-height * .5);
+		$settings : map-set($settings, gutter-top, $gutter-height * .5);
+	}
+
+	// return prepared settings
+	@return $settings;
 }
 
 
@@ -739,9 +776,9 @@
 
 
 //
-// Get set map from string
+// Parse gridle mixin list
 //
-@function _gridle_get_gridle_set_map_from_list(
+@function _gridle_parse_gridle_mixin_list(
 	$list
 ) {
 	// map
@@ -803,6 +840,41 @@
 	}
 
 	// return the map
+	@return $map;
+}
+
+
+//
+// Get set map from string
+//
+@function _gridle_get_gridle_set_map_from_list(
+	$list
+) {
+	// loop on each list element to split into states lists
+	$state : current;
+	$map : ();
+	@each $prop in $list {
+		@if map-get($map, $state) == null {
+			$map : map-set($map, $state, ());
+		}
+		@if type-of($prop) == string and gridle_has_state($prop) {
+			$state : $prop;
+		} @else {
+			$ls : map-get($map, $state);
+			$ls : append($ls, $prop);
+			$map : map-set($map, $state, $ls);
+		}
+	}
+
+	// loop on each states
+	@each $stateName, $props in $map {
+		$props_map : _gridle_parse_gridle_mixin_list($props);
+		@if type-of($props_map) == map {
+			$map : map-set($map, $stateName, $props_map);
+		} @else {
+			$map : map-set($map, $stateName, null);
+		}
+	}
 	@return $map;
 }
 
