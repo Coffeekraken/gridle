@@ -230,6 +230,9 @@
 @function gridle_has_state(
 	$stateName
 ) {
+	@if $stateName == current {
+		@return true;
+	}
 	@if map-has-key($_gridle_states, unquote("#{$stateName}")) {
 		@return true;
 	} @else {

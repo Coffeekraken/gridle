@@ -46,6 +46,11 @@
   content: "hide selector nested";
 }
 
+.gridle {
+  width: 16.66666667%;
+  margin-left: 83.33333333%;
+  padding-left: 10px;
+}
 .grid-row:before, .grid-row-set:before, .grid-row:after, .grid-row-set:after {
   content: "";
   display: table;
@@ -57,7 +62,7 @@
   zoom: 1;
 }
 
-.grid-12, .grid-1on5, .grid-12-on-100, .grid-set-1-on-4, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
+.gridle, .grid-12, .grid-1on5, .grid-12-on-100, .grid-set-1-on-4, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .gridle-set, .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
   float: left;
@@ -132,12 +137,6 @@
     position: relative;
   }
 }
-@media screen and (max-width: 480px) {
-  .gridle {
-    width: 6.66666667%;
-    margin-left: 66.66666667%;
-  }
-}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .gridle {
     padding-top: 25px;
@@ -146,7 +145,12 @@
     padding-left: 15px;
   }
 }
-
+@media screen and (max-width: 480px) {
+  .gridle {
+    width: 6.66666667%;
+    margin-left: 66.66666667%;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gridle {
     width: 83.33333333%;
@@ -642,12 +646,28 @@
   .gridle-state {
     background: yellow;
     width: 83.33333333%;
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 }
 @media screen and (max-width: 200px) {
   .gridle-state {
     background: green;
     width: 41.66666667%;
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 }
 @media screen and (min-width: 200px) and (max-width: 600px) {
@@ -655,6 +675,14 @@
     content: "ad hoc state";
     background: white;
     width: 25%;
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 10px;
   }
 }
 
@@ -793,7 +821,7 @@
 }
 
 .gridle_get_state-custom {
-  content: "(name: uyznyue4t, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false, classes-prefix: null)";
+  content: "(name: ukcvx8wce, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, name-multiplicator: 1, states-classes: false, classes-prefix: null)";
 }
 
 .gridle_has_state-mobile {

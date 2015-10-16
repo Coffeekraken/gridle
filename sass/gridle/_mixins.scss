@@ -9,43 +9,21 @@
 // Init
 // called by _gridle_call mixin multiple times
 //
-@mixin gridle_init(
-	$state : null
-) {
-	@if $state == null {
-		$states : gridle_get_states();
-		@if $_gridle_inited == false {
-			$_gridle_inited : true !global;
-			@each $stateName, $state in $states {
-				@debug("init #{$stateName}");
-				$classes : gridle_get_state_var(classes, $state);
-				@if $classes {
-					@at-root (without:all) {
-						$q : gridle_get_media_query($state);
-						@if $q {
-							@media #{$q} {
-								@include _gridle_init_common_silent_classes($state);
-							}
-						} @else {
+@mixin gridle_init() {
+	@if $_gridle_inited == false {
+		$_gridle_inited : true !global;
+		@each $stateName, $state in $_gridle_states {
+			$classes : gridle_get_state_var(classes, $state);
+			@if $classes {
+				@at-root (without:all) {
+					$q : gridle_get_media_query($state);
+					@if $q {
+						@media #{$q} {
 							@include _gridle_init_common_silent_classes($state);
 						}
-					}
-				}
-			}
-		}
-	} @else {
-
-		$classes : gridle_get_state_var(classes, $state);
-		@if $classes {
-			@debug("init #{gridle_get_state_var(name, $state)}");
-			@at-root (without:all) {
-				$q : gridle_get_media_query($state);
-				@if $q {
-					@media #{$q} {
+					} @else {
 						@include _gridle_init_common_silent_classes($state);
 					}
-				} @else {
-					@include _gridle_init_common_silent_classes($state);
 				}
 			}
 		}
@@ -64,15 +42,11 @@
 		%#{$stateName}-#{$for} {
 			// inject content
 			@content;
-			// extend common class by the registered css
-			@include _gridle_extend_common_class($for, $stateName);
 		}
 		@at-root (without: media) {
 			%at-root-#{$stateName}-#{$for} {
 				// inject content
 				@content;
-				// extend common class by the registered css
-				@include _gridle_extend_common_class($for, $stateName);
 			}
 		}
 	}
@@ -83,150 +57,203 @@
 	// get state name
 	$stateName : gridle_get_state_var(name, $state);
 
+	// define packages to init
+	// the order can matter here
+	$packages : (
+		container,
+		grid-order,
+		row,
+		row-full,
+		col,
+		grid,
+		grid-table,
+		grid-adapt,
+		grid-grow,
+		push,
+		pull,
+		prefix,
+		suffix,
+		nowrap,
+		wrap,
+		clear-each,
+		grid-centered,
+		row-align,
+		hide,
+		not-visible,
+		show,
+		show-inline,
+		visible,
+		float,
+		clear,
+		no-gutter,
+		gutter,
+		row-debug
+	);
+
+	// loop on each packages to init their common silient classes
+	@each $package in $packages {
+		// include common
+		@include _gridle_common_silent_class_name($package, $stateName) {
+			@include _gridle_include_common($package, $stateName);
+		}
+	}
+}
+
+@mixin _gridle_include_common(
+	$package,
+	$state : current
+) {
+
+	// get state name
+	$state : gridle_get_state($state);
+	
 	// container
-	@include _gridle_common_silent_class_name(container, $stateName) {
+	@if $package == container {
 		@include _gridle_common_container($state);
 	}
 
 	// order
-	@include _gridle_common_silent_class_name(grid-order, $stateName) {
+	@if $package == grid-order {
 		@include _gridle_common_grid_order($state);
 	}
 
 	// row
-	@include _gridle_common_silent_class_name(row, $stateName) {
+	@if $package == row {
 		@include _gridle_common_row($state);
 	}
 
 	// row-full
-	@include _gridle_common_silent_class_name(row-full, $stateName) {
+	@if $package == row-full {
 		@include _gridle_common_row_full($state);
 	}
 
 	// col
-	@include _gridle_common_silent_class_name(col, $stateName) {
+	@if $package == col {
 		@include _gridle_common_col($state);
 	}
 
 	// grid
-	@include _gridle_common_silent_class_name(grid, $stateName) {
+	@if $package == grid {
 		@include _gridle_common_grid($state);
 	}
 
 	// grid-table
-	@include _gridle_common_silent_class_name(grid-table, $stateName) {
+	@if $package == grid-table {
 		@include _gridle_common_grid_table($state);
 	}
 
 	// grid-adapt
-	@include _gridle_common_silent_class_name(grid-adapt, $stateName) {
+	@if $package == grid-adapt {
 		@include _gridle_common_grid_adapt($state);
 	}
 
 	// grid-grow
-	@include _gridle_common_silent_class_name(grid-grow, $stateName) {
+	@if $package == grid-grow {
 		@include _gridle_common_grid_grow($state);
 	}
 
 	// push
-	@include _gridle_common_silent_class_name(push, $stateName) {
+	@if $package == push{
 		@include _gridle_common_push($state);
 	}
 
 	// pull
-	@include _gridle_common_silent_class_name(pull, $stateName) {
+	@if $package == pull{
 		@include _gridle_common_pull($state);
 	}
 
 	// prefix
-	@include _gridle_common_silent_class_name(prefix, $stateName) {
+	@if $package == prefix{
 		@include _gridle_common_prefix($state);
 	}
 
 	// suffix
-	@include _gridle_common_silent_class_name(suffix, $stateName) {
+	@if $package == suffix {
 		@include _gridle_common_suffix($state);
 	}
 
 	// nowrap
-	@include _gridle_common_silent_class_name(nowrap, $stateName) {
+	@if $package == nowrap {
 		@include _gridle_common_nowrap($state);
 	}
 
 	// wrap
-	@include _gridle_common_silent_class_name(wrap, $stateName) {
+	@if $package == wrap {
 		@include _gridle_common_wrap($state);
 	}
 
 	// clear-each
-	@include _gridle_common_silent_class_name(clear-each, $stateName) {
+	@if $package == clear-each {
 		@include _gridle_common_clear_each($state);
 	}
 
 	// centered
-	@include _gridle_common_silent_class_name(grid-centered, $stateName) {
+	@if $package == grid-centered {
 		@include _gridle_common_grid_centered($state);
 	}
 
-	// align
-	@include _gridle_common_silent_class_name(row-align, $stateName) {
+	// row-align
+	@if $package == row-align {
 		@include _gridle_common_row_align($state);
 	}
 
 	// hide
-	@include _gridle_common_silent_class_name(hide, $stateName) {
+	@if $package == hide {
 		@include _gridle_common_hide($state);
 	}
 
 	// not-visible
-	@include _gridle_common_silent_class_name(not-visible, $stateName) {
+	@if $package == not-visible {
 		@include _gridle_common_not_visible($state);
 	}
 
 	// show
-	@include _gridle_common_silent_class_name(show, $stateName) {
+	@if $package == show{
 		@include _gridle_common_show($state);
 	}
 
 	// show-inline
-	@include _gridle_common_silent_class_name(show-inline, $stateName) {
+	@if $package == show-inline {
 		@include _gridle_common_show_inline($state);
 	}
 
 	// visible
-	@include _gridle_common_silent_class_name(visible, $stateName) {
+	@if $package == visible {
 		@include _gridle_common_visible($state);
 	}
 
 	// float
-	@include _gridle_common_silent_class_name(float, $stateName) {
+	@if $package == float {
 		@include _gridle_common_float($state);
 	}
 
 	// clear
-	@include _gridle_common_silent_class_name(clear, $stateName) {
+	@if $package == clear {
 		@include _gridle_common_clear($state);
 	}
 
 	// no-gutter
-	@include _gridle_common_silent_class_name(no-gutter, $stateName) {
+	@if $package == no-gutter {
 		@include _gridle_common_no_gutter($state);
 	}
 
 	// gutter
-	@include _gridle_common_silent_class_name(gutter, $stateName) {
+	@if $package == gutter {
 		@include _gridle_common_gutter($state);
 	}
 
 	// row debug
-	@include _gridle_common_silent_class_name(row-debug, $stateName) {
+	@if $package == row-debug {
 		@include _gridle_common_row_debug($state);
 	}
+
+	// extend common class by the registered css
+	@include _gridle_extend_common_class($package, $state);
 }
 
 
 //
-// Wrap gridle mixin content to init if needed and then extend if needed
+// Wrap gridle mixin content to init if needed and then if needed
 //			
 @mixin _gridle_call(
 	$for : null
@@ -253,21 +280,29 @@
 // @calledBy 		_gridle_call
 //
 @mixin _gridle_extend(
-	$for
+	$package
 ) {
 	// check if we need the state classes
 	$states-classes : gridle_get_state_var(states-classes);
+	$stateName : gridle_get_state_var(name);
 
-	// extend the "at-root" version for the .state-{stateName} classes
-	@if $states-classes and str-index(#{&}, unquote(".state-#{$_gridle_current_stateName}")) {
-		@at-root (without: media) {
-			// @debug("%at-root-#{$_gridle_current_stateName}-#{$for}");
-			@extend %at-root-#{$_gridle_current_stateName}-#{$for} !optional;
+	// if is an existing gridle state
+	@if gridle_has_state($stateName) {
+		// extend the "at-root" version for the .state-{stateName} classes
+		@if $states-classes and str-index(#{&}, unquote(".state-#{$_gridle_current_stateName}")) {
+			@at-root (without: media) {
+				// @debug("%at-root-#{$_gridle_current_stateName}-#{$package}");
+				@extend %at-root-#{$_gridle_current_stateName}-#{$package} !optional;
+			}
+		} @else {
+			// extend using the current state name set in each gridle_state call
+			// @debug("%#{$_gridle_current_stateName}-#{$package}");
+			@extend %#{$_gridle_current_stateName}-#{$package} !optional;
 		}
 	} @else {
-		// extend using the current state name set in each gridle_state call
-		// @debug("%#{$_gridle_current_stateName}-#{$for}");
-		@extend %#{$_gridle_current_stateName}-#{$for} !optional;
+		// it's not an existing state so we cannot extend.
+		// we need to include instead
+		@include _gridle_include_common($package, $stateName);
 	}
 }
 
@@ -313,15 +348,13 @@ $_gridle_applied_for : ();
 	$has-parent : true,
 	$track-current-state : true
 ) {
+
 	// variables :
 	$state : gridle_get_state($state);
-	$stateName : gridle_get_state_var(name, $state);
 	$states-classes : gridle_get_state_var(states-classes, $state);
-	
-	@if gridle_has_state($stateName) == false {
-		@include gridle_init($state);
-	}
+	$stateName : gridle_get_state_var(name, $state);
 
+	// manage previous state
 	$previous_state : null;
 	$previous_stateName : null;
 

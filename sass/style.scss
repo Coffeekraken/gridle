@@ -60,17 +60,6 @@
 	// }
 }
 
-.state-gutter {
-	@include gridle_state((
-		context : 30,
-		gutter-width : 333px
-	)) {
-		// @include gridle(3 at 12 gutter left right);
-		@include gridle_grid(3);
-		content : #{gridle_get_state_var(gutter-width)};
-	}
-}
-
 /**
  * Basic formatting :
  */

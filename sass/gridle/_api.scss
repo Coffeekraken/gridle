@@ -245,13 +245,15 @@
 	{
 		$sn : unquote("#{$settingName}");
 		$sv : $settingValue;
+		
+		@debug($settingName);
 
 		// check if setting name is a state :
 		@if gridle_has_state($sn) {
-			@debug('SSSSSTAAAAaaaaaTE');
 			// process the state
 			@include gridle_set($sv, $sn);
 		} @else {
+			@debug(gridle_get_state_var(name));
 			@if $sn == container {
 				@if $sv == true {
 					@include gridle_container();
