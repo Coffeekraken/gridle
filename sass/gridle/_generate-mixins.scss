@@ -446,19 +446,17 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 
 		// get the actual state
 		$state : gridle_get_state($stateName);
+		$classes : gridle_get_state_var(classes, $state);
 
-		// debug
-		@debug("Generate classes for state #{$stateName}");
+		// stop here if no classes wanted
+		@if $classes {
 
-		// scope all the classes in a media query
-		@include gridle_state($state, false) {
+			// debug
+			@debug("Generate classes for state #{$stateName}");
 
-			// setup vars :
-			$classes : gridle_get_state_var(classes, $state);
-
-			// stop here if no classes wanted
-			@if $classes {
-
+			// scope all the classes in a media query
+			@include gridle_state($state, false) {
+			
 				// generate all classes for columns
 				$i : 0;
 				@each $columnName, $column in gridle_get_columns($state) {
@@ -477,7 +475,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					// classes
 					@if _gridle_need_to_generate(grid, $package) {
 						#{_gridle_classname(grid, $stateName, $columnName)} {
-							@include gridle($columnsCount, $columnsContext);
+							@include gridle_grid($columnsCount, $columnsContext);
 						}
 					}
 					@if _gridle_need_to_generate(push, $package) {

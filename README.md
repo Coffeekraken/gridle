@@ -1,4 +1,4 @@
-# gridle (v2.0.3)
+# gridle (v2.0.4)
 
 
 One grid system to rule them all (.scss)
@@ -156,7 +156,7 @@ This will produce the classes : center, center-mobile, center-tablet and center-
 
 ## Set multiple grid properties at one
 
-Gridle offer you multiple ways to set grid properties on your elements, the gridle_set is one of these ways
+Gridle offer you multiple ways to set grid properties on your elements, the gridle_set and gridle universal mixin are some of these ways
 
 ```scss
 #sidebar {
@@ -172,6 +172,9 @@ Gridle offer you multiple ways to set grid properties on your elements, the grid
 			push : 0
 		)
 	));
+
+	// same with universal mixin
+	@include gridle(8 push 4 tablet 10 push 2 mobile 12 push 0);
 }
 ```
 

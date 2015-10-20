@@ -10,11 +10,15 @@ jQuery(function($) {
     var states;
     states = Gridle.getRegisteredStates();
     $('.gr-12.gridle-debug').each(function() {
-      var $this, $ul;
+      var $this, $ul, first_clicked;
       $this = $(this);
       $ul = $('<ul class="selector selector--states" />');
+      first_clicked = false;
       $.each(states, function(idx, item) {
         var $li;
+        if (!item.settings.classes) {
+          return;
+        }
         $li = $('<li data-state="' + item.name + '">' + item.name + '</li>');
         $li.bind('click', function(e) {
           var $container, previous_class;
@@ -28,9 +32,10 @@ jQuery(function($) {
           }
         });
         $ul.append($li);
-        if (idx === 0) {
+        if (!first_clicked) {
           $li.trigger('click');
         }
+        first_clicked = true;
       });
       $this.prepend($ul);
     });

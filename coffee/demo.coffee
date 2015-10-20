@@ -28,7 +28,9 @@ jQuery ($) ->
 		$('.gr-12.gridle-debug').each ->
 			$this = $(this)
 			$ul = $('<ul class="selector selector--states" />')
+			first_clicked = false
 			$.each states, (idx, item) ->
+				return if not item.settings.classes
 				$li = $('<li data-state="'+item.name+'">' + item.name + '</li>')
 				$li.bind 'click', (e) ->
 					$(this).siblings().removeClass 'active'
@@ -39,7 +41,8 @@ jQuery ($) ->
 					$container.addClass('state-' + item.name) if item.name != 'default'
 					return
 				$ul.append $li
-				$li.trigger('click') if idx is 0
+				$li.trigger('click') if not first_clicked
+				first_clicked = true
 				return
 			$this.prepend $ul
 			return

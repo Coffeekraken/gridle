@@ -147,7 +147,8 @@
 			$name-multiplicator : gridle_get_state_var(name-multiplicator);
 			$gutter-left : gridle_get_state_var(gutter-left);
 			$gutter-right : gridle_get_state_var(gutter-right);
-
+			$column-width : gridle_get_state_var(column-width);
+			
 			// manage columns
 			@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
 				// the columns is a saved one, get the context and column value
@@ -161,7 +162,12 @@
 			}
 
 			// width :
-			$width : percentage(1 / $context * $columns);
+			$width : 0;
+			@if $column-width {
+				$width : $column-width * $columns;
+			} @else {
+				$width : percentage(1 / $context * $columns);
+			}
 
 			// if flex
 			@include flex-basis($width);
@@ -218,6 +224,30 @@
 			}
 			transform: translateX(-50%);
 		}
+		@if gridle_get_state_var(dir-attribute) {
+			[dir="ltr"] & {
+				margin-left:50% !important;
+				margin-right:0 !important;
+				@if $gridle-vendor-prefix {
+					-webkit-transform: translateX(-50%);
+					-moz-transition: translateX(-50%);
+					-ms-transform: translateX(-50%);
+					-o-transform: translateX(-50%);
+				}
+				transform: translateX(-50%);
+			}
+			[dir="rtl"] & {
+				margin-right:50% !important;
+				margin-left:0 !important;
+				@if $gridle-vendor-prefix {
+					-webkit-transform: translateX(50%);
+					-moz-transition: translateX(50%);
+					-ms-transform: translateX(50%);
+					-o-transform: translateX(50%);
+				}
+				transform: translateX(50%);
+			}
+		}
 	}
 }
 
@@ -267,122 +297,6 @@
 @mixin gridle_grid_grow(
 ) {
 	@include _gridle_call(grid-grow) {
-	}
-}
-
-
-//
-// Push
-//
-@mixin _gridle_common_push(
-	$state : default
-) {
-	// css
-	position:relative;
-}
-@mixin gridle_push(
-	$columns,
-	$context : null
-) {
-	@include _gridle_call(push) {
-		// variables :
-		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
-		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-
-		// vars :
-		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-		@if $direction == rtl { $width : $width*-1; }
-		left:$width;
-	}
-}
-
-
-//
-// Pull
-//
-@mixin _gridle_common_pull(
-	$state : default
-) {
-	// css
-	position:relative;
-}
-@mixin gridle_pull(
-	$columns,
-	$context : null
-) {
-	@include _gridle_call(pull) {
-		// variables :
-		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
-		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		
-		// vars :
-		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-		@if $direction == rtl { $width : $width*-1; }
-		right:$width;
-	}
-}
-
-
-//
-// Prefix
-//
-@mixin _gridle_common_prefix(
-	$state : default
-) {
-}
-@mixin gridle_prefix(
-	$columns,
-	$context : null
-) {
-	@include _gridle_call(prefix) {
-		// vars :
-		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
-		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		
-		// vars :
-		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-
-		// set value :
-		@if $direction == rtl { margin-right:$width; }
-		@else { margin-left:$width; }
-	}
-}
-
-
-//
-// Suffix
-//
-@mixin _gridle_common_suffix(
-	$state : default
-) {
-}
-@mixin gridle_suffix(
-	$columns,
-	$context : null
-) {
-	@include _gridle_call(suffix) {
-		// vars :
-		@if type-of($context) != number {
-			$context : gridle_get_state_var(context);
-		}
-		$direction : gridle_get_state_var(direction);
-		$name-multiplicator : gridle_get_state_var(name-multiplicator);
-		
-		// vars :
-		$width : percentage(1 / $context) * ($columns / $name-multiplicator);
-		
-		// set value :
-		@if $direction == rtl { margin-left:$width; }
-		@else { margin-right:$width; }
 	}
 }
 

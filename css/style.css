@@ -80,13 +80,856 @@ table {
 }
 
 .module {
-  position: relative;
-  overflow: hidden;
-  background: green;
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
   margin-right: -10px;
+  font-size: 0;
+}
+.state-uicxsh8wn .module {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: -10px;
+  margin-right: -10px;
+  font-size: 0;
+}
+#myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+.state-default #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+#myCoolItem {
+  position: relative;
+}
+
+.state-default #myCoolItem {
+  position: relative;
+}
+@media screen and (max-width: 480px) {
+  .state-default #myCoolItem, #myCoolItem {
+    display: inline-block;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.state-mobile .state-default #myCoolItem, .state-mobile #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh8z1 .state-uicxsh8wn .module > .header, .state-uicxsh8wn .module > .header, .state-uicxsh923 .state-uicxsh8wn .module > .login, .state-uicxsh8wn .module > .login, .state-uicxsh9d0 .module > .header, .module > .header, .state-uicxsh9g7 .module > .login, .module > .login, .state-default #myCoolItem, #myCoolItem {
+    display: inline-block;
+    min-height: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    font-size: 1rem;
+    box-sizing: border-box;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+}
+.state-tablet .state-uicxsh8z1 .state-uicxsh8wn .module > .header, .state-tablet .state-uicxsh8wn .module > .header, .state-tablet .state-uicxsh923 .state-uicxsh8wn .module > .login, .state-tablet .state-uicxsh8wn .module > .login, .state-tablet .state-uicxsh9d0 .module > .header, .state-tablet .module > .header, .state-tablet .state-uicxsh9g7 .module > .login, .state-tablet .module > .login, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default #myCoolItem, #myCoolItem {
+    position: relative;
+  }
+}
+.state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+  position: relative;
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only tv {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only print {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only screen and (orientation: portrait) {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only screen and (orientation: landscape) {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+.state-default .state-uicxsh8wn .module .state-uicxsh8wn .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-uicxsh8wn .module .state-uicxsh8wn .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .state-uicxsh8wn .module .state-uicxsh8wn .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .state-uicxsh8wn .module .state-uicxsh8wn .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .state-uicxsh8wn .module .state-uicxsh8wn .module {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh8wn .module .state-uicxsh8wn .module {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+}
+.state-uicxsh8wn .module:before, .state-uicxsh8wn .module:after {
+  content: "";
+  display: table;
+}
+.state-uicxsh8wn .module:after {
+  clear: both;
+}
+.state-uicxsh8wn .module {
+  zoom: 1;
+}
+.state-uicxsh8wn .module > .header {
+  width: 60%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 20%;
+}
+.state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+  width: 60%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 20%;
+}
+.state-uicxsh909 .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+  width: 60%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 20%;
+}
+.state-ipad-landscape .state-uicxsh909 .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh909 .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+  width: 40%;
+  margin-left: 10%;
+}
+.state-ipad-landscape .state-tablet .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh8z1 .state-uicxsh8wn .module > .header {
+    width: 40%;
+    margin-left: 10%;
+  }
+}
+.state-uicxsh916 .state-uicxsh8wn .module > .header {
+  width: 60%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 20%;
+}
+.state-ipad-landscape .state-uicxsh916 .state-uicxsh8wn .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh916 .state-uicxsh8wn .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh8wn .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh8wn .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-uicxsh8wn .module > .header {
+  width: 40%;
+  margin-left: 10%;
+}
+.state-ipad-landscape .state-tablet .state-uicxsh8wn .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-uicxsh8wn .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh8wn .module > .header {
+    width: 40%;
+    margin-left: 10%;
+  }
+}
+.state-uicxsh8wn .module > .login {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh923 .state-uicxsh8wn .module > .login {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh92x .state-uicxsh923 .state-uicxsh8wn .module > .login {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh92x .state-uicxsh923 .state-uicxsh8wn .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh92x .state-uicxsh923 .state-uicxsh8wn .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh923 .state-uicxsh8wn .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh923 .state-uicxsh8wn .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-uicxsh923 .state-uicxsh8wn .module > .login {
+  width: 40%;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+.state-ipad-landscape .state-tablet .state-uicxsh923 .state-uicxsh8wn .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-uicxsh923 .state-uicxsh8wn .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh923 .state-uicxsh8wn .module > .login {
+    width: 40%;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+.state-uicxsh93n .state-uicxsh8wn .module > .login {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh93n .state-uicxsh8wn .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh93n .state-uicxsh8wn .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh8wn .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh8wn .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-uicxsh8wn .module > .login {
+  width: 40%;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+.state-ipad-landscape .state-tablet .state-uicxsh8wn .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-uicxsh8wn .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh8wn .module > .login {
+    width: 40%;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+.state-uicxsh8wn .module > .content {
+  width: 80%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh945 .state-uicxsh8wn .module > .content {
+  width: 80%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh94o .state-uicxsh945 .state-uicxsh8wn .module > .content {
+  width: 80%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh94o .state-uicxsh945 .state-uicxsh8wn .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh94o .state-uicxsh945 .state-uicxsh8wn .module > .content {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh945 .state-uicxsh8wn .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh945 .state-uicxsh8wn .module > .content {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh95k .state-uicxsh8wn .module > .content {
+  width: 80%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh95k .state-uicxsh8wn .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh95k .state-uicxsh8wn .module > .content {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh8wn .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh8wn .module > .content {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh8wn .module > .sidebar {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh96g .state-uicxsh8wn .module > .sidebar {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh97d .state-uicxsh96g .state-uicxsh8wn .module > .sidebar {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh97d .state-uicxsh96g .state-uicxsh8wn .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh97d .state-uicxsh96g .state-uicxsh8wn .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh96g .state-uicxsh8wn .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh96g .state-uicxsh8wn .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh988 .state-uicxsh8wn .module > .sidebar {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh988 .state-uicxsh8wn .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh988 .state-uicxsh8wn .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh8wn .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh8wn .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh8wn .module > .footer {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh99a .state-uicxsh8wn .module > .footer {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh9a4 .state-uicxsh99a .state-uicxsh8wn .module > .footer {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9a4 .state-uicxsh99a .state-uicxsh8wn .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9a4 .state-uicxsh99a .state-uicxsh8wn .module > .footer {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh99a .state-uicxsh8wn .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh99a .state-uicxsh8wn .module > .footer {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh9aw .state-uicxsh8wn .module > .footer {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9aw .state-uicxsh8wn .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9aw .state-uicxsh8wn .module > .footer {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh8wn .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh8wn .module > .footer {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+  .module .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only tv {
+  .module .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only print {
+  .module .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only screen and (orientation: portrait) {
+  .module .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+@media only screen and (orientation: landscape) {
+  .module .module {
+    margin-left: -;
+    margin-right: -;
+  }
+}
+.state-default .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .module .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .module .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .module .module {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module .module {
+    margin-left: -15px;
+    margin-right: -15px;
+  }
 }
 .module:before, .module:after {
   content: "";
@@ -98,93 +941,125 @@ table {
 .module {
   zoom: 1;
 }
-
-.module > .header, .module > .login, .module > .content, .module > .sidebar, .module > .footer, #myCoolItem {
+.module > .header {
+  width: 60%;
   display: inline-block;
   min-height: 1px;
-  float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  font-size: 1rem;
   box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
+  margin-left: 20%;
 }
-
-#myCoolItem {
-  position: relative;
+.state-uicxsh9d0 .module > .header {
+  width: 60%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 20%;
 }
-
-@media screen and (max-width: 480px) {
-  #myCoolItem {
-    display: inline-block;
-    min-height: 1px;
-    float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
+.state-uicxsh9e7 .state-uicxsh9d0 .module > .header {
+  width: 60%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 20%;
 }
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
-    display: inline-block;
-    min-height: 1px;
-    float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  #myCoolItem {
-    position: relative;
-  }
-}
-.module .module {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
-  .module .module {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .module .module {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
+.state-ipad-landscape .state-uicxsh9e7 .state-uicxsh9d0 .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .module .module {
-    margin-left: -15px;
-    margin-right: -15px;
+  .state-uicxsh9e7 .state-uicxsh9d0 .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
-.module:before {
-  pointer-events: none;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 99999px;
-  background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
-  background-size: 4% 100%;
-  z-index: 99999;
-  margin-left: - 10px;
-  margin-right: - 10px;
+.state-ipad-landscape .state-uicxsh9d0 .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
-.module > .header {
-  background: #f00;
-  position: relative;
-  width: 80%;
-  padding: 0 !important;
-  height: 600px;
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9d0 .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-uicxsh9d0 .module > .header {
+  width: 40%;
+  margin-left: 10%;
+}
+.state-ipad-landscape .state-tablet .state-uicxsh9d0 .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-uicxsh9d0 .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh9d0 .module > .header {
+    width: 40%;
+    margin-left: 10%;
+  }
+}
+.state-uicxsh9f4 .module > .header {
+  width: 60%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-left: 20%;
+}
+.state-ipad-landscape .state-uicxsh9f4 .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9f4 .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .module > .header {
@@ -194,28 +1069,151 @@ table {
     padding-left: 15px;
   }
 }
-.module > .header:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
-  background-size: 100% 10%;
-  z-index: 99999;
+.state-tablet .module > .header {
+  width: 40%;
+  margin-left: 10%;
 }
-.module > .header > .layout-content {
+.state-ipad-landscape .state-tablet .module > .header {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .module > .header {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .module > .header {
+    width: 40%;
+    margin-left: 10%;
+  }
+}
+.module > .login {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
-.module > .login {
-  background: #f00;
-  position: relative;
+.state-uicxsh9g7 .module > .login {
   width: 20%;
-  padding: 0 !important;
-  height: 600px;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh9gr .state-uicxsh9g7 .module > .login {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9gr .state-uicxsh9g7 .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9gr .state-uicxsh9g7 .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh9g7 .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9g7 .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-uicxsh9g7 .module > .login {
+  width: 40%;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+.state-ipad-landscape .state-tablet .state-uicxsh9g7 .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-uicxsh9g7 .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-uicxsh9g7 .module > .login {
+    width: 40%;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+.state-uicxsh9hm .module > .login {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9hm .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9hm .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .module > .login {
@@ -225,27 +1223,127 @@ table {
     padding-left: 15px;
   }
 }
-.module > .login:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
-  background-size: 100% 10%;
-  z-index: 99999;
+.state-tablet .module > .login {
+  width: 40%;
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
 }
-.module > .login > .layout-content {
+.state-ipad-landscape .state-tablet .module > .login {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .module > .login {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .module > .login {
+    width: 40%;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+  }
+}
+.module > .content {
+  width: 80%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
-.module > .content {
-  background: #f00;
-  position: relative;
+.state-uicxsh9if .module > .content {
   width: 80%;
-  padding: 0 !important;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh9j9 .state-uicxsh9if .module > .content {
+  width: 80%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9j9 .state-uicxsh9if .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9j9 .state-uicxsh9if .module > .content {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh9if .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9if .module > .content {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh9k4 .module > .content {
+  width: 80%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9k4 .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9k4 .module > .content {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .module > .content {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .module > .content {
@@ -255,15 +1353,97 @@ table {
     padding-left: 15px;
   }
 }
-.module > .content > .layout-content {
+.module > .sidebar {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
-.module > .sidebar {
-  background: #f00;
-  position: relative;
+.state-uicxsh9kq .module > .sidebar {
   width: 20%;
-  padding: 0 !important;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh9ln .state-uicxsh9kq .module > .sidebar {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9ln .state-uicxsh9kq .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9ln .state-uicxsh9kq .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh9kq .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9kq .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh9mn .module > .sidebar {
+  width: 20%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9mn .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9mn .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .module > .sidebar {
@@ -273,17 +1453,97 @@ table {
     padding-left: 15px;
   }
 }
-.module > .sidebar > .layout-content {
+.module > .footer {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
   padding-right: 10px;
   padding-left: 10px;
 }
-.module > .footer {
-  background: #f00;
-  position: relative;
+.state-uicxsh9n6 .module > .footer {
   width: 100%;
   display: inline-block;
-  padding: 0 !important;
-  height: 600px;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-uicxsh9nx .state-uicxsh9n6 .module > .footer {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9nx .state-uicxsh9n6 .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9nx .state-uicxsh9n6 .module > .footer {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .state-uicxsh9n6 .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9n6 .module > .footer {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-uicxsh9ok .module > .footer {
+  width: 100%;
+  display: inline-block;
+  min-height: 1px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  font-size: 1rem;
+  box-sizing: border-box;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+.state-ipad-landscape .state-uicxsh9ok .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-uicxsh9ok .module > .footer {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-ipad-landscape .module > .footer {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   .module > .footer {
@@ -292,22 +1552,6 @@ table {
     padding-bottom: 25px;
     padding-left: 15px;
   }
-}
-.module > .footer:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  content: "";
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.05) 50%);
-  background-size: 100% 10%;
-  z-index: 99999;
-}
-.module > .footer > .layout-content {
-  padding-right: 10px;
-  padding-left: 10px;
 }
 
 /**
@@ -473,6 +1717,14 @@ pre {
   background: #656156 !important;
   color: white;
 }
+.state-mobile .selector {
+  display: block;
+  margin: 0 0 15px 0;
+}
+.state-mobile .selector li {
+  display: block;
+  padding: 10px;
+}
 @media screen and (max-width: 480px) {
   .selector {
     display: block;
@@ -575,8 +1827,98 @@ pre {
   width: 66.66666667%;
   left: 16.66666667%;
 }
+.state-default #myCoolItem {
+  width: 66.66666667%;
+  left: 16.66666667%;
+}
+.state-ipad-landscape .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet .state-default #myCoolItem {
+  width: 100%;
+  left: 0%;
+}
+.state-ipad-landscape .state-tablet .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default #myCoolItem {
+    width: 100%;
+    left: 0%;
+  }
+}
+.state-mobile .state-default #myCoolItem {
+  width: 100%;
+  visibility: hidden;
+}
+.state-ipad-landscape .state-mobile .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .state-default #myCoolItem {
+    width: 100%;
+    visibility: hidden;
+  }
+}
+.state-ipad-landscape #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
+  }
+}
+.state-tablet #myCoolItem {
+  width: 100%;
+  left: 0%;
+}
+.state-ipad-landscape .state-tablet #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet #myCoolItem {
     padding-top: 25px;
     padding-right: 15px;
     padding-bottom: 25px;
@@ -586,14 +1928,30 @@ pre {
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     width: 100%;
-    display: inline-block;
     left: 0%;
+  }
+}
+.state-mobile #myCoolItem {
+  width: 100%;
+  visibility: hidden;
+}
+.state-ipad-landscape .state-mobile #myCoolItem {
+  padding-top: 25px;
+  padding-right: 15px;
+  padding-bottom: 25px;
+  padding-left: 15px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile #myCoolItem {
+    padding-top: 25px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+    padding-left: 15px;
   }
 }
 @media screen and (max-width: 480px) {
   #myCoolItem {
     width: 100%;
-    display: inline-block;
     visibility: hidden;
   }
 }

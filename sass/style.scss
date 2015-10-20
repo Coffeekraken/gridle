@@ -38,26 +38,15 @@
 
 .module {
 	$context : (
-		columns : 50,
-		rows : 50,
-		rows-height : 30px
+		context : 50
 	);
-	@include gridle_layout($context, (
-		'.header' : 40 20,
-		'.login' : 10 20,
+	@include gridle_layout((
+		'.header' : 30 at 10 tablet 20 at 5,
+		'.login' : 10 tablet 20 no-gutter,
 		'.content' : 40,
 		'.sidebar' : 10,
-		'.footer' : 50 20
-	));
-
-	// @include gridle_state(tablet) {
-	// 	@include gridle_layout($context, (
-	// 		'.header' : 2 2,
-	// 		'.content' : 2 2,
-	// 		'.sidebar' : 2 2,
-	// 		'.footer' : 2 2
-	// 	));
-	// }
+		'.footer' : 50
+	), $context);
 }
 
 /**

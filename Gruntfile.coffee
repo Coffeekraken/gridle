@@ -24,6 +24,12 @@ module.exports = (grunt) ->
 				outputStyle: 'expanded'			
 
 		concat:
+			matchMedia:
+				src: [
+					'bower_components/matchMedia/matchMedia.js',
+					'js/gridle.js'
+				]
+				dest: 'js/gridle.js'
 			extras:
 				src: [
 					'bower_components/css-element-queries/src/ResizeSensor.js'
@@ -76,14 +82,12 @@ module.exports = (grunt) ->
 		uglify:
 			my_target:
 				files:
-					'js/matchMedia.js' : 'bower_components/matchMedia/matchMedia.js'
 					'js/gridle.min.js': 'js/gridle.js'
-					'js/gridle.eq.min.js' : 'js/gridle.eq.js'
+					'js/gridle.eq.min.js' : 'js/gridle-eq.js'
 					'js/jquery.js' : 'bower_components/jquery/dist/jquery.min.js'
 			full:
 				files:
 					'js/gridle-full.min.js' : [
-						'bower_components/matchMedia/matchMedia.js'
 						'js/gridle.js'
 						'js/gridle-eq.js'
 					]

@@ -364,8 +364,16 @@ $_gridle_applied_for : ();
 			$previous_state : $_gridle_current_state;
 			$previous_stateName : $_gridle_current_stateName;
 		}
-		// save current state
-		$_gridle_current_state : $state !global;
+		// if we have a previous state that is not the default one, we
+		// make the inheritence process.
+		// if both states are registered ones : just take the wanted state
+		// if only previous_state is a registered one : extend previous_state with the wanted one
+		// if none of them are resitered : extend the wanted with the previous one
+		@if $previous_state {
+			$_gridle_current_state : _gridle_inherit_state($state, $previous_state) !global;
+		} @else {
+			$_gridle_current_state : $state !global;	
+		}
 		$_gridle_current_stateName : $stateName !global;
 	}
 

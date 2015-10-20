@@ -464,6 +464,33 @@
 
 
 //
+// Extend a state
+//
+@function _gridle_inherit_state(
+	$state,
+	$extend-state
+) {
+	$extend-state-name : gridle_get_state_var(name, $extend-state);
+	$state-name : gridle_get_state_var(name, $state);
+	$has-state : gridle_has_state($state-name);
+	$has-extend-state : gridle_has_state($extend-state-name);
+	@if $has-state and $has-extend-state {
+		// we do nothing if this is nested existing states
+		@return $state;
+	} @else if $has-extend-state {
+		// if the base state is a registered one
+		// keep the extend state and extend it with the wanted state
+		@return map-merge($extend-state, $state);
+	} @else {
+		// otherwise, the base state is a custom one so we keep
+		// it and extend the wanted state with it
+		$new-state : map-remove($extend-state, name); // remove the name is important here!
+		@return map-merge($state, $new-state);	
+	}
+}
+
+
+//
 // Get the padding value
 //
 @function _gridle_forge_gutters_map(
