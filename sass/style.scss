@@ -20,6 +20,10 @@
  */
 @import 'variables';
 
+.container {
+	@include gridle_container();
+}
+
 .component {
 	background: red;
 	min-height: 100px;
@@ -57,7 +61,7 @@ html {
 	color: darken($primary-color, 60%);
 }
 #header {
-	background-image:url('http://gridle.org/assets/img/highlight-bkg-02.jpg?1443433037');
+	background-image:url('http://gridle.org/assets/img/highlight-bkg-04.jpg?1443433037');
 	background-size:cover;
 	background-position:50% 50%;
 	min-height:150px;

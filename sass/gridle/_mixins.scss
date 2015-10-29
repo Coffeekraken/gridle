@@ -108,7 +108,8 @@
 	$state : gridle_get_state($state);
 	
 	// container
-	@if $package == container {
+	@if $package == container {
+
 		@include _gridle_common_container($state);
 	}
 
@@ -289,11 +290,11 @@
 	// if is an existing gridle state
 	@if gridle_has_state($stateName) {
 		// extend the "at-root" version for the .state-{stateName} classes
-		@if $states-classes and str-index(#{&}, unquote(".state-#{$_gridle_current_stateName}")) {
-			@at-root (without: media) {
+		@if $states-classes and str-index(#{&}, unquote('.state-#{$_gridle_current_stateName}')) {
+			// @at-root (without: media) { // seems not needed here, cause issues with libsass
 				// @debug("%at-root-#{$_gridle_current_stateName}-#{$package}");
 				@extend %at-root-#{$_gridle_current_stateName}-#{$package} !optional;
-			}
+			// }
 		} @else {
 			// extend using the current state name set in each gridle_state call
 			// @debug("%#{$_gridle_current_stateName}-#{$package}");
