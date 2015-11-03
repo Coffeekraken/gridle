@@ -5,6 +5,7 @@
 // |------------------------------------------------------
 
 $gridle-generate-json-settings 			: true !default;
+$gridle-default-states 					: false !default; // register or not the states tv, print, retina, etc...
 $_gridle-packages : (
 	container 							: (
 		classname 							: ('container','@','%state'),

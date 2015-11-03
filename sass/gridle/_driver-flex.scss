@@ -156,6 +156,10 @@
 				$context : map-get($column, context);
 				$columns : map-get($column, columns);
 			} @else if type-of($columns) == number {
+				// check if we have a ratio
+				@if $columns < 1 {
+					$columns : $context / 100 * ($columns * 100);
+				}
 				$columns : $columns / $name-multiplicator;
 			} @else {
 				@error "the column #{$columns} does not exist...";

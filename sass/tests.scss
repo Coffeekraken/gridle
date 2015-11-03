@@ -55,6 +55,10 @@
 	}
 }
 
+.relative {
+	@include gridle(2/3);
+}
+
 // gridle mixin
 .gridle {
 	@include gridle(2 of 12 at 10 gutter top left grid-centered true
