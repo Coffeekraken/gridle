@@ -309,7 +309,7 @@
 	}
 
 	// return generated class :
-	@return $sel;
+	@return unquote($sel);
 }
 
 

@@ -5,6 +5,10 @@ module.exports = (grunt) ->
 			files: 'sass/**/*.scss'
 			src: 'sass'
 			dest: 'css'
+		sass:
+			cwd: 'sass'
+			src: '**/*.scss'
+			dest: 'css'
 		coffee:
 			cwd: 'coffee'
 			src: '**/*.coffee'
@@ -41,6 +45,18 @@ module.exports = (grunt) ->
 					ext: '.js'
 				]
 
+		sass:
+			options:
+				sourceMap: true
+			dist:
+				files: [
+					expand: true
+					cwd: paths.sass.cwd
+					src: paths.sass.src
+					dest: paths.sass.dest
+					ext: '.css'
+				]
+
 		cssmin:
 			options:
 				shorthandCompacting: false
@@ -71,7 +87,7 @@ module.exports = (grunt) ->
 				tasks: ['notify:default']
 			compass:
 				files: paths.compass.files
-				tasks: ['compass:development', 'cssmin', 'notify:compass']
+				tasks: ['sass', 'cssmin', 'notify:compass']
 			coffee:
 				files: paths.coffee.cwd+'/'+paths.coffee.src
 				tasks: ['coffee', 'uglify', 'notify:coffee']
@@ -96,9 +112,10 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-cssmin'
 	grunt.loadNpmTasks 'grunt-notify'
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
+	grunt.loadNpmTasks 'grunt-sass'
 
 	grunt.registerTask 'default', [
-		'compass:development'
+		'sass'
 		'cssmin'
 		'coffee'
 		'uglify'
