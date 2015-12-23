@@ -719,7 +719,7 @@
 	}
 
 	// return generated class :
-	@return $sel;
+	@return unquote($sel);
 }
 
 
@@ -798,10 +798,40 @@
 
 
 //
-// Check if is in generate mode
+// Get generic selector for a class
 //
-@function _gridle_is_in_generate_phase() {
-	@return $_gridle_is_in_generate_phase;
+@function _gridle_get_generic_selector(
+	$package
+) {
+	$p : map-get($_gridle-packages, $package);
+	$sel : map-get($p, generic-selector);
+	@if $sel {
+		@return unquote($sel);
+	}
+	$sel : map-get($p, classname);
+	$generic : "";
+	$end : false;
+	$i : 1;
+	@each $part in $sel {
+		@if not $end {
+			// if we have a separator, check the next value to see if it's a variable
+			@if index($_gridle-names-separators, $part) and $i < length($sel) {
+				@if nth($sel,$i + 1) != '%state' {
+					$generic : #{$generic}#{$part};	
+				} @else {
+					$end : true;
+				}
+			} @else {
+				@if str-slice($part,1,1) != '%' {
+					$generic : #{$generic}#{$part};	
+				} @else {
+					$end : true;
+				}
+			}
+		}
+		$i : $i + 1;
+	}
+	@return unquote('[class*="#{$generic}"]');
 }
 
 
@@ -858,6 +888,9 @@
 					$values : true;
 					@if length($prop_values) > 0 {
 						$values : $prop_values;
+						@if length($prop_values) == 1 {
+							$values : nth($prop_values,1);
+						}
 						$prop_values : ();
 					}
 					$map : map-set($map, $prop_name, $values);	

@@ -146,6 +146,22 @@
 
 
 //
+// Set a generic selector
+//
+@mixin gridle_set_generic_selector(
+	$for,
+	$selector
+) {
+	// get the map
+	$map : map-get($_gridle-packages, $for);
+	// set the new classname
+	$map : map-set($map, generic-selector, $selector);
+	// set the classmap
+	$_gridle-packages : map-set($_gridle-packages, $for, $map) !global;
+}
+
+
+//
 // Extend a gridle class
 //
 // map format :

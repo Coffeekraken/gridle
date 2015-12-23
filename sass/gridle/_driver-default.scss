@@ -27,13 +27,18 @@
 		margin-left: -#{gridle_get_state_var(gutter-left)};
 		margin-right: -#{gridle_get_state_var(gutter-right)};
 		// font-size:0; // to avoid problems with inline-block margins
+	
+		#{_gridle_get_generic_selector(no-gutter)} > & {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
 
 		// do this only when not in generate phase
 		// mean that we use the mixin directly
 		@if _gridle_is_in_generate_phase() == false {
 			@each $stateName, $state in gridle_get_states() {
 				@include gridle_state($state) {	
-					& #{str-replace(#{&},".state-#{gridle_get_state_var(name, $state)}","")} {
+					& #{str-replace(unquote("#{&}"),".state-#{gridle_get_state_var(name, $state)}","")} {
 						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
 						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
 					}
@@ -353,7 +358,13 @@
 	$clearWhat : both
 ) {
 	@include _gridle_call(clear-each) {
-		> *:nth-child(#{$clearEach}n+1) {
+		$grid : map-get($_gridle-packages, grid);
+		$sel : map-get($grid, generic-selector);
+		@if not $sel {
+			$sel : _gridle_get_generic_selector(grid);
+		}
+
+		> #{$sel}:nth-of-type(#{$clearEach}n+1) {
 			clear : $clearWhat;
 		}
 	}

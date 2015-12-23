@@ -290,7 +290,7 @@
 	// if is an existing gridle state
 	@if gridle_has_state($stateName) {
 		// extend the "at-root" version for the .state-{stateName} classes
-		@if $states-classes and str-index(#{&}, unquote('.state-#{$_gridle_current_stateName}')) {
+		@if $states-classes and str-index(unquote("#{&}"), unquote('.state-#{$_gridle_current_stateName}')) {
 			// @at-root (without: media) { // seems not needed here, cause issues with libsass
 				// @debug("%at-root-#{$_gridle_current_stateName}-#{$package}");
 				@extend %at-root-#{$_gridle_current_stateName}-#{$package} !optional;
@@ -438,8 +438,8 @@ $_gridle_applied_for : ();
 			}
 		} @else {
 			@if $key != null and str-index($key, gridle) and mixin-exists($key) {
-				$set-name : str-replace($key, "gridle_", "");
-				$set-name : str-replace($set-name, "_", "-", 1);
+				$set-name : str-replace("#{$key}", "gridle_", "");
+				$set-name : str-replace("#{$set-name}", "_", "-", 1);
 				@include _gridle_set((
 					$set-name : $value
 				));

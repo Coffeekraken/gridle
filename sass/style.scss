@@ -20,6 +20,10 @@
  */
 @import 'variables';
 
+body {
+	overflow-x: hidden;
+}
+
 .container {
 	@include gridle_container();
 }

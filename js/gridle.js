@@ -69,7 +69,7 @@ window.matchMedia || (window.matchMedia = function() {
   /*
   	Little smokesignals implementation
    */
-  var _domLoaded, domLoaded, smokesignals;
+  var domLoaded, smokesignals, _domLoaded;
   smokesignals = {
     convert: function(obj, handlers) {
       handlers = {};
@@ -78,13 +78,13 @@ window.matchMedia || (window.matchMedia = function() {
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, k, len, ref;
+        var handler, _i, _len, _ref;
         if (!handlers[eventName]) {
           return;
         }
-        ref = handlers[eventName];
-        for (k = 0, len = ref.length; k < len; k++) {
-          handler = ref[k];
+        _ref = handlers[eventName];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          handler = _ref[_i];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
           continue;
         }
@@ -120,21 +120,21 @@ window.matchMedia || (window.matchMedia = function() {
     		Init
      */
     init: function(settings) {
-      var ref, ref1;
+      var _ref, _ref1;
       this._inited = true;
       if (settings != null) {
         this._settings = settings;
       }
       if (settings && (settings.debug != null)) {
-                if ((ref = this._settings.debug) != null) {
-          ref;
+                if ((_ref = this._settings.debug) != null) {
+          _ref;
         } else {
           settings.debug;
         };
       }
       if (settings && (settings.onStatesChange != null)) {
-                if ((ref1 = this._settings.onStatesChange) != null) {
-          ref1;
+                if ((_ref1 = this._settings.onStatesChange) != null) {
+          _ref1;
         } else {
           settings.onStatesChange;
         };
@@ -206,11 +206,11 @@ window.matchMedia || (window.matchMedia = function() {
     		Process finded states
      */
     _processFindedStates: function() {
-      var name, query, ref;
+      var name, query, _ref;
       this._debug('begin process finded states in css');
-      ref = this._statesInCss;
-      for (name in ref) {
-        query = ref[name];
+      _ref = this._statesInCss;
+      for (name in _ref) {
+        query = _ref[name];
         this._registerState(name, query);
       }
       return this._launch();
@@ -273,7 +273,7 @@ window.matchMedia || (window.matchMedia = function() {
     		Update states status
      */
     _updateStatesStatus: function() {
-      var defaultState, defaultStateIdx, key, ref, state, wasDefault;
+      var defaultState, defaultStateIdx, key, state, wasDefault, _ref;
       defaultState = this.getDefaultState();
       defaultStateIdx = this._states.indexOf(defaultState);
       wasDefault = defaultState.status;
@@ -283,9 +283,9 @@ window.matchMedia || (window.matchMedia = function() {
       this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
-      ref = this._states;
-      for (key in ref) {
-        state = ref[key];
+      _ref = this._states;
+      for (key in _ref) {
+        state = _ref[key];
         if (!state.updateOnResize) {
           continue;
         }
@@ -413,10 +413,10 @@ window.matchMedia || (window.matchMedia = function() {
     		Get default state
      */
     getDefaultState: function() {
-      var k, len, ref, state;
-      ref = this.getRegisteredStates();
-      for (k = 0, len = ref.length; k < len; k++) {
-        state = ref[k];
+      var state, _i, _len, _ref;
+      _ref = this.getRegisteredStates();
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        state = _ref[_i];
         if (state.name === 'default') {
           return state;
         }
@@ -476,11 +476,11 @@ window.matchMedia || (window.matchMedia = function() {
     		Check is a state is active
      */
     isActive: function(stateName) {
-      var index, isActive, name, ref;
+      var index, isActive, name, _ref;
       isActive = false;
-      ref = this._activeStatesNames;
-      for (index in ref) {
-        name = ref[index];
+      _ref = this._activeStatesNames;
+      for (index in _ref) {
+        name = _ref[index];
         if (stateName === name) {
           isActive = true;
         }

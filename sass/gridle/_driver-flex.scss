@@ -21,6 +21,12 @@
 		padding-right: 0 !important;
 		margin-left: -#{gridle_get_state_var(gutter-left)};
 		margin-right: -#{gridle_get_state_var(gutter-right)};
+	
+		// handle row in no-gutter
+		#{_gridle_get_generic_selector(no-gutter)} > & {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
 
 		// do this only when not in generate phase
 		// mean that we use the mixin directly
