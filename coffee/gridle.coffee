@@ -1,7 +1,7 @@
 ###
 # Gridle.js
 #
-# This little js file allow you to detect witch or your gridle state is active, when states changes, etc...
+# This little js file allow you to detect which or your gridle state is active, when states changes, etc...
 #
 # @author 	Olivier Bossel <olivier.bossel@gmail.com>
 # @created 	20.05.14
