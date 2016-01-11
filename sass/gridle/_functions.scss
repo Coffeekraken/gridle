@@ -58,7 +58,7 @@
 //
 @function remove-nth($list, $index) {
   $result: null;
-		
+
   @if type-of($index) != number {
 	@warn "$index: #{quote($index)} is not a number for `remove-nth`.";
   }
@@ -73,7 +73,7 @@
 
   @else {
 	$result: ();
-	$index: if($index < 0, length($list) + $index + 1, $index);  
+	$index: if($index < 0, length($list) + $index + 1, $index);
 
 	@for $i from 1 through length($list) {
 	  @if $i != $index {
@@ -81,7 +81,7 @@
 	  }
 	}
   }
-		
+
   @return $result;
 }
 
@@ -125,7 +125,7 @@
 
 //
 // Get states count
-// 
+//
 // @return 	int 	The number of states defined
 //
 @function gridle_states_count() {
@@ -201,8 +201,8 @@
 		and type-of($stateMap-or-stateName) == map
 	{
 		// prepare state
-		$stateMap-or-stateName : _gridle_prepare_state_settings($stateMap-or-stateName);	
-		// create a new state by merging given one with defaul one
+		$stateMap-or-stateName : _gridle_prepare_state_settings($stateMap-or-stateName);
+		// create a new state by merging given one with default one
 		$state : map-merge($_gridle-settings, $stateMap-or-stateName);
 		// set the name with random name
 		$state : map-set($state, name, unique-id());
@@ -262,7 +262,7 @@
 	@if map-has-key($state, unquote("#{$varName}")) {
 		@return map-get($state, unquote("#{$varName}"));
 	}
-	
+
 	// nothing finded :
 	@return null;
 }
@@ -331,14 +331,14 @@
 @function gridle_get_apply_css_for_map(
 	$for,
 	$stateName : default
-) {	
+) {
 	// check if has some extend for this state
 	$map : map-get($_gridle_apply_css_for, $stateName);
 	@if $map == null { @return null; }
 
 	// check if has some extend for the requested for
 	$extend : map-get($map, $for);
-	
+
 	// return the resulting extend map
 	@return $extend;
 }
@@ -350,14 +350,14 @@
 @function gridle_get_extend_class_map(
 	$for,
 	$stateName : default
-) {	
+) {
 	// check if has some extend for this state
 	$map : map-get($_gridle_extend_base_classes, $stateName);
 	@if $map == null { @return null; }
 
 	// check if has some extend for the requested for
 	$extend : map-get($map, $for);
-	
+
 	// return the resulting extend map
 	@return $extend;
 }
@@ -368,7 +368,7 @@
 //
 // @param 	String 		$name 			The column name (often count)
 // @param 	int 		$columns 		The column count that the column will take
-// @param 	int 		$context 		The context on witch the with will be calculed
+// @param 	int 		$context 		The context on which the width will be calculed
 // @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
 //
 @function _gridle_create_column(
@@ -409,7 +409,7 @@
 
 		// // add column in columns map
 		$columnsMap : map-set($columnsMap, $columnName,  $col);
-	}	
+	}
 
 	// return columns
 	@return $columnsMap;
@@ -485,7 +485,7 @@
 		// otherwise, the base state is a custom one so we keep
 		// it and extend the wanted state with it
 		$new-state : map-remove($extend-state, name); // remove the name is important here!
-		@return map-merge($state, $new-state);	
+		@return map-merge($state, $new-state);
 	}
 }
 
@@ -516,7 +516,7 @@
 		);
 	} @else if type-of($side-or-size) == list or type-of($side-or-size) == string {
 
-		// check if is a full number list	
+		// check if is a full number list
 		$list-number : true;
 		@each $s in $side-or-size {
 			@if type-of($s) != number {
@@ -543,7 +543,7 @@
 					left : nth($side-or-size,4)
 				)
 			}
-		
+
 		} @else {
 			// forge the map with registered values
 			@each $side in (top right bottom left) {
@@ -567,7 +567,7 @@
 
 //
 // Get the attribute selector
-// 
+//
 @function gridle_selector(
 	$for,
 	$states : null,
@@ -817,13 +817,13 @@
 			// if we have a separator, check the next value to see if it's a variable
 			@if index($_gridle-names-separators, $part) and $i < length($sel) {
 				@if nth($sel,$i + 1) != '%state' {
-					$generic : #{$generic}#{$part};	
+					$generic : #{$generic}#{$part};
 				} @else {
 					$end : true;
 				}
 			} @else {
 				@if str-slice($part,1,1) != '%' {
-					$generic : #{$generic}#{$part};	
+					$generic : #{$generic}#{$part};
 				} @else {
 					$end : true;
 				}
@@ -881,7 +881,7 @@
 	$prop_name : null;
 	$list : append($list, _gridle-last);
 	@each $param in $list {
-		
+
 		@if $param != with and $param != 'and' {
 			@if map-get($_gridle-packages, $param) or $param == _gridle-last {
 				@if $prop_name {
@@ -893,7 +893,7 @@
 						}
 						$prop_values : ();
 					}
-					$map : map-set($map, $prop_name, $values);	
+					$map : map-set($map, $prop_name, $values);
 				}
 				$prop_name : $param;
 			} @else {
@@ -943,9 +943,9 @@
 
 
 //
-// Get the media query for a particular state, or with, etc...
+// Get the media query for a particular state, or width, etc...
 //
-// @param 	Mixed 		$state-or-min-width 		The state name of the min with
+// @param 	Mixed 		$state-or-min-width 		The state name of the min width
 // @param 	Mixed 		$max-width 			The max width if first param is a min width
 // @return 	String 						The media query string without the @media
 //
@@ -980,7 +980,7 @@
 		@if $query
 		{
 			@return $query;
-		} 
+		}
 		@else if $min-width and $max-width
 		{
 			@return "screen and (min-width: #{$min-width}) and (max-width: #{$max-width})";
@@ -998,7 +998,7 @@
 			@return null;
 		}
 
-	} 
+	}
 	@else
 	{
 		@return null;
