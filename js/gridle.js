@@ -584,11 +584,6 @@ window.matchMedia || (window.matchMedia = function() {
       }
     }, 500);
   });
-  if (typeof window.define === 'function' && window.define.amd) {
-    window.define([], function() {
-      return window.Gridle;
-    });
-  }
   return Gridle;
 });
 
