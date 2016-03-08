@@ -9,7 +9,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 1. Update gridle.js to 1.0.1
-	- Add "cssPath" setting to make gridle fetch only this css file to find states
+    - Add "cssPath" setting to make gridle fetch only this css file to find states
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # 1.3.25
@@ -98,3 +98,20 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 1. See documentation folder or website to see futur changelogs
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 2.0.45
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Fix async problem of gridle.js
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 2.1.0
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Fix order of classes:
+   - `no-gutter@state` work if gutter change in declaration
+   - Stop the gutter override on children states
+
+NOTE: In case unknown problem happen,
+      switch to version ~2.0.0
