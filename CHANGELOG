@@ -104,3 +104,15 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 1. Fix double module define
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 2.0.47
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Update Gridle.js
+    1.1. Better options extending
+    1.2. New option : ignoredStates
+
+         NOTE: Allow to pass an array that prevent registering passed states.
+               Useful if you don't want to have `onUpdate` event on certain
+               State.

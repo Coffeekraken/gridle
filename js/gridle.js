@@ -113,31 +113,21 @@ window.matchMedia || (window.matchMedia = function() {
     resizeTimeout: null,
     _settings: {
       onUpdate: null,
-      debug: null
+      debug: null,
+      ignoredStates: []
     },
 
     /*
     Init
      */
     init: function(settings) {
-      var ref, ref1;
+      var default_index;
       this._inited = true;
-      if (settings != null) {
-        this._settings = settings;
+      if (((settings != null ? settings.ignoredStates : void 0) != null) && (default_index = settings.ignoredStates.indexOf('default')) > -1) {
+        settings.ignoredStates.splice(default_index, 1);
       }
-      if (settings && (settings.debug != null)) {
-                if ((ref = this._settings.debug) != null) {
-          ref;
-        } else {
-          settings.debug;
-        };
-      }
-      if (settings && (settings.onStatesChange != null)) {
-                if ((ref1 = this._settings.onStatesChange) != null) {
-          ref1;
-        } else {
-          settings.onStatesChange;
-        };
+      if (settings) {
+        this._settings = this._extend(this._settings, settings);
       }
       this._debug('waiting for content to be fully loaded');
       return domLoaded((function(_this) {
@@ -145,6 +135,18 @@ window.matchMedia || (window.matchMedia = function() {
           return _this._parseCss();
         };
       })(this));
+    },
+
+    /*
+    Extending object function
+     */
+    _extend: function(object, properties) {
+      var key, val;
+      for (key in properties) {
+        val = properties[key];
+        object[key] = val;
+      }
+      return object;
     },
 
     /*
@@ -211,7 +213,9 @@ window.matchMedia || (window.matchMedia = function() {
       ref = this._statesInCss;
       for (name in ref) {
         query = ref[name];
-        this._registerState(name, query);
+        if (this._settings.ignoredStates.indexOf(name) === -1) {
+          this._registerState(name, query);
+        }
       }
       return this._launch();
     },

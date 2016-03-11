@@ -76,6 +76,7 @@
         _settings :
             onUpdate : null
             debug : null
+            ignoredStates : []
 
         ###
         Init
@@ -86,14 +87,23 @@
             @_inited = true
 
             # process settings
-            @_settings = settings if settings?
-            @_settings.debug ? settings.debug if settings and settings.debug?
-            @_settings.onStatesChange ? settings.onStatesChange if settings and settings.onStatesChange?
+            if settings?.ignoredStates? and (default_index = settings.ignoredStates.indexOf 'default') > -1
+                settings.ignoredStates.splice default_index, 1
+
+            @_settings = @_extend @_settings, settings if settings
 
             @_debug 'waiting for content to be fully loaded'
 
             domLoaded () =>
                 @_parseCss()
+
+        ###
+        Extending object function
+        ###
+        _extend : (object, properties) ->
+            for key, val of properties
+                object[key] = val
+            object
 
         ###
         Load and parse css
@@ -153,8 +163,9 @@
             # loop on each states
             for name, query of @_statesInCss
 
-                # register a state
-                @_registerState name, query
+                if @_settings.ignoredStates.indexOf(name) == -1
+                    # register a state
+                    @_registerState name, query
 
             # launch the app
             @_launch()
