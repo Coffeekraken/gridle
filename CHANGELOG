@@ -133,3 +133,35 @@ NOTE: In case unknown problem happen,
          NOTE: Allow to pass an array that prevent registering passed states.
                Useful if you don't want to have `onUpdate` event on certain
                State.
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 3.0.0
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+NOTE : Version 2.* will not be supported anymore;
+
+1. Changed inheritance of generated states
+    NOTE: Option will now inherit previously declared states. It will
+          now keep the gutter, direction, context of previous state
+          instead of the default setting passed to `gridle_setup`.
+    1.1 Added third argument to `gridle_register_state` which
+        is `force_change`. Pass a boolean to force gridle to
+        regenerate all classes
+    1.2 Helper classes (such as `no-gutter`) will now propagate to
+        other states until said otherwise.
+        I.E: `no-gutter` remove gutter on all state until `gutter@%state`
+             appear.
+2. Reduced quantity of generated code
+3. Fixed row not getting new gutter as negative margin
+
+TODO:
+1. Add inheritance group.
+2. Add custom tags and variables in scope when using `gridle_generate_custom_class`
+    Ex: `gridle_generate_custom_class(('background-align', '-', '%position'), (left right)){ background-position : map-get($scope, position) }`
+        generate =>
+        > .background-align-left{
+        >     background-position : left;
+        > }
+        > .background-align-right{
+        >     background-position : right;
+        > }

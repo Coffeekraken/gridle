@@ -107,149 +107,151 @@
     // get state name
     $state : gridle_get_state($state);
 
-    // container
-    @if $package == container {
+    @include gridle_use_state($state){
+        // container
+        @if $package == container {
 
-        @include _gridle_common_container($state);
+            @include _gridle_common_container($state);
+        }
+
+        // order
+        @if $package == grid-order {
+            @include _gridle_common_grid_order($state);
+        }
+
+        // row
+        @if $package == row {
+            @include _gridle_common_row($state);
+        }
+
+        // row-full
+        @if $package == row-full {
+            @include _gridle_common_row_full($state);
+        }
+
+        // col
+        @if $package == col {
+            @include _gridle_common_col($state);
+        }
+
+        // grid
+        @if $package == grid {
+            @include _gridle_common_grid($state);
+        }
+
+        // grid-table
+        @if $package == grid-table {
+            @include _gridle_common_grid_table($state);
+        }
+
+        // grid-adapt
+        @if $package == grid-adapt {
+            @include _gridle_common_grid_adapt($state);
+        }
+
+        // grid-grow
+        @if $package == grid-grow {
+            @include _gridle_common_grid_grow($state);
+        }
+
+        // push
+        @if $package == push{
+            @include _gridle_common_push($state);
+        }
+
+        // pull
+        @if $package == pull{
+            @include _gridle_common_pull($state);
+        }
+
+        // prefix
+        @if $package == prefix{
+            @include _gridle_common_prefix($state);
+        }
+
+        // suffix
+        @if $package == suffix {
+            @include _gridle_common_suffix($state);
+        }
+
+        // nowrap
+        @if $package == nowrap {
+            @include _gridle_common_nowrap($state);
+        }
+
+        // wrap
+        @if $package == wrap {
+            @include _gridle_common_wrap($state);
+        }
+
+        // clear-each
+        @if $package == clear-each {
+            @include _gridle_common_clear_each($state);
+        }
+
+        // centered
+        @if $package == grid-centered {
+            @include _gridle_common_grid_centered($state);
+        }
+
+        // row-align
+        @if $package == row-align {
+            @include _gridle_common_row_align($state);
+        }
+
+        // hide
+        @if $package == hide {
+            @include _gridle_common_hide($state);
+        }
+
+        // not-visible
+        @if $package == not-visible {
+            @include _gridle_common_not_visible($state);
+        }
+
+        // show
+        @if $package == show{
+            @include _gridle_common_show($state);
+        }
+
+        // show-inline
+        @if $package == show-inline {
+            @include _gridle_common_show_inline($state);
+        }
+
+        // visible
+        @if $package == visible {
+            @include _gridle_common_visible($state);
+        }
+
+        // float
+        @if $package == float {
+            @include _gridle_common_float($state);
+        }
+
+        // clear
+        @if $package == clear {
+            @include _gridle_common_clear($state);
+        }
+
+        // no-gutter
+        @if $package == no-gutter {
+            @include _gridle_common_no_gutter($state);
+        }
+
+        // gutter
+        @if $package == gutter {
+            @include _gridle_common_gutter($state);
+        }
+
+        // row debug
+        @if $package == row-debug {
+            @include _gridle_common_row_debug($state);
+        }
+
+        // extend common class by the registered css
+        @include _gridle_extend_common_class($package, $state);
     }
-
-    // order
-    @if $package == grid-order {
-        @include _gridle_common_grid_order($state);
-    }
-
-    // row
-    @if $package == row {
-        @include _gridle_common_row($state);
-    }
-
-    // row-full
-    @if $package == row-full {
-        @include _gridle_common_row_full($state);
-    }
-
-    // col
-    @if $package == col {
-        @include _gridle_common_col($state);
-    }
-
-    // grid
-    @if $package == grid {
-        @include _gridle_common_grid($state);
-    }
-
-    // grid-table
-    @if $package == grid-table {
-        @include _gridle_common_grid_table($state);
-    }
-
-    // grid-adapt
-    @if $package == grid-adapt {
-        @include _gridle_common_grid_adapt($state);
-    }
-
-    // grid-grow
-    @if $package == grid-grow {
-        @include _gridle_common_grid_grow($state);
-    }
-
-    // push
-    @if $package == push{
-        @include _gridle_common_push($state);
-    }
-
-    // pull
-    @if $package == pull{
-        @include _gridle_common_pull($state);
-    }
-
-    // prefix
-    @if $package == prefix{
-        @include _gridle_common_prefix($state);
-    }
-
-    // suffix
-    @if $package == suffix {
-        @include _gridle_common_suffix($state);
-    }
-
-    // nowrap
-    @if $package == nowrap {
-        @include _gridle_common_nowrap($state);
-    }
-
-    // wrap
-    @if $package == wrap {
-        @include _gridle_common_wrap($state);
-    }
-
-    // clear-each
-    @if $package == clear-each {
-        @include _gridle_common_clear_each($state);
-    }
-
-    // centered
-    @if $package == grid-centered {
-        @include _gridle_common_grid_centered($state);
-    }
-
-    // row-align
-    @if $package == row-align {
-        @include _gridle_common_row_align($state);
-    }
-
-    // hide
-    @if $package == hide {
-        @include _gridle_common_hide($state);
-    }
-
-    // not-visible
-    @if $package == not-visible {
-        @include _gridle_common_not_visible($state);
-    }
-
-    // show
-    @if $package == show{
-        @include _gridle_common_show($state);
-    }
-
-    // show-inline
-    @if $package == show-inline {
-        @include _gridle_common_show_inline($state);
-    }
-
-    // visible
-    @if $package == visible {
-        @include _gridle_common_visible($state);
-    }
-
-    // float
-    @if $package == float {
-        @include _gridle_common_float($state);
-    }
-
-    // clear
-    @if $package == clear {
-        @include _gridle_common_clear($state);
-    }
-
-    // no-gutter
-    @if $package == no-gutter {
-        @include _gridle_common_no_gutter($state);
-    }
-
-    // gutter
-    @if $package == gutter {
-        @include _gridle_common_gutter($state);
-    }
-
-    // row debug
-    @if $package == row-debug {
-        @include _gridle_common_row_debug($state);
-    }
-
-    // extend common class by the registered css
-    @include _gridle_extend_common_class($package, $state);
 }
 
 

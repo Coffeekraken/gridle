@@ -92,7 +92,11 @@
 // @return 	List 				The processed list
 //
 @function list-shift($list) {
-	@return remove-nth($list,1);
+    @if(length($list)) == 0{
+        @return null;
+    }@else{
+    	@return remove-nth($list,1);
+    }
 }
 
 //
@@ -102,7 +106,11 @@
 // @return 	List 				The processed list
 //
 @function list-pop($list) {
-	@return remove-nth($list,length($list));
+    @if(length($list)) == 0{
+        @return null;
+    }@else{
+	    @return remove-nth($list,length($list));
+    }
 }
 
 //
@@ -647,6 +655,10 @@
 	$state : null,
 	$value : null
 ) {
+    // Set value to null if ignoring pattern
+    @if $value == ignore-pattern {
+        $value : null;
+    }
 
 	// get the pattern
 	$pattern : $for;
