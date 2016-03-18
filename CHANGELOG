@@ -144,15 +144,11 @@ NOTE : Version 2.* will not be supported anymore;
     NOTE: Option will now inherit previously declared states. It will
           now keep the gutter, direction, context of previous state
           instead of the default setting passed to `gridle_setup`.
-    1.1 Added third argument to `gridle_register_state` which
-        is `force_change`. Pass a boolean to force gridle to
-        regenerate all classes
-    1.2 Helper classes (such as `no-gutter`) will now propagate to
+    1.1 Helper classes (such as `no-gutter`) will now propagate to
         other states until said otherwise.
         I.E: `no-gutter` remove gutter on all state until `gutter@%state`
              appear.
-2. Reduced quantity of generated code
-3. Fixed row not getting new gutter as negative margin
+2. Fixed row not getting new gutter as negative margin
 
 TODO:
 1. Add inheritance group.

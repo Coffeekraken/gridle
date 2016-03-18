@@ -36,7 +36,7 @@
 	), $settings) !global;
 
 	// register default state :
-	@include gridle_register_state(default, $_gridle-settings, true);
+	@include gridle_register_state(default, $_gridle-settings);
 
 	// set current state to default
 	$_gridle_current_state : $_gridle-settings !global;
@@ -49,8 +49,7 @@
 //
 @mixin gridle_register_state(
 	$name,
-	$original_settings : (),
-    $force_change : false
+	$original_settings : ()
 ) {
 	// prepare state
 	$settings : _gridle_prepare_state_settings($original_settings);
@@ -80,8 +79,7 @@
 	$gutter-left : map-get($settings, gutter-left);
 
 	// add rules if gutter is different
-	@if $force_change
-        or $gutter-top != map-get($previous_state, gutter-top)
+	@if $gutter-top != map-get($previous_state, gutter-top)
 		or $gutter-right != map-get($previous_state, gutter-right)
 		or $gutter-bottom != map-get($previous_state, gutter-bottom)
 		or $gutter-left != map-get($previous_state, gutter-left) {
@@ -90,7 +88,7 @@
 	}
 
 	// add rules if context is different
-	@if $force_change or map-get($settings, context) != map-get($previous_state, context) {
+	@if map-get($settings, context) != map-get($previous_state, context) {
         //Gutter changed
     	$settings : map-set($settings, _context_changed, true);
 	}
@@ -100,7 +98,7 @@
 
 	// add rules if direction is different
 	$direction : map-get($settings, direction);
-	@if $force_change or $direction != map-get($previous_state, direction) {
+	@if $direction != map-get($previous_state, direction) {
 	    $settings : map-set($settings, _direction_changed, false);
 	}
 }

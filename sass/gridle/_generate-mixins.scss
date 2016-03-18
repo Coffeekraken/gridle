@@ -448,85 +448,78 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
                     $i : $i + 1;
                 }
 
-                @if(map-get($state, _context_changed) or map-get($state, _gutter_changed) or map-get($state, _direction_changed)){
-                    // generate all classes for columns
-                    $i : 0;
-                    @each $columnName, $column in gridle_get_columns($state) {
+                // generate all classes for columns
+                $i : 0;
+                @each $columnName, $column in gridle_get_columns($state) {
 
-                        // variables
-                        $columnsCount : map-get($column, columns);
-                        $columnsContext : map-get($column, context);
-                        $columnsNameMultiplicator : map-get($column, name-multiplicator);
+                    // variables
+                    $columnsCount : map-get($column, columns);
+                    $columnsContext : map-get($column, context);
+                    $columnsNameMultiplicator : map-get($column, name-multiplicator);
 
-                        // extend context in state (for columns)
-                        $extendedState : map-merge($state, (
-                            context : $columnsContext,
-                            name-multiplicator : $columnsNameMultiplicator // inject the name multiplicator here getted from column to handle custom registered columns
-                        ));
+                    // extend context in state (for columns)
+                    $extendedState : map-merge($state, (
+                        context : $columnsContext,
+                        name-multiplicator : $columnsNameMultiplicator // inject the name multiplicator here getted from column to handle custom registered columns
+                    ));
 
-                        // classes
-                        @if _gridle_need_to_generate(grid, $package) {
-                            #{gridle_selector(grid, $upper_states, $columnName)} {
-                                @include gridle_grid($columnsCount, $columnsContext);
-                            }
+                    // classes
+                    @if _gridle_need_to_generate(grid, $package) {
+                        #{gridle_selector(grid, $upper_states, $columnName)} {
+                            @include gridle_grid($columnsCount, $columnsContext);
                         }
+                    }
 
-                        @if(map-get($state, _context_changed) or map-get($state, _direction_changed)){
-                            @if _gridle_need_to_generate(push, $package) {
-                                #{gridle_selector(push, $upper_states, $columnName)} {
-                                    @include gridle_push($columnsCount, $columnsContext);
-                                }
-                            }
-                            @if _gridle_need_to_generate(pull, $package) {
-                                #{gridle_selector(pull, $upper_states, $columnName)} {
-                                    @include gridle_pull($columnsCount, $columnsContext);
-                                }
-                            }
-                            @if _gridle_need_to_generate(prefix, $package) {
-                                #{gridle_selector(prefix, $upper_states, $columnName)} {
-                                    @include gridle_prefix($columnsCount, $columnsContext);
-                                }
-                            }
-                            @if _gridle_need_to_generate(suffix, $package) {
-                                #{gridle_selector(suffix, $upper_states, $columnName)} {
-                                    @include gridle_suffix($columnsCount, $columnsContext);
-                                }
-                            }
-                            @if _gridle_need_to_generate(order, $package) {
-                                #{gridle_selector(order, $upper_states, first)} {
-                                    @include gridle_order(-1);
-                                }
-                                #{gridle_selector(order, $upper_states, $i)} {
-                                    @include gridle_order($i);
-                                }
-                                #{gridle_selector(order, $upper_states, last)} {
-                                    @include gridle_order(9999);
-                                }
-                            }
+                    @if _gridle_need_to_generate(push, $package) {
+                        #{gridle_selector(push, $upper_states, $columnName)} {
+                            @include gridle_push($columnsCount, $columnsContext);
                         }
-                        // up $i
-                        $i : $i + 1;
+                    }
+                    @if _gridle_need_to_generate(pull, $package) {
+                        #{gridle_selector(pull, $upper_states, $columnName)} {
+                            @include gridle_pull($columnsCount, $columnsContext);
+                        }
+                    }
+                    @if _gridle_need_to_generate(prefix, $package) {
+                        #{gridle_selector(prefix, $upper_states, $columnName)} {
+                            @include gridle_prefix($columnsCount, $columnsContext);
+                        }
+                    }
+                    @if _gridle_need_to_generate(suffix, $package) {
+                        #{gridle_selector(suffix, $upper_states, $columnName)} {
+                            @include gridle_suffix($columnsCount, $columnsContext);
+                        }
+                    }
+                    @if _gridle_need_to_generate(order, $package) {
+                        #{gridle_selector(order, $upper_states, first)} {
+                            @include gridle_order(-1);
+                        }
+                        #{gridle_selector(order, $upper_states, $i)} {
+                            @include gridle_order($i);
+                        }
+                        #{gridle_selector(order, $upper_states, last)} {
+                            @include gridle_order(9999);
+                        }
+                    }
+                    // up $i
+                    $i : $i + 1;
+                }
+
+                @if _gridle_need_to_generate(row, $package) {
+                    #{gridle_selector(row, $upper_states, ignore-pattern)} {
+                        @include gridle_row(false);
+                    }
+                    #{gridle_selector(row, $upper_states, reverse)} {
+                        @include gridle_row(true);
                     }
                 }
 
-                // row and col classes if the gutter has changed
-                @if map-get($state, _gutter_changed){
-                    @if _gridle_need_to_generate(row, $package) {
-                        #{gridle_selector(row, $upper_states, ignore-pattern)} {
-                            @include gridle_row(false);
-                        }
-                        #{gridle_selector(row, $upper_states, reverse)} {
-                            @include gridle_row(true);
-                        }
+                @if _gridle_need_to_generate(col, $package) {
+                    #{gridle_selector(col, $upper_states, ignore-pattern)} {
+                        @include gridle_col(false);
                     }
-
-                    @if _gridle_need_to_generate(col, $package) {
-                        #{gridle_selector(col, $upper_states, ignore-pattern)} {
-                            @include gridle_col(false);
-                        }
-                        #{gridle_selector(col, $upper_states, reverse)} {
-                            @include gridle_col(true);
-                        }
+                    #{gridle_selector(col, $upper_states, reverse)} {
+                        @include gridle_col(true);
                     }
                 }
 
