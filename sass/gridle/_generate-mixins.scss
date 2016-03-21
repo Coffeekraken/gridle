@@ -173,6 +173,9 @@
         #{_gridle_classname(float, $state, right)} {
             @include gridle_float(right);
         }
+        #{_gridle_classname(float, $state, none)} {
+            @include gridle_float(none);
+        }
     }
 
     @if _gridle_need_to_generate(clear, $package) {

@@ -646,7 +646,7 @@
   }
 }
 #gridle-settings {
-  content: '{ "version" : "3.0.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : null, "_context_changed" : false, "_gutter_changed" : false, "_direction_changed" : false, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : "default", "_context_changed" : false, "_gutter_changed" : false, "_direction_changed" : false, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : "mobile", "_context_changed" : false, "_gutter_changed" : false, "_direction_changed" : false, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : "tablet", "_context_changed" : false, "_gutter_changed" : true, "_direction_changed" : false, "_" : true }} }';
+  content: '{ "version" : "3.0.1", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : null, "_context_changed" : false, "_gutter_changed" : false, "_direction_changed" : false, "_" : true }, "mobile":{ "name" : "mobile", "min-width" : null, "max-width" : "480px", "query" : "screen and (max-width: 480px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : "default", "_context_changed" : false, "_gutter_changed" : false, "_direction_changed" : false, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "481px", "max-width" : "1024px", "query" : "screen and (min-width: 481px) and (max-width: 1024px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "20px", "gutter-height" : "0", "gutter-top" : "0", "gutter-right" : "10px", "gutter-bottom" : "0", "gutter-left" : "10px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : "mobile", "_context_changed" : false, "_gutter_changed" : false, "_direction_changed" : false, "_" : true }, "ipad-landscape":{ "name" : "ipad-landscape", "min-width" : null, "max-width" : null, "query" : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "30px", "gutter-height" : "50px", "gutter-top" : "25px", "gutter-right" : "15px", "gutter-bottom" : "25px", "gutter-left" : "15px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : true, "classes-prefix" : null, "extends" : "tablet", "_context_changed" : false, "_gutter_changed" : true, "_direction_changed" : false, "_" : true }} }';
 }
 
 .state-default .row {
@@ -6881,6 +6881,9 @@
 .state-default .float-right {
   float: right;
 }
+.state-default .float-none {
+  float: none;
+}
 .state-default .clear {
   clear: both;
 }
@@ -7079,6 +7082,10 @@
 
 .float-right {
   float: right;
+}
+
+.float-none {
+  float: none;
 }
 
 .clear {
@@ -7304,6 +7311,9 @@
 .state-mobile .float-right\@mobile {
   float: right;
 }
+.state-mobile .float-none\@mobile {
+  float: none;
+}
 .state-mobile .clear\@mobile {
   clear: both;
 }
@@ -7503,6 +7513,10 @@
 
   .float-right\@mobile {
     float: right;
+  }
+
+  .float-none\@mobile {
+    float: none;
   }
 
   .clear\@mobile {
@@ -7728,6 +7742,9 @@
 .state-tablet .float-right\@tablet {
   float: right;
 }
+.state-tablet .float-none\@tablet {
+  float: none;
+}
 .state-tablet .clear\@tablet {
   clear: both;
 }
@@ -7927,6 +7944,10 @@
 
   .float-right\@tablet {
     float: right;
+  }
+
+  .float-none\@tablet {
+    float: none;
   }
 
   .clear\@tablet {
@@ -8152,6 +8173,9 @@
 .state-ipad-landscape .float-right\@ipad-landscape {
   float: right;
 }
+.state-ipad-landscape .float-none\@ipad-landscape {
+  float: none;
+}
 .state-ipad-landscape .clear\@ipad-landscape {
   clear: both;
 }
@@ -8359,6 +8383,10 @@
 
   .float-right\@ipad-landscape {
     float: right;
+  }
+
+  .float-none\@ipad-landscape {
+    float: none;
   }
 
   .clear\@ipad-landscape {
