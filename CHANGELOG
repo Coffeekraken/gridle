@@ -141,18 +141,25 @@ NOTE: In case unknown problem happen,
 NOTE : Version 2.* will not be supported anymore;
 
 1. Changed inheritance of generated states
-    NOTE: Option will now inherit previously declared states. It will
-          now keep the gutter, direction, context of previous state
-          instead of the default setting passed to `gridle_setup`.
-    1.1 Helper classes (such as `no-gutter`) will now propagate to
+    1.1 New option when calling `gridle_register_state` : `extends`
+        NOTE: Option will now inherit extended states. It will now
+              keep the gutter, direction, context of extended state
+              instead of the default setting passed to `gridle_setup`.
+              Pass `last` to extend the last declared state or
+              `null` to extend default settings.
+    1.2 Helper classes (such as `no-gutter`) will now propagate to
         other states until said otherwise.
         I.E: `no-gutter` remove gutter on all state until `gutter@%state`
              appear.
-2. Fixed row not getting new gutter as negative margin
+2. Fixed row not getting new gutter as negative margin.
+3. Removed `!important` to inner row when using `no-gutter`.
+4. re-add the gutter to inner row when using `gutter@state`.
+5. Can now have multiple generic classes like `'[class^="no-gutter"]' '[class*=" no-gutter"]'`
+    5.5 Need to loop to use classes : `@each $sel in _gridle_get_generic_selector(no-gutter)`
+6. Added `last` keyword to `gridle_get_state` : return the last generated class.
 
 TODO:
-1. Add inheritance group.
-2. Add custom tags and variables in scope when using `gridle_generate_custom_class`
+1. Add custom tags and variables in scope when using `gridle_generate_custom_class`
     Ex: `gridle_generate_custom_class(('background-align', '-', '%position'), (left right)){ background-position : map-get($scope, position) }`
         generate =>
         > .background-align-left{

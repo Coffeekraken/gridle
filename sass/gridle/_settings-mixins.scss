@@ -33,10 +33,11 @@
 		name-multiplicator : 1,
 		states-classes : false,
 		classes-prefix : null,
+        extends : last
 	), $settings) !global;
 
 	// register default state :
-	@include gridle_register_state(default, $_gridle-settings);
+	@include gridle_register_state(default, map-set( $_gridle-settings, extends, null ) );
 
 	// set current state to default
 	$_gridle_current_state : $_gridle-settings !global;
@@ -54,15 +55,24 @@
 	// prepare state
 	$settings : _gridle_prepare_state_settings($original_settings);
 
-    // get previous declared state
-    $previous_state : $_gridle-settings;
-    @if(length($_gridle_states) != 0){
-        $previous_state : nth(map-keys($_gridle_states), length($_gridle_states));
-        $previous_state : gridle_get_state($previous_state);
+    $settings : map-merge($_gridle-settings, $settings);
+
+    $extended_settings : null;
+    @if(map-get($settings, extends) == null){
+        $extended_settings : $_gridle-settings;
+    }@else{
+        // get previous declared state
+        $extended_settings : $_gridle-settings;
+        @if(length($_gridle_states) != 0){
+            $extended_settings : gridle_get_state(map-get($settings, extends));
+            $settings : map-set($settings, extends, map-get($extended_settings, name));
+        }@else{
+            $settings : map-set($settings, extends, null);
+        }
     }
 
 	// settings :
-	$settings : map-merge($previous_state, $settings);
+	$settings : map-merge($extended_settings, $settings);
 
 	// set name :
 	$settings : map-set($settings, name, $name);
@@ -79,16 +89,16 @@
 	$gutter-left : map-get($settings, gutter-left);
 
 	// add rules if gutter is different
-	@if $gutter-top != map-get($previous_state, gutter-top)
-		or $gutter-right != map-get($previous_state, gutter-right)
-		or $gutter-bottom != map-get($previous_state, gutter-bottom)
-		or $gutter-left != map-get($previous_state, gutter-left) {
+	@if $gutter-top != map-get($extended_settings, gutter-top)
+		or $gutter-right != map-get($extended_settings, gutter-right)
+		or $gutter-bottom != map-get($extended_settings, gutter-bottom)
+		or $gutter-left != map-get($extended_settings, gutter-left) {
         //Gutter changed
     	$settings : map-set($settings, _gutter_changed, true);
 	}
 
 	// add rules if context is different
-	@if map-get($settings, context) != map-get($previous_state, context) {
+	@if map-get($settings, context) != map-get($extended_settings, context) {
         //Gutter changed
     	$settings : map-set($settings, _context_changed, true);
 	}
@@ -98,8 +108,8 @@
 
 	// add rules if direction is different
 	$direction : map-get($settings, direction);
-	@if $direction != map-get($previous_state, direction) {
-	    $settings : map-set($settings, _direction_changed, false);
+	@if $direction != map-get($extended_settings, direction) or map-get($settings, extends) == null {
+	    $settings : map-set($settings, _direction_changed, true);
 	}
 }
 

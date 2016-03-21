@@ -188,6 +188,11 @@
 		@return gridle_current_state();
 	}
 
+    @if $stateMap-or-stateName == last and length($_gridle_states) != 0 {
+        $previous_state_name : nth(map-keys($_gridle_states), length($_gridle_states));
+        @return gridle_get_state($previous_state_name);
+    }
+
 	// check if has a state named like this
 	@if (type-of($stateMap-or-stateName) == string
 		and  map-has-key($_gridle_states, unquote("#{$stateMap-or-stateName}")))
@@ -818,7 +823,11 @@
 	$p : map-get($_gridle-packages, $package);
 	$sel : map-get($p, generic-selector);
 	@if $sel {
-		@return unquote($sel);
+        $list_sel : ();
+        @each $quoted_sel in $sel {
+            $list_sel : append($list_sel, unquote($quoted_sel));
+        }
+		@return $list_sel;
 	}
 	$sel : map-get($p, classname);
 	$generic : "";
