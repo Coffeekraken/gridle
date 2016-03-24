@@ -13,11 +13,12 @@
 //
 @mixin gridle_generate_custom_class(
     $pattern,
-    $statesNames : null
+    $statesNames : null,
+    $replacements...
 ) {
     // manage states to generate :
     $states : ();
-    @if $statesNames == null {
+    @if $statesNames == null or $statesNames == all {
         // loop on each states to generate names list :
         @each $stateName, $state in $_gridle_states {
             $states : append($states, $stateName);
@@ -25,6 +26,9 @@
     } @else {
         $states : $statesNames;
     }
+
+    // Get all invalid pattern
+    $unmatched_patterns :  _gridle_unmatched_patterns($pattern);
 
     // loop on each states :
     @each $stateName in $states
@@ -41,8 +45,59 @@
         @if $classes
         {
             @include gridle_state($stateName, false) {
-                #{_gridle_classname($pattern, $stateName)} {
-                    @content;
+                $length_a:length($unmatched_patterns);
+                $length_b:length($replacements);
+                @if $length_a > 0 and $length_a <= $length_b {
+                    $list_indexes : ();
+                    @for $i from 1 through length($unmatched_patterns) {
+                        $list_indexes : append($list_indexes, 1);
+                    }
+
+                    @while nth($list_indexes, 1) <= length( nth($replacements, 1) ){
+                        $gridle-scope : () !global;
+                        $replacement_pattern : $pattern;
+                        $replaced_count : 0;
+
+                        // Work the replacement
+                        @each $index, $flag in $unmatched_patterns {
+                            $replaced_count : $replaced_count + 1;
+
+                            $current_replacement : nth( $replacements, $replaced_count );
+                            $current_index : nth($list_indexes, $replaced_count);
+
+                            $replacement_pattern : set-nth( $replacement_pattern, $index, nth( $current_replacement, $current_index ) );
+
+                            $var_name : str-slice($flag, 2);
+
+                            $gridle-scope : map-set( $gridle-scope, $var_name, nth( $current_replacement, $current_index ) ) !global;
+                        }
+
+                        #{_gridle_classname($replacement_pattern, $stateName)} {
+                            @content;
+                        }
+
+                        $gridle-scope : () !global;
+
+                        // Add 1 to indexes
+                        $break : false;
+                        $current_iteration_index : length( $list_indexes ); // The last index
+                        @while $break == false {
+                            $list_indexes : set-nth( $list_indexes, $current_iteration_index, nth( $list_indexes, $current_iteration_index ) + 1 );
+
+                            @if nth( $list_indexes, $current_iteration_index ) > length( nth( $replacements, $current_iteration_index ) )
+                                and $current_iteration_index != 1 {
+                                $list_indexes : set-nth( $list_indexes, $current_iteration_index, 1);
+
+                                $current_iteration_index : $current_iteration_index - 1;
+                            }@else{
+                                $break : true;
+                            }
+                        }
+                    }
+                }@else{
+                    #{_gridle_classname($pattern, $stateName)} {
+                        @content;
+                    }
                 }
             }
         }

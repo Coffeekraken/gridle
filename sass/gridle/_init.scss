@@ -16,7 +16,7 @@
 // |------------------------------------------------------
 // |------------------------------------------------------
 
-$_gridle-version : "3.0.1";
+$_gridle-version : "3.0.2";
 
 
 
@@ -35,7 +35,8 @@ $_gridle-names-tokens : (
 	float 								: left right both none,
 	count 								: true, // will represent a certain count
 	side 								: top right bottom left,
-	reverse 							: '' reverse
+	reverse 							: '' reverse,
+	state    							: true, // is a valid pattern
 );
 $_gridle-names-separators : ('-','--','_','__','@');	// all the allowed separators
 $_gridle_is_in_generate_phase : false; 			// keep track if we are in generate phase or not anymore
@@ -55,6 +56,8 @@ $_gridle_previous_stateName : default; 			// save the previous state name
 $_content_arg_state : null; 					// this variable is used to pass state through global variable into an @content
 
 $gridle-vendor-prefix : true; 					// set if need to add vendor prefixes when needed
+
+$gridle-scope : (); 					        // Variable scope used in mixin like `gridle_generate_custom_class`
 
 
 

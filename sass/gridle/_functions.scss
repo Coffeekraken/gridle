@@ -257,9 +257,9 @@
 //
 // Get a variable
 //
-// @param 	String 		$varName 				The variable name
+// @param 	String 		$varName 				    The variable name
 // @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
-// @return 	Mixed 							The finded value
+// @return 	Mixed 							        The finded value
 //
 @function gridle_get_state_var(
 	$varName,
@@ -379,9 +379,9 @@
 //
 // Generate a column
 //
-// @param 	String 		$name 			The column name (often count)
-// @param 	int 		$columns 		The column count that the column will take
-// @param 	int 		$context 		The context on which the width will be calculed
+// @param 	String 		$name 			    The column name (often count)
+// @param 	int 		$columns 		    The column count that the column will take
+// @param 	int 		$context 		    The context on which the width will be calculed
 // @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
 //
 @function _gridle_create_column(
@@ -651,7 +651,7 @@
 //
 // Generate classname
 //
-// @param 	List 		$parrern 	The pattern to use to generate classname
+// @param 	List 		$pattern 	The pattern to use to generate classname
 // @param 	String 		$state 		The state
 // @param 	int 		$count 		The column count
 //
@@ -737,6 +737,33 @@
 
 	// return generated class :
 	@return unquote($sel);
+}
+
+//
+// Unmatched patterns
+//
+// @param 	List 		$pattern 	The pattern to use to generate classname
+// @return  Map                     Map of unmatched pattern index:pattern
+//
+@function _gridle_unmatched_patterns(
+	$pattern
+) {
+    $unmatched : ();
+
+    // Loop each partern
+	@for $i from length($pattern) through 1 {
+		$var : nth($pattern, $i);
+		@if $var and str-index($var, '%') == 1 {
+			$token : str-slice($var, 2);
+			// check that the value is part of the token
+			$tokens : map-get($_gridle-names-tokens, $token);
+			@if $tokens == null {
+                $unmatched : map-set($unmatched, $i, $var);
+			}
+		}
+	}
+
+    @return $unmatched;
 }
 
 
