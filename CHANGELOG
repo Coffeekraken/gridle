@@ -181,7 +181,9 @@ TODO:
 
 1. Added custom tags and variables in scope when using `gridle_generate_custom_class`.
     1.1 Can have unlimited replacement.
-    1.2 `%var_name` can't be a pattern that gridle already use.
+    1.2 `%var_name` can be a pattern that gridle already use, but you cannot pass you own values.
+        1.2.1 `gridle_generate_custom_class(('%side'), all, (left right center))` would ignore the list.
+        1.2.2 `gridle_generate_custom_class(('%side', '%custom'), all, (left right center))` would apply the list on `%custom`.
     1.3 The first `%var_name` is replaced by the first argument after `stateName` (all).
         1.3.1 The second `%var_name` is replaced by the second argument after `stateName` (all). And so on.
 

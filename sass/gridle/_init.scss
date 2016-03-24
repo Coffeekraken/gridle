@@ -34,7 +34,7 @@ $_gridle-names-tokens : (
 	align 								: left center right top middle bottom around between,
 	float 								: left right both none,
 	count 								: true, // will represent a certain count
-	side 								: top right bottom left,
+	side 								: top right bottom left null,
 	reverse 							: '' reverse,
 	state    							: true, // is a valid pattern
 );

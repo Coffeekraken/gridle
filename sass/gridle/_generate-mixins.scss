@@ -27,8 +27,29 @@
         $states : $statesNames;
     }
 
-    // Get all invalid pattern
+    // Get all pattern
     $unmatched_patterns :  _gridle_unmatched_patterns($pattern);
+    $matched_patterns :  _gridle_matched_patterns($pattern);
+
+    // Adjust the replacement list length to be the same as unmatched_patterns
+    @while length( $unmatched_patterns ) != length( $replacements ) {
+        @if length( $unmatched_patterns ) < length( $replacements ) {
+            $replacements : list-pop($replacements);
+        }@else{
+            $replacements : append($replacements, (null));
+        }
+    }
+
+    // for each valid pattern, get replacement list
+    @each $index, $pattern in $matched_patterns {
+        @if $pattern == "%state" {
+            $matched_patterns : map-remove($matched_patterns, $index);
+        }@else{
+            $replacements : append($replacements, _gridle_get_pattern_values(str-slice($pattern, 2)));
+        }
+    }
+
+    $found_patterns : map-merge($unmatched_patterns, $matched_patterns);
 
     // loop on each states :
     @each $stateName in $states
@@ -45,11 +66,11 @@
         @if $classes
         {
             @include gridle_state($stateName, false) {
-                $length_a:length($unmatched_patterns);
+                $length_a:length($found_patterns);
                 $length_b:length($replacements);
                 @if $length_a > 0 and $length_a <= $length_b {
                     $list_indexes : ();
-                    @for $i from 1 through length($unmatched_patterns) {
+                    @for $i from 1 through $length_a {
                         $list_indexes : append($list_indexes, 1);
                     }
 
@@ -59,7 +80,7 @@
                         $replaced_count : 0;
 
                         // Work the replacement
-                        @each $index, $flag in $unmatched_patterns {
+                        @each $index, $flag in $found_patterns {
                             $replaced_count : $replaced_count + 1;
 
                             $current_replacement : nth( $replacements, $replaced_count );
