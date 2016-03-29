@@ -361,8 +361,8 @@
         // }
 
         // set value :
-        @if $direction == rtl { right:$width; }
-        @else { left:$width; }
+        @if $direction == rtl { right:$width;left:auto; }
+        @else { left:$width;right:auto; }
         // handle direction attribute
         @if gridle_get_state_var(dir-attribute) {
             [dir="rtl"] & {
