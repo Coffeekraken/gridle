@@ -9,7 +9,7 @@
 		@include gridle_row();
 		@each $sel, $l in $layout {
 			> #{$sel} {
-				@include gridle($l);	
+				@include gridle($l);
 			}
 		}
 	}
@@ -91,7 +91,7 @@
 			$var : $var * -1;
 		}
 	}
-	
+
 	&[#{$op}~="#{$var}"] {
 		@content;
 	}
@@ -361,12 +361,12 @@
 		// }
 
 		// set value :
-		@if $direction == rtl { right:$width; }
-		@else { left:$width; }
+		@if $direction == rtl { right:$width;left:auto; }
+		@else { left:$width;right:auto; }
 		// handle direction attribute
 		@if gridle_get_state_var(dir-attribute) {
 			[dir="rtl"] & {
-				right: $width; 
+				right: $width;
 			}
 			[dir="ltr"] & {
 				left: $width;
@@ -423,12 +423,12 @@
 		// }
 
 		// set value :
-		@if $direction == rtl { left:$width; }
-		@else { right:$width; }
+		@if $direction == rtl { left:$width;right:auto; }
+		@else { right:$width;left:auto; }
 		// handle direction attribute
 		@if gridle_get_state_var(dir-attribute) {
 			[dir="rtl"] & {
-				left: $width; 
+				left: $width;
 			}
 			[dir="ltr"] & {
 				right: $width;
@@ -481,7 +481,7 @@
 		// handle direction attribute
 		@if gridle_get_state_var(dir-attribute) {
 			[dir="rtl"] & {
-				margin-right: $width; 
+				margin-right: $width;
 			}
 			[dir="ltr"] & {
 				margin-left: $width;
@@ -534,7 +534,7 @@
 		// handle direction attribute
 		@if gridle_get_state_var(dir-attribute) {
 			[dir="rtl"] & {
-				margin-left: $width; 
+				margin-left: $width;
 			}
 			[dir="ltr"] & {
 				margin-right: $width;
@@ -630,7 +630,7 @@
 		display: table;
 		clear: both;
 	}
-	
+
 }
 @mixin gridle_container(
 ) {
@@ -799,7 +799,7 @@
 	$side-or-size : top right bottom left
 ) {
 	@include _gridle_call(gutter) {
-		
+
 		// get a gutter map
 		$gutters : _gridle_forge_gutters_map($side-or-size);
 
