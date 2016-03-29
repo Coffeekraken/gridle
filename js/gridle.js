@@ -67,9 +67,9 @@ window.matchMedia || (window.matchMedia = function() {
 })(function() {
 
   /*
-  	Little smokesignals implementation
+  Little smokesignals implementation
    */
-  var domLoaded, smokesignals, _domLoaded;
+  var _domLoaded, domLoaded, smokesignals;
   smokesignals = {
     convert: function(obj, handlers) {
       handlers = {};
@@ -78,13 +78,13 @@ window.matchMedia || (window.matchMedia = function() {
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, _i, _len, _ref;
+        var handler, k, len, ref;
         if (!handlers[eventName]) {
           return;
         }
-        _ref = handlers[eventName];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          handler = _ref[_i];
+        ref = handlers[eventName];
+        for (k = 0, len = ref.length; k < len; k++) {
+          handler = ref[k];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
           continue;
         }
@@ -95,7 +95,7 @@ window.matchMedia || (window.matchMedia = function() {
   };
 
   /*
-  	Gridle.js
+  Gridle.js
    */
   window.Gridle = {
     _inited: false,
@@ -113,31 +113,21 @@ window.matchMedia || (window.matchMedia = function() {
     resizeTimeout: null,
     _settings: {
       onUpdate: null,
-      debug: null
+      debug: null,
+      ignoredStates: []
     },
 
     /*
-    		Init
+    Init
      */
     init: function(settings) {
-      var _ref, _ref1;
+      var default_index;
       this._inited = true;
-      if (settings != null) {
-        this._settings = settings;
+      if (((settings != null ? settings.ignoredStates : void 0) != null) && (default_index = settings.ignoredStates.indexOf('default')) > -1) {
+        settings.ignoredStates.splice(default_index, 1);
       }
-      if (settings && (settings.debug != null)) {
-                if ((_ref = this._settings.debug) != null) {
-          _ref;
-        } else {
-          settings.debug;
-        };
-      }
-      if (settings && (settings.onStatesChange != null)) {
-                if ((_ref1 = this._settings.onStatesChange) != null) {
-          _ref1;
-        } else {
-          settings.onStatesChange;
-        };
+      if (settings) {
+        this._settings = this._extend(this._settings, settings);
       }
       this._debug('waiting for content to be fully loaded');
       return domLoaded((function(_this) {
@@ -148,10 +138,22 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Load and parse css
+    Extending object function
+     */
+    _extend: function(object, properties) {
+      var key, val;
+      for (key in properties) {
+        val = properties[key];
+        object[key] = val;
+      }
+      return object;
+    },
+
+    /*
+    Load and parse css
      */
     _parseCss: function() {
-      var e, i, idx, j, rule, rules, settings, settings_found;
+      var e, error, i, idx, j, rule, rules, settings, settings_found;
       i = 0;
       j = document.styleSheets.length;
       settings_found = false;
@@ -187,8 +189,8 @@ window.matchMedia || (window.matchMedia = function() {
               }
             }
           }
-        } catch (_error) {
-          e = _error;
+        } catch (error) {
+          e = error;
           if (e.name !== 'SecurityError') {
             throw e;
           }
@@ -203,21 +205,23 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Process finded states
+    Process finded states
      */
     _processFindedStates: function() {
-      var name, query, _ref;
+      var name, query, ref;
       this._debug('begin process finded states in css');
-      _ref = this._statesInCss;
-      for (name in _ref) {
-        query = _ref[name];
-        this._registerState(name, query);
+      ref = this._statesInCss;
+      for (name in ref) {
+        query = ref[name];
+        if (this._settings.ignoredStates.indexOf(name) === -1) {
+          this._registerState(name, query);
+        }
       }
       return this._launch();
     },
 
     /*
-    		Launch
+    Launch
      */
     _launch: function() {
       this._debug('launch');
@@ -235,7 +239,7 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		On window resize
+    On window resize
      */
     _onResize: function() {
       var updatedStates;
@@ -253,7 +257,7 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Register a state
+    Register a state
      */
     _registerState: function(name, state, updateOnResize) {
       var infos;
@@ -270,10 +274,10 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Update states status
+    Update states status
      */
     _updateStatesStatus: function() {
-      var defaultState, defaultStateIdx, key, state, wasDefault, _ref;
+      var defaultState, defaultStateIdx, key, ref, state, wasDefault;
       defaultState = this.getDefaultState();
       defaultStateIdx = this._states.indexOf(defaultState);
       wasDefault = defaultState.status;
@@ -283,9 +287,9 @@ window.matchMedia || (window.matchMedia = function() {
       this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
-      _ref = this._states;
-      for (key in _ref) {
-        state = _ref[key];
+      ref = this._states;
+      for (key in ref) {
+        state = ref[key];
         if (!state.updateOnResize) {
           continue;
         }
@@ -334,7 +338,7 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Validate state
+    Validate state
      */
     _validateState: (function(_this) {
       return function(state) {
@@ -343,7 +347,7 @@ window.matchMedia || (window.matchMedia = function() {
     })(this),
 
     /*
-    		Add event
+    Add event
      */
     _addEvent: function(elm, type, handler) {
       if (!elm) {
@@ -359,7 +363,7 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Cross emit for supporting jquery libs, etc...
+    Cross emit for supporting jquery libs, etc...
      */
     _crossEmit: function(eventName) {
       if (typeof jQuery !== "undefined" && jQuery !== null) {
@@ -370,7 +374,7 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Ajax proxy
+    Ajax proxy
      */
     _ajax: function(opts) {
       var args, http;
@@ -410,13 +414,13 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Get default state
+    Get default state
      */
     getDefaultState: function() {
-      var state, _i, _len, _ref;
-      _ref = this.getRegisteredStates();
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        state = _ref[_i];
+      var k, len, ref, state;
+      ref = this.getRegisteredStates();
+      for (k = 0, len = ref.length; k < len; k++) {
+        state = ref[k];
         if (state.name === 'default') {
           return state;
         }
@@ -424,63 +428,63 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Get registered states
+    Get registered states
      */
     getRegisteredStates: function() {
       return this._states;
     },
 
     /*
-    		Get changes states
+    Get changes states
      */
     getUpdatedStates: function() {
       return this._updatedStates;
     },
 
     /*
-    		Get changes states names
+    Get changes states names
      */
     getUpdatedStatesNames: function() {
       return this._updatedStatesNames;
     },
 
     /*
-    		Get active states
+    Get active states
      */
     getActiveStates: function() {
       return this._activeStates;
     },
 
     /*
-    		Get active states names
+    Get active states names
      */
     getActiveStatesNames: function() {
       return this._activeStatesNames;
     },
 
     /*
-    		Get unactive states
+    Get unactive states
      */
     getInactiveStates: function() {
       return this._inactiveStates;
     },
 
     /*
-    		Get unactive states names
+    Get unactive states names
      */
     getInactiveStatesNames: function() {
       return this._inactiveStatesNames;
     },
 
     /*
-    		Check is a state is active
+    Check is a state is active
      */
     isActive: function(stateName) {
-      var index, isActive, name, _ref;
+      var index, isActive, name, ref;
       isActive = false;
-      _ref = this._activeStatesNames;
-      for (index in _ref) {
-        name = _ref[index];
+      ref = this._activeStatesNames;
+      for (index in ref) {
+        name = ref[index];
         if (stateName === name) {
           isActive = true;
         }
@@ -489,14 +493,14 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
-    		Check if gridle is ready
+    Check if gridle is ready
      */
     isReady: function() {
       return this._isReady;
     },
 
     /*
-    		Debug
+    Debug
      */
     _debug: function() {
       if (this._settings.debug) {
@@ -506,7 +510,7 @@ window.matchMedia || (window.matchMedia = function() {
   };
 
   /*
-  	 * DomLoaded
+   * DomLoaded
    */
   _domLoaded = false;
   domLoaded = function(callback) {
@@ -516,39 +520,44 @@ window.matchMedia || (window.matchMedia = function() {
         callback();
         return;
       }
+      if (document.readyState === 'complete') {
+        _domLoaded = true;
+        callback();
+        return;
+      }
       return /* Internet Explorer */
-			/*@cc_on
-			@if (@_win32 || @_win64)
-				document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
-				document.getElementById('ieScriptLoad').onreadystatechange = function() {
-					if (this.readyState == 'complete') {
-						_domLoaded = true;
-						callback();
-					}
-				};
-			@end @*/
-			/* Mozilla, Chrome, Opera */
-			if (document.addEventListener) {
-				document.addEventListener('DOMContentLoaded', function() {
-					_domLoaded = true;
-					callback();
-				}, false);
-			}
-			/* Safari, iCab, Konqueror */
-			if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
-				var DOMLoadTimer = setInterval(function () {
-					if (/loaded|complete/i.test(document.readyState)) {
-						_domLoaded = true;
-						callback();
-						clearInterval(DOMLoadTimer);
-					}
-				}, 10);
-			}
-			/* Other web browsers */
-			window.onload = function() {
-				_domLoaded = true;
-				callback();
-			};;
+            /*@cc_on
+            @if (@_win32 || @_win64)
+                document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
+                document.getElementById('ieScriptLoad').onreadystatechange = function() {
+                    if (this.readyState == 'complete') {
+                        _domLoaded = true;
+                        callback();
+                    }
+                };
+            @end @*/
+            /* Mozilla, Chrome, Opera */
+            if (document.addEventListener) {
+                document.addEventListener('DOMContentLoaded', function() {
+                    _domLoaded = true;
+                    callback();
+                }, false);
+            }
+            /* Safari, iCab, Konqueror */
+            if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
+                var DOMLoadTimer = setInterval(function () {
+                    if (/loaded|complete/i.test(document.readyState)) {
+                        _domLoaded = true;
+                        callback();
+                        clearInterval(DOMLoadTimer);
+                    }
+                }, 10);
+            }
+            /* Other web browsers */
+            window.onload = function() {
+                _domLoaded = true;
+                callback();
+            };;
     };
     if (window.addEventListener) {
       window.addEventListener('load', (function(_this) {
@@ -579,11 +588,6 @@ window.matchMedia || (window.matchMedia = function() {
       }
     }, 500);
   });
-  if (typeof window.define === 'function' && window.define.amd) {
-    window.define([], function() {
-      return window.Gridle;
-    });
-  }
   return Gridle;
 });
 

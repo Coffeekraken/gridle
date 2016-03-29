@@ -113,7 +113,7 @@ $_gridle-packages : (
 	),
 	no-gutter 							: (
 		classname 							: ('no','-','gutter','-','%side','@','%state'),
-		generic-selector 					: '[class*="no-gutter"]',
+		generic-selector 					: '[class*=" no-gutter"]' '[class^="no-gutter"]',
 		package 							: helpers no-gutter
 	),
 	auto-height 						: (

@@ -9,7 +9,7 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 1. Update gridle.js to 1.0.1
-	- Add "cssPath" setting to make gridle fetch only this css file to find states
+    - Add "cssPath" setting to make gridle fetch only this css file to find states
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 # 1.3.25
@@ -98,3 +98,136 @@
 # - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 1. See documentation folder or website to see futur changelogs
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 2.0.45
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Fix async problem of gridle.js
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 2.1.0
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Fix order of classes:
+   - `no-gutter@state` work if gutter change in declaration
+   - Stop the gutter override on children states
+
+NOTE: In case unknown problem happen,
+      switch to version ~2.0.0
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 2.1.1
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Fix double module define
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 2.1.2
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Update Gridle.js
+    1.1. Better options extending
+    1.2. New option : ignoredStates
+
+         NOTE: Allow to pass an array that prevent registering passed states.
+               Useful if you don't want to have `onUpdate` event on certain
+               State.
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 3.0.0
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+NOTE : Version 2.* will not be supported anymore;
+
+1. Changed inheritance of generated states
+    1.1 New option when calling `gridle_register_state` : `extends`
+        NOTE: Option will now inherit extended states. It will now
+              keep the gutter, direction, context of extended state
+              instead of the default setting passed to `gridle_setup`.
+              Pass `last` to extend the last declared state or
+              `null` to extend default settings.
+    1.2 Helper classes (such as `no-gutter`) will now propagate to
+        other states until said otherwise.
+        I.E: `no-gutter` remove gutter on all state until `gutter@%state`
+             appear.
+2. Fixed row not getting new gutter as negative margin.
+3. Removed `!important` to inner row when using `no-gutter`.
+4. re-add the gutter to inner row when using `gutter@state`.
+5. Can now have multiple generic classes like `'[class^="no-gutter"]' '[class*=" no-gutter"]'`
+    5.5 Need to loop to use classes : `@each $sel in _gridle_get_generic_selector(no-gutter)`
+6. Added `last` keyword to `gridle_get_state` : return the last generated class.
+
+TODO:
+1. Add custom tags and variables in scope when using `gridle_generate_custom_class`
+    Ex: `gridle_generate_custom_class(('background-align', '-', '%position'), (left right)){ background-position : map-get($scope, position) }`
+        generate =>
+        > .background-align-left{
+        >     background-position : left;
+        > }
+        > .background-align-right{
+        >     background-position : right;
+        > }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 3.0.1
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Added `float-none@state`.
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 3.0.2
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Added custom tags and variables in scope when using `gridle_generate_custom_class`.
+    1.1 Can have unlimited replacement.
+    1.2 `%var_name` can be a pattern that gridle already use, but you cannot pass you own values.
+        1.2.1 `gridle_generate_custom_class(('%side'), all, (left right center))` would ignore the list.
+        1.2.2 `gridle_generate_custom_class(('%side', '%custom'), all, (left right center))` would apply the list on `%custom`.
+    1.3 The first `%var_name` is replaced by the first argument after `stateName` (all).
+        1.3.1 The second `%var_name` is replaced by the second argument after `stateName` (all). And so on.
+
+Example :
+
+    @include gridle_generate_custom_class(('text', '-', '%position', '@', '%state'), all, (left right center)){
+        text-align: map-get($gridle-scope, position);
+    }
+
+Generate :
+
+    .text-left {
+        text-align: left; }
+
+    .text-right {
+        text-align: right; }
+
+    .text-center {
+        text-align: center; }
+
+    @media screen and (max-width: 1400px) {
+        .text-left\@desktop {
+            text-align: left; }
+        .text-right\@desktop {
+            text-align: right; }
+        .text-center\@desktop {
+            text-align: center; } }
+
+    @media screen and (max-width: 767px) {
+        .text-left\@tablet {
+            text-align: left; }
+        .text-right\@tablet {
+            text-align: right; }
+        .text-center\@tablet {
+            text-align: center; } }
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 3.0.3
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Using push / pull on different states now work (reset left to auto).
+
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# 3.0.4
+# - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+1. Fix push  not reseting `right:auto;`

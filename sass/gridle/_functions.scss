@@ -92,7 +92,11 @@
 // @return 	List 				The processed list
 //
 @function list-shift($list) {
-	@return remove-nth($list,1);
+    @if(length($list)) == 0{
+        @return null;
+    }@else{
+    	@return remove-nth($list,1);
+    }
 }
 
 //
@@ -102,7 +106,11 @@
 // @return 	List 				The processed list
 //
 @function list-pop($list) {
-	@return remove-nth($list,length($list));
+    @if(length($list)) == 0{
+        @return null;
+    }@else{
+	    @return remove-nth($list,length($list));
+    }
 }
 
 //
@@ -180,6 +188,11 @@
 		@return gridle_current_state();
 	}
 
+    @if $stateMap-or-stateName == last and length($_gridle_states) != 0 {
+        $previous_state_name : nth(map-keys($_gridle_states), length($_gridle_states));
+        @return gridle_get_state($previous_state_name);
+    }
+
 	// check if has a state named like this
 	@if (type-of($stateMap-or-stateName) == string
 		and  map-has-key($_gridle_states, unquote("#{$stateMap-or-stateName}")))
@@ -244,9 +257,9 @@
 //
 // Get a variable
 //
-// @param 	String 		$varName 				The variable name
+// @param 	String 		$varName 				    The variable name
 // @param  	String 		$stateMap-or-stateName 	 	The state name or a map state value
-// @return 	Mixed 							The finded value
+// @return 	Mixed 							        The finded value
 //
 @function gridle_get_state_var(
 	$varName,
@@ -366,9 +379,9 @@
 //
 // Generate a column
 //
-// @param 	String 		$name 			The column name (often count)
-// @param 	int 		$columns 		The column count that the column will take
-// @param 	int 		$context 		The context on which the width will be calculed
+// @param 	String 		$name 			    The column name (often count)
+// @param 	int 		$columns 		    The column count that the column will take
+// @param 	int 		$context 		    The context on which the width will be calculed
 // @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
 //
 @function _gridle_create_column(
@@ -594,11 +607,11 @@
 			@if $values != null {
 				$sel : append($sel, _gridle_classname($for, $stateName, $values), comma);
 			} @else if index($pattern, '%column') {
-				@each $columnName, $column in gridle_get_columns() {
+				@each $columnName, $column in _gridle_get_pattern_values(column) {
 					$sel : append($sel, _gridle_classname($for, $stateName, $columnName), comma);
 				}
 			} @else if index($pattern, '%column-count') {
-				@for $i from 0 through length(gridle_get_columns()) {
+				@for $i from 0 through _gridle_get_pattern_values(column-count) {
 					$sel : append($sel, _gridle_classname($for, $stateName, $i), comma);
 				}
 				@if $for == flex-order {
@@ -606,24 +619,24 @@
 					$sel : append($sel, _gridle_classname($for, $stateName, last), comma);
 				}
 			} @else if index($pattern, '%align') {
-				@each $a in map-get($_gridle-names-tokens, align) {
+				@each $a in _gridle_get_pattern_values(align) {
 					$sel : append($sel, _gridle_classname($for, $stateName, $a), comma);
 				}
 			} @else if index($pattern, '%count') and $for == clear-each {
-				@each $idx, $clearEach in $_gridle_clear_classes {
+				@each $idx, $clearEach in _gridle_get_pattern_values(count) {
 					$count : map-get($clearEach, clearEach);
 					$sel : append($sel, _gridle_classname($for, $stateName, $count), comma);
 				}
 			} @else if index($pattern, '%side') {
-				@each $side in map-get($_gridle-names-tokens, side) {
+				@each $side in _gridle_get_pattern_values(side) {
 					$sel : append($sel, _gridle_classname($for, $stateName, $side), comma);
 				}
 			} @else if index($pattern, '%float') {
-				@each $float in map-get($_gridle-names-tokens, float) {
+				@each $float in _gridle_get_pattern_values(float) {
 					$sel : append($sel, _gridle_classname($for, $stateName, $float), comma);
 				}
 			} @else if index($pattern, '%reverse') {
-				@each $reverse in map-get($_gridle-names-tokens, reverse) {
+				@each $reverse in _gridle_get_pattern_values(reverse) {
 					$sel : append($sel, _gridle_classname($for, $stateName, $reverse), comma);
 				}
 			} @else {
@@ -638,7 +651,7 @@
 //
 // Generate classname
 //
-// @param 	List 		$parrern 	The pattern to use to generate classname
+// @param 	List 		$pattern 	The pattern to use to generate classname
 // @param 	String 		$state 		The state
 // @param 	int 		$count 		The column count
 //
@@ -647,6 +660,10 @@
 	$state : null,
 	$value : null
 ) {
+    // Set value to null if ignoring pattern
+    @if $value == ignore-pattern {
+        $value : null;
+    }
 
 	// get the pattern
 	$pattern : $for;
@@ -692,7 +709,9 @@
 					$removeSeparator : true;
 				}
 			}
-		}
+		} @else if $var == null {
+            $removeSeparator : true;
+        }
 	}
 
 	// clean selector
@@ -720,6 +739,85 @@
 
 	// return generated class :
 	@return unquote($sel);
+}
+
+//
+// Unmatched patterns
+//
+// @param 	List 		$pattern 	The pattern to use to generate classname
+// @return  Map                     Map of unmatched pattern index:pattern
+//
+@function _gridle_unmatched_patterns(
+	$pattern
+) {
+    $unmatched : ();
+
+    // Loop each partern
+	@for $i from length($pattern) through 1 {
+		$var : nth($pattern, $i);
+		@if $var and str-index($var, '%') == 1 {
+			$token : str-slice($var, 2);
+			// check that the value is part of the token
+			$tokens : map-get($_gridle-names-tokens, $token);
+			@if $tokens == null {
+                $unmatched : map-set($unmatched, $i, $var);
+			}
+		}
+	}
+
+    @return $unmatched;
+}
+
+//
+// matched patterns
+//
+// @param 	List 		$pattern 	The pattern to use to generate classname
+// @return  Map                     Map of matched pattern index:pattern
+//
+@function _gridle_matched_patterns(
+	$pattern
+) {
+    $matched : ();
+
+    // Loop each partern
+	@for $i from length($pattern) through 1 {
+		$var : nth($pattern, $i);
+		@if $var and str-index($var, '%') == 1 {
+			$token : str-slice($var, 2);
+			// check that the value is part of the token
+			$tokens : map-get($_gridle-names-tokens, $token);
+			@if $tokens != null {
+                $matched : map-set($matched, $i, $var);
+			}
+		}
+	}
+
+    @return $matched;
+}
+
+
+//
+// Get dynamic pattern values
+//
+// @param 	String 		$for 			Name of the token
+// @return 	Mixed 					    Values of the token
+//
+@function _gridle_get_pattern_values(
+    $for
+){
+    @if $for == column {
+        @return gridle_get_columns();
+    }
+
+    @if $for == column-count {
+        @return length(gridle_get_columns());
+    }
+
+    @if $for == count {
+        @return $_gridle_clear_classes;
+    }
+
+    @return map-get($_gridle-names-tokens, $for);
 }
 
 
@@ -806,7 +904,11 @@
 	$p : map-get($_gridle-packages, $package);
 	$sel : map-get($p, generic-selector);
 	@if $sel {
-		@return unquote($sel);
+        $list_sel : ();
+        @each $quoted_sel in $sel {
+            $list_sel : append($list_sel, unquote($quoted_sel));
+        }
+		@return $list_sel;
 	}
 	$sel : map-get($p, classname);
 	$generic : "";
