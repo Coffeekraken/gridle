@@ -13,11 +13,12 @@
 //
 @mixin gridle_generate_custom_class(
 	$pattern,
-	$statesNames : null
+	$statesNames : null,
+	$replacements...
 ) {
 	// manage states to generate :
 	$states : ();
-	@if $statesNames == null {
+	@if $statesNames == null or $statesNames == all {
 		// loop on each states to generate names list :
 		@each $stateName, $state in $_gridle_states {
 			$states : append($states, $stateName);
@@ -25,6 +26,30 @@
 	} @else {
 		$states : $statesNames;
 	}
+
+	// Get all pattern
+	$unmatched_patterns :  _gridle_unmatched_patterns($pattern);
+	$matched_patterns :  _gridle_matched_patterns($pattern);
+
+    // Adjust the replacement list length to be the same as unmatched_patterns
+    @while length( $unmatched_patterns ) != length( $replacements ) {
+        @if length( $unmatched_patterns ) < length( $replacements ) {
+            $replacements : list-pop($replacements);
+        }@else{
+            $replacements : append($replacements, (null));
+        }
+    }
+
+    // for each valid pattern, get replacement list
+    @each $index, $pattern in $matched_patterns {
+        @if $pattern == "%state" {
+            $matched_patterns : map-remove($matched_patterns, $index);
+        }@else{
+            $replacements : append($replacements, _gridle_get_pattern_values(str-slice($pattern, 2)));
+        }
+    }
+
+    $found_patterns : map-merge($unmatched_patterns, $matched_patterns);
 
 	// loop on each states :
 	@each $stateName in $states
@@ -41,8 +66,59 @@
 		@if $classes
 		{
 			@include gridle_state($stateName, false) {
-				#{_gridle_classname($pattern, $stateName)} {
-					@content;
+				$length_a:length($found_patterns);
+				$length_b:length($replacements);
+				@if $length_a > 0 and $length_a <= $length_b {
+					$list_indexes : ();
+					@for $i from 1 through $length_a {
+						$list_indexes : append($list_indexes, 1);
+					}
+
+					@while nth($list_indexes, 1) <= length( nth($replacements, 1) ){
+						$gridle-scope : () !global;
+						$replacement_pattern : $pattern;
+						$replaced_count : 0;
+
+						// Work the replacement
+						@each $index, $flag in $found_patterns {
+							$replaced_count : $replaced_count + 1;
+
+							$current_replacement : nth( $replacements, $replaced_count );
+							$current_index : nth($list_indexes, $replaced_count);
+
+							$replacement_pattern : set-nth( $replacement_pattern, $index, nth( $current_replacement, $current_index ) );
+
+							$var_name : str-slice($flag, 2);
+
+							$gridle-scope : map-set( $gridle-scope, $var_name, nth( $current_replacement, $current_index ) ) !global;
+						}
+
+						#{_gridle_classname($replacement_pattern, $stateName)} {
+							@content;
+						}
+
+						$gridle-scope : () !global;
+
+						// Add 1 to indexes
+						$break : false;
+						$current_iteration_index : length( $list_indexes ); // The last index
+						@while $break == false {
+							$list_indexes : set-nth( $list_indexes, $current_iteration_index, nth( $list_indexes, $current_iteration_index ) + 1 );
+
+							@if nth( $list_indexes, $current_iteration_index ) > length( nth( $replacements, $current_iteration_index ) )
+								and $current_iteration_index != 1 {
+								$list_indexes : set-nth( $list_indexes, $current_iteration_index, 1);
+
+								$current_iteration_index : $current_iteration_index - 1;
+							}@else{
+								$break : true;
+							}
+						}
+					}
+				}@else{
+					#{_gridle_classname($pattern, $stateName)} {
+						@content;
+					}
 				}
 			}
 		}
@@ -290,11 +366,11 @@
 	$statesCount : length($_gridle_states);
 	$i : 0;
 	@each $stateName, $state in $_gridle_states {
-	
+
 		$name : $stateName;
 
 		$gridle-settings-states : "#{$gridle-settings-states} \"#{$name}\":{";
-	
+
 		@each $varName, $var in $state {
 
 			$value : null;
@@ -327,7 +403,7 @@
 		} @else {
 			$gridle-settings-states : "#{$gridle-settings-states} },";
 		}
-	
+
 		// update i :
 		$i : $i + 1;
 
@@ -337,10 +413,10 @@
 	$gridle-settings-states : "#{$gridle-settings-states}}";
 	$gridle-settings : "{";
 	$gridle-settings : "#{$gridle-settings} \"version\" : \"#{$_gridle-version}\"";
-	
+
 	// states :
 	$gridle-settings : "#{$gridle-settings}, \"states\" : #{$gridle-settings-states}";
-	
+
 	// settings :
 	$gridle-settings : "#{$gridle-settings} }";
 	#gridle-settings {
@@ -377,7 +453,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	$states : all,
 	$package : all,
 	$has-parent : false
-) {	
+) {
 
 	// set that we are in generate phase (that can be used anywhere)
 	$_gridle_is_in_generate_phase : true !global;
@@ -423,7 +499,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		// | ------------------------
 		// | Windows 8 fix
 		// | ------------------------
-		
+
 		// Windows 8 fix for snap mode
 		@media screen and (max-width: 400px) {
 			@-ms-viewport { width: device-width; }
@@ -432,7 +508,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 		// | ------------------------
 		// | JSON Settings
 		// | ------------------------
-	 
+
 		// generate json settings
 		@if $gridle-generate-json-settings
 		{
@@ -456,7 +532,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 
 			// scope all the classes in a media query
 			@include gridle_state($state, false) {
-			
+
 				// generate all classes for columns
 				$i : 0;
 				@each $columnName, $column in gridle_get_columns($state) {
@@ -496,18 +572,18 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 					@if _gridle_need_to_generate(suffix, $package) {
 						#{_gridle_classname(suffix, $stateName, $columnName)} {
 							@include gridle_suffix($columnsCount, $columnsContext);
-						}   
+						}
 					}
 					@if _gridle_need_to_generate(order, $package) {
 						#{_gridle_classname(order, $stateName, first)} {
 							@include gridle_order(-1);
-						} 
+						}
 						#{_gridle_classname(order, $stateName, $i)} {
 							@include gridle_order($i);
-						}  
+						}
 						#{_gridle_classname(order, $stateName, last)} {
 							@include gridle_order(9999);
-						} 
+						}
 					}
 					// up $i
 					$i : $i + 1;
@@ -515,7 +591,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 
 				// media queries helpers classes
 				@include _gridle_generate_helper_classes($stateName, $package);
-	
+
 				// handle direction on body
 				body {
 					direction: gridle_get_state_var(direction);
