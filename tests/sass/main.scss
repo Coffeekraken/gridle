@@ -1,0 +1,49 @@
+@import "../../sass/gridle/gridle";// Import gridle
+
+
+// setup the grid (required)
+@include gridle_setup((
+	context : 12,
+	gutter-width : 20px,
+	// gutter-left : 20px,
+	// direction : rtl,
+	// dir-attribute : true,
+	states-classes : false,
+	// classes-prefix : 'gr-'
+));
+
+// register special columns
+@include gridle_register_column("1on5", 1, 5);
+
+
+// clear each classes
+@include gridle_register_clear_each(2, left);
+@include gridle_register_clear_each(3, left);
+@include gridle_register_clear_each(12, both);
+
+
+// register states
+// @include gridle_register_state( desktop, (
+//     max-width : 1400px,
+//     gutter-width : 30px
+// ));
+// @include gridle_register_state( tablet, (
+//     max-width : 767px,
+//     gutter-width : 10px
+// ));
+// @include gridle_register_state( mobile, (
+//     max-width : 500px,
+//     gutter-width : 50px
+// ));
+
+@include gridle_register_default_states();
+
+
+
+// Init Gridle
+@include gridle_generate_classes ();
+
+.test{
+    background : red;
+    height : 100px;
+}

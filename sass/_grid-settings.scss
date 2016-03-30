@@ -29,7 +29,8 @@
 @include gridle_register_state(ipad-landscape, (
 	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
 	gutter-height : 50px,
-	gutter-width : 30px
+	gutter-width : 30px,
+	extend : null,
 ));
 
 

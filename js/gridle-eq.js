@@ -14,7 +14,7 @@
      *
      * @constructor
      */
-    this.ResizeSensor = function(element, callback) {
+    var ResizeSensor = function(element, callback) {
         /**
          *
          * @constructor
@@ -64,8 +64,8 @@
 
             element.resizeSensor = document.createElement('div');
             element.resizeSensor.className = 'resize-sensor';
-            var style = 'position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: scroll; z-index: -1; visibility: hidden;';
-            var styleChild = 'position: absolute; left: 0; top: 0;';
+            var style = 'position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; z-index: -1; visibility: hidden;';
+            var styleChild = 'position: absolute; left: 0; top: 0; transition: 0s;';
 
             element.resizeSensor.style.cssText = style;
             element.resizeSensor.innerHTML =
@@ -115,25 +115,26 @@
                 }
             };
 
-            addEvent(expand, 'scroll', function() {
-                if (element.offsetWidth > lastWidth || element.offsetHeight > lastHeight) {
-                    changed();
-                }
-                reset();
-            });
+            var onScroll = function() {
+              if (element.offsetWidth != lastWidth || element.offsetHeight != lastHeight) {
+                  changed();
+              }
+              reset();
+            };
 
-            addEvent(shrink, 'scroll',function() {
-                if (element.offsetWidth < lastWidth || element.offsetHeight < lastHeight) {
-                    changed();
-                }
-                reset();
-            });
+            addEvent(expand, 'scroll', onScroll);
+            addEvent(shrink, 'scroll', onScroll);
         }
 
-        if ("[object Array]" === Object.prototype.toString.call(element)
+        var elementType = Object.prototype.toString.call(element);
+        var isCollectionTyped = ('[object Array]' === elementType
+            || ('[object NodeList]' === elementType)
+            || ('[object HTMLCollection]' === elementType)
             || ('undefined' !== typeof jQuery && element instanceof jQuery) //jquery
             || ('undefined' !== typeof Elements && element instanceof Elements) //mootools
-            ) {
+        );
+
+        if (isCollectionTyped) {
             var i = 0, j = element.length;
             for (; i < j; i++) {
                 attachResizeEvent(element[i], callback);
@@ -143,11 +144,18 @@
         }
 
         this.detach = function() {
-            ResizeSensor.detach(element);
+            if (isCollectionTyped) {
+                var i = 0, j = element.length;
+                for (; i < j; i++) {
+                    ResizeSensor.detach(element[i]);
+                }
+            } else {
+                ResizeSensor.detach(element);
+            }
         };
     };
 
-    this.ResizeSensor.detach = function(element) {
+    ResizeSensor.detach = function(element) {
         if (element.resizeSensor) {
             element.removeChild(element.resizeSensor);
             delete element.resizeSensor;
@@ -155,7 +163,16 @@
         }
     };
 
+    // make available to common module loader
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = ResizeSensor;
+    }
+    else {
+        window.ResizeSensor = ResizeSensor;
+    }
+
 })();
+
 /**
  * Copyright Marc J. Schmidt. See the LICENSE file at the top-level
  * directory of this distribution and at
@@ -163,6 +180,13 @@
  */
 ;
 (function() {
+
+    var ResizeSensor = window.ResizeSensor;
+
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        ResizeSensor = require('./ResizeSensor');
+    }
+
     /**
      *
      * @type {Function}
@@ -170,7 +194,7 @@
      */
     var ElementQueries = this.ElementQueries = function() {
 
-        this.withTracking = false;
+        var trackingActive = false;
         var elements = [];
 
         /**
@@ -281,6 +305,8 @@
                 }
 
                 for (var k in attributes) {
+                    if(!attributes.hasOwnProperty(k)) continue;
+
                     if (attrValues[attributes[k]]) {
                         this.element.setAttribute(attributes[k], attrValues[attributes[k]].substr(1));
                     } else {
@@ -306,7 +332,7 @@
             }
             element.elementQueriesSetupInformation.call();
 
-            if (this.withTracking) {
+            if (trackingActive && elements.indexOf(element) < 0) {
                 elements.push(element);
             }
         }
@@ -317,7 +343,15 @@
          * @param {String} property width|height
          * @param {String} value
          */
+        var allQueries = {};
         function queueQuery(selector, mode, property, value) {
+            if (typeof(allQueries[mode]) == 'undefined') allQueries[mode] = {};
+            if (typeof(allQueries[mode][property]) == 'undefined') allQueries[mode][property] = {};
+            if (typeof(allQueries[mode][property][value]) == 'undefined') allQueries[mode][property][value] = selector;
+            else allQueries[mode][property][value] += ','+selector;
+        }
+
+        function getQuery() {
             var query;
             if (document.querySelectorAll) query = document.querySelectorAll.bind(document);
             if (!query && 'undefined' !== typeof $$) query = $$;
@@ -327,27 +361,155 @@
                 throw 'No document.querySelectorAll, jQuery or Mootools\'s $$ found.';
             }
 
-            var elements = query(selector);
-            for (var i = 0, j = elements.length; i < j; i++) {
-                setupElement(elements[i], {
-                    mode: mode,
-                    property: property,
-                    value: value
-                });
+            return query;
+        }
+
+        /**
+         * Start the magic. Go through all collected rules (readRules()) and attach the resize-listener.
+         */
+        function findElementQueriesElements() {
+            var query = getQuery();
+
+            for (var mode in allQueries) if (allQueries.hasOwnProperty(mode)) {
+
+                for (var property in allQueries[mode]) if (allQueries[mode].hasOwnProperty(property)) {
+                    for (var value in allQueries[mode][property]) if (allQueries[mode][property].hasOwnProperty(value)) {
+                        var elements = query(allQueries[mode][property][value]);
+                        for (var i = 0, j = elements.length; i < j; i++) {
+                            setupElement(elements[i], {
+                                mode: mode,
+                                property: property,
+                                value: value
+                            });
+                        }
+                    }
+                }
+
             }
         }
 
-        var regex = /,?([^,\n]*)\[[\s\t]*(min|max)-(width|height)[\s\t]*[~$\^]?=[\s\t]*"([^"]*)"[\s\t]*]([^\n\s\{]*)/mgi;
+        /**
+         *
+         * @param {HTMLElement} element
+         */
+        function attachResponsiveImage(element) {
+            var children = [];
+            var rules = [];
+            var sources = [];
+            var defaultImageId = 0;
+            var lastActiveImage = -1;
+            var loadedImages = [];
 
+            for (var i in element.children) {
+                if(!element.children.hasOwnProperty(i)) continue;
+
+                if (element.children[i].tagName && element.children[i].tagName.toLowerCase() === 'img') {
+                    children.push(element.children[i]);
+
+                    var minWidth = element.children[i].getAttribute('min-width') || element.children[i].getAttribute('data-min-width');
+                    //var minHeight = element.children[i].getAttribute('min-height') || element.children[i].getAttribute('data-min-height');
+                    var src = element.children[i].getAttribute('data-src') || element.children[i].getAttribute('url');
+
+                    sources.push(src);
+
+                    var rule = {
+                        minWidth: minWidth
+                    };
+
+                    rules.push(rule);
+
+                    if (!minWidth) {
+                        defaultImageId = children.length - 1;
+                        element.children[i].style.display = 'block';
+                    } else {
+                        element.children[i].style.display = 'none';
+                    }
+                }
+            }
+
+            lastActiveImage = defaultImageId;
+
+            function check() {
+                var imageToDisplay = false, i;
+
+                for (i in children){
+                    if(!children.hasOwnProperty(i)) continue;
+
+                    if (rules[i].minWidth) {
+                        if (element.offsetWidth > rules[i].minWidth) {
+                            imageToDisplay = i;
+                        }
+                    }
+                }
+
+                if (!imageToDisplay) {
+                    //no rule matched, show default
+                    imageToDisplay = defaultImageId;
+                }
+
+                if (lastActiveImage != imageToDisplay) {
+                    //image change
+
+                    if (!loadedImages[imageToDisplay]){
+                        //image has not been loaded yet, we need to load the image first in memory to prevent flash of
+                        //no content
+
+                        var image = new Image();
+                        image.onload = function() {
+                            children[imageToDisplay].src = sources[imageToDisplay];
+
+                            children[lastActiveImage].style.display = 'none';
+                            children[imageToDisplay].style.display = 'block';
+
+                            loadedImages[imageToDisplay] = true;
+
+                            lastActiveImage = imageToDisplay;
+                        };
+
+                        image.src = sources[imageToDisplay];
+                    } else {
+                        children[lastActiveImage].style.display = 'none';
+                        children[imageToDisplay].style.display = 'block';
+                        lastActiveImage = imageToDisplay;
+                    }
+                } else {
+                    //make sure for initial check call the .src is set correctly
+                    children[imageToDisplay].src = sources[imageToDisplay];
+                }
+            }
+
+            element.resizeSensor = new ResizeSensor(element, check);
+            check();
+
+            if (trackingActive) {
+                elements.push(element);
+            }
+        }
+
+        function findResponsiveImages(){
+            var query = getQuery();
+
+            var elements = query('[data-responsive-image],[responsive-image]');
+            for (var i = 0, j = elements.length; i < j; i++) {
+                attachResponsiveImage(elements[i]);
+            }
+        }
+
+        var regex = /,?[\s\t]*([^,\n]*?)((?:\[[\s\t]*?(?:min|max)-(?:width|height)[\s\t]*?[~$\^]?=[\s\t]*?"[^"]*?"[\s\t]*?])+)([^,\n\s\{]*)/mgi;
+        var attrRegex = /\[[\s\t]*?(min|max)-(width|height)[\s\t]*?[~$\^]?=[\s\t]*?"([^"]*?)"[\s\t]*?]/mgi;
         /**
          * @param {String} css
          */
         function extractQuery(css) {
             var match;
+            var smatch;
             css = css.replace(/'/g, '"');
             while (null !== (match = regex.exec(css))) {
-                if (5 < match.length) {
-                    queueQuery(match[1] || match[5], match[2], match[3], match[4]);
+                smatch = match[1] + match[3];
+                attrs = match[2];
+
+                while (null !== (attrMatch = attrRegex.exec(attrs))) {
+                    queueQuery(smatch, attrMatch[1], attrMatch[2], attrMatch[3]);
                 }
             }
         }
@@ -381,6 +543,8 @@
             }
         }
 
+        var defaultCssInjected = false;
+
         /**
          * Searches all css rules and setups the event listener to all elements with element query rules..
          *
@@ -388,16 +552,28 @@
          *                               (no garbage collection possible if you don not call .detach() first)
          */
         this.init = function(withTracking) {
-            this.withTracking = withTracking;
+            trackingActive = typeof withTracking === 'undefined' ? false : withTracking;
+
             for (var i = 0, j = document.styleSheets.length; i < j; i++) {
                 try {
-                    readRules(document.styleSheets[i].cssText || document.styleSheets[i].cssRules || document.styleSheets[i].rules);
+                    readRules(document.styleSheets[i].cssRules || document.styleSheets[i].rules || document.styleSheets[i].cssText);
                 } catch(e) {
                     if (e.name !== 'SecurityError') {
                         throw e;
                     }
                 }
             }
+
+            if (!defaultCssInjected) {
+                var style = document.createElement('style');
+                style.type = 'text/css';
+                style.innerHTML = '[responsive-image] > img, [data-responsive-image] {overflow: hidden; padding: 0; } [responsive-image] > img, [data-responsive-image] > img { width: 100%;}';
+                document.getElementsByTagName('head')[0].appendChild(style);
+                defaultCssInjected = true;
+            }
+
+            findElementQueriesElements();
+            findResponsiveImages();
         };
 
         /**
@@ -406,14 +582,13 @@
          *                               (no garbage collection possible if you don not call .detach() first)
          */
         this.update = function(withTracking) {
-            this.withTracking = withTracking;
-            this.init();
+            this.init(withTracking);
         };
 
         this.detach = function() {
             if (!this.withTracking) {
                 throw 'withTracking is not enabled. We can not detach elements since we don not store it.' +
-                'Use ElementQueries.withTracking = true; before domready.';
+                'Use ElementQueries.withTracking = true; before domready or call ElementQueryes.update(true).';
             }
 
             var element;
@@ -441,12 +616,18 @@
      */
     ElementQueries.detach = function(element) {
         if (element.elementQueriesSetupInformation) {
+            //element queries
             element.elementQueriesSensor.detach();
             delete element.elementQueriesSetupInformation;
             delete element.elementQueriesSensor;
-            console.log('detached');
+
+        } else if (element.resizeSensor) {
+            //responsive image
+
+            element.resizeSensor.detach();
+            delete element.resizeSensor;
         } else {
-            console.log('detached already', element);
+            //console.log('detached already', element);
         }
     };
 
@@ -463,20 +644,20 @@
     var domLoaded = function (callback) {
         /* Internet Explorer */
         /*@cc_on
-        @if (@_win32 || @_win64)
-            document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
-            document.getElementById('ieScriptLoad').onreadystatechange = function() {
-                if (this.readyState == 'complete') {
-                    callback();
-                }
-            };
-        @end @*/
+         @if (@_win32 || @_win64)
+         document.write('<script id="ieScriptLoad" defer src="//:"><\/script>');
+         document.getElementById('ieScriptLoad').onreadystatechange = function() {
+         if (this.readyState == 'complete') {
+         callback();
+         }
+         };
+         @end @*/
         /* Mozilla, Chrome, Opera */
         if (document.addEventListener) {
             document.addEventListener('DOMContentLoaded', callback, false);
         }
         /* Safari, iCab, Konqueror */
-        if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
+        else if (/KHTML|WebKit|iCab/i.test(navigator.userAgent)) {
             var DOMLoadTimer = setInterval(function () {
                 if (/loaded|complete/i.test(document.readyState)) {
                     callback();
@@ -485,18 +666,22 @@
             }, 10);
         }
         /* Other web browsers */
-        window.onload = callback;
+        else window.onload = callback;
     };
 
-    if (window.addEventListener) {
-        window.addEventListener('load', ElementQueries.init, false);
-    } else {
-        window.attachEvent('onload', ElementQueries.init);
+    ElementQueries.listen = function() {
+        domLoaded(ElementQueries.init);
+    };
+
+    // make available to common module loader
+    if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+        module.exports = ElementQueries;
     }
-    domLoaded(ElementQueries.init);
-
+    else {
+        window.ElementQueries = ElementQueries;
+        ElementQueries.listen();
+    }
 })();
-
 
 /*
  * Gridle-eq.js

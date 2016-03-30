@@ -84,13 +84,45 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="no-gutter"] > .state-default .state-default .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter > .state-default .state-default .my-row {
+  margin-left: 0;
+  margin-right: 0;
 }
-[class*="no-gutter"] > .state-default .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter-left > .state-default .state-default .my-row {
+  margin-left: 0;
+}
+.no-gutter-right > .state-default .state-default .my-row {
+  margin-right: 0;
+}
+.gutter > .state-default .state-default .my-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .state-default .state-default .my-row {
+  margin-left: -10px;
+}
+.gutter-right > .state-default .state-default .my-row {
+  margin-right: -10px;
+}
+.no-gutter > .state-default .my-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.no-gutter-left > .state-default .my-row {
+  margin-left: 0;
+}
+.no-gutter-right > .state-default .my-row {
+  margin-right: 0;
+}
+.gutter > .state-default .my-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .state-default .my-row {
+  margin-left: -10px;
+}
+.gutter-right > .state-default .my-row {
+  margin-right: -10px;
 }
 .state-default .my-row {
   padding-left: 0 !important;
@@ -98,13 +130,45 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="no-gutter"] > .state-default .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter > .state-default .my-row {
+  margin-left: 0;
+  margin-right: 0;
 }
-[class*="no-gutter"] > .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter-left > .state-default .my-row {
+  margin-left: 0;
+}
+.no-gutter-right > .state-default .my-row {
+  margin-right: 0;
+}
+.gutter > .state-default .my-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .state-default .my-row {
+  margin-left: -10px;
+}
+.gutter-right > .state-default .my-row {
+  margin-right: -10px;
+}
+.no-gutter > .my-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+.no-gutter-left > .my-row {
+  margin-left: 0;
+}
+.no-gutter-right > .my-row {
+  margin-right: 0;
+}
+.gutter > .my-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .my-row {
+  margin-left: -10px;
+}
+.gutter-right > .my-row {
+  margin-right: -10px;
 }
 
 .my-grid-12 {
@@ -195,13 +259,45 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="no-gutter"] > .state-default .state-default .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter > .state-default .state-default .gallery {
+  margin-left: 0;
+  margin-right: 0;
 }
-[class*="no-gutter"] > .state-default .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter-left > .state-default .state-default .gallery {
+  margin-left: 0;
+}
+.no-gutter-right > .state-default .state-default .gallery {
+  margin-right: 0;
+}
+.gutter > .state-default .state-default .gallery {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .state-default .state-default .gallery {
+  margin-left: -10px;
+}
+.gutter-right > .state-default .state-default .gallery {
+  margin-right: -10px;
+}
+.no-gutter > .state-default .gallery {
+  margin-left: 0;
+  margin-right: 0;
+}
+.no-gutter-left > .state-default .gallery {
+  margin-left: 0;
+}
+.no-gutter-right > .state-default .gallery {
+  margin-right: 0;
+}
+.gutter > .state-default .gallery {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .state-default .gallery {
+  margin-left: -10px;
+}
+.gutter-right > .state-default .gallery {
+  margin-right: -10px;
 }
 .state-default .gallery {
   padding-left: 0 !important;
@@ -209,13 +305,45 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="no-gutter"] > .state-default .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter > .state-default .gallery {
+  margin-left: 0;
+  margin-right: 0;
 }
-[class*="no-gutter"] > .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
+.no-gutter-left > .state-default .gallery {
+  margin-left: 0;
+}
+.no-gutter-right > .state-default .gallery {
+  margin-right: 0;
+}
+.gutter > .state-default .gallery {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .state-default .gallery {
+  margin-left: -10px;
+}
+.gutter-right > .state-default .gallery {
+  margin-right: -10px;
+}
+.no-gutter > .gallery {
+  margin-left: 0;
+  margin-right: 0;
+}
+.no-gutter-left > .gallery {
+  margin-left: 0;
+}
+.no-gutter-right > .gallery {
+  margin-right: 0;
+}
+.gutter > .gallery {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.gutter-left > .gallery {
+  margin-left: -10px;
+}
+.gutter-right > .gallery {
+  margin-right: -10px;
 }
 
 .gallery__item {

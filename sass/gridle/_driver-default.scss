@@ -27,17 +27,38 @@
 		margin-left: -#{gridle_get_state_var(gutter-left)};
 		margin-right: -#{gridle_get_state_var(gutter-right)};
 		// font-size:0; // to avoid problems with inline-block margins
-	
-		#{_gridle_get_generic_selector(no-gutter)} > & {
-			margin-left: 0 !important;
-			margin-right: 0 !important;
+
+		#{_gridle_classname(no-gutter, gridle_current_state_name())} > & {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		#{_gridle_classname(no-gutter, gridle_current_state_name(), left)} > & {
+			margin-left: 0;
+		}
+
+		#{_gridle_classname(no-gutter, gridle_current_state_name(), right)} > & {
+			margin-right: 0;
+		}
+
+		#{_gridle_classname(gutter, gridle_current_state_name())} > & {
+			margin-left: -#{gridle_get_state_var(gutter-left)};
+			margin-right: -#{gridle_get_state_var(gutter-right)};
+		}
+
+		#{_gridle_classname(gutter, gridle_current_state_name(), left)} > & {
+			margin-left: -#{gridle_get_state_var(gutter-left)};
+		}
+
+		#{_gridle_classname(gutter, gridle_current_state_name(), right)} > & {
+			margin-right: -#{gridle_get_state_var(gutter-right)};
 		}
 
 		// do this only when not in generate phase
 		// mean that we use the mixin directly
 		@if _gridle_is_in_generate_phase() == false {
 			@each $stateName, $state in gridle_get_states() {
-				@include gridle_state($state) {	
+				@include gridle_state($state) {
 					& #{str-replace(unquote("#{&}"),".state-#{gridle_get_state_var(name, $state)}","")} {
 						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
 						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
@@ -70,7 +91,7 @@
 		// mean that we use the mixin directly
 		@if _gridle_is_in_generate_phase() == false {
 			@each $stateName, $state in gridle_get_states() {
-				@include gridle_state($state) {	
+				@include gridle_state($state) {
 					& #{str-replace(#{&},".state-#{gridle_get_state_var(name, $state)}","")} {
 						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
 						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
@@ -122,7 +143,7 @@
 ) {
 	// vars
 	$direction : gridle_get_state_var(direction, $state);
-	
+
 	// css
 	display:inline-block;
 	min-height:1px;
@@ -149,7 +170,7 @@
 			float: left;
 		}
 	}
-	
+
 }
 @mixin gridle_grid(
 	$columns,
@@ -160,7 +181,7 @@
 	} @else if $columns == adapt {
 		@include gridle_grid_adapt();
 	} @else {
-		
+
 		@include _gridle_call(grid) {
 
 			// vars
@@ -322,7 +343,7 @@
 	box-sizing: border-box;
 	font-size: 1rem;
 	@include gridle_gutter();
-	
+
 }
 @mixin gridle_grid_grow(
 ) {
@@ -359,13 +380,15 @@
 ) {
 	@include _gridle_call(clear-each) {
 		$grid : map-get($_gridle-packages, grid);
-		$sel : map-get($grid, generic-selector);
-		@if not $sel {
-			$sel : _gridle_get_generic_selector(grid);
+		$sels : map-get($grid, generic-selector);
+		@if not $sels {
+			$sels : _gridle_get_generic_selector(grid);
 		}
 
-		> #{$sel}:nth-of-type(#{$clearEach}n+1) {
-			clear : $clearWhat;
+		@each $sel in $sels{
+			> #{$sel}:nth-of-type(#{$clearEach}n+1) {
+				clear : $clearWhat;
+			}
 		}
 	}
 }
@@ -404,7 +427,7 @@
 					}
 				}
 			}
-		} 
+		}
 
 		@each $a in $align {
 			@if $a == left {
