@@ -39,8 +39,9 @@
 
 
 
-@include gridle_generate_custom_class(('no-margin', '-', '%hello', '-', '%side', '@', '%state'), all){
+@include gridle_generate_custom_class(('no-margin', '-', '%hello', '-', '%side', '@', '%state'), all, (test ok good)){
     $side : map-get($gridle-scope, side);
+	@debug($gridle-scope);
 
     @if($side == null){
         margin : 0;
