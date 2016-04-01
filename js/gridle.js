@@ -1,50 +1,3 @@
-/*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license */
-
-window.matchMedia || (window.matchMedia = function() {
-    "use strict";
-
-    // For browsers that support matchMedium api such as IE 9 and webkit
-    var styleMedia = (window.styleMedia || window.media);
-
-    // For those that don't support matchMedium
-    if (!styleMedia) {
-        var style       = document.createElement('style'),
-            script      = document.getElementsByTagName('script')[0],
-            info        = null;
-
-        style.type  = 'text/css';
-        style.id    = 'matchmediajs-test';
-
-        script.parentNode.insertBefore(style, script);
-
-        // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
-        info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
-
-        styleMedia = {
-            matchMedium: function(media) {
-                var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
-
-                // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
-                if (style.styleSheet) {
-                    style.styleSheet.cssText = text;
-                } else {
-                    style.textContent = text;
-                }
-
-                // Test if media query is true or false
-                return info.width === '1px';
-            }
-        };
-    }
-
-    return function(media) {
-        return {
-            matches: styleMedia.matchMedium(media || 'all'),
-            media: media || 'all'
-        };
-    };
-}());
-
 
 /*
  * Gridle.js
@@ -69,7 +22,7 @@ window.matchMedia || (window.matchMedia = function() {
   /*
   	Little smokesignals implementation
    */
-  var domLoaded, smokesignals, _domLoaded;
+  var _domLoaded, domLoaded, smokesignals;
   smokesignals = {
     convert: function(obj, handlers) {
       handlers = {};
@@ -78,13 +31,13 @@ window.matchMedia || (window.matchMedia = function() {
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, _i, _len, _ref;
+        var handler, k, len, ref;
         if (!handlers[eventName]) {
           return;
         }
-        _ref = handlers[eventName];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          handler = _ref[_i];
+        ref = handlers[eventName];
+        for (k = 0, len = ref.length; k < len; k++) {
+          handler = ref[k];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
           continue;
         }
@@ -113,31 +66,21 @@ window.matchMedia || (window.matchMedia = function() {
     resizeTimeout: null,
     _settings: {
       onUpdate: null,
-      debug: null
+      debug: null,
+      ignoredStates: []
     },
 
     /*
     		Init
      */
     init: function(settings) {
-      var _ref, _ref1;
+      var default_index;
       this._inited = true;
-      if (settings != null) {
-        this._settings = settings;
+      if (((settings != null ? settings.ignoredStates : void 0) != null) && (default_index = settings.ignoredStates.indexOf('default')) > -1) {
+        settings.ignoredStates.splice(default_index, 1);
       }
-      if (settings && (settings.debug != null)) {
-                if ((_ref = this._settings.debug) != null) {
-          _ref;
-        } else {
-          settings.debug;
-        };
-      }
-      if (settings && (settings.onStatesChange != null)) {
-                if ((_ref1 = this._settings.onStatesChange) != null) {
-          _ref1;
-        } else {
-          settings.onStatesChange;
-        };
+      if (settings) {
+        this._settings = this._extend(this._settings, settings);
       }
       this._debug('waiting for content to be fully loaded');
       return domLoaded((function(_this) {
@@ -148,10 +91,22 @@ window.matchMedia || (window.matchMedia = function() {
     },
 
     /*
+    		Extending object function
+     */
+    _extend: function(object, properties) {
+      var key, val;
+      for (key in properties) {
+        val = properties[key];
+        object[key] = val;
+      }
+      return object;
+    },
+
+    /*
     		Load and parse css
      */
     _parseCss: function() {
-      var e, i, idx, j, rule, rules, settings, settings_found;
+      var e, error, i, idx, j, rule, rules, settings, settings_found;
       i = 0;
       j = document.styleSheets.length;
       settings_found = false;
@@ -187,8 +142,8 @@ window.matchMedia || (window.matchMedia = function() {
               }
             }
           }
-        } catch (_error) {
-          e = _error;
+        } catch (error) {
+          e = error;
           if (e.name !== 'SecurityError') {
             throw e;
           }
@@ -206,12 +161,14 @@ window.matchMedia || (window.matchMedia = function() {
     		Process finded states
      */
     _processFindedStates: function() {
-      var name, query, _ref;
+      var name, query, ref;
       this._debug('begin process finded states in css');
-      _ref = this._statesInCss;
-      for (name in _ref) {
-        query = _ref[name];
-        this._registerState(name, query);
+      ref = this._statesInCss;
+      for (name in ref) {
+        query = ref[name];
+        if (this._settings.ignoredStates.indexOf(name) === -1) {
+          this._registerState(name, query);
+        }
       }
       return this._launch();
     },
@@ -273,7 +230,7 @@ window.matchMedia || (window.matchMedia = function() {
     		Update states status
      */
     _updateStatesStatus: function() {
-      var defaultState, defaultStateIdx, key, state, wasDefault, _ref;
+      var defaultState, defaultStateIdx, key, ref, state, wasDefault;
       defaultState = this.getDefaultState();
       defaultStateIdx = this._states.indexOf(defaultState);
       wasDefault = defaultState.status;
@@ -283,9 +240,9 @@ window.matchMedia || (window.matchMedia = function() {
       this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
-      _ref = this._states;
-      for (key in _ref) {
-        state = _ref[key];
+      ref = this._states;
+      for (key in ref) {
+        state = ref[key];
         if (!state.updateOnResize) {
           continue;
         }
@@ -413,10 +370,10 @@ window.matchMedia || (window.matchMedia = function() {
     		Get default state
      */
     getDefaultState: function() {
-      var state, _i, _len, _ref;
-      _ref = this.getRegisteredStates();
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        state = _ref[_i];
+      var k, len, ref, state;
+      ref = this.getRegisteredStates();
+      for (k = 0, len = ref.length; k < len; k++) {
+        state = ref[k];
         if (state.name === 'default') {
           return state;
         }
@@ -476,11 +433,11 @@ window.matchMedia || (window.matchMedia = function() {
     		Check is a state is active
      */
     isActive: function(stateName) {
-      var index, isActive, name, _ref;
+      var index, isActive, name, ref;
       isActive = false;
-      _ref = this._activeStatesNames;
-      for (index in _ref) {
-        name = _ref[index];
+      ref = this._activeStatesNames;
+      for (index in ref) {
+        name = ref[index];
         if (stateName === name) {
           isActive = true;
         }
@@ -513,6 +470,11 @@ window.matchMedia || (window.matchMedia = function() {
     var _loaded;
     _loaded = function(callback) {
       if (_domLoaded) {
+        callback();
+        return;
+      }
+      if (document.readyState === 'complete') {
+        _domLoaded = true;
         callback();
         return;
       }
@@ -579,11 +541,6 @@ window.matchMedia || (window.matchMedia = function() {
       }
     }, 500);
   });
-  if (typeof window.define === 'function' && window.define.amd) {
-    window.define([], function() {
-      return window.Gridle;
-    });
-  }
   return Gridle;
 });
 

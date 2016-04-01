@@ -76,6 +76,7 @@
 		_settings :
 			onUpdate : null
 			debug : null
+			ignoredStates : []
 
 		###
 		Init
@@ -86,14 +87,24 @@
 			@_inited = true
 
 			# process settings
-			@_settings = settings if settings?
-			@_settings.debug ? settings.debug if settings and settings.debug?
-			@_settings.onStatesChange ? settings.onStatesChange if settings and settings.onStatesChange?
+			if settings?.ignoredStates? and (default_index = settings.ignoredStates.indexOf 'default') > -1
+				settings.ignoredStates.splice default_index, 1
+
+			@_settings = @_extend @_settings, settings if settings
+
 
 			@_debug 'waiting for content to be fully loaded'
 
 			domLoaded () =>
 				@_parseCss()
+
+		###
+		Extending object function
+		###
+		_extend : (object, properties) ->
+			for key, val of properties
+				object[key] = val
+			object
 
 		###
 		Load and parse css
@@ -135,7 +146,7 @@
 				catch e
 					if e.name != 'SecurityError'
 						throw e
-				i++	
+				i++
 
 			# process states
 			if @_statesInCss
@@ -153,8 +164,10 @@
 			# loop on each states
 			for name, query of @_statesInCss
 
-				# register a state
-				@_registerState name, query
+				if @_settings.ignoredStates.indexOf(name) == -1
+					# register a state
+					@_registerState name, query
+
 
 			# launch the app
 			@_launch()
@@ -264,7 +277,7 @@
 				# the state is not active
 				else if state.name != 'default'
 
-					# check is status has changed 
+					# check is status has changed
 					if @_states[key].status
 
 						# add state in changed ones
@@ -468,6 +481,11 @@
 				callback()
 				return
 
+			if document.readyState is 'complete'
+				_domLoaded = true
+				callback()
+				return
+
 			`/* Internet Explorer */
 			/*@cc_on
 			@if (@_win32 || @_win64)
@@ -522,10 +540,6 @@
 		setTimeout ->
 			Gridle.init() if not Gridle._inited
 		, 500
-
-	# support AMD
-	if typeof window.define is 'function' && window.define.amd
-		window.define [], -> window.Gridle
 
 	# return the gridle object
 	Gridle
