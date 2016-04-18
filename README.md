@@ -202,7 +202,9 @@ That's not finished. Gridle offer you a lot of features and advanced settings th
 
 |    | Generator |  Version  |
 | ------------- | ------------- | ------------- |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" height="20" />  |  Sass  |  3.4.18  |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" height="20" />  |  Grunt Sass  |  1.0.0  |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" height="20" />  |  Gulp Sass  |  2.2.0  |
+| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" height="20" />  |  Node Sass  |  3.4.2  |
 | <img src="http://www.codingpedia.org/wp-content/uploads/2014/04/gulp-2x.png" height="30" />  |  Gulp  | 3.9.0  |
 | <img src="https://www.npmjs.com/static/images/npm-logo.svg" height="20" />  |  NPM  | 2.5.1  |
 | <img src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23114/preview_image/libsass.png" height="20" />  |  Libsass  | 3.3.3  |
