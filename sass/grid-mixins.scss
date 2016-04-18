@@ -19,7 +19,7 @@
 	@include gridle(12);
 }
 .my-grid-6 {
-	@include gridle(6);
+	@include gridle(6 tablet no-gutter);
 }
 
 #site_header,

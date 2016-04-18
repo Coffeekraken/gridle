@@ -129,7 +129,7 @@ body {
   padding-left: 10px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apug2 .state-ug11apufk .module > .header, .state-ug11apufk .module > .header, .state-ug11apuj3 .state-ug11apufk .module > .login, .state-ug11apufk .module > .login, .state-ug11aput6 .module > .header, .module > .header, .state-ug11apuvf .module > .login, .module > .login, .state-default #myCoolItem, #myCoolItem {
+  .state-u1dux03ym .state-u1dux03wz .module > .header, .state-u1dux03wz .module > .header, .state-u1dux0414 .state-u1dux03wz .module > .login, .state-u1dux03wz .module > .login, .state-u1dux04b4 .module > .header, .module > .header, .state-u1dux04dz .module > .login, .module > .login, .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -141,7 +141,7 @@ body {
     padding-left: 10px;
   }
 }
-.state-tablet .state-ug11apug2 .state-ug11apufk .module > .header, .state-tablet .state-ug11apufk .module > .header, .state-tablet .state-ug11apuj3 .state-ug11apufk .module > .login, .state-tablet .state-ug11apufk .module > .login, .state-tablet .state-ug11aput6 .module > .header, .state-tablet .module > .header, .state-tablet .state-ug11apuvf .module > .login, .state-tablet .module > .login, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+.state-tablet .state-u1dux03ym .state-u1dux03wz .module > .header, .state-tablet .state-u1dux03wz .module > .header, .state-tablet .state-u1dux0414 .state-u1dux03wz .module > .login, .state-tablet .state-u1dux03wz .module > .login, .state-tablet .state-u1dux04b4 .module > .header, .state-tablet .module > .header, .state-tablet .state-u1dux04dz .module > .login, .state-tablet .module > .login, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
   display: inline-block;
   min-height: 1px;
   float: left;
@@ -181,27 +181,65 @@ body {
   margin-left: -10px;
   margin-right: -10px;
 }
-.state-ug11apufk .module {
+.state-u1dux03wz .module {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="no-gutter"] > .state-ug11apufk .module {
+[class*="no-gutter"] > .state-u1dux03wz .module {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.state-ug11apufk .module:before, .state-ug11apufk .module:after {
+.state-default .state-u1dux03wz .module .state-u1dux03wz .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-u1dux03wz .module .state-u1dux03wz .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .state-u1dux03wz .module .state-u1dux03wz .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .state-u1dux03wz .module .state-u1dux03wz .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .state-u1dux03wz .module .state-u1dux03wz .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-u1dux03wz .module .state-u1dux03wz .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module .state-u1dux03wz .module {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module .state-u1dux03wz .module {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+}
+.state-u1dux03wz .module:before, .state-u1dux03wz .module:after {
   content: "";
   display: table;
 }
-.state-ug11apufk .module:after {
+.state-u1dux03wz .module:after {
   clear: both;
 }
-.state-ug11apufk .module {
+.state-u1dux03wz .module {
   zoom: 1;
 }
-.state-ug11apufk .module > .header {
+.state-u1dux03wz .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -214,7 +252,7 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11apug2 .state-ug11apufk .module > .header {
+.state-u1dux03ym .state-u1dux03wz .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -227,7 +265,7 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11apugw .state-ug11apug2 .state-ug11apufk .module > .header {
+.state-u1dux03zq .state-u1dux03ym .state-u1dux03wz .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -240,17 +278,89 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-tablet .state-ug11apug2 .state-ug11apufk .module > .header {
+.state-ipad-landscape .state-u1dux03zq .state-u1dux03ym .state-u1dux03wz .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03zq .state-u1dux03ym .state-u1dux03wz .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux03zq .state-u1dux03ym .state-u1dux03wz .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03zq .state-u1dux03ym .state-u1dux03wz .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux03ym .state-u1dux03wz .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03ym .state-u1dux03wz .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux03ym .state-u1dux03wz .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03ym .state-u1dux03wz .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux03ym .state-u1dux03wz .module > .header {
   width: 40%;
   margin-left: 10%;
 }
+.state-ipad-landscape .state-tablet .state-u1dux03ym .state-u1dux03wz .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux03ym .state-u1dux03wz .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux03ym .state-u1dux03wz .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux03ym .state-u1dux03wz .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apug2 .state-ug11apufk .module > .header {
+  .state-u1dux03ym .state-u1dux03wz .module > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-ug11apui3 .state-ug11apufk .module > .header {
+.state-u1dux040n .state-u1dux03wz .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -263,17 +373,89 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-tablet .state-ug11apufk .module > .header {
+.state-ipad-landscape .state-u1dux040n .state-u1dux03wz .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux040n .state-u1dux03wz .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux040n .state-u1dux03wz .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux040n .state-u1dux03wz .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux03wz .module > .header {
   width: 40%;
   margin-left: 10%;
 }
+.state-ipad-landscape .state-tablet .state-u1dux03wz .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux03wz .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux03wz .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux03wz .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apufk .module > .header {
+  .state-u1dux03wz .module > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-ug11apufk .module > .login {
+.state-u1dux03wz .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -285,7 +467,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuj3 .state-ug11apufk .module > .login {
+.state-u1dux0414 .state-u1dux03wz .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -297,7 +479,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apujy .state-ug11apuj3 .state-ug11apufk .module > .login {
+.state-u1dux041y .state-u1dux0414 .state-u1dux03wz .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -309,15 +491,87 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-tablet .state-ug11apuj3 .state-ug11apufk .module > .login {
+.state-ipad-landscape .state-u1dux041y .state-u1dux0414 .state-u1dux03wz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux041y .state-u1dux0414 .state-u1dux03wz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux041y .state-u1dux0414 .state-u1dux03wz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux041y .state-u1dux0414 .state-u1dux03wz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux0414 .state-u1dux03wz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux0414 .state-u1dux03wz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux0414 .state-u1dux03wz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux0414 .state-u1dux03wz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux0414 .state-u1dux03wz .module > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
+.state-ipad-landscape .state-tablet .state-u1dux0414 .state-u1dux03wz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux0414 .state-u1dux03wz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux0414 .state-u1dux03wz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux0414 .state-u1dux03wz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apuj3 .state-ug11apufk .module > .login {
+  .state-u1dux0414 .state-u1dux03wz .module > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -325,7 +579,7 @@ body {
     padding-left: 0;
   }
 }
-.state-ug11apul1 .state-ug11apufk .module > .login {
+.state-u1dux042q .state-u1dux03wz .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -337,15 +591,87 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-tablet .state-ug11apufk .module > .login {
+.state-ipad-landscape .state-u1dux042q .state-u1dux03wz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux042q .state-u1dux03wz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux042q .state-u1dux03wz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux042q .state-u1dux03wz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux03wz .module > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
+.state-ipad-landscape .state-tablet .state-u1dux03wz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux03wz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux03wz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux03wz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apufk .module > .login {
+  .state-u1dux03wz .module > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -353,7 +679,7 @@ body {
     padding-left: 0;
   }
 }
-.state-ug11apufk .module > .content {
+.state-u1dux03wz .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -365,7 +691,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuma .state-ug11apufk .module > .content {
+.state-u1dux043x .state-u1dux03wz .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -377,7 +703,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apumz .state-ug11apuma .state-ug11apufk .module > .content {
+.state-u1dux044t .state-u1dux043x .state-u1dux03wz .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -389,7 +715,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apunh .state-ug11apufk .module > .content {
+.state-ipad-landscape .state-u1dux044t .state-u1dux043x .state-u1dux03wz .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux044t .state-u1dux043x .state-u1dux03wz .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux044t .state-u1dux043x .state-u1dux03wz .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux044t .state-u1dux043x .state-u1dux03wz .module > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux043x .state-u1dux03wz .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux043x .state-u1dux03wz .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux043x .state-u1dux03wz .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux043x .state-u1dux03wz .module > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux045o .state-u1dux03wz .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -401,7 +775,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apufk .module > .sidebar {
+.state-ipad-landscape .state-u1dux045o .state-u1dux03wz .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux045o .state-u1dux03wz .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux045o .state-u1dux03wz .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux045o .state-u1dux03wz .module > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux03wz .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -413,7 +835,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuo9 .state-ug11apufk .module > .sidebar {
+.state-u1dux046i .state-u1dux03wz .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -425,7 +847,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuon .state-ug11apuo9 .state-ug11apufk .module > .sidebar {
+.state-u1dux046z .state-u1dux046i .state-u1dux03wz .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -437,7 +859,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apupj .state-ug11apufk .module > .sidebar {
+.state-ipad-landscape .state-u1dux046z .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux046z .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux046z .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux046z .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux046i .state-u1dux03wz .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux047y .state-u1dux03wz .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -449,7 +919,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apufk .module > .footer {
+.state-ipad-landscape .state-u1dux047y .state-u1dux03wz .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux047y .state-u1dux03wz .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux047y .state-u1dux03wz .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux047y .state-u1dux03wz .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux03wz .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -461,7 +979,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuqe .state-ug11apufk .module > .footer {
+.state-u1dux048i .state-u1dux03wz .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -473,7 +991,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apur9 .state-ug11apuqe .state-ug11apufk .module > .footer {
+.state-u1dux049a .state-u1dux048i .state-u1dux03wz .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -485,7 +1003,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apus2 .state-ug11apufk .module > .footer {
+.state-ipad-landscape .state-u1dux049a .state-u1dux048i .state-u1dux03wz .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux049a .state-u1dux048i .state-u1dux03wz .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux049a .state-u1dux048i .state-u1dux03wz .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux049a .state-u1dux048i .state-u1dux03wz .module > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux048i .state-u1dux03wz .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux048i .state-u1dux03wz .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux048i .state-u1dux03wz .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux048i .state-u1dux03wz .module > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux049x .state-u1dux03wz .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -496,10 +1062,96 @@ body {
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux049x .state-u1dux03wz .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux049x .state-u1dux03wz .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux049x .state-u1dux03wz .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux049x .state-u1dux03wz .module > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux03wz .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux03wz .module > .footer {
+    direction: rtl;
+    float: right;
+  }
 }
 [class*="no-gutter"] > .module {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+.state-default .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .module .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .module .module {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .module .module {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .module .module {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module .module {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
 }
 .module:before, .module:after {
   content: "";
@@ -524,7 +1176,7 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11aput6 .module > .header {
+.state-u1dux04b4 .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -537,7 +1189,7 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11aputg .state-ug11aput6 .module > .header {
+.state-u1dux04by .state-u1dux04b4 .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -550,17 +1202,89 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-tablet .state-ug11aput6 .module > .header {
+.state-ipad-landscape .state-u1dux04by .state-u1dux04b4 .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04by .state-u1dux04b4 .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04by .state-u1dux04b4 .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04by .state-u1dux04b4 .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04b4 .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04b4 .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04b4 .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04b4 .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux04b4 .module > .header {
   width: 40%;
   margin-left: 10%;
 }
+.state-ipad-landscape .state-tablet .state-u1dux04b4 .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04b4 .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux04b4 .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04b4 .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11aput6 .module > .header {
+  .state-u1dux04b4 .module > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-ug11apuu8 .module > .header {
+.state-u1dux04cx .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -573,9 +1297,81 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
+.state-ipad-landscape .state-u1dux04cx .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04cx .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04cx .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04cx .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-tablet .module > .header {
   width: 40%;
   margin-left: 10%;
+}
+.state-ipad-landscape .state-tablet .module > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .module > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .module > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .module > .header {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .module > .header {
@@ -595,7 +1391,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuvf .module > .login {
+.state-u1dux04dz .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -607,7 +1403,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuvw .state-ug11apuvf .module > .login {
+.state-u1dux04f2 .state-u1dux04dz .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -619,15 +1415,87 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-tablet .state-ug11apuvf .module > .login {
+.state-ipad-landscape .state-u1dux04f2 .state-u1dux04dz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04f2 .state-u1dux04dz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04f2 .state-u1dux04dz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04f2 .state-u1dux04dz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04dz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04dz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04dz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04dz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux04dz .module > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
+.state-ipad-landscape .state-tablet .state-u1dux04dz .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04dz .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux04dz .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04dz .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apuvf .module > .login {
+  .state-u1dux04dz .module > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -635,7 +1503,7 @@ body {
     padding-left: 0;
   }
 }
-.state-ug11apuwz .module > .login {
+.state-u1dux04fy .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -647,12 +1515,84 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
+.state-ipad-landscape .state-u1dux04fy .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04fy .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04fy .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04fy .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-tablet .module > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
+}
+.state-ipad-landscape .state-tablet .module > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .module > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .module > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .module > .login {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .module > .login {
@@ -675,7 +1615,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuxz .module > .content {
+.state-u1dux04gr .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -687,7 +1627,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuyp .state-ug11apuxz .module > .content {
+.state-u1dux04hf .state-u1dux04gr .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -699,7 +1639,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apuze .module > .content {
+.state-ipad-landscape .state-u1dux04hf .state-u1dux04gr .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04hf .state-u1dux04gr .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04hf .state-u1dux04gr .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04hf .state-u1dux04gr .module > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04gr .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04gr .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04gr .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04gr .module > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux04ii .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -710,6 +1698,54 @@ body {
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux04ii .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04ii .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04ii .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04ii .module > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .module > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .module > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .content {
+    direction: rtl;
+    float: right;
+  }
 }
 .module > .sidebar {
   width: 20%;
@@ -723,7 +1759,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv09 .module > .sidebar {
+.state-u1dux04je .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -735,7 +1771,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv13 .state-ug11apv09 .module > .sidebar {
+.state-u1dux04k7 .state-u1dux04je .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -747,7 +1783,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv27 .module > .sidebar {
+.state-ipad-landscape .state-u1dux04k7 .state-u1dux04je .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04k7 .state-u1dux04je .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04k7 .state-u1dux04je .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04k7 .state-u1dux04je .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04je .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04je .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04je .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04je .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux04kw .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -758,6 +1842,54 @@ body {
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux04kw .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04kw .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04kw .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04kw .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .module > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .module > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .sidebar {
+    direction: rtl;
+    float: right;
+  }
 }
 .module > .footer {
   width: 100%;
@@ -771,7 +1903,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv39 .module > .footer {
+.state-u1dux04ln .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -783,7 +1915,7 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv3x .state-ug11apv39 .module > .footer {
+.state-u1dux04mh .state-u1dux04ln .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -795,7 +1927,55 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv4q .module > .footer {
+.state-ipad-landscape .state-u1dux04mh .state-u1dux04ln .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04mh .state-u1dux04ln .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04mh .state-u1dux04ln .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04mh .state-u1dux04ln .module > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04ln .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04ln .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04ln .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04ln .module > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux04n9 .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -806,6 +1986,54 @@ body {
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux04n9 .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04n9 .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04n9 .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04n9 .module > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .module > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .module > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .module > .footer {
+    direction: rtl;
+    float: right;
+  }
 }
 
 /**
@@ -1080,24 +2308,100 @@ pre {
 #myCoolItem {
   width: 66.66666667%;
   left: 16.66666667%;
+  right: auto;
 }
 .state-default #myCoolItem {
   width: 66.66666667%;
   left: 16.66666667%;
+  right: auto;
+}
+.state-ipad-landscape .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default #myCoolItem {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default #myCoolItem {
+    direction: rtl;
+    float: right;
+  }
 }
 .state-tablet .state-default #myCoolItem {
   width: 100%;
   left: 0%;
+  right: auto;
+}
+.state-ipad-landscape .state-tablet .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-default #myCoolItem {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default #myCoolItem {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .state-default #myCoolItem {
     width: 100%;
     left: 0%;
+    right: auto;
   }
 }
 .state-mobile .state-default #myCoolItem {
   width: 100%;
   visibility: hidden;
+}
+.state-ipad-landscape .state-mobile .state-default #myCoolItem {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default #myCoolItem {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .state-default #myCoolItem {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default #myCoolItem {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .state-default #myCoolItem {
@@ -1105,19 +2409,93 @@ pre {
     visibility: hidden;
   }
 }
+.state-ipad-landscape #myCoolItem {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #myCoolItem {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape #myCoolItem {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  #myCoolItem {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-tablet #myCoolItem {
   width: 100%;
   left: 0%;
+  right: auto;
+}
+.state-ipad-landscape .state-tablet #myCoolItem {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet #myCoolItem {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet #myCoolItem {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet #myCoolItem {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   #myCoolItem {
     width: 100%;
     left: 0%;
+    right: auto;
   }
 }
 .state-mobile #myCoolItem {
   width: 100%;
   visibility: hidden;
+}
+.state-ipad-landscape .state-mobile #myCoolItem {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile #myCoolItem {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile #myCoolItem {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile #myCoolItem {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   #myCoolItem {

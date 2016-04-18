@@ -1,3 +1,50 @@
+/*! matchMedia() polyfill - Test a CSS media type/query in JS. Authors & copyright (c) 2012: Scott Jehl, Paul Irish, Nicholas Zakas, David Knight. Dual MIT/BSD license */
+
+window.matchMedia || (window.matchMedia = function() {
+    "use strict";
+
+    // For browsers that support matchMedium api such as IE 9 and webkit
+    var styleMedia = (window.styleMedia || window.media);
+
+    // For those that don't support matchMedium
+    if (!styleMedia) {
+        var style       = document.createElement('style'),
+            script      = document.getElementsByTagName('script')[0],
+            info        = null;
+
+        style.type  = 'text/css';
+        style.id    = 'matchmediajs-test';
+
+        script.parentNode.insertBefore(style, script);
+
+        // 'style.currentStyle' is used by IE <= 8 and 'window.getComputedStyle' for all other browsers
+        info = ('getComputedStyle' in window) && window.getComputedStyle(style, null) || style.currentStyle;
+
+        styleMedia = {
+            matchMedium: function(media) {
+                var text = '@media ' + media + '{ #matchmediajs-test { width: 1px; } }';
+
+                // 'style.styleSheet' is used by IE <= 8 and 'style.textContent' for all other browsers
+                if (style.styleSheet) {
+                    style.styleSheet.cssText = text;
+                } else {
+                    style.textContent = text;
+                }
+
+                // Test if media query is true or false
+                return info.width === '1px';
+            }
+        };
+    }
+
+    return function(media) {
+        return {
+            matches: styleMedia.matchMedium(media || 'all'),
+            media: media || 'all'
+        };
+    };
+}());
+
 
 /*
  * Gridle.js
@@ -22,7 +69,7 @@
   /*
   	Little smokesignals implementation
    */
-  var _domLoaded, domLoaded, smokesignals;
+  var domLoaded, smokesignals, _domLoaded;
   smokesignals = {
     convert: function(obj, handlers) {
       handlers = {};
@@ -31,13 +78,13 @@
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, k, len, ref;
+        var handler, _i, _len, _ref;
         if (!handlers[eventName]) {
           return;
         }
-        ref = handlers[eventName];
-        for (k = 0, len = ref.length; k < len; k++) {
-          handler = ref[k];
+        _ref = handlers[eventName];
+        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+          handler = _ref[_i];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
           continue;
         }
@@ -106,7 +153,7 @@
     		Load and parse css
      */
     _parseCss: function() {
-      var e, error, i, idx, j, rule, rules, settings, settings_found;
+      var e, i, idx, j, rule, rules, settings, settings_found;
       i = 0;
       j = document.styleSheets.length;
       settings_found = false;
@@ -142,8 +189,8 @@
               }
             }
           }
-        } catch (error) {
-          e = error;
+        } catch (_error) {
+          e = _error;
           if (e.name !== 'SecurityError') {
             throw e;
           }
@@ -161,11 +208,11 @@
     		Process finded states
      */
     _processFindedStates: function() {
-      var name, query, ref;
+      var name, query, _ref;
       this._debug('begin process finded states in css');
-      ref = this._statesInCss;
-      for (name in ref) {
-        query = ref[name];
+      _ref = this._statesInCss;
+      for (name in _ref) {
+        query = _ref[name];
         if (this._settings.ignoredStates.indexOf(name) === -1) {
           this._registerState(name, query);
         }
@@ -230,7 +277,7 @@
     		Update states status
      */
     _updateStatesStatus: function() {
-      var defaultState, defaultStateIdx, key, ref, state, wasDefault;
+      var defaultState, defaultStateIdx, key, state, wasDefault, _ref;
       defaultState = this.getDefaultState();
       defaultStateIdx = this._states.indexOf(defaultState);
       wasDefault = defaultState.status;
@@ -240,9 +287,9 @@
       this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
-      ref = this._states;
-      for (key in ref) {
-        state = ref[key];
+      _ref = this._states;
+      for (key in _ref) {
+        state = _ref[key];
         if (!state.updateOnResize) {
           continue;
         }
@@ -370,10 +417,10 @@
     		Get default state
      */
     getDefaultState: function() {
-      var k, len, ref, state;
-      ref = this.getRegisteredStates();
-      for (k = 0, len = ref.length; k < len; k++) {
-        state = ref[k];
+      var state, _i, _len, _ref;
+      _ref = this.getRegisteredStates();
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        state = _ref[_i];
         if (state.name === 'default') {
           return state;
         }
@@ -433,11 +480,11 @@
     		Check is a state is active
      */
     isActive: function(stateName) {
-      var index, isActive, name, ref;
+      var index, isActive, name, _ref;
       isActive = false;
-      ref = this._activeStatesNames;
-      for (index in ref) {
-        name = ref[index];
+      _ref = this._activeStatesNames;
+      for (index in _ref) {
+        name = _ref[index];
         if (stateName === name) {
           isActive = true;
         }

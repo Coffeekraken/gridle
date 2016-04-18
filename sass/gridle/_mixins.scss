@@ -109,7 +109,6 @@
 	
 	// container
 	@if $package == container {
-
 		@include _gridle_common_container($state);
 	}
 
@@ -268,7 +267,7 @@
 	// extend and apply css for different states
 	@if $for {
 		@include _gridle_extend($for);
-		@if _gridle_is_in_generate_phase() == false {
+		@if not _gridle_is_in_generate_phase() {
 			@include _gridle_apply_css_for($for);
 		}
 	}

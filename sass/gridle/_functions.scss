@@ -920,6 +920,14 @@
 
 
 //
+// Check if gridle is in generation phase
+//
+@function _gridle_is_in_generate_phase() {
+	@return $_gridle_is_in_generate_phase;
+}
+
+
+//
 // Parse gridle mixin list
 //
 @function _gridle_parse_gridle_mixin_list(
@@ -985,6 +993,11 @@
 			}
 		}
 	}
+	
+	// // check if we don't have any gutter parameters
+	// @if not map-get($map, gutter) and not map-get($map, no-gutter) {
+	// 	$map : map-set($map, gutter, true);
+	// }
 
 	// return the map
 	@return $map;
@@ -1022,6 +1035,7 @@
 			$map : map-set($map, $stateName, null);
 		}
 	}
+	
 	@return $map;
 }
 

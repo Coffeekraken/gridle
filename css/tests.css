@@ -198,7 +198,7 @@
   clear: both !important;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .gridle, .gridle, .state-ug11apv6m .state-ug11apv5y .layout > .header, .state-ug11apv5y .layout > .header, .state-ug11apv8t .state-ug11apv5y .layout > .login, .state-ug11apv5y .layout > .login, .state-ug11apvhu .layout > .header, .layout > .header, .state-ug11apvkk .layout > .login, .layout > .login, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .state-default .gridle-set, .gridle-set, .gridle-set-multiple {
+  .state-default .gridle, .gridle, .state-u1dux04pq .state-u1dux04od .layout > .header, .state-u1dux04od .layout > .header, .state-u1dux04sh .state-u1dux04od .layout > .login, .state-u1dux04od .layout > .login, .state-u1dux053o .layout > .header, .layout > .header, .state-u1dux056l .layout > .login, .layout > .login, .grid-30-on-100-on-mobile-and-tablet, .gridle-state, .state-default .gridle-set, .gridle-set, .gridle-set-multiple {
     display: inline-block;
     min-height: 1px;
     float: left;
@@ -210,7 +210,7 @@
     padding-left: 10px;
   }
 }
-.state-tablet .state-default .gridle, .state-tablet .gridle, .state-tablet .state-ug11apv6m .state-ug11apv5y .layout > .header, .state-tablet .state-ug11apv5y .layout > .header, .state-tablet .state-ug11apv8t .state-ug11apv5y .layout > .login, .state-tablet .state-ug11apv5y .layout > .login, .state-tablet .state-ug11apvhu .layout > .header, .state-tablet .layout > .header, .state-tablet .state-ug11apvkk .layout > .login, .state-tablet .layout > .login, .state-tablet .grid-30-on-100-on-mobile-and-tablet, .state-tablet .gridle-state, .state-tablet .state-default .gridle-set, .state-tablet .gridle-set, .state-tablet .gridle-set-multiple {
+.state-tablet .state-default .gridle, .state-tablet .gridle, .state-tablet .state-u1dux04pq .state-u1dux04od .layout > .header, .state-tablet .state-u1dux04od .layout > .header, .state-tablet .state-u1dux04sh .state-u1dux04od .layout > .login, .state-tablet .state-u1dux04od .layout > .login, .state-tablet .state-u1dux053o .layout > .header, .state-tablet .layout > .header, .state-tablet .state-u1dux056l .layout > .login, .state-tablet .layout > .login, .state-tablet .grid-30-on-100-on-mobile-and-tablet, .state-tablet .gridle-state, .state-tablet .state-default .gridle-set, .state-tablet .gridle-set, .state-tablet .gridle-set-multiple {
   display: inline-block;
   min-height: 1px;
   float: left;
@@ -235,8 +235,80 @@
 .state-default .state-default .relative {
   width: 66.66666667%;
 }
+.state-ipad-landscape .state-default .state-default .relative {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .state-default .relative {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default .state-default .relative {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .state-default .relative {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-default .relative {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .relative {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default .relative {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .relative {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-default .relative {
   width: 66.66666667%;
+}
+.state-ipad-landscape .relative {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .relative {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .relative {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .relative {
+    direction: rtl;
+    float: right;
+  }
 }
 
 .gridle {
@@ -254,9 +326,81 @@
   margin-left: 83.33333333%;
   padding-left: 10px;
 }
+.state-ipad-landscape .state-default .state-default .gridle {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .state-default .gridle {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default .state-default .gridle {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .state-default .gridle {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-default .gridle {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default .gridle {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-mobile .state-default .gridle {
   width: 6.66666667%;
   margin-left: 66.66666667%;
+}
+.state-ipad-landscape .state-mobile .state-default .gridle {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default .gridle {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .state-default .gridle {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default .gridle {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .state-default .gridle {
@@ -270,6 +414,30 @@
   padding-right: 5px;
   padding-bottom: 10px;
   padding-left: 5px;
+}
+.state-ipad-landscape .state-tablet .state-default .gridle {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default .gridle {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-default .gridle {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default .gridle {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .state-default .gridle {
@@ -285,9 +453,57 @@
   margin-left: 83.33333333%;
   padding-left: 10px;
 }
+.state-ipad-landscape .gridle {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .gridle {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-mobile .gridle {
   width: 6.66666667%;
   margin-left: 66.66666667%;
+}
+.state-ipad-landscape .state-mobile .gridle {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .gridle {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .gridle {
@@ -301,6 +517,30 @@
   padding-right: 5px;
   padding-bottom: 10px;
   padding-left: 5px;
+}
+.state-ipad-landscape .state-tablet .gridle {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .gridle {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gridle {
@@ -318,27 +558,65 @@
   margin-left: -10px;
   margin-right: -10px;
 }
-.state-ug11apv5y .layout {
+.state-u1dux04od .layout {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="no-gutter"] > .state-ug11apv5y .layout {
+[class*="no-gutter"] > .state-u1dux04od .layout {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.state-ug11apv5y .layout:before, .state-ug11apv5y .layout:after {
+.state-default .state-u1dux04od .layout .state-u1dux04od .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-u1dux04od .layout .state-u1dux04od .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .state-u1dux04od .layout .state-u1dux04od .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .state-u1dux04od .layout .state-u1dux04od .layout {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .state-u1dux04od .layout .state-u1dux04od .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-u1dux04od .layout .state-u1dux04od .layout {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout .state-u1dux04od .layout {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout .state-u1dux04od .layout {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+}
+.state-u1dux04od .layout:before, .state-u1dux04od .layout:after {
   content: "";
   display: table;
 }
-.state-ug11apv5y .layout:after {
+.state-u1dux04od .layout:after {
   clear: both;
 }
-.state-ug11apv5y .layout {
+.state-u1dux04od .layout {
   zoom: 1;
 }
-.state-ug11apv5y .layout > .header {
+.state-u1dux04od .layout > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -351,7 +629,7 @@
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11apv6m .state-ug11apv5y .layout > .header {
+.state-u1dux04pq .state-u1dux04od .layout > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -364,7 +642,7 @@
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11apv7m .state-ug11apv6m .state-ug11apv5y .layout > .header {
+.state-u1dux04qr .state-u1dux04pq .state-u1dux04od .layout > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -377,17 +655,89 @@
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-tablet .state-ug11apv6m .state-ug11apv5y .layout > .header {
+.state-ipad-landscape .state-u1dux04qr .state-u1dux04pq .state-u1dux04od .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04qr .state-u1dux04pq .state-u1dux04od .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04qr .state-u1dux04pq .state-u1dux04od .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04qr .state-u1dux04pq .state-u1dux04od .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04pq .state-u1dux04od .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04pq .state-u1dux04od .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04pq .state-u1dux04od .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04pq .state-u1dux04od .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux04pq .state-u1dux04od .layout > .header {
   width: 40%;
   margin-left: 10%;
 }
+.state-ipad-landscape .state-tablet .state-u1dux04pq .state-u1dux04od .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04pq .state-u1dux04od .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux04pq .state-u1dux04od .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04pq .state-u1dux04od .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apv6m .state-ug11apv5y .layout > .header {
+  .state-u1dux04pq .state-u1dux04od .layout > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-ug11apv83 .state-ug11apv5y .layout > .header {
+.state-u1dux04rr .state-u1dux04od .layout > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -400,17 +750,89 @@
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-tablet .state-ug11apv5y .layout > .header {
+.state-ipad-landscape .state-u1dux04rr .state-u1dux04od .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04rr .state-u1dux04od .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04rr .state-u1dux04od .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04rr .state-u1dux04od .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux04od .layout > .header {
   width: 40%;
   margin-left: 10%;
 }
+.state-ipad-landscape .state-tablet .state-u1dux04od .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04od .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux04od .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04od .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apv5y .layout > .header {
+  .state-u1dux04od .layout > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-ug11apv5y .layout > .login {
+.state-u1dux04od .layout > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -422,7 +844,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv8t .state-ug11apv5y .layout > .login {
+.state-u1dux04sh .state-u1dux04od .layout > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -434,7 +856,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv99 .state-ug11apv8t .state-ug11apv5y .layout > .login {
+.state-u1dux04to .state-u1dux04sh .state-u1dux04od .layout > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -446,15 +868,87 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-tablet .state-ug11apv8t .state-ug11apv5y .layout > .login {
+.state-ipad-landscape .state-u1dux04to .state-u1dux04sh .state-u1dux04od .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04to .state-u1dux04sh .state-u1dux04od .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04to .state-u1dux04sh .state-u1dux04od .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04to .state-u1dux04sh .state-u1dux04od .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04sh .state-u1dux04od .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04sh .state-u1dux04od .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04sh .state-u1dux04od .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04sh .state-u1dux04od .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux04sh .state-u1dux04od .layout > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
+.state-ipad-landscape .state-tablet .state-u1dux04sh .state-u1dux04od .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04sh .state-u1dux04od .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux04sh .state-u1dux04od .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04sh .state-u1dux04od .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apv8t .state-ug11apv5y .layout > .login {
+  .state-u1dux04sh .state-u1dux04od .layout > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -462,7 +956,7 @@
     padding-left: 0;
   }
 }
-.state-ug11apva5 .state-ug11apv5y .layout > .login {
+.state-u1dux04uh .state-u1dux04od .layout > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -474,15 +968,87 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-tablet .state-ug11apv5y .layout > .login {
+.state-ipad-landscape .state-u1dux04uh .state-u1dux04od .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04uh .state-u1dux04od .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04uh .state-u1dux04od .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04uh .state-u1dux04od .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux04od .layout > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
+.state-ipad-landscape .state-tablet .state-u1dux04od .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04od .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux04od .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux04od .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apv5y .layout > .login {
+  .state-u1dux04od .layout > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -490,7 +1056,7 @@
     padding-left: 0;
   }
 }
-.state-ug11apv5y .layout > .content {
+.state-u1dux04od .layout > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -502,7 +1068,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvao .state-ug11apv5y .layout > .content {
+.state-u1dux04vg .state-u1dux04od .layout > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -514,7 +1080,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvbe .state-ug11apvao .state-ug11apv5y .layout > .content {
+.state-u1dux04wd .state-u1dux04vg .state-u1dux04od .layout > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -526,7 +1092,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvca .state-ug11apv5y .layout > .content {
+.state-ipad-landscape .state-u1dux04wd .state-u1dux04vg .state-u1dux04od .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04wd .state-u1dux04vg .state-u1dux04od .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04wd .state-u1dux04vg .state-u1dux04od .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04wd .state-u1dux04vg .state-u1dux04od .layout > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04vg .state-u1dux04od .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04vg .state-u1dux04od .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04vg .state-u1dux04od .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04vg .state-u1dux04od .layout > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux04xh .state-u1dux04od .layout > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -538,7 +1152,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv5y .layout > .sidebar {
+.state-ipad-landscape .state-u1dux04xh .state-u1dux04od .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04xh .state-u1dux04od .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04xh .state-u1dux04od .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04xh .state-u1dux04od .layout > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux04od .layout > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -550,7 +1212,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvcq .state-ug11apv5y .layout > .sidebar {
+.state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -562,7 +1224,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvdf .state-ug11apvcq .state-ug11apv5y .layout > .sidebar {
+.state-u1dux04ys .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -574,7 +1236,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apveh .state-ug11apv5y .layout > .sidebar {
+.state-ipad-landscape .state-u1dux04ys .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04ys .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04ys .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04ys .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04y2 .state-u1dux04od .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux04zp .state-u1dux04od .layout > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -586,7 +1296,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apv5y .layout > .footer {
+.state-ipad-landscape .state-u1dux04zp .state-u1dux04od .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04zp .state-u1dux04od .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04zp .state-u1dux04od .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04zp .state-u1dux04od .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux04od .layout > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -598,7 +1356,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvf5 .state-ug11apv5y .layout > .footer {
+.state-u1dux050j .state-u1dux04od .layout > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -610,7 +1368,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvge .state-ug11apvf5 .state-ug11apv5y .layout > .footer {
+.state-u1dux051e .state-u1dux050j .state-u1dux04od .layout > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -622,7 +1380,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvha .state-ug11apv5y .layout > .footer {
+.state-ipad-landscape .state-u1dux051e .state-u1dux050j .state-u1dux04od .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux051e .state-u1dux050j .state-u1dux04od .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux051e .state-u1dux050j .state-u1dux04od .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux051e .state-u1dux050j .state-u1dux04od .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux050j .state-u1dux04od .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux050j .state-u1dux04od .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux050j .state-u1dux04od .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux050j .state-u1dux04od .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux0528 .state-u1dux04od .layout > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -633,10 +1439,96 @@
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux0528 .state-u1dux04od .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux0528 .state-u1dux04od .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux0528 .state-u1dux04od .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux0528 .state-u1dux04od .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux04od .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux04od .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
 }
 [class*="no-gutter"] > .layout {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+.state-default .layout .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.layout .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .layout .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .layout .layout {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .layout .layout {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .layout .layout {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .layout .layout {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout .layout {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
 }
 .layout:before, .layout:after {
   content: "";
@@ -661,7 +1553,7 @@
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11apvhu .layout > .header {
+.state-u1dux053o .layout > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -674,7 +1566,7 @@
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ug11apviz .state-ug11apvhu .layout > .header {
+.state-u1dux054c .state-u1dux053o .layout > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -687,17 +1579,89 @@
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-tablet .state-ug11apvhu .layout > .header {
+.state-ipad-landscape .state-u1dux054c .state-u1dux053o .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux054c .state-u1dux053o .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux054c .state-u1dux053o .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux054c .state-u1dux053o .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux053o .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux053o .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux053o .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux053o .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux053o .layout > .header {
   width: 40%;
   margin-left: 10%;
 }
+.state-ipad-landscape .state-tablet .state-u1dux053o .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux053o .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux053o .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux053o .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apvhu .layout > .header {
+  .state-u1dux053o .layout > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-ug11apvjy .layout > .header {
+.state-u1dux055l .layout > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
@@ -710,9 +1674,81 @@
   padding-left: 10px;
   margin-left: 20%;
 }
+.state-ipad-landscape .state-u1dux055l .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux055l .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux055l .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux055l .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .header {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-tablet .layout > .header {
   width: 40%;
   margin-left: 10%;
+}
+.state-ipad-landscape .state-tablet .layout > .header {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .layout > .header {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .layout > .header {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .layout > .header {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .layout > .header {
@@ -732,7 +1768,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvkk .layout > .login {
+.state-u1dux056l .layout > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -744,7 +1780,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvli .state-ug11apvkk .layout > .login {
+.state-u1dux057d .state-u1dux056l .layout > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -756,15 +1792,87 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-tablet .state-ug11apvkk .layout > .login {
+.state-ipad-landscape .state-u1dux057d .state-u1dux056l .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux057d .state-u1dux056l .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux057d .state-u1dux056l .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux057d .state-u1dux056l .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux056l .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux056l .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux056l .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux056l .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-tablet .state-u1dux056l .layout > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
+.state-ipad-landscape .state-tablet .state-u1dux056l .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux056l .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-u1dux056l .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-u1dux056l .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-ug11apvkk .layout > .login {
+  .state-u1dux056l .layout > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -772,7 +1880,7 @@
     padding-left: 0;
   }
 }
-.state-ug11apvmn .layout > .login {
+.state-u1dux058f .layout > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -784,12 +1892,84 @@
   padding-right: 10px;
   padding-left: 10px;
 }
+.state-ipad-landscape .state-u1dux058f .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux058f .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux058f .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux058f .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .login {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-tablet .layout > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
+}
+.state-ipad-landscape .state-tablet .layout > .login {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .layout > .login {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .layout > .login {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .layout > .login {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .layout > .login {
@@ -812,7 +1992,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvnp .layout > .content {
+.state-u1dux0592 .layout > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -824,7 +2004,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvof .state-ug11apvnp .layout > .content {
+.state-u1dux059u .state-u1dux0592 .layout > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -836,7 +2016,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvpd .layout > .content {
+.state-ipad-landscape .state-u1dux059u .state-u1dux0592 .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux059u .state-u1dux0592 .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux059u .state-u1dux0592 .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux059u .state-u1dux0592 .layout > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux0592 .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux0592 .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux0592 .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux0592 .layout > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux05al .layout > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
@@ -847,6 +2075,54 @@
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux05al .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05al .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05al .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05al .layout > .content {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .layout > .content {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .content {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .layout > .content {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .content {
+    direction: rtl;
+    float: right;
+  }
 }
 .layout > .sidebar {
   width: 20%;
@@ -860,7 +2136,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvq6 .layout > .sidebar {
+.state-u1dux05bh .layout > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -872,7 +2148,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvqu .state-ug11apvq6 .layout > .sidebar {
+.state-u1dux05ce .state-u1dux05bh .layout > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -884,7 +2160,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvru .layout > .sidebar {
+.state-ipad-landscape .state-u1dux05ce .state-u1dux05bh .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05ce .state-u1dux05bh .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05ce .state-u1dux05bh .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05ce .state-u1dux05bh .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux05bh .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05bh .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05bh .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05bh .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux05d9 .layout > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
@@ -895,6 +2219,54 @@
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux05d9 .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05d9 .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05d9 .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05d9 .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .layout > .sidebar {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .sidebar {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .layout > .sidebar {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .sidebar {
+    direction: rtl;
+    float: right;
+  }
 }
 .layout > .footer {
   width: 100%;
@@ -908,7 +2280,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvsi .layout > .footer {
+.state-u1dux05ed .layout > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -920,7 +2292,7 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvtm .state-ug11apvsi .layout > .footer {
+.state-u1dux05f1 .state-u1dux05ed .layout > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -932,7 +2304,55 @@
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ug11apvuf .layout > .footer {
+.state-ipad-landscape .state-u1dux05f1 .state-u1dux05ed .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05f1 .state-u1dux05ed .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05f1 .state-u1dux05ed .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05f1 .state-u1dux05ed .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .state-u1dux05ed .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05ed .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05ed .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05ed .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-u1dux05g1 .layout > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
@@ -943,26 +2363,194 @@
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux05g1 .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05g1 .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05g1 .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05g1 .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .layout > .footer {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .footer {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .layout > .footer {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .layout > .footer {
+    direction: rtl;
+    float: right;
+  }
 }
 
 .grid-12 {
   width: 100%;
 }
+.state-ipad-landscape .grid-12 {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-12 {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .grid-12 {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-12 {
+    direction: rtl;
+    float: right;
+  }
+}
 
 .grid-1on5 {
   width: 20%;
+}
+.state-ipad-landscape .grid-1on5 {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-1on5 {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .grid-1on5 {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-1on5 {
+    direction: rtl;
+    float: right;
+  }
 }
 
 .grid-12-on-100 {
   width: 12%;
 }
+.state-ipad-landscape .grid-12-on-100 {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-12-on-100 {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .grid-12-on-100 {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-12-on-100 {
+    direction: rtl;
+    float: right;
+  }
+}
 
 .state-mobile .grid-15-on-100-on-mobile {
   width: 15%;
 }
+.state-ipad-landscape .state-mobile .grid-15-on-100-on-mobile {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .grid-15-on-100-on-mobile {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .grid-15-on-100-on-mobile {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .grid-15-on-100-on-mobile {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (max-width: 480px) {
   .grid-15-on-100-on-mobile {
     width: 15%;
+  }
+}
+.state-ipad-landscape .grid-15-on-100-on-mobile {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-15-on-100-on-mobile {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .grid-15-on-100-on-mobile {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-15-on-100-on-mobile {
+    direction: rtl;
+    float: right;
   }
 }
 
@@ -972,12 +2560,108 @@
 .state-default .grid-set-1-on-4 {
   width: 25%;
 }
+.state-ipad-landscape .state-default .grid-set-1-on-4 {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .grid-set-1-on-4 {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default .grid-set-1-on-4 {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .grid-set-1-on-4 {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .grid-set-1-on-4 {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-set-1-on-4 {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .grid-set-1-on-4 {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-set-1-on-4 {
+    direction: rtl;
+    float: right;
+  }
+}
 
 .grid-30-on-100-on-mobile-and-tablet {
   width: 30%;
 }
+.state-ipad-landscape .grid-30-on-100-on-mobile-and-tablet {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-30-on-100-on-mobile-and-tablet {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .grid-30-on-100-on-mobile-and-tablet {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-30-on-100-on-mobile-and-tablet {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-mobile .grid-30-on-100-on-mobile-and-tablet {
   width: 30%;
+}
+.state-ipad-landscape .state-mobile .grid-30-on-100-on-mobile-and-tablet {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .grid-30-on-100-on-mobile-and-tablet {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .grid-30-on-100-on-mobile-and-tablet {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .grid-30-on-100-on-mobile-and-tablet {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .grid-30-on-100-on-mobile-and-tablet {
@@ -986,6 +2670,30 @@
 }
 .state-tablet .grid-30-on-100-on-mobile-and-tablet {
   width: 30%;
+}
+.state-ipad-landscape .state-tablet .grid-30-on-100-on-mobile-and-tablet {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .grid-30-on-100-on-mobile-and-tablet {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .grid-30-on-100-on-mobile-and-tablet {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .grid-30-on-100-on-mobile-and-tablet {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .grid-30-on-100-on-mobile-and-tablet {
@@ -1002,6 +2710,44 @@
 [class*="no-gutter"] > .grid-row {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+.state-default .grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .grid-row .grid-row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .grid-row .grid-row {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .grid-row .grid-row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .grid-row .grid-row {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-row .grid-row {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
 }
 
 .grid-row-set {
@@ -1020,9 +2766,85 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
+.state-default .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-default .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .state-default .grid-row-set .state-default .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .state-default .grid-row-set .state-default .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .state-default .grid-row-set .state-default .grid-row-set {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .grid-row-set .state-default .grid-row-set {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+}
 [class*="no-gutter"] > .grid-row-set {
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+.state-default .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+.state-mobile .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (max-width: 480px) {
+  .grid-row-set .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-tablet .grid-row-set .grid-row-set {
+  margin-left: -10px;
+  margin-right: -10px;
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .grid-row-set .grid-row-set {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+}
+.state-ipad-landscape .grid-row-set .grid-row-set {
+  margin-left: -30px;
+  margin-right: -30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .grid-row-set .grid-row-set {
+    margin-left: -30px;
+    margin-right: -30px;
+  }
 }
 
 .clear-each-2 > [class*="gr-"]:nth-of-type(2n+1) {
@@ -1247,91 +3069,107 @@
   }
 }
 .push-6 {
-  left: 50.0%;
+  left: 50%;
+  right: auto;
 }
 
 .state-mobile .push-12-mobile {
-  left: 100.0%;
+  left: 100%;
+  right: auto;
 }
 @media screen and (max-width: 480px) {
   .push-12-mobile {
-    left: 100.0%;
+    left: 100%;
+    right: auto;
   }
 }
 
 .push-set {
-  left: 25.0%;
+  left: 25%;
+  right: auto;
 }
 .state-default .push-set {
-  left: 25.0%;
+  left: 25%;
+  right: auto;
 }
 
 .push-nested {
-  left: 25.0%;
+  left: 25%;
+  right: auto;
 }
 .state-mobile .push-nested {
   left: 0%;
+  right: auto;
 }
 @media screen and (max-width: 480px) {
   .push-nested {
     left: 0%;
+    right: auto;
   }
 }
 
 .pull-6 {
-  right: 50.0%;
+  right: 50%;
+  left: auto;
 }
 
 .state-mobile .pull-12-mobile {
-  right: 100.0%;
+  right: 100%;
+  left: auto;
 }
 @media screen and (max-width: 480px) {
   .pull-12-mobile {
-    right: 100.0%;
+    right: 100%;
+    left: auto;
   }
 }
 
 .pull-set {
-  right: 25.0%;
+  right: 25%;
+  left: auto;
 }
 .state-default .pull-set {
-  right: 25.0%;
+  right: 25%;
+  left: auto;
 }
 
 .pull-nested {
-  right: 25.0%;
+  right: 25%;
+  left: auto;
 }
 .state-mobile .pull-nested {
   right: 0%;
+  left: auto;
 }
 @media screen and (max-width: 480px) {
   .pull-nested {
     right: 0%;
+    left: auto;
   }
 }
 
 .prefix-6 {
-  margin-left: 50.0%;
+  margin-left: 50%;
 }
 
 .state-mobile .prefix-12-mobile {
-  margin-left: 100.0%;
+  margin-left: 100%;
 }
 @media screen and (max-width: 480px) {
   .prefix-12-mobile {
-    margin-left: 100.0%;
+    margin-left: 100%;
   }
 }
 
 .prefix-set {
-  margin-left: 25.0%;
+  margin-left: 25%;
 }
 .state-default .prefix-set {
-  margin-left: 25.0%;
+  margin-left: 25%;
 }
 
 .prefix-nested {
-  margin-left: 25.0%;
+  margin-left: 25%;
 }
 .state-mobile .prefix-nested {
   margin-left: 0%;
@@ -1343,27 +3181,27 @@
 }
 
 .suffix-6 {
-  margin-right: 50.0%;
+  margin-right: 50%;
 }
 
 .state-mobile .suffix-12-mobile {
-  margin-right: 100.0%;
+  margin-right: 100%;
 }
 @media screen and (max-width: 480px) {
   .suffix-12-mobile {
-    margin-right: 100.0%;
+    margin-right: 100%;
   }
 }
 
 .suffix-set {
-  margin-right: 25.0%;
+  margin-right: 25%;
 }
 .state-default .suffix-set {
-  margin-right: 25.0%;
+  margin-right: 25%;
 }
 
 .pull-suffix {
-  margin-right: 25.0%;
+  margin-right: 25%;
 }
 .state-mobile .pull-suffix {
   margin-right: 0%;
@@ -1478,9 +3316,57 @@
   background: red;
   width: 66.66666667%;
 }
+.state-ipad-landscape .gridle-state {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-state {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .gridle-state {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-state {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-mobile .gridle-state {
   background: pink;
   width: 100%;
+}
+.state-ipad-landscape .state-mobile .gridle-state {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-state {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .gridle-state {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-state {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .gridle-state {
@@ -1492,13 +3378,37 @@
   background: pink;
   width: 100%;
 }
+.state-ipad-landscape .state-tablet .gridle-state {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-state {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .gridle-state {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-state {
+    direction: rtl;
+    float: right;
+  }
+}
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gridle-state {
     background: pink;
     width: 100%;
   }
 }
-.state-ug11apvv5 .gridle-state {
+.state-u1dux05gz .gridle-state {
   background: yellow;
   width: 83.33333333%;
   display: inline-block;
@@ -1510,6 +3420,30 @@
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux05gz .gridle-state {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05gz .gridle-state {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05gz .gridle-state {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05gz .gridle-state {
+    direction: rtl;
+    float: right;
+  }
 }
 @media only print {
   .gridle-state {
@@ -1526,7 +3460,7 @@
     padding-left: 10px;
   }
 }
-.state-ug11apvw4 .gridle-state {
+.state-u1dux05hr .gridle-state {
   background: green;
   width: 41.66666667%;
   display: inline-block;
@@ -1538,6 +3472,30 @@
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux05hr .gridle-state {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05hr .gridle-state {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05hr .gridle-state {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05hr .gridle-state {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 200px) {
   .gridle-state {
@@ -1554,7 +3512,7 @@
     padding-left: 10px;
   }
 }
-.state-ug11apvx3 .gridle-state {
+.state-u1dux05iy .gridle-state {
   content: "ad hoc state";
   background: white;
   width: 25%;
@@ -1567,6 +3525,30 @@
   vertical-align: top;
   padding-right: 10px;
   padding-left: 10px;
+}
+.state-ipad-landscape .state-u1dux05iy .gridle-state {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05iy .gridle-state {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-u1dux05iy .gridle-state {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-u1dux05iy .gridle-state {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 200px) and (max-width: 600px) {
   .gridle-state {
@@ -1588,55 +3570,213 @@
 .gridle-set {
   width: 50%;
   left: 16.66666667%;
+  right: auto;
   clear: left;
 }
 .state-default .gridle-set {
   width: 50%;
   left: 16.66666667%;
+  right: auto;
   clear: left;
+}
+.state-ipad-landscape .state-default .gridle-set {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle-set {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default .gridle-set {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle-set {
+    direction: rtl;
+    float: right;
+  }
 }
 .state-tablet .state-default .gridle-set {
   width: 66.66666667%;
   left: 0%;
+  right: auto;
+}
+.state-ipad-landscape .state-tablet .state-default .gridle-set {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default .gridle-set {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .state-default .gridle-set {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .state-default .gridle-set {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .state-default .gridle-set {
     width: 66.66666667%;
     left: 0%;
+    right: auto;
   }
 }
 .state-mobile .state-default .gridle-set {
   width: 100%;
   left: 0%;
+  right: auto;
   right: 0%;
+  left: auto;
+}
+.state-ipad-landscape .state-mobile .state-default .gridle-set {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default .gridle-set {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .state-default .gridle-set {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .state-default .gridle-set {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .state-default .gridle-set {
     width: 100%;
     left: 0%;
+    right: auto;
     right: 0%;
+    left: auto;
+  }
+}
+.state-ipad-landscape .gridle-set {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-set {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .gridle-set {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-set {
+    direction: rtl;
+    float: right;
   }
 }
 .state-tablet .gridle-set {
   width: 66.66666667%;
   left: 0%;
+  right: auto;
+}
+.state-ipad-landscape .state-tablet .gridle-set {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-set {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .gridle-set {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-set {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gridle-set {
     width: 66.66666667%;
     left: 0%;
+    right: auto;
   }
 }
 .state-mobile .gridle-set {
   width: 100%;
   left: 0%;
+  right: auto;
   right: 0%;
+  left: auto;
+}
+.state-ipad-landscape .state-mobile .gridle-set {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-set {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .gridle-set {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-set {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .gridle-set {
     width: 100%;
     left: 0%;
+    right: auto;
     right: 0%;
+    left: auto;
   }
 }
 
@@ -1646,8 +3786,80 @@
 .state-default .gridle-set-multiple {
   width: 50%;
 }
+.state-ipad-landscape .state-default .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle-set-multiple {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-default .gridle-set-multiple {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-default .gridle-set-multiple {
+    direction: rtl;
+    float: right;
+  }
+}
+.state-ipad-landscape .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-set-multiple {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .gridle-set-multiple {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .gridle-set-multiple {
+    direction: rtl;
+    float: right;
+  }
+}
 .state-mobile .gridle-set-multiple {
   width: 100%;
+}
+.state-ipad-landscape .state-mobile .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-set-multiple {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-mobile .gridle-set-multiple {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-mobile .gridle-set-multiple {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (max-width: 480px) {
   .gridle-set-multiple {
@@ -1656,6 +3868,30 @@
 }
 .state-tablet .gridle-set-multiple {
   width: 100%;
+}
+.state-ipad-landscape .state-tablet .gridle-set-multiple {
+  padding-top: 25px;
+  padding-right: 30px;
+  padding-bottom: 25px;
+  padding-left: 30px;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-set-multiple {
+    padding-top: 25px;
+    padding-right: 30px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+  }
+}
+.state-ipad-landscape .state-tablet .gridle-set-multiple {
+  direction: rtl;
+  float: right;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  .state-tablet .gridle-set-multiple {
+    direction: rtl;
+    float: right;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
   .gridle-set-multiple {
@@ -1766,7 +4002,7 @@
 }
 
 .gridle_get_state-custom {
-  content: "(name: ug11apvxl, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, column-width: null, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, dir-attribute: false, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
+  content: "(name: u1dux05j5, min-width: 200px, max-width: 600px, query: null, classes: true, context: 12, column-width: null, gutter-width: 20px, gutter-height: 0, gutter-top: 0, gutter-right: 10px, gutter-bottom: 0, gutter-left: 10px, direction: ltr, dir-attribute: false, name-multiplicator: 1, states-classes: true, classes-prefix: null)";
 }
 
 .gridle_has_state-mobile {
