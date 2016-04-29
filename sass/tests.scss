@@ -25,7 +25,6 @@
 // @include gridle_debug("coco");
 // @include gridle_debug((hello, world));
 
-
 @include gridle_generate_custom_class( ('txt','-','align','-','center','@','%state') ) {
 	text-align: center;
 	content : "#{gridle_current_state_name()}";

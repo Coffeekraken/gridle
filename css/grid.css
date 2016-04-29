@@ -8,24 +8,24 @@
   display: table;
   clear: both; }
 
-.row:before, .row-reverse:before, .row:after, .row-reverse:after {
+.row:before, .row:after {
   content: "";
   display: table; }
 
-.row:after, .row-reverse:after {
+.row:after {
   clear: both; }
 
-.row, .row-reverse {
+.row {
   zoom: 1; }
 
-.state-default .row:before, .state-default .row-reverse:before, .state-default .row:after, .state-default .row-reverse:after {
+.state-default .row:before, .state-default .row:after {
   content: "";
   display: table; }
 
-.state-default .row:after, .state-default .row-reverse:after {
+.state-default .row:after {
   clear: both; }
 
-.state-default .row, .state-default .row-reverse {
+.state-default .row {
   zoom: 1; }
 
 .gr-1on5, .gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
@@ -148,22 +148,22 @@
   clear: both; }
 
 @media screen and (max-width: 480px) {
-  .row\@mobile:before, .row-reverse\@mobile:before, .row\@mobile:after, .row-reverse\@mobile:after {
+  .row\@mobile:before, .row\@mobile:after {
     content: "";
     display: table; }
-  .row\@mobile:after, .row-reverse\@mobile:after {
+  .row\@mobile:after {
     clear: both; }
-  .row\@mobile, .row-reverse\@mobile {
+  .row\@mobile {
     zoom: 1; } }
 
-.state-mobile .row\@mobile:before, .state-mobile .row-reverse\@mobile:before, .state-mobile .row\@mobile:after, .state-mobile .row-reverse\@mobile:after {
+.state-mobile .row\@mobile:before, .state-mobile .row\@mobile:after {
   content: "";
   display: table; }
 
-.state-mobile .row\@mobile:after, .state-mobile .row-reverse\@mobile:after {
+.state-mobile .row\@mobile:after {
   clear: both; }
 
-.state-mobile .row\@mobile, .state-mobile .row-reverse\@mobile {
+.state-mobile .row\@mobile {
   zoom: 1; }
 
 @media screen and (max-width: 480px) {
@@ -294,22 +294,22 @@
   clear: both; }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .row\@tablet:before, .row-reverse\@tablet:before, .row\@tablet:after, .row-reverse\@tablet:after {
+  .row\@tablet:before, .row\@tablet:after {
     content: "";
     display: table; }
-  .row\@tablet:after, .row-reverse\@tablet:after {
+  .row\@tablet:after {
     clear: both; }
-  .row\@tablet, .row-reverse\@tablet {
+  .row\@tablet {
     zoom: 1; } }
 
-.state-tablet .row\@tablet:before, .state-tablet .row-reverse\@tablet:before, .state-tablet .row\@tablet:after, .state-tablet .row-reverse\@tablet:after {
+.state-tablet .row\@tablet:before, .state-tablet .row\@tablet:after {
   content: "";
   display: table; }
 
-.state-tablet .row\@tablet:after, .state-tablet .row-reverse\@tablet:after {
+.state-tablet .row\@tablet:after {
   clear: both; }
 
-.state-tablet .row\@tablet, .state-tablet .row-reverse\@tablet {
+.state-tablet .row\@tablet {
   zoom: 1; }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
@@ -440,22 +440,22 @@
   clear: both; }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .row\@ipad-landscape:before, .row-reverse\@ipad-landscape:before, .row\@ipad-landscape:after, .row-reverse\@ipad-landscape:after {
+  .row\@ipad-landscape:before, .row\@ipad-landscape:after {
     content: "";
     display: table; }
-  .row\@ipad-landscape:after, .row-reverse\@ipad-landscape:after {
+  .row\@ipad-landscape:after {
     clear: both; }
-  .row\@ipad-landscape, .row-reverse\@ipad-landscape {
+  .row\@ipad-landscape {
     zoom: 1; } }
 
-.state-ipad-landscape .row\@ipad-landscape:before, .state-ipad-landscape .row-reverse\@ipad-landscape:before, .state-ipad-landscape .row\@ipad-landscape:after, .state-ipad-landscape .row-reverse\@ipad-landscape:after {
+.state-ipad-landscape .row\@ipad-landscape:before, .state-ipad-landscape .row\@ipad-landscape:after {
   content: "";
   display: table; }
 
-.state-ipad-landscape .row\@ipad-landscape:after, .state-ipad-landscape .row-reverse\@ipad-landscape:after {
+.state-ipad-landscape .row\@ipad-landscape:after {
   clear: both; }
 
-.state-ipad-landscape .row\@ipad-landscape, .state-ipad-landscape .row-reverse\@ipad-landscape {
+.state-ipad-landscape .row\@ipad-landscape {
   zoom: 1; }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
@@ -874,15 +874,6 @@
     margin-left: 0 !important;
     margin-right: 0 !important; }
 
-.state-default .row-reverse {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-  [class*="no-gutter"] > .state-default .row-reverse {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-
 .state-default .row-full {
   width: 100vw;
   margin-left: 50% !important;
@@ -894,12 +885,6 @@
   transform: translateX(-50%); }
 
 .state-default .col {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-
-.state-default .col-reverse {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
@@ -1328,15 +1313,6 @@
     margin-left: 0 !important;
     margin-right: 0 !important; }
 
-.row-reverse {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-  [class*="no-gutter"] > .row-reverse {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-
 .row-full {
   width: 100vw;
   margin-left: 50% !important;
@@ -1348,12 +1324,6 @@
   transform: translateX(-50%); }
 
 .col {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-
-.col-reverse {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
@@ -1782,15 +1752,6 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important; }
 
-.state-mobile .row-reverse\@mobile {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-  [class*="no-gutter"] > .state-mobile .row-reverse\@mobile {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-
 .state-mobile .row-full\@mobile {
   width: 100vw;
   margin-left: 50% !important;
@@ -1802,12 +1763,6 @@ body {
   transform: translateX(-50%); }
 
 .state-mobile .col\@mobile {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-
-.state-mobile .col-reverse\@mobile {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
@@ -2152,14 +2107,6 @@ body {
     [class*="no-gutter"] > .row\@mobile {
       margin-left: 0 !important;
       margin-right: 0 !important; }
-  .row-reverse\@mobile {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: -10px;
-    margin-right: -10px; }
-    [class*="no-gutter"] > .row-reverse\@mobile {
-      margin-left: 0 !important;
-      margin-right: 0 !important; }
   .row-full\@mobile {
     width: 100vw;
     margin-left: 50% !important;
@@ -2170,11 +2117,6 @@ body {
     -o-transform: translateX(-50%);
     transform: translateX(-50%); }
   .col\@mobile {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: -10px;
-    margin-right: -10px; }
-  .col-reverse\@mobile {
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: -10px;
@@ -2580,15 +2522,6 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important; }
 
-.state-tablet .row-reverse\@tablet {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-  [class*="no-gutter"] > .state-tablet .row-reverse\@tablet {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-
 .state-tablet .row-full\@tablet {
   width: 100vw;
   margin-left: 50% !important;
@@ -2600,12 +2533,6 @@ body {
   transform: translateX(-50%); }
 
 .state-tablet .col\@tablet {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px; }
-
-.state-tablet .col-reverse\@tablet {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
@@ -2950,14 +2877,6 @@ body {
     [class*="no-gutter"] > .row\@tablet {
       margin-left: 0 !important;
       margin-right: 0 !important; }
-  .row-reverse\@tablet {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: -10px;
-    margin-right: -10px; }
-    [class*="no-gutter"] > .row-reverse\@tablet {
-      margin-left: 0 !important;
-      margin-right: 0 !important; }
   .row-full\@tablet {
     width: 100vw;
     margin-left: 50% !important;
@@ -2968,11 +2887,6 @@ body {
     -o-transform: translateX(-50%);
     transform: translateX(-50%); }
   .col\@tablet {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: -10px;
-    margin-right: -10px; }
-  .col-reverse\@tablet {
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: -10px;
@@ -3386,15 +3300,6 @@ body {
     margin-left: 0 !important;
     margin-right: 0 !important; }
 
-.state-ipad-landscape .row-reverse\@ipad-landscape {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -30px;
-  margin-right: -30px; }
-  [class*="no-gutter"] > .state-ipad-landscape .row-reverse\@ipad-landscape {
-    margin-left: 0 !important;
-    margin-right: 0 !important; }
-
 .state-ipad-landscape .row-full\@ipad-landscape {
   width: 100vw;
   margin-right: 50% !important;
@@ -3406,12 +3311,6 @@ body {
   transform: translateX(50%); }
 
 .state-ipad-landscape .col\@ipad-landscape {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -30px;
-  margin-right: -30px; }
-
-.state-ipad-landscape .col-reverse\@ipad-landscape {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -30px;
@@ -3762,14 +3661,6 @@ body {
     [class*="no-gutter"] > .row\@ipad-landscape {
       margin-left: 0 !important;
       margin-right: 0 !important; }
-  .row-reverse\@ipad-landscape {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: -30px;
-    margin-right: -30px; }
-    [class*="no-gutter"] > .row-reverse\@ipad-landscape {
-      margin-left: 0 !important;
-      margin-right: 0 !important; }
   .row-full\@ipad-landscape {
     width: 100vw;
     margin-right: 50% !important;
@@ -3780,11 +3671,6 @@ body {
     -o-transform: translateX(50%);
     transform: translateX(50%); }
   .col\@ipad-landscape {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-    margin-left: -30px;
-    margin-right: -30px; }
-  .col-reverse\@ipad-landscape {
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: -30px;

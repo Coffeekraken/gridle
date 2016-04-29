@@ -69,7 +69,7 @@ window.matchMedia || (window.matchMedia = function() {
   /*
   	Little smokesignals implementation
    */
-  var domLoaded, smokesignals, _domLoaded;
+  var _domLoaded, domLoaded, smokesignals;
   smokesignals = {
     convert: function(obj, handlers) {
       handlers = {};
@@ -78,13 +78,13 @@ window.matchMedia || (window.matchMedia = function() {
         return obj;
       };
       obj.emit = function(eventName) {
-        var handler, _i, _len, _ref;
+        var handler, k, len, ref;
         if (!handlers[eventName]) {
           return;
         }
-        _ref = handlers[eventName];
-        for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-          handler = _ref[_i];
+        ref = handlers[eventName];
+        for (k = 0, len = ref.length; k < len; k++) {
+          handler = ref[k];
           handler.apply(obj, Array.prototype.slice.call(arguments, 1));
           continue;
         }
@@ -153,7 +153,7 @@ window.matchMedia || (window.matchMedia = function() {
     		Load and parse css
      */
     _parseCss: function() {
-      var e, i, idx, j, rule, rules, settings, settings_found;
+      var e, error, i, idx, j, rule, rules, settings, settings_found;
       i = 0;
       j = document.styleSheets.length;
       settings_found = false;
@@ -189,8 +189,8 @@ window.matchMedia || (window.matchMedia = function() {
               }
             }
           }
-        } catch (_error) {
-          e = _error;
+        } catch (error) {
+          e = error;
           if (e.name !== 'SecurityError') {
             throw e;
           }
@@ -208,11 +208,11 @@ window.matchMedia || (window.matchMedia = function() {
     		Process finded states
      */
     _processFindedStates: function() {
-      var name, query, _ref;
+      var name, query, ref;
       this._debug('begin process finded states in css');
-      _ref = this._statesInCss;
-      for (name in _ref) {
-        query = _ref[name];
+      ref = this._statesInCss;
+      for (name in ref) {
+        query = ref[name];
         if (this._settings.ignoredStates.indexOf(name) === -1) {
           this._registerState(name, query);
         }
@@ -277,7 +277,7 @@ window.matchMedia || (window.matchMedia = function() {
     		Update states status
      */
     _updateStatesStatus: function() {
-      var defaultState, defaultStateIdx, key, state, wasDefault, _ref;
+      var defaultState, defaultStateIdx, key, ref, state, wasDefault;
       defaultState = this.getDefaultState();
       defaultStateIdx = this._states.indexOf(defaultState);
       wasDefault = defaultState.status;
@@ -287,9 +287,9 @@ window.matchMedia || (window.matchMedia = function() {
       this._inactiveStatesNames = [];
       this._updatedStates = [];
       this._updatedStatesNames = [];
-      _ref = this._states;
-      for (key in _ref) {
-        state = _ref[key];
+      ref = this._states;
+      for (key in ref) {
+        state = ref[key];
         if (!state.updateOnResize) {
           continue;
         }
@@ -417,10 +417,10 @@ window.matchMedia || (window.matchMedia = function() {
     		Get default state
      */
     getDefaultState: function() {
-      var state, _i, _len, _ref;
-      _ref = this.getRegisteredStates();
-      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
-        state = _ref[_i];
+      var k, len, ref, state;
+      ref = this.getRegisteredStates();
+      for (k = 0, len = ref.length; k < len; k++) {
+        state = ref[k];
         if (state.name === 'default') {
           return state;
         }
@@ -480,11 +480,11 @@ window.matchMedia || (window.matchMedia = function() {
     		Check is a state is active
      */
     isActive: function(stateName) {
-      var index, isActive, name, _ref;
+      var index, isActive, name, ref;
       isActive = false;
-      _ref = this._activeStatesNames;
-      for (index in _ref) {
-        name = _ref[index];
+      ref = this._activeStatesNames;
+      for (index in ref) {
+        name = ref[index];
         if (stateName === name) {
           isActive = true;
         }

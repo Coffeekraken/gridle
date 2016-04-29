@@ -67,6 +67,14 @@ module.exports = (grunt) ->
 					ext: '.js'
 				]
 
+		csslint:
+			options:
+				import: 2
+				'box-sizing': false
+				shorthand : false
+				important : false
+			src: ['css/**/grid.css']
+
 		cssmin:
 			options:
 				shorthandCompacting: false
@@ -138,6 +146,7 @@ module.exports = (grunt) ->
 	grunt.loadNpmTasks 'grunt-contrib-uglify'
 	grunt.loadNpmTasks 'grunt-contrib-concat'
 	grunt.loadNpmTasks 'grunt-contrib-clean'
+	grunt.loadNpmTasks 'grunt-contrib-csslint'
 
 	grunt.registerTask 'default', [
 		'clean'

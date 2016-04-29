@@ -213,8 +213,10 @@
 		#{_gridle_classname(row, $state)} {
 			@include gridle_row(false);
 		}
-		#{_gridle_classname(row, $state, reverse)} {
-			@include gridle_row(true);
+		@if gridle_is_driver(flex) {
+			#{_gridle_classname(row, $state, reverse)} {
+				@include gridle_row(true);
+			}
 		}
 	}
 
@@ -228,8 +230,10 @@
 		#{_gridle_classname(col, $state)} {
 			@include gridle_col(false);
 		}
-		#{_gridle_classname(col, $state, reverse)} {
-			@include gridle_col(true);
+		@if gridle_is_driver(flex) {
+			#{_gridle_classname(col, $state, reverse)} {
+				@include gridle_col(true);
+			}
 		}
 	}
 

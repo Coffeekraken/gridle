@@ -1028,11 +1028,13 @@
 
 	// loop on each states
 	@each $stateName, $props in $map {
-		$props_map : _gridle_parse_gridle_mixin_list($props);
-		@if type-of($props_map) == map {
-			$map : map-set($map, $stateName, $props_map);
-		} @else {
-			$map : map-set($map, $stateName, null);
+		@if length($props) > 0 {
+			$props_map : _gridle_parse_gridle_mixin_list($props);
+			@if type-of($props_map) == map {
+				$map : map-set($map, $stateName, $props_map);
+			} @else {
+				$map : map-set($map, $stateName, null);
+			}
 		}
 	}
 	
