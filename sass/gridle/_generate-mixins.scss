@@ -629,8 +629,8 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 				$gutter-left : gridle_get_state_var(gutter-left, $state);
 				$gutter-right : gridle_get_state_var(gutter-right, $state);
 				@include _gridle_state($stateName, false) {
-					[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(row),2)}"],
-					[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class*="#{str-slice(_gridle_classname(col),2)}"] {
+					[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class^="#{str-slice(_gridle_classname(row),2)}"],
+					[class*="#{str-slice(_gridle_classname(grid),2)}"] > [class^="#{str-slice(_gridle_classname(col),2)}"] {
 						margin-left: -#{$gutter-left};
 						margin-right: -#{$gutter-right};
 					}
