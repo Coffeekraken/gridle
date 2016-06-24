@@ -452,7 +452,7 @@
 		@include _gridle_generate_classes($states, $package, false);
 	}
 }
-$_gridle_generateOnlyOnce : true; // keep track of generate once classes
+$_gridle_generateOnlyOnce : true !default; // keep track of generate once classes
 @mixin _gridle_generate_classes(
 	$states : all,
 	$package : all,
@@ -498,7 +498,7 @@ $_gridle_generateOnlyOnce : true; // keep track of generate once classes
 	{
 
 		// update status
-		$_gridle_generateOnlyOnce : false;
+		$_gridle_generateOnlyOnce : false !global;
 
 		// | ------------------------
 		// | Windows 8 fix
