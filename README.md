@@ -1,4 +1,4 @@
-# gridle (v2.0.46)
+# gridle (v2.0.47)
 
 
 One grid system to rule them all (.scss)
@@ -10,7 +10,7 @@ Gridle is a set of complete and simple settings, mixins and classes that make th
 
 
 ## Quick start
-	
+
 Importing gridle
 
 ```scss
@@ -32,7 +32,7 @@ Register states (media queries) (optional) :
 
 ```scss
 @include gridle_register_state ( mobile , (
-	max-width : 480px 
+	max-width : 480px
 ) );
 @include gridle_register_state ( tablet , (
 	min-width : 481px,

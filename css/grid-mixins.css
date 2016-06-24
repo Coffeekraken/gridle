@@ -6,1007 +6,750 @@
  */
 .my-container {
   max-width: 960px;
-  margin: 0 auto;
-}
-.my-container:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+  margin: 0 auto; }
+  .my-container:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .state-default .state-default .my-container:after, .state-default .my-container:after {
+    content: "";
+    display: table;
+    clear: both; }
+  .my-row:before, .gallery:before, .my-row:after, .gallery:after {
+    content: "";
+    display: table; }
+  .my-row:after, .gallery:after {
+    clear: both; }
+  .my-row, .gallery {
+    zoom: 1; }
+  .state-default .state-default .my-row:before, .state-default .my-row:before, .state-default .state-default .gallery:before, .state-default .gallery:before, .state-default .state-default .my-row:after, .state-default .my-row:after, .state-default .state-default .gallery:after, .state-default .gallery:after {
+    content: "";
+    display: table; }
+  .state-default .state-default .my-row:after, .state-default .my-row:after, .state-default .state-default .gallery:after, .state-default .gallery:after {
+    clear: both; }
+  .state-default .state-default .my-row, .state-default .my-row, .state-default .state-default .gallery, .state-default .gallery {
+    zoom: 1; }
+  .my-grid-12, .my-grid-6, #site_header,
+  #site_footer, #site_content, #site_sidebar, .gallery__item {
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-right: 10px;
+    padding-left: 10px; }
+  .state-default .state-default .my-grid-12, .state-default .my-grid-12, .state-default .state-default .my-grid-6, .state-default .my-grid-6, .state-default .state-default #site_header, .state-default .state-default #site_footer, .state-default #site_header, .state-default #site_footer, .state-default .state-default #site_content, .state-default #site_content, .state-default .state-default #site_sidebar, .state-default #site_sidebar, .state-default .state-default .gallery__item, .state-default .gallery__item {
+    display: inline-block;
+    min-height: 1px;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-right: 10px;
+    padding-left: 10px; }
 
-.state-default .state-default .my-container:after, .state-default .my-container:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-.my-row:before, .gallery:before, .my-row:after, .gallery:after {
-  content: "";
-  display: table;
-}
-.my-row:after, .gallery:after {
-  clear: both;
-}
-.my-row, .gallery {
-  zoom: 1;
-}
-
-.state-default .state-default .my-row:before, .state-default .my-row:before, .state-default .state-default .gallery:before, .state-default .gallery:before, .state-default .state-default .my-row:after, .state-default .my-row:after, .state-default .state-default .gallery:after, .state-default .gallery:after {
-  content: "";
-  display: table;
-}
-.state-default .state-default .my-row:after, .state-default .my-row:after, .state-default .state-default .gallery:after, .state-default .gallery:after {
-  clear: both;
-}
-.state-default .state-default .my-row, .state-default .my-row, .state-default .state-default .gallery, .state-default .gallery {
-  zoom: 1;
-}
-.my-grid-12, .my-grid-6, #site_header,
-#site_footer, #site_content, #site_sidebar, .gallery__item {
-  display: inline-block;
-  min-height: 1px;
-  float: left;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: top;
-  padding-right: 10px;
-  padding-left: 10px;
-}
-
-.state-default .state-default .my-grid-12, .state-default .my-grid-12, .state-default .state-default .my-grid-6, .state-default .my-grid-6, .state-default .state-default #site_header, .state-default .state-default
-#site_footer, .state-default #site_header, .state-default
-#site_footer, .state-default .state-default #site_content, .state-default #site_content, .state-default .state-default #site_sidebar, .state-default #site_sidebar, .state-default .state-default .gallery__item, .state-default .gallery__item {
-  display: inline-block;
-  min-height: 1px;
-  float: left;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  vertical-align: top;
-  padding-right: 10px;
-  padding-left: 10px;
-}
 .my-row {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .my-row {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .state-default .my-row {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-[class*="no-gutter"] > .state-default .state-default .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .state-default .state-default .my-row .state-default .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .state-default .my-row .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .state-default .state-default .my-row .state-default .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
-  .state-default .state-default .my-row .state-default .state-default .my-row {
+  margin-right: -10px; }
+  .state-default .my-row {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .state-default .state-default .my-row .state-default .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .state-default .my-row .state-default .state-default .my-row {
+    margin-right: -10px; }
+    .state-default .state-default .my-row {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: -10px;
+      margin-right: -10px; }
+      [class*="no-gutter"] > .state-default .state-default .my-row {
+        margin-left: 0 !important;
+        margin-right: 0 !important; }
+      .state-default .state-default .state-default .my-row .state-default .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; }
+      .state-default .state-default .my-row .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; }
+      .state-mobile .state-default .state-default .my-row .state-default .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; }
+      @media screen and (max-width: 480px) {
+        .state-default .state-default .my-row .state-default .state-default .my-row {
+          margin-left: -10px;
+          margin-right: -10px; } }
+      .state-tablet .state-default .state-default .my-row .state-default .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; }
+      @media screen and (min-width: 481px) and (max-width: 1024px) {
+        .state-default .state-default .my-row .state-default .state-default .my-row {
+          margin-left: -10px;
+          margin-right: -10px; } }
+      .state-ipad-landscape .state-default .state-default .my-row .state-default .state-default .my-row {
+        margin-left: -30px;
+        margin-right: -30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .my-row .state-default .state-default .my-row {
+          margin-left: -30px;
+          margin-right: -30px; } }
+    [class*="no-gutter"] > .state-default .my-row {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+    .state-default .state-default .my-row .state-default .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-default .my-row .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-mobile .state-default .my-row .state-default .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (max-width: 480px) {
+      .state-default .my-row .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-tablet .state-default .my-row .state-default .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      .state-default .my-row .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-ipad-landscape .state-default .my-row .state-default .my-row {
+      margin-left: -30px;
+      margin-right: -30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .my-row .state-default .my-row {
+        margin-left: -30px;
+        margin-right: -30px; } }
+  .state-default .my-row {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .state-default .state-default .my-row .state-default .state-default .my-row {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .my-row .state-default .state-default .my-row {
-    margin-left: -30px;
-    margin-right: -30px;
-  }
-}
-[class*="no-gutter"] > .state-default .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .state-default .my-row .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .my-row .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .state-default .my-row .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
-  .state-default .my-row .state-default .my-row {
+    margin-right: -10px; }
+    [class*="no-gutter"] > .state-default .my-row {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+    .state-default .state-default .my-row .state-default .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-default .my-row .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-mobile .state-default .my-row .state-default .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (max-width: 480px) {
+      .state-default .my-row .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-tablet .state-default .my-row .state-default .my-row {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      .state-default .my-row .state-default .my-row {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-ipad-landscape .state-default .my-row .state-default .my-row {
+      margin-left: -30px;
+      margin-right: -30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .my-row .state-default .my-row {
+        margin-left: -30px;
+        margin-right: -30px; } }
+  [class*="no-gutter"] > .my-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+  .state-default .my-row .my-row {
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .state-default .my-row .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .my-row .state-default .my-row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .state-default .my-row .state-default .my-row {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .my-row .state-default .my-row {
-    margin-left: -30px;
-    margin-right: -30px;
-  }
-}
-.state-default .my-row {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-[class*="no-gutter"] > .state-default .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .state-default .my-row .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .my-row .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .state-default .my-row .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
-  .state-default .my-row .state-default .my-row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .state-default .my-row .state-default .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .my-row .state-default .my-row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .state-default .my-row .state-default .my-row {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .my-row .state-default .my-row {
-    margin-left: -30px;
-    margin-right: -30px;
-  }
-}
-[class*="no-gutter"] > .my-row {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .my-row .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.my-row .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .my-row .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
+    margin-right: -10px; }
   .my-row .my-row {
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .my-row .my-row {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .my-row .my-row {
+    margin-right: -10px; }
+  .state-mobile .my-row .my-row {
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .my-row .my-row {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .my-row .my-row {
+    margin-right: -10px; }
+  @media screen and (max-width: 480px) {
+    .my-row .my-row {
+      margin-left: -10px;
+      margin-right: -10px; } }
+  .state-tablet .my-row .my-row {
+    margin-left: -10px;
+    margin-right: -10px; }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    .my-row .my-row {
+      margin-left: -10px;
+      margin-right: -10px; } }
+  .state-ipad-landscape .my-row .my-row {
     margin-left: -30px;
-    margin-right: -30px;
-  }
-}
+    margin-right: -30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .my-row .my-row {
+      margin-left: -30px;
+      margin-right: -30px; } }
 
 .my-grid-12 {
-  width: 100%;
-}
-.state-default .my-grid-12 {
-  width: 100%;
-}
-.state-default .state-default .my-grid-12 {
-  width: 100%;
-}
-.state-ipad-landscape .state-default .state-default .my-grid-12 {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .my-grid-12 {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .state-default .my-grid-12 {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .my-grid-12 {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-ipad-landscape .state-default .my-grid-12 {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  width: 100%; }
   .state-default .my-grid-12 {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .my-grid-12 {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    width: 100%; }
+    .state-default .state-default .my-grid-12 {
+      width: 100%; }
+      .state-ipad-landscape .state-default .state-default .my-grid-12 {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .my-grid-12 {
+          padding-top: 25px;
+          padding-right: 30px;
+          padding-bottom: 25px;
+          padding-left: 30px; } }
+      .state-ipad-landscape .state-default .state-default .my-grid-12 {
+        direction: rtl;
+        float: right; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .my-grid-12 {
+          direction: rtl;
+          float: right; } }
+    .state-ipad-landscape .state-default .my-grid-12 {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .my-grid-12 {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; } }
+    .state-ipad-landscape .state-default .my-grid-12 {
+      direction: rtl;
+      float: right; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .my-grid-12 {
+        direction: rtl;
+        float: right; } }
   .state-default .my-grid-12 {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-default .my-grid-12 {
-  width: 100%;
-}
-.state-ipad-landscape .my-grid-12 {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .my-grid-12 {
+    width: 100%; }
+  .state-ipad-landscape .my-grid-12 {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .my-grid-12 {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .my-grid-12 {
+    padding-left: 30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .my-grid-12 {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; } }
+  .state-ipad-landscape .my-grid-12 {
     direction: rtl;
-    float: right;
-  }
-}
+    float: right; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .my-grid-12 {
+      direction: rtl;
+      float: right; } }
 
 .my-grid-6 {
-  width: 50%;
-}
-.state-default .my-grid-6 {
-  width: 50%;
-}
-.state-default .state-default .my-grid-6 {
-  width: 50%;
-}
-.state-ipad-landscape .state-default .state-default .my-grid-6 {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .my-grid-6 {
+  width: 50%; }
+  .state-default .my-grid-6 {
+    width: 50%; }
+    .state-default .state-default .my-grid-6 {
+      width: 50%; }
+      .state-ipad-landscape .state-default .state-default .my-grid-6 {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .my-grid-6 {
+          padding-top: 25px;
+          padding-right: 30px;
+          padding-bottom: 25px;
+          padding-left: 30px; } }
+      .state-ipad-landscape .state-default .state-default .my-grid-6 {
+        direction: rtl;
+        float: right; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .my-grid-6 {
+          direction: rtl;
+          float: right; } }
+    .state-ipad-landscape .state-default .my-grid-6 {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .my-grid-6 {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; } }
+    .state-ipad-landscape .state-default .my-grid-6 {
+      direction: rtl;
+      float: right; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .my-grid-6 {
+        direction: rtl;
+        float: right; } }
+    .state-tablet .state-default .my-grid-6 {
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-left: 0; }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      .state-default .my-grid-6 {
+        padding-top: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+        padding-left: 0; } }
+  .state-default .my-grid-6 {
+    width: 50%; }
+  .state-ipad-landscape .my-grid-6 {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .state-default .my-grid-6 {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .my-grid-6 {
+    padding-left: 30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .my-grid-6 {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; } }
+  .state-ipad-landscape .my-grid-6 {
     direction: rtl;
-    float: right;
-  }
-}
-.state-ipad-landscape .state-default .my-grid-6 {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .my-grid-6 {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .my-grid-6 {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .my-grid-6 {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-tablet .state-default .my-grid-6 {
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .my-grid-6 {
+    float: right; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .my-grid-6 {
+      direction: rtl;
+      float: right; } }
+  .state-tablet .my-grid-6 {
     padding-top: 0;
     padding-right: 0;
     padding-bottom: 0;
-    padding-left: 0;
-  }
-}
-.state-default .my-grid-6 {
-  width: 50%;
-}
-.state-ipad-landscape .my-grid-6 {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .my-grid-6 {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .my-grid-6 {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .my-grid-6 {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-tablet .my-grid-6 {
-  padding-top: 0;
-  padding-right: 0;
-  padding-bottom: 0;
-  padding-left: 0;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .my-grid-6 {
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-  }
-}
+    padding-left: 0; }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    .my-grid-6 {
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-left: 0; } }
 
 #site_header,
 #site_footer {
-  width: 100%;
-}
-.state-default #site_header, .state-default
-#site_footer {
-  width: 100%;
-}
-.state-default .state-default #site_header, .state-default .state-default
-#site_footer {
-  width: 100%;
-}
-.state-ipad-landscape .state-default .state-default #site_header, .state-ipad-landscape .state-default .state-default
-#site_footer {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default #site_header, .state-default .state-default
-  #site_footer {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .state-default #site_header, .state-ipad-landscape .state-default .state-default
-#site_footer {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default #site_header, .state-default .state-default
-  #site_footer {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-ipad-landscape .state-default #site_header, .state-ipad-landscape .state-default
-#site_footer {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  width: 100%; }
   .state-default #site_header, .state-default
   #site_footer {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default #site_header, .state-ipad-landscape .state-default
-#site_footer {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    width: 100%; }
+    .state-default .state-default #site_header, .state-default .state-default
+    #site_footer {
+      width: 100%; }
+      .state-ipad-landscape .state-default .state-default #site_header, .state-ipad-landscape .state-default .state-default
+      #site_footer {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default #site_header, .state-default .state-default
+        #site_footer {
+          padding-top: 25px;
+          padding-right: 30px;
+          padding-bottom: 25px;
+          padding-left: 30px; } }
+      .state-ipad-landscape .state-default .state-default #site_header, .state-ipad-landscape .state-default .state-default
+      #site_footer {
+        direction: rtl;
+        float: right; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default #site_header, .state-default .state-default
+        #site_footer {
+          direction: rtl;
+          float: right; } }
+    .state-ipad-landscape .state-default #site_header, .state-ipad-landscape .state-default
+    #site_footer {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default #site_header, .state-default
+      #site_footer {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; } }
+    .state-ipad-landscape .state-default #site_header, .state-ipad-landscape .state-default
+    #site_footer {
+      direction: rtl;
+      float: right; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default #site_header, .state-default
+      #site_footer {
+        direction: rtl;
+        float: right; } }
   .state-default #site_header, .state-default
   #site_footer {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-default #site_header, .state-default
-#site_footer {
-  width: 100%;
-}
-.state-ipad-landscape #site_header, .state-ipad-landscape
-#site_footer {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #site_header,
+    width: 100%; }
+  .state-ipad-landscape #site_header, .state-ipad-landscape
   #site_footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape #site_header, .state-ipad-landscape
-#site_footer {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #site_header,
+    padding-left: 30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #site_header,
+    #site_footer {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; } }
+  .state-ipad-landscape #site_header, .state-ipad-landscape
   #site_footer {
     direction: rtl;
-    float: right;
-  }
-}
+    float: right; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #site_header,
+    #site_footer {
+      direction: rtl;
+      float: right; } }
 
 #site_content {
-  width: 66.66666667%;
-}
-.state-default #site_content {
-  width: 66.66666667%;
-}
-.state-default .state-default #site_content {
-  width: 66.66666667%;
-}
-.state-ipad-landscape .state-default .state-default #site_content {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default #site_content {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .state-default #site_content {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default #site_content {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-ipad-landscape .state-default #site_content {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  width: 66.66667%; }
   .state-default #site_content {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default #site_content {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    width: 66.66667%; }
+    .state-default .state-default #site_content {
+      width: 66.66667%; }
+      .state-ipad-landscape .state-default .state-default #site_content {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default #site_content {
+          padding-top: 25px;
+          padding-right: 30px;
+          padding-bottom: 25px;
+          padding-left: 30px; } }
+      .state-ipad-landscape .state-default .state-default #site_content {
+        direction: rtl;
+        float: right; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default #site_content {
+          direction: rtl;
+          float: right; } }
+    .state-ipad-landscape .state-default #site_content {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default #site_content {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; } }
+    .state-ipad-landscape .state-default #site_content {
+      direction: rtl;
+      float: right; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default #site_content {
+        direction: rtl;
+        float: right; } }
   .state-default #site_content {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-default #site_content {
-  width: 66.66666667%;
-}
-.state-ipad-landscape #site_content {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #site_content {
+    width: 66.66667%; }
+  .state-ipad-landscape #site_content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape #site_content {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #site_content {
+    padding-left: 30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #site_content {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; } }
+  .state-ipad-landscape #site_content {
     direction: rtl;
-    float: right;
-  }
-}
+    float: right; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #site_content {
+      direction: rtl;
+      float: right; } }
 
 #site_sidebar {
-  width: 33.33333333%;
-  background: blue;
-}
-.state-default #site_sidebar {
-  width: 33.33333333%;
-}
-.state-default .state-default #site_sidebar {
-  width: 33.33333333%;
-}
-.state-ipad-landscape .state-default .state-default #site_sidebar {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default #site_sidebar {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .state-default #site_sidebar {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default #site_sidebar {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-ipad-landscape .state-default #site_sidebar {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  width: 33.33333%;
+  background: blue; }
   .state-default #site_sidebar {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default #site_sidebar {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    width: 33.33333%; }
+    .state-default .state-default #site_sidebar {
+      width: 33.33333%; }
+      .state-ipad-landscape .state-default .state-default #site_sidebar {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default #site_sidebar {
+          padding-top: 25px;
+          padding-right: 30px;
+          padding-bottom: 25px;
+          padding-left: 30px; } }
+      .state-ipad-landscape .state-default .state-default #site_sidebar {
+        direction: rtl;
+        float: right; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default #site_sidebar {
+          direction: rtl;
+          float: right; } }
+    .state-ipad-landscape .state-default #site_sidebar {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default #site_sidebar {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; } }
+    .state-ipad-landscape .state-default #site_sidebar {
+      direction: rtl;
+      float: right; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default #site_sidebar {
+        direction: rtl;
+        float: right; } }
   .state-default #site_sidebar {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-default #site_sidebar {
-  width: 33.33333333%;
-}
-.state-ipad-landscape #site_sidebar {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #site_sidebar {
+    width: 33.33333%; }
+  .state-ipad-landscape #site_sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape #site_sidebar {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  #site_sidebar {
+    padding-left: 30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #site_sidebar {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; } }
+  .state-ipad-landscape #site_sidebar {
     direction: rtl;
-    float: right;
-  }
-}
+    float: right; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    #site_sidebar {
+      direction: rtl;
+      float: right; } }
 
 .gallery {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .gallery {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .state-default .gallery {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-[class*="no-gutter"] > .state-default .state-default .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .state-default .state-default .gallery .state-default .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .state-default .gallery .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .state-default .state-default .gallery .state-default .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
-  .state-default .state-default .gallery .state-default .state-default .gallery {
+  margin-right: -10px; }
+  .state-default .gallery {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .state-default .state-default .gallery .state-default .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .state-default .gallery .state-default .state-default .gallery {
+    margin-right: -10px; }
+    .state-default .state-default .gallery {
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: -10px;
+      margin-right: -10px; }
+      [class*="no-gutter"] > .state-default .state-default .gallery {
+        margin-left: 0 !important;
+        margin-right: 0 !important; }
+      .state-default .state-default .state-default .gallery .state-default .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; }
+      .state-default .state-default .gallery .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; }
+      .state-mobile .state-default .state-default .gallery .state-default .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; }
+      @media screen and (max-width: 480px) {
+        .state-default .state-default .gallery .state-default .state-default .gallery {
+          margin-left: -10px;
+          margin-right: -10px; } }
+      .state-tablet .state-default .state-default .gallery .state-default .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; }
+      @media screen and (min-width: 481px) and (max-width: 1024px) {
+        .state-default .state-default .gallery .state-default .state-default .gallery {
+          margin-left: -10px;
+          margin-right: -10px; } }
+      .state-ipad-landscape .state-default .state-default .gallery .state-default .state-default .gallery {
+        margin-left: -30px;
+        margin-right: -30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .gallery .state-default .state-default .gallery {
+          margin-left: -30px;
+          margin-right: -30px; } }
+    [class*="no-gutter"] > .state-default .gallery {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+    .state-default .state-default .gallery .state-default .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-default .gallery .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-mobile .state-default .gallery .state-default .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (max-width: 480px) {
+      .state-default .gallery .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-tablet .state-default .gallery .state-default .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      .state-default .gallery .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-ipad-landscape .state-default .gallery .state-default .gallery {
+      margin-left: -30px;
+      margin-right: -30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .gallery .state-default .gallery {
+        margin-left: -30px;
+        margin-right: -30px; } }
+  .state-default .gallery {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .state-default .state-default .gallery .state-default .state-default .gallery {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .gallery .state-default .state-default .gallery {
-    margin-left: -30px;
-    margin-right: -30px;
-  }
-}
-[class*="no-gutter"] > .state-default .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .state-default .gallery .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .gallery .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .state-default .gallery .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
-  .state-default .gallery .state-default .gallery {
+    margin-right: -10px; }
+    [class*="no-gutter"] > .state-default .gallery {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+    .state-default .state-default .gallery .state-default .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-default .gallery .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    .state-mobile .state-default .gallery .state-default .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (max-width: 480px) {
+      .state-default .gallery .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-tablet .state-default .gallery .state-default .gallery {
+      margin-left: -10px;
+      margin-right: -10px; }
+    @media screen and (min-width: 481px) and (max-width: 1024px) {
+      .state-default .gallery .state-default .gallery {
+        margin-left: -10px;
+        margin-right: -10px; } }
+    .state-ipad-landscape .state-default .gallery .state-default .gallery {
+      margin-left: -30px;
+      margin-right: -30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .gallery .state-default .gallery {
+        margin-left: -30px;
+        margin-right: -30px; } }
+  [class*="no-gutter"] > .gallery {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+  .state-default .gallery .gallery {
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .state-default .gallery .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .gallery .state-default .gallery {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .state-default .gallery .state-default .gallery {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .gallery .state-default .gallery {
-    margin-left: -30px;
-    margin-right: -30px;
-  }
-}
-.state-default .gallery {
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-[class*="no-gutter"] > .state-default .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .state-default .gallery .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-default .gallery .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .state-default .gallery .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
-  .state-default .gallery .state-default .gallery {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .state-default .gallery .state-default .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-default .gallery .state-default .gallery {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .state-default .gallery .state-default .gallery {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .gallery .state-default .gallery {
-    margin-left: -30px;
-    margin-right: -30px;
-  }
-}
-[class*="no-gutter"] > .gallery {
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-.state-default .gallery .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.gallery .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.state-mobile .gallery .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (max-width: 480px) {
+    margin-right: -10px; }
   .gallery .gallery {
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-tablet .gallery .gallery {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-@media screen and (min-width: 481px) and (max-width: 1024px) {
-  .gallery .gallery {
+    margin-right: -10px; }
+  .state-mobile .gallery .gallery {
     margin-left: -10px;
-    margin-right: -10px;
-  }
-}
-.state-ipad-landscape .gallery .gallery {
-  margin-left: -30px;
-  margin-right: -30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .gallery .gallery {
+    margin-right: -10px; }
+  @media screen and (max-width: 480px) {
+    .gallery .gallery {
+      margin-left: -10px;
+      margin-right: -10px; } }
+  .state-tablet .gallery .gallery {
+    margin-left: -10px;
+    margin-right: -10px; }
+  @media screen and (min-width: 481px) and (max-width: 1024px) {
+    .gallery .gallery {
+      margin-left: -10px;
+      margin-right: -10px; } }
+  .state-ipad-landscape .gallery .gallery {
     margin-left: -30px;
-    margin-right: -30px;
-  }
-}
+    margin-right: -30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .gallery .gallery {
+      margin-left: -30px;
+      margin-right: -30px; } }
 
 .gallery__item {
-  width: 33.33333333%;
-  height: 50px;
-}
-.state-default .gallery__item {
-  width: 33.33333333%;
-}
-.state-default .state-default .gallery__item {
-  width: 33.33333333%;
-}
-.state-ipad-landscape .state-default .state-default .gallery__item {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .gallery__item {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .state-default .gallery__item {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-default .state-default .gallery__item {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-ipad-landscape .state-default .gallery__item {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+  width: 33.33333%;
+  height: 50px; }
   .state-default .gallery__item {
-    padding-top: 25px;
-    padding-right: 30px;
-    padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .state-default .gallery__item {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    width: 33.33333%; }
+    .state-default .state-default .gallery__item {
+      width: 33.33333%; }
+      .state-ipad-landscape .state-default .state-default .gallery__item {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .gallery__item {
+          padding-top: 25px;
+          padding-right: 30px;
+          padding-bottom: 25px;
+          padding-left: 30px; } }
+      .state-ipad-landscape .state-default .state-default .gallery__item {
+        direction: rtl;
+        float: right; }
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+        .state-default .state-default .gallery__item {
+          direction: rtl;
+          float: right; } }
+    .state-ipad-landscape .state-default .gallery__item {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .gallery__item {
+        padding-top: 25px;
+        padding-right: 30px;
+        padding-bottom: 25px;
+        padding-left: 30px; } }
+    .state-ipad-landscape .state-default .gallery__item {
+      direction: rtl;
+      float: right; }
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .state-default .gallery__item {
+        direction: rtl;
+        float: right; } }
   .state-default .gallery__item {
-    direction: rtl;
-    float: right;
-  }
-}
-.state-default .gallery__item {
-  width: 33.33333333%;
-}
-.state-ipad-landscape .gallery__item {
-  padding-top: 25px;
-  padding-right: 30px;
-  padding-bottom: 25px;
-  padding-left: 30px;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .gallery__item {
+    width: 33.33333%; }
+  .state-ipad-landscape .gallery__item {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
-    padding-left: 30px;
-  }
-}
-.state-ipad-landscape .gallery__item {
-  direction: rtl;
-  float: right;
-}
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .gallery__item {
+    padding-left: 30px; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .gallery__item {
+      padding-top: 25px;
+      padding-right: 30px;
+      padding-bottom: 25px;
+      padding-left: 30px; } }
+  .state-ipad-landscape .gallery__item {
     direction: rtl;
-    float: right;
-  }
-}
+    float: right; }
+  @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .gallery__item {
+      direction: rtl;
+      float: right; } }
 
 /**
  * Debug grid
@@ -1018,13 +761,11 @@
   background: #eaedef;
   border: 1px solid #dce1e4;
   padding-top: 10px;
-  padding-bottom: 10px;
-}
-#site_sidebar:before,
-#site_content:before,
-#site_header:before,
-#site_footer:before {
-  display: block;
-  content: attr(class);
-  font-weight: bold;
-}
+  padding-bottom: 10px; }
+  #site_sidebar:before,
+  #site_content:before,
+  #site_header:before,
+  #site_footer:before {
+    display: block;
+    content: attr(class);
+    font-weight: bold; }

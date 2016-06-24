@@ -27,7 +27,15 @@
 		margin-left: -#{gridle_get_state_var(gutter-left)};
 		margin-right: -#{gridle_get_state_var(gutter-right)};
 		// font-size:0; // to avoid problems with inline-block margins
-	
+
+		@if $reverse {
+			transform : rotateY(180deg);
+
+			> #{_gridle_get_generic_selector(grid)} {
+				transform : rotateY(-180deg);
+			}
+		}
+
 		#{_gridle_get_generic_selector(no-gutter)} > & {
 			margin-left: 0 !important;
 			margin-right: 0 !important;
@@ -37,7 +45,7 @@
 		// mean that we use the mixin directly
 		@if _gridle_is_in_generate_phase() == false {
 			@each $stateName, $state in gridle_get_states() {
-				@include gridle_state($state) {	
+				@include gridle_state($state) {
 					& #{str-replace(unquote("#{&}"),".state-#{gridle_get_state_var(name, $state)}","")} {
 						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
 						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
@@ -66,11 +74,19 @@
 		margin-right: -#{gridle_get_state_var(gutter-right)};
 		// font-size:0; // to avoid problems with inline-block margins
 
+		@if $reverse {
+			transform : rotateX(180deg);
+
+			> #{_gridle_get_generic_selector(grid)} {
+				transform : rotateX(-180deg);
+			}
+		}
+
 		// do this only when not in generate phase
 		// mean that we use the mixin directly
 		@if _gridle_is_in_generate_phase() == false {
 			@each $stateName, $state in gridle_get_states() {
-				@include gridle_state($state) {	
+				@include gridle_state($state) {
 					& #{str-replace(#{&},".state-#{gridle_get_state_var(name, $state)}","")} {
 						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
 						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
@@ -122,7 +138,7 @@
 ) {
 	// vars
 	$direction : gridle_get_state_var(direction, $state);
-	
+
 	// css
 	display:inline-block;
 	min-height:1px;
@@ -149,7 +165,7 @@
 			float: left;
 		}
 	}
-	
+
 }
 @mixin gridle_grid(
 	$columns,
@@ -160,7 +176,7 @@
 	} @else if $columns == adapt {
 		@include gridle_grid_adapt();
 	} @else {
-		
+
 		@include _gridle_call(grid) {
 
 			// vars
@@ -322,7 +338,7 @@
 	box-sizing: border-box;
 	font-size: 1rem;
 	@include gridle_gutter();
-	
+
 }
 @mixin gridle_grid_grow(
 ) {
@@ -404,7 +420,7 @@
 					}
 				}
 			}
-		} 
+		}
 
 		@each $a in $align {
 			@if $a == left {
