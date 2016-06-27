@@ -411,9 +411,10 @@
 					vertical-align:bottom;
 				}
 				font-size:1rem;
+				margin-right: -0.16px;
 				@-moz-document url-prefix() {
 					& {
-						margin-right: -0.5px; // fix firefox weird issue
+						margin-right: -0.2px; // fix firefox weird issue
 					}
 				}
 			}
