@@ -796,7 +796,7 @@
 ) {
 }
 @mixin gridle_gutter(
-	$side-or-size : top right bottom left
+	$side-or-size : right left
 ) {
 	@include _gridle_call(gutter) {
 
