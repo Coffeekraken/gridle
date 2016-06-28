@@ -21,7 +21,7 @@
 		padding-right: 0 !important;
 		margin-left: -#{gridle_get_state_var(gutter-left)};
 		margin-right: -#{gridle_get_state_var(gutter-right)};
-	
+
 		// handle row in no-gutter
 		#{_gridle_get_generic_selector(no-gutter)} > & {
 			margin-left: 0 !important;
@@ -32,7 +32,7 @@
 		// mean that we use the mixin directly
 		@if _gridle_is_in_generate_phase() == false {
 			@each $stateName, $state in gridle_get_states() {
-				@include gridle_state($state) {	
+				@include gridle_state($state) {
 					& #{str-replace(#{&},".state-#{gridle_get_state_var(name, $state)}","")} {
 						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
 						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
@@ -69,7 +69,7 @@
 		// mean that we use the mixin directly
 		@if _gridle_is_in_generate_phase() == false {
 			@each $stateName, $state in gridle_get_states() {
-				@include gridle_state($state) {	
+				@include gridle_state($state) {
 					& #{str-replace(#{&},".state-#{gridle_get_state_var(name, $state)}","")} {
 						margin-left: -#{gridle_get_state_var(gutter-left, $state)};
 						margin-right: -#{gridle_get_state_var(gutter-right, $state)};
@@ -125,13 +125,14 @@
 	@include flex(0,0,auto);
 	@include flex-direction(column); // reset direction for inner elements
 	display: block;
+	line-height:1;
 	@if $gridle-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
 	box-sizing: border-box;
 	@include gridle_gutter();
-	
+
 }
 @mixin gridle_grid(
 	$columns,
@@ -154,7 +155,7 @@
 			$gutter-left : gridle_get_state_var(gutter-left);
 			$gutter-right : gridle_get_state_var(gutter-right);
 			$column-width : gridle_get_state_var(column-width);
-			
+
 			// manage columns
 			@if type-of($columns) != number and map-has-key($_gridle_columns, $columns) {
 				// the columns is a saved one, get the context and column value
@@ -269,6 +270,7 @@
 	$state : default
 ) {
 	max-width: 100%;
+	line-height:1;
 	@include flexbox;
 	@include flex(0,1,auto);
 	@include flex-direction(column); // reset direction for inner elements
@@ -293,16 +295,17 @@
 	$state : default
 ) {
 	max-width: 100%;
+	line-height:1;
 	@include flexbox;
 	@include flex(1,1,auto);
-	@include flex-direction(column); // reset direction for inner elements	
+	@include flex-direction(column); // reset direction for inner elements
 	@if $gridle-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
 	box-sizing: border-box;
 	@include gridle_gutter();
-	
+
 }
 @mixin gridle_grid_grow(
 ) {
