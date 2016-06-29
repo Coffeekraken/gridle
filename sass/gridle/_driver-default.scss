@@ -402,9 +402,11 @@
 		// need to change the way grids items are layed out
 		@if in-map($align, top) of in-map($align, middle) or in-map($align, bottom) {
 			font-size:0;
+			word-spacing:0;
 			clear:both;
 
 			> * {
+				word-spacing:normal;
 				float:none !important;
 				@if in-map($align, top) {
 					vertical-align:top;
@@ -414,12 +416,6 @@
 					vertical-align:bottom;
 				}
 				font-size:1rem;
-				margin-right: -0.16px;
-				@-moz-document url-prefix() {
-					& {
-						margin-right: -0.2px; // fix firefox weird issue
-					}
-				}
 			}
 		}
 
