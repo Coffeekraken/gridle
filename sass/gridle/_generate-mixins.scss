@@ -251,6 +251,24 @@
 		}
 	}
 
+	@if _gridle_need_to_generate(row-no-gutter, $package) {
+		#{_gridle_classname(row-no-gutter, $state)} {
+			@include gridle_row_no_gutter();
+		}
+		#{_gridle_classname(row-no-gutter, $state, top)} {
+			@include gridle_row_no_gutter(top);
+		}
+		#{_gridle_classname(row-no-gutter, $state, right)} {
+			@include gridle_row_no_gutter(right);
+		}
+		#{_gridle_classname(row-no-gutter, $state, bottom)} {
+			@include gridle_row_no_gutter(bottom);
+		}
+		#{_gridle_classname(row-no-gutter, $state, left)} {
+			@include gridle_row_no_gutter(left);
+		}
+	}
+
 	@if _gridle_need_to_generate(row-align, $package) {
 		#{_gridle_classname(row-align, $state, left)} {
 			@include gridle_row_align(left);

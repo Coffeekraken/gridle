@@ -44,6 +44,7 @@
 #site_footer, #site_content, #site_sidebar, .gallery__item {
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -58,6 +59,7 @@
 #site_footer, .state-default .state-default #site_content, .state-default #site_content, .state-default .state-default #site_sidebar, .state-default #site_sidebar, .state-default .state-default .gallery__item, .state-default .gallery__item {
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

@@ -219,6 +219,11 @@
 	// nothing finded, return the default state
 	@return $_gridle-settings;
 }
+@function gridle_state(
+	$stateMap-or-stateName : current
+) {
+	@return gridle_get_state($stateMap-or-stateName);
+}
 
 
 //
@@ -266,6 +271,12 @@
 	// nothing finded :
 	@return null;
 }
+@function gridle_var(
+	$varName,
+	$stateMap-or-stateName : current
+) {
+	@return gridle_get_state_var($varName, $stateMap-or-stateName);
+}
 
 
 //
@@ -278,7 +289,7 @@
 @function gridle_set_state_var(
 	$var,
 	$newValue,
-	$stateName : default
+	$stateName : current
 ) {
 	// get the state :
 	$state : gridle_get_state($stateName);
@@ -306,6 +317,9 @@
 // get the registered gridle states
 //
 @function gridle_get_states() {
+	@return $_gridle_states;
+}
+@function gridle_states() {
 	@return $_gridle_states;
 }
 
@@ -993,7 +1007,7 @@
 			}
 		}
 	}
-	
+
 	// // check if we don't have any gutter parameters
 	// @if not map-get($map, gutter) and not map-get($map, no-gutter) {
 	// 	$map : map-set($map, gutter, true);
@@ -1037,7 +1051,7 @@
 			}
 		}
 	}
-	
+
 	@return $map;
 }
 

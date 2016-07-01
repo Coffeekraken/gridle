@@ -242,6 +242,8 @@
 				@include gridle_col();
 			} @else if $sn == row-align {
 				@include gridle_row_align($sv);
+			} @else if $sn == row-no-gutter {
+				@include gridle_row_no_gutter($sv);
 			} @else if $sn == nowrap {
 				@if $sv == true {
 					@include gridle_nowrap();
@@ -635,6 +637,24 @@
 @mixin gridle_container(
 ) {
 	@include _gridle_call(container) {
+	}
+}
+
+
+//
+// Row no gutter
+//
+@mixin _gridle_common_row_no_gutter(
+	$state : default
+) {
+}
+@mixin gridle_row_no_gutter(
+	$sides : top right bottom left
+) {
+	@include _gridle_call(row-no-gutter) {
+		> #{_gridle_get_generic_selector('grid')} {
+			@include gridle_no_gutter($sides);
+		}
 	}
 }
 

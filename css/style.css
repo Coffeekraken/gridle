@@ -77,6 +77,7 @@ body {
 #myCoolItem {
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -89,6 +90,7 @@ body {
 .state-default #myCoolItem {
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -108,6 +110,7 @@ body {
   .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
+    line-height: 1;
     float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -120,6 +123,7 @@ body {
 .state-mobile .state-default #myCoolItem, .state-mobile #myCoolItem {
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -129,9 +133,10 @@ body {
   padding-left: 10px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j2sk .state-utxj0j2rf .module > .header, .state-utxj0j2rf .module > .header, .state-utxj0j2v2 .state-utxj0j2rf .module > .login, .state-utxj0j2rf .module > .login, .state-utxj0j34z .module > .header, .module > .header, .state-utxj0j37q .module > .login, .module > .login, .state-default #myCoolItem, #myCoolItem {
+  .state-u3f7t9lou .state-u3f7t9lnh .module > .header, .state-u3f7t9lnh .module > .header, .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login, .state-u3f7t9lnh .module > .login, .state-u3f7t9m0w .module > .header, .module > .header, .state-u3f7t9m3c .module > .login, .module > .login, .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
+    line-height: 1;
     float: left;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -141,9 +146,10 @@ body {
     padding-left: 10px;
   }
 }
-.state-tablet .state-utxj0j2sk .state-utxj0j2rf .module > .header, .state-tablet .state-utxj0j2rf .module > .header, .state-tablet .state-utxj0j2v2 .state-utxj0j2rf .module > .login, .state-tablet .state-utxj0j2rf .module > .login, .state-tablet .state-utxj0j34z .module > .header, .state-tablet .module > .header, .state-tablet .state-utxj0j37q .module > .login, .state-tablet .module > .login, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+.state-tablet .state-u3f7t9lou .state-u3f7t9lnh .module > .header, .state-tablet .state-u3f7t9lnh .module > .header, .state-tablet .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login, .state-tablet .state-u3f7t9lnh .module > .login, .state-tablet .state-u3f7t9m0w .module > .header, .state-tablet .module > .header, .state-tablet .state-u3f7t9m3c .module > .login, .state-tablet .module > .login, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -181,68 +187,69 @@ body {
   margin-left: -10px;
   margin-right: -10px;
 }
-.state-utxj0j2rf .module {
+.state-u3f7t9lnh .module {
   padding-left: 0 !important;
   padding-right: 0 !important;
   margin-left: -10px;
   margin-right: -10px;
 }
-[class*="no-gutter"] > .state-utxj0j2rf .module {
+[class*="no-gutter"] > .state-u3f7t9lnh .module {
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.state-default .state-utxj0j2rf .module .state-utxj0j2rf .module {
+.state-default .state-u3f7t9lnh .module .state-u3f7t9lnh .module {
   margin-left: -10px;
   margin-right: -10px;
 }
-.state-utxj0j2rf .module .state-utxj0j2rf .module {
+.state-u3f7t9lnh .module .state-u3f7t9lnh .module {
   margin-left: -10px;
   margin-right: -10px;
 }
-.state-mobile .state-utxj0j2rf .module .state-utxj0j2rf .module {
+.state-mobile .state-u3f7t9lnh .module .state-u3f7t9lnh .module {
   margin-left: -10px;
   margin-right: -10px;
 }
 @media screen and (max-width: 480px) {
-  .state-utxj0j2rf .module .state-utxj0j2rf .module {
+  .state-u3f7t9lnh .module .state-u3f7t9lnh .module {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
-.state-tablet .state-utxj0j2rf .module .state-utxj0j2rf .module {
+.state-tablet .state-u3f7t9lnh .module .state-u3f7t9lnh .module {
   margin-left: -10px;
   margin-right: -10px;
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j2rf .module .state-utxj0j2rf .module {
+  .state-u3f7t9lnh .module .state-u3f7t9lnh .module {
     margin-left: -10px;
     margin-right: -10px;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module .state-utxj0j2rf .module {
+.state-ipad-landscape .state-u3f7t9lnh .module .state-u3f7t9lnh .module {
   margin-left: -30px;
   margin-right: -30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module .state-utxj0j2rf .module {
+  .state-u3f7t9lnh .module .state-u3f7t9lnh .module {
     margin-left: -30px;
     margin-right: -30px;
   }
 }
-.state-utxj0j2rf .module:before, .state-utxj0j2rf .module:after {
+.state-u3f7t9lnh .module:before, .state-u3f7t9lnh .module:after {
   content: "";
   display: table;
 }
-.state-utxj0j2rf .module:after {
+.state-u3f7t9lnh .module:after {
   clear: both;
 }
-.state-utxj0j2rf .module {
+.state-u3f7t9lnh .module {
   zoom: 1;
 }
-.state-utxj0j2rf .module > .header {
+.state-u3f7t9lnh .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -252,10 +259,11 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -265,10 +273,11 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-utxj0j2ta .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-u3f7t9lpl .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -278,92 +287,93 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ipad-landscape .state-utxj0j2ta .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lpl .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2ta .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lpl .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2ta .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lpl .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2ta .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lpl .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
     direction: rtl;
     float: right;
   }
 }
-.state-tablet .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-tablet .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   width: 40%;
   margin-left: 10%;
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-tablet .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+  .state-tablet .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-tablet .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+  .state-tablet .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
     direction: rtl;
     float: right;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j2sk .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lou .state-u3f7t9lnh .module > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-utxj0j2u7 .state-utxj0j2rf .module > .header {
+.state-u3f7t9lqe .state-u3f7t9lnh .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -373,92 +383,93 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ipad-landscape .state-utxj0j2u7 .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lqe .state-u3f7t9lnh .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2u7 .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lqe .state-u3f7t9lnh .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2u7 .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lqe .state-u3f7t9lnh .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2u7 .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lqe .state-u3f7t9lnh .module > .header {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lnh .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lnh .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-u3f7t9lnh .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lnh .module > .header {
     direction: rtl;
     float: right;
   }
 }
-.state-tablet .state-utxj0j2rf .module > .header {
+.state-tablet .state-u3f7t9lnh .module > .header {
   width: 40%;
   margin-left: 10%;
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-tablet .state-u3f7t9lnh .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2rf .module > .header {
+  .state-tablet .state-u3f7t9lnh .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2rf .module > .header {
+.state-ipad-landscape .state-tablet .state-u3f7t9lnh .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2rf .module > .header {
+  .state-tablet .state-u3f7t9lnh .module > .header {
     direction: rtl;
     float: right;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j2rf .module > .header {
+  .state-u3f7t9lnh .module > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-utxj0j2rf .module > .login {
+.state-u3f7t9lnh .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -467,10 +478,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -479,10 +491,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j2vk .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-u3f7t9lrv .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -491,87 +504,87 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j2vk .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lrv .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2vk .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lrv .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2vk .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lrv .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2vk .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lrv .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
     direction: rtl;
     float: right;
   }
 }
-.state-tablet .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-tablet .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-tablet .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+  .state-tablet .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-tablet .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+  .state-tablet .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
     direction: rtl;
     float: right;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j2v2 .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lr4 .state-u3f7t9lnh .module > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -579,10 +592,11 @@ body {
     padding-left: 0;
   }
 }
-.state-utxj0j2wk .state-utxj0j2rf .module > .login {
+.state-u3f7t9lst .state-u3f7t9lnh .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -591,87 +605,87 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j2wk .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lst .state-u3f7t9lnh .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2wk .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lst .state-u3f7t9lnh .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2wk .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lst .state-u3f7t9lnh .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2wk .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lst .state-u3f7t9lnh .module > .login {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lnh .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lnh .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-u3f7t9lnh .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lnh .module > .login {
     direction: rtl;
     float: right;
   }
 }
-.state-tablet .state-utxj0j2rf .module > .login {
+.state-tablet .state-u3f7t9lnh .module > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-tablet .state-u3f7t9lnh .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2rf .module > .login {
+  .state-tablet .state-u3f7t9lnh .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-tablet .state-utxj0j2rf .module > .login {
+.state-ipad-landscape .state-tablet .state-u3f7t9lnh .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j2rf .module > .login {
+  .state-tablet .state-u3f7t9lnh .module > .login {
     direction: rtl;
     float: right;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j2rf .module > .login {
+  .state-u3f7t9lnh .module > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -679,10 +693,11 @@ body {
     padding-left: 0;
   }
 }
-.state-utxj0j2rf .module > .content {
+.state-u3f7t9lnh .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -691,10 +706,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j2xr .state-utxj0j2rf .module > .content {
+.state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -703,10 +719,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j2yk .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+.state-u3f7t9lu2 .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -715,58 +732,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j2yk .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9lu2 .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2yk .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+  .state-u3f7t9lu2 .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2yk .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9lu2 .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2yk .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+  .state-u3f7t9lu2 .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+  .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2xr .state-utxj0j2rf .module > .content {
+  .state-u3f7t9ltd .state-u3f7t9lnh .module > .content {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j2zf .state-utxj0j2rf .module > .content {
+.state-u3f7t9luv .state-u3f7t9lnh .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -775,58 +793,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j2zf .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9luv .state-u3f7t9lnh .module > .content {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2zf .state-utxj0j2rf .module > .content {
+  .state-u3f7t9luv .state-u3f7t9lnh .module > .content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2zf .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9luv .state-u3f7t9lnh .module > .content {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2zf .state-utxj0j2rf .module > .content {
+  .state-u3f7t9luv .state-u3f7t9lnh .module > .content {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9lnh .module > .content {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .content {
+  .state-u3f7t9lnh .module > .content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .content {
+.state-ipad-landscape .state-u3f7t9lnh .module > .content {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .content {
+  .state-u3f7t9lnh .module > .content {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j2rf .module > .sidebar {
+.state-u3f7t9lnh .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -835,10 +854,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+.state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -847,10 +867,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j30x .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+.state-u3f7t9lwi .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -859,58 +880,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j30x .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lwi .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j30x .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lwi .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j30x .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lwi .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j30x .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lwi .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j30h .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lvj .state-u3f7t9lnh .module > .sidebar {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j31t .state-utxj0j2rf .module > .sidebar {
+.state-u3f7t9lx0 .state-u3f7t9lnh .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -919,58 +941,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j31t .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lx0 .state-u3f7t9lnh .module > .sidebar {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j31t .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lx0 .state-u3f7t9lnh .module > .sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j31t .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lx0 .state-u3f7t9lnh .module > .sidebar {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j31t .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lx0 .state-u3f7t9lnh .module > .sidebar {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lnh .module > .sidebar {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lnh .module > .sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9lnh .module > .sidebar {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .sidebar {
+  .state-u3f7t9lnh .module > .sidebar {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j2rf .module > .footer {
+.state-u3f7t9lnh .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -979,10 +1002,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j328 .state-utxj0j2rf .module > .footer {
+.state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -991,10 +1015,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j334 .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+.state-u3f7t9lyt .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1003,58 +1028,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j334 .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lyt .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j334 .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lyt .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j334 .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lyt .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j334 .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lyt .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j328 .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lxv .state-u3f7t9lnh .module > .footer {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j33o .state-utxj0j2rf .module > .footer {
+.state-u3f7t9lzh .state-u3f7t9lnh .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1063,50 +1089,50 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j33o .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lzh .state-u3f7t9lnh .module > .footer {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j33o .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lzh .state-u3f7t9lnh .module > .footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j33o .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lzh .state-u3f7t9lnh .module > .footer {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j33o .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lzh .state-u3f7t9lnh .module > .footer {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lnh .module > .footer {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lnh .module > .footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j2rf .module > .footer {
+.state-ipad-landscape .state-u3f7t9lnh .module > .footer {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j2rf .module > .footer {
+  .state-u3f7t9lnh .module > .footer {
     direction: rtl;
     float: right;
   }
@@ -1167,6 +1193,7 @@ body {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1176,10 +1203,11 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-utxj0j34z .module > .header {
+.state-u3f7t9m0w .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1189,10 +1217,11 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-utxj0j35u .state-utxj0j34z .module > .header {
+.state-u3f7t9m1o .state-u3f7t9m0w .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1202,92 +1231,93 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ipad-landscape .state-utxj0j35u .state-utxj0j34z .module > .header {
+.state-ipad-landscape .state-u3f7t9m1o .state-u3f7t9m0w .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j35u .state-utxj0j34z .module > .header {
+  .state-u3f7t9m1o .state-u3f7t9m0w .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j35u .state-utxj0j34z .module > .header {
+.state-ipad-landscape .state-u3f7t9m1o .state-u3f7t9m0w .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j35u .state-utxj0j34z .module > .header {
+  .state-u3f7t9m1o .state-u3f7t9m0w .module > .header {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j34z .module > .header {
+.state-ipad-landscape .state-u3f7t9m0w .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j34z .module > .header {
+  .state-u3f7t9m0w .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j34z .module > .header {
+.state-ipad-landscape .state-u3f7t9m0w .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j34z .module > .header {
+  .state-u3f7t9m0w .module > .header {
     direction: rtl;
     float: right;
   }
 }
-.state-tablet .state-utxj0j34z .module > .header {
+.state-tablet .state-u3f7t9m0w .module > .header {
   width: 40%;
   margin-left: 10%;
 }
-.state-ipad-landscape .state-tablet .state-utxj0j34z .module > .header {
+.state-ipad-landscape .state-tablet .state-u3f7t9m0w .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j34z .module > .header {
+  .state-tablet .state-u3f7t9m0w .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-tablet .state-utxj0j34z .module > .header {
+.state-ipad-landscape .state-tablet .state-u3f7t9m0w .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j34z .module > .header {
+  .state-tablet .state-u3f7t9m0w .module > .header {
     direction: rtl;
     float: right;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j34z .module > .header {
+  .state-u3f7t9m0w .module > .header {
     width: 40%;
     margin-left: 10%;
   }
 }
-.state-utxj0j36q .module > .header {
+.state-u3f7t9m2b .module > .header {
   width: 60%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1297,26 +1327,26 @@ body {
   padding-left: 10px;
   margin-left: 20%;
 }
-.state-ipad-landscape .state-utxj0j36q .module > .header {
+.state-ipad-landscape .state-u3f7t9m2b .module > .header {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j36q .module > .header {
+  .state-u3f7t9m2b .module > .header {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j36q .module > .header {
+.state-ipad-landscape .state-u3f7t9m2b .module > .header {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j36q .module > .header {
+  .state-u3f7t9m2b .module > .header {
     direction: rtl;
     float: right;
   }
@@ -1383,6 +1413,7 @@ body {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1391,10 +1422,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j37q .module > .login {
+.state-u3f7t9m3c .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1403,10 +1435,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j38c .state-utxj0j37q .module > .login {
+.state-u3f7t9m45 .state-u3f7t9m3c .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1415,87 +1448,87 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j38c .state-utxj0j37q .module > .login {
+.state-ipad-landscape .state-u3f7t9m45 .state-u3f7t9m3c .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j38c .state-utxj0j37q .module > .login {
+  .state-u3f7t9m45 .state-u3f7t9m3c .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j38c .state-utxj0j37q .module > .login {
+.state-ipad-landscape .state-u3f7t9m45 .state-u3f7t9m3c .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j38c .state-utxj0j37q .module > .login {
+  .state-u3f7t9m45 .state-u3f7t9m3c .module > .login {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j37q .module > .login {
+.state-ipad-landscape .state-u3f7t9m3c .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j37q .module > .login {
+  .state-u3f7t9m3c .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j37q .module > .login {
+.state-ipad-landscape .state-u3f7t9m3c .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j37q .module > .login {
+  .state-u3f7t9m3c .module > .login {
     direction: rtl;
     float: right;
   }
 }
-.state-tablet .state-utxj0j37q .module > .login {
+.state-tablet .state-u3f7t9m3c .module > .login {
   width: 40%;
   padding-top: 0;
   padding-right: 0;
   padding-bottom: 0;
   padding-left: 0;
 }
-.state-ipad-landscape .state-tablet .state-utxj0j37q .module > .login {
+.state-ipad-landscape .state-tablet .state-u3f7t9m3c .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j37q .module > .login {
+  .state-tablet .state-u3f7t9m3c .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-tablet .state-utxj0j37q .module > .login {
+.state-ipad-landscape .state-tablet .state-u3f7t9m3c .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-tablet .state-utxj0j37q .module > .login {
+  .state-tablet .state-u3f7t9m3c .module > .login {
     direction: rtl;
     float: right;
   }
 }
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .state-utxj0j37q .module > .login {
+  .state-u3f7t9m3c .module > .login {
     width: 40%;
     padding-top: 0;
     padding-right: 0;
@@ -1503,10 +1536,11 @@ body {
     padding-left: 0;
   }
 }
-.state-utxj0j39a .module > .login {
+.state-u3f7t9m5d .module > .login {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1515,26 +1549,26 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j39a .module > .login {
+.state-ipad-landscape .state-u3f7t9m5d .module > .login {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j39a .module > .login {
+  .state-u3f7t9m5d .module > .login {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j39a .module > .login {
+.state-ipad-landscape .state-u3f7t9m5d .module > .login {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j39a .module > .login {
+  .state-u3f7t9m5d .module > .login {
     direction: rtl;
     float: right;
   }
@@ -1607,6 +1641,7 @@ body {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1615,10 +1650,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j3aj .module > .content {
+.state-u3f7t9m6h .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1627,10 +1663,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j3az .state-utxj0j3aj .module > .content {
+.state-u3f7t9m74 .state-u3f7t9m6h .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1639,58 +1676,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j3az .state-utxj0j3aj .module > .content {
+.state-ipad-landscape .state-u3f7t9m74 .state-u3f7t9m6h .module > .content {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3az .state-utxj0j3aj .module > .content {
+  .state-u3f7t9m74 .state-u3f7t9m6h .module > .content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3az .state-utxj0j3aj .module > .content {
+.state-ipad-landscape .state-u3f7t9m74 .state-u3f7t9m6h .module > .content {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3az .state-utxj0j3aj .module > .content {
+  .state-u3f7t9m74 .state-u3f7t9m6h .module > .content {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j3aj .module > .content {
+.state-ipad-landscape .state-u3f7t9m6h .module > .content {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3aj .module > .content {
+  .state-u3f7t9m6h .module > .content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3aj .module > .content {
+.state-ipad-landscape .state-u3f7t9m6h .module > .content {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3aj .module > .content {
+  .state-u3f7t9m6h .module > .content {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j3c3 .module > .content {
+.state-u3f7t9m7s .module > .content {
   width: 80%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1699,26 +1737,26 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j3c3 .module > .content {
+.state-ipad-landscape .state-u3f7t9m7s .module > .content {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3c3 .module > .content {
+  .state-u3f7t9m7s .module > .content {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3c3 .module > .content {
+.state-ipad-landscape .state-u3f7t9m7s .module > .content {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3c3 .module > .content {
+  .state-u3f7t9m7s .module > .content {
     direction: rtl;
     float: right;
   }
@@ -1751,6 +1789,7 @@ body {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1759,10 +1798,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j3cs .module > .sidebar {
+.state-u3f7t9m8e .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1771,10 +1811,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j3di .state-utxj0j3cs .module > .sidebar {
+.state-u3f7t9m97 .state-u3f7t9m8e .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1783,58 +1824,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j3di .state-utxj0j3cs .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9m97 .state-u3f7t9m8e .module > .sidebar {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3di .state-utxj0j3cs .module > .sidebar {
+  .state-u3f7t9m97 .state-u3f7t9m8e .module > .sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3di .state-utxj0j3cs .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9m97 .state-u3f7t9m8e .module > .sidebar {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3di .state-utxj0j3cs .module > .sidebar {
+  .state-u3f7t9m97 .state-u3f7t9m8e .module > .sidebar {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j3cs .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9m8e .module > .sidebar {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3cs .module > .sidebar {
+  .state-u3f7t9m8e .module > .sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3cs .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9m8e .module > .sidebar {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3cs .module > .sidebar {
+  .state-u3f7t9m8e .module > .sidebar {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j3e6 .module > .sidebar {
+.state-u3f7t9ma0 .module > .sidebar {
   width: 20%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1843,26 +1885,26 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j3e6 .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9ma0 .module > .sidebar {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3e6 .module > .sidebar {
+  .state-u3f7t9ma0 .module > .sidebar {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3e6 .module > .sidebar {
+.state-ipad-landscape .state-u3f7t9ma0 .module > .sidebar {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3e6 .module > .sidebar {
+  .state-u3f7t9ma0 .module > .sidebar {
     direction: rtl;
     float: right;
   }
@@ -1895,6 +1937,7 @@ body {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1903,10 +1946,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j3f0 .module > .footer {
+.state-u3f7t9mas .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1915,10 +1959,11 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-utxj0j3fu .state-utxj0j3f0 .module > .footer {
+.state-u3f7t9mbg .state-u3f7t9mas .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1927,58 +1972,59 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j3fu .state-utxj0j3f0 .module > .footer {
+.state-ipad-landscape .state-u3f7t9mbg .state-u3f7t9mas .module > .footer {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3fu .state-utxj0j3f0 .module > .footer {
+  .state-u3f7t9mbg .state-u3f7t9mas .module > .footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3fu .state-utxj0j3f0 .module > .footer {
+.state-ipad-landscape .state-u3f7t9mbg .state-u3f7t9mas .module > .footer {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3fu .state-utxj0j3f0 .module > .footer {
+  .state-u3f7t9mbg .state-u3f7t9mas .module > .footer {
     direction: rtl;
     float: right;
   }
 }
-.state-ipad-landscape .state-utxj0j3f0 .module > .footer {
+.state-ipad-landscape .state-u3f7t9mas .module > .footer {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3f0 .module > .footer {
+  .state-u3f7t9mas .module > .footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3f0 .module > .footer {
+.state-ipad-landscape .state-u3f7t9mas .module > .footer {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3f0 .module > .footer {
+  .state-u3f7t9mas .module > .footer {
     direction: rtl;
     float: right;
   }
 }
-.state-utxj0j3gg .module > .footer {
+.state-u3f7t9mc0 .module > .footer {
   width: 100%;
   display: inline-block;
   min-height: 1px;
+  line-height: 1;
   float: left;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1987,26 +2033,26 @@ body {
   padding-right: 10px;
   padding-left: 10px;
 }
-.state-ipad-landscape .state-utxj0j3gg .module > .footer {
+.state-ipad-landscape .state-u3f7t9mc0 .module > .footer {
   padding-top: 25px;
   padding-right: 30px;
   padding-bottom: 25px;
   padding-left: 30px;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3gg .module > .footer {
+  .state-u3f7t9mc0 .module > .footer {
     padding-top: 25px;
     padding-right: 30px;
     padding-bottom: 25px;
     padding-left: 30px;
   }
 }
-.state-ipad-landscape .state-utxj0j3gg .module > .footer {
+.state-ipad-landscape .state-u3f7t9mc0 .module > .footer {
   direction: rtl;
   float: right;
 }
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-  .state-utxj0j3gg .module > .footer {
+  .state-u3f7t9mc0 .module > .footer {
     direction: rtl;
     float: right;
   }

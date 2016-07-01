@@ -27,6 +27,10 @@ $_gridle-packages : (
 		classname 							: ('row','-','debug','@','%state'),
 		package 							: debug row-debug
 	),
+	row-no-gutter 				: (
+		classname 							: ('row','-','no','-','gutter','-','%side','@','%state'),
+		package 								: row-no-gutter
+	),
 	nowrap 							: (
 		classname 							: ('nowrap','@','%state'),
 		package 							: default nowrap
@@ -43,7 +47,7 @@ $_gridle-packages : (
 		classname 							: ('gr','-','%column','@','%state'),
 		package 							: default grid
 	),
-	grid-table 							: ( 
+	grid-table 							: (
 		classname 							: ('gr','-','table','@','%state'),
 		package 							: default grid-table
 	),
