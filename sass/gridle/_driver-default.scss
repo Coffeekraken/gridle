@@ -4,6 +4,8 @@
 @mixin _gridle_common_row(
 	$state : default
 ) {
+	// inherit the height
+	height: inherit;
 	// For modern browser
 	&:before,
 	&:after {
