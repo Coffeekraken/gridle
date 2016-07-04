@@ -9,6 +9,7 @@
 	@include flex(0 1 auto);
 	// inherit the height
 	height: inherit;
+	min-height: inherit;
 }
 @mixin gridle_row(
 	$reverse : false
@@ -127,6 +128,8 @@
 	@include flex(0,0,auto);
 	@include flex-direction(column); // reset direction for inner elements
 	display: block;
+	height:inherit;
+	min-height: inherit;
 	line-height:1;
 	@if $gridle-vendor-prefix {
 		-webkit-box-sizing: border-box;

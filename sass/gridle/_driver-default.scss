@@ -6,6 +6,7 @@
 ) {
 	// inherit the height
 	height: inherit;
+	min-height: inherit;
 	// For modern browser
 	&:before,
 	&:after {
@@ -143,7 +144,8 @@
 
 	// css
 	display:inline-block;
-	min-height:1px;
+	height: inherit;
+	min-height:inherit;
 	line-height:1;
 	@if $direction == rtl {
 		float:right;
