@@ -158,6 +158,8 @@
 	@if _gridle_need_to_generate(auto-height, $package) {
 		#{_gridle_classname(auto-height, $state)} {
 			height:inherit;
+			min-height:inherit;
+			max-height:inherit;
 		}
 	}
 
@@ -284,18 +286,23 @@
 	}
 
 	@if _gridle_need_to_generate(gutter, $package) {
+		#{_gridle_classname(row)} > #{_gridle_classname(gutter, $state)},
 		#{_gridle_classname(gutter, $state)} {
 			@include gridle_gutter(top right bottom left);
 		}
+		#{_gridle_classname(row)} > #{_gridle_classname(gutter, $state, left)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_gridle_classname(gutter, $state, left)} {
 			@include gridle_gutter(left);
 		}
+		#{_gridle_classname(row)} > #{_gridle_classname(gutter, $state, right)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_gridle_classname(gutter, $state, right)} {
 			@include gridle_gutter(right);
 		}
+		#{_gridle_classname(row)} > #{_gridle_classname(gutter, $state, top)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_gridle_classname(gutter, $state, top)} {
 			@include gridle_gutter(top);
 		}
+		#{_gridle_classname(row)} > #{_gridle_classname(gutter, $state, bottom)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_gridle_classname(gutter, $state, bottom)} {
 			@include gridle_gutter(bottom);
 		}

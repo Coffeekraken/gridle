@@ -146,6 +146,7 @@
 	display:inline-block;
 	height: inherit;
 	min-height:inherit;
+	max-height:inherit;
 	line-height:1;
 	@if $direction == rtl {
 		float:right;

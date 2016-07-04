@@ -130,6 +130,7 @@
 	display: block;
 	height:inherit;
 	min-height: inherit;
+	max-height: inherit;
 	line-height:1;
 	@if $gridle-vendor-prefix {
 		-webkit-box-sizing: border-box;
