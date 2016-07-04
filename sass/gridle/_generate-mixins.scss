@@ -155,42 +155,6 @@
 		}
 	}
 
-	@if _gridle_need_to_generate(no-gutter, $package) {
-		#{_gridle_classname(no-gutter, $state)} {
-			@include gridle_no_gutter();
-		}
-		#{_gridle_classname(no-gutter, $state, left)} {
-			@include gridle_no_gutter(left);
-		}
-		#{_gridle_classname(no-gutter, $state, right)} {
-			@include gridle_no_gutter(right);
-		}
-		#{_gridle_classname(no-gutter, $state, top)} {
-			@include gridle_no_gutter(top);
-		}
-		#{_gridle_classname(no-gutter, $state, bottom)} {
-			@include gridle_no_gutter(bottom);
-		}
-	}
-
-	@if _gridle_need_to_generate(gutter, $package) {
-		#{_gridle_classname(gutter, $state)} {
-			@include gridle_gutter(top right bottom left);
-		}
-		#{_gridle_classname(gutter, $state, left)} {
-			@include gridle_gutter(left);
-		}
-		#{_gridle_classname(gutter, $state, right)} {
-			@include gridle_gutter(right);
-		}
-		#{_gridle_classname(gutter, $state, top)} {
-			@include gridle_gutter(top);
-		}
-		#{_gridle_classname(gutter, $state, bottom)} {
-			@include gridle_gutter(bottom);
-		}
-	}
-
 	@if _gridle_need_to_generate(auto-height, $package) {
 		#{_gridle_classname(auto-height, $state)} {
 			height:inherit;
@@ -295,6 +259,45 @@
 			#{_gridle_classname(row-align, $state, between)} {
 				@include gridle_row_align(between);
 			}
+		}
+	}
+
+	//
+	// Gutters
+	//
+	@if _gridle_need_to_generate(no-gutter, $package) {
+		#{_gridle_classname(no-gutter, $state)} {
+			@include gridle_no_gutter();
+		}
+		#{_gridle_classname(no-gutter, $state, left)} {
+			@include gridle_no_gutter(left);
+		}
+		#{_gridle_classname(no-gutter, $state, right)} {
+			@include gridle_no_gutter(right);
+		}
+		#{_gridle_classname(no-gutter, $state, top)} {
+			@include gridle_no_gutter(top);
+		}
+		#{_gridle_classname(no-gutter, $state, bottom)} {
+			@include gridle_no_gutter(bottom);
+		}
+	}
+
+	@if _gridle_need_to_generate(gutter, $package) {
+		#{_gridle_classname(gutter, $state)} {
+			@include gridle_gutter(top right bottom left);
+		}
+		#{_gridle_classname(gutter, $state, left)} {
+			@include gridle_gutter(left);
+		}
+		#{_gridle_classname(gutter, $state, right)} {
+			@include gridle_gutter(right);
+		}
+		#{_gridle_classname(gutter, $state, top)} {
+			@include gridle_gutter(top);
+		}
+		#{_gridle_classname(gutter, $state, bottom)} {
+			@include gridle_gutter(bottom);
 		}
 	}
 
