@@ -29,7 +29,7 @@ $_gridle-packages : (
 	),
 	row-no-gutter 				: (
 		classname 							: ('row','-','no','-','gutter','-','%side','@','%state'),
-		package 								: row-no-gutter
+		package 								: default row-no-gutter
 	),
 	nowrap 							: (
 		classname 							: ('nowrap','@','%state'),
