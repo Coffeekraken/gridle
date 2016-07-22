@@ -409,10 +409,12 @@
 		@if in-map($align, top) of in-map($align, middle) or in-map($align, bottom) {
 			font-size:0;
 			word-spacing:0;
+			letter-spacing:0;
 			clear:both;
 
 			> * {
 				word-spacing:normal;
+				letter-spacing:normal;
 				float:none !important;
 				@if in-map($align, bottom) {
 					vertical-align:bottom;
