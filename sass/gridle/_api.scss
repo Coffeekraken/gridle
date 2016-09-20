@@ -691,7 +691,7 @@
 @mixin gridle_hide(
 ) {
 	@include _gridle_call(hide) {
-		display:none;
+		display:none !important;
 	}
 }
 
@@ -723,7 +723,7 @@
 @mixin gridle_show(
 ) {
 	@include _gridle_call(show) {
-		display:block;
+		display:block !important;
 	}
 }
 
@@ -740,7 +740,7 @@
 @mixin gridle_show_inline(
 ) {
 	@include _gridle_call(show-inline) {
-		display:inline-block;
+		display:inline-block !important;
 	}
 }
 
