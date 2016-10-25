@@ -6,8 +6,8 @@
 ) {
 	// inherit the height
 	height: inherit;
-	min-height: inherit;
-	max-height: inherit;
+	// min-height: inherit;
+	// max-height: inherit;
 	// For modern browser
 	&:before,
 	&:after {
@@ -146,8 +146,8 @@
 	// css
 	display:inline-block;
 	height: inherit;
-	min-height:inherit;
-	max-height:inherit;
+	// min-height:inherit;
+	// max-height:inherit;
 	line-height:1;
 	@if $direction == rtl {
 		float:right;
