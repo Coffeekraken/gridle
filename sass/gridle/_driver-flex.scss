@@ -8,8 +8,8 @@
 	@include flex-wrap(wrap);
 	@include flex(0 1 auto);
 	// inherit the height
-	height: inherit;
-	// min-height: inherit;
+	// height: inherit;
+	// min-// height: inherit;
 	// max-height: inherit;
 }
 @mixin gridle_row(
@@ -129,7 +129,7 @@
 	@include flex(0,0,auto);
 	@include flex-direction(column); // reset direction for inner elements
 	display: block;
-	height:inherit;
+	// height:inherit;
 	// min-height: inherit;
 	// max-height: inherit;
 	line-height:1;
