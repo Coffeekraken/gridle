@@ -41,7 +41,6 @@
 	// set current state to default
 	$_g-current-state : $_gridle-settings !global;
 	$_g-current-stateName : default !global;
-
 }
 
 //
@@ -92,6 +91,30 @@
 			float : $float
 		), $name);
 	}
+
+	/**
+	 * @name 	#{g-get-state-var(name, $name)} State
+	 * Here's the settings for the **#{g-get-state-var(name, $name)}** state.
+	 * @styleguide 	Gridle / States
+	 * @display 	gridle-settings
+	 * @gridle-name 	#{g-get-state-var(name, $name)}
+	 * @gridle-min-width 	#{g-get-state-var(min-width, $name)}
+	 * @gridle-max-width 	#{g-get-state-var(max-width, $name)}
+	 * @gridle-query 	#{g-get-state-var(query, $name)}
+	 * @gridle-classes 	#{g-get-state-var(classes, $name)}
+	 * @gridle-context 	#{g-get-state-var(context, $name)}
+	 * @gridle-gutter-width 	#{g-get-state-var(gutter-width, $name)}
+	 * @gridle-gutter-height 	#{g-get-state-var(gutter-height, $name)}
+	 * @gridle-gutter-top 	#{g-get-state-var(gutter-top, $name)}
+	 * @gridle-gutter-right 	#{g-get-state-var(gutter-right, $name)}
+	 * @gridle-gutter-bottom 	#{g-get-state-var(gutter-bottom, $name)}
+	 * @gridle-gutter-left 	#{g-get-state-var(gutter-left, $name)}
+	 * @gridle-direction 	#{g-get-state-var(direction, $name)}
+	 * @gridle-dir-attribute 	#{g-get-state-var(dir-attribute, $name)}
+	 * @gridle-name-multiplicator 	#{g-get-state-var(name-multiplicator, $name)}
+	 * @gridle-states-classes 	#{g-get-state-var(states-classes, $name)}
+	 * @gridle-classes-prefix 	#{g-get-state-var(classes-prefix, $name)}
+	 */
 }
 
 

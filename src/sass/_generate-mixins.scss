@@ -482,7 +482,6 @@ $_gridle_generateOnlyOnce : true !default; // keep track of generate once classe
 	$package : all,
 	$has-parent : false
 ) {
-
 	// set that we are in generate phase (that can be used anywhere)
 	$_g-is-in-generate-phase : true !global;
 
@@ -545,6 +544,40 @@ $_gridle_generateOnlyOnce : true !default; // keep track of generate once classe
 
 	}
 
+	// create the columns styleguide html
+	$styleguideColumns : ();
+	@each $columnName, $column in g-get-columns(default) {
+		@if $columnName != '0' {
+$row : '
+<div class="gridle-styleguide #{_g-classname(row)} #{_g-classname(row-debug)}">
+<div class="gridle-styleguide #{_g-classname(grid, default, $columnName)}">
+#{_g-selector(grid, default, $columnName)}
+</div>
+</div>
+';
+			$styleguideColumns : append($styleguideColumns, $row);
+		}
+	}
+
+	/**
+	 * @name 	Columns
+	 * Grid columns available
+	 * @styleguide 	Gridle / Columns
+	 * @example 	html
+	 * <style>
+	 * #{_g-selector(row)}.gridle-styleguide {
+	 * 	margin-bottom: #{g-get-state-var(gutter-width)};
+	 * }
+	 * #{_g-get-generic-selector(grid)}.gridle-styleguide {
+	 * 	background:#eee;
+	 * 	padding:#{g-get-state-var(gutter-width)};
+	 * }
+	 * </style>
+	 * <div class="gridle-styleguide #{_g-selector(container)}">
+	 *  #{$styleguideColumns}
+	 * </div>
+	 */
+
 	// loop on each states to generate all the classes
 	@each $stateName in $generate-states {
 
@@ -560,27 +593,6 @@ $_gridle_generateOnlyOnce : true !default; // keep track of generate once classe
 
 			// scope all the classes in a media query
 			@include g-state($state, false) {
-
-				// create the columns styleguide html
-				$styleguideColumns : ();
-				@each $columnName, $column in g-get-columns($state) {
-					$row : '<div class="row">
-						<div class="#{_g-classname(grid, $stateName, $columnName)}">
-							#{_g-selector(grid, $stateName, $columnName)}
-						</div>
-					</div>';
-					$styleguideColumns : append($styleguideColumns, $row);
-				}
-
-				/**
-				 * @name 	Grid columns
-				 * Grid columns available
-				 * @styleguide 	Grid / Columns
-				 * @example 	html
-				 * <div class="#{_g-selector(container)}">
-				 *  #{$styleguideColumns}
-				 * </div>
-				 */
 
 				// generate all classes for columns
 				$i : 0;
