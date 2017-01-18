@@ -1,0 +1,837 @@
+//
+// Layout helper
+//
+@mixin g-layout(
+	$layout,
+	$context : null
+) {
+	@include g-state($context) {
+		@include g-row();
+		@each $sel, $l in $layout {
+			> #{$sel} {
+				@include gridle($l);
+			}
+		}
+	}
+}
+
+//
+// Gridle state
+//
+// @param 	string|map|list 	$states 		A list of states, a state name or a state map
+// @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
+//
+@mixin g-state(
+	$states,
+	$has-parent : true
+) {
+
+	// check if is a min-max witdh query (compatibility layer)
+	@if type-of($states) == number and type-of($has-parent) == number {
+
+		// get a new state from settings passed
+		$state : g-get-state((
+			min-width : $states,
+			max-width : $has-parent
+		));
+
+		// make a query
+		@include g-state($state) {
+			@content;
+		}
+
+	} @elseif type-of($states) == list
+		or type-of($states) == string {
+
+		// loop on each states :
+		@each $state in $states
+		{
+			// make sure we have the state object
+			$state : g-get-state($state);
+
+			// make gridle state
+			@include _g-state($state, $has-parent, true) {
+				@content;
+			}
+		}
+
+	} @elseif type-of($states) == map {
+
+		// get a state from the passed one
+		$state : g-get-state($states);
+
+		// make gridle state
+		@include _g-state($state, $has-parent, true) {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+}
+
+
+//
+// Element queries
+//
+@mixin g-eq(
+	$var,
+	$height : false
+) {
+	$op : "min-width";
+	@if $height {
+		@if $var < 0 {
+			$op : "max-height";
+			$var : $var * -1;
+		} @else {
+			$op : "min-height";
+		}
+	} @else {
+		@if $var < 0 {
+			$op : "max-width";
+			$var : $var * -1;
+		}
+	}
+
+	&[#{$op}~="#{$var}"] {
+		@content;
+	}
+}
+
+
+//
+// Gridle use state
+// This mixin will only set the current state to use and NOT print out any media query
+//
+@mixin g-use-state(
+	$state
+) {
+	// get the state
+	$state : g-get-state($state);
+	$stateName : g-get-state-var(name, $state);
+
+	// save the current state
+	$savedState : $_g-current_state;
+	$savedStateName : $_g-current_stateName;
+
+	// set the current state
+	$_g-current_state : $state !global;
+	$_g-current_stateName : $stateName !global;
+
+	// generate content
+	@content;
+
+	// reset the state
+	$_g-current_state : $savedState !global;
+	$_g-current_stateName : $savedStateName !global;
+}
+
+
+//
+// Gridle selector
+//
+@mixin g-selector(
+	$for,
+	$states : null
+) {
+	#{g-selector($for, $states)} {
+		@content;
+	}
+}
+
+
+//
+// Gridle helper
+//
+@mixin gridle($layout) {
+	$map : _g-get-gridle-set-map-from-list($layout);
+	@if type-of($map) == map {
+		@include g-set($map);
+	}
+}
+
+
+//
+// Helper to apply multiple config for a certain state with one mixin
+//
+@mixin g-set(
+	$settings,
+	$state : current
+) {
+	// init if needed
+	@include g-init();
+	// wrap in media query
+	@include g-state($state) {
+		@include _g-set($settings);
+	}
+}
+@mixin _g-set(
+	$settings
+) {
+	// loop on each settings
+	@each $settingName, $settingValue in $settings
+	{
+		$sn : unquote("#{$settingName}");
+		$sv : $settingValue;
+
+		// check if setting name is a state :
+		@if g-has-state($sn) {
+			// process the state
+			@include g-set($sv, $sn);
+		} @else {
+			@if $sn == container {
+				@if $sv == true {
+					@include g-container();
+				}
+			} @else if $sn == grid {
+				@if length($sv) == 2 {
+					@include g-grid(nth($sv,1), nth($sv,2));
+				} @else if type-of($sv) == list and length($sv) == 1 {
+					@include g-grid(nth($sv,1));
+				} @else {
+					@include g-grid($sv);
+				}
+			} @else if $sn == grid-grow {
+				@if $sv == true {
+					@include g-grid-grow();
+				}
+			} @else if $sn == grid-adapt {
+				@if $sv == true {
+					@include g-grid-adapt();
+				}
+			} @else if $sn == grid-table {
+				@if $sv == true {
+					@include g-grid-table();
+				}
+			} @else if $sn == push {
+				@if length($sv) == 2 {
+					@include g-push(nth($sv,1), nth($sv,2));
+				} @else {
+					@include g-push($sv);
+				}
+			} @else if $sn == pull {
+				@if length($sv) == 2 {
+					@include g-pull(nth($sv,1), nth($sv,2));
+				} @else {
+					@include g-pull($sv);
+				}
+			} @else if $sn == prefix {
+				@if length($sv) == 2 {
+					@include g-prefix(nth($sv,1), nth($sv,2));
+				} @else {
+					@include g-prefix($sv);
+				}
+			} @else if $sn == suffix {
+				@if length($sv) == 2 {
+					@include g-suffix(nth($sv,1), nth($sv,2));
+				} @else {
+					@include g-suffix($sv);
+				}
+			} @else if $sn == clear-each {
+				@if length($sv) == 2 {
+					@include g-clear-each(nth($sv,1), nth($sv,2));
+				} @else {
+					@include g-clear-each($sv);
+				}
+			} @else if $sn == grid-centered and $sv == true {
+				@include g-grid-centered();
+			} @else if $sn == row and $sv == true {
+				@include g-row();
+			} @else if $sn == row-full and $sv == true {
+				@include g-row-full();
+			} @else if $sn == col and $sv == true {
+				@include g-col();
+			} @else if $sn == row-align {
+				@include g-row-align($sv);
+			} @else if $sn == row-no-gutter {
+				@include g-row-no-gutter($sv);
+			} @else if $sn == nowrap {
+				@if $sv == true {
+					@include g-nowrap();
+				} @else {
+					@include g-wrap();
+				}
+			} @else if $sn == wrap {
+				@if $sv == true {
+					@include g-wrap();
+				} @else {
+					@include g-nowrap();
+				}
+			} @else if $sn == order {
+				@include g-order($sv);
+			} @else if $sn == hide {
+				@if $sv == true {
+					@include g-hide();
+				} @else {
+					@include g-show();
+				}
+			} @else if $sn == show {
+				@if $sv == true {
+					@include g-show();
+				} @else {
+					@include g-hide();
+				}
+			} @else if $sn == visible {
+				@if $sv == true {
+					@include g-visible();
+				} @else {
+					@include g-not-visible();
+				}
+			} @else if $sn == not-visible {
+				@if $sv == true {
+					@include g-not-visible();
+				} @else {
+					@include g-visible();
+				}
+			} @else if $sn == show-inline {
+				@if $sv == true {
+					@include g-show-inline();
+				} @else {
+					@include g-hide();
+				}
+			} @else if $sn == float {
+				@include g-float($sv);
+			} @else if $sn == clear {
+				@if $sv == true {
+					@include g-clear();
+				} @else {
+					@include g-clear($sv);
+				}
+			} @else if $sn == no-gutter {
+				@if $sv == true {
+					@include g-no-gutter();
+				} @else {
+					@include g-no-gutter($sv);
+				}
+			} @else if $sn == gutter or $sn == gutter-width {
+				@if $sv == true {
+					@include g-gutter();
+				} @else {
+					@include g-gutter($sv);
+				}
+			} @else {
+				// we do nothing
+			}
+		}
+	}
+}
+
+
+//
+// Push
+//
+@mixin _g-common-push(
+	$state : default
+) {
+	// css
+	position:relative;
+	// handle direction attribute
+	@if g-get-state-var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			left: auto;
+		}
+		[dir="ltr"] & {
+			right: auto;
+		}
+	}
+}
+@mixin g-push(
+	$columns,
+	$context : null
+) {
+	@include _g-call(push) {
+		// variables :
+		@if type-of($context) != number {
+			$context : g-get-state-var(context);
+		}
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+		// @if $direction == rtl { $width : $width*-1; }
+		// left:$width;
+		// @if $direction == ltr {
+		// 	[dir="rtl"] & {
+		// 		left: $width * -1;
+		// 	}
+		// }
+
+		// set value :
+		@if $direction == rtl { right:$width;left:auto; }
+		@else { left:$width;right:auto; }
+		// handle direction attribute
+		@if g-get-state-var(dir-attribute) {
+			[dir="rtl"] & {
+				right: $width;
+			}
+			[dir="ltr"] & {
+				left: $width;
+			}
+		}
+	}
+}
+
+
+//
+// Pull
+//
+@mixin _g-common-pull(
+	$state : default
+) {
+	// css
+	position:relative;
+	// handle direction attribute
+	@if g-get-state-var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			right: auto;
+		}
+		[dir="ltr"] & {
+			left: auto;
+		}
+	}
+}
+@mixin g-pull(
+	$columns,
+	$context : null
+) {
+	@include _g-call(pull) {
+		// variables :
+		@if type-of($context) != number {
+			$context : g-get-state-var(context);
+		}
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+		// @if $direction == rtl { $width : $width*-1; }
+		// right:$width;
+		// @if $direction == ltr {
+		// 	[dir="rtl"] & {
+		// 		left: $width * -1;
+		// 	}
+		// }
+
+		// set value :
+		@if $direction == rtl { left:$width;right:auto; }
+		@else { right:$width;left:auto; }
+		// handle direction attribute
+		@if g-get-state-var(dir-attribute) {
+			[dir="rtl"] & {
+				left: $width;
+			}
+			[dir="ltr"] & {
+				right: $width;
+			}
+		}
+	}
+}
+
+
+//
+// Prefix
+//
+@mixin _g-common-prefix(
+	$state : default
+) {
+	// handle direction attribute
+	@if g-get-state-var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			margin-left: auto;
+		}
+		[dir="ltr"] & {
+			margin-right: auto;
+		}
+	}
+}
+@mixin g-prefix(
+	$columns,
+	$context : null
+) {
+	@include _g-call(prefix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : g-get-state-var(context);
+		}
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+
+		// set value :
+		@if $direction == rtl { margin-right:$width; }
+		@else { margin-left:$width; }
+		// handle direction attribute
+		@if g-get-state-var(dir-attribute) {
+			[dir="rtl"] & {
+				margin-right: $width;
+			}
+			[dir="ltr"] & {
+				margin-left: $width;
+			}
+		}
+	}
+}
+
+
+//
+// Suffix
+//
+@mixin _g-common-suffix(
+	$state : default
+) {
+	@if g-get-state-var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			margin-right: auto;
+		}
+		[dir="ltr"] & {
+			margin-left: auto;
+		}
+	}
+}
+@mixin g-suffix(
+	$columns,
+	$context : null
+) {
+	@include _g-call(suffix) {
+		// vars :
+		@if type-of($context) != number {
+			$context : g-get-state-var(context);
+		}
+		$direction : g-get-state-var(direction);
+		$name-multiplicator : g-get-state-var(name-multiplicator);
+		$column-width : g-get-state-var(column-width);
+
+		// vars :
+		$width : 0;
+		@if $column-width {
+			$width : $column-width * ($columns / $name-multiplicator);
+		} @else {
+			$width : percentage(1 / $context) * ($columns / $name-multiplicator);
+		}
+
+		// set value :
+		@if $direction == rtl { margin-left:$width; }
+		@else { margin-right:$width; }
+
+		// handle direction attribute
+		@if g-get-state-var(dir-attribute) {
+			[dir="rtl"] & {
+				margin-left: $width;
+			}
+			[dir="ltr"] & {
+				margin-right: $width;
+			}
+		}
+	}
+}
+
+
+//
+// Row debug
+//
+@mixin _g-common-row-debug(
+	$state : default
+) {
+}
+@mixin g-row-debug(
+	$states : null
+) {
+	@include _g-call(row-debug) {
+		// variables :
+		$context : g-get-state-var(context);
+
+		position:relative;
+		z-index:99999;
+		overflow:hidden;
+
+		&:before {
+			pointer-events: none;
+			content:'';
+			position:absolute;
+			top:0; left:0;
+			width:100%; height:99999px;
+			// vars :
+			$width : percentage(1 / $context);
+			background: linear-gradient(to right, rgba(0,0,0,0) 50% , rgba(0,0,0,.02) 50%); // Standard syntax
+			background-size:($width*2) 100%;
+			z-index:99999;
+		}
+	}
+}
+
+
+//
+// Debug
+//
+@mixin g-debug(
+	$what,
+	$output : shell
+) {
+	@if $gridle-debug {
+		@if $output == shell {
+			@debug(inspect($what));
+		} @else {
+			@if type-of($what) == map {
+				@include g-debug-map($what);
+			} @else {
+				@_ {
+					#{type-of($what)} : inspect($what);
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Debug a map
+//
+@mixin g-debug-map($map, $name : '') {
+	@at-root {
+		@_ #{$name} {
+			@each $key, $value in $map {
+				@if type-of($value) == map {
+					@include g-debug-map($value, $key);
+				} @else {
+					#{$key}: inspect($value);
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Container
+//
+@mixin _g-common-container(
+	$state : default
+) {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+}
+@mixin g-container(
+) {
+	@include _g-call(container) {
+	}
+}
+
+
+//
+// Row no gutter
+//
+@mixin _g-common-row-no-gutter(
+	$state : default
+) {
+}
+@mixin g-row-no-gutter(
+	$sides : top right bottom left
+) {
+	@include _g-call(row-no-gutter) {
+		margin-left: 0;
+		margin-right: 0;
+
+		> #{_g-get-generic-selector('grid')} {
+			@include g-no-gutter($sides);
+		}
+	}
+}
+
+
+//
+// Centered
+//
+@mixin _g-common-grid-centered(
+	$state : default
+) {
+	display:block !important;
+	float:none !important;
+	margin-left:auto !important;
+	margin-right:auto !important;
+	clear:both !important;
+}
+@mixin g-grid-centered(
+) {
+	@include _g-call(grid-centered) {
+	}
+}
+
+
+//
+// Hide
+//
+@mixin _g-common-hide(
+	$state : default
+) {
+}
+@mixin g-hide(
+) {
+	@include _g-call(hide) {
+		display:none !important;
+	}
+}
+
+
+//
+// Not visible on
+//
+@mixin _g-common-not-visible(
+	$state : default
+) {
+}
+@mixin g-not-visible(
+) {
+	@include _g-call(not-visible) {
+		visibility:hidden;
+	}
+}
+
+
+//
+// Show on
+//
+// @param 	String 	$media 	What to hide (one of the 3 state classes name)
+//
+@mixin _g-common-show(
+	$state : default
+) {
+}
+@mixin g-show(
+) {
+	@include _g-call(show) {
+		display:block !important;
+	}
+}
+
+
+//
+// Show inline
+//
+// @param 	String 		$state 		The state name
+//
+@mixin _g-common-show-inline(
+	$state : default
+) {
+}
+@mixin g-show-inline(
+) {
+	@include _g-call(show-inline) {
+		display:inline-block !important;
+	}
+}
+
+
+//
+// Visible on :
+// @param 	String 	$media 	On what state
+//
+@mixin _g-common-visible(
+	$state : default
+) {
+}
+@mixin g-visible(
+) {
+	@include _g-call(visible) {
+		visibility:visible;
+	}
+}
+
+
+//
+// Float :
+//
+@mixin _g-common-float(
+	$state : default
+) {
+}
+@mixin g-float(
+	$float-direction : left
+) {
+	@include _g-call(float) {
+		float:#{$float-direction};
+	}
+}
+
+
+//
+// Gridle clear :
+//
+@mixin _g-common-clear(
+	$state : default
+) {
+}
+@mixin g-clear(
+	$clear-direction : both
+) {
+	@include _g-call(clear) {
+		clear:#{$clear-direction};
+	}
+}
+
+
+//
+// Gridle no gutter :
+//
+@mixin _g-common-no-gutter(
+	$state : default
+) {
+}
+@mixin g-no-gutter(
+	$side : top right bottom left
+) {
+	@include _g-call(no-gutter) {
+		@each $s in $side {
+			padding-#{$s} : 0;
+		}
+	}
+}
+
+
+//
+// Gridle gutter :
+//
+@mixin _g-common-gutter(
+	$state : default
+) {
+}
+@mixin g-gutter(
+	$side-or-size : right left
+) {
+	@include _g-call(gutter) {
+
+		// get a gutter map
+		$gutters : _g-forge-gutters-map($side-or-size);
+
+		// check that we have a gutter map
+		@each $side, $value in $gutters {
+			@if $value and $value > 0 {
+				padding-#{$side} : $value;
+			}
+		}
+
+	}
+}

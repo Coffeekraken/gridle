@@ -1,0 +1,453 @@
+//
+// Row
+//
+@mixin _g-common-row(
+	$state : default
+) {
+	// inherit the height
+	// height: inherit;
+	// min-height: inherit;
+	// max-height: inherit;
+	// For modern browser
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+	// For IE 6/7 (trigger hasLayout
+	& {
+	   zoom:1;
+	}
+}
+@mixin g-row(
+	$reverse : false
+) {
+	@include _g-call(row) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: -#{g-get-state-var(gutter-left)};
+		margin-right: -#{g-get-state-var(gutter-right)};
+		// font-size:0; // to avoid problems with inline-block margins
+
+		@if $reverse {
+			transform : rotateY(180deg);
+
+			> #{_g-get-generic-selector(grid)} {
+				transform : rotateY(-180deg);
+			}
+		}
+
+		#{_g-get-generic-selector(no-gutter)} > & {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _g-is-in-generate-phase() == false {
+			@each $stateName, $state in g-get-states() {
+				@include g-state($state) {
+					& #{str-replace(unquote("#{&}"),".state-#{g-get-state-var(name, $state)}","")} {
+						margin-left: -#{g-get-state-var(gutter-left, $state)};
+						margin-right: -#{g-get-state-var(gutter-right, $state)};
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Col
+//
+@mixin _g-common-nowrapcol(
+	$state : default
+) {
+}
+@mixin g-col(
+	$reverse : false
+) {
+	@include _g-call(col) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: -#{g-get-state-var(gutter-left)};
+		margin-right: -#{g-get-state-var(gutter-right)};
+		// font-size:0; // to avoid problems with inline-block margins
+
+		@if $reverse {
+			transform : rotateX(180deg);
+
+			> #{_g-get-generic-selector(grid)} {
+				transform : rotateX(-180deg);
+			}
+		}
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _g-is-in-generate-phase() == false {
+			@each $stateName, $state in g-get-states() {
+				@include g-state($state) {
+					& #{str-replace(#{&},".state-#{g-get-state-var(name, $state)}","")} {
+						margin-left: -#{g-get-state-var(gutter-left, $state)};
+						margin-right: -#{g-get-state-var(gutter-right, $state)};
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Nowrap
+//
+@mixin _g-common-nowrap(
+	$state : default
+) {
+	white-space: nowrap;
+
+	> * {
+		white-space: normal;
+	}
+}
+@mixin g-nowrap() {
+	@include _g-call(nowrap) {
+	}
+}
+
+
+//
+// Wrap
+//
+@mixin _g-common-wrap(
+	$state : default
+) {
+	white-space:normal;
+}
+@mixin g-wrap() {
+	@include _g-call(wrap) {
+	}
+}
+
+
+//
+// Grid
+//
+@mixin _g-common-grid(
+	$state : default
+) {
+	// vars
+	$direction : g-get-state-var(direction, $state);
+
+	// css
+	display:inline-block;
+	// height: inherit;
+	// min-height:inherit;
+	// max-height:inherit;
+	line-height:1;
+	@if $direction == rtl {
+		float:right;
+	} @else {
+		float:left;
+	}
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	// font-size:1rem; // reset the font size
+	box-sizing: border-box;
+	vertical-align: top;
+	@include g-gutter();
+
+	// handle direction attribute
+	@if g-get-state-var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			float: right;
+		}
+		[dir="ltr"] & {
+			float: left;
+		}
+	}
+
+}
+@mixin g-grid(
+	$columns,
+	$context : null
+) {
+	@if $columns == grow {
+		@include g-grid-grow();
+	} @else if $columns == adapt {
+		@include g-grid-adapt();
+	} @else {
+
+		@include _g-call(grid) {
+
+			// vars
+			$name : g-get-state-var(name);
+			@if type-of($context) != number {
+				$context : g-get-state-var(context);
+			}
+			$name-multiplicator : g-get-state-var(name-multiplicator);
+			$gutter-left : g-get-state-var(gutter-left);
+			$gutter-right : g-get-state-var(gutter-right);
+			$column-width : g-get-state-var(column-width);
+
+			// manage columns
+			@if type-of($columns) != number and g-has-column($columns) {
+				// the columns is a saved one, get the context and column value
+				$column : map-get($_g-columns, $columns);
+				$context : map-get($column, context);
+				$columns : map-get($column, columns);
+			} @else if type-of($columns) == number {
+				// check if we have a ratio
+				@if $columns < 1 {
+					$columns : $context / 100 * ($columns * 100);
+				}
+				$columns : $columns / $name-multiplicator;
+			} @else {
+				@error "the column #{$columns} does not exist...";
+			}
+
+			// width :
+			$width : 0;
+			@if $column-width {
+				$width : $column-width * $columns;
+			} @else {
+				$width : percentage(1 / $context * $columns);
+			}
+
+			// set value :
+			width:$width;
+		}
+	}
+}
+
+
+//
+// Grid table
+//
+@mixin _g-common-grid-table(
+	$state : default
+) {
+}
+@mixin g-grid-table(
+) {
+	@include _g-call(grid-table) {
+		display: table-cell;
+		float: none;
+		vertical-align: top;
+	}
+}
+
+
+//
+// Row full
+//
+@mixin _g-common-row-full(
+	$state : default
+) {
+}
+@mixin g-row-full(
+) {
+	@include _g-call(row-full) {
+		$direction : g-get-state-var(direction);
+		width: 100vw;
+		@if $direction == ltr {
+			margin-left:50% !important;
+			margin-right:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(-50%);
+				-moz-transition: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+			}
+			transform: translateX(-50%);
+		} @else {
+			margin-right:50% !important;
+			margin-left:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(50%);
+				-moz-transition: translateX(50%);
+				-ms-transform: translateX(50%);
+				-o-transform: translateX(50%);
+			}
+			transform: translateX(50%);
+		}
+		@if g-get-state-var(dir-attribute) {
+			[dir="ltr"] & {
+				margin-left:50% !important;
+				margin-right:0 !important;
+				@if $gridle-vendor-prefix {
+					-webkit-transform: translateX(-50%);
+					-moz-transition: translateX(-50%);
+					-ms-transform: translateX(-50%);
+					-o-transform: translateX(-50%);
+				}
+				transform: translateX(-50%);
+			}
+			[dir="rtl"] & {
+				margin-right:50% !important;
+				margin-left:0 !important;
+				@if $gridle-vendor-prefix {
+					-webkit-transform: translateX(50%);
+					-moz-transition: translateX(50%);
+					-ms-transform: translateX(50%);
+					-o-transform: translateX(50%);
+				}
+				transform: translateX(50%);
+			}
+		}
+	}
+}
+
+
+//
+// grid adapt
+//
+@mixin _g-common-grid-adapt(
+	$state : default
+) {
+	display: table-cell;
+	width:1px;
+	white-space:nowrap !important;
+	line-height:1;
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
+	@include g-gutter();
+}
+@mixin g-grid-adapt(
+) {
+	@include _g-call(grid-adapt) {
+	}
+}
+
+
+//
+// Grow
+//
+@mixin _g-common-grid-grow(
+	$state : default
+) {
+	display: table-cell;
+	width:99999px;
+	line-height:1;
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
+	@include g-gutter();
+
+}
+@mixin g-grid-grow(
+) {
+	@include _g-call(grid-grow) {
+	}
+}
+
+
+//
+// Order
+//
+@mixin _g-common-order(
+	$state : default
+) {
+}
+@mixin g-order(
+	$position
+) {
+	@include _g-call(order) {
+	}
+}
+
+
+//
+// Clear each
+//
+@mixin _g-common-clear-each(
+	$state : default
+) {
+}
+@mixin g-clear-each(
+	$clearEach,
+	$clearWhat : both
+) {
+	@include _g-call(clear-each) {
+		$grid : map-get($_gridle-packages, grid);
+		$sel : map-get($grid, generic-selector);
+		@if not $sel {
+			$sel : _g-get-generic-selector(grid);
+		}
+
+		> #{$sel}:nth-of-type(#{$clearEach}n+1) {
+			clear : $clearWhat;
+		}
+	}
+}
+
+
+//
+// Align :
+//
+@mixin _g-common-row-align(
+	$state : default
+) {
+}
+
+@mixin g-row-align(
+	$align : middle
+) {
+	@include _g-call(row-align) {
+		// need to change the way grids items are layed out
+		@if in-map($align, top) of in-map($align, middle) or in-map($align, bottom) {
+			font-size:0;
+			word-spacing:0;
+			letter-spacing:0;
+			clear:both;
+
+			> * {
+				word-spacing:normal;
+				letter-spacing:normal;
+				float:none !important;
+				@if in-map($align, bottom) {
+					vertical-align:bottom;
+				} @elseif in-map($align, middle) {
+					vertical-align:middle;
+				} @else {
+					vertical-align:top;
+				}
+				font-size:1rem;
+			}
+		}
+
+		@each $a in $align {
+			@if $a == left {
+				text-align: left;
+			} @else if $a == center {
+				text-align: center;
+			} @else if $a == right {
+				text-align: right;
+			} @else if $a == top {
+				vertical-align: top;
+			} @else if $a == middle {
+				vertical-align: middle;
+			} @else if $a == bottom {
+				vertical-align: bottom;
+			}
+		}
+
+		@if in-map($align, center) or in-map($align, right) {
+			// restore text align of the grid items
+			> * {
+				text-align: left;
+			}
+		}
+	}
+}

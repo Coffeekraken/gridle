@@ -1,0 +1,388 @@
+//
+// Row
+//
+@mixin _g-common-row(
+	$state : default
+) {
+	@include flexbox;
+	@include flex-wrap(wrap);
+	@include flex(0 1 auto);
+	// inherit the height
+	// height: inherit;
+	// min-// height: inherit;
+	// max-height: inherit;
+}
+@mixin g-row(
+	$reverse : false
+) {
+	@include _g-call(row) {
+		@if $reverse {
+			@include flex-direction(row-reverse);
+		} @else {
+			@include flex-direction(row);
+		}
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: -#{g-get-state-var(gutter-left)};
+		margin-right: -#{g-get-state-var(gutter-right)};
+
+		// handle row in no-gutter
+		#{_g-get-generic-selector(no-gutter)} > & {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _g-is-in-generate-phase() == false {
+			@each $stateName, $state in g-get-states() {
+				@include g-state($state) {
+					& #{str-replace(#{&},".state-#{g-get-state-var(name, $state)}","")} {
+						margin-left: -#{g-get-state-var(gutter-left, $state)};
+						margin-right: -#{g-get-state-var(gutter-right, $state)};
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Col
+//
+@mixin _g-common-col(
+	$state : default
+) {
+}
+@mixin g-col(
+	$reverse : false
+) {
+	@include _g-call(col) {
+		@if $reverse {
+			@include flex-direction(column-reverse);
+		} @else {
+			@include flex-direction(column);
+		}
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: -#{g-get-state-var(gutter-left)};
+		margin-right: -#{g-get-state-var(gutter-right)};
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _g-is-in-generate-phase() == false {
+			@each $stateName, $state in g-get-states() {
+				@include g-state($state) {
+					& #{str-replace(#{&},".state-#{g-get-state-var(name, $state)}","")} {
+						margin-left: -#{g-get-state-var(gutter-left, $state)};
+						margin-right: -#{g-get-state-var(gutter-right, $state)};
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Nowrap
+//
+@mixin _g-common-nowrap(
+	$state : default
+) {
+	@include flex-wrap(nowrap);
+	white-space:nowrap;
+
+	> * {
+		white-space: normal;
+	}
+}
+@mixin g-nowrap() {
+	@include _g-call(nowrap) {
+	}
+}
+
+
+//
+// Wrap
+//
+@mixin _g-common-wrap(
+	$state : default
+) {
+	@include flex-wrap(wrap);
+	white-space:normal;
+}
+@mixin g-wrap() {
+	@include _g-call(wrap) {
+	}
+}
+
+
+//
+// Grid
+//
+@mixin _g-common-grid(
+	$state : default
+) {
+	// @include flexbox;
+	@include flex(0,0,auto);
+	@include flex-direction(column); // reset direction for inner elements
+	display: block;
+	// height:inherit;
+	// min-height: inherit;
+	// max-height: inherit;
+	line-height:1;
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
+	@include g-gutter();
+
+}
+@mixin g-grid(
+	$columns,
+	$context : null
+) {
+	@if $columns == grow {
+		@include g-grid-grow();
+	} @else if $columns == adapt {
+		@include g-grid-adapt();
+	} @else {
+
+		@include _g-call(grid) {
+
+			// vars
+			$name : g-get-state-var(name);
+			@if type-of($context) != number {
+				$context : g-get-state-var(context);
+			}
+			$name-multiplicator : g-get-state-var(name-multiplicator);
+			$gutter-left : g-get-state-var(gutter-left);
+			$gutter-right : g-get-state-var(gutter-right);
+			$column-width : g-get-state-var(column-width);
+
+			// manage columns
+			@if type-of($columns) != number and map-has-key($_g-columns, $columns) {
+				// the columns is a saved one, get the context and column value
+				$column : map-get($_g-columns, $columns);
+				$context : map-get($column, context);
+				$columns : map-get($column, columns);
+			} @else if type-of($columns) == number {
+				// check if we have a ratio
+				@if $columns < 1 {
+					$columns : $context / 100 * ($columns * 100);
+				}
+				$columns : $columns / $name-multiplicator;
+			} @else {
+				@error "the column #{$columns} does not exist...";
+			}
+
+			// width :
+			$width : 0;
+			@if $column-width {
+				$width : $column-width * $columns;
+			} @else {
+				$width : percentage(1 / $context * $columns);
+			}
+
+			// if flex
+			@include flex-basis($width);
+			max-width : $width;
+		}
+
+	}
+}
+
+//
+// Grid table
+//
+@mixin _g-common-grid-table(
+	$state : default
+) {
+}
+@mixin g-grid-table(
+) {
+	@include _g-call(grid-table) {
+	}
+}
+
+
+//
+// Row full
+//
+@mixin _g-common-row-full(
+	$state : default
+) {
+}
+@mixin g-row-full(
+) {
+	@include _g-call(row-full) {
+		$direction : g-get-state-var(direction);
+		width: 100vw;
+		@if $direction == rtl {
+			margin-right:50% !important;
+			margin-left:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(50%);
+				-moz-transition: translateX(50%);
+				-ms-transform: translateX(50%);
+				-o-transform: translateX(50%);
+			}
+			transform: translateX(50%);
+		} @else {
+			margin-left:50% !important;
+			margin-right:0 !important;
+			@if $gridle-vendor-prefix {
+				-webkit-transform: translateX(-50%);
+				-moz-transition: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+			}
+			transform: translateX(-50%);
+		}
+		@if g-get-state-var(dir-attribute) {
+			[dir="ltr"] & {
+				margin-left:50% !important;
+				margin-right:0 !important;
+				@if $gridle-vendor-prefix {
+					-webkit-transform: translateX(-50%);
+					-moz-transition: translateX(-50%);
+					-ms-transform: translateX(-50%);
+					-o-transform: translateX(-50%);
+				}
+				transform: translateX(-50%);
+			}
+			[dir="rtl"] & {
+				margin-right:50% !important;
+				margin-left:0 !important;
+				@if $gridle-vendor-prefix {
+					-webkit-transform: translateX(50%);
+					-moz-transition: translateX(50%);
+					-ms-transform: translateX(50%);
+					-o-transform: translateX(50%);
+				}
+				transform: translateX(50%);
+			}
+		}
+	}
+}
+
+
+//
+// grid adapt
+//
+@mixin _g-common-grid-adapt(
+	$state : default
+) {
+	max-width: 100%;
+	line-height:1;
+	@include flexbox;
+	@include flex(0,1,auto);
+	@include flex-direction(column); // reset direction for inner elements
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
+	@include g-gutter();
+}
+@mixin g-grid-adapt(
+) {
+	@include _g-call(grid-adapt) {
+	}
+}
+
+
+//
+// Grow
+//
+@mixin _g-common-grid-grow(
+	$state : default
+) {
+	max-width: 100%;
+	line-height:1;
+	@include flexbox;
+	@include flex(1,1,auto);
+	@include flex-direction(column); // reset direction for inner elements
+	@if $gridle-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
+	@include g-gutter();
+
+}
+@mixin g-grid-grow(
+) {
+	@include _g-call(grid-grow) {
+	}
+}
+
+
+//
+// Order
+//
+@mixin _g-common-order(
+	$state : default
+) {
+}
+@mixin g-order(
+	$position
+) {
+	@include _g-call(order) {
+		@include order($position);
+	}
+}
+
+
+//
+// Clear each
+//
+@mixin _g-common-clear-each(
+	$state : default
+) {
+}
+@mixin g-clear-each(
+	$clearEach,
+	$clearWhat : both
+) {
+	@include _g-call(clear-each) {
+	}
+}
+
+
+//
+// Align :
+//
+@mixin _g-common-row-align(
+	$state : default
+) {
+}
+
+@mixin g-row-align(
+	$align : middle
+) {
+	@include _g-call(row-align) {
+		@each $al in $align {
+			@if $al == around {
+				@include justify-content(space-around);
+			} @else if $al == between {
+				@include justify-content(space-between);
+			} @else if $al == left {
+				@include justify-content(flex-start);
+			} @else if $al == center {
+				@include justify-content(center);
+			} @else if $al == right {
+				@include justify-content(flex-end);
+			} @else if $al == top {
+				@include align-items(flex-start);
+			} @else if $al == middle {
+				@include align-items(center);
+			} @else if $al == bottom {
+				@include align-items(flex-end);
+			}
+		}
+	}
+}
