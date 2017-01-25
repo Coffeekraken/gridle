@@ -14,6 +14,9 @@
     "demo.watch.js": "nodemon -w demo/src -w src -e js -x \"npm run demo.js\"",
     "demo.server": "http-server demo",
     "install": "./scripts/install.sh",
+    "doc": "rm -rf doc/src && npm run doc.scss && npm run doc.js",
+    "doc.scss": "coffeekraken-docblock-to-markdown -f 'src/**/*.scss' -d doc",
+    "doc.js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -38,6 +41,7 @@
     "babel-preset-es2015": "^6.16.0",
     "babel-preset-es2015-loose": "^7.0.0",
     "babel-preset-stage-0": "^6.5.0",
+    "coffeekraken-docblock-to-markdown": "git+https://github.com/Coffeekraken/docblock-to-markdown.git#release/0.0.1",
     "http-server": "^0.9.0",
     "jquery": "^3.1.1",
     "node-sass": "^3.13.1",

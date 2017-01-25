@@ -1,6 +1,24 @@
-//
-// Layout helper
-//
+/**
+ * @name 	Base API
+ * This are all the base API mixins that are exposed by gridle.
+ */
+
+/**
+ * Specify a layout using a single call like in the example bellow
+ * @param 		{Map} 				$layout 				The map layout wanted
+ * @param 		{Map|List|String} 	[$context=null] 		The context in which to apply the layout
+ * @example 	scss
+ * body {
+ * 	\@include g-layout((
+ * 	 	'#header' : 12,
+ * 	 	'#sidebar' : 4 mobile 12,
+ * 	 	'#content' : 8 mobile 12,
+ * 	 	'#footer' : 12
+ * 	));
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-layout(
 	$layout,
 	$context : null
@@ -15,12 +33,33 @@
 	}
 }
 
-//
-// Gridle state
-//
-// @param 	string|map|list 	$states 		A list of states, a state name or a state map
-// @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
-//
+/**
+ * Apply some styling in a passed state
+ * @param 		{Map|List|String} 		$states 		The states to apply the css for. Can be a state map, a list of states or a state name
+ * @example 	scss
+ * .my-cool-element {
+ * 	// specify a register state name
+ * 	\@include g-state(mobile) {
+ * 		// your css code here...
+ * 	}
+ * 	// specify more than one register states
+ * 	\@include g-state(mobile tablet) {
+ * 		// your css code here...
+ * 	}
+ *  // specify a min and max width
+ * 	\@include g-state(200px, 500px) {
+ * 		// your css code here...
+ * 	}
+ * 	// passing a state map (complexe usage)
+ * 	\@include g-state((
+ * 		query : 'print only'
+ * 	)) {
+ * 		// your code here...
+ * 	}
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-state(
 	$states,
 	$has-parent : true
@@ -69,26 +108,37 @@
 	}
 }
 
-
-//
-// Element queries
-//
+/**
+ * Apply some css depending on the element size (element queries)
+ * **Using this mixin requires that you import the ```gridle-eq.js``` file into your javascript code**
+ * @param 	{Number} 	$size 				The size to take care of. If negative, mean lower than, if positive, mean greater than.
+ * @param 	{Boolean} 	[$height=false] 	Set to true to handle height instead of width
+ * @example 	scss
+ * .my-cool-element {
+ *  	\@include g-eq(-400px) {
+ *  		// your css that will be applied when element
+ *  		// is between 0 and 399px wide
+ *  	}
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-eq(
-	$var,
+	$size,
 	$height : false
 ) {
 	$op : "min-width";
 	@if $height {
-		@if $var < 0 {
+		@if $size < 0 {
 			$op : "max-height";
-			$var : $var * -1;
+			$size : $size * -1;
 		} @else {
 			$op : "min-height";
 		}
 	} @else {
-		@if $var < 0 {
+		@if $size < 0 {
 			$op : "max-width";
-			$var : $var * -1;
+			$size : $size * -1;
 		}
 	}
 
@@ -98,11 +148,18 @@
 }
 
 
-//
-// Gridle use state
-// This mixin will only set the current state to use and NOT print out any media query
-//
-@mixin g-use-state(
+/**
+ * Basically, this is the same as the ```g-state``` mixin, with the difference that it will not print any media queries. It will just create a state context in which your inside code will refer.
+ * @param 		{Map|List|String} 		$states 		The states to apply the css for. Can be a state map, a list of states or a state name
+ * @example 	scss
+ * @warn(g-get-state-var(min-width)); // will output the min-width of the default state
+ * \@include g-state-context(mobile) {
+ *  	@warn(g-get-state-var(min-width)); // will output the min-width of the mobile state
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-state-context(
 	$state
 ) {
 	// get the state
@@ -126,52 +183,130 @@
 }
 
 
-//
-// Gridle selector
-//
+/**
+ * Will print the generated selector depending on the "package" wanted, the state and some optional values that might be needed by the package (like for row-align that need a "side" value)
+ * @param 		{String} 							$package 			The package to generate the selector for (see _settings.scss file)
+ * @param 		{String|List<String} 				[$states=null] 		The list of state to generate the selector for. If not specified, will generate for all registered states
+ * @param 		{Mixed} 							[$value=null] 		The value that will be used to replace the "%{tokenName}" inside the package pattern
+ * @example 	scss
+ * \@include g-selector(grid, mobile, 2) {
+ * 	// your code here
+ * 	// The selector will be .gr-2@mobile
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-selector(
-	$for,
-	$states : null
+	$package,
+	$states : null,
+	$value : null
 ) {
-	#{g-selector($for, $states)} {
+	#{g-selector($package, $states, $values)} {
 		@content;
 	}
 }
 
 
-//
-// Gridle helper
-//
-@mixin gridle($layout) {
-	$map : _g-get-gridle-set-map-from-list($layout);
-	@if type-of($map) == map {
+/**
+ * Helper gridle mixin that let you specify the grid properties through ```g-set``` map, or a list of properties like "8 push 2 mobile 12 push 0"
+ * @param 		{Map|List} 			$properties 			The grid properties to apply
+ * @example 	scss
+ * #content {
+ * 	// using list
+ * 	\@include gridle(8 mobile 12);
+ * 	// using a map
+ * 	\@include gridle((
+ * 		grid : 8,
+ * 		mobile : (
+ * 			grid : 12
+ * 		)
+ * 	));
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin gridle($properties) {
+	@if type-of($properties) == map {
 		@include g-set($map);
+	} @else if type-of($properties) == list {
+		$map : _g-get-gridle-set-map-from-list($properties);
+		@if type-of($map) == map {
+			@include g-set($map);
+		}
+	} @else {
+		@error("The passed layout #{inspect($layout)} is not a valid layout list or map...");
 	}
 }
 
-
-//
-// Helper to apply multiple config for a certain state with one mixin
-//
+/**
+ * Helper mixin that let you specify the grid properties through map formated like in the example bellow.
+ * Here's the possible properties:
+ *
+ * - ```grid``` {Integer} : The grid column count
+ * - ```container``` {Boolean} : Set the element as container
+ * - ```grid-grow``` {Boolean} : Set the element a grid column that grow
+ * - ```grid-adapt``` {Boolean} : Set the element a grid column that adapt
+ * - ```grid-table``` {Boolean} : Set the element a grid column of type table
+ * - ```push``` {Integer} : Set the push count
+ * - ```pull``` {Integer} : Set the pull count
+ * - ```prefix``` {Integer} : Set the prefix count
+ * - ```suffix``` {Integer} : Set the suffix count
+ * - ```clear-each``` {Integer} : Set the clear each count
+ * - ```grid-centered``` {Boolean} : Set the grid column as centered
+ * - ```row``` {Boolean} : Set the element as a grid row
+ * - ```row-full``` {Boolean} : Set the element as a grid row full
+ * - ```col``` {Boolean} : Set the element as a grid column (vertical)
+ * - ```row-align``` {String} : Set the row alignement
+ * - ```row-no-gutter``` {Boolean} : Remove the gutters on columns inside this row
+ * - ```nowrap``` {Boolean} : Set a nowrap on the row
+ * - ```wrap``` {Boolean} : Reset the wrap property on the row
+ * - ```order``` {Integer} : Set the order of the column (flex driver)
+ * - ```hide``` {Boolean} : Hide the element
+ * - ```show``` {Boolean} : Show the element
+ * - ```visible``` {Boolean} : Set the visibility of the element to visible
+ * - ```not-visible``` {Boolean} : Set the visibility of the element to hidden
+ * - ```invisible``` {Boolean} : Set the visibility of the element to hidden
+ * - ```show-inline``` {Boolean} : Set the display of the element to inline-block
+ * - ```float``` {String} : Set the specified float of the element
+ * - ```clear``` {String} : Clear the specified float of the element
+ * - ```no-gutter``` {Boolean|String|List<String>} : Remove the specified gutters
+ * - ```gutter``` {Boolean|String|List<String>} : Apply the specified gutters
+ *
+ * @param 		{Map} 			$properties 			The grid map properties to apply
+ * @example 	scss
+ * #content {
+ * 	// using a map
+ * 	\@include gridle((
+ * 		grid : 8,
+ * 		push : 2
+ * 		mobile : (
+ * 			grid : 12
+ * 		),
+ * 		{stateName} : {mapProperties}
+ * 	));
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-set(
-	$settings,
+	$propertiesMap,
 	$state : current
 ) {
 	// init if needed
 	@include g-init();
 	// wrap in media query
 	@include g-state($state) {
-		@include _g-set($settings);
+		@include _g-set($propertiesMap);
 	}
 }
 @mixin _g-set(
-	$settings
+	$propertiesMap
 ) {
 	// loop on each settings
-	@each $settingName, $settingValue in $settings
+	@each $propertyName, $propertyValue in $propertiesMap
 	{
-		$sn : unquote("#{$settingName}");
-		$sv : $settingValue;
+		$sn : unquote("#{$propertyName}");
+		$sv : $propertyValue;
 
 		// check if setting name is a state :
 		@if g-has-state($sn) {
@@ -276,7 +411,7 @@
 				} @else {
 					@include g-not-visible();
 				}
-			} @else if $sn == not-visible {
+			} @else if $sn == not-visible or $sn == invisible {
 				@if $sv == true {
 					@include g-not-visible();
 				} @else {
@@ -316,9 +451,6 @@
 }
 
 
-//
-// Push
-//
 @mixin _g-common-push(
 	$state : default
 ) {
@@ -334,6 +466,17 @@
 		}
 	}
 }
+/**
+ * Set the push count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to push this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the push value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-push(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-push(
 	$columns,
 	$context : null
@@ -378,9 +521,6 @@
 }
 
 
-//
-// Pull
-//
 @mixin _g-common-pull(
 	$state : default
 ) {
@@ -396,6 +536,17 @@
 		}
 	}
 }
+/**
+ * Set the pull count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to pull this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the pull value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-pull(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-pull(
 	$columns,
 	$context : null
@@ -440,9 +591,6 @@
 }
 
 
-//
-// Prefix
-//
 @mixin _g-common-prefix(
 	$state : default
 ) {
@@ -456,6 +604,17 @@
 		}
 	}
 }
+/**
+ * Set the prefix count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to prefix this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the prefix value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-prefix(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-prefix(
 	$columns,
 	$context : null
@@ -493,9 +652,6 @@
 }
 
 
-//
-// Suffix
-//
 @mixin _g-common-suffix(
 	$state : default
 ) {
@@ -508,6 +664,17 @@
 		}
 	}
 }
+/**
+ * Set the suffix count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to suffix this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the suffix value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-suffix(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-suffix(
 	$columns,
 	$context : null
@@ -553,9 +720,16 @@
 	$state : default
 ) {
 }
-@mixin g-row-debug(
-	$states : null
-) {
+/**
+ * Display a debug grid on top of the row
+ * @example 	scss
+ * .my-row {
+ * 	\@include g-row-debug();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-row-debug() {
 	@include _g-call(row-debug) {
 		// variables :
 		$context : g-get-state-var(context);
@@ -580,50 +754,6 @@
 }
 
 
-//
-// Debug
-//
-@mixin g-debug(
-	$what,
-	$output : shell
-) {
-	@if $gridle-debug {
-		@if $output == shell {
-			@debug(inspect($what));
-		} @else {
-			@if type-of($what) == map {
-				@include g-debug-map($what);
-			} @else {
-				@_ {
-					#{type-of($what)} : inspect($what);
-				}
-			}
-		}
-	}
-}
-
-
-//
-// Debug a map
-//
-@mixin g-debug-map($map, $name : '') {
-	@at-root {
-		@_ #{$name} {
-			@each $key, $value in $map {
-				@if type-of($value) == map {
-					@include g-debug-map($value, $key);
-				} @else {
-					#{$key}: inspect($value);
-				}
-			}
-		}
-	}
-}
-
-
-//
-// Container
-//
 @mixin _g-common-container(
 	$state : default
 ) {
@@ -634,6 +764,15 @@
 	}
 
 }
+/**
+ * Make the element a grid container
+ * @example 	scss
+ * .my-cool-container {
+ * 	\@include g-container();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-container(
 ) {
 	@include _g-call(container) {
@@ -648,6 +787,17 @@
 	$state : default
 ) {
 }
+
+/**
+ * Remove the gutters on each columns inside the row
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to clear
+ * @example 	scss
+ * .my-cool-row {
+ * 	\@include g-row-no-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-row-no-gutter(
 	$sides : top right bottom left
 ) {
@@ -662,9 +812,6 @@
 }
 
 
-//
-// Centered
-//
 @mixin _g-common-grid-centered(
 	$state : default
 ) {
@@ -674,6 +821,15 @@
 	margin-right:auto !important;
 	clear:both !important;
 }
+/**
+ * Make a column centered
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid-centered();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-grid-centered(
 ) {
 	@include _g-call(grid-centered) {
@@ -681,13 +837,19 @@
 }
 
 
-//
-// Hide
-//
 @mixin _g-common-hide(
 	$state : default
 ) {
 }
+/**
+ * Hide an element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-hide();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-hide(
 ) {
 	@include _g-call(hide) {
@@ -703,7 +865,31 @@
 	$state : default
 ) {
 }
+/**
+ * Set the visibility of an element to hidden
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-not-visible();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-not-visible(
+) {
+	@include _g-call(not-visible) {
+		visibility:hidden;
+	}
+}
+/**
+ * Set the visibility of an element to hidden
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-invisible();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-invisible(
 ) {
 	@include _g-call(not-visible) {
 		visibility:hidden;
@@ -711,15 +897,19 @@
 }
 
 
-//
-// Show on
-//
-// @param 	String 	$media 	What to hide (one of the 3 state classes name)
-//
 @mixin _g-common-show(
 	$state : default
 ) {
 }
+/**
+ * Set the display of an element to block
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-show(
 ) {
 	@include _g-call(show) {
@@ -728,15 +918,19 @@
 }
 
 
-//
-// Show inline
-//
-// @param 	String 		$state 		The state name
-//
 @mixin _g-common-show-inline(
 	$state : default
 ) {
 }
+/**
+ * Set the display of an element to inline-block
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-show-inline(
 ) {
 	@include _g-call(show-inline) {
@@ -745,14 +939,19 @@
 }
 
 
-//
-// Visible on :
-// @param 	String 	$media 	On what state
-//
 @mixin _g-common-visible(
 	$state : default
 ) {
 }
+/**
+ * Set the visibility of an element to visible
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-visible(
 ) {
 	@include _g-call(visible) {
@@ -761,13 +960,20 @@
 }
 
 
-//
-// Float :
-//
 @mixin _g-common-float(
 	$state : default
 ) {
 }
+/**
+ * Set the float property of the element to the specified direction
+ * @param 		{String} 		[$float=left] 		The float direction to set
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-float(right);
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-float(
 	$float-direction : left
 ) {
@@ -777,13 +983,20 @@
 }
 
 
-//
-// Gridle clear :
-//
 @mixin _g-common-clear(
 	$state : default
 ) {
 }
+/**
+ * Clear the float property of the element to the specified direction
+ * @param 		{String} 		[$float=left] 		The float direction to clear
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-clear(right);
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-clear(
 	$clear-direction : both
 ) {
@@ -793,13 +1006,20 @@
 }
 
 
-//
-// Gridle no gutter :
-//
 @mixin _g-common-no-gutter(
 	$state : default
 ) {
 }
+/**
+ * Remove the gutters on the column
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to clear
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-no-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-no-gutter(
 	$side : top right bottom left
 ) {
@@ -811,13 +1031,20 @@
 }
 
 
-//
-// Gridle gutter :
-//
 @mixin _g-common-gutter(
 	$state : default
 ) {
 }
+/**
+ * Set the gutters on the column
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to apply gutters on
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-gutter(
 	$side-or-size : right left
 ) {

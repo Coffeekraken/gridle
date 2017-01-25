@@ -1,6 +1,8 @@
-//
-// Row
-//
+/**
+ * @name 	Default driver API
+ * This are all the API mixins that are exposed by gridle for the default driver.
+ */
+
 @mixin _g-common-row(
 	$state : default
 ) {
@@ -22,6 +24,16 @@
 	   zoom:1;
 	}
 }
+/**
+ * Set the element as a row
+ * @param 		{Boolean} 		[$reverse=false] 		Revert the columns order if true
+ * @example 	scss
+ * .my-cool-row {
+ * 	\@include g-row();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-row(
 	$reverse : false
 ) {
@@ -61,13 +73,20 @@
 }
 
 
-//
-// Col
-//
 @mixin _g-common-nowrapcol(
 	$state : default
 ) {
 }
+/**
+ * Set the element as a col
+ * @param 		{Boolean} 		[$reverse=false] 		Revert the columns order if true
+ * @example 	scss
+ * .my-cool-col {
+ * 	\@include g-col();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-col(
 	$reverse : false
 ) {
@@ -102,9 +121,6 @@
 }
 
 
-//
-// Nowrap
-//
 @mixin _g-common-nowrap(
 	$state : default
 ) {
@@ -114,29 +130,41 @@
 		white-space: normal;
 	}
 }
+/**
+ * Apply a nowrap on the element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-nowrap();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-nowrap() {
 	@include _g-call(nowrap) {
 	}
 }
 
 
-//
-// Wrap
-//
 @mixin _g-common-wrap(
 	$state : default
 ) {
 	white-space:normal;
 }
+/**
+ * Reset the nowrap on the element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-wrap();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-wrap() {
 	@include _g-call(wrap) {
 	}
 }
 
 
-//
-// Grid
-//
 @mixin _g-common-grid(
 	$state : default
 ) {
@@ -172,8 +200,18 @@
 			float: left;
 		}
 	}
-
 }
+/**
+ * Apply a column width on the element
+ * @param 		{Integer|String} 		$columns 			The column count to apply or a registered column name
+ * @param 		{Integer} 				[$context=null]  	The context on which to calculate the column width. If null, take the context setted with ```g-setup```
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-grid(
 	$columns,
 	$context : null
@@ -227,13 +265,20 @@
 }
 
 
-//
-// Grid table
-//
 @mixin _g-common-grid-table(
 	$state : default
 ) {
 }
+/**
+ * Set the grid element as a table display type
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid(2);
+ * 	\@include g-grid-table();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-grid-table(
 ) {
 	@include _g-call(grid-table) {
@@ -244,13 +289,20 @@
 }
 
 
-//
-// Row full
-//
 @mixin _g-common-row-full(
 	$state : default
 ) {
 }
+/**
+ * Set the width of the row element to full viewport width
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-row();
+ * 	\@include g-row-full();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-row-full(
 ) {
 	@include _g-call(row-full) {
@@ -305,9 +357,7 @@
 }
 
 
-//
-// grid adapt
-//
+
 @mixin _g-common-grid-adapt(
 	$state : default
 ) {
@@ -322,6 +372,17 @@
 	box-sizing: border-box;
 	@include g-gutter();
 }
+/**
+ * Set the width of the grid element to adapt to his content
+ * @example 	scss
+ * .my-cool-column {
+ *  \@include g-grid-adapt();
+ *  // or
+ *  \@include g-grid(adapt);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-grid-adapt(
 ) {
 	@include _g-call(grid-adapt) {
@@ -329,9 +390,6 @@
 }
 
 
-//
-// Grow
-//
 @mixin _g-common-grid-grow(
 	$state : default
 ) {
@@ -346,6 +404,17 @@
 	@include g-gutter();
 
 }
+/**
+ * Set the width of the grid element to grow depending on the place it has at disposal
+ * @example 	scss
+ * .my-cool-column {
+ *  \@include g-grid-grow();
+ *  // or
+ *  \@include g-grid(grow);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-grid-grow(
 ) {
 	@include _g-call(grid-grow) {
@@ -368,13 +437,19 @@
 }
 
 
-//
-// Clear each
-//
 @mixin _g-common-clear-each(
 	$state : default
 ) {
 }
+/**
+ * Clear each n childs
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-clear-each(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-clear-each(
 	$clearEach,
 	$clearWhat : both
@@ -393,14 +468,30 @@
 }
 
 
-//
-// Align :
-//
 @mixin _g-common-row-align(
 	$state : default
 ) {
 }
-
+/**
+ * Set the alignement of the columns inside the row using these alignement properties:
+ *
+ * - top : Align vertical top
+ * - middle : Align vertical middle
+ * - bottom : Align vertical bottom
+ * - left : Align horizontal left
+ * - center : Align horizontal center
+ * - right : Align horizontal right
+ *
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-row-align(middle center);
+ *  \@include g-row-align(right);
+ *  \@include g-row-align(middle);
+ *  // etc...
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-row-align(
 	$align : middle
 ) {

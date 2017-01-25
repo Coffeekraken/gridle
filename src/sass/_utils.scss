@@ -1,0 +1,117 @@
+//
+// Str replace
+//
+// @param {string}  $string    String that you want to replace
+// @param {string}  $substr    String that is to be replaced by `$newsubstr`
+// @param {string}  $newsubstr String that replaces `$substr`
+// @param {number*} $all       Flag for replaceing all (1+) or not (0)
+// @return {string}
+//
+@function str-replace($string, $substr, $newsubstr, $all: 0) {
+	$position-found: str-index($string, $substr);
+	$processed: ();
+
+	@while ($position-found and $position-found > 0) {
+		$length-substr: str-length($substr);
+		$processed: append($processed, str-slice($string, 0, $position-found - 1));
+		$processed: append($processed, $newsubstr);
+		$string: str-slice($string, $position-found + $length-substr);
+
+		$position-found: 0;
+
+		@if ($all > 0) {
+			$position-found: str-index($string, $substr);
+		}
+	}
+
+	$processed: append($processed, $string);
+	$string: "";
+
+	@each $s in $processed {
+		$string: #{$string}#{$s};
+	}
+
+	@return $string;
+}
+
+//
+// Map set
+//
+// @param 	Map 	$map 		The map to use
+// @param 	String 	$key 		The key to update
+// @param 	Mixed 	$value 		The new value
+// @return 	Map 			The new map
+//
+@function map-set($map, $key, $value) {
+	$new: ($key: $value);
+	@return map-merge($map, $new);
+}
+
+//
+// Remove item from list
+//
+@function remove-nth($list, $index) {
+  $result: null;
+
+  @if type-of($index) != number {
+	@warn "$index: #{quote($index)} is not a number for `remove-nth`.";
+  }
+
+  @else if $index == 0 {
+	@warn "List index 0 must be a non-zero integer for `remove-nth`.";
+  }
+
+  @else if abs($index) > length($list) {
+	@warn "List index is #{$index} but list is only #{length($list)} item long for `remove-nth`.";
+  }
+
+  @else {
+	$result: ();
+	$index: if($index < 0, length($list) + $index + 1, $index);
+
+	@for $i from 1 through length($list) {
+	  @if $i != $index {
+		$result: append($result, nth($list, $i));
+	  }
+	}
+  }
+
+  @return $result;
+}
+
+//
+// List shift
+//
+// @param 	List 	$list 		The list to use
+// @return 	List 				The processed list
+//
+@function list-shift($list) {
+	@return remove-nth($list,1);
+}
+
+//
+// List pop
+//
+// @param 	List 	$list 		The list to use
+// @return 	List 				The processed list
+//
+@function list-pop($list) {
+	@return remove-nth($list,length($list));
+}
+
+//
+// In map
+// Determine if something is in the provided map
+//
+// @param 	Map 	$map 		The map to use
+// @param 	Mixed 	$needle		What to search
+// @return 	Boolean				True|false
+//
+@function in-map($map, $needle) {
+	@each $v in $map {
+		@if $v == $needle {
+			@return true;
+		}
+	}
+	@return false;
+}

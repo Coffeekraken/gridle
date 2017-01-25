@@ -331,7 +331,7 @@ $_gridle_applied_for : ();
 				@if $rules and map-get($fors-patterns, $_for) {
 					@at-root (without : media) {
 						@include _g-state($stateName, true, false) {
-							@include g-use-state($stateName) {
+							@include g-state-context($stateName) {
 								@include _g-map-2-css($rules);
 							}
 						}
@@ -464,7 +464,7 @@ $_gridle_applied_for : ();
 ) {
 	// extend
 	$stateName : g-get-state-var(name, $state);
-	$extend : g-get-extend-class-map($what, $stateName);
+	$extend : _g-get-extend-class-map($what, $stateName);
 	@if $extend != null {
 		@include _g-map-2-css($extend);
 	}
