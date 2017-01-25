@@ -201,7 +201,7 @@
 	$states : null,
 	$value : null
 ) {
-	#{g-selector($package, $states, $values)} {
+	#{g-selector($package, $states, $value)} {
 		@content;
 	}
 }
