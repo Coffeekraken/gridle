@@ -1,26 +1,29 @@
-# gridle (v2.0.48)
-
+# Gridle <small>3.0.0</small>
 
 One grid system to rule them all (.scss)
 
 Gridle is a set of complete and simple settings, mixins and classes that make the creation and usage of grid systems (even complex ones) really simple. All of this with full responsive capabilities
 
-## [Visit Website](http://gridle.org/) for full documentation
+#### [Visit Website](http://gridle.org/) for full documentation
 
+## Install
 
+Gridle is available through NPM. To install it, just launch this command line:
+
+```npm install coffeekraken-gridle --save```
 
 ## Quick start
 
 Importing gridle
 
 ```scss
-import "gridle/gridle"
+import 'node_modules/coffeekraken-gridle/index';
 ```
 
 Configure your grid :
 
 ```scss
-@include gridle_setup( (
+@include g-setup( (
 	context : 12,
 	gutter-width : 20px,
 	direction : rtl,
@@ -31,16 +34,16 @@ Configure your grid :
 Register states (media queries) (optional) :
 
 ```scss
-@include gridle_register_state ( mobile , (
+@include g-register-state ( mobile , (
 	max-width : 480px
 ) );
-@include gridle_register_state ( tablet , (
+@include g-register-state ( tablet , (
 	min-width : 481px,
 	max-width : 1024px
 ) ) ;
 
 // even with full custom queries :
-@include gridle_register_state ( landscape, (
+@include g-register-state ( landscape, (
 	query : "(orientation : landscape)"
 ) );
 ```
@@ -48,7 +51,7 @@ Register states (media queries) (optional) :
 Generate all classes :
 
 ```scss
-@include gridle_generate_classes();
+@include g-classes();
 ```
 
 Use your grid in hrml :
@@ -71,22 +74,22 @@ Or with mixins :
 
 ```scss
 .row {
-	@include gridle_row();
+	@include g-row();
 	max-width:960px;
 	margin:0 auto;
 }
 #header {
-	@include gridle_grid(12);
+	@include g-grid(12);
 }
 #sidebar {
-	@include gridle_grid(8);
-	@include gridle_state( mobile tablet ) {
-		@include gridle_grid(12);
-		content : "#{gridle_current_state_name()}";
+	@include g-grid(8);
+	@include g-state( mobile tablet ) {
+		@include g-grid(12);
+		content : "#{g-current-state-name()}";
 	}
 }
 #sidebar {
-	@include gridle_set( (
+	@include g-set( (
 		grid : 4,
 		mobile : (
 			hide : true
@@ -94,7 +97,7 @@ Or with mixins :
 	) );
 }
 @footer {
-	@include gridle_grid(12);
+	@include g-grid(12);
 }
 ```
 
@@ -104,7 +107,7 @@ Customize your content look and feel with Gridle mixins
 #sidebar {
 	background : red;
 
-	@include gridle_state(mobile) {
+	@include g-state(mobile) {
 		background : green;
 	}
 }
@@ -118,15 +121,15 @@ Gridle has support for element queries with an easy mixin as all the rest of the
 .component {
 	background: yellow;
 
-	@include gridle_eq(+600px) {
+	@include g-eq(+600px) {
 		// when the component is 600px and greater
 		background: pink;
 	}
-	@include gridle_eq(-300px) {
+	@include g-eq(-300px) {
 		// when the component is 300px and lower
 		background: green;
 	}
-	@include gridle_eq(-100px) {
+	@include g-eq(-100px) {
 		// when the component is 100px and lower
 		background: black;
 
@@ -146,7 +149,7 @@ Gridle allows you to choose between a standard grid generated with float, etc...
 Gridle allows you to generate custom classes that will be available for each of your states. Here's an exemple
 
 ```scss
-@include gridle_generate_custom_class( ( 'center', '-', '%state' ) ) {
+@include g-custom-class( ( 'center', '-', '%state' ) ) {
 	text-align : center;
 }
 ```
@@ -156,11 +159,11 @@ This will produce the classes : center, center-mobile, center-tablet and center-
 
 ## Set multiple grid properties at one
 
-Gridle offer you multiple ways to set grid properties on your elements, the gridle_set and gridle universal mixin are some of these ways
+Gridle offer you multiple ways to set grid properties on your elements, the g-set and gridle universal mixin are some of these ways
 
 ```scss
 #sidebar {
-	@include gridle_set((
+	@include g-set((
 		grid : 8,
 		push : 4,
 		tablet : (

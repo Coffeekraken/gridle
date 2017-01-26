@@ -163,7 +163,7 @@
 	// nothing finded :
 	@return null;
 }
-@function g-var(
+@function g-state-var(
 	$varName,
 	$stateMap-or-stateName : current
 ) {
@@ -265,7 +265,7 @@
 	$stateName : default
 ) {
 	// check if has some extend for this state
-	$map : map-get($_g-extend_base_classes, $stateName);
+	$map : map-get($_g-extend-base-classes, $stateName);
 	@if $map == null { @return null; }
 
 	// check if has some extend for the requested for
@@ -591,7 +591,7 @@
 			$pattern : set-nth($pattern, $i, '\\@');
 		}
 
-		@if index($_gridle_names-separators, $pa) {
+		@if index($_g-names-separators, $pa) {
 			// check if need to remove separator
 			@if $removeSeparator {
 				$pattern : set-nth($pattern, $i, null);
@@ -607,7 +607,7 @@
 		} @else if $pa and str-index($pa, '%') == 1 {
 			$token : str-slice($pa, 2);
 			// check that the value is part of the token
-			$tokens : map-get($_gridle-names-tokens, $token);
+			$tokens : map-get($_g-names-tokens, $token);
 			@if $tokens {
 				$pattern : set-nth($pattern, $i, $value);
 				@if $value == null {
@@ -672,7 +672,7 @@
 		@if $var and str-index($var, '%') == 1 {
 			$token : str-slice($var, 2);
 			// check that the value is part of the token
-			$tokens : map-get($_gridle-names-tokens, $token);
+			$tokens : map-get($_g-names-tokens, $token);
 			@if $tokens == null {
 				$unmatched : map-set($unmatched, $i, $var);
 			}
@@ -700,7 +700,7 @@
 		@if $var and str-index($var, '%') == 1 {
 			$token : str-slice($var, 2);
 			// check that the value is part of the token
-			$tokens : map-get($_gridle-names-tokens, $token);
+			$tokens : map-get($_g-names-tokens, $token);
 			@if $tokens != null {
 				$matched : map-set($matched, $i, $var);
 			}
@@ -729,10 +729,10 @@
 	}
 
 	@if $package == count {
-		@return $_g-clear_classes;
+		@return $_g-clear-classes;
 	}
 
-	@return map-get($_gridle-names-tokens, $package);
+	@return map-get($_g-names-tokens, $package);
 }
 
 /**
@@ -831,7 +831,7 @@
 	@each $part in $sel {
 		@if not $end {
 			// if we have a separator, check the next value to see if it's a variable
-			@if index($_gridle-names-separators, $part) and $i < length($sel) {
+			@if index($_g-names-separators, $part) and $i < length($sel) {
 				@if nth($sel,$i + 1) != '%state' {
 					$generic : #{$generic}#{$part};
 				} @else {

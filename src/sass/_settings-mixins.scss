@@ -182,7 +182,7 @@
 	);
 
 	// append to map :
-	$_g-clear_classes : map-set($_g-clear_classes, $count, $classMap) !global;
+	$_g-clear-classes : map-set($_g-clear-classes, $count, $classMap) !global;
 }
 
 
@@ -293,7 +293,7 @@
 // 	@each $f in $for {
 
 // 		// get the map for the passed mixin "category"
-// 		$forMap : map-get($_g-extend_base_classes, $f);
+// 		$forMap : map-get($_g-extend-base-classes, $f);
 
 // 		// create the map if not exist
 // 		@if $forMap == null { $forMap : (); }
@@ -314,7 +314,7 @@
 // 			$forMap : map-set($forMap, $stateName, $forStateMap);
 
 // 			// set the map in the gridle global variable
-// 			$_g-extend_base_classes : map-set($_g-extend_base_classes, $f, $forMap) !global;
+// 			$_g-extend-base-classes : map-set($_g-extend-base-classes, $f, $forMap) !global;
 
 // 		}
 
@@ -335,7 +335,7 @@
 	@each $stateName in $statesNames {
 
 		// get the map for the passed mixin "category"
-		$stateMap : map-get($_g-extend_base_classes, $stateName);
+		$stateMap : map-get($_g-extend-base-classes, $stateName);
 
 		// create the map if not exist
 		@if $stateMap == null { $stateMap : (); }
@@ -356,7 +356,7 @@
 			$stateMap : map-set($stateMap, $f, $forStateMap);
 
 			// set the map in the gridle global variable
-			$_g-extend_base_classes : map-set($_g-extend_base_classes, $stateName, $stateMap) !global;
+			$_g-extend-base-classes : map-set($_g-extend-base-classes, $stateName, $stateMap) !global;
 		}
 	}
 }

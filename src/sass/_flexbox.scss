@@ -60,7 +60,7 @@
 // (Placeholder selectors for each type, for those who rather @extend)
 
 @mixin flexbox {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		display: -webkit-box;
 		display: -webkit-flex;
 		display: -moz-flex;
@@ -74,7 +74,7 @@
 //----------------------------------
 
 @mixin inline-flex {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		display: -webkit-inline-box;
 		display: -webkit-inline-flex;
 		display: -moz-inline-flex;
@@ -99,7 +99,7 @@
 // http://w3.org/tr/css3-flexbox/#flex-direction-property
 
 @mixin flex-direction($value: row) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		@if $value == row-reverse {
 			-webkit-box-direction: reverse;
 			-webkit-box-orient: horizontal;
@@ -136,7 +136,7 @@
 // http://w3.org/tr/css3-flexbox/#flex-wrap-property
 
 @mixin flex-wrap($value: nowrap) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		// No Webkit Box fallback.
 		-webkit-flex-wrap: $value;
 		-moz-flex-wrap: $value;
@@ -163,7 +163,7 @@
 // http://w3.org/tr/css3-flexbox/#flex-flow-property
 
 @mixin flex-flow($values: (row nowrap)) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		// No Webkit Box fallback.
 		-webkit-flex-flow: $values;
 		-moz-flex-flow: $values;
@@ -184,7 +184,7 @@
 // http://w3.org/tr/css3-flexbox/#order-property
 
 @mixin order($int: 0) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-ordinal-group: $int + 1;
 		-webkit-order: $int;
 		-moz-order: $int;
@@ -205,7 +205,7 @@
 // http://w3.org/tr/css3-flexbox/#flex-grow-property
 
 @mixin flex-grow($int: 0) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-flex: $int;
 		-webkit-flex-grow: $int;
 		-moz-flex-grow: $int;
@@ -226,7 +226,7 @@
 // http://w3.org/tr/css3-flexbox/#flex-shrink-property
 
 @mixin flex-shrink($int: 1) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-flex-shrink: $int;
 		-moz-flex-shrink: $int;
 		-ms-flex-negative: $int;
@@ -246,7 +246,7 @@
 // http://www.w3.org/TR/css3-flexbox/#flex-basis-property
 
 @mixin flex-basis($value: auto) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-flex-basis: $value;
 		-moz-flex-basis: $value;
 		-ms-flex-preferred-size: $value;
@@ -280,7 +280,7 @@
 		$fg-boxflex: nth($fg, 1);
 	}
 
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-flex: $fg-boxflex;
 		-webkit-flex: $fg $fs $fb;
 		-moz-box-flex: $fg-boxflex;
@@ -309,7 +309,7 @@
 // http://w3.org/tr/css3-flexbox/#justify-content-property
 
 @mixin justify-content($value: flex-start) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		@if $value == flex-start {
 			-webkit-box-pack: start;
 			-ms-flex-pack: start;
@@ -351,7 +351,7 @@
 // http://w3.org/tr/css3-flexbox/#align-items-property
 
 @mixin align-items($value: stretch) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		@if $value == flex-start {
 			-webkit-box-align: start;
 			-ms-flex-align: start;
@@ -376,7 +376,7 @@
 // Default: auto
 
 @mixin align-self($value: auto) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		// No Webkit Box Fallback.
 		-webkit-align-self: $value;
 		-moz-align-self: $value;
@@ -406,7 +406,7 @@
 // http://w3.org/tr/css3-flexbox/#align-content-property
 
 @mixin align-content($value: stretch) {
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		// No Webkit Box Fallback.
 		-webkit-align-content: $value;
 		-moz-align-content: $value;

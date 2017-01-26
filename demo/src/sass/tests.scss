@@ -29,7 +29,7 @@
 	@include g-gutter(bottom);
 }
 
-@include g-generate-custom-class( ('txt','-','align','-','center','@','%state') ) {
+@include g-custom-class( ('txt','-','align','-','center','@','%state') ) {
 	text-align: center;
 	content : "#{g-current-state-name()}";
 }

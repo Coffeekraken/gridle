@@ -4,16 +4,15 @@
 // @include g-init();
 
 // Generate classes :
-// @include g-generate-classes();
-@include g-generate-classes();
+@include g-classes();
 
 // you can generate classes separately if you need :
-// @include g-generate-classes(default);  	// default is the base state always registered
-// @include g-generate-classes(mobile); 	// only the mobile state
-// @include g-generate-classes(all, -helpers); // all states, all packages but the helpers
+// @include g-classes(default);  	// default is the base state always registered
+// @include g-classes(mobile); 	// only the mobile state
+// @include g-classes(all, -helpers); // all states, all packages but the helpers
 
 // generate a center custom class for all the states :
-// @include g-generate-custom-class( ('center','@','%state') ) {
+// @include g-custom-class( ('center','@','%state') ) {
 // 	text-align:center;
 // }
 // this will produces classes : center, center@mobile, center@tablet, center@ipad-landscape

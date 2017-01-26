@@ -21,7 +21,7 @@
  *
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
-@mixin g-generate-custom-class(
+@mixin g-custom-class(
 	$pattern,
 	$statesNames : null,
 	$replacements...
@@ -85,7 +85,7 @@
 					}
 
 					@while nth($list_indexes, 1) <= length( nth($replacements, 1) ){
-						$gridle-scope : () !global;
+						$g-scope : () !global;
 						$replacement_pattern : $pattern;
 						$replaced_count : 0;
 
@@ -100,14 +100,14 @@
 
 							$var_name : str-slice($flag, 2);
 
-							$gridle-scope : map-set( $gridle-scope, $var_name, nth( $current_replacement, $current_index ) ) !global;
+							$g-scope : map-set( $g-scope, $var_name, nth( $current_replacement, $current_index ) ) !global;
 						}
 
 						#{_g-selector($replacement_pattern, $stateName)} {
 							@content;
 						}
 
-						$gridle-scope : () !global;
+						$g-scope : () !global;
 
 						// Add 1 to indexes
 						$break : false;
@@ -365,7 +365,7 @@
 	// Clear each class :
 	//
 	@if _g-need-to-generate(clear-each, $package) {
-		@each $clearName, $clearMap in $_g-clear_classes {
+		@each $clearName, $clearMap in $_g-clear-classes {
 			// get count :
 			$clearCount : map-get($clearMap, clearEach);
 			// what to clear :
@@ -446,7 +446,7 @@
 	 // generate settings json :
 	$gridle-settings-states : "#{$gridle-settings-states}}";
 	$gridle-settings : "{";
-	$gridle-settings : "#{$gridle-settings} \"version\" : \"#{$_gridle-version}\"";
+	$gridle-settings : "#{$gridle-settings} \"version\" : \"#{$_g-version}\"";
 
 	// states :
 	$gridle-settings : "#{$gridle-settings}, \"states\" : #{$gridle-settings-states}";
@@ -506,7 +506,7 @@
  *
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
-@mixin g-generate-classes(
+@mixin g-classes(
 	$states : all,
 	$package : all,
 	$scope : null
@@ -519,15 +519,15 @@
 	@if $scope {
 		// wrapp grid into scope
 		.#{$scope} {
-			@include _g-generate-classes($states, $package, true);
+			@include _g-classes($states, $package, true);
 		}
 	} @else {
 		// generate classes
-		@include _g-generate-classes($states, $package, false);
+		@include _g-classes($states, $package, false);
 	}
 }
 $_gridle_generateOnlyOnce : true !default; // keep track of generate once classes
-@mixin _g-generate-classes(
+@mixin _g-classes(
 	$states : all,
 	$package : all,
 	$has-parent : false

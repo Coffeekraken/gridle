@@ -142,7 +142,7 @@
 		}
 	}
 
-	&[#{$op}~="#{$var}"] {
+	&[#{$op}~="#{$size}"] {
 		@content;
 	}
 }
@@ -228,13 +228,15 @@
 @mixin gridle($properties) {
 	@if type-of($properties) == map {
 		@include g-set($map);
-	} @else if type-of($properties) == list {
+	} @else if type-of($properties) == list
+	 	or type-of($properties) == number
+		or type-of($properties) == string {
 		$map : _g-get-gridle-set-map-from-list($properties);
 		@if type-of($map) == map {
 			@include g-set($map);
 		}
 	} @else {
-		@error("The passed layout #{inspect($layout)} is not a valid layout list or map...");
+		@error("The passed layout #{inspect($properties)} is not a valid layout list or map...");
 	}
 }
 

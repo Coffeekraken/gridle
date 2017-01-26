@@ -161,7 +161,7 @@
 	// min-height: inherit;
 	// max-height: inherit;
 	line-height:1;
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
@@ -270,7 +270,7 @@
 		@if $direction == rtl {
 			margin-right:50% !important;
 			margin-left:0 !important;
-			@if $gridle-vendor-prefix {
+			@if $g-vendor-prefix {
 				-webkit-transform: translateX(50%);
 				-moz-transition: translateX(50%);
 				-ms-transform: translateX(50%);
@@ -280,7 +280,7 @@
 		} @else {
 			margin-left:50% !important;
 			margin-right:0 !important;
-			@if $gridle-vendor-prefix {
+			@if $g-vendor-prefix {
 				-webkit-transform: translateX(-50%);
 				-moz-transition: translateX(-50%);
 				-ms-transform: translateX(-50%);
@@ -292,7 +292,7 @@
 			[dir="ltr"] & {
 				margin-left:50% !important;
 				margin-right:0 !important;
-				@if $gridle-vendor-prefix {
+				@if $g-vendor-prefix {
 					-webkit-transform: translateX(-50%);
 					-moz-transition: translateX(-50%);
 					-ms-transform: translateX(-50%);
@@ -303,7 +303,7 @@
 			[dir="rtl"] & {
 				margin-right:50% !important;
 				margin-left:0 !important;
-				@if $gridle-vendor-prefix {
+				@if $g-vendor-prefix {
 					-webkit-transform: translateX(50%);
 					-moz-transition: translateX(50%);
 					-ms-transform: translateX(50%);
@@ -324,7 +324,7 @@
 	@include flexbox;
 	@include flex(0,1,auto);
 	@include flex-direction(column); // reset direction for inner elements
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
@@ -357,7 +357,7 @@
 	@include flexbox;
 	@include flex(1,1,auto);
 	@include flex-direction(column); // reset direction for inner elements
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}

@@ -10382,19 +10382,19 @@
 	__webpack_require__(4);
 
 	/*
-	* Gridle.js
-	*
-	* This little js file allow you to detect which or your gridle state is active, when states changes, etc...
-	*
-	* @author 	Olivier Bossel <olivier.bossel@gmail.com>
-	* @created 	20.05.14
-	* @updated 	09.10.15
-	* @version 	1.0.14
-	*/
+	 * @name 	Gridle.js
+	 * This little js file allow you to detect which or your gridle state is active, when states changes, etc...
+	 *
+	 * @example 	js
+	 * import 'coffeekraken-gridle';
+	 * // optional setup
+	 * Gridle.init({settings});
+	 *
+	 * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+	 * @version 	1.0.0
+	 */
 
-	/*
-	* Little smokesignals implementation
-	*/
+	// smokesignals
 	var smokesignals;
 	smokesignals = {
 		convert: function convert(obj, handlers) {
@@ -10420,9 +10420,7 @@
 		}
 	};
 
-	/*
-	 * Gridle.js
-	 */
+	// gridle object
 	var Gridle = {
 		_inited: false,
 		_isReady: false,
@@ -10438,14 +10436,33 @@
 		_updatedStatesNames: [],
 		resizeTimeout: null,
 		_settings: {
+
+			/**
+	   * Callback when the state has changed
+	   * @setting
+	   * @type 	 {Function}
+	   */
 			onUpdate: null,
-			debug: null,
+
+			/**
+	   * Activate of not the debug outputs
+	   * @setting
+	   * @type 	{Boolean}
+	   */
+			debug: false,
+
+			/**
+	   * Set some states to ignore completely
+	   * @setting
+	   * @type 	{Array}
+	   */
 			ignoredStates: []
 		},
 
-		/*
-	 Init
-	 */
+		/**
+	  * Init gridle with some custom settings
+	  * @param 		{Object} 		settings 		Some settings to override
+	  */
 		init: function init(settings) {
 			var default_index;
 			this._inited = true;
@@ -10741,6 +10758,7 @@
 
 		/*
 	  * Get default state
+	  * @return 		{Object} 		The default state object
 	  */
 		getDefaultState: function getDefaultState() {
 			var k, len, ref, state;
@@ -10755,6 +10773,7 @@
 
 		/*
 	  * Get registered states
+	  * @return 		{Array} 		The array of all the registere states objects
 	  */
 		getRegisteredStates: function getRegisteredStates() {
 			return this._states;
@@ -10762,6 +10781,7 @@
 
 		/*
 	  * Get changes states
+	  * @return 		{Array} 		The array of all the updated states objects
 	  */
 		getUpdatedStates: function getUpdatedStates() {
 			return this._updatedStates;
@@ -10769,6 +10789,7 @@
 
 		/*
 	  * Get changes states names
+	  * @return 		{Array} 		The array of all the updated states names
 	  */
 		getUpdatedStatesNames: function getUpdatedStatesNames() {
 			return this._updatedStatesNames;
@@ -10776,6 +10797,7 @@
 
 		/*
 	  * Get active states
+	  * @return 		{Array} 		The array of all the current active states objects
 	  */
 		getActiveStates: function getActiveStates() {
 			return this._activeStates;
@@ -10783,6 +10805,7 @@
 
 		/*
 	  * Get active states names
+	  * @return 		{Array} 		The array of all the current active states names
 	  */
 		getActiveStatesNames: function getActiveStatesNames() {
 			return this._activeStatesNames;
@@ -10790,6 +10813,7 @@
 
 		/*
 	  * Get unactive states
+	  * @return 		{Array} 		The array of all the current inactive states objects
 	  */
 		getInactiveStates: function getInactiveStates() {
 			return this._inactiveStates;
@@ -10797,6 +10821,7 @@
 
 		/*
 	  * Get unactive states names
+	  * @return 		{Array} 		The array of all the current inactive states names
 	  */
 		getInactiveStatesNames: function getInactiveStatesNames() {
 			return this._inactiveStatesNames;
@@ -10804,6 +10829,8 @@
 
 		/*
 	  * Check is a state is active
+	  * @param 		{String} 		stateName 		The state name to check
+	  * @return 		{Boolean} 						If the specified state is active or not
 	  */
 		isActive: function isActive(stateName) {
 			var index, isActive, name, ref;
@@ -10820,6 +10847,7 @@
 
 		/*
 	  * Check if gridle is ready
+	  * @return 		{Boolean} 			If Gridle.js is ready or not
 	  */
 		isReady: function isReady() {
 			return this._isReady;
@@ -10838,6 +10866,7 @@
 	// convert to smokesignals
 	smokesignals.convert(Gridle);
 
+	// auto init after 500ms if not inited by hand
 	(0, _domready2.default)(function () {
 		return setTimeout(function () {
 			if (!Gridle._inited) {
@@ -10962,14 +10991,14 @@
 	    throw new TypeError("Cannot call a class as a function");
 	  }
 	} /*
-	   * Gridle-eq.js
-	   *
+	   * @name 	Gridle-eq.js
 	   * This little file is a bridge to support the element queries
-	   * @copyright marcj https://github.com/marcj/css-element-queries
+	   * Thanks to [marcj](https://github.com/marcj/css-element-queries) for his wonderful polyfill
+	   *
+	   * @example 	js
+	   * import 'coffeekraken-gridle/js/gridle-eq';
 	   *
 	   * @author 	Olivier Bossel <olivier.bossel@gmail.com>
-	   * @created 	20.05.14
-	   * @updated 	09.10.15
 	   * @version 	1.0.0
 	   */
 
@@ -10980,12 +11009,13 @@
 	  function GridleEq() {
 	    _classCallCheck(this, GridleEq);
 
-	    console.log(_cssElementQueries2.default);
 	    _cssElementQueries2.default.ElementQueries.listen();
 	  }
+	  /**
+	   * Function to call to update the element queries polyfill
+	   */
 
 	  GridleEq.prototype.update = function update() {
-	    console.log('update', _cssElementQueries2.default.ElementQueries);
 	    _cssElementQueries2.default.ElementQueries.update();
 	  };
 

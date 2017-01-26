@@ -182,7 +182,7 @@
 	} @else {
 		float:left;
 	}
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
@@ -311,7 +311,7 @@
 		@if $direction == ltr {
 			margin-left:50% !important;
 			margin-right:0 !important;
-			@if $gridle-vendor-prefix {
+			@if $g-vendor-prefix {
 				-webkit-transform: translateX(-50%);
 				-moz-transition: translateX(-50%);
 				-ms-transform: translateX(-50%);
@@ -321,7 +321,7 @@
 		} @else {
 			margin-right:50% !important;
 			margin-left:0 !important;
-			@if $gridle-vendor-prefix {
+			@if $g-vendor-prefix {
 				-webkit-transform: translateX(50%);
 				-moz-transition: translateX(50%);
 				-ms-transform: translateX(50%);
@@ -333,7 +333,7 @@
 			[dir="ltr"] & {
 				margin-left:50% !important;
 				margin-right:0 !important;
-				@if $gridle-vendor-prefix {
+				@if $g-vendor-prefix {
 					-webkit-transform: translateX(-50%);
 					-moz-transition: translateX(-50%);
 					-ms-transform: translateX(-50%);
@@ -344,7 +344,7 @@
 			[dir="rtl"] & {
 				margin-right:50% !important;
 				margin-left:0 !important;
-				@if $gridle-vendor-prefix {
+				@if $g-vendor-prefix {
 					-webkit-transform: translateX(50%);
 					-moz-transition: translateX(50%);
 					-ms-transform: translateX(50%);
@@ -365,7 +365,7 @@
 	width:1px;
 	white-space:nowrap !important;
 	line-height:1;
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
@@ -396,7 +396,7 @@
 	display: table-cell;
 	width:99999px;
 	line-height:1;
-	@if $gridle-vendor-prefix {
+	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
 	}
