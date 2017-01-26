@@ -740,7 +740,7 @@
  * @return 	{String} 		The used driver like default or driver
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
-@function g-get-driver() {
+@function g-driver() {
 	@return $_gridle-driver;
 }
 
@@ -752,7 +752,7 @@
  */
 @function g-is-driver($driver) {
 	@each $d in $driver {
-		@if $d == g-get-driver() {
+		@if $d == g-driver() {
 			@return true;
 		}
 	}

@@ -9,14 +9,14 @@ var _cssElementQueries2 = _interopRequireDefault(_cssElementQueries);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } } /*
-                                                                                                                                                           * Gridle-eq.js
-                                                                                                                                                           *
+                                                                                                                                                           * @name 	Gridle-eq.js
                                                                                                                                                            * This little file is a bridge to support the element queries
-                                                                                                                                                           * @copyright marcj https://github.com/marcj/css-element-queries
+                                                                                                                                                           * Thanks to [marcj](https://github.com/marcj/css-element-queries) for his wonderful polyfill
+                                                                                                                                                           *
+                                                                                                                                                           * @example 	js
+                                                                                                                                                           * import 'coffeekraken-gridle/js/gridle-eq';
                                                                                                                                                            *
                                                                                                                                                            * @author 	Olivier Bossel <olivier.bossel@gmail.com>
-                                                                                                                                                           * @created 	20.05.14
-                                                                                                                                                           * @updated 	09.10.15
                                                                                                                                                            * @version 	1.0.0
                                                                                                                                                            */
 
@@ -28,12 +28,14 @@ var GridleEq = function () {
   function GridleEq() {
     _classCallCheck(this, GridleEq);
 
-    console.log(_cssElementQueries2.default);
     _cssElementQueries2.default.ElementQueries.listen();
   }
+  /**
+   * Function to call to update the element queries polyfill
+   */
+
 
   GridleEq.prototype.update = function update() {
-    console.log('update', _cssElementQueries2.default.ElementQueries);
     _cssElementQueries2.default.ElementQueries.update();
   };
 

@@ -148,7 +148,7 @@ $value  |  **{ Mixed }**  |  The value that will be used to replace the "%{token
 Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 
-### g-get-driver
+### g-driver
 
 Return the current used driver
 

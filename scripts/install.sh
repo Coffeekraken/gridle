@@ -22,4 +22,5 @@ then
 
 	# update _index.scss file import reference
 	echo '@import "sass/gridle";' > _index.scss
+	echo '@import "sass/gridle-flex";' > _flex.scss
 fi

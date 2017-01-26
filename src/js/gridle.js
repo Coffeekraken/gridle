@@ -1,20 +1,20 @@
+/**
+ * @name 	Gridle.js
+ * This little js file allow you to detect which or your gridle state is active, when states changes, etc...
+ *
+ * @example 	js
+ * import 'coffeekraken-gridle';
+ * // optional setup
+ * Gridle.init({settings});
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ * @version 	1.0.0
+ */
+
 require('matchmedia-polyfill');
 import domready from 'domready';
 
-/*
-* Gridle.js
-*
-* This little js file allow you to detect which or your gridle state is active, when states changes, etc...
-*
-* @author 	Olivier Bossel <olivier.bossel@gmail.com>
-* @created 	20.05.14
-* @updated 	09.10.15
-* @version 	1.0.14
-*/
-
-/*
-* Little smokesignals implementation
-*/
+// smokesignals
 var smokesignals;
 smokesignals = {
 	convert: function(obj, handlers) {
@@ -40,9 +40,7 @@ smokesignals = {
 	}
 };
 
-/*
- * Gridle.js
- */
+// gridle object
 const Gridle = {
 	_inited: false,
 	_isReady: false,
@@ -58,14 +56,33 @@ const Gridle = {
 	_updatedStatesNames: [],
 	resizeTimeout: null,
 	_settings: {
+
+		/**
+		 * Callback when the state has changed
+		 * @setting
+		 * @type 	 {Function}
+		 */
 		onUpdate: null,
-		debug: null,
+
+		/**
+		 * Activate of not the debug outputs
+		 * @setting
+		 * @type 	{Boolean}
+		 */
+		debug: false,
+
+		/**
+		 * Set some states to ignore completely
+		 * @setting
+		 * @type 	{Array}
+		 */
 		ignoredStates: []
 	},
 
-	/*
-	Init
-	*/
+	/**
+	 * Init gridle with some custom settings
+	 * @param 		{Object} 		settings 		Some settings to override
+	 */
 	init: function(settings) {
 		var default_index;
 		this._inited = true;
@@ -361,6 +378,7 @@ const Gridle = {
 
 	/*
 	 * Get default state
+	 * @return 		{Object} 		The default state object
 	 */
 	getDefaultState: function() {
 		var k, len, ref, state;
@@ -375,6 +393,7 @@ const Gridle = {
 
 	/*
 	 * Get registered states
+	 * @return 		{Array} 		The array of all the registere states objects
 	 */
 	getRegisteredStates: function() {
 		return this._states;
@@ -382,6 +401,7 @@ const Gridle = {
 
 	/*
 	 * Get changes states
+	 * @return 		{Array} 		The array of all the updated states objects
 	 */
 	getUpdatedStates: function() {
 		return this._updatedStates;
@@ -389,6 +409,7 @@ const Gridle = {
 
 	/*
 	 * Get changes states names
+	 * @return 		{Array} 		The array of all the updated states names
 	 */
 	getUpdatedStatesNames: function() {
 		return this._updatedStatesNames;
@@ -396,6 +417,7 @@ const Gridle = {
 
 	/*
 	 * Get active states
+	 * @return 		{Array} 		The array of all the current active states objects
 	 */
 	getActiveStates: function() {
 		return this._activeStates;
@@ -403,6 +425,7 @@ const Gridle = {
 
 	/*
 	 * Get active states names
+	 * @return 		{Array} 		The array of all the current active states names
 	 */
 	getActiveStatesNames: function() {
 		return this._activeStatesNames;
@@ -410,6 +433,7 @@ const Gridle = {
 
 	/*
 	 * Get unactive states
+	 * @return 		{Array} 		The array of all the current inactive states objects
 	 */
 	getInactiveStates: function() {
 		return this._inactiveStates;
@@ -417,6 +441,7 @@ const Gridle = {
 
 	/*
 	 * Get unactive states names
+	 * @return 		{Array} 		The array of all the current inactive states names
 	 */
 	getInactiveStatesNames: function() {
 		return this._inactiveStatesNames;
@@ -424,6 +449,8 @@ const Gridle = {
 
 	/*
 	 * Check is a state is active
+	 * @param 		{String} 		stateName 		The state name to check
+	 * @return 		{Boolean} 						If the specified state is active or not
 	 */
 	isActive: function(stateName) {
 		var index, isActive, name, ref;
@@ -440,6 +467,7 @@ const Gridle = {
 
 	/*
 	 * Check if gridle is ready
+	 * @return 		{Boolean} 			If Gridle.js is ready or not
 	 */
 	isReady: function() {
 		return this._isReady;
@@ -458,8 +486,7 @@ const Gridle = {
 // convert to smokesignals
 smokesignals.convert(Gridle);
 
-
-
+// auto init after 500ms if not inited by hand
 domready(() => {
 	return setTimeout(function() {
 		if (!Gridle._inited) {

@@ -12,19 +12,19 @@ require('matchmedia-polyfill');
 
 
 /*
-* Gridle.js
-*
-* This little js file allow you to detect which or your gridle state is active, when states changes, etc...
-*
-* @author 	Olivier Bossel <olivier.bossel@gmail.com>
-* @created 	20.05.14
-* @updated 	09.10.15
-* @version 	1.0.14
-*/
+ * @name 	Gridle.js
+ * This little js file allow you to detect which or your gridle state is active, when states changes, etc...
+ *
+ * @example 	js
+ * import 'coffeekraken-gridle';
+ * // optional setup
+ * Gridle.init({settings});
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ * @version 	1.0.0
+ */
 
-/*
-* Little smokesignals implementation
-*/
+// smokesignals
 var smokesignals;
 smokesignals = {
 	convert: function convert(obj, handlers) {
@@ -50,9 +50,7 @@ smokesignals = {
 	}
 };
 
-/*
- * Gridle.js
- */
+// gridle object
 var Gridle = {
 	_inited: false,
 	_isReady: false,
@@ -68,14 +66,33 @@ var Gridle = {
 	_updatedStatesNames: [],
 	resizeTimeout: null,
 	_settings: {
+
+		/**
+   * Callback when the state has changed
+   * @setting
+   * @type 	 {Function}
+   */
 		onUpdate: null,
-		debug: null,
+
+		/**
+   * Activate of not the debug outputs
+   * @setting
+   * @type 	{Boolean}
+   */
+		debug: false,
+
+		/**
+   * Set some states to ignore completely
+   * @setting
+   * @type 	{Array}
+   */
 		ignoredStates: []
 	},
 
-	/*
- Init
- */
+	/**
+  * Init gridle with some custom settings
+  * @param 		{Object} 		settings 		Some settings to override
+  */
 	init: function init(settings) {
 		var default_index;
 		this._inited = true;
@@ -371,6 +388,7 @@ var Gridle = {
 
 	/*
   * Get default state
+  * @return 		{Object} 		The default state object
   */
 	getDefaultState: function getDefaultState() {
 		var k, len, ref, state;
@@ -385,6 +403,7 @@ var Gridle = {
 
 	/*
   * Get registered states
+  * @return 		{Array} 		The array of all the registere states objects
   */
 	getRegisteredStates: function getRegisteredStates() {
 		return this._states;
@@ -392,6 +411,7 @@ var Gridle = {
 
 	/*
   * Get changes states
+  * @return 		{Array} 		The array of all the updated states objects
   */
 	getUpdatedStates: function getUpdatedStates() {
 		return this._updatedStates;
@@ -399,6 +419,7 @@ var Gridle = {
 
 	/*
   * Get changes states names
+  * @return 		{Array} 		The array of all the updated states names
   */
 	getUpdatedStatesNames: function getUpdatedStatesNames() {
 		return this._updatedStatesNames;
@@ -406,6 +427,7 @@ var Gridle = {
 
 	/*
   * Get active states
+  * @return 		{Array} 		The array of all the current active states objects
   */
 	getActiveStates: function getActiveStates() {
 		return this._activeStates;
@@ -413,6 +435,7 @@ var Gridle = {
 
 	/*
   * Get active states names
+  * @return 		{Array} 		The array of all the current active states names
   */
 	getActiveStatesNames: function getActiveStatesNames() {
 		return this._activeStatesNames;
@@ -420,6 +443,7 @@ var Gridle = {
 
 	/*
   * Get unactive states
+  * @return 		{Array} 		The array of all the current inactive states objects
   */
 	getInactiveStates: function getInactiveStates() {
 		return this._inactiveStates;
@@ -427,6 +451,7 @@ var Gridle = {
 
 	/*
   * Get unactive states names
+  * @return 		{Array} 		The array of all the current inactive states names
   */
 	getInactiveStatesNames: function getInactiveStatesNames() {
 		return this._inactiveStatesNames;
@@ -434,6 +459,8 @@ var Gridle = {
 
 	/*
   * Check is a state is active
+  * @param 		{String} 		stateName 		The state name to check
+  * @return 		{Boolean} 						If the specified state is active or not
   */
 	isActive: function isActive(stateName) {
 		var index, isActive, name, ref;
@@ -450,6 +477,7 @@ var Gridle = {
 
 	/*
   * Check if gridle is ready
+  * @return 		{Boolean} 			If Gridle.js is ready or not
   */
 	isReady: function isReady() {
 		return this._isReady;
@@ -468,6 +496,7 @@ var Gridle = {
 // convert to smokesignals
 smokesignals.convert(Gridle);
 
+// auto init after 500ms if not inited by hand
 (0, _domready2.default)(function () {
 	return setTimeout(function () {
 		if (!Gridle._inited) {
