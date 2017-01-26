@@ -10,7 +10,7 @@ Gridle is a set of complete and simple settings, mixins and classes that make th
 
 Gridle is available through NPM. To install it, just launch this command line:
 
-```npm install coffeekraken-gridle --save```
+```npm install git+https://git@github.com/Coffeekraken/gridle.git#release/3.0.0 --save```
 
 ## Quick start
 
@@ -143,6 +143,13 @@ Gridle has support for element queries with an easy mixin as all the rest of the
 ## Flex as a choice
 
 Gridle allows you to choose between a standard grid generated with float, etc... and a flex one that use the flexbox model. All of this power with the same exact classes.
+
+```scss
+// default driver
+@import 'coffeekraken-gridle/index';
+// flex driver
+@import 'coffeekraken-gridle/flex';
+```
 
 ## Generate custom classes
 
