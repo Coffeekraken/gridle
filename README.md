@@ -4,8 +4,6 @@ One grid system to rule them all (.scss)
 
 Gridle is a set of complete and simple settings, mixins and classes that make the creation and usage of grid systems (even complex ones) really simple. All of this with full responsive capabilities
 
-#### [Visit Website](http://gridle.org/) for full documentation
-
 ## Install
 
 Gridle is available through NPM. To install it, just launch this command line:
@@ -204,18 +202,3 @@ Gridle.on('update', function(updatedStates, activeStates, unactiveStates) {
 ## And more...
 
 That's not finished. Gridle offer you a lot of features and advanced settings that you can discover on the full website. When I say that Gridle is powerful and fully customizable, I really mean it!
-
-## [Visit Website](http://gridle.org/) for full documentation
-
-
-## Tested with
-
-|    | Generator |  Version  |
-| ------------- | ------------- | ------------- |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" height="20" />  |  Grunt Sass  |  1.0.0  |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" height="20" />  |  Gulp Sass  |  2.2.0  |
-| <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Sass_Logo_Color.svg/1280px-Sass_Logo_Color.svg.png" height="20" />  |  Node Sass  |  3.4.2  |
-| <img src="http://www.codingpedia.org/wp-content/uploads/2014/04/gulp-2x.png" height="30" />  |  Gulp  | 3.9.0  |
-| <img src="https://www.npmjs.com/static/images/npm-logo.svg" height="20" />  |  NPM  | 2.5.1  |
-| <img src="https://cms-assets.tutsplus.com/uploads/users/30/posts/23114/preview_image/libsass.png" height="20" />  |  Libsass  | 3.3.3  |
-|  <img src="http://rhumaric.com/wp-content/uploads/2013/05/bower-logo.png" height="20" />  |  Grunt  |  0.4.4  |
