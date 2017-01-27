@@ -4,6 +4,20 @@ One grid system to rule them all (.scss)
 
 Gridle is a set of complete and simple settings, mixins and classes that make the creation and usage of grid systems (even complex ones) really simple. All of this with full responsive capabilities
 
+## Table of content
+
+- [Install](#install)
+- [Get started](doc/00.get-started.md)
+- [Setup](doc/01.setup.md)
+- [States](doc/02.states.md)
+- [Mobile first](doc/03.modile-first.md)
+- [Classes](doc/04.classes.md)
+- [Mixins](doc/05.mixins.md)
+- [Functions](doc/06.functions.md)
+- [Advanced settings](doc/07.advanced-settings.md)
+- [Gridle JS](doc/08.gridle-js.md)
+- [Contribute](doc/09.contribute.md)
+
 ## Install
 
 Gridle is available through NPM. To install it, just launch this command line:
@@ -202,3 +216,14 @@ Gridle.on('update', function(updatedStates, activeStates, unactiveStates) {
 ## And more...
 
 That's not finished. Gridle offer you a lot of features and advanced settings that you can discover on the full website. When I say that Gridle is powerful and fully customizable, I really mean it!
+
+
+## Contribute
+
+Gridle is an open source project and will ever be! You are more that welcomed to contribute to his development and make it more awesome every day.
+To do so, you have several possibilities:
+
+1. [Share the love ❤️](doc/contribute.md#contribute-share-the-love)
+2. [Declare issues](doc/contribute.md#contribute-declare-issues)
+3. [Fix issues](doc/contribute.md#contribute-fix-issues)
+4. [Add features](doc/contribute.md#contribute-add-features)
