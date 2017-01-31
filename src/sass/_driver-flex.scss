@@ -158,7 +158,7 @@
 	@include flex-direction(column); // reset direction for inner elements
 	display: block;
 	// height:inherit;
-	// min-height: inherit;
+	min-height: .5px;
 	// max-height: inherit;
 	line-height:1;
 	@if $g-vendor-prefix {
