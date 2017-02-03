@@ -471,17 +471,46 @@
 /**
  * Register some basics mobile first states:
  *
+ * - mobile : 320px to infinite
+ * - tablet : 640px to infinite
+ * - desktop : 992px to infinite
+ * - large : 1200px to infinite
+ *
+ * @example 	scss
+ * \@include g-register-mobile-first-states();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-register-mobile-first-states() {
+	@include g-register-state(mobile, (
+		min-width : 320px
+	));
+	@include g-register-state(tablet, (
+		min-width : 640px
+	));
+	@include g-register-state(desktop, (
+		min-width : 992px
+	));
+	@include g-register-state(large, (
+		min-width : 1200px
+	));
+}
+
+
+/**
+ * Register bootstrap 3 states
+ *
  * - xs : 0 to 750px
  * - sm : 750px to infinite
  * - md : 970px to infinite
  * - lg : 1170px to infinite
  *
  * @example 	scss
- * \@include g-register-default-mobile-first-states();
+ * \@include g-register-bootstrap3-states();
  *
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
-@mixin g-register-default-mobile-first-states() {
+@mixin g-register-bootstrap3-states() {
 	@include g-register-state(xs, (
 		max-width : 750px
 	));
@@ -489,9 +518,38 @@
 		min-width : 750px
 	));
 	@include g-register-state(md, (
-		min-width : 970px
+		min-width : 768px
 	));
 	@include g-register-state(lg, (
-		min-width : 1170px
+		min-width : 1200px
+	));
+}
+
+
+/**
+ * Register bootstrap 4 states
+ *
+ * - xs : 0 to 576px
+ * - sm : 576px to infinite
+ * - md : 970px to infinite
+ * - lg : 1200px to infinite
+ *
+ * @example 	scss
+ * \@include g-register-bootstrap4-states();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-register-bootstrap4-states() {
+	@include g-register-state(xs, (
+		max-width : 576px
+	));
+	@include g-register-state(sm, (
+		min-width : 576px
+	));
+	@include g-register-state(md, (
+		min-width : 768px
+	));
+	@include g-register-state(lg, (
+		min-width : 1200px
 	));
 }
