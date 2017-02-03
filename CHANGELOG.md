@@ -9,6 +9,11 @@
 	- replace all "gridle" by "g"
 	- Mean ```gridle_setup``` has became ```g-setup```, etc...
 
+- Mobile first:
+	- Remove the ```gridle_register_default_mobile_first_states()```
+	- Add the ```g-register-mobile-first-states()``` mixin
+	- Add the ```g-register-bootstrap3-states()``` mixin
+	- Add the ```g-register-bootstrap4-states()``` mixin
 
 - Move directory:
  	- From : [https://github.com/olivierbossel/gridle](https://github.com/olivierbossel/gridle)
