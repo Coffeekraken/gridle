@@ -292,23 +292,18 @@
 	}
 
 	@if _g-need-to-generate(gutter, $package) {
-		#{_g-selector(row)} > #{_g-selector(gutter, $state)},
 		#{_g-selector(gutter, $state)} {
 			@include g-gutter(top right bottom left);
 		}
-		#{_g-selector(row)} > #{_g-selector(gutter, $state, left)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_g-selector(gutter, $state, left)} {
 			@include g-gutter(left);
 		}
-		#{_g-selector(row)} > #{_g-selector(gutter, $state, right)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_g-selector(gutter, $state, right)} {
 			@include g-gutter(right);
 		}
-		#{_g-selector(row)} > #{_g-selector(gutter, $state, top)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_g-selector(gutter, $state, top)} {
 			@include g-gutter(top);
 		}
-		#{_g-selector(row)} > #{_g-selector(gutter, $state, bottom)}, // used to have same weight as row-no-gutter > [class*="gr-"] selector
 		#{_g-selector(gutter, $state, bottom)} {
 			@include g-gutter(bottom);
 		}

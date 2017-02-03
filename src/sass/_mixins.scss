@@ -430,9 +430,9 @@ $_gridle_applied_for : ();
 		@if type-of($value) == map {
 			&#{$key} {
 				@each $k, $v in $value {
-					@if $k != null and str-index($k, gridle) and mixin-exists($k) {
-						$set-name : str-replace($k, "gridle_", "");
-						$set-name : str-replace($set-name, "_", "-", 1);
+					@if $k != null and str-index($k, g) and mixin-exists($k) {
+						$set-name : str-replace($k, "g-", "");
+						$set-name : str-replace($set-name, "_", "-");
 						@include _g-set((
 							$set-name : $v
 						));
@@ -442,9 +442,9 @@ $_gridle_applied_for : ();
 				}
 			}
 		} @else {
-			@if $key != null and str-index($key, gridle) and mixin-exists($key) {
-				$set-name : str-replace("#{$key}", "gridle_", "");
-				$set-name : str-replace("#{$set-name}", "_", "-", 1);
+			@if $key != null and str-index($key, g) and mixin-exists($key) {
+				$set-name : str-replace("#{$key}", "g-", "");
+				$set-name : str-replace("#{$set-name}", "_", "-");
 				@include _g-set((
 					$set-name : $value
 				));
