@@ -13,8 +13,6 @@ then
 
 	# clean repo
 	rm -rf src
-	rm -rf *.html
-	rm -rf *.php
 	rm -rf .sass-cache
 	rm -rf favicon.ico
 	rm -rf .DS_Store
