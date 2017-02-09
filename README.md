@@ -51,7 +51,7 @@ Generate all classes :
 @include gridle_generate_classes();
 ```
 
-Use your grid in hrml :
+Use your grid in html :
 
 ```markup
 <div class="row">
