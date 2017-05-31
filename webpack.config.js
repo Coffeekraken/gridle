@@ -3,11 +3,11 @@ module.exports = {
 		'demo/dist/js/demo.js' : './demo/src/js/demo.js'
 	},
 	output: {
-		path: '.',
+		path: require('path').resolve(__dirname),
 		filename: '[name]',
 	},
 	module: {
-		loaders: [{
+		rules: [{
 			test: /\.js$/,
 			exclude: /(node_modules|bower_components)/,
 			loader: 'babel-loader'

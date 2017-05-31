@@ -1,9 +1,9 @@
 # Coffeekraken Gridle <img src=".resources/coffeekraken-logo.jpg" height="25px" />
 
 <p>
-	<a href="https://travis-ci.org/Coffeekraken/gridle">
+	<!-- <a href="https://travis-ci.org/Coffeekraken/gridle">
 		<img src="https://img.shields.io/travis/Coffeekraken/gridle.svg?style=flat-square" />
-	</a>
+	</a> -->
 	<a href="https://www.npmjs.com/package/coffeekraken-gridle">
 		<img src="https://img.shields.io/npm/v/coffeekraken-gridle.svg?style=flat-square" />
 	</a>
