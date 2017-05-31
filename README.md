@@ -48,7 +48,7 @@ Gridle is a set of complete and simple settings, mixins and classes that make th
 13. [Who are Coffeekraken](#readme-who-are-coffeekraken)
 14. [License](#readme-license)
 
-## Install
+## Install
 
 Gridle is available through NPM. To install it, just launch this command line:
 
@@ -252,7 +252,7 @@ That's not finished. Gridle offer you a lot of features and advanced settings th
 
 
 <a id="readme-browsers-support"></a>
-## Browsers support
+## Browsers support
 
 | <img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/edge.png" alt="IE / Edge" width="16px" height="16px" /></br>IE / Edge | <img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/firefox.png" alt="Firefox" width="16px" height="16px" /></br>Firefox | <img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/chrome.png" alt="Chrome" width="16px" height="16px" /></br>Chrome | <img src="https://raw.githubusercontent.com/godban/browsers-support-badges/master/src/images/safari.png" alt="Safari" width="16px" height="16px" /></br>Safari |
 | --------- | --------- | --------- | --------- |
@@ -273,7 +273,7 @@ To do so, you have several possibilities:
 5. [Build web component](https://github.com/Coffeekraken/coffeekraken/blob/master/contribute.md#contribute-build-web-component)
 
 <a id="readme-who-are-coffeekraken"></a>
-## Who are Coffeekraken
+## Who are Coffeekraken
 
 We try to be **some cool guys** that build **some cool tools** to make our (and yours hopefully) **every day life better**.  
 
