@@ -1,0 +1,131 @@
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Settings
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+$gridle-generate-json-settings 			: true !default;
+$gridle-default-states 					: false !default; // register or not the states tv, print, retina, etc...
+$_gridle-packages : (
+	container 							: (
+		classname 							: ('container','@','%state'),
+		package 							: default container
+	),
+	row 								: (
+		classname 							: ('row','-','%reverse','@','%state'),
+		package 							: default row
+	),
+	row-align 							: (
+		classname 							: ('row','-','align','-','%align','@','%state'),
+		package 							: default row-align
+	),
+	row-full 							: (
+		classname 							: ('row','-','full','@','%state'),
+		package 							: default row-full
+	),
+	row-debug							: (
+		classname 							: ('row','-','debug','@','%state'),
+		package 							: debug row-debug
+	),
+	row-no-gutter 				: (
+		classname 							: ('row','-','no','-','gutter','-','%side','@','%state'),
+		package 							: default row-no-gutter
+	),
+	nowrap 							: (
+		classname 							: ('nowrap','@','%state'),
+		package 							: default nowrap
+	),
+	wrap 							: (
+		classname 							: ('wrap','@','%state'),
+		package 							: default wrap
+	),
+	col 								: (
+		classname 							: ('col','-','%reverse','@','%state'),
+		package 							: default col
+	),
+	grid 								: (
+		classname 							: ('gr','-','%column','@','%state'),
+		package 							: default grid
+	),
+	grid-table 							: (
+		classname 							: ('gr','-','table','@','%state'),
+		package 							: default grid-table
+	),
+	grid-adapt 							: (
+		classname 							: ('gr','-','adapt','@','%state'),
+		package 							: default grid-adapt
+	),
+	grid-grow 							: (
+		classname 							: ('gr','-','grow','@','%state'),
+		package 							: default grid-grow
+	),
+	grid-centered 						: (
+		classname 							: ('gr','-','centered','@','%state'),
+		package 							: default grid-centered
+	),
+	push 								: (
+		classname 							: ('push','-','%column','@','%state'),
+		package								: default push
+	),
+	pull 								: (
+		classname 							: ('pull','-','%column','@','%state'),
+		package 							: default pull
+	),
+	prefix 								: (
+		classname 							: ('prefix','-','%column','@','%state'),
+		package 							: default prefix
+	),
+	suffix 								: (
+		classname 							: ('suffix','-','%column','@','%state'),
+		package 							: default suffix
+	),
+	hide 								: (
+		classname 							: ('hide','@','%state'),
+		package 							: helpers hide
+	),
+	show 								: (
+		classname 							: ('show','@','%state'),
+		package 							: helpers show
+	),
+	show-inline 						: (
+		classname 							: ('show','-','inline','@','%state'),
+		package 							: helpers show-inline
+	),
+	not-visible 						: (
+		classname 							: ('not','-','visible','@','%state'),
+		package 							: helpers not-visible
+	),
+	visible 							: (
+		classname 							: ('visible','@','%state'),
+		package 							: helpers visible
+	),
+	float 								: (
+		classname 							: ('float','-','%float','@','%state'),
+		package								: helpers float
+	),
+	clear 								: (
+		classname 							: ('clear','-','%float','@','%state'),
+		package 							: helpers clear
+	),
+	clear-each 							: (
+		classname							: ('clear','-','each','-','%count','@','%state'),
+		package 							: helpers clear-each
+	),
+	gutter 								: (
+		classname 							: ('gutter','-','%side','@','%state'),
+		package 							: helpers gutter
+	),
+	no-gutter 							: (
+		classname 							: ('no','-','gutter','-','%side','@','%state'),
+		generic-selector 					: '[class*="no-gutter"]',
+		package 							: helpers no-gutter
+	),
+	auto-height 						: (
+		classname 							: ('auto','-','height','@','%state'),
+		package								: helpers auto-height
+	),
+	order 								: (
+		classname 							: ('order','-','%column-count','@','%state'),
+		package 							: helpers order
+	)
+);

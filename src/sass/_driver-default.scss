@@ -1,0 +1,544 @@
+/**
+ * @name 	Default driver API
+ * This are all the API mixins that are exposed by gridle for the default driver.
+ */
+
+@mixin _g-common-row(
+	$state : default
+) {
+	// inherit the height
+	// height: inherit;
+	// min-height: inherit;
+	// max-height: inherit;
+	// For modern browser
+	&:before,
+	&:after {
+		content:"";
+		display:table;
+	}
+	&:after {
+		clear:both;
+	}
+	// For IE 6/7 (trigger hasLayout
+	& {
+	   zoom:1;
+	}
+}
+/**
+ * Set the element as a row
+ * @param 		{Boolean} 		[$reverse=false] 		Revert the columns order if true
+ * @example 	scss
+ * .my-cool-row {
+ * 	\@include g-row();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-row(
+	$reverse : false
+) {
+	@include _g-call(row) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: -#{g-get-state-var(gutter-left)};
+		margin-right: -#{g-get-state-var(gutter-right)};
+		// font-size:0; // to avoid problems with inline-block margins
+
+		@if $reverse {
+			transform : rotateY(180deg);
+
+			> #{_g-get-generic-selector(grid)} {
+				transform : rotateY(-180deg);
+			}
+		}
+
+		#{_g-get-generic-selector(no-gutter)} > & {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _g-is-in-generate-phase() == false {
+			@each $stateName, $state in g-get-states() {
+				@include g-state($state) {
+					& #{str-replace(unquote("#{&}"),".state-#{g-get-state-var(name, $state)}","")} {
+						margin-left: -#{g-get-state-var(gutter-left, $state)};
+						margin-right: -#{g-get-state-var(gutter-right, $state)};
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@mixin _g-common-nowrapcol(
+	$state : default
+) {
+}
+/**
+ * Set the element as a col
+ * @param 		{Boolean} 		[$reverse=false] 		Revert the columns order if true
+ * @example 	scss
+ * .my-cool-col {
+ * 	\@include g-col();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-col(
+	$reverse : false
+) {
+	@include _g-call(col) {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
+		margin-left: -#{g-get-state-var(gutter-left)};
+		margin-right: -#{g-get-state-var(gutter-right)};
+		// font-size:0; // to avoid problems with inline-block margins
+
+		@if $reverse {
+			transform : rotateX(180deg);
+
+			> #{_g-get-generic-selector(grid)} {
+				transform : rotateX(-180deg);
+			}
+		}
+
+		// do this only when not in generate phase
+		// mean that we use the mixin directly
+		@if _g-is-in-generate-phase() == false {
+			@each $stateName, $state in g-get-states() {
+				@include g-state($state) {
+					& #{str-replace(#{&},".state-#{g-get-state-var(name, $state)}","")} {
+						margin-left: -#{g-get-state-var(gutter-left, $state)};
+						margin-right: -#{g-get-state-var(gutter-right, $state)};
+					}
+				}
+			}
+		}
+	}
+}
+
+
+@mixin _g-common-nowrap(
+	$state : default
+) {
+	white-space: nowrap;
+
+	> * {
+		white-space: normal;
+	}
+}
+/**
+ * Apply a nowrap on the element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-nowrap();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-nowrap() {
+	@include _g-call(nowrap) {
+	}
+}
+
+
+@mixin _g-common-wrap(
+	$state : default
+) {
+	white-space:normal;
+}
+/**
+ * Reset the nowrap on the element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-wrap();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-wrap() {
+	@include _g-call(wrap) {
+	}
+}
+
+
+@mixin _g-common-grid(
+	$state : default
+) {
+	// vars
+	$direction : g-get-state-var(direction, $state);
+
+	// css
+	display:inline-block;
+	// height: inherit;
+	min-height:1px;
+	// max-height:inherit;
+	line-height:1;
+	@if $direction == rtl {
+		float:right;
+	} @else {
+		float:left;
+	}
+	@if $g-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	// font-size:1rem; // reset the font size
+	box-sizing: border-box;
+	vertical-align: top;
+	@include g-gutter();
+
+	// handle direction attribute
+	@if g-get-state-var(dir-attribute, $state) {
+		[dir="rtl"] & {
+			float: right;
+		}
+		[dir="ltr"] & {
+			float: left;
+		}
+	}
+}
+/**
+ * Apply a column width on the element
+ * @param 		{Integer|String} 		$columns 			The column count to apply or a registered column name
+ * @param 		{Integer} 				[$context=null]  	The context on which to calculate the column width. If null, take the context setted with ```g-setup```
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-grid(
+	$columns,
+	$context : null
+) {
+	@if $columns == grow {
+		@include g-grid-grow();
+	} @else if $columns == adapt {
+		@include g-grid-adapt();
+	} @else {
+
+		@include _g-call(grid) {
+
+			// vars
+			$name : g-get-state-var(name);
+			@if type-of($context) != number {
+				$context : g-get-state-var(context);
+			}
+			$name-multiplicator : g-get-state-var(name-multiplicator);
+			$gutter-left : g-get-state-var(gutter-left);
+			$gutter-right : g-get-state-var(gutter-right);
+			$column-width : g-get-state-var(column-width);
+
+			// manage columns
+			@if type-of($columns) != number and g-has-column($columns) {
+				// the columns is a saved one, get the context and column value
+				$column : map-get($_g-columns, $columns);
+				$context : map-get($column, context);
+				$columns : map-get($column, columns);
+			} @else if type-of($columns) == number {
+				// check if we have a ratio
+				@if $columns < 1 {
+					$columns : $context / 100 * ($columns * 100);
+				}
+				$columns : $columns / $name-multiplicator;
+			} @else {
+				@error "the column #{$columns} does not exist...";
+			}
+
+			// width :
+			$width : 0;
+			@if $column-width {
+				$width : $column-width * $columns;
+			} @else {
+				$width : percentage(1 / $context * $columns);
+			}
+
+			// set value :
+			width:$width;
+		}
+	}
+}
+
+
+@mixin _g-common-grid-table(
+	$state : default
+) {
+}
+/**
+ * Set the grid element as a table display type
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid(2);
+ * 	\@include g-grid-table();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-grid-table(
+) {
+	@include _g-call(grid-table) {
+		display: table-cell;
+		float: none;
+		vertical-align: top;
+	}
+}
+
+
+@mixin _g-common-row-full(
+	$state : default
+) {
+}
+/**
+ * Set the width of the row element to full viewport width
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-row();
+ * 	\@include g-row-full();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-row-full(
+) {
+	@include _g-call(row-full) {
+		$direction : g-get-state-var(direction);
+		width: 100vw;
+		@if $direction == ltr {
+			margin-left:50% !important;
+			margin-right:0 !important;
+			@if $g-vendor-prefix {
+				-webkit-transform: translateX(-50%);
+				-moz-transition: translateX(-50%);
+				-ms-transform: translateX(-50%);
+				-o-transform: translateX(-50%);
+			}
+			transform: translateX(-50%);
+		} @else {
+			margin-right:50% !important;
+			margin-left:0 !important;
+			@if $g-vendor-prefix {
+				-webkit-transform: translateX(50%);
+				-moz-transition: translateX(50%);
+				-ms-transform: translateX(50%);
+				-o-transform: translateX(50%);
+			}
+			transform: translateX(50%);
+		}
+		@if g-get-state-var(dir-attribute) {
+			[dir="ltr"] & {
+				margin-left:50% !important;
+				margin-right:0 !important;
+				@if $g-vendor-prefix {
+					-webkit-transform: translateX(-50%);
+					-moz-transition: translateX(-50%);
+					-ms-transform: translateX(-50%);
+					-o-transform: translateX(-50%);
+				}
+				transform: translateX(-50%);
+			}
+			[dir="rtl"] & {
+				margin-right:50% !important;
+				margin-left:0 !important;
+				@if $g-vendor-prefix {
+					-webkit-transform: translateX(50%);
+					-moz-transition: translateX(50%);
+					-ms-transform: translateX(50%);
+					-o-transform: translateX(50%);
+				}
+				transform: translateX(50%);
+			}
+		}
+	}
+}
+
+
+
+@mixin _g-common-grid-adapt(
+	$state : default
+) {
+	display: table-cell;
+	width:1px;
+	white-space:nowrap !important;
+	line-height:1;
+	@if $g-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
+	@include g-gutter();
+}
+/**
+ * Set the width of the grid element to adapt to his content
+ * @example 	scss
+ * .my-cool-column {
+ *  \@include g-grid-adapt();
+ *  // or
+ *  \@include g-grid(adapt);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-grid-adapt(
+) {
+	@include _g-call(grid-adapt) {
+	}
+}
+
+
+@mixin _g-common-grid-grow(
+	$state : default
+) {
+	display: table-cell;
+	width:99999px;
+	line-height:1;
+	@if $g-vendor-prefix {
+		-webkit-box-sizing: border-box;
+		-moz-box-sizing: border-box;
+	}
+	box-sizing: border-box;
+	@include g-gutter();
+
+}
+/**
+ * Set the width of the grid element to grow depending on the place it has at disposal
+ * @example 	scss
+ * .my-cool-column {
+ *  \@include g-grid-grow();
+ *  // or
+ *  \@include g-grid(grow);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-grid-grow(
+) {
+	@include _g-call(grid-grow) {
+	}
+}
+
+
+//
+// Order
+//
+@mixin _g-common-order(
+	$state : default
+) {
+}
+@mixin g-order(
+	$position
+) {
+	@include _g-call(order) {
+	}
+}
+
+
+@mixin _g-common-clear-each(
+	$state : default
+) {
+}
+/**
+ * Clear each n childs
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-clear-each(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-clear-each(
+	$clearEach,
+	$clearWhat : both
+) {
+	@include _g-call(clear-each) {
+		$grid : map-get($_gridle-packages, grid);
+		$sel : map-get($grid, generic-selector);
+		@if not $sel {
+			$sel : _g-get-generic-selector(grid);
+		}
+
+		> #{$sel}:nth-of-type(#{$clearEach}n+1) {
+			clear : $clearWhat;
+		}
+	}
+}
+
+
+@mixin _g-common-row-align(
+	$state : default
+) {
+}
+/**
+ * Set the alignement of the columns inside the row using these alignement properties:
+ *
+ * - top : Align vertical top
+ * - middle : Align vertical middle
+ * - bottom : Align vertical bottom
+ * - left : Align horizontal left
+ * - center : Align horizontal center
+ * - right : Align horizontal right
+ *
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-row-align(middle center);
+ *  \@include g-row-align(right);
+ *  \@include g-row-align(middle);
+ *  // etc...
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-row-align(
+	$align : middle
+) {
+	@include _g-call(row-align) {
+		// need to change the way grids items are layed out
+		@if in-map($align, top) of in-map($align, middle) or in-map($align, bottom) {
+			font-size:0;
+			word-spacing:0;
+			letter-spacing:0;
+			clear:both;
+
+			> * {
+				word-spacing:normal;
+				letter-spacing:normal;
+				float:none !important;
+				@if in-map($align, bottom) {
+					vertical-align:bottom;
+				} @elseif in-map($align, middle) {
+					vertical-align:middle;
+				} @else {
+					vertical-align:top;
+				}
+				font-size:1rem;
+			}
+		}
+
+		@each $a in $align {
+			@if $a == left {
+				text-align: left;
+			} @else if $a == center {
+				text-align: center;
+			} @else if $a == right {
+				text-align: right;
+			} @else if $a == top {
+				vertical-align: top;
+			} @else if $a == middle {
+				vertical-align: middle;
+			} @else if $a == bottom {
+				vertical-align: bottom;
+			}
+		}
+
+		@if in-map($align, center) or in-map($align, right) {
+			// restore text align of the grid items
+			> * {
+				text-align: left;
+			}
+		}
+	}
+}

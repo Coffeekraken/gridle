@@ -1,0 +1,523 @@
+// Import grid settings :
+@import 'grid-settings';
+
+// @include gridle_debug((
+// 	mobile : (
+// 		padding : 0,
+// 		margin : 0,
+// 		content : "hello world"
+// 	),
+// 	tablet : (
+// 		padding : 0,
+// 		coco : (
+// 			myNewMap : "Content",
+// 			hello : 10px,
+// 			tablet : (
+// 				padding : 0,
+// 				coco : (
+// 					myNewMap : "Content",
+// 					hello : 10px
+// 				)
+// 			)
+// 		)
+// 	)
+// ));
+// @include gridle_debug("coco");
+// @include gridle_debug((hello, world));
+
+.coco {
+	@include g-gutter(bottom);
+}
+
+@include g-custom-class( ('txt','-','align','-','center','@','%state') ) {
+	text-align: center;
+	content : "#{g-current-state-name()}";
+}
+
+
+
+@include g-selector(not-visible visible show hide, default mobile) {
+	content : "your css...";
+	@include g-state(mobile) {
+		content : "you can even use the g-state mixin etc...";
+	}
+}
+
+@include g-selector(grid) {
+	content : "all grid selector";
+}
+@include g-selector(grid, mobile) {
+	content : "all mobile grid selector";
+}
+@include g-selector(grid, mobile tablet) {
+	content : "all mobile and tablet grid selector";
+}
+.selector {
+	@include g-selector(hide) {
+		content : "hide selector nested";
+	}
+}
+
+.relative {
+	@include gridle(2/3);
+}
+
+// gridle mixin
+.gridle {
+	@include gridle(2 of 12 at 10 gutter top left grid-centered true
+		mobile 2 of 30 at 20
+		tablet 10 gutter 20px 10px
+	);
+}
+
+// layout
+.layout {
+	$context : (
+		context : 50
+	);
+	@include g-layout((
+		'.header' : 30 at 10 tablet 20 at 5,
+		'.login' : 10 tablet 20 no-gutter,
+		'.content' : 40,
+		'.sidebar' : 10,
+		'.footer' : 50
+	), $context);
+}
+
+// standard grid mixins :
+.grid-12 {
+	@include g-grid(12);
+}
+.grid-1on5 {
+	@include g-grid("1on5");
+}
+.grid-12-on-100 {
+	@include g-grid(12, 100);
+}
+.grid-15-on-100-on-mobile {
+	@include g-state(mobile) {
+		@include g-grid(15, 100);
+	}
+}
+.grid-set-1-on-4 {
+	@include g-set( (
+		grid : (1, 4)
+	) );
+}
+.grid-30-on-100-on-mobile-and-tablet {
+	@include g-grid(30, 100);
+	@include g-state(mobile tablet) {
+		@include g-grid(30, 100);
+	}
+}
+
+// row
+.grid-row {
+	@include g-row();
+}
+.grid-row-set {
+	@include g-set((
+		row : true
+	));
+}
+
+// clear each
+.clear-each-2 {
+	@include g-clear-each(2);
+}
+.clear-each-2-left {
+	@include g-clear-each(2, left);
+}
+.clear-each-2-left-mobile {
+	@include g-state(mobile) {
+		@include g-clear-each(2, left);
+	}
+}
+.clear-each-2-set {
+	@include g-set((
+		clear-each : ( 2, left )
+	));
+}
+
+// gutter width
+.gutter-width {
+	@include g-gutter(100px);
+	@include g-gutter((
+		top : 10px,
+		right : 50px,
+		bottom : 10px,
+		left : 50px
+	));
+	@include g-gutter(top left);
+}
+.gutter-width-set {
+	@include g-set((
+		gutter : 100px
+	));
+	content : "multple values";
+	@include g-set((
+		gutter : (
+			top : 10px,
+			right : 50px,
+			bottom : 10px,
+			left : 50px
+		)
+	));
+	content : "multiple sides";
+	@include g-set((
+		gutter : top left,
+		mobile : (
+			gutter : 100px
+		)
+	));
+}
+.gutter-with-sizes-inline {
+	@include g-gutter(10px 20px);
+}
+.gutter-with-sizes-inline--set {
+	@include g-gutter(10px 20px);
+	@include g-set( (
+		gutter : 10px 20px
+	) );
+}
+.gutter-with-sizes-inline-4 {
+	@include g-gutter(5px 10px 15px 20px);
+}
+.gutter-with-sizes-inline-4--set {
+	@include g-set( (
+		gutter : 5px 10px 15px 20px
+	) );
+}
+
+// centered
+.centered {
+	@include g-grid-centered();
+}
+.centered-mobile {
+	@include g-state(mobile) {
+		@include g-grid-centered();
+	}
+}
+
+// align
+$align : (left,center,right,top,middle,bottom);
+@each $a in $align {
+	.align-#{$a} {
+		@include g-row-align($a);
+	}
+}
+
+// push
+.push-6 {
+	@include g-push(6);
+}
+.push-12-mobile {
+	@include g-state(mobile) {
+		@include g-push(12);
+	}
+}
+.push-set {
+	@include g-set((
+		push : 3
+	));
+}
+.push-nested {
+	@include g-push(3);
+	@include g-state(mobile) {
+		@include g-push(0);
+	}
+}
+
+// pull
+.pull-6 {
+	@include g-pull(6);
+}
+.pull-12-mobile {
+	@include g-state(mobile) {
+		@include g-pull(12);
+	}
+}
+.pull-set {
+	@include g-set((
+		pull : 3
+	));
+}
+.pull-nested {
+	@include g-pull(3);
+	@include g-state(mobile) {
+		@include g-pull(0);
+	}
+}
+
+// prefix
+.prefix-6 {
+	@include g-prefix(6);
+}
+.prefix-12-mobile {
+	@include g-state(mobile) {
+		@include g-prefix(12);
+	}
+}
+.prefix-set {
+	@include g-set((
+		prefix : 3
+	));
+}
+.prefix-nested {
+	@include g-prefix(3);
+	@include g-state(mobile) {
+		@include g-prefix(0);
+	}
+}
+
+// suffix
+.suffix-6 {
+	@include g-suffix(6);
+}
+.suffix-12-mobile {
+	@include g-state(mobile) {
+		@include g-suffix(12);
+	}
+}
+.suffix-set {
+	@include g-set((
+		suffix : 3
+	));
+}
+.pull-suffix {
+	@include g-suffix(3);
+	@include g-state(mobile) {
+		@include g-suffix(0);
+	}
+}
+
+// hide
+.hide {
+	@include g-hide();
+}
+.hide-mobile {
+	@include g-state(mobile) {
+		@include g-hide();
+	}
+}
+.hide-set {
+	@include g-set((
+		hide : true
+	));
+}
+
+// show
+.show {
+	@include g-show();
+}
+.show-mobile {
+	@include g-state(mobile) {
+		@include g-show();
+	}
+}
+.show-set {
+	@include g-set((
+		show : false
+	));
+}
+
+// show_inline
+.show_inline {
+	@include g-show-inline();
+}
+.show_inline-mobile {
+	@include g-state(mobile) {
+		@include g-show-inline();
+	}
+}
+.show_inline-set {
+	@include g-set((
+		show-inline : true
+	));
+}
+
+// not_visible
+.not_visible {
+	@include g-not-visible();
+}
+.not_visible-mobile {
+	@include g-state(mobile) {
+		@include g-not-visible();
+	}
+}
+.not_visible-set {
+	@include g-set((
+		not-visible : true
+	));
+}
+
+// visible
+.visible {
+	@include g-visible();
+}
+.visible-mobile {
+	@include g-state(mobile) {
+		@include g-visible();
+	}
+}
+.visible-set {
+	@include g-set((
+		visible : false
+	));
+}
+
+// gridle state
+.gridle-state {
+	background: red;
+	@include g-grid(8);
+
+	@include g-state(mobile tablet) {
+		background: pink;
+		@include g-grid(12);
+	}
+	@include g-state((
+		query : "only print"
+	)) {
+		background: yellow;
+		@include g-grid(10);
+	}
+	@include g-state((
+		max-width : 200px
+	)) {
+		background: green;
+		@include g-grid(5);
+	}
+
+	@include g-state(200px, 600px) {
+		content : "ad hoc state";
+		background: white;
+		@include g-grid(3);
+	}
+}
+
+// gridle set
+.gridle-set {
+	@include g-set((
+		grid : 6,
+		push : 2,
+		tablet : (
+			grid : 8,
+			push : 0,
+		),
+		clear : left,
+		mobile : (
+			grid : 12,
+			push : 0,
+			pull : 0
+		)
+	));
+}
+.gridle-set-multiple {
+	@include g-set((
+		grid : 6
+	));
+	@include g-set((
+		grid : 12
+	), mobile tablet);
+}
+
+// float-right
+.float-right {
+	@include g-float(right);
+}
+.float-left-mobile {
+	@include g-state(mobile) {
+		@include g-float(left);
+	}
+}
+.float-set {
+	@include g-set((
+		float : right
+	));
+}
+
+// clear
+.clear {
+	@include g-clear();
+}
+.clear-left-mobile {
+	@include g-state(mobile) {
+		@include g-clear(left);
+	}
+}
+.clear-set {
+	@include g-set((
+		clear : left
+	));
+}
+
+// gutters
+.gutters {
+	@include g-gutter();
+}
+.gutters-left {
+	@include g-gutter(left);
+}
+.gutters-side-mobile {
+	@include g-state(mobile) {
+		@include g-gutter(left right);
+	}
+}
+
+// no-gutter
+.no-gutter {
+	@include g-no-gutter();
+}
+.no-gutter-left {
+	@include g-no-gutter(left);
+}
+.no-gutter-side-mobile {
+	@include g-state(mobile) {
+		@include g-no-gutter(left right);
+	}
+}
+
+// g-get-states_count
+.g-get-states_count {
+	content: g-get-states-count();
+}
+
+// g-get-column-width
+.g-get-column-width {
+	content: g-get-column-width();
+}
+.g-get-column-width-mobile {
+	content: g-get-column-width(1, mobile);
+}
+.g-get-column-width-2 {
+	content: g-get-column-width(2);
+}
+
+// g-get-state
+.g-get-state {
+	content: "#{inspect(g-get-state(mobile))}";
+}
+.g-get-state-custom {
+	content: "#{inspect(g-get-state((
+		min-width : 200px,
+		max-width : 600px
+	)))}";
+}
+
+// g-has-state
+.g-has-state-mobile {
+	content : g-has-state(mobile);
+}
+.g-has-state-coco {
+	content: g-has-state(coco);
+}
+
+// g-get-state-var
+.g-get-state-var-context-mobile {
+	content: g-get-state-var(context, mobile);
+}
+
+// g-set-state-var
+.g-set-state-var {
+	content : inspect(g-set-state-var(name, coucou, mobile));
+}

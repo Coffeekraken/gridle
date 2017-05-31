@@ -1,0 +1,58 @@
+// Import gridle
+@import '../../../index';
+
+
+// setup the grid (required)
+@include g-setup((
+	context : 12,
+	gutter-width : 20px,
+	gutter-bottom : 20px,
+	// direction : rtl,
+	// dir-attribute : true,
+	states-classes : true
+));
+
+
+// register special columns
+@include g-register-column("1on5", 1, 5);
+
+
+// clear each classes
+@include g-register-clear-each(2, left);
+@include g-register-clear-each(3, left);
+@include g-register-clear-each(12, both);
+
+
+// register states
+@include g-register-default-states();
+@include g-register-state(ipad-landscape, (
+	query : "only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape)",
+	gutter-height : 50px,
+	gutter-width : 60px,
+	direction : rtl
+));
+
+
+// you can set css to be applied on the desired element type (grid here)
+// for each of the specified states (default mobile and tablet)
+// this mean that even the grid-tablet-1 will have this css applied
+// in the mobile and default state
+
+// @include g-apply-css-for(grid, (
+// 	content : "i m a cool mobile grid"
+// ), tablet);
+
+
+// you can extend the base classes of the framework by using this mixin
+// here, all the grid and flex-grid elements will be extended with the specified
+// css map
+
+// @include g-extend-base-class(grid flex-grid, (
+// 	content : "i extend the grid class"
+// ));
+
+// in order to extend only certain states classes, you can specify states like this
+// this will have the effect to apply the css map only on grid-mobile... and grid-tablet... classes
+// @include g-extend-base-class(grid, (
+// 	content : "i extend the grid class"
+// ), mobile tablet);

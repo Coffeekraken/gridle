@@ -1,0 +1,471 @@
+// |------------------------------------------------------
+// |------------------------------------------------------
+// | Mixins
+// |------------------------------------------------------
+// |------------------------------------------------------
+
+
+//
+// Init
+// called by _g-call mixin multiple times
+//
+@mixin g-init() {
+	@if $_g-inited == false {
+		$_g-inited : true !global;
+		@each $stateName, $state in $_g-states {
+			$classes : g-get-state-var(classes, $state);
+			@if $classes {
+				@at-root (without:all) {
+					$q : g-get-media-query($state);
+					@if $q {
+						@media #{$q} {
+							@include _g-init-common-silent-classes($state);
+						}
+					} @else {
+						@include _g-init-common-silent-classes($state);
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Init silent classes
+//
+@mixin _g-common-silent-class-name(
+	$for,
+	$stateName : default
+) {
+	@if mixin-exists('_g_common_#{$for}') {
+		%#{$stateName}-#{$for} {
+			// inject content
+			@content;
+		}
+		@at-root (without: media) {
+			%at-root-#{$stateName}-#{$for} {
+				// inject content
+				@content;
+			}
+		}
+	}
+}
+@mixin _g-init-common-silent-classes(
+	$state : default
+) {
+	// get state name
+	$stateName : g-get-state-var(name, $state);
+
+	// define packages to init
+	// the order can matter here
+	$packages : (
+		container,
+		grid-order,
+		row,
+		row-full,
+		row-no-gutter,
+		col,
+		grid,
+		grid-table,
+		grid-adapt,
+		grid-grow,
+		push,
+		pull,
+		prefix,
+		suffix,
+		nowrap,
+		wrap,
+		clear-each,
+		grid-centered,
+		row-align,
+		hide,
+		not-visible,
+		show,
+		show-inline,
+		visible,
+		float,
+		clear,
+		no-gutter,
+		gutter,
+		row-debug
+	);
+
+	// loop on each packages to init their common silient classes
+	@each $package in $packages {
+		// include common
+		@include _g-common-silent-class-name($package, $stateName) {
+			@include _g-include-common($package, $stateName);
+		}
+	}
+}
+
+@mixin _g-include-common(
+	$package,
+	$state : current
+) {
+
+	// get state name
+	$state : g-get-state($state);
+
+	// container
+	@if $package == container {
+		@include _g-common-container($state);
+	}
+
+	// order
+	@if $package == grid-order {
+		@include _g-common-grid-order($state);
+	}
+
+	// row
+	@if $package == row {
+		@include _g-common-row($state);
+	}
+
+	// row-full
+	@if $package == row-full {
+		@include _g-common-row_full($state);
+	}
+
+	// col
+	@if $package == col {
+		@include _g-common-col($state);
+	}
+
+	// grid
+	@if $package == grid {
+		@include _g-common-grid($state);
+	}
+
+	// grid-table
+	@if $package == grid-table {
+		@include _g-common-grid-table($state);
+	}
+
+	// grid-adapt
+	@if $package == grid-adapt {
+		@include _g-common-grid-adapt($state);
+	}
+
+	// grid-grow
+	@if $package == grid-grow {
+		@include _g-common-grid-grow($state);
+	}
+
+	// push
+	@if $package == push{
+		@include _g-common-push($state);
+	}
+
+	// pull
+	@if $package == pull{
+		@include _g-common-pull($state);
+	}
+
+	// prefix
+	@if $package == prefix{
+		@include _g-common-prefix($state);
+	}
+
+	// suffix
+	@if $package == suffix {
+		@include _g-common-suffix($state);
+	}
+
+	// nowrap
+	@if $package == nowrap {
+		@include _g-common-nowrap($state);
+	}
+
+	// wrap
+	@if $package == wrap {
+		@include _g-common-wrap($state);
+	}
+
+	// clear-each
+	@if $package == clear-each {
+		@include _g-common-clear-each($state);
+	}
+
+	// centered
+	@if $package == grid-centered {
+		@include _g-common-grid-centered($state);
+	}
+
+	// row-align
+	@if $package == row-align {
+		@include _g-common-row-align($state);
+	}
+
+	// hide
+	@if $package == hide {
+		@include _g-common-hide($state);
+	}
+
+	// not-visible
+	@if $package == not-visible {
+		@include _g-common-not-visible($state);
+	}
+
+	// show
+	@if $package == show{
+		@include _g-common-show($state);
+	}
+
+	// show-inline
+	@if $package == show-inline {
+		@include _g-common-show-inline($state);
+	}
+
+	// visible
+	@if $package == visible {
+		@include _g-common-visible($state);
+	}
+
+	// float
+	@if $package == float {
+		@include _g-common-float($state);
+	}
+
+	// clear
+	@if $package == clear {
+		@include _g-common-clear($state);
+	}
+
+	// row-no-gutter
+	@if $package == row-no-gutter {
+		@include _g-common-row-no-gutter($state);
+	}
+
+	// no-gutter
+	@if $package == no-gutter {
+		@include _g-common-no-gutter($state);
+	}
+
+	// gutter
+	@if $package == gutter {
+		@include _g-common-gutter($state);
+	}
+
+	// row debug
+	@if $package == row-debug {
+		@include _g-common-row-debug($state);
+	}
+
+	// extend common class by the registered css
+	@include _g-extend-common-class($package, $state);
+}
+
+
+//
+// Wrap gridle mixin content to init if needed and then if needed
+//
+@mixin _g-call(
+	$for : null
+) {
+	// init if needed
+	@include g-init();
+
+	// put content
+	@content;
+
+	// extend and apply css for different states
+	@if $for {
+		@include _g-extend($for);
+		@if not _g-is-in-generate-phase() {
+			@include _g-apply-css-for($for);
+		}
+	}
+}
+
+
+//
+// Extend
+// @stateContext
+// @calledBy 		_g-call
+//
+@mixin _g-extend(
+	$package
+) {
+	// check if we need the state classes
+	$states-classes : g-get-state-var(states-classes);
+	$stateName : g-get-state-var(name);
+
+	// if is an existing gridle state
+	@if g-has-state($stateName) {
+		// extend the "at-root" version for the .state-{stateName} classes
+		@if $states-classes and str-index(unquote("#{&}"), unquote('.state-#{$_g-current-stateName}')) {
+			// @at-root (without: media) { // seems not needed here, cause issues with libsass
+				// @debug("%at-root-#{$_g-current-stateName}-#{$package}");
+				@extend %at-root-#{$_g-current-stateName}-#{$package} !optional;
+			// }
+		} @else {
+			// extend using the current state name set in each g-state call
+			// @debug("%#{$_g-current-stateName}-#{$package}");
+			@extend %#{$_g-current-stateName}-#{$package} !optional;
+		}
+	} @else {
+		// it's not an existing state so we cannot extend.
+		// we need to include instead
+		@include _g-include-common($package, $stateName);
+	}
+}
+
+
+//
+// Apply the registered css for a certain type (grid, push, etc...)
+// in each states
+//
+$_gridle_applied_for : ();
+@mixin _g-apply-css-for(
+	$_for
+) {
+	$selector : "#{&}-#{$_for}"; // generate a unique name that will be stacked in a map to generate only 1 time
+	@if map-get($_gridle_applied_for, $selector) == null {
+		$_gridle_applied_for : map-set($_gridle_applied_for, $selector, true) !global;
+		$fors-patterns : $_gridle-packages;
+		@each $map in $_g-apply-css-for {
+			@each $stateName, $fors in $map {
+				$rules : map-get($fors, $_for);
+				@if $rules and map-get($fors-patterns, $_for) {
+					@at-root (without : media) {
+						@include _g-state($stateName, true, false) {
+							@include g-state-context($stateName) {
+								@include _g-map-2-css($rules);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+
+//
+// Gridle state
+//
+// @param 	string|map|list 	$states 		A list of states, a state name or a state map
+// @param 	boolean 			$has-parent 	Mostly always true, mean that the mixin is used in a css selector and not in css root level
+//
+@mixin _g-state(
+	$state : default,
+	$has-parent : true,
+	$track-current-state : true
+) {
+
+	// variables :
+	$state : g-get-state($state);
+	$states-classes : g-get-state-var(states-classes, $state);
+	$stateName : g-get-state-var(name, $state);
+
+	// manage previous state
+	$previous_state : null;
+	$previous_stateName : null;
+
+	// check if need to tack the current state
+	@if $track-current-state {
+		@if $_g-current-state {
+			$previous_state : $_g-current-state;
+			$previous_stateName : $_g-current-stateName;
+		}
+		// if we have a previous state that is not the default one, we
+		// make the inheritence process.
+		// if both states are registered ones : just take the wanted state
+		// if only previous_state is a registered one : extend previous_state with the wanted one
+		// if none of them are resitered : extend the wanted with the previous one
+		@if $previous_state {
+			$_g-current-state : _g-inherit-state($state, $previous_state) !global;
+		} @else {
+			$_g-current-state : $state !global;
+		}
+		$_g-current-stateName : $stateName !global;
+	}
+
+	// check if is a state :
+	@if ($states-classes)
+		and $stateName {
+		// html class :
+		@at-root (without: media) {
+			@if $has-parent {
+				.state-#{$stateName} & {
+					@content;
+				}
+			} @else {
+				.state-#{$stateName} {
+					@content;
+				}
+			}
+		}
+	}
+
+	// get the media query :
+	$q : g-get-media-query($state);
+
+	// make the media query if a query exist :
+	@if $q {
+		@media #{$q} {
+			@content;
+		}
+	} @else {
+		@content;
+	}
+
+	// reset current state to default
+	@if $track-current-state and $previous_state and $previous_stateName {
+		$_g-current-state : $previous_state !global;
+		$_g-current-stateName : $previous_stateName !global;
+	}
+}
+
+
+//
+// Transform map to css
+//
+@mixin _g-map-2-css(
+	$map
+) {
+	@each $key, $value in $map {
+		@if type-of($value) == map {
+			&#{$key} {
+				@each $k, $v in $value {
+					@if $k != null and str-index($k, g) and mixin-exists($k) {
+						$set-name : str-replace($k, "g-", "");
+						$set-name : str-replace($set-name, "_", "-");
+						@include _g-set((
+							$set-name : $v
+						));
+					} @else {
+						#{$k}:#{$v};
+					}
+				}
+			}
+		} @else {
+			@if $key != null and str-index($key, g) and mixin-exists($key) {
+				$set-name : str-replace("#{$key}", "g-", "");
+				$set-name : str-replace("#{$set-name}", "_", "-");
+				@include _g-set((
+					$set-name : $value
+				));
+			} @else {
+				#{$key}:#{$value};
+			}
+		}
+	}
+}
+
+//
+// Extend common class
+//
+@mixin _g-extend-common-class(
+	$what,
+	$state : default
+) {
+	// extend
+	$stateName : g-get-state-var(name, $state);
+	$extend : _g-get-extend-class-map($what, $stateName);
+	@if $extend != null {
+		@include _g-map-2-css($extend);
+	}
+}
