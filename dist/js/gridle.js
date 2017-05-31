@@ -8,10 +8,7 @@ var _domready2 = _interopRequireDefault(_domready);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-require('matchmedia-polyfill');
-
-
-/*
+/**
  * @name 	Gridle.js
  * This little js file allow you to detect which or your gridle state is active, when states changes, etc...
  *
@@ -23,6 +20,9 @@ require('matchmedia-polyfill');
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  * @version 	1.0.0
  */
+
+require('matchmedia-polyfill');
+
 
 // smokesignals
 var smokesignals;

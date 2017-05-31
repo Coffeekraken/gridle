@@ -1,4 +1,4 @@
-# release/3.0.0
+# 3.0.0-rc.1
 
 - Renaming package
 	- Gridle package name is now **```coffeekraken-gridle```**
