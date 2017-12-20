@@ -8,8 +8,8 @@ fi
 if [[ $PWD == *"/node_modules/coffeekraken-gridle"* ]]
 then
 	# move src
-	mv dist/js/ js/
-	mv src/sass/ sass/
+	mv dist/js/ .
+	mv src/sass/ .
 
 	# clean repo
 	rm -rf src
