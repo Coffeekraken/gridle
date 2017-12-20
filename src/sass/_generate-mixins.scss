@@ -493,11 +493,11 @@
  *
  * @example 	scss
  * // generate all the classes
- * \@include g-generate-classes();
+ * \@include g-classes();
  * // generate only certain states
- * \@include g-generate-classes(mobile tablet);
+ * \@include g-classes(mobile tablet);
  * // generate only the helpers for all the states
- * \@include g-generate-classes(all, helpers);
+ * \@include g-classes(all, helpers);
  *
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
