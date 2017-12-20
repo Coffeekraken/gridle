@@ -630,11 +630,11 @@
  *
  * @example 	scss
  * // generate all the classes
- * \@include g-generate-classes();
+ * \@include g-classes();
  * // generate only certain states
- * \@include g-generate-classes(mobile tablet);
+ * \@include g-classes(mobile tablet);
  * // generate only the helpers for all the states
- * \@include g-generate-classes(all, helpers);
+ * \@include g-classes(all, helpers);
  *
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
@@ -946,7 +946,7 @@ body {
   position: relative; }
 
 @media screen and (max-width: 480px) {
-  .container #myCoolItem {
+  .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
     line-height: 1;
@@ -971,7 +971,7 @@ body {
   padding-left: 10px; }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .container .state-ub23470ec .module > .header, .container .state-ub23470ec .module > .login, .container .state-ub8828d7c .module > .header, .container .module > .header, .container .state-ud269b578 .module > .login, .container .module > .login, .container #myCoolItem {
+  .state-u71398598 .state-u730deb85 .module > .header, .state-u730deb85 .module > .header, .state-u4fb921c9 .state-u730deb85 .module > .login, .state-u730deb85 .module > .login, .state-u27659099 .module > .header, .module > .header, .state-u8b2c0437 .module > .login, .module > .login, .state-default #myCoolItem, #myCoolItem {
     display: inline-block;
     min-height: 1px;
     line-height: 1;
@@ -983,7 +983,7 @@ body {
     padding-right: 10px;
     padding-left: 10px; } }
 
-.state-tablet .state-u70ea8d19 .state-ub23470ec .module > .header, .state-tablet .state-ub23470ec .module > .header, .state-tablet .state-ub36d5496 .state-ub23470ec .module > .login, .state-tablet .state-ub23470ec .module > .login, .state-tablet .state-ub8828d7c .module > .header, .state-tablet .module > .header, .state-tablet .state-ud269b578 .module > .login, .state-tablet .module > .login, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
+.state-tablet .state-u71398598 .state-u730deb85 .module > .header, .state-tablet .state-u730deb85 .module > .header, .state-tablet .state-u4fb921c9 .state-u730deb85 .module > .login, .state-tablet .state-u730deb85 .module > .login, .state-tablet .state-u27659099 .module > .header, .state-tablet .module > .header, .state-tablet .state-u8b2c0437 .module > .login, .state-tablet .module > .login, .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
   display: inline-block;
   min-height: 1px;
   line-height: 1;
@@ -996,7 +996,7 @@ body {
   padding-left: 10px; }
 
 @media screen and (min-width: 481px) and (max-width: 1024px) {
-  .container #myCoolItem {
+  .state-default #myCoolItem, #myCoolItem {
     position: relative; } }
 
 .state-tablet .state-default #myCoolItem, .state-tablet #myCoolItem {
@@ -1018,49 +1018,49 @@ body {
   padding-right: 0 !important;
   margin-left: -10px;
   margin-right: -10px; }
-  .state-ub23470ec .module {
+  .state-u730deb85 .module {
     padding-left: 0 !important;
     padding-right: 0 !important;
     margin-left: -10px;
     margin-right: -10px; }
-    [class*="no-gutter"] > .state-ub23470ec .module {
+    [class*="no-gutter"] > .state-u730deb85 .module {
       margin-left: 0 !important;
       margin-right: 0 !important; }
-    .state-default .state-ub23470ec .module .state-ub23470ec .module {
+    .state-default .state-u730deb85 .module .state-u730deb85 .module {
       margin-left: -10px;
       margin-right: -10px; }
-    .state-ub23470ec .module .state-ub23470ec .module {
+    .state-u730deb85 .module .state-u730deb85 .module {
       margin-left: -10px;
       margin-right: -10px; }
-    .state-mobile .state-ub23470ec .module .state-ub23470ec .module {
+    .state-mobile .state-u730deb85 .module .state-u730deb85 .module {
       margin-left: -10px;
       margin-right: -10px; }
     @media screen and (max-width: 480px) {
-      .state-ub23470ec .module .state-ub23470ec .module {
+      .state-u730deb85 .module .state-u730deb85 .module {
         margin-left: -10px;
         margin-right: -10px; } }
-    .state-tablet .state-ub23470ec .module .state-ub23470ec .module {
+    .state-tablet .state-u730deb85 .module .state-u730deb85 .module {
       margin-left: -10px;
       margin-right: -10px; }
     @media screen and (min-width: 481px) and (max-width: 1024px) {
-      .state-ub23470ec .module .state-ub23470ec .module {
+      .state-u730deb85 .module .state-u730deb85 .module {
         margin-left: -10px;
         margin-right: -10px; } }
-    .state-ipad-landscape .state-ub23470ec .module .state-ub23470ec .module {
+    .state-ipad-landscape .state-u730deb85 .module .state-u730deb85 .module {
       margin-left: -30px;
       margin-right: -30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-      .state-ub23470ec .module .state-ub23470ec .module {
+      .state-u730deb85 .module .state-u730deb85 .module {
         margin-left: -30px;
         margin-right: -30px; } }
-    .state-ub23470ec .module:before, .state-ub23470ec .module:after {
+    .state-u730deb85 .module:before, .state-u730deb85 .module:after {
       content: "";
       display: table; }
-    .state-ub23470ec .module:after {
+    .state-u730deb85 .module:after {
       clear: both; }
-    .state-ub23470ec .module {
+    .state-u730deb85 .module {
       zoom: 1; }
-    .state-ub23470ec .module > .header {
+    .state-u730deb85 .module > .header {
       width: 60%;
       display: inline-block;
       min-height: 1px;
@@ -1073,7 +1073,7 @@ body {
       padding-right: 10px;
       padding-left: 10px;
       margin-left: 20%; }
-      .state-u70ea8d19 .state-ub23470ec .module > .header {
+      .state-u71398598 .state-u730deb85 .module > .header {
         width: 60%;
         display: inline-block;
         min-height: 1px;
@@ -1086,7 +1086,7 @@ body {
         padding-right: 10px;
         padding-left: 10px;
         margin-left: 20%; }
-        .state-u4b6eb675 .state-u70ea8d19 .state-ub23470ec .module > .header {
+        .state-u4af84cb0 .state-u71398598 .state-u730deb85 .module > .header {
           width: 60%;
           display: inline-block;
           min-height: 1px;
@@ -1099,68 +1099,56 @@ body {
           padding-right: 10px;
           padding-left: 10px;
           margin-left: 20%; }
-          .state-ipad-landscape .state-u4b6eb675 .state-u70ea8d19 .state-ub23470ec .module > .header {
-            padding-top: 25px;
+          .state-ipad-landscape .state-u4af84cb0 .state-u71398598 .state-u730deb85 .module > .header {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u4b6eb675 .state-u70ea8d19 .state-ub23470ec .module > .header {
-              padding-top: 25px;
+            .state-u4af84cb0 .state-u71398598 .state-u730deb85 .module > .header {
               padding-right: 30px;
-              padding-bottom: 25px;
               padding-left: 30px; } }
-          .state-ipad-landscape .state-u4b6eb675 .state-u70ea8d19 .state-ub23470ec .module > .header {
+          .state-ipad-landscape .state-u4af84cb0 .state-u71398598 .state-u730deb85 .module > .header {
             direction: rtl;
             float: right; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u4b6eb675 .state-u70ea8d19 .state-ub23470ec .module > .header {
+            .state-u4af84cb0 .state-u71398598 .state-u730deb85 .module > .header {
               direction: rtl;
               float: right; } }
-        .state-ipad-landscape .state-u70ea8d19 .state-ub23470ec .module > .header {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u71398598 .state-u730deb85 .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u70ea8d19 .state-ub23470ec .module > .header {
-            padding-top: 25px;
+          .state-u71398598 .state-u730deb85 .module > .header {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u70ea8d19 .state-ub23470ec .module > .header {
+        .state-ipad-landscape .state-u71398598 .state-u730deb85 .module > .header {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u70ea8d19 .state-ub23470ec .module > .header {
+          .state-u71398598 .state-u730deb85 .module > .header {
             direction: rtl;
             float: right; } }
-        .state-tablet .state-u70ea8d19 .state-ub23470ec .module > .header {
+        .state-tablet .state-u71398598 .state-u730deb85 .module > .header {
           width: 40%;
           margin-left: 10%; }
-          .state-ipad-landscape .state-tablet .state-u70ea8d19 .state-ub23470ec .module > .header {
-            padding-top: 25px;
+          .state-ipad-landscape .state-tablet .state-u71398598 .state-u730deb85 .module > .header {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-tablet .state-u70ea8d19 .state-ub23470ec .module > .header {
-              padding-top: 25px;
+            .state-tablet .state-u71398598 .state-u730deb85 .module > .header {
               padding-right: 30px;
-              padding-bottom: 25px;
               padding-left: 30px; } }
-          .state-ipad-landscape .state-tablet .state-u70ea8d19 .state-ub23470ec .module > .header {
+          .state-ipad-landscape .state-tablet .state-u71398598 .state-u730deb85 .module > .header {
             direction: rtl;
             float: right; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-tablet .state-u70ea8d19 .state-ub23470ec .module > .header {
+            .state-tablet .state-u71398598 .state-u730deb85 .module > .header {
               direction: rtl;
               float: right; } }
         @media screen and (min-width: 481px) and (max-width: 1024px) {
-          .state-u70ea8d19 .state-ub23470ec .module > .header {
+          .state-u71398598 .state-u730deb85 .module > .header {
             width: 40%;
             margin-left: 10%; } }
-      .state-ubdb833c5 .state-ub23470ec .module > .header {
+      .state-u824e9c80 .state-u730deb85 .module > .header {
         width: 60%;
         display: inline-block;
         min-height: 1px;
@@ -1173,68 +1161,56 @@ body {
         padding-right: 10px;
         padding-left: 10px;
         margin-left: 20%; }
-        .state-ipad-landscape .state-ubdb833c5 .state-ub23470ec .module > .header {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u824e9c80 .state-u730deb85 .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ubdb833c5 .state-ub23470ec .module > .header {
-            padding-top: 25px;
+          .state-u824e9c80 .state-u730deb85 .module > .header {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-ubdb833c5 .state-ub23470ec .module > .header {
+        .state-ipad-landscape .state-u824e9c80 .state-u730deb85 .module > .header {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ubdb833c5 .state-ub23470ec .module > .header {
+          .state-u824e9c80 .state-u730deb85 .module > .header {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ub23470ec .module > .header {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u730deb85 .module > .header {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .header {
-          padding-top: 25px;
+        .state-u730deb85 .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ub23470ec .module > .header {
+      .state-ipad-landscape .state-u730deb85 .module > .header {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .header {
+        .state-u730deb85 .module > .header {
           direction: rtl;
           float: right; } }
-      .state-tablet .state-ub23470ec .module > .header {
+      .state-tablet .state-u730deb85 .module > .header {
         width: 40%;
         margin-left: 10%; }
-        .state-ipad-landscape .state-tablet .state-ub23470ec .module > .header {
-          padding-top: 25px;
+        .state-ipad-landscape .state-tablet .state-u730deb85 .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ub23470ec .module > .header {
-            padding-top: 25px;
+          .state-tablet .state-u730deb85 .module > .header {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-tablet .state-ub23470ec .module > .header {
+        .state-ipad-landscape .state-tablet .state-u730deb85 .module > .header {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ub23470ec .module > .header {
+          .state-tablet .state-u730deb85 .module > .header {
             direction: rtl;
             float: right; } }
       @media screen and (min-width: 481px) and (max-width: 1024px) {
-        .state-ub23470ec .module > .header {
+        .state-u730deb85 .module > .header {
           width: 40%;
           margin-left: 10%; } }
-    .state-ub23470ec .module > .login {
+    .state-u730deb85 .module > .login {
       width: 20%;
       display: inline-block;
       min-height: 1px;
@@ -1246,7 +1222,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-ub36d5496 .state-ub23470ec .module > .login {
+      .state-u4fb921c9 .state-u730deb85 .module > .login {
         width: 20%;
         display: inline-block;
         min-height: 1px;
@@ -1258,7 +1234,7 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-u2c5f2bf3 .state-ub36d5496 .state-ub23470ec .module > .login {
+        .state-ud313d133 .state-u4fb921c9 .state-u730deb85 .module > .login {
           width: 20%;
           display: inline-block;
           min-height: 1px;
@@ -1270,74 +1246,62 @@ body {
           vertical-align: top;
           padding-right: 10px;
           padding-left: 10px; }
-          .state-ipad-landscape .state-u2c5f2bf3 .state-ub36d5496 .state-ub23470ec .module > .login {
-            padding-top: 25px;
+          .state-ipad-landscape .state-ud313d133 .state-u4fb921c9 .state-u730deb85 .module > .login {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u2c5f2bf3 .state-ub36d5496 .state-ub23470ec .module > .login {
-              padding-top: 25px;
+            .state-ud313d133 .state-u4fb921c9 .state-u730deb85 .module > .login {
               padding-right: 30px;
-              padding-bottom: 25px;
               padding-left: 30px; } }
-          .state-ipad-landscape .state-u2c5f2bf3 .state-ub36d5496 .state-ub23470ec .module > .login {
+          .state-ipad-landscape .state-ud313d133 .state-u4fb921c9 .state-u730deb85 .module > .login {
             direction: rtl;
             float: right; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u2c5f2bf3 .state-ub36d5496 .state-ub23470ec .module > .login {
+            .state-ud313d133 .state-u4fb921c9 .state-u730deb85 .module > .login {
               direction: rtl;
               float: right; } }
-        .state-ipad-landscape .state-ub36d5496 .state-ub23470ec .module > .login {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u4fb921c9 .state-u730deb85 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ub36d5496 .state-ub23470ec .module > .login {
-            padding-top: 25px;
+          .state-u4fb921c9 .state-u730deb85 .module > .login {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-ub36d5496 .state-ub23470ec .module > .login {
+        .state-ipad-landscape .state-u4fb921c9 .state-u730deb85 .module > .login {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ub36d5496 .state-ub23470ec .module > .login {
+          .state-u4fb921c9 .state-u730deb85 .module > .login {
             direction: rtl;
             float: right; } }
-        .state-tablet .state-ub36d5496 .state-ub23470ec .module > .login {
+        .state-tablet .state-u4fb921c9 .state-u730deb85 .module > .login {
           width: 40%;
           padding-top: 0;
           padding-right: 0;
           padding-bottom: 0;
           padding-left: 0; }
-          .state-ipad-landscape .state-tablet .state-ub36d5496 .state-ub23470ec .module > .login {
-            padding-top: 25px;
+          .state-ipad-landscape .state-tablet .state-u4fb921c9 .state-u730deb85 .module > .login {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-tablet .state-ub36d5496 .state-ub23470ec .module > .login {
-              padding-top: 25px;
+            .state-tablet .state-u4fb921c9 .state-u730deb85 .module > .login {
               padding-right: 30px;
-              padding-bottom: 25px;
               padding-left: 30px; } }
-          .state-ipad-landscape .state-tablet .state-ub36d5496 .state-ub23470ec .module > .login {
+          .state-ipad-landscape .state-tablet .state-u4fb921c9 .state-u730deb85 .module > .login {
             direction: rtl;
             float: right; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-tablet .state-ub36d5496 .state-ub23470ec .module > .login {
+            .state-tablet .state-u4fb921c9 .state-u730deb85 .module > .login {
               direction: rtl;
               float: right; } }
         @media screen and (min-width: 481px) and (max-width: 1024px) {
-          .state-ub36d5496 .state-ub23470ec .module > .login {
+          .state-u4fb921c9 .state-u730deb85 .module > .login {
             width: 40%;
             padding-top: 0;
             padding-right: 0;
             padding-bottom: 0;
             padding-left: 0; } }
-      .state-uf9ea7b08 .state-ub23470ec .module > .login {
+      .state-u2f35954c .state-u730deb85 .module > .login {
         width: 20%;
         display: inline-block;
         min-height: 1px;
@@ -1349,74 +1313,62 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-uf9ea7b08 .state-ub23470ec .module > .login {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u2f35954c .state-u730deb85 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-uf9ea7b08 .state-ub23470ec .module > .login {
-            padding-top: 25px;
+          .state-u2f35954c .state-u730deb85 .module > .login {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-uf9ea7b08 .state-ub23470ec .module > .login {
+        .state-ipad-landscape .state-u2f35954c .state-u730deb85 .module > .login {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-uf9ea7b08 .state-ub23470ec .module > .login {
+          .state-u2f35954c .state-u730deb85 .module > .login {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ub23470ec .module > .login {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u730deb85 .module > .login {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .login {
-          padding-top: 25px;
+        .state-u730deb85 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ub23470ec .module > .login {
+      .state-ipad-landscape .state-u730deb85 .module > .login {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .login {
+        .state-u730deb85 .module > .login {
           direction: rtl;
           float: right; } }
-      .state-tablet .state-ub23470ec .module > .login {
+      .state-tablet .state-u730deb85 .module > .login {
         width: 40%;
         padding-top: 0;
         padding-right: 0;
         padding-bottom: 0;
         padding-left: 0; }
-        .state-ipad-landscape .state-tablet .state-ub23470ec .module > .login {
-          padding-top: 25px;
+        .state-ipad-landscape .state-tablet .state-u730deb85 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ub23470ec .module > .login {
-            padding-top: 25px;
+          .state-tablet .state-u730deb85 .module > .login {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-tablet .state-ub23470ec .module > .login {
+        .state-ipad-landscape .state-tablet .state-u730deb85 .module > .login {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ub23470ec .module > .login {
+          .state-tablet .state-u730deb85 .module > .login {
             direction: rtl;
             float: right; } }
       @media screen and (min-width: 481px) and (max-width: 1024px) {
-        .state-ub23470ec .module > .login {
+        .state-u730deb85 .module > .login {
           width: 40%;
           padding-top: 0;
           padding-right: 0;
           padding-bottom: 0;
           padding-left: 0; } }
-    .state-ub23470ec .module > .content {
+    .state-u730deb85 .module > .content {
       width: 80%;
       display: inline-block;
       min-height: 1px;
@@ -1428,7 +1380,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-u01df8ad5 .state-ub23470ec .module > .content {
+      .state-u4727bc99 .state-u730deb85 .module > .content {
         width: 80%;
         display: inline-block;
         min-height: 1px;
@@ -1440,7 +1392,7 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-u68f853e6 .state-u01df8ad5 .state-ub23470ec .module > .content {
+        .state-ubc7e0b9e .state-u4727bc99 .state-u730deb85 .module > .content {
           width: 80%;
           display: inline-block;
           min-height: 1px;
@@ -1452,43 +1404,35 @@ body {
           vertical-align: top;
           padding-right: 10px;
           padding-left: 10px; }
-          .state-ipad-landscape .state-u68f853e6 .state-u01df8ad5 .state-ub23470ec .module > .content {
-            padding-top: 25px;
+          .state-ipad-landscape .state-ubc7e0b9e .state-u4727bc99 .state-u730deb85 .module > .content {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u68f853e6 .state-u01df8ad5 .state-ub23470ec .module > .content {
-              padding-top: 25px;
+            .state-ubc7e0b9e .state-u4727bc99 .state-u730deb85 .module > .content {
               padding-right: 30px;
-              padding-bottom: 25px;
               padding-left: 30px; } }
-          .state-ipad-landscape .state-u68f853e6 .state-u01df8ad5 .state-ub23470ec .module > .content {
+          .state-ipad-landscape .state-ubc7e0b9e .state-u4727bc99 .state-u730deb85 .module > .content {
             direction: rtl;
             float: right; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u68f853e6 .state-u01df8ad5 .state-ub23470ec .module > .content {
+            .state-ubc7e0b9e .state-u4727bc99 .state-u730deb85 .module > .content {
               direction: rtl;
               float: right; } }
-        .state-ipad-landscape .state-u01df8ad5 .state-ub23470ec .module > .content {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u4727bc99 .state-u730deb85 .module > .content {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u01df8ad5 .state-ub23470ec .module > .content {
-            padding-top: 25px;
+          .state-u4727bc99 .state-u730deb85 .module > .content {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u01df8ad5 .state-ub23470ec .module > .content {
+        .state-ipad-landscape .state-u4727bc99 .state-u730deb85 .module > .content {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u01df8ad5 .state-ub23470ec .module > .content {
+          .state-u4727bc99 .state-u730deb85 .module > .content {
             direction: rtl;
             float: right; } }
-      .state-u31a41f9d .state-ub23470ec .module > .content {
+      .state-u8a49bcbe .state-u730deb85 .module > .content {
         width: 80%;
         display: inline-block;
         min-height: 1px;
@@ -1500,43 +1444,35 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-u31a41f9d .state-ub23470ec .module > .content {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u8a49bcbe .state-u730deb85 .module > .content {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u31a41f9d .state-ub23470ec .module > .content {
-            padding-top: 25px;
+          .state-u8a49bcbe .state-u730deb85 .module > .content {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u31a41f9d .state-ub23470ec .module > .content {
+        .state-ipad-landscape .state-u8a49bcbe .state-u730deb85 .module > .content {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u31a41f9d .state-ub23470ec .module > .content {
+          .state-u8a49bcbe .state-u730deb85 .module > .content {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ub23470ec .module > .content {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u730deb85 .module > .content {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .content {
-          padding-top: 25px;
+        .state-u730deb85 .module > .content {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ub23470ec .module > .content {
+      .state-ipad-landscape .state-u730deb85 .module > .content {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .content {
+        .state-u730deb85 .module > .content {
           direction: rtl;
           float: right; } }
-    .state-ub23470ec .module > .sidebar {
+    .state-u730deb85 .module > .sidebar {
       width: 20%;
       display: inline-block;
       min-height: 1px;
@@ -1548,7 +1484,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
+      .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
         width: 20%;
         display: inline-block;
         min-height: 1px;
@@ -1560,7 +1496,7 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ue87af9d8 .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
+        .state-u9814470d .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
           width: 20%;
           display: inline-block;
           min-height: 1px;
@@ -1572,43 +1508,35 @@ body {
           vertical-align: top;
           padding-right: 10px;
           padding-left: 10px; }
-          .state-ipad-landscape .state-ue87af9d8 .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
-            padding-top: 25px;
+          .state-ipad-landscape .state-u9814470d .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-ue87af9d8 .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
-              padding-top: 25px;
+            .state-u9814470d .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
               padding-right: 30px;
-              padding-bottom: 25px;
               padding-left: 30px; } }
-          .state-ipad-landscape .state-ue87af9d8 .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
+          .state-ipad-landscape .state-u9814470d .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
             direction: rtl;
             float: right; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-ue87af9d8 .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
+            .state-u9814470d .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
               direction: rtl;
               float: right; } }
-        .state-ipad-landscape .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
-            padding-top: 25px;
+          .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
+        .state-ipad-landscape .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u84cccbb3 .state-ub23470ec .module > .sidebar {
+          .state-u3cfcee29 .state-u730deb85 .module > .sidebar {
             direction: rtl;
             float: right; } }
-      .state-u0da0f152 .state-ub23470ec .module > .sidebar {
+      .state-uac3289bc .state-u730deb85 .module > .sidebar {
         width: 20%;
         display: inline-block;
         min-height: 1px;
@@ -1620,43 +1548,35 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-u0da0f152 .state-ub23470ec .module > .sidebar {
-          padding-top: 25px;
+        .state-ipad-landscape .state-uac3289bc .state-u730deb85 .module > .sidebar {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u0da0f152 .state-ub23470ec .module > .sidebar {
-            padding-top: 25px;
+          .state-uac3289bc .state-u730deb85 .module > .sidebar {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u0da0f152 .state-ub23470ec .module > .sidebar {
+        .state-ipad-landscape .state-uac3289bc .state-u730deb85 .module > .sidebar {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u0da0f152 .state-ub23470ec .module > .sidebar {
+          .state-uac3289bc .state-u730deb85 .module > .sidebar {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ub23470ec .module > .sidebar {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u730deb85 .module > .sidebar {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .sidebar {
-          padding-top: 25px;
+        .state-u730deb85 .module > .sidebar {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ub23470ec .module > .sidebar {
+      .state-ipad-landscape .state-u730deb85 .module > .sidebar {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .sidebar {
+        .state-u730deb85 .module > .sidebar {
           direction: rtl;
           float: right; } }
-    .state-ub23470ec .module > .footer {
+    .state-u730deb85 .module > .footer {
       width: 100%;
       display: inline-block;
       min-height: 1px;
@@ -1668,7 +1588,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-ud493e23b .state-ub23470ec .module > .footer {
+      .state-u759d4346 .state-u730deb85 .module > .footer {
         width: 100%;
         display: inline-block;
         min-height: 1px;
@@ -1680,7 +1600,7 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-u71f70858 .state-ud493e23b .state-ub23470ec .module > .footer {
+        .state-u8d776934 .state-u759d4346 .state-u730deb85 .module > .footer {
           width: 100%;
           display: inline-block;
           min-height: 1px;
@@ -1692,43 +1612,35 @@ body {
           vertical-align: top;
           padding-right: 10px;
           padding-left: 10px; }
-          .state-ipad-landscape .state-u71f70858 .state-ud493e23b .state-ub23470ec .module > .footer {
-            padding-top: 25px;
+          .state-ipad-landscape .state-u8d776934 .state-u759d4346 .state-u730deb85 .module > .footer {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u71f70858 .state-ud493e23b .state-ub23470ec .module > .footer {
-              padding-top: 25px;
+            .state-u8d776934 .state-u759d4346 .state-u730deb85 .module > .footer {
               padding-right: 30px;
-              padding-bottom: 25px;
               padding-left: 30px; } }
-          .state-ipad-landscape .state-u71f70858 .state-ud493e23b .state-ub23470ec .module > .footer {
+          .state-ipad-landscape .state-u8d776934 .state-u759d4346 .state-u730deb85 .module > .footer {
             direction: rtl;
             float: right; }
           @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .state-u71f70858 .state-ud493e23b .state-ub23470ec .module > .footer {
+            .state-u8d776934 .state-u759d4346 .state-u730deb85 .module > .footer {
               direction: rtl;
               float: right; } }
-        .state-ipad-landscape .state-ud493e23b .state-ub23470ec .module > .footer {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u759d4346 .state-u730deb85 .module > .footer {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ud493e23b .state-ub23470ec .module > .footer {
-            padding-top: 25px;
+          .state-u759d4346 .state-u730deb85 .module > .footer {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-ud493e23b .state-ub23470ec .module > .footer {
+        .state-ipad-landscape .state-u759d4346 .state-u730deb85 .module > .footer {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ud493e23b .state-ub23470ec .module > .footer {
+          .state-u759d4346 .state-u730deb85 .module > .footer {
             direction: rtl;
             float: right; } }
-      .state-uc1b07453 .state-ub23470ec .module > .footer {
+      .state-u38a96ff2 .state-u730deb85 .module > .footer {
         width: 100%;
         display: inline-block;
         min-height: 1px;
@@ -1740,40 +1652,32 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-uc1b07453 .state-ub23470ec .module > .footer {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u38a96ff2 .state-u730deb85 .module > .footer {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-uc1b07453 .state-ub23470ec .module > .footer {
-            padding-top: 25px;
+          .state-u38a96ff2 .state-u730deb85 .module > .footer {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-uc1b07453 .state-ub23470ec .module > .footer {
+        .state-ipad-landscape .state-u38a96ff2 .state-u730deb85 .module > .footer {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-uc1b07453 .state-ub23470ec .module > .footer {
+          .state-u38a96ff2 .state-u730deb85 .module > .footer {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ub23470ec .module > .footer {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u730deb85 .module > .footer {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .footer {
-          padding-top: 25px;
+        .state-u730deb85 .module > .footer {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ub23470ec .module > .footer {
+      .state-ipad-landscape .state-u730deb85 .module > .footer {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub23470ec .module > .footer {
+        .state-u730deb85 .module > .footer {
           direction: rtl;
           float: right; } }
   [class*="no-gutter"] > .module {
@@ -1826,7 +1730,7 @@ body {
     padding-right: 10px;
     padding-left: 10px;
     margin-left: 20%; }
-    .state-ub8828d7c .module > .header {
+    .state-u27659099 .module > .header {
       width: 60%;
       display: inline-block;
       min-height: 1px;
@@ -1839,7 +1743,7 @@ body {
       padding-right: 10px;
       padding-left: 10px;
       margin-left: 20%; }
-      .state-ufada4914 .state-ub8828d7c .module > .header {
+      .state-ubb8f0dcf .state-u27659099 .module > .header {
         width: 60%;
         display: inline-block;
         min-height: 1px;
@@ -1852,68 +1756,56 @@ body {
         padding-right: 10px;
         padding-left: 10px;
         margin-left: 20%; }
-        .state-ipad-landscape .state-ufada4914 .state-ub8828d7c .module > .header {
-          padding-top: 25px;
+        .state-ipad-landscape .state-ubb8f0dcf .state-u27659099 .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ufada4914 .state-ub8828d7c .module > .header {
-            padding-top: 25px;
+          .state-ubb8f0dcf .state-u27659099 .module > .header {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-ufada4914 .state-ub8828d7c .module > .header {
+        .state-ipad-landscape .state-ubb8f0dcf .state-u27659099 .module > .header {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-ufada4914 .state-ub8828d7c .module > .header {
+          .state-ubb8f0dcf .state-u27659099 .module > .header {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ub8828d7c .module > .header {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u27659099 .module > .header {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub8828d7c .module > .header {
-          padding-top: 25px;
+        .state-u27659099 .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ub8828d7c .module > .header {
+      .state-ipad-landscape .state-u27659099 .module > .header {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ub8828d7c .module > .header {
+        .state-u27659099 .module > .header {
           direction: rtl;
           float: right; } }
-      .state-tablet .state-ub8828d7c .module > .header {
+      .state-tablet .state-u27659099 .module > .header {
         width: 40%;
         margin-left: 10%; }
-        .state-ipad-landscape .state-tablet .state-ub8828d7c .module > .header {
-          padding-top: 25px;
+        .state-ipad-landscape .state-tablet .state-u27659099 .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ub8828d7c .module > .header {
-            padding-top: 25px;
+          .state-tablet .state-u27659099 .module > .header {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-tablet .state-ub8828d7c .module > .header {
+        .state-ipad-landscape .state-tablet .state-u27659099 .module > .header {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ub8828d7c .module > .header {
+          .state-tablet .state-u27659099 .module > .header {
             direction: rtl;
             float: right; } }
       @media screen and (min-width: 481px) and (max-width: 1024px) {
-        .state-ub8828d7c .module > .header {
+        .state-u27659099 .module > .header {
           width: 40%;
           margin-left: 10%; } }
-    .state-ucf763cdb .module > .header {
+    .state-ubc8c1b4d .module > .header {
       width: 60%;
       display: inline-block;
       min-height: 1px;
@@ -1926,34 +1818,26 @@ body {
       padding-right: 10px;
       padding-left: 10px;
       margin-left: 20%; }
-      .state-ipad-landscape .state-ucf763cdb .module > .header {
-        padding-top: 25px;
+      .state-ipad-landscape .state-ubc8c1b4d .module > .header {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ucf763cdb .module > .header {
-          padding-top: 25px;
+        .state-ubc8c1b4d .module > .header {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ucf763cdb .module > .header {
+      .state-ipad-landscape .state-ubc8c1b4d .module > .header {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ucf763cdb .module > .header {
+        .state-ubc8c1b4d .module > .header {
           direction: rtl;
           float: right; } }
     .state-ipad-landscape .module > .header {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .module > .header {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .module > .header {
       direction: rtl;
@@ -1966,15 +1850,11 @@ body {
       width: 40%;
       margin-left: 10%; }
       .state-ipad-landscape .state-tablet .module > .header {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
         .state-tablet .module > .header {
-          padding-top: 25px;
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
       .state-ipad-landscape .state-tablet .module > .header {
         direction: rtl;
@@ -1999,7 +1879,7 @@ body {
     vertical-align: top;
     padding-right: 10px;
     padding-left: 10px; }
-    .state-ud269b578 .module > .login {
+    .state-u8b2c0437 .module > .login {
       width: 20%;
       display: inline-block;
       min-height: 1px;
@@ -2011,7 +1891,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-u5c41228e .state-ud269b578 .module > .login {
+      .state-u3838f64b .state-u8b2c0437 .module > .login {
         width: 20%;
         display: inline-block;
         min-height: 1px;
@@ -2023,74 +1903,62 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-u5c41228e .state-ud269b578 .module > .login {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u3838f64b .state-u8b2c0437 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u5c41228e .state-ud269b578 .module > .login {
-            padding-top: 25px;
+          .state-u3838f64b .state-u8b2c0437 .module > .login {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u5c41228e .state-ud269b578 .module > .login {
+        .state-ipad-landscape .state-u3838f64b .state-u8b2c0437 .module > .login {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u5c41228e .state-ud269b578 .module > .login {
+          .state-u3838f64b .state-u8b2c0437 .module > .login {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ud269b578 .module > .login {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u8b2c0437 .module > .login {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ud269b578 .module > .login {
-          padding-top: 25px;
+        .state-u8b2c0437 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ud269b578 .module > .login {
+      .state-ipad-landscape .state-u8b2c0437 .module > .login {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ud269b578 .module > .login {
+        .state-u8b2c0437 .module > .login {
           direction: rtl;
           float: right; } }
-      .state-tablet .state-ud269b578 .module > .login {
+      .state-tablet .state-u8b2c0437 .module > .login {
         width: 40%;
         padding-top: 0;
         padding-right: 0;
         padding-bottom: 0;
         padding-left: 0; }
-        .state-ipad-landscape .state-tablet .state-ud269b578 .module > .login {
-          padding-top: 25px;
+        .state-ipad-landscape .state-tablet .state-u8b2c0437 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ud269b578 .module > .login {
-            padding-top: 25px;
+          .state-tablet .state-u8b2c0437 .module > .login {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-tablet .state-ud269b578 .module > .login {
+        .state-ipad-landscape .state-tablet .state-u8b2c0437 .module > .login {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-tablet .state-ud269b578 .module > .login {
+          .state-tablet .state-u8b2c0437 .module > .login {
             direction: rtl;
             float: right; } }
       @media screen and (min-width: 481px) and (max-width: 1024px) {
-        .state-ud269b578 .module > .login {
+        .state-u8b2c0437 .module > .login {
           width: 40%;
           padding-top: 0;
           padding-right: 0;
           padding-bottom: 0;
           padding-left: 0; } }
-    .state-u17dcd3f6 .module > .login {
+    .state-u17f6aa38 .module > .login {
       width: 20%;
       display: inline-block;
       min-height: 1px;
@@ -2102,34 +1970,26 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-ipad-landscape .state-u17dcd3f6 .module > .login {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u17f6aa38 .module > .login {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u17dcd3f6 .module > .login {
-          padding-top: 25px;
+        .state-u17f6aa38 .module > .login {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-u17dcd3f6 .module > .login {
+      .state-ipad-landscape .state-u17f6aa38 .module > .login {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u17dcd3f6 .module > .login {
+        .state-u17f6aa38 .module > .login {
           direction: rtl;
           float: right; } }
     .state-ipad-landscape .module > .login {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .module > .login {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .module > .login {
       direction: rtl;
@@ -2145,15 +2005,11 @@ body {
       padding-bottom: 0;
       padding-left: 0; }
       .state-ipad-landscape .state-tablet .module > .login {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
         .state-tablet .module > .login {
-          padding-top: 25px;
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
       .state-ipad-landscape .state-tablet .module > .login {
         direction: rtl;
@@ -2181,7 +2037,7 @@ body {
     vertical-align: top;
     padding-right: 10px;
     padding-left: 10px; }
-    .state-uc29f456b .module > .content {
+    .state-u48ec6dfc .module > .content {
       width: 80%;
       display: inline-block;
       min-height: 1px;
@@ -2193,7 +2049,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-u76f0c039 .state-uc29f456b .module > .content {
+      .state-u0591aa26 .state-u48ec6dfc .module > .content {
         width: 80%;
         display: inline-block;
         min-height: 1px;
@@ -2205,43 +2061,35 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-u76f0c039 .state-uc29f456b .module > .content {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u0591aa26 .state-u48ec6dfc .module > .content {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u76f0c039 .state-uc29f456b .module > .content {
-            padding-top: 25px;
+          .state-u0591aa26 .state-u48ec6dfc .module > .content {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u76f0c039 .state-uc29f456b .module > .content {
+        .state-ipad-landscape .state-u0591aa26 .state-u48ec6dfc .module > .content {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u76f0c039 .state-uc29f456b .module > .content {
+          .state-u0591aa26 .state-u48ec6dfc .module > .content {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-uc29f456b .module > .content {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u48ec6dfc .module > .content {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-uc29f456b .module > .content {
-          padding-top: 25px;
+        .state-u48ec6dfc .module > .content {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-uc29f456b .module > .content {
+      .state-ipad-landscape .state-u48ec6dfc .module > .content {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-uc29f456b .module > .content {
+        .state-u48ec6dfc .module > .content {
           direction: rtl;
           float: right; } }
-    .state-u12b48f66 .module > .content {
+    .state-u61b46138 .module > .content {
       width: 80%;
       display: inline-block;
       min-height: 1px;
@@ -2253,34 +2101,26 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-ipad-landscape .state-u12b48f66 .module > .content {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u61b46138 .module > .content {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u12b48f66 .module > .content {
-          padding-top: 25px;
+        .state-u61b46138 .module > .content {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-u12b48f66 .module > .content {
+      .state-ipad-landscape .state-u61b46138 .module > .content {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u12b48f66 .module > .content {
+        .state-u61b46138 .module > .content {
           direction: rtl;
           float: right; } }
     .state-ipad-landscape .module > .content {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .module > .content {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .module > .content {
       direction: rtl;
@@ -2301,7 +2141,7 @@ body {
     vertical-align: top;
     padding-right: 10px;
     padding-left: 10px; }
-    .state-u5b6fd5c8 .module > .sidebar {
+    .state-u2efba103 .module > .sidebar {
       width: 20%;
       display: inline-block;
       min-height: 1px;
@@ -2313,7 +2153,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-u301b6143 .state-u5b6fd5c8 .module > .sidebar {
+      .state-uc7e44b48 .state-u2efba103 .module > .sidebar {
         width: 20%;
         display: inline-block;
         min-height: 1px;
@@ -2325,43 +2165,35 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-u301b6143 .state-u5b6fd5c8 .module > .sidebar {
-          padding-top: 25px;
+        .state-ipad-landscape .state-uc7e44b48 .state-u2efba103 .module > .sidebar {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u301b6143 .state-u5b6fd5c8 .module > .sidebar {
-            padding-top: 25px;
+          .state-uc7e44b48 .state-u2efba103 .module > .sidebar {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u301b6143 .state-u5b6fd5c8 .module > .sidebar {
+        .state-ipad-landscape .state-uc7e44b48 .state-u2efba103 .module > .sidebar {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u301b6143 .state-u5b6fd5c8 .module > .sidebar {
+          .state-uc7e44b48 .state-u2efba103 .module > .sidebar {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-u5b6fd5c8 .module > .sidebar {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u2efba103 .module > .sidebar {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u5b6fd5c8 .module > .sidebar {
-          padding-top: 25px;
+        .state-u2efba103 .module > .sidebar {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-u5b6fd5c8 .module > .sidebar {
+      .state-ipad-landscape .state-u2efba103 .module > .sidebar {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u5b6fd5c8 .module > .sidebar {
+        .state-u2efba103 .module > .sidebar {
           direction: rtl;
           float: right; } }
-    .state-u52d86113 .module > .sidebar {
+    .state-uc80d6067 .module > .sidebar {
       width: 20%;
       display: inline-block;
       min-height: 1px;
@@ -2373,34 +2205,26 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-ipad-landscape .state-u52d86113 .module > .sidebar {
-        padding-top: 25px;
+      .state-ipad-landscape .state-uc80d6067 .module > .sidebar {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u52d86113 .module > .sidebar {
-          padding-top: 25px;
+        .state-uc80d6067 .module > .sidebar {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-u52d86113 .module > .sidebar {
+      .state-ipad-landscape .state-uc80d6067 .module > .sidebar {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u52d86113 .module > .sidebar {
+        .state-uc80d6067 .module > .sidebar {
           direction: rtl;
           float: right; } }
     .state-ipad-landscape .module > .sidebar {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .module > .sidebar {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .module > .sidebar {
       direction: rtl;
@@ -2421,7 +2245,7 @@ body {
     vertical-align: top;
     padding-right: 10px;
     padding-left: 10px; }
-    .state-ue6e472e0 .module > .footer {
+    .state-u9a620afc .module > .footer {
       width: 100%;
       display: inline-block;
       min-height: 1px;
@@ -2433,7 +2257,7 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-u76a79254 .state-ue6e472e0 .module > .footer {
+      .state-u4758ecdb .state-u9a620afc .module > .footer {
         width: 100%;
         display: inline-block;
         min-height: 1px;
@@ -2445,43 +2269,35 @@ body {
         vertical-align: top;
         padding-right: 10px;
         padding-left: 10px; }
-        .state-ipad-landscape .state-u76a79254 .state-ue6e472e0 .module > .footer {
-          padding-top: 25px;
+        .state-ipad-landscape .state-u4758ecdb .state-u9a620afc .module > .footer {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u76a79254 .state-ue6e472e0 .module > .footer {
-            padding-top: 25px;
+          .state-u4758ecdb .state-u9a620afc .module > .footer {
             padding-right: 30px;
-            padding-bottom: 25px;
             padding-left: 30px; } }
-        .state-ipad-landscape .state-u76a79254 .state-ue6e472e0 .module > .footer {
+        .state-ipad-landscape .state-u4758ecdb .state-u9a620afc .module > .footer {
           direction: rtl;
           float: right; }
         @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-          .state-u76a79254 .state-ue6e472e0 .module > .footer {
+          .state-u4758ecdb .state-u9a620afc .module > .footer {
             direction: rtl;
             float: right; } }
-      .state-ipad-landscape .state-ue6e472e0 .module > .footer {
-        padding-top: 25px;
+      .state-ipad-landscape .state-u9a620afc .module > .footer {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ue6e472e0 .module > .footer {
-          padding-top: 25px;
+        .state-u9a620afc .module > .footer {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-ue6e472e0 .module > .footer {
+      .state-ipad-landscape .state-u9a620afc .module > .footer {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-ue6e472e0 .module > .footer {
+        .state-u9a620afc .module > .footer {
           direction: rtl;
           float: right; } }
-    .state-u4027e2d2 .module > .footer {
+    .state-ua37e00d4 .module > .footer {
       width: 100%;
       display: inline-block;
       min-height: 1px;
@@ -2493,34 +2309,26 @@ body {
       vertical-align: top;
       padding-right: 10px;
       padding-left: 10px; }
-      .state-ipad-landscape .state-u4027e2d2 .module > .footer {
-        padding-top: 25px;
+      .state-ipad-landscape .state-ua37e00d4 .module > .footer {
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u4027e2d2 .module > .footer {
-          padding-top: 25px;
+        .state-ua37e00d4 .module > .footer {
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
-      .state-ipad-landscape .state-u4027e2d2 .module > .footer {
+      .state-ipad-landscape .state-ua37e00d4 .module > .footer {
         direction: rtl;
         float: right; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-        .state-u4027e2d2 .module > .footer {
+        .state-ua37e00d4 .module > .footer {
           direction: rtl;
           float: right; } }
     .state-ipad-landscape .module > .footer {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .module > .footer {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .module > .footer {
       direction: rtl;
@@ -2758,15 +2566,11 @@ pre {
     left: 16.66667%;
     right: auto; }
     .state-ipad-landscape .state-default #myCoolItem {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .state-default #myCoolItem {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .state-default #myCoolItem {
       direction: rtl;
@@ -2780,15 +2584,11 @@ pre {
       left: 0%;
       right: auto; }
       .state-ipad-landscape .state-tablet .state-default #myCoolItem {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
         .state-tablet .state-default #myCoolItem {
-          padding-top: 25px;
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
       .state-ipad-landscape .state-tablet .state-default #myCoolItem {
         direction: rtl;
@@ -2806,15 +2606,11 @@ pre {
       width: 100%;
       visibility: hidden; }
       .state-ipad-landscape .state-mobile .state-default #myCoolItem {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; }
       @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
         .state-mobile .state-default #myCoolItem {
-          padding-top: 25px;
           padding-right: 30px;
-          padding-bottom: 25px;
           padding-left: 30px; } }
       .state-ipad-landscape .state-mobile .state-default #myCoolItem {
         direction: rtl;
@@ -2828,15 +2624,11 @@ pre {
         width: 100%;
         visibility: hidden; } }
   .state-ipad-landscape #myCoolItem {
-    padding-top: 25px;
     padding-right: 30px;
-    padding-bottom: 25px;
     padding-left: 30px; }
   @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
     #myCoolItem {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; } }
   .state-ipad-landscape #myCoolItem {
     direction: rtl;
@@ -2850,15 +2642,11 @@ pre {
     left: 0%;
     right: auto; }
     .state-ipad-landscape .state-tablet #myCoolItem {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .state-tablet #myCoolItem {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .state-tablet #myCoolItem {
       direction: rtl;
@@ -2876,15 +2664,11 @@ pre {
     width: 100%;
     visibility: hidden; }
     .state-ipad-landscape .state-mobile #myCoolItem {
-      padding-top: 25px;
       padding-right: 30px;
-      padding-bottom: 25px;
       padding-left: 30px; }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
       .state-mobile #myCoolItem {
-        padding-top: 25px;
         padding-right: 30px;
-        padding-bottom: 25px;
         padding-left: 30px; } }
     .state-ipad-landscape .state-mobile #myCoolItem {
       direction: rtl;
