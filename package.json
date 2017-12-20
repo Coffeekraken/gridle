@@ -7,7 +7,7 @@
   "scripts": {
     "dist": "npm run dist.js",
     "dist.js": "babel src -d dist",
-    "demo": "npm run demo.css && npm run demo.js && npm && open http://localhost:8080/demo.html && npm run demo.server",
+    "demo": "npm run demo.css && npm run demo.js && open http://localhost:8080/demo.html && npm run demo.server",
     "demo.css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css && node-sass demo/src/sass/grid.scss demo/dist/css/grid.css && node-sass demo/src/sass/grid-flex.scss demo/dist/css/grid-flex.css && node-sass demo/src/sass/grid-debug.scss demo/dist/css/grid-debug.css",
     "demo.js": "webpack",
     "demo.watch": "concurrently --kill-others \"npm run demo.watch.css\" \"npm run demo.watch.css\"",
