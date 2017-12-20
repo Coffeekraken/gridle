@@ -695,9 +695,6 @@ $row : '
 					$i : $i + 1;
 				}
 
-				// media queries helpers classes
-				@include _g-generate-helper-classes($stateName, $package);
-
 				// handle direction on body
 				body {
 					direction: g-get-state-var(direction);
@@ -719,6 +716,28 @@ $row : '
 						}
 					}
 				}
+			}
+		}
+	}
+
+	// loop on each states to generate all the classes
+	@each $stateName in $generate-states {
+
+		// get the actual state
+		$state : g-get-state($stateName);
+		$classes : g-get-state-var(classes, $state);
+
+		// stop here if no classes wanted
+		@if $classes {
+
+			// debug
+			// @debug("Generate classes for state #{$stateName}");
+
+			// scope all the classes in a media query
+			@include g-state($state, false) {
+
+				// media queries helpers classes
+				@include _g-generate-helper-classes($stateName, $package);
 			}
 		}
 	}
