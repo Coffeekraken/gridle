@@ -461,6 +461,9 @@
 			$sel : _g-get-generic-selector(grid);
 		}
 
+		> #{$sel}:nth-of-type(1n+0) {
+			clear:none;
+		}
 		> #{$sel}:nth-of-type(#{$clearEach}n+1) {
 			clear : $clearWhat;
 		}
