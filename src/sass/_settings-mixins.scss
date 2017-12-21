@@ -119,7 +119,7 @@
 		or $gutter-left != map-get($_gridle-settings, gutter-left) {
 		$gutters : _g-forge-gutters-map(top right bottom left, $name);
 		@include g-apply-css-for(grid grid-grow grid-adapt, (
-			g-gutter : top right bottom left
+			g-gutter : right left
 		), $name);
 	}
 

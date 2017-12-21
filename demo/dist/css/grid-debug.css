@@ -1,0 +1,2361 @@
+/**
+ * @name 	Functions API
+ * This are all the API functions that are exposed by gridle.
+ */
+/**
+ * Get states count
+ * @return 	{Integer} 	The number of states defined
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Get the current state map
+ * @return 		{Map} 	The current state map
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Get the current state name
+ * @return 		{String} 	The current state name
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Get the column width in percent for the global or a specific context
+ *
+ * @param 	{Integer} 		[$columns=1] 							The number of columns to calculate
+ * @param 	{Integer} 		[$stateMap-or-stateName=current] 	 	The state to calculate the column width for
+ * @return 	{Percent} 												The width in percent
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/*
+ * Get a state map
+ *
+ * @param 	{String|Map} 		[$state=current] 		The name or map of the state to get
+ * @return 	{Map} 				A state map object
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Check if a state exist :
+ * @param 	{String} 		$name 		The name of the state to check
+ * @return 	{Boolean} 					true if exist
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Get a state variable
+ *
+ * @param 	{String} 		$varName 								The variable name
+ * @param  	{String} 		[$stateMap-or-stateName=current] 	 	The state name or a map state value
+ * @return 	{Mixed} 												The finded value
+ */
+/**
+ * Set a variable in a state
+ * @param  		{String} 	$var                    	Variable name to assign
+ * @param  		{Mixed} 	$newValue          			The new value to assign
+ * @param 		{String} 	[$state=current] 			The state to apply the variable for
+ * @return 		{List}                         			The states list (full)
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * get the registered gridle states
+ * @return 	{Map} 		All the registered states
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * get the registered gridle states names
+ * @return 	{List} 		All the registered states names
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Get the register columns map
+ * @param 	{String|List<String>} 		[$state=current] 		The state name or map
+ * @return 	{Map} 												The map of registered columns for the specified state
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Will return the generated selector depending on the "package" wanted, the state and some optional values that might be needed by the package (like for row-align that need a "side" value)
+ * @param 		{String} 							$package 			The package to generate the selector for (see _settings.scss file)
+ * @param 		{String|List<String} 				[$states=null] 		The list of state to generate the selector for. If not specified, will generate for all registered states
+ * @param 		{Mixed} 							[$value=null] 		The value that will be used to replace the "%{tokenName}" inside the package pattern
+ * @example 	scss
+ * g-selector(grid, mobile, 2) {
+ * 	// your code here
+ * 	// The selector will be .gr-2@mobile
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Return the current used driver
+ * @return 	{String} 		The used driver like default or driver
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Check if the used driver is the specified one
+ * @param 		{String} 		$driver 	The driver to check
+ * @return 		{Boolean} 					True if is the current driver
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Get the media query for a particular state, or width, etc...
+ *
+ * @param 	{Mixed} 		[$stateName-or-stateMap=current] 		The state name of the min width
+ * @return 	{String} 												The media query string without the @media
+ */
+/**
+ * @name 	Setting mixins
+ * This are all the mixins that are exposed by gridle for the setting up your grid.
+ */
+/**
+ * Setting up your grid
+ * @param 		{Map} 		$settings 		Your default grid settings
+ * @example 	scss
+ * // default settings
+ * $_gridle-settings : (
+ *	name : default,
+ *	min-width : null,
+ *	max-width : null,
+ *	query : null,
+ *	classes : true,
+ *	context : 12,
+ *	column-width : null,
+ *	gutter-width : 20px,
+ *	gutter-height : 0,
+ *	gutter-top : 0,
+ *	gutter-right : 10px,
+ *	gutter-bottom : 0,
+ *	gutter-left : 10px,
+ *	direction : ltr,
+ *	dir-attribute : false,
+ *	name-multiplicator : 1,
+ *	states-classes : false,
+ *	classes-prefix : null
+ * );
+ *
+ * // setting up your grid
+ * \@include g-setup((
+ * 	context : 12
+ * 	// other settings
+ * ));
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register a new state with some settings
+ * @param 		{String} 		$name 		The new state name
+ * @param 		{Map} 			$settings 	The state settings
+ * @example 	scss
+ * \@include g-register-state(mobile, (
+ * 	max-width : 600px
+ * ));
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register some clear each that will been generated in classes
+ * @param 		{Integer} 		$count 		The n each item to clear
+ * @param 		{String} 		$what 		What to clear (left, right, both)
+ * @example 	scss
+ * \@include g-register-clear-each(2, left);
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register a new custom column in case the generated ones are not enough.
+ * This is useful when you have a 12 columns grid and you need some 1/5 ones.
+ * @param 		{String} 		$name 		The column name
+ * @param 		{Integer} 		$columns 	The column width
+ * @param 		{Integer} 		$context 	The context on which to calculate the column width
+ *
+ * @example 	scss
+ * \@include g-register-column(1on5, 1, 5);
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set a pattern for a specified package used to generate the classnames
+ * @param 		{String} 	$package 		The package name to specify the pattern for
+ * @param 		{List} 		$pattern 		The new classname pattern
+ *
+ * @example 	scss
+ * \@include g-set-classname-map(grid, ('grid','-','%count','@','%state'));
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set a generic selector for a specific package. This generic selector will be used to target some elements like [class*="gr-"].
+ * If not specified for a package, the generic selector will be generated automatically but sometimes it's better to hardcode it.
+ * @param 		{String} 		$package 		The package to specify the generic selector for
+ * @param 		{String} 		$selector 		The generic selector like [class*="gr-"], or whatever...
+ * @example 	scss
+ * \@include g-set-generic-selector(grid, '[class*="gr-"]');
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register some basics states:
+ *
+ * - mobile : 0 to 480px
+ * - tablet : 481px to 1024px
+ *
+ * @example 	scss
+ * \@include g-register-default-states();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register some basics mobile first states:
+ *
+ * - mobile : 320px to infinite
+ * - tablet : 640px to infinite
+ * - desktop : 992px to infinite
+ * - large : 1200px to infinite
+ *
+ * @example 	scss
+ * \@include g-register-mobile-first-states();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register bootstrap 3 states
+ *
+ * - xs : 0 to 750px
+ * - sm : 750px to infinite
+ * - md : 970px to infinite
+ * - lg : 1170px to infinite
+ *
+ * @example 	scss
+ * \@include g-register-bootstrap3-states();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Register bootstrap 4 states
+ *
+ * - xs : 0 to 576px
+ * - sm : 576px to infinite
+ * - md : 970px to infinite
+ * - lg : 1200px to infinite
+ *
+ * @example 	scss
+ * \@include g-register-bootstrap4-states();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	Base API
+ * This are all the base API mixins that are exposed by gridle.
+ */
+/**
+ * Specify a layout using a single call like in the example bellow
+ * @param 		{Map} 				$layout 				The map layout wanted
+ * @param 		{Map|List|String} 	[$context=null] 		The context in which to apply the layout
+ * @example 	scss
+ * body {
+ * 	\@include g-layout((
+ * 	 	'#header' : 12,
+ * 	 	'#sidebar' : 4 mobile 12,
+ * 	 	'#content' : 8 mobile 12,
+ * 	 	'#footer' : 12
+ * 	));
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply some styling in a passed state
+ * @param 		{Map|List|String} 		$states 		The states to apply the css for. Can be a state map, a list of states or a state name
+ * @example 	scss
+ * .my-cool-element {
+ * 	// specify a register state name
+ * 	\@include g-state(mobile) {
+ * 		// your css code here...
+ * 	}
+ * 	// specify more than one register states
+ * 	\@include g-state(mobile tablet) {
+ * 		// your css code here...
+ * 	}
+ *  // specify a min and max width
+ * 	\@include g-state(200px, 500px) {
+ * 		// your css code here...
+ * 	}
+ * 	// passing a state map (complexe usage)
+ * 	\@include g-state((
+ * 		query : 'print only'
+ * 	)) {
+ * 		// your code here...
+ * 	}
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply some css depending on the element size (element queries)
+ * **Using this mixin requires that you import the ```gridle-eq.js``` file into your javascript code**
+ * @param 	{Number} 	$size 				The size to take care of. If negative, mean lower than, if positive, mean greater than.
+ * @param 	{Boolean} 	[$height=false] 	Set to true to handle height instead of width
+ * @example 	scss
+ * .my-cool-element {
+ *  	\@include g-eq(-400px) {
+ *  		// your css that will be applied when element
+ *  		// is between 0 and 399px wide
+ *  	}
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Basically, this is the same as the ```g-state``` mixin, with the difference that it will not print any media queries. It will just create a state context in which your inside code will refer.
+ * @param 		{Map|List|String} 		$states 		The states to apply the css for. Can be a state map, a list of states or a state name
+ * @example 	scss
+ * @warn(g-get-state-var(min-width)); // will output the min-width of the default state
+ * \@include g-state-context(mobile) {
+ *  	@warn(g-get-state-var(min-width)); // will output the min-width of the mobile state
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Will print the generated selector depending on the "package" wanted, the state and some optional values that might be needed by the package (like for row-align that need a "side" value)
+ * @param 		{String} 							$package 			The package to generate the selector for (see _settings.scss file)
+ * @param 		{String|List<String} 				[$states=null] 		The list of state to generate the selector for. If not specified, will generate for all registered states
+ * @param 		{Mixed} 							[$value=null] 		The value that will be used to replace the "%{tokenName}" inside the package pattern
+ * @example 	scss
+ * \@include g-selector(grid, mobile, 2) {
+ * 	// your code here
+ * 	// The selector will be .gr-2@mobile
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Helper gridle mixin that let you specify the grid properties through ```g-set``` map, or a list of properties like "8 push 2 mobile 12 push 0"
+ * @param 		{Map|List} 			$properties 			The grid properties to apply
+ * @example 	scss
+ * #content {
+ * 	// using list
+ * 	\@include gridle(8 mobile 12);
+ * 	// using a map
+ * 	\@include gridle((
+ * 		grid : 8,
+ * 		mobile : (
+ * 			grid : 12
+ * 		)
+ * 	));
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Helper mixin that let you specify the grid properties through map formated like in the example bellow.
+ * Here's the possible properties:
+ *
+ * - ```grid``` {Integer} : The grid column count
+ * - ```container``` {Boolean} : Set the element as container
+ * - ```grid-grow``` {Boolean} : Set the element a grid column that grow
+ * - ```grid-adapt``` {Boolean} : Set the element a grid column that adapt
+ * - ```grid-table``` {Boolean} : Set the element a grid column of type table
+ * - ```push``` {Integer} : Set the push count
+ * - ```pull``` {Integer} : Set the pull count
+ * - ```prefix``` {Integer} : Set the prefix count
+ * - ```suffix``` {Integer} : Set the suffix count
+ * - ```clear-each``` {Integer} : Set the clear each count
+ * - ```grid-centered``` {Boolean} : Set the grid column as centered
+ * - ```row``` {Boolean} : Set the element as a grid row
+ * - ```row-full``` {Boolean} : Set the element as a grid row full
+ * - ```col``` {Boolean} : Set the element as a grid column (vertical)
+ * - ```row-align``` {String} : Set the row alignement
+ * - ```row-no-gutter``` {Boolean} : Remove the gutters on columns inside this row
+ * - ```nowrap``` {Boolean} : Set a nowrap on the row
+ * - ```wrap``` {Boolean} : Reset the wrap property on the row
+ * - ```order``` {Integer} : Set the order of the column (flex driver)
+ * - ```hide``` {Boolean} : Hide the element
+ * - ```show``` {Boolean} : Show the element
+ * - ```visible``` {Boolean} : Set the visibility of the element to visible
+ * - ```not-visible``` {Boolean} : Set the visibility of the element to hidden
+ * - ```invisible``` {Boolean} : Set the visibility of the element to hidden
+ * - ```show-inline``` {Boolean} : Set the display of the element to inline-block
+ * - ```float``` {String} : Set the specified float of the element
+ * - ```clear``` {String} : Clear the specified float of the element
+ * - ```no-gutter``` {Boolean|String|List<String>} : Remove the specified gutters
+ * - ```gutter``` {Boolean|String|List<String>} : Apply the specified gutters
+ *
+ * @param 		{Map} 			$properties 			The grid map properties to apply
+ * @example 	scss
+ * #content {
+ * 	// using a map
+ * 	\@include gridle((
+ * 		grid : 8,
+ * 		push : 2
+ * 		mobile : (
+ * 			grid : 12
+ * 		),
+ * 		{stateName} : {mapProperties}
+ * 	));
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the push count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to push this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the push value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-push(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the pull count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to pull this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the pull value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-pull(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the prefix count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to prefix this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the prefix value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-prefix(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the suffix count for the column
+ * @param 		{Integer} 		$columns 			The number of columns to suffix this column
+ * @param 		{Integer} 		[$context=null]  	The context on which to calculate the suffix value. By default, it is the default context setted with ```g-setup```.
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-suffix(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Display a debug grid on top of the row
+ * @example 	scss
+ * .my-row {
+ * 	\@include g-row-debug();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Make the element a grid container
+ * @example 	scss
+ * .my-cool-container {
+ * 	\@include g-container();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Remove the gutters on each columns inside the row
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to clear
+ * @example 	scss
+ * .my-cool-row {
+ * 	\@include g-row-no-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Make a column centered
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid-centered();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Hide an element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-hide();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the visibility of an element to hidden
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-not-visible();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the visibility of an element to hidden
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-invisible();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the display of an element to block
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the display of an element to inline-block
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the visibility of an element to visible
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the float property of the element to the specified direction
+ * @param 		{String} 		[$float=left] 		The float direction to set
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-float(right);
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Clear the float property of the element to the specified direction
+ * @param 		{String} 		[$float=left] 		The float direction to clear
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-clear(right);
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Remove the gutters on the column
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to clear
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-no-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the gutters on the column
+ * @param 		{String|List<String>} 		[$sides=top right bottom left] 		The sides to apply gutters on
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-gutter(left right);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	Generate mixins
+ * This are all the mixins that you can use to generate classes to use inside your HTML codebase
+ */
+/**
+ * Generate a custom class for all the states
+ * @param 	{List} 	$pattern 					The name pattern of the class
+ * @param 	{List} 	[$statesNames=null] 		The states names to generate. If null or all, will generate the class for all registered states
+ * @example 	scss
+ * \@include g-generate-custom-class(('my','-','cool','-','class','-','%state')) {
+ * 	color: pink;
+ * 	padding: g-get-state-var(gutter-left);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Generate all the classes depending on the packages you have specified like:
+ * - ```.container@{state}``` : default container
+ * - ```.row@{state}``` : default row
+ * - ```.row-align-{align}@{state}``` : default row-align
+ * - ```.row-full@{state}``` : default row-full
+ * - ```.row-debug@{state}``` : default row-debug
+ * - ```.row-no-gutter@{state}``` : default row-no-gutter
+ * - ```.nowrap@{state}``` : default nowrap
+ * - ```.wrap@{state}``` : default wrap
+ * - ```.col@{state}``` : default col
+ * - ```.gr-{column}@{state}``` : default grid
+ * - ```.gr-table@{state}``` : default gr-table
+ * - ```.gr-grow@{state}``` : default gr-grow
+ * - ```.gr-adapt@{state}``` : default gr-adapt
+ * - ```.gr-centered@{state}``` : default gr-centered
+ * - ```.push@{state}``` : default push
+ * - ```.pull@{state}``` : default pull
+ * - ```.prefix@{state}``` : default prefix
+ * - ```.suffix@{state}``` : default suffix
+ * - ```.hide@{state}``` : helpers hide
+ * - ```.show@{state}``` : helpers show
+ * - ```.show-inline@{state}``` : helpers show-inline
+ * - ```.not-visible@{state}``` : helpers not-visible
+ * - ```.visible@{state}``` : helpers visible
+ * - ```.float-{%float}@{state}``` : helpers float
+ * - ```.clear-{%float}@{state}``` : helpers clear
+ * - ```.clear-each-{%count}@{state}``` : helpers clear-each
+ * - ```.gutter-{%side}@{state}``` : helpers gutter
+ * - ```.no-gutter-{%side}@{state}``` : helpers no-gutter
+ * - ```.auto-height@{state}``` : helpers auto-height
+ * - ```.order-{%column-count}@{state}``` : helpers order
+ *
+ * @param 		{String|List<String>} 		[$states=all] 		The states to generate the classes for
+ * @param 		{String|List<String>} 		[$package=all] 		The packages to generate the classes for
+ * @param 		{String} 					[$scope=null] 		A classname to scope the classes in
+ *
+ * @example 	scss
+ * // generate all the classes
+ * \@include g-classes();
+ * // generate only certain states
+ * \@include g-classes(mobile tablet);
+ * // generate only the helpers for all the states
+ * \@include g-classes(all, helpers);
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * @name 	Default driver API
+ * This are all the API mixins that are exposed by gridle for the default driver.
+ */
+/**
+ * Set the element as a row
+ * @param 		{Boolean} 		[$reverse=false] 		Revert the columns order if true
+ * @example 	scss
+ * .my-cool-row {
+ * 	\@include g-row();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the element as a col
+ * @param 		{Boolean} 		[$reverse=false] 		Revert the columns order if true
+ * @example 	scss
+ * .my-cool-col {
+ * 	\@include g-col();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply a nowrap on the element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-nowrap();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Reset the nowrap on the element
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-wrap();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Apply a column width on the element
+ * @param 		{Integer|String} 		$columns 			The column count to apply or a registered column name
+ * @param 		{Integer} 				[$context=null]  	The context on which to calculate the column width. If null, take the context setted with ```g-setup```
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the grid element as a table display type
+ * @example 	scss
+ * .my-cool-column {
+ * 	\@include g-grid(2);
+ * 	\@include g-grid-table();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the width of the row element to full viewport width
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-row();
+ * 	\@include g-row-full();
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the width of the grid element to adapt to his content
+ * @example 	scss
+ * .my-cool-column {
+ *  \@include g-grid-adapt();
+ *  // or
+ *  \@include g-grid(adapt);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the width of the grid element to grow depending on the place it has at disposal
+ * @example 	scss
+ * .my-cool-column {
+ *  \@include g-grid-grow();
+ *  // or
+ *  \@include g-grid(grow);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Clear each n childs
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-clear-each(2);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the alignement of the columns inside the row using these alignement properties:
+ *
+ * - top : Align vertical top
+ * - middle : Align vertical middle
+ * - bottom : Align vertical bottom
+ * - left : Align horizontal left
+ * - center : Align horizontal center
+ * - right : Align horizontal right
+ *
+ * @example 	scss
+ * .my-cool-row {
+ *  \@include g-row-align(middle center);
+ *  \@include g-row-align(right);
+ *  \@include g-row-align(middle);
+ *  // etc...
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+	 * @name 	default State
+	 * Here's the settings for the **default** state.
+	 * @styleguide 	Gridle / States
+	 * @display 	gridle-settings
+	 * @gridle-name 	default
+	 * @gridle-min-width 	
+	 * @gridle-max-width 	
+	 * @gridle-query 	
+	 * @gridle-classes 	true
+	 * @gridle-context 	12
+	 * @gridle-gutter-width 	16px
+	 * @gridle-gutter-height 	16px
+	 * @gridle-gutter-top 	8px
+	 * @gridle-gutter-right 	8px
+	 * @gridle-gutter-bottom 	8px
+	 * @gridle-gutter-left 	8px
+	 * @gridle-direction 	ltr
+	 * @gridle-dir-attribute 	false
+	 * @gridle-name-multiplicator 	1
+	 * @gridle-states-classes 	false
+	 * @gridle-classes-prefix 	
+	 */
+/**
+	 * @name 	tablet State
+	 * Here's the settings for the **tablet** state.
+	 * @styleguide 	Gridle / States
+	 * @display 	gridle-settings
+	 * @gridle-name 	tablet
+	 * @gridle-min-width 	768px
+	 * @gridle-max-width 	
+	 * @gridle-query 	
+	 * @gridle-classes 	true
+	 * @gridle-context 	12
+	 * @gridle-gutter-width 	16px
+	 * @gridle-gutter-height 	16px
+	 * @gridle-gutter-top 	8px
+	 * @gridle-gutter-right 	8px
+	 * @gridle-gutter-bottom 	8px
+	 * @gridle-gutter-left 	8px
+	 * @gridle-direction 	ltr
+	 * @gridle-dir-attribute 	false
+	 * @gridle-name-multiplicator 	1
+	 * @gridle-states-classes 	false
+	 * @gridle-classes-prefix 	
+	 */
+/**
+	 * @name 	desktop State
+	 * Here's the settings for the **desktop** state.
+	 * @styleguide 	Gridle / States
+	 * @display 	gridle-settings
+	 * @gridle-name 	desktop
+	 * @gridle-min-width 	1000px
+	 * @gridle-max-width 	
+	 * @gridle-query 	
+	 * @gridle-classes 	true
+	 * @gridle-context 	12
+	 * @gridle-gutter-width 	16px
+	 * @gridle-gutter-height 	16px
+	 * @gridle-gutter-top 	8px
+	 * @gridle-gutter-right 	8px
+	 * @gridle-gutter-bottom 	8px
+	 * @gridle-gutter-left 	8px
+	 * @gridle-direction 	ltr
+	 * @gridle-dir-attribute 	false
+	 * @gridle-name-multiplicator 	1
+	 * @gridle-states-classes 	false
+	 * @gridle-classes-prefix 	
+	 */
+.container:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.row:before, .row-reverse:before, .row:after, .row-reverse:after {
+  content: "";
+  display: table; }
+
+.row:after, .row-reverse:after {
+  clear: both; }
+
+.row, .row-reverse {
+  zoom: 1; }
+
+.gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
+  display: inline-block;
+  min-height: 1px;
+  line-height: 1;
+  float: left;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: top;
+  padding-right: 8px;
+  padding-left: 8px; }
+
+.gr-adapt {
+  display: table-cell;
+  width: 1px;
+  white-space: nowrap !important;
+  line-height: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 8px;
+  padding-left: 8px; }
+
+.gr-grow {
+  display: table-cell;
+  width: 99999px;
+  line-height: 1;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-right: 8px;
+  padding-left: 8px; }
+
+.push-0, .push-1, .push-2, .push-3, .push-4, .push-5, .push-6, .push-7, .push-8, .push-9, .push-10, .push-11, .push-12 {
+  position: relative; }
+
+.pull-0, .pull-1, .pull-2, .pull-3, .pull-4, .pull-5, .pull-6, .pull-7, .pull-8, .pull-9, .pull-10, .pull-11, .pull-12 {
+  position: relative; }
+
+.nowrap {
+  white-space: nowrap; }
+  .nowrap > * {
+    white-space: normal; }
+
+.wrap {
+  white-space: normal; }
+
+.gr-centered {
+  display: block !important;
+  float: none !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  clear: both !important; }
+
+@media screen and (min-width: 768px) {
+  .container\@tablet:after {
+    content: "";
+    display: table;
+    clear: both; } }
+
+@media screen and (min-width: 768px) {
+  .row\@tablet:before, .row-reverse\@tablet:before, .row\@tablet:after, .row-reverse\@tablet:after {
+    content: "";
+    display: table; }
+  .row\@tablet:after, .row-reverse\@tablet:after {
+    clear: both; }
+  .row\@tablet, .row-reverse\@tablet {
+    zoom: 1; } }
+
+@media screen and (min-width: 768px) {
+  .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet {
+    display: inline-block;
+    min-height: 1px;
+    line-height: 1;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-right: 8px;
+    padding-left: 8px; } }
+
+@media screen and (min-width: 768px) {
+  .gr-adapt\@tablet {
+    display: table-cell;
+    width: 1px;
+    white-space: nowrap !important;
+    line-height: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 8px;
+    padding-left: 8px; } }
+
+@media screen and (min-width: 768px) {
+  .gr-grow\@tablet {
+    display: table-cell;
+    width: 99999px;
+    line-height: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 8px;
+    padding-left: 8px; } }
+
+@media screen and (min-width: 768px) {
+  .push-0\@tablet, .push-1\@tablet, .push-2\@tablet, .push-3\@tablet, .push-4\@tablet, .push-5\@tablet, .push-6\@tablet, .push-7\@tablet, .push-8\@tablet, .push-9\@tablet, .push-10\@tablet, .push-11\@tablet, .push-12\@tablet {
+    position: relative; } }
+
+@media screen and (min-width: 768px) {
+  .pull-0\@tablet, .pull-1\@tablet, .pull-2\@tablet, .pull-3\@tablet, .pull-4\@tablet, .pull-5\@tablet, .pull-6\@tablet, .pull-7\@tablet, .pull-8\@tablet, .pull-9\@tablet, .pull-10\@tablet, .pull-11\@tablet, .pull-12\@tablet {
+    position: relative; } }
+
+@media screen and (min-width: 768px) {
+  .nowrap\@tablet {
+    white-space: nowrap; }
+    .nowrap\@tablet > * {
+      white-space: normal; } }
+
+@media screen and (min-width: 768px) {
+  .wrap\@tablet {
+    white-space: normal; } }
+
+@media screen and (min-width: 768px) {
+  .gr-centered\@tablet {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important; } }
+
+@media screen and (min-width: 1000px) {
+  .container\@desktop:after {
+    content: "";
+    display: table;
+    clear: both; } }
+
+@media screen and (min-width: 1000px) {
+  .row\@desktop:before, .row-reverse\@desktop:before, .row\@desktop:after, .row-reverse\@desktop:after {
+    content: "";
+    display: table; }
+  .row\@desktop:after, .row-reverse\@desktop:after {
+    clear: both; }
+  .row\@desktop, .row-reverse\@desktop {
+    zoom: 1; } }
+
+@media screen and (min-width: 1000px) {
+  .gr-0\@desktop, .gr-1\@desktop, .gr-2\@desktop, .gr-3\@desktop, .gr-4\@desktop, .gr-5\@desktop, .gr-6\@desktop, .gr-7\@desktop, .gr-8\@desktop, .gr-9\@desktop, .gr-10\@desktop, .gr-11\@desktop, .gr-12\@desktop {
+    display: inline-block;
+    min-height: 1px;
+    line-height: 1;
+    float: left;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: top;
+    padding-right: 8px;
+    padding-left: 8px; } }
+
+@media screen and (min-width: 1000px) {
+  .gr-adapt\@desktop {
+    display: table-cell;
+    width: 1px;
+    white-space: nowrap !important;
+    line-height: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 8px;
+    padding-left: 8px; } }
+
+@media screen and (min-width: 1000px) {
+  .gr-grow\@desktop {
+    display: table-cell;
+    width: 99999px;
+    line-height: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding-right: 8px;
+    padding-left: 8px; } }
+
+@media screen and (min-width: 1000px) {
+  .push-0\@desktop, .push-1\@desktop, .push-2\@desktop, .push-3\@desktop, .push-4\@desktop, .push-5\@desktop, .push-6\@desktop, .push-7\@desktop, .push-8\@desktop, .push-9\@desktop, .push-10\@desktop, .push-11\@desktop, .push-12\@desktop {
+    position: relative; } }
+
+@media screen and (min-width: 1000px) {
+  .pull-0\@desktop, .pull-1\@desktop, .pull-2\@desktop, .pull-3\@desktop, .pull-4\@desktop, .pull-5\@desktop, .pull-6\@desktop, .pull-7\@desktop, .pull-8\@desktop, .pull-9\@desktop, .pull-10\@desktop, .pull-11\@desktop, .pull-12\@desktop {
+    position: relative; } }
+
+@media screen and (min-width: 1000px) {
+  .nowrap\@desktop {
+    white-space: nowrap; }
+    .nowrap\@desktop > * {
+      white-space: normal; } }
+
+@media screen and (min-width: 1000px) {
+  .wrap\@desktop {
+    white-space: normal; } }
+
+@media screen and (min-width: 1000px) {
+  .gr-centered\@desktop {
+    display: block !important;
+    float: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    clear: both !important; } }
+
+@media screen and (max-width: 400px) {
+  @-ms-viewport {
+    width: device-width; } }
+
+#gridle-settings {
+  content: '{ "version" : "3.0.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "768px", "max-width" : null, "query" : "screen and (min-width: 768px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }, "desktop":{ "name" : "desktop", "min-width" : "1000px", "max-width" : null, "query" : "screen and (min-width: 1000px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }} }'; }
+
+/**
+	 * @name 	Columns
+	 * Grid columns available
+	 * @styleguide 	Gridle / Columns
+	 * @example 	html
+	 * <style>
+	 * .row.gridle-styleguide {
+	 * 	margin-bottom: 16px;
+	 * }
+	 * [class*="gr-"].gridle-styleguide {
+	 * 	background:#eee;
+	 * 	padding:16px;
+	 * }
+	 * </style>
+	 * <div class="gridle-styleguide .container">
+	 *   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-1"> .gr-1 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-2"> .gr-2 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-3"> .gr-3 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-4"> .gr-4 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-5"> .gr-5 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-6"> .gr-6 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-7"> .gr-7 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-8"> .gr-8 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-9"> .gr-9 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-10"> .gr-10 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-11"> .gr-11 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-12"> .gr-12 </div> </div> 
+	 * </div>
+	 */
+.gr-0 {
+  width: 0%; }
+
+.push-0 {
+  left: 0%;
+  right: auto; }
+
+.pull-0 {
+  right: 0%;
+  left: auto; }
+
+.prefix-0 {
+  margin-left: 0%; }
+
+.suffix-0 {
+  margin-right: 0%; }
+
+.gr-1 {
+  width: 8.33333%; }
+
+.push-1 {
+  left: 8.33333%;
+  right: auto; }
+
+.pull-1 {
+  right: 8.33333%;
+  left: auto; }
+
+.prefix-1 {
+  margin-left: 8.33333%; }
+
+.suffix-1 {
+  margin-right: 8.33333%; }
+
+.gr-2 {
+  width: 16.66667%; }
+
+.push-2 {
+  left: 16.66667%;
+  right: auto; }
+
+.pull-2 {
+  right: 16.66667%;
+  left: auto; }
+
+.prefix-2 {
+  margin-left: 16.66667%; }
+
+.suffix-2 {
+  margin-right: 16.66667%; }
+
+.gr-3 {
+  width: 25%; }
+
+.push-3 {
+  left: 25%;
+  right: auto; }
+
+.pull-3 {
+  right: 25%;
+  left: auto; }
+
+.prefix-3 {
+  margin-left: 25%; }
+
+.suffix-3 {
+  margin-right: 25%; }
+
+.gr-4 {
+  width: 33.33333%; }
+
+.push-4 {
+  left: 33.33333%;
+  right: auto; }
+
+.pull-4 {
+  right: 33.33333%;
+  left: auto; }
+
+.prefix-4 {
+  margin-left: 33.33333%; }
+
+.suffix-4 {
+  margin-right: 33.33333%; }
+
+.gr-5 {
+  width: 41.66667%; }
+
+.push-5 {
+  left: 41.66667%;
+  right: auto; }
+
+.pull-5 {
+  right: 41.66667%;
+  left: auto; }
+
+.prefix-5 {
+  margin-left: 41.66667%; }
+
+.suffix-5 {
+  margin-right: 41.66667%; }
+
+.gr-6 {
+  width: 50%; }
+
+.push-6 {
+  left: 50%;
+  right: auto; }
+
+.pull-6 {
+  right: 50%;
+  left: auto; }
+
+.prefix-6 {
+  margin-left: 50%; }
+
+.suffix-6 {
+  margin-right: 50%; }
+
+.gr-7 {
+  width: 58.33333%; }
+
+.push-7 {
+  left: 58.33333%;
+  right: auto; }
+
+.pull-7 {
+  right: 58.33333%;
+  left: auto; }
+
+.prefix-7 {
+  margin-left: 58.33333%; }
+
+.suffix-7 {
+  margin-right: 58.33333%; }
+
+.gr-8 {
+  width: 66.66667%; }
+
+.push-8 {
+  left: 66.66667%;
+  right: auto; }
+
+.pull-8 {
+  right: 66.66667%;
+  left: auto; }
+
+.prefix-8 {
+  margin-left: 66.66667%; }
+
+.suffix-8 {
+  margin-right: 66.66667%; }
+
+.gr-9 {
+  width: 75%; }
+
+.push-9 {
+  left: 75%;
+  right: auto; }
+
+.pull-9 {
+  right: 75%;
+  left: auto; }
+
+.prefix-9 {
+  margin-left: 75%; }
+
+.suffix-9 {
+  margin-right: 75%; }
+
+.gr-10 {
+  width: 83.33333%; }
+
+.push-10 {
+  left: 83.33333%;
+  right: auto; }
+
+.pull-10 {
+  right: 83.33333%;
+  left: auto; }
+
+.prefix-10 {
+  margin-left: 83.33333%; }
+
+.suffix-10 {
+  margin-right: 83.33333%; }
+
+.gr-11 {
+  width: 91.66667%; }
+
+.push-11 {
+  left: 91.66667%;
+  right: auto; }
+
+.pull-11 {
+  right: 91.66667%;
+  left: auto; }
+
+.prefix-11 {
+  margin-left: 91.66667%; }
+
+.suffix-11 {
+  margin-right: 91.66667%; }
+
+.gr-12 {
+  width: 100%; }
+
+.push-12 {
+  left: 100%;
+  right: auto; }
+
+.pull-12 {
+  right: 100%;
+  left: auto; }
+
+.prefix-12 {
+  margin-left: 100%; }
+
+.suffix-12 {
+  margin-right: 100%; }
+
+body {
+  direction: ltr; }
+
+@media screen and (min-width: 768px) {
+  .gr-0\@tablet {
+    width: 0%; }
+  .push-0\@tablet {
+    left: 0%;
+    right: auto; }
+  .pull-0\@tablet {
+    right: 0%;
+    left: auto; }
+  .prefix-0\@tablet {
+    margin-left: 0%; }
+  .suffix-0\@tablet {
+    margin-right: 0%; }
+  .gr-1\@tablet {
+    width: 8.33333%; }
+  .push-1\@tablet {
+    left: 8.33333%;
+    right: auto; }
+  .pull-1\@tablet {
+    right: 8.33333%;
+    left: auto; }
+  .prefix-1\@tablet {
+    margin-left: 8.33333%; }
+  .suffix-1\@tablet {
+    margin-right: 8.33333%; }
+  .gr-2\@tablet {
+    width: 16.66667%; }
+  .push-2\@tablet {
+    left: 16.66667%;
+    right: auto; }
+  .pull-2\@tablet {
+    right: 16.66667%;
+    left: auto; }
+  .prefix-2\@tablet {
+    margin-left: 16.66667%; }
+  .suffix-2\@tablet {
+    margin-right: 16.66667%; }
+  .gr-3\@tablet {
+    width: 25%; }
+  .push-3\@tablet {
+    left: 25%;
+    right: auto; }
+  .pull-3\@tablet {
+    right: 25%;
+    left: auto; }
+  .prefix-3\@tablet {
+    margin-left: 25%; }
+  .suffix-3\@tablet {
+    margin-right: 25%; }
+  .gr-4\@tablet {
+    width: 33.33333%; }
+  .push-4\@tablet {
+    left: 33.33333%;
+    right: auto; }
+  .pull-4\@tablet {
+    right: 33.33333%;
+    left: auto; }
+  .prefix-4\@tablet {
+    margin-left: 33.33333%; }
+  .suffix-4\@tablet {
+    margin-right: 33.33333%; }
+  .gr-5\@tablet {
+    width: 41.66667%; }
+  .push-5\@tablet {
+    left: 41.66667%;
+    right: auto; }
+  .pull-5\@tablet {
+    right: 41.66667%;
+    left: auto; }
+  .prefix-5\@tablet {
+    margin-left: 41.66667%; }
+  .suffix-5\@tablet {
+    margin-right: 41.66667%; }
+  .gr-6\@tablet {
+    width: 50%; }
+  .push-6\@tablet {
+    left: 50%;
+    right: auto; }
+  .pull-6\@tablet {
+    right: 50%;
+    left: auto; }
+  .prefix-6\@tablet {
+    margin-left: 50%; }
+  .suffix-6\@tablet {
+    margin-right: 50%; }
+  .gr-7\@tablet {
+    width: 58.33333%; }
+  .push-7\@tablet {
+    left: 58.33333%;
+    right: auto; }
+  .pull-7\@tablet {
+    right: 58.33333%;
+    left: auto; }
+  .prefix-7\@tablet {
+    margin-left: 58.33333%; }
+  .suffix-7\@tablet {
+    margin-right: 58.33333%; }
+  .gr-8\@tablet {
+    width: 66.66667%; }
+  .push-8\@tablet {
+    left: 66.66667%;
+    right: auto; }
+  .pull-8\@tablet {
+    right: 66.66667%;
+    left: auto; }
+  .prefix-8\@tablet {
+    margin-left: 66.66667%; }
+  .suffix-8\@tablet {
+    margin-right: 66.66667%; }
+  .gr-9\@tablet {
+    width: 75%; }
+  .push-9\@tablet {
+    left: 75%;
+    right: auto; }
+  .pull-9\@tablet {
+    right: 75%;
+    left: auto; }
+  .prefix-9\@tablet {
+    margin-left: 75%; }
+  .suffix-9\@tablet {
+    margin-right: 75%; }
+  .gr-10\@tablet {
+    width: 83.33333%; }
+  .push-10\@tablet {
+    left: 83.33333%;
+    right: auto; }
+  .pull-10\@tablet {
+    right: 83.33333%;
+    left: auto; }
+  .prefix-10\@tablet {
+    margin-left: 83.33333%; }
+  .suffix-10\@tablet {
+    margin-right: 83.33333%; }
+  .gr-11\@tablet {
+    width: 91.66667%; }
+  .push-11\@tablet {
+    left: 91.66667%;
+    right: auto; }
+  .pull-11\@tablet {
+    right: 91.66667%;
+    left: auto; }
+  .prefix-11\@tablet {
+    margin-left: 91.66667%; }
+  .suffix-11\@tablet {
+    margin-right: 91.66667%; }
+  .gr-12\@tablet {
+    width: 100%; }
+  .push-12\@tablet {
+    left: 100%;
+    right: auto; }
+  .pull-12\@tablet {
+    right: 100%;
+    left: auto; }
+  .prefix-12\@tablet {
+    margin-left: 100%; }
+  .suffix-12\@tablet {
+    margin-right: 100%; }
+  body {
+    direction: ltr; } }
+
+@media screen and (min-width: 1000px) {
+  .gr-0\@desktop {
+    width: 0%; }
+  .push-0\@desktop {
+    left: 0%;
+    right: auto; }
+  .pull-0\@desktop {
+    right: 0%;
+    left: auto; }
+  .prefix-0\@desktop {
+    margin-left: 0%; }
+  .suffix-0\@desktop {
+    margin-right: 0%; }
+  .gr-1\@desktop {
+    width: 8.33333%; }
+  .push-1\@desktop {
+    left: 8.33333%;
+    right: auto; }
+  .pull-1\@desktop {
+    right: 8.33333%;
+    left: auto; }
+  .prefix-1\@desktop {
+    margin-left: 8.33333%; }
+  .suffix-1\@desktop {
+    margin-right: 8.33333%; }
+  .gr-2\@desktop {
+    width: 16.66667%; }
+  .push-2\@desktop {
+    left: 16.66667%;
+    right: auto; }
+  .pull-2\@desktop {
+    right: 16.66667%;
+    left: auto; }
+  .prefix-2\@desktop {
+    margin-left: 16.66667%; }
+  .suffix-2\@desktop {
+    margin-right: 16.66667%; }
+  .gr-3\@desktop {
+    width: 25%; }
+  .push-3\@desktop {
+    left: 25%;
+    right: auto; }
+  .pull-3\@desktop {
+    right: 25%;
+    left: auto; }
+  .prefix-3\@desktop {
+    margin-left: 25%; }
+  .suffix-3\@desktop {
+    margin-right: 25%; }
+  .gr-4\@desktop {
+    width: 33.33333%; }
+  .push-4\@desktop {
+    left: 33.33333%;
+    right: auto; }
+  .pull-4\@desktop {
+    right: 33.33333%;
+    left: auto; }
+  .prefix-4\@desktop {
+    margin-left: 33.33333%; }
+  .suffix-4\@desktop {
+    margin-right: 33.33333%; }
+  .gr-5\@desktop {
+    width: 41.66667%; }
+  .push-5\@desktop {
+    left: 41.66667%;
+    right: auto; }
+  .pull-5\@desktop {
+    right: 41.66667%;
+    left: auto; }
+  .prefix-5\@desktop {
+    margin-left: 41.66667%; }
+  .suffix-5\@desktop {
+    margin-right: 41.66667%; }
+  .gr-6\@desktop {
+    width: 50%; }
+  .push-6\@desktop {
+    left: 50%;
+    right: auto; }
+  .pull-6\@desktop {
+    right: 50%;
+    left: auto; }
+  .prefix-6\@desktop {
+    margin-left: 50%; }
+  .suffix-6\@desktop {
+    margin-right: 50%; }
+  .gr-7\@desktop {
+    width: 58.33333%; }
+  .push-7\@desktop {
+    left: 58.33333%;
+    right: auto; }
+  .pull-7\@desktop {
+    right: 58.33333%;
+    left: auto; }
+  .prefix-7\@desktop {
+    margin-left: 58.33333%; }
+  .suffix-7\@desktop {
+    margin-right: 58.33333%; }
+  .gr-8\@desktop {
+    width: 66.66667%; }
+  .push-8\@desktop {
+    left: 66.66667%;
+    right: auto; }
+  .pull-8\@desktop {
+    right: 66.66667%;
+    left: auto; }
+  .prefix-8\@desktop {
+    margin-left: 66.66667%; }
+  .suffix-8\@desktop {
+    margin-right: 66.66667%; }
+  .gr-9\@desktop {
+    width: 75%; }
+  .push-9\@desktop {
+    left: 75%;
+    right: auto; }
+  .pull-9\@desktop {
+    right: 75%;
+    left: auto; }
+  .prefix-9\@desktop {
+    margin-left: 75%; }
+  .suffix-9\@desktop {
+    margin-right: 75%; }
+  .gr-10\@desktop {
+    width: 83.33333%; }
+  .push-10\@desktop {
+    left: 83.33333%;
+    right: auto; }
+  .pull-10\@desktop {
+    right: 83.33333%;
+    left: auto; }
+  .prefix-10\@desktop {
+    margin-left: 83.33333%; }
+  .suffix-10\@desktop {
+    margin-right: 83.33333%; }
+  .gr-11\@desktop {
+    width: 91.66667%; }
+  .push-11\@desktop {
+    left: 91.66667%;
+    right: auto; }
+  .pull-11\@desktop {
+    right: 91.66667%;
+    left: auto; }
+  .prefix-11\@desktop {
+    margin-left: 91.66667%; }
+  .suffix-11\@desktop {
+    margin-right: 91.66667%; }
+  .gr-12\@desktop {
+    width: 100%; }
+  .push-12\@desktop {
+    left: 100%;
+    right: auto; }
+  .pull-12\@desktop {
+    right: 100%;
+    left: auto; }
+  .prefix-12\@desktop {
+    margin-left: 100%; }
+  .suffix-12\@desktop {
+    margin-right: 100%; }
+  body {
+    direction: ltr; } }
+
+.float-left {
+  float: left; }
+
+.float-right {
+  float: right; }
+
+.clear {
+  clear: both; }
+
+.clear-left {
+  clear: left; }
+
+.clear-right {
+  clear: right; }
+
+.auto-height {
+  height: inherit;
+  min-height: inherit;
+  max-height: inherit; }
+
+.row {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: -8px;
+  margin-right: -8px; }
+  [class*="no-gutter"] > .row {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+
+.row-reverse {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: -8px;
+  margin-right: -8px;
+  transform: rotateY(180deg); }
+  .row-reverse > [class*="gr-"] {
+    transform: rotateY(-180deg); }
+  [class*="no-gutter"] > .row-reverse {
+    margin-left: 0 !important;
+    margin-right: 0 !important; }
+
+.row-full {
+  width: 100vw;
+  margin-left: 50% !important;
+  margin-right: 0 !important;
+  -webkit-transform: translateX(-50%);
+  -moz-transition: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  -o-transform: translateX(-50%);
+  transform: translateX(-50%); }
+
+.col {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: -8px;
+  margin-right: -8px; }
+
+.col-reverse {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: -8px;
+  margin-right: -8px;
+  transform: rotateX(180deg); }
+  .col-reverse > [class*="gr-"] {
+    transform: rotateX(-180deg); }
+
+.gr-table {
+  display: table-cell;
+  float: none;
+  vertical-align: top; }
+
+.row-no-gutter {
+  margin-left: 0;
+  margin-right: 0; }
+  .row-no-gutter > [class*="gr-"] {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0; }
+
+.row-no-gutter-top {
+  margin-left: 0;
+  margin-right: 0; }
+  .row-no-gutter-top > [class*="gr-"] {
+    padding-top: 0; }
+
+.row-no-gutter-right {
+  margin-left: 0;
+  margin-right: 0; }
+  .row-no-gutter-right > [class*="gr-"] {
+    padding-right: 0; }
+
+.row-no-gutter-bottom {
+  margin-left: 0;
+  margin-right: 0; }
+  .row-no-gutter-bottom > [class*="gr-"] {
+    padding-bottom: 0; }
+
+.row-no-gutter-left {
+  margin-left: 0;
+  margin-right: 0; }
+  .row-no-gutter-left > [class*="gr-"] {
+    padding-left: 0; }
+
+.row-align-left {
+  font-size: 0;
+  word-spacing: 0;
+  letter-spacing: 0;
+  clear: both;
+  text-align: left; }
+  .row-align-left > * {
+    word-spacing: normal;
+    letter-spacing: normal;
+    float: none !important;
+    vertical-align: top;
+    font-size: 1rem; }
+
+.row-align-center {
+  font-size: 0;
+  word-spacing: 0;
+  letter-spacing: 0;
+  clear: both;
+  text-align: center; }
+  .row-align-center > * {
+    word-spacing: normal;
+    letter-spacing: normal;
+    float: none !important;
+    vertical-align: top;
+    font-size: 1rem; }
+  .row-align-center > * {
+    text-align: left; }
+
+.row-align-right {
+  font-size: 0;
+  word-spacing: 0;
+  letter-spacing: 0;
+  clear: both;
+  text-align: right; }
+  .row-align-right > * {
+    word-spacing: normal;
+    letter-spacing: normal;
+    float: none !important;
+    vertical-align: top;
+    font-size: 1rem; }
+  .row-align-right > * {
+    text-align: left; }
+
+.row-align-middle {
+  font-size: 0;
+  word-spacing: 0;
+  letter-spacing: 0;
+  clear: both;
+  vertical-align: middle; }
+  .row-align-middle > * {
+    word-spacing: normal;
+    letter-spacing: normal;
+    float: none !important;
+    vertical-align: middle;
+    font-size: 1rem; }
+
+.row-align-top {
+  font-size: 0;
+  word-spacing: 0;
+  letter-spacing: 0;
+  clear: both;
+  vertical-align: top; }
+  .row-align-top > * {
+    word-spacing: normal;
+    letter-spacing: normal;
+    float: none !important;
+    vertical-align: top;
+    font-size: 1rem; }
+
+.row-align-bottom {
+  font-size: 0;
+  word-spacing: 0;
+  letter-spacing: 0;
+  clear: both;
+  vertical-align: bottom; }
+  .row-align-bottom > * {
+    word-spacing: normal;
+    letter-spacing: normal;
+    float: none !important;
+    vertical-align: bottom;
+    font-size: 1rem; }
+
+.no-gutter {
+  padding-top: 0;
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0; }
+
+.no-gutter-left {
+  padding-left: 0; }
+
+.no-gutter-right {
+  padding-right: 0; }
+
+.no-gutter-top {
+  padding-top: 0; }
+
+.no-gutter-bottom {
+  padding-bottom: 0; }
+
+.gutter {
+  padding-top: 8px;
+  padding-right: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px; }
+
+.gutter-left {
+  padding-left: 8px; }
+
+.gutter-right {
+  padding-right: 8px; }
+
+.gutter-top {
+  padding-top: 8px; }
+
+.gutter-bottom {
+  padding-bottom: 8px; }
+
+.hide {
+  display: none !important; }
+
+.not-visible {
+  visibility: hidden; }
+
+.show {
+  display: block !important; }
+
+.show-inline {
+  display: inline-block !important; }
+
+.visible {
+  visibility: visible; }
+
+.clear-each-2 > [class*="gr-"]:nth-of-type(1n+0) {
+  clear: none; }
+
+.clear-each-2 > [class*="gr-"]:nth-of-type(2n+1) {
+  clear: both; }
+
+.clear-each-3 > [class*="gr-"]:nth-of-type(1n+0) {
+  clear: none; }
+
+.clear-each-3 > [class*="gr-"]:nth-of-type(3n+1) {
+  clear: both; }
+
+.clear-each-4 > [class*="gr-"]:nth-of-type(1n+0) {
+  clear: none; }
+
+.clear-each-4 > [class*="gr-"]:nth-of-type(4n+1) {
+  clear: both; }
+
+.row-debug {
+  position: relative;
+  z-index: 99999;
+  overflow: hidden; }
+  .row-debug:before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 99999px;
+    background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+    background-size: 16.66667% 100%;
+    z-index: 99999; }
+
+@media screen and (min-width: 768px) {
+  .float-left\@tablet {
+    float: left; }
+  .float-right\@tablet {
+    float: right; }
+  .clear\@tablet {
+    clear: both; }
+  .clear-left\@tablet {
+    clear: left; }
+  .clear-right\@tablet {
+    clear: right; }
+  .auto-height\@tablet {
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit; }
+  .row\@tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px; }
+    [class*="no-gutter"] > .row\@tablet {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+  .row-reverse\@tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px;
+    transform: rotateY(180deg); }
+    .row-reverse\@tablet > [class*="gr-"] {
+      transform: rotateY(-180deg); }
+    [class*="no-gutter"] > .row-reverse\@tablet {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+  .row-full\@tablet {
+    width: 100vw;
+    margin-left: 50% !important;
+    margin-right: 0 !important;
+    -webkit-transform: translateX(-50%);
+    -moz-transition: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .col\@tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px; }
+  .col-reverse\@tablet {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px;
+    transform: rotateX(180deg); }
+    .col-reverse\@tablet > [class*="gr-"] {
+      transform: rotateX(-180deg); }
+  .gr-table\@tablet {
+    display: table-cell;
+    float: none;
+    vertical-align: top; }
+  .row-no-gutter\@tablet {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter\@tablet > [class*="gr-"] {
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-left: 0; }
+  .row-no-gutter-top\@tablet {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-top\@tablet > [class*="gr-"] {
+      padding-top: 0; }
+  .row-no-gutter-right\@tablet {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-right\@tablet > [class*="gr-"] {
+      padding-right: 0; }
+  .row-no-gutter-bottom\@tablet {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-bottom\@tablet > [class*="gr-"] {
+      padding-bottom: 0; }
+  .row-no-gutter-left\@tablet {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-left\@tablet > [class*="gr-"] {
+      padding-left: 0; }
+  .row-align-left\@tablet {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    text-align: left; }
+    .row-align-left\@tablet > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+  .row-align-center\@tablet {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    text-align: center; }
+    .row-align-center\@tablet > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+    .row-align-center\@tablet > * {
+      text-align: left; }
+  .row-align-right\@tablet {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    text-align: right; }
+    .row-align-right\@tablet > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+    .row-align-right\@tablet > * {
+      text-align: left; }
+  .row-align-middle\@tablet {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    vertical-align: middle; }
+    .row-align-middle\@tablet > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: middle;
+      font-size: 1rem; }
+  .row-align-top\@tablet {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    vertical-align: top; }
+    .row-align-top\@tablet > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+  .row-align-bottom\@tablet {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    vertical-align: bottom; }
+    .row-align-bottom\@tablet > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: bottom;
+      font-size: 1rem; }
+  .no-gutter\@tablet {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0; }
+  .no-gutter-left\@tablet {
+    padding-left: 0; }
+  .no-gutter-right\@tablet {
+    padding-right: 0; }
+  .no-gutter-top\@tablet {
+    padding-top: 0; }
+  .no-gutter-bottom\@tablet {
+    padding-bottom: 0; }
+  .gutter\@tablet {
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px; }
+  .gutter-left\@tablet {
+    padding-left: 8px; }
+  .gutter-right\@tablet {
+    padding-right: 8px; }
+  .gutter-top\@tablet {
+    padding-top: 8px; }
+  .gutter-bottom\@tablet {
+    padding-bottom: 8px; }
+  .hide\@tablet {
+    display: none !important; }
+  .not-visible\@tablet {
+    visibility: hidden; }
+  .show\@tablet {
+    display: block !important; }
+  .show-inline\@tablet {
+    display: inline-block !important; }
+  .visible\@tablet {
+    visibility: visible; }
+  .clear-each-2\@tablet > [class*="gr-"]:nth-of-type(1n+0) {
+    clear: none; }
+  .clear-each-2\@tablet > [class*="gr-"]:nth-of-type(2n+1) {
+    clear: both; }
+  .clear-each-3\@tablet > [class*="gr-"]:nth-of-type(1n+0) {
+    clear: none; }
+  .clear-each-3\@tablet > [class*="gr-"]:nth-of-type(3n+1) {
+    clear: both; }
+  .clear-each-4\@tablet > [class*="gr-"]:nth-of-type(1n+0) {
+    clear: none; }
+  .clear-each-4\@tablet > [class*="gr-"]:nth-of-type(4n+1) {
+    clear: both; }
+  .row-debug\@tablet {
+    position: relative;
+    z-index: 99999;
+    overflow: hidden; }
+    .row-debug\@tablet:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 99999px;
+      background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+      background-size: 16.66667% 100%;
+      z-index: 99999; } }
+
+@media screen and (min-width: 1000px) {
+  .float-left\@desktop {
+    float: left; }
+  .float-right\@desktop {
+    float: right; }
+  .clear\@desktop {
+    clear: both; }
+  .clear-left\@desktop {
+    clear: left; }
+  .clear-right\@desktop {
+    clear: right; }
+  .auto-height\@desktop {
+    height: inherit;
+    min-height: inherit;
+    max-height: inherit; }
+  .row\@desktop {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px; }
+    [class*="no-gutter"] > .row\@desktop {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+  .row-reverse\@desktop {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px;
+    transform: rotateY(180deg); }
+    .row-reverse\@desktop > [class*="gr-"] {
+      transform: rotateY(-180deg); }
+    [class*="no-gutter"] > .row-reverse\@desktop {
+      margin-left: 0 !important;
+      margin-right: 0 !important; }
+  .row-full\@desktop {
+    width: 100vw;
+    margin-left: 50% !important;
+    margin-right: 0 !important;
+    -webkit-transform: translateX(-50%);
+    -moz-transition: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%); }
+  .col\@desktop {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px; }
+  .col-reverse\@desktop {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: -8px;
+    margin-right: -8px;
+    transform: rotateX(180deg); }
+    .col-reverse\@desktop > [class*="gr-"] {
+      transform: rotateX(-180deg); }
+  .gr-table\@desktop {
+    display: table-cell;
+    float: none;
+    vertical-align: top; }
+  .row-no-gutter\@desktop {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter\@desktop > [class*="gr-"] {
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+      padding-left: 0; }
+  .row-no-gutter-top\@desktop {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-top\@desktop > [class*="gr-"] {
+      padding-top: 0; }
+  .row-no-gutter-right\@desktop {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-right\@desktop > [class*="gr-"] {
+      padding-right: 0; }
+  .row-no-gutter-bottom\@desktop {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-bottom\@desktop > [class*="gr-"] {
+      padding-bottom: 0; }
+  .row-no-gutter-left\@desktop {
+    margin-left: 0;
+    margin-right: 0; }
+    .row-no-gutter-left\@desktop > [class*="gr-"] {
+      padding-left: 0; }
+  .row-align-left\@desktop {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    text-align: left; }
+    .row-align-left\@desktop > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+  .row-align-center\@desktop {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    text-align: center; }
+    .row-align-center\@desktop > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+    .row-align-center\@desktop > * {
+      text-align: left; }
+  .row-align-right\@desktop {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    text-align: right; }
+    .row-align-right\@desktop > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+    .row-align-right\@desktop > * {
+      text-align: left; }
+  .row-align-middle\@desktop {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    vertical-align: middle; }
+    .row-align-middle\@desktop > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: middle;
+      font-size: 1rem; }
+  .row-align-top\@desktop {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    vertical-align: top; }
+    .row-align-top\@desktop > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: top;
+      font-size: 1rem; }
+  .row-align-bottom\@desktop {
+    font-size: 0;
+    word-spacing: 0;
+    letter-spacing: 0;
+    clear: both;
+    vertical-align: bottom; }
+    .row-align-bottom\@desktop > * {
+      word-spacing: normal;
+      letter-spacing: normal;
+      float: none !important;
+      vertical-align: bottom;
+      font-size: 1rem; }
+  .no-gutter\@desktop {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0; }
+  .no-gutter-left\@desktop {
+    padding-left: 0; }
+  .no-gutter-right\@desktop {
+    padding-right: 0; }
+  .no-gutter-top\@desktop {
+    padding-top: 0; }
+  .no-gutter-bottom\@desktop {
+    padding-bottom: 0; }
+  .gutter\@desktop {
+    padding-top: 8px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+    padding-left: 8px; }
+  .gutter-left\@desktop {
+    padding-left: 8px; }
+  .gutter-right\@desktop {
+    padding-right: 8px; }
+  .gutter-top\@desktop {
+    padding-top: 8px; }
+  .gutter-bottom\@desktop {
+    padding-bottom: 8px; }
+  .hide\@desktop {
+    display: none !important; }
+  .not-visible\@desktop {
+    visibility: hidden; }
+  .show\@desktop {
+    display: block !important; }
+  .show-inline\@desktop {
+    display: inline-block !important; }
+  .visible\@desktop {
+    visibility: visible; }
+  .clear-each-2\@desktop > [class*="gr-"]:nth-of-type(1n+0) {
+    clear: none; }
+  .clear-each-2\@desktop > [class*="gr-"]:nth-of-type(2n+1) {
+    clear: both; }
+  .clear-each-3\@desktop > [class*="gr-"]:nth-of-type(1n+0) {
+    clear: none; }
+  .clear-each-3\@desktop > [class*="gr-"]:nth-of-type(3n+1) {
+    clear: both; }
+  .clear-each-4\@desktop > [class*="gr-"]:nth-of-type(1n+0) {
+    clear: none; }
+  .clear-each-4\@desktop > [class*="gr-"]:nth-of-type(4n+1) {
+    clear: both; }
+  .row-debug\@desktop {
+    position: relative;
+    z-index: 99999;
+    overflow: hidden; }
+    .row-debug\@desktop:before {
+      pointer-events: none;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 99999px;
+      background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+      background-size: 16.66667% 100%;
+      z-index: 99999; } }
+
+[class*="gr-"] > [class^="row"],
+[class*="gr-"] > [class^="col"] {
+  margin-left: -8px;
+  margin-right: -8px; }
+
+@media screen and (min-width: 768px) {
+  [class*="gr-"] > [class^="row"],
+  [class*="gr-"] > [class^="col"] {
+    margin-left: -8px;
+    margin-right: -8px; } }
+
+@media screen and (min-width: 1000px) {
+  [class*="gr-"] > [class^="row"],
+  [class*="gr-"] > [class^="col"] {
+    margin-left: -8px;
+    margin-right: -8px; } }
