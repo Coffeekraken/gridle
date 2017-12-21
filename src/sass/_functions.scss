@@ -416,8 +416,12 @@
 	$state : current
 ) {
 	$map : ();
-	// check if is number passed
-	@if type-of($side-or-size) == map {
+	// if the parameter is "all", mean that we want all the gutters
+	@if $side-or-size == all {
+		@each $side in (top right bottom left) {
+			$map : map-set($map, $side, g-get-state-var("gutter-#{$side}", $state));
+		}
+	} @else if type-of($side-or-size) == map {
 		@each $side in (top right bottom left) {
 			@if map-get($side-or-size, $side) {
 				$map : map-set($map, $side, map-get($side-or-size, $side));

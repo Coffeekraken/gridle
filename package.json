@@ -1,14 +1,14 @@
 {
   "name": "coffeekraken-gridle",
   "description": "Gridle grid system",
-  "version": "3.0.0-rc.1",
+  "version": "3.0.0-rc.2",
   "homepage": "http://gridle.org",
   "main": "dist/js/gridle.js",
   "scripts": {
     "dist": "npm run dist.js",
     "dist.js": "babel src -d dist",
     "demo": "npm run demo.css && npm run demo.js && open http://localhost:8080/demo.html && npm run demo.server",
-    "demo.css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css && node-sass demo/src/sass/grid.scss demo/dist/css/grid.css && node-sass demo/src/sass/grid-flex.scss demo/dist/css/grid-flex.css",
+    "demo.css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css && node-sass demo/src/sass/grid.scss demo/dist/css/grid.css && node-sass demo/src/sass/grid-flex.scss demo/dist/css/grid-flex.css && node-sass demo/src/sass/grid-debug.scss demo/dist/css/grid-debug.css",
     "demo.js": "webpack",
     "demo.watch": "concurrently --kill-others \"npm run demo.watch.css\" \"npm run demo.watch.css\"",
     "demo.watch.css": "nodemon -w demo/src -w src -e scss -x \"npm run demo.css\"",
@@ -47,7 +47,7 @@
     "concurrently": "^3.4.0",
     "http-server": "^0.9.0",
     "jquery": "^3.1.1",
-    "node-sass": "^3.13.1",
+    "node-sass": "^4.0.0",
     "nodemon": "^1.11.0",
     "open": "0.0.5",
     "webpack": "^2.0.0"

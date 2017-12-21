@@ -1,0 +1,20 @@
+// Import gridle
+@import '../../../index';
+
+@include g-setup( (
+	context: 12,
+	gutter-width: 16px,
+	gutter-height: 16px
+  ) );
+
+  @include g-register-state (tablet, (
+    min-width : 768px
+));
+@include g-register-state (desktop, (
+    min-width : 1000px
+));
+@include g-register-clear-each(2, both);
+@include g-register-clear-each(3, both);
+@include g-register-clear-each(4, both);
+
+@include g-classes();
