@@ -43,8 +43,6 @@ Set some states to ignore completely
 
 Type : **{ [Array](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array) }**
 
-Default : **[]**
-
 
 
 ## Methods
@@ -58,5 +56,3 @@ Init gridle with some custom settings
 Name  |  Type  |  Description  |  Status  |  Default
 ------------  |  ------------  |  ------------  |  ------------  |  ------------
 settings  |  **{ [Object](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Object) }**  |  Some settings to override  |  required  |
-
-Default : **function(settings) {**

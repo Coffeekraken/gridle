@@ -6,7 +6,7 @@ This are all the mixins that you can use to generate classes to use inside your 
 ## Mixins
 
 
-### g-generate-custom-class
+### g-custom-class
 
 Generate a custom class for all the states
 
@@ -26,7 +26,7 @@ $statesNames  |  **{ [List](http://www.sass-lang.com/documentation/file.SASS_REF
 Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 
-### g-generate-classes
+### g-classes
 
 
 
@@ -40,10 +40,10 @@ $scope  |  **{ [String](http://www.sass-lang.com/documentation/file.SASS_REFEREN
 #### Example
 ```scss
 	// generate all the classes
-@include g-generate-classes();
+@include g-classes();
 // generate only certain states
-@include g-generate-classes(mobile tablet);
+@include g-classes(mobile tablet);
 // generate only the helpers for all the states
-@include g-generate-classes(all, helpers);
+@include g-classes(all, helpers);
 ```
 Author : Olivier Bossel <olivier.bossel@gmail.com>

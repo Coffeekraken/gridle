@@ -152,9 +152,26 @@ Register some basics states:
 Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 
-### g-register-default-mobile-first-states
+### g-register-mobile-first-states
 
 Register some basics mobile first states:
+
+- mobile : 320px to infinite
+- tablet : 640px to infinite
+- desktop : 992px to infinite
+- large : 1200px to infinite
+
+
+#### Example
+```scss
+	@include g-register-mobile-first-states();
+```
+Author : Olivier Bossel <olivier.bossel@gmail.com>
+
+
+### g-register-bootstrap3-states
+
+Register bootstrap 3 states
 
 - xs : 0 to 750px
 - sm : 750px to infinite
@@ -164,6 +181,23 @@ Register some basics mobile first states:
 
 #### Example
 ```scss
-	@include g-register-default-mobile-first-states();
+	@include g-register-bootstrap3-states();
+```
+Author : Olivier Bossel <olivier.bossel@gmail.com>
+
+
+### g-register-bootstrap4-states
+
+Register bootstrap 4 states
+
+- xs : 0 to 576px
+- sm : 576px to infinite
+- md : 970px to infinite
+- lg : 1200px to infinite
+
+
+#### Example
+```scss
+	@include g-register-bootstrap4-states();
 ```
 Author : Olivier Bossel <olivier.bossel@gmail.com>
