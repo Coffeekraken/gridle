@@ -1,7 +1,7 @@
 {
   "name": "coffeekraken-gridle",
   "description": "Gridle grid system",
-  "version": "3.0.0-rc.2",
+  "version": "3.0.0-rc.3",
   "homepage": "http://gridle.org",
   "main": "dist/js/gridle.js",
   "scripts": {
@@ -14,7 +14,7 @@
     "demo.watch.css": "nodemon -w demo/src -w src -e scss -x \"npm run demo.css\"",
     "demo.watch.js": "nodemon -w demo/src -w src -e js -x \"npm run demo.js\"",
     "demo.server": "http-server demo",
-    "install": "./scripts/install.sh",
+    "install": "node ./scripts/install.js",
     "doc": "rm -rf doc/src && npm run doc.scss && npm run doc.js",
     "doc.scss": "coffeekraken-docblock-to-markdown -f 'src/**/*.scss' -d doc",
     "doc.js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc",
@@ -30,6 +30,7 @@
   "dependencies": {
     "css-element-queries": "^0.4.0",
     "domready": "^1.0.8",
+    "fs-extra": "^5.0.0",
     "handlebars": "^4.0.6",
     "matchmedia-polyfill": "https://github.com/paulirish/matchMedia.js.git"
   },
