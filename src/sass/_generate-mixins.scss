@@ -9,18 +9,18 @@
  * This are all the mixins that you can use to generate classes to use inside your HTML codebase
  */
 
-// /**
-//  * Generate a custom class for all the states
-//  * @param 	{List} 	$pattern 					The name pattern of the class
-//  * @param 	{List} 	[$statesNames=null] 		The states names to generate. If null or all, will generate the class for all registered states
-//  * @example 	scss
-//  * \@include g-generate-custom-class(('my','-','cool','-','class','-','%state')) {
-//  * 	color: pink;
-//  * 	padding: g-get-state-var(gutter-left);
-//  * }
-//  *
-//  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
-//  */
+/**
+ * Generate a custom class for all the states
+ * @param 	{List} 	$pattern 					The name pattern of the class
+ * @param 	{List} 	[$statesNames=null] 		The states names to generate. If null or all, will generate the class for all registered states
+ * @example 	scss
+ * \@include g-generate-custom-class(('my','-','cool','-','class','-','%state')) {
+ * 	color: pink;
+ * 	padding: g-get-state-var(gutter-left);
+ * }
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-custom-class(
 	$pattern,
 	$statesNames : null,
@@ -454,53 +454,53 @@
 }
 
 
-// /**
-//  * Generate all the classes depending on the packages you have specified like:
-//  * - ```.container@{state}``` : default container
-//  * - ```.row@{state}``` : default row
-//  * - ```.row-align-{align}@{state}``` : default row-align
-//  * - ```.row-full@{state}``` : default row-full
-//  * - ```.row-debug@{state}``` : default row-debug
-//  * - ```.row-no-gutter@{state}``` : default row-no-gutter
-//  * - ```.nowrap@{state}``` : default nowrap
-//  * - ```.wrap@{state}``` : default wrap
-//  * - ```.col@{state}``` : default col
-//  * - ```.gr-{column}@{state}``` : default grid
-//  * - ```.gr-table@{state}``` : default gr-table
-//  * - ```.gr-grow@{state}``` : default gr-grow
-//  * - ```.gr-adapt@{state}``` : default gr-adapt
-//  * - ```.gr-centered@{state}``` : default gr-centered
-//  * - ```.push@{state}``` : default push
-//  * - ```.pull@{state}``` : default pull
-//  * - ```.prefix@{state}``` : default prefix
-//  * - ```.suffix@{state}``` : default suffix
-//  * - ```.hide@{state}``` : helpers hide
-//  * - ```.show@{state}``` : helpers show
-//  * - ```.show-inline@{state}``` : helpers show-inline
-//  * - ```.not-visible@{state}``` : helpers not-visible
-//  * - ```.visible@{state}``` : helpers visible
-//  * - ```.float-{%float}@{state}``` : helpers float
-//  * - ```.clear-{%float}@{state}``` : helpers clear
-//  * - ```.clear-each-{%count}@{state}``` : helpers clear-each
-//  * - ```.gutter-{%side}@{state}``` : helpers gutter
-//  * - ```.no-gutter-{%side}@{state}``` : helpers no-gutter
-//  * - ```.auto-height@{state}``` : helpers auto-height
-//  * - ```.order-{%column-count}@{state}``` : helpers order
-//  *
-//  * @param 		{String|List<String>} 		[$states=all] 		The states to generate the classes for
-//  * @param 		{String|List<String>} 		[$package=all] 		The packages to generate the classes for
-//  * @param 		{String} 					[$scope=null] 		A classname to scope the classes in
-//  *
-//  * @example 	scss
-//  * // generate all the classes
-//  * \@include g-classes();
-//  * // generate only certain states
-//  * \@include g-classes(mobile tablet);
-//  * // generate only the helpers for all the states
-//  * \@include g-classes(all, helpers);
-//  *
-//  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
-//  */
+/**
+ * Generate all the classes depending on the packages you have specified like:
+ * - ```.container@{state}``` : default container
+ * - ```.row@{state}``` : default row
+ * - ```.row-align-{align}@{state}``` : default row-align
+ * - ```.row-full@{state}``` : default row-full
+ * - ```.row-debug@{state}``` : default row-debug
+ * - ```.row-no-gutter@{state}``` : default row-no-gutter
+ * - ```.nowrap@{state}``` : default nowrap
+ * - ```.wrap@{state}``` : default wrap
+ * - ```.col@{state}``` : default col
+ * - ```.gr-{column}@{state}``` : default grid
+ * - ```.gr-table@{state}``` : default gr-table
+ * - ```.gr-grow@{state}``` : default gr-grow
+ * - ```.gr-adapt@{state}``` : default gr-adapt
+ * - ```.gr-centered@{state}``` : default gr-centered
+ * - ```.push@{state}``` : default push
+ * - ```.pull@{state}``` : default pull
+ * - ```.prefix@{state}``` : default prefix
+ * - ```.suffix@{state}``` : default suffix
+ * - ```.hide@{state}``` : helpers hide
+ * - ```.show@{state}``` : helpers show
+ * - ```.show-inline@{state}``` : helpers show-inline
+ * - ```.not-visible@{state}``` : helpers not-visible
+ * - ```.visible@{state}``` : helpers visible
+ * - ```.float-{%float}@{state}``` : helpers float
+ * - ```.clear-{%float}@{state}``` : helpers clear
+ * - ```.clear-each-{%count}@{state}``` : helpers clear-each
+ * - ```.gutter-{%side}@{state}``` : helpers gutter
+ * - ```.no-gutter-{%side}@{state}``` : helpers no-gutter
+ * - ```.auto-height@{state}``` : helpers auto-height
+ * - ```.order-{%column-count}@{state}``` : helpers order
+ *
+ * @param 		{String|List<String>} 		[$states=all] 		The states to generate the classes for
+ * @param 		{String|List<String>} 		[$package=all] 		The packages to generate the classes for
+ * @param 		{String} 					[$scope=null] 		A classname to scope the classes in
+ *
+ * @example 	scss
+ * // generate all the classes
+ * \@include g-classes();
+ * // generate only certain states
+ * \@include g-classes(mobile tablet);
+ * // generate only the helpers for all the states
+ * \@include g-classes(all, helpers);
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
 @mixin g-classes(
 	$states : all,
 	$package : all,
@@ -604,24 +604,24 @@ $row : '
 		}
 	}
 
-	// /**
-	//  * @name 	Columns
-	//  * Grid columns available
-	//  * @styleguide 	Gridle / Columns
-	//  * @example 	html
-	//  * <style>
-	//  * #{_g-selector(row)}.gridle-styleguide {
-	//  * 	margin-bottom: #{g-get-state-var(gutter-width)};
-	//  * }
-	//  * #{_g-get-generic-selector(grid)}.gridle-styleguide {
-	//  * 	background:#eee;
-	//  * 	padding:#{g-get-state-var(gutter-width)};
-	//  * }
-	//  * </style>
-	//  * <div class="gridle-styleguide #{_g-selector(container)}">
-	//  *  #{$styleguideColumns}
-	//  * </div>
-	//  */
+	/**
+	 * @name 	Columns
+	 * Grid columns available
+	 * @styleguide 	Gridle / Columns
+	 * @example 	html
+	 * <style>
+	 * #{_g-selector(row)}.gridle-styleguide {
+	 * 	margin-bottom: #{g-get-state-var(gutter-width)};
+	 * }
+	 * #{_g-get-generic-selector(grid)}.gridle-styleguide {
+	 * 	background:#eee;
+	 * 	padding:#{g-get-state-var(gutter-width)};
+	 * }
+	 * </style>
+	 * <div class="gridle-styleguide #{_g-selector(container)}">
+	 *  #{$styleguideColumns}
+	 * </div>
+	 */
 
 	// loop on each states to generate all the classes
 	@each $stateName in $generate-states {
