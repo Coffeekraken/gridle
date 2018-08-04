@@ -593,13 +593,7 @@ $_gridle_generateOnlyOnce : true !default; // keep track of generate once classe
 	$styleguideColumns : ();
 	@each $columnName, $column in g-get-columns(default) {
 		@if $columnName != '0' {
-$row : '
-<div class="gridle-styleguide #{_g-classname(row)} #{_g-classname(row-debug)}">
-<div class="gridle-styleguide #{_g-classname(grid, default, $columnName)}">
-#{_g-selector(grid, default, $columnName)}
-</div>
-</div>
-';
+			$row : '<div class="gridle-styleguide #{_g-classname(row)} #{_g-classname(row-debug)}"><div class="gridle-styleguide #{_g-classname(grid, default, $columnName)}">#{_g-selector(grid, default, $columnName)}</div></div>';
 			$styleguideColumns : append($styleguideColumns, $row);
 		}
 	}
