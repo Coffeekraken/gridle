@@ -42,8 +42,6 @@ $_g-previous-stateName : default; 			// save the previous state name
 
 $_g-content-arg-state : null; 					// this variable is used to pass state through global variable into an @content
 
-$g-vendor-prefix : true; 					// set if need to add vendor prefixes when needed
-
 $g-scope : (); 					        // Variable scope used in mixin like `g-generate-custom-class`
 
 
