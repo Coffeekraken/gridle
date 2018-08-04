@@ -176,7 +176,7 @@
 	// height: inherit;
 	min-height:1px;
 	// max-height:inherit;
-	line-height:1;
+	// line-height:1;
 	@if $direction == rtl {
 		float:right;
 	} @else {
@@ -364,7 +364,7 @@
 	display: table-cell;
 	width:1px;
 	white-space:nowrap !important;
-	line-height:1;
+	// line-height:1;
 	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
@@ -395,7 +395,7 @@
 ) {
 	display: table-cell;
 	width:99999px;
-	line-height:1;
+	// line-height:1;
 	@if $g-vendor-prefix {
 		-webkit-box-sizing: border-box;
 		-moz-box-sizing: border-box;
