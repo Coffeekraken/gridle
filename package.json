@@ -1,24 +1,38 @@
 {
   "name": "coffeekraken-gridle",
   "description": "Gridle grid system",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "homepage": "http://gridle.org",
-  "main": "dist/js/gridle.js",
+  "main": "js/gridle.js",
+  "watch": {
+    "dist:js": {
+      "paths": "src/**/*.js"
+    },
+    "demo:css": {
+      "paths": "demo/src/**/*.scss"
+    },
+    "demo:js": {
+      "paths": "demo/src/**/*.js"
+    },
+    "doc:scss": {
+      "paths": "src/**/*.scss"
+    },
+    "doc:js": {
+      "paths": "src/**/*.js"
+    }
+  },
   "scripts": {
-    "dist": "npm run dist.js",
-    "dist.js": "babel src -d dist",
-    "demo": "npm run demo.css && npm run demo.js && open http://localhost:8080/demo.html && npm run demo.server",
-    "demo.css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css && node-sass demo/src/sass/grid.scss demo/dist/css/grid.css && node-sass demo/src/sass/grid-flex.scss demo/dist/css/grid-flex.css && node-sass demo/src/sass/grid-debug.scss demo/dist/css/grid-debug.css",
-    "demo.js": "webpack",
-    "demo.watch": "concurrently --kill-others \"npm run demo.watch.css\" \"npm run demo.watch.css\"",
-    "demo.watch.css": "nodemon -w demo/src -w src -e scss -x \"npm run demo.css\"",
-    "demo.watch.js": "nodemon -w demo/src -w src -e js -x \"npm run demo.js\"",
-    "demo.server": "http-server demo",
+    "dist": "npm run dist:js",
+    "dist:js": "babel src -d dist",
+    "demo": "npm run demo:css && npm run demo:js && open http://localhost:8080/demo.html && npm run demo:server",
+    "demo:css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css && node-sass demo/src/sass/grid.scss demo/dist/css/grid.css && node-sass demo/src/sass/grid-flex.scss demo/dist/css/grid-flex.css && node-sass demo/src/sass/grid-debug.scss demo/dist/css/grid-debug.css",
+    "demo:js": "webpack",
+    "demo:server": "http-server demo",
     "install": "node ./scripts/install.js",
-    "doc": "rm -rf doc/src && npm run doc.scss && npm run doc.js",
-    "doc.scss": "coffeekraken-docblock-to-markdown -f 'src/**/*.scss' -d doc",
-    "doc.js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc",
-    "start": "concurrently --kill-others \"npm run demo.watch\" \"npm run demo.server\"",
+    "doc": "rm -rf doc/src && npm run doc:scss && npm run doc:js",
+    "doc:scss": "coffeekraken-docblock-to-markdown -f 'src/**/*.scss' -d doc",
+    "doc:js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc",
+    "start": "coffeekraken-scripts-stack dist:js demo:css demo:js demo:server doc:scss doc:js -i dist -i demo -i install -i doc -i start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -45,11 +59,10 @@
     "babel-preset-es2015-loose": "^7.0.0",
     "babel-preset-stage-0": "^6.5.0",
     "coffeekraken-docblock-to-markdown": "0.0.2",
-    "concurrently": "^3.4.0",
+    "coffeekraken-scripts-stack": "^1.0.2",
     "http-server": "^0.9.0",
     "jquery": "^3.1.1",
     "node-sass": "^4.0.0",
-    "nodemon": "^1.11.0",
     "open": "0.0.5",
     "webpack": "^2.0.0"
   }

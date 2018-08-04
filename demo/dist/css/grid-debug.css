@@ -842,10 +842,7 @@
 .gr-0, .gr-1, .gr-2, .gr-3, .gr-4, .gr-5, .gr-6, .gr-7, .gr-8, .gr-9, .gr-10, .gr-11, .gr-12 {
   display: inline-block;
   min-height: 1px;
-  line-height: 1;
   float: left;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   vertical-align: top;
   padding-right: 8px;
@@ -855,9 +852,6 @@
   display: table-cell;
   width: 1px;
   white-space: nowrap !important;
-  line-height: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-right: 8px;
   padding-left: 8px; }
@@ -865,9 +859,6 @@
 .gr-grow {
   display: table-cell;
   width: 99999px;
-  line-height: 1;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   padding-right: 8px;
   padding-left: 8px; }
@@ -912,10 +903,7 @@
   .gr-0\@tablet, .gr-1\@tablet, .gr-2\@tablet, .gr-3\@tablet, .gr-4\@tablet, .gr-5\@tablet, .gr-6\@tablet, .gr-7\@tablet, .gr-8\@tablet, .gr-9\@tablet, .gr-10\@tablet, .gr-11\@tablet, .gr-12\@tablet {
     display: inline-block;
     min-height: 1px;
-    line-height: 1;
     float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 8px;
@@ -926,9 +914,6 @@
     display: table-cell;
     width: 1px;
     white-space: nowrap !important;
-    line-height: 1;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding-right: 8px;
     padding-left: 8px; } }
@@ -937,9 +922,6 @@
   .gr-grow\@tablet {
     display: table-cell;
     width: 99999px;
-    line-height: 1;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding-right: 8px;
     padding-left: 8px; } }
@@ -989,10 +971,7 @@
   .gr-0\@desktop, .gr-1\@desktop, .gr-2\@desktop, .gr-3\@desktop, .gr-4\@desktop, .gr-5\@desktop, .gr-6\@desktop, .gr-7\@desktop, .gr-8\@desktop, .gr-9\@desktop, .gr-10\@desktop, .gr-11\@desktop, .gr-12\@desktop {
     display: inline-block;
     min-height: 1px;
-    line-height: 1;
     float: left;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     vertical-align: top;
     padding-right: 8px;
@@ -1003,9 +982,6 @@
     display: table-cell;
     width: 1px;
     white-space: nowrap !important;
-    line-height: 1;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding-right: 8px;
     padding-left: 8px; } }
@@ -1014,9 +990,6 @@
   .gr-grow\@desktop {
     display: table-cell;
     width: 99999px;
-    line-height: 1;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding-right: 8px;
     padding-left: 8px; } }
@@ -1052,7 +1025,7 @@
     width: device-width; } }
 
 #gridle-settings {
-  content: '{ "version" : "3.0.0", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "768px", "max-width" : null, "query" : "screen and (min-width: 768px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }, "desktop":{ "name" : "desktop", "min-width" : "1000px", "max-width" : null, "query" : "screen and (min-width: 1000px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }} }'; }
+  content: '{ "version" : "3.0.1", "states" : { "default":{ "name" : "default", "min-width" : null, "max-width" : null, "query" : null, "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }, "tablet":{ "name" : "tablet", "min-width" : "768px", "max-width" : null, "query" : "screen and (min-width: 768px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }, "desktop":{ "name" : "desktop", "min-width" : "1000px", "max-width" : null, "query" : "screen and (min-width: 1000px)", "classes" : true, "context" : "12", "column-width" : null, "gutter-width" : "16px", "gutter-height" : "16px", "gutter-top" : "8px", "gutter-right" : "8px", "gutter-bottom" : "8px", "gutter-left" : "8px", "direction" : "ltr", "dir-attribute" : false, "name-multiplicator" : "1", "states-classes" : false, "classes-prefix" : null, "_" : true }} }'; }
 
 /**
 	 * @name 	Columns
@@ -1069,7 +1042,7 @@
 	 * }
 	 * </style>
 	 * <div class="gridle-styleguide .container">
-	 *   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-1"> .gr-1 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-2"> .gr-2 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-3"> .gr-3 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-4"> .gr-4 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-5"> .gr-5 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-6"> .gr-6 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-7"> .gr-7 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-8"> .gr-8 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-9"> .gr-9 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-10"> .gr-10 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-11"> .gr-11 </div> </div>   <div class="gridle-styleguide row row-debug"> <div class="gridle-styleguide gr-12"> .gr-12 </div> </div> 
+	 *  <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-1">.gr-1</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-2">.gr-2</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-3">.gr-3</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-4">.gr-4</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-5">.gr-5</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-6">.gr-6</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-7">.gr-7</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-8">.gr-8</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-9">.gr-9</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-10">.gr-10</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-11">.gr-11</div></div> <div class="gridle-styleguide row row-debug"><div class="gridle-styleguide gr-12">.gr-12</div></div>
 	 * </div>
 	 */
 .gr-0 {
@@ -1661,10 +1634,6 @@ body {
   width: 100vw;
   margin-left: 50% !important;
   margin-right: 0 !important;
-  -webkit-transform: translateX(-50%);
-  -moz-transition: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
   transform: translateX(-50%); }
 
 .col {
@@ -1925,10 +1894,6 @@ body {
     width: 100vw;
     margin-left: 50% !important;
     margin-right: 0 !important;
-    -webkit-transform: translateX(-50%);
-    -moz-transition: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
     transform: translateX(-50%); }
   .col\@tablet {
     padding-left: 0 !important;
@@ -2153,10 +2118,6 @@ body {
     width: 100vw;
     margin-left: 50% !important;
     margin-right: 0 !important;
-    -webkit-transform: translateX(-50%);
-    -moz-transition: translateX(-50%);
-    -ms-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
     transform: translateX(-50%); }
   .col\@desktop {
     padding-left: 0 !important;
