@@ -29,7 +29,7 @@
 
 > One grid system to rule them all (.scss)
 
-Gridle is a set of complete and simple settings, mixins and classes that make the creation and usage of grid systems (even complex ones) really simple. All of this with full responsive capabilities
+<p class="lead">Gridle is a set of complete and simple settings, mixins and classes that make the creation and usage of grid systems (even complex ones) really simple. All of this with full responsive capabilities</p>
 
 ## Table of content
 
