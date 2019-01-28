@@ -1,3 +1,6 @@
+if (!process.env.PWD) {
+  process.env.PWD = process.cwd();
+}
 module.exports = {
 	entry: {
 		'demo/dist/js/demo.js' : './demo/src/js/demo.js'
