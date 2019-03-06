@@ -407,6 +407,32 @@ Set the display of an element to inline-block
 Author : Olivier Bossel <olivier.bossel@gmail.com>
 
 
+### g-show-flex
+
+Set the display of an element to flex
+
+#### Example
+```scss
+	.my-cool-element {
+	@include g-show-flex();
+}
+```
+Author : Olivier Bossel <olivier.bossel@gmail.com>
+
+
+### g-show-inline-flex
+
+Set the display of an element to inline-flex
+
+#### Example
+```scss
+	.my-cool-element {
+	@include g-show-inline-flex();
+}
+```
+Author : Olivier Bossel <olivier.bossel@gmail.com>
+
+
 ### g-visible
 
 Set the visibility of an element to visible

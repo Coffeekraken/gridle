@@ -79,7 +79,7 @@
 			@content;
 		}
 
-	} @elseif type-of($states) == list
+	} @else if type-of($states) == list
 		or type-of($states) == string {
 
 		// loop on each states :
@@ -94,7 +94,7 @@
 			}
 		}
 
-	} @elseif type-of($states) == map {
+	} @else if type-of($states) == map {
 
 		// get a state from the passed one
 		$state : g-get-state($states);
@@ -937,6 +937,46 @@
 ) {
 	@include _g-call(show-inline) {
 		display:inline-block !important;
+	}
+}
+
+@mixin _g-common-show-flex(
+	$state : default
+) {
+}
+/**
+ * Set the display of an element to flex
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show-flex();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-show-flex(
+) {
+	@include _g-call(show-flex) {
+		display:flex !important;
+	}
+}
+
+@mixin _g-common-show-inline-flex(
+	$state : default
+) {
+}
+/**
+ * Set the display of an element to inline-flex
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show-inline-flex();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-show-inline-flex(
+) {
+	@include _g-call(show-inline-flex) {
+		display:inline-flex !important;
 	}
 }
 

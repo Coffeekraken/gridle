@@ -476,7 +476,7 @@
 				float:none !important;
 				@if in-map($align, bottom) {
 					vertical-align:bottom;
-				} @elseif in-map($align, middle) {
+				} @else if in-map($align, middle) {
 					vertical-align:middle;
 				} @else {
 					vertical-align:top;

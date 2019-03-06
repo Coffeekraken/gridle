@@ -350,6 +350,18 @@
 		}
 	}
 
+	@if _g-need-to-generate(show-flex, $package) {
+		#{_g-selector(show-flex, $state)} {
+			@include g-show-flex();
+		}
+	}
+
+	@if _g-need-to-generate(show-inline-flex, $package) {
+		#{_g-selector(show-inline-flex, $state)} {
+			@include g-show-inline-flex();
+		}
+	}
+
 	@if _g-need-to-generate(visible, $package) {
 		#{_g-selector(visible, $state)} {
 			@include g-visible();
@@ -411,9 +423,9 @@
 
 			@if $value == null {
 				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : null,";
-			} @elseif type-of($value) == bool {
+			} @else if type-of($value) == bool {
 				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : #{$value},";
-			} @elseif type-of($value) == map {
+			} @else if type-of($value) == map {
 				$gridle-settings-states : "#{$gridle-settings-states} \"#{$varName}\" : {";
 				@each $vn, $vv in $value {
 					$gridle-settings-states : "#{$gridle-settings-states} \"#{$vn}\" : \"#{$vv}\","
@@ -477,6 +489,8 @@
  * - ```.hide@{state}``` : helpers hide
  * - ```.show@{state}``` : helpers show
  * - ```.show-inline@{state}``` : helpers show-inline
+ * - ```.show-flex@{state}``` : helpers show-flex
+ * - ```.show-inline-flex@{state}``` : helpers show-inline-flex
  * - ```.not-visible@{state}``` : helpers not-visible
  * - ```.visible@{state}``` : helpers visible
  * - ```.float-{%float}@{state}``` : helpers float

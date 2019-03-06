@@ -520,6 +520,24 @@
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  */
 /**
+ * Set the display of an element to flex
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show-flex();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
+ * Set the display of an element to inline-flex
+ * @example 	scss
+ * .my-cool-element {
+ * 	\@include g-show-inline-flex();
+ * }
+ *
+ * @author 	Olivier Bossel <olivier.bossel@gmail.com>
+ */
+/**
  * Set the visibility of an element to visible
  * @example 	scss
  * .my-cool-element {
@@ -607,6 +625,8 @@
  * - ```.hide@{state}``` : helpers hide
  * - ```.show@{state}``` : helpers show
  * - ```.show-inline@{state}``` : helpers show-inline
+ * - ```.show-flex@{state}``` : helpers show-flex
+ * - ```.show-inline-flex@{state}``` : helpers show-inline-flex
  * - ```.not-visible@{state}``` : helpers not-visible
  * - ```.visible@{state}``` : helpers visible
  * - ```.float-{%float}@{state}``` : helpers float
@@ -1819,6 +1839,12 @@ body {
 .show-inline {
   display: inline-block !important; }
 
+.show-flex {
+  display: flex !important; }
+
+.show-inline-flex {
+  display: inline-flex !important; }
+
 .visible {
   visibility: visible; }
 
@@ -1852,7 +1878,7 @@ body {
     left: 0;
     width: 100%;
     height: 99999px;
-    background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.02) 50%);
     background-size: 16.66667% 100%;
     z-index: 99999; }
 
@@ -2050,6 +2076,10 @@ body {
     display: block !important; }
   .show-inline\@tablet {
     display: inline-block !important; }
+  .show-flex\@tablet {
+    display: flex !important; }
+  .show-inline-flex\@tablet {
+    display: inline-flex !important; }
   .visible\@tablet {
     visibility: visible; }
   .clear-each-2\@tablet > [class*="gr-"]:nth-of-type(1n+0) {
@@ -2076,7 +2106,7 @@ body {
       left: 0;
       width: 100%;
       height: 99999px;
-      background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+      background: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.02) 50%);
       background-size: 16.66667% 100%;
       z-index: 99999; } }
 
@@ -2274,6 +2304,10 @@ body {
     display: block !important; }
   .show-inline\@desktop {
     display: inline-block !important; }
+  .show-flex\@desktop {
+    display: flex !important; }
+  .show-inline-flex\@desktop {
+    display: inline-flex !important; }
   .visible\@desktop {
     visibility: visible; }
   .clear-each-2\@desktop > [class*="gr-"]:nth-of-type(1n+0) {
@@ -2300,7 +2334,7 @@ body {
       left: 0;
       width: 100%;
       height: 99999px;
-      background: linear-gradient(to right, transparent 50%, rgba(0, 0, 0, 0.02) 50%);
+      background: linear-gradient(to right, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.02) 50%);
       background-size: 16.66667% 100%;
       z-index: 99999; } }
 
