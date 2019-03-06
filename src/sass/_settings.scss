@@ -91,6 +91,14 @@ $_gridle-packages : (
 		classname 							: ('show','-','inline','@','%state'),
 		package 							: helpers show-inline
 	),
+	show-flex 							: (
+		classname 							: ('show','-','flex','@','%state'),
+		package 							: helpers show-flex
+	),
+	show-inline-flex 					: (
+		classname 							: ('show','-','inline','-','flex','@','%state'),
+		package 							: helpers show-inline-flex
+	),
 	not-visible 						: (
 		classname 							: ('not','-','visible','@','%state'),
 		package 							: helpers not-visible

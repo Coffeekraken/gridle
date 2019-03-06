@@ -83,6 +83,8 @@
 		not-visible,
 		show,
 		show-inline,
+		show-flex,
+		show-inline-flex,
 		visible,
 		float,
 		clear,
@@ -216,6 +218,16 @@
 	// show-inline
 	@if $package == show-inline {
 		@include _g-common-show-inline($state);
+	}
+
+	// show-flex
+	@if $package == show-flex {
+		@include _g-common-show-flex($state);
+	}
+
+	// show-inline-flex
+	@if $package == show-inline-flex {
+		@include _g-common-show-inline-flex($state);
 	}
 
 	// visible

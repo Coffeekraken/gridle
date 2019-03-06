@@ -1,7 +1,7 @@
 {
   "name": "coffeekraken-gridle",
   "description": "Gridle grid system",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "homepage": "http://gridle.org",
   "main": "js/gridle.js",
   "watch": {
@@ -27,7 +27,7 @@
     "demo": "npm run demo:css && npm run demo:js && open http://localhost:8080/demo.html && npm run demo:server",
     "demo:css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css && node-sass demo/src/sass/grid.scss demo/dist/css/grid.css && node-sass demo/src/sass/grid-flex.scss demo/dist/css/grid-flex.css && node-sass demo/src/sass/grid-debug.scss demo/dist/css/grid-debug.css",
     "demo:js": "webpack",
-    "demo:server": "http-server demo",
+    "demo:server": "http-server demo -p 8081",
     "install": "node ./scripts/install.js",
     "doc": "rm -rf doc/src && npm run doc:scss && npm run doc:js",
     "doc:scss": "coffeekraken-docblock-to-markdown -f 'src/**/*.scss' -d doc",
