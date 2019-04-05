@@ -616,8 +616,7 @@ $_gridle_generateOnlyOnce : true !default; // keep track of generate once classe
 	 * @name 	Columns
 	 * Grid columns available
 	 * @styleguide 	Gridle / Columns
-	 * @example 	html
-	 * <style>
+	 * @example 	scss
 	 * #{_g-selector(row)}.gridle-styleguide {
 	 * 	margin-bottom: #{g-get-state-var(gutter-width)};
 	 * }
@@ -625,7 +624,7 @@ $_gridle_generateOnlyOnce : true !default; // keep track of generate once classe
 	 * 	background:#eee;
 	 * 	padding:#{g-get-state-var(gutter-width)};
 	 * }
-	 * </style>
+	 * @example 	html
 	 * <div class="gridle-styleguide #{_g-selector(container)}">
 	 *  #{$styleguideColumns}
 	 * </div>
