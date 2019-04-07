@@ -1,0 +1,35 @@
+/**
+ * Internal variables
+ */
+$_g-settings : (); 						// the default settings
+$_g-states : ();							// the variable map for each states
+
+$_g-current-state : ();					// save the current state
+$_g-current-stateName : default; 			// save the current state name
+$_g-previous-state : (); 					// save the previous state
+$_g-previous-stateName : default; 			// save the previous state name
+
+/**
+ * Import utils
+ */
+@import 'utils';
+
+/**
+ * Import the API
+ */
+@import 'api';
+
+/**
+ * Import functions
+ */
+@import 'functions';
+
+/**
+ * Import the generate mixins
+ */
+@import 'generate';
+
+/**
+ * Import the setup mixins
+ */
+@import 'setup';

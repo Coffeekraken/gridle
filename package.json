@@ -1,52 +1,38 @@
 {
   "name": "coffeekraken-gridle",
   "description": "Gridle grid system",
-  "version": "3.0.3",
+  "version": "4.0.0-beta",
   "homepage": "http://gridle.org",
-  "main": "js/gridle.js",
+  "main": "index.js",
   "watch": {
     "dist:js": {
       "paths": "src/**/*.js"
     },
     "demo:css": {
-      "paths": "demo/src/**/*.scss"
+      "paths": [
+        "demo/src/**/*.scss",
+        "src/**/*.scss"
+      ]
     },
     "demo:js": {
       "paths": "demo/src/**/*.js"
-    },
-    "doc:scss": {
-      "paths": "src/**/*.scss"
-    },
-    "doc:js": {
-      "paths": "src/**/*.js"
     }
   },
   "scripts": {
-    "dist": "npm run dist:js",
-    "dist:js": "babel src -d dist",
     "demo": "npm run demo:css && npm run demo:js && open http://localhost:8080/demo.html && npm run demo:server",
-    "demo:css": "node-sass demo/src/sass/style.scss demo/dist/css/style.css && node-sass demo/src/sass/grid.scss demo/dist/css/grid.css && node-sass demo/src/sass/grid-flex.scss demo/dist/css/grid-flex.css && node-sass demo/src/sass/grid-debug.scss demo/dist/css/grid-debug.css",
+    "demo:css": "npm run demo:css:style && npm run demo:css:grid",
+    "demo:css:style": "node-sass demo/src/sass/style.scss demo/dist/css/style.css --include-path node_modules",
+    "demo:css:grid": "node-sass demo/src/sass/grid.scss demo/dist/css/grid.css --include-path node_modules --output-style compressed",
     "demo:js": "webpack",
-    "demo:server": "http-server demo -p 8081",
-    "install": "node ./scripts/install.js",
-    "doc": "rm -rf doc/src && npm run doc:scss && npm run doc:js",
-    "doc:scss": "coffeekraken-docblock-to-markdown -f 'src/**/*.scss' -d doc",
-    "doc:js": "coffeekraken-docblock-to-markdown -f 'src/**/*.js' -d doc",
-    "start": "coffeekraken-scripts-stack dist:js demo:css demo:js demo:server doc:scss doc:js -i dist -i demo -i install -i doc -i start",
+    "demo:server": "http-server demo",
+    "start": "coffeekraken-scripts-stack demo:css demo:js demo:server -i demo -i start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/coffeekraken/gridle"
+    "url": "git@github.com:coffeekraken/gridle.git"
   },
   "author": "Coffeekraken <hello@coffeekraken.io>",
-  "contributors": [
-    {
-      "name": "Olivier Bossel",
-      "email": "olivier.bossel@gmail.com",
-      "url": "http://olivierbossel.com"
-    }
-  ],
   "license": "MIT",
   "dependencies": {
     "css-element-queries": "^0.4.0",
@@ -66,7 +52,11 @@
     "babel-preset-es2015-loose": "^7.0.0",
     "babel-preset-stage-0": "^6.5.0",
     "coffeekraken-docblock-to-markdown": "0.0.2",
+    "coffeekraken-s-button-component": "^1.0.3",
+    "coffeekraken-s-typography-component": "^1.0.2",
     "coffeekraken-scripts-stack": "^1.0.2",
+    "coffeekraken-sugar": "^1.1.0",
+    "eqcss": "^1.9.1",
     "http-server": "^0.9.0",
     "jquery": "^3.1.1",
     "node-sass": "^4.0.0",
