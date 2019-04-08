@@ -151,7 +151,11 @@
 
         /* Container Units */
         --g-column-unit: calc(var(--g-column-proportion) * var(--g-container-width));
-        --g-gutter-unit: calc(var(--g-gutter-proportion) * var(--g-container-width));
+        @if g-state-var(gutter-width, $stateName) {
+          --g-gutter-unit: #{g-state-var(gutter-width, $stateName)};
+        } @else {
+          --g-gutter-unit: calc(var(--g-gutter-proportion) * var(--g-container-width));
+        }
         --g-column-and-gutter-unit: calc(var(--g-column-unit) + var(--g-gutter-unit));
 
         /* Container Width */

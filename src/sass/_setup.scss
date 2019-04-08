@@ -12,8 +12,9 @@
  *  rows: 12,
  *	column-width : 60,
  *  width: 1200,
- *  container-width: 85vw,
- *  container-max-width: 1440px
+ *  gutter-width: null,
+ *  container-width: 90vw,
+ *  container-max-width: 1200px
  * );
  *
  * // setting up your grid
@@ -36,8 +37,9 @@
 		columns: 12,
 		rows: 12,
 		column-width: 60,
-		width: 1200,
-		container-width: 85vw,
+		width: 960,
+		gutter-width: null,
+		container-width: 90vw,
 		container-max-width: 1200px
 	), $settings) !global;
 
@@ -86,6 +88,7 @@
 	 * @gridle-rows     #{g-state-var(rows, $name)}
 	 * @gridle-column-width    #{g-state-var(column-width, $name)}
 	 * @gridle-width    #{g-state-var(width, $name)}
+	 * @gridle-gutter-width    #{g-state-var(gutter-width, $name)}
 	 * @gridle-container-width    #{g-state-var(container-width, $name)}
 	 * @gridle-container-max-width    #{g-state-var(container-max-width, $name)}
 	 */
