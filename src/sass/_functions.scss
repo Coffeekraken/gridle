@@ -175,6 +175,9 @@
 	{
 		$state : g-state($stateName);
 	}
+	@else if type-of($stateName) == map {
+		$state : $stateName;
+	}
 	@else if $stateName == null
 	{
 		$state : $_gridle-settings;

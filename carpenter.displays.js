@@ -68,6 +68,12 @@ module.exports = {
 								<td class="t-right">{{gridle-width}}</td>
 							</tr>
 						{{/if}}
+						{{#if gridle-gutter-width}}
+							<tr>
+								<td>Gutter width</td>
+								<td class="t-right">{{gridle-gutter-width}}</td>
+							</tr>
+						{{/if}}
 						{{#if gridle-container-width}}
 							<tr>
 								<td>Container width</td>
