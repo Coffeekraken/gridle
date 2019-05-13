@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8" />
+
+  <link href="dist/css/style.css" rel="stylesheet" type="text/css" />
+  <link href="dist/css/grid.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+	<title>Coffeekraken Gridle v4</title>
+
+</head>
+<body>
+
+	<section id="header">
+		<div class="container">
+			<div class="gr">
+				<div class="col col--12">
+          <div class="coffeekraken-logo m-b"></div>
+          <h1 class="h1 m-b">Gridle{<span class="c-primary">.scss</span>}</h1>
+          <p class="p p--lead m-b">
+            This page is just a quick overview of the gridle features.<br>This is not a replacement for the official documentation.
+          </p>
+          <a href="https://github.com/coffeekraken/gridle" title="Full documentation" class="btn btn--primary m-b-small">Full documentation</a>
+          <a href="https://github.com/coffeekraken/gridle#readme-install" title="Install the grid" class="btn m-b-small">Install the grid {scss}</a>
+          <a href="https://raw.githubusercontent.com/Coffeekraken/gridle/master/demo/dist/css/grid.css" title="Download the grid" class="btn" download>Download the grid {css}</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+  <section class="features">
+    <div class="container">
+      <div class="gr">
+        <div class="col col--12 col--6@tablet col--start-4@tablet t-center">
+          <h2 class="h1 m-b-big">Features</h2>
+        </div>
+      </div>
+      <div class="gr">
+        <div class="col col--12 col--4@tablet t-center">
+          <i class="fas fa-th s-bigger m-b m-t-big"></i>
+            <h3 class="h3 m-b">
+            CSS Grid
+          </h3>
+          <p class="p">
+            Gridle make use of the brand new css grid model as well as flexbox for some cool additional features.
+          </p>
+        </div>
+        <div class="col col--12 col--4@tablet t-center">
+          <i class="fas fa-tablet-alt s-bigger m-b m-t-big"></i>
+          <h3 class="h3 m-b">
+            Responsive
+          </h3>
+          <p class="p">
+            Gridle make responsive development as simple as cooking an egg. It has been thought from the ground up for that.
+          </p>
+        </div>
+        <div class="col col--12 col--4@tablet t-center">
+          <i class="fas fa-feather-alt s-bigger m-b m-t-big"></i>
+          <h3 class="h3 m-b">
+            Lightweight
+          </h3>
+          <p class="p">
+            A fully featured 12 columns with "mobile, tablet, desktop and large" states make only ~3.5kb minified and gzipped.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="gr">
+      <div class="col col--12">
+        <h2 class="h2 m-b m-t-big">Basic grid</h2>
+      </div>
+    </div>
+  </div>
+
+	<div class="container container--demo">
+    <div class="gr">
+      <div class="col col--12 col--6@tablet">
+      </div>
+      <div class="col col--12 col--6@tablet">
+      </div>
+      <div class="col col--12 col--12@tablet">
+          <p class="p">Malesuada nulla velit non nunc rutrum laoreet egestas dolor magna quam habitant amet tortor ullamcorper integer etiam porttitor pharetra nibh ornare faucibus interdum tempor nisl semper facilisis vulputate at felis</p>
+      </div>
+      <div class="col col--12 col--8@tablet">
+      </div>
+      <div class="col col--12 col--4@tablet">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="gr">
+      <div class="col col--12">
+        <hr>
+        <h2 class="h2 m-b">Complexe grid</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container--demo">
+    <div class="gr gr--rows-2 gr--no-gutter">
+      <div class="col col--12 col--8@tablet row--2@tablet col--start-1@tablet row--start-1@tablet">
+      </div>
+      <div class="col col--12 col--4@tablet row--1@tablet col--start-9@tablet row--start-1@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi</p>
+      </div>
+      <div class="col col--12 col--4@tablet row--1@tablet col--start-9@tablet row--start-2@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="gr">
+      <div class="col col--12">
+        <hr>
+        <h2 class="h2 m-b">Flex grid</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container--demo">
+    <div class="gr gr--flex gr--wrap gr--nowrap@tablet">
+      <div class="col col--12 col--adapt@tablet">
+      </div>
+      <div class="col col--12 col--grow@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+      <div class="col col--12 col--adapt@tablet col--middle">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="gr">
+      <div class="col col--12">
+        <hr>
+        <h2 class="h2 m-b">Alignements</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container--demo">
+    <div class="gr gr--flex gr--wrap gr--nowrap@tablet gr--middle">
+      <div class="col col--12 col--adapt@tablet">
+      </div>
+      <div class="col col--12 col--grow@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+      <div class="col col--12 col--adapt@tablet">
+      </div>
+    </div>
+    <div class="gr gr--flex gr--wrap gr--nowrap@tablet gr--end">
+      <div class="col col--12 col--grow@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+      <div class="col col--12 col--adapt@tablet">
+      </div>
+    </div>
+    <div class="gr gr--middle">
+      <div class="col col--12 col--3@tablet">
+      </div>
+      <div class="col col--12 col--6@tablet">
+          <p class="p">Malesuada nulla velit non nunc rutrum laoreet egestas dolor magna quam habitant amet tortor ullamcorper integer etiam porttitor pharetra nibh ornare faucibus interdum tempor nisl semper facilisis vulputate at felis</p>
+      </div>
+      <div class="col col--12 col--3@tablet col--end">
+      </div>
+    </div>
+    <div class="gr gr--start">
+      <div class="col col--12 col--6@tablet">
+      </div>
+      <div class="col col--12 col--6@tablet">
+          <p class="p">Malesuada nulla velit non nunc rutrum laoreet egestas dolor magna quam habitant amet tortor ullamcorper integer etiam porttitor pharetra nibh ornare faucibus interdum tempor nisl semper facilisis vulputate at felis</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="gr">
+      <div class="col col--12">
+        <hr>
+        <h2 class="h2 m-b">Rows</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container--demo">
+    <div class="gr gr--rows-4">
+      <div class="col col--12 col--start-1 col--6@tablet col--height-6@tablet row row--start-1@tablet row--4@tablet">
+      </div>
+      <div class="col col--12 col--8@tablet col--start-5@tablet row row--2@tablet row--start-2@tablet"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="gr">
+      <div class="col col--12">
+        <hr>
+        <h2 class="h2 m-b">Gutters</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container--demo">
+    <div class="gr gr--flex gr--wrap gr--nowrap@tablet gr--no-gutter">
+      <div class="col col--12 col--adapt@tablet">
+      </div>
+      <div class="col col--12 col--3@tablet"></div>
+      <div class="col col--12 col--grow@tablet">
+      </div>
+    </div>
+    <div class="gr gr--flex gr--wrap gr--nowrap@tablet gr--gutters">
+      <div class="col col--12 col--adapt@tablet">
+      </div>
+      <div class="col col--12 col--3@tablet"></div>
+      <div class="col col--12 col--grow@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+    </div>
+    <div class="gr gr--gutters-updown">
+      <div class="col col--12 col--3@tablet">
+      </div>
+      <div class="col col--12 col--6@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+      <div class="col col--12 col--3@tablet">
+      </div>
+      <div class="col col--12">
+      </div>
+    </div>
+    <div class="gr gr--gutters">
+      <div class="col col--12 col--3@tablet">
+      </div>
+      <div class="col col--12 col--6@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+      <div class="col col--12 col--3@tablet">
+      </div>
+      <div class="col col--12">
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="gr">
+      <div class="col col--12">
+        <hr>
+        <h2 class="h2 m-b">Hide & show</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container container--demo">
+    <div class="gr gr--flex gr--wrap gr--nowrap@tablet">
+      <div class="col col--12 col--adapt@tablet hide show@desktop">
+      </div>
+      <div class="col col--12 col--grow@tablet">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+      <div class="col col--12 col--adapt@tablet">
+      </div>
+    </div>
+
+    <div class="gr">
+      <div class="col col--12 col--3@tablet hide@desktop">
+      </div>
+      <div class="col col--12 col--6@tablet col--9@desktop">
+        <p class="p">Donec fusce augue rutrum sollicitudin adipiscing suscipit dolor consectetur magna sociosqu erat risus sed nisi inceptos fringilla duis est ante libero nulla at ipsum nibh sapien egestas et pellentesque interdum id ad sagittis primis laoreet diam tellus phasellus orci tempus</p>
+      </div>
+      <div class="col col--12 col--3@tablet">
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="gr">
+        <div class="col col--12 col--3@tablet m-b">
+          <div class="coffeekraken-logo"></div>
+        </div>
+        <div class="col col--12 col--3@tablet m-b">
+          <h2 class="h5 m-b">
+            Our tools
+          </h2>
+          <ul class="list list--footer">
+            <li class="list__item">
+              <a href="https://github.com/coffeekraken/sugar" title="Sugar toolkit" target="_blank">
+                Sugar toolkit
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/coffeekraken/gridle" title="Gridle grid system" target="_blank">
+                Gridle grid system
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/coffeekraken/carpenter" title="Carpenter styleguide" target="_blank">
+                Carpenter styleguide
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/coffeekraken/html-boilerplate" title="HTML boilerplate" target="_blank">
+                HTML boilerplate
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/coffeekraken/code-playground" title="Code playground" target="_blank">
+                Code playground
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/coffeekraken/docblock-to-markdown" title="Docblock to markdown" target="_blank">
+                Docblock to markdown
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/search?q=org%3ACoffeekraken+s-" title="Webcomponents" target="_blank">
+                Webcomponents
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col col--12 col--3@tablet m-b">
+          <h2 class="h5 m-b">
+            Contribute
+          </h2>
+          <ul class="list list--footer">
+            <li class="list__item">
+              <a href="https://github.com/Coffeekraken/coffeekraken/blob/master/contribute.md#declare-issues" title="Declare/Fix an issue" target="_blank">
+                Declare/Fix an issue
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/Coffeekraken/coffeekraken/blob/master/contribute.md#add-some-features" title="Add a feature" target="_blank">
+                Add a feature
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/Coffeekraken/coffeekraken/blob/master/contribute.md#build-web-component" title="Build a webcomponent" target="_blank">
+                Build a webcomponent
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/Coffeekraken/coffeekraken/blob/master/contribute.md#share-the-love-️" title="Share the love" target="_blank">
+                Share the love
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/Coffeekraken/coffeekraken/blob/master/contribute.md#become-an-official-maintainer" title="Become an official maintainer" target="_blank">
+                Become an official maintainer
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://github.com/Coffeekraken/coffeekraken/blob/master/contribute.md#make-a-small-donation" title="Make a small donation" target="_blank">
+                Make a small donation
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col col--12 col--3@tablet m-b">
+          <h2 class="h5 m-b">
+            Join us
+          </h2>
+          <ul class="list list--footer">
+            <li class="list__item">
+              <a href="https://github.com/coffeekraken" title="Github" target="_blank">
+                <i class="fab fa-github" aria-hidden=""></i> Github
+              </a>
+            </li>
+            <li class="list__item">
+              <a href="https://twitter.com/coffeekrakenio" title="Twitter" target="_blank">
+                <i class="fab fa-twitter" aria-hidden=""></i> Twitter
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/dist/js/demo.js"></script>
+
+</body>
+</html>

@@ -1,361 +1,150 @@
-/**
- * Imports :
- */
-// @import 'compass/reset';
-// @import 'compass/css3';
-
-/**
- * Import grid settings :
- * This to be able to use gridle mixins, etc...
- */
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+@import 'node_modules/coffeekraken-sugar/index';
+@import 'node_modules/coffeekraken-s-typography-component/index';
+@import 'node_modules/coffeekraken-s-button-component/index';
 @import 'grid-settings';
 
-/**
- * Resets
- */
-@import 'tools/reset';
+@include s-setup((
+  colors: (
+    default: (
+      color: #797979
+    ),
+    title: (
+      color: s-color(#797979, -darken 20%)
+    ),
+    text: (
+      color: s-color(#000, -opacity .5)
+    )
+  )
+));
+@include s-init();
+@include s-classes();
 
-/**
- * Variables
- */
-@import 'variables';
+@include s-typography-classes();
+@include s-button-classes();
 
 body {
-	overflow-x: hidden;
+  font-family: Roboto;
+  font-weight: 400;
 }
 
-.container {
-	@include g-container();
+i[class^="fa"] {
+  color: white;
+  position: relative;
+
+  &:after {
+    content:'';
+    display: block;
+    width: 3em; height: 3em;
+    position: absolute;
+    top: -1em; left: -1em;
+    background-color: s-color(primary);
+    z-index: -1;
+    border-radius: 50%;
+  }
 }
 
-.component {
-	background: red;
-	min-height: 100px;
-	transition: all .2s ease-in-out;
-
-	@include g-eq(+450px) {
-		background: pink;
-	}
-	@include g-eq(-400px) {
-		background: blue;
-	}
-	@include g-eq(-200px) {
-		background: green;
-	}
+.h1, .h2, .h3, .h4 {
+  color: s-color(title);
 }
 
-.module {
-	$context : (
-		context : 50
-	);
-	@include g-layout((
-		'.header' : 30 at 10 tablet 20 at 5,
-		'.login' : 10 tablet 20 no-gutter,
-		'.content' : 40,
-		'.sidebar' : 10,
-		'.footer' : 50
-	), $context);
+hr {
+  margin: s-space(medium) 0;
+  background-color: transparent;
+  border: 1px solid s-color(secondary, -opacity .05);
 }
 
-/**
- * Basic formatting :
- */
-html {
-	font:11px/1.5 'Helvetica Neue', Verdana, sans-serif;
-	color: darken($primary-color, 60%);
-}
 #header {
-	background-image:url('//gridleorg-d078.kxcdn.com/demo/dist/img/highlight-bkg-02.jpg');
-	background-size:cover;
-	background-position:50% 50%;
-	min-height:150px;
-	color: white;
-	padding:50px 0;
-	line-height:1;
+  background-image: url(../img/fur-01.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+  padding: s-space(bigger) 0;
+  text-shadow: rgba(0,0,0,.3) 0 0 10px;
 
-	&, * {
-		text-shadow:rgba(0,0,0,1) 0 0 10px;
-	}
-}
-#head {
-	background: $light;
-	margin-bottom:50px;
-	padding: 50px 0;
-}
-.separator {
-	width:100%;
-	height:1px;
-	background: $primary-color;
-	margin-bottom:50px;
-	margin-top:50px;
-}
-#top-bar {
-	background: black;
+  &, .h1 {
+    color: s-color(white);
+  }
 }
 
-
-/**
- * Colors
- */
-.complementary {
-	color: $complementary;
-}
-.red {
-	color: $red;
-}
-.blue {
-	color: $blue;
-}
-.green {
-	color: $green;
-}
-.bg-color {
-	padding:2px 5px;
-	border-radius:3px;
-	color: white;
-}
-.bg-complementary {
-	@extend .bg-color;
-	background: $complementary;
-}
-.bg-red {
-	@extend .bg-color;
-	background: $red;
-}
-.bg-blue {
-	@extend .bg-color;
-	background: $blue;
-}
-.bg-green {
-	@extend .bg-color;
-	background: $green;
+@include g-custom-class('my-cool-class') {
+  content: 'Coco';
+  content: g-state-var(name);
 }
 
-
-/**
- * Typography
- */
-.h1 {
-	font-size:50px;
-	font-weight:100;
-}
-.h2 {
-	margin: 0 0 15px 0;
-	font-size:30px;
-}
-.h3 {
-	margin: 0 0 10px 0;
-	font-size: 20px;
-}
-.p {
-	margin-bottom: 20px;
-	font-size:16px;
-	color: darken($primary-color, 35%);
-}
-.subtitle {
-	font-size:30px;
-	font-weight:200;
-}
-.heading {
-	font-size:20px;
-}
-a {
-	color: darken($complementary,5%);
-	text-decoration: none;
-}
-small {
-	font-size:0.6em;
+.features {
+  padding: s-space(bigger) 0;
+  background-color: s-color(default, -opacity .03);
 }
 
+.container--demo .gr {
+  margin-top: s-space(big) !important;
+  position: relative;
 
-/**
- * Prism
- */
-pre {
-	background-color: $primary-color !important;
+  &.gr--flex:not([class*="no-gutter"]):before {
+    width: calc(100% - #{g-gutters(1)});
+    left: calc(#{g-gutters(1) / 2});
+  }
+
+  &:before {
+    position: absolute;
+    bottom:100%; left:0;
+    width: 100%; 
+    display: block;
+    color: s-color(white);
+    background-color: s-color(primary);
+    padding: s-space(small);
+    font-size: s-rem(12px);
+    content: attr(class);
+  }
 }
 
+.container--demo .col {
+  background: s-color(default, -opacity .05);
+  border: 1px solid s-color(default, -opacity .05);
+  padding: g-gutters(1);
 
-/**
- * State selector
- */
-.selector {
-	margin-bottom: 15px;
-	padding:5px;
-	border-radius:3px;
-	display:inline-block;
-	margin-right:10px;
-	background:$complementary;
-
-
-	li {
-		color:darken($complementary,60%);
-		display:inline-block;
-		padding:5px 10px;
-		border-radius:3px;
-		cursor:pointer;
-		margin-right: 2px;
-
-		// @each $stateName in gridle_get_registered_states_names() {
-		// 	@if $stateName != default {
-		// 		@include g-state($stateName) {
-		// 			&[data-state="#{$stateName}"] {
-		// 				outline: 2px solid $red;
-		// 			}
-		// 		}
-		// 	}
-		// }
-
-		&.active {
-			color: white;
-			background:darken($complementary,20%) !important;
-		}
-	}
-
-	&.selector--options {
-		background:lighten($braun,20%);
-
-		li {
-			color:darken($braun,60%);
-			background:$braun;
-
-			&.active {
-				background:darken($braun,20%) !important;
-				color: white;
-			}
-		}
-	}
-
-	@include g-state(mobile) {
-		display:block;
-		margin:0 0 15px 0;
-
-		li {
-			display: block;
-			padding:10px;
-		}
-	}
+  &:before {
+    display: inline-block;
+    background-color: s-color(default);
+    color: white;
+    padding: s-space(small);
+    font-size: s-rem(12px);
+    content: attr(class);
+  }
 }
 
-
-/**
- * Debug grid
- */
-.gridle-debug {
-	margin-bottom:50px;
-
-	[class*="gr-"] {
-		background: $primary-color;
-		border: 1px solid darken($primary-color, 5%);
-		padding-top: 10px;
-		padding-bottom: 10px;
-
-		&:before {
-			display:block;
-			content: attr(class);
-			font-weight: bold;
-		}
-	}
-	[class*="push-"],
-	[class*="prefix-"] {
-		background: darken($primary-color, 15%);
-	}
-	[class*="pull-"],
-	[class*="suffix-"] {
-		background: darken($primary-color, 20%);
-	}
-
-	[class="row"],
-	[class="col"] {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
-}
-.no-debug-class {
-	[class*="gr-"]:before,
-	&:before {
-		content: "" !important;
-	}
-}
-
-/**
- * Placeholders
- */
-.img-placeholder {
-	display:inline-block;
-	width:50px;
-	height:50px;
-	border-radius:50%;
-	background:darken($primary-color, 10%);
-}
-
-
-/**
- * List
- */
 .list {
-	&.list--inline {
-		.list__item {
-			display:inline-block;
-		}
-	}
+
+}
+.list--footer {
+
+  .list__item {
+    margin: 0 0 s-space(small) 0;
+
+    a {
+      color: s-color(default);
+      text-decoration: none;
+      font-size: 0.9em;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    i {
+      color: s-color(default);
+    }
+  }
 }
 
-	.list__title {
-		font-weight:bold;
-		font-size:16px;
-	}
-	.list__description {
-		font-size:12px;
-	}
-	.list__image {
-		@extend .img-placeholder;
-		background-size:cover;
-		background-position:50% 50%;
-	}
-	.list__sharings {
-		font-size:20px !important;
-	}
-
-
-/**
- * List top bar
- */
-.list--top-bar {
-
-	@extend .list--inline;
-
-	.list__item {
-
-		a {
-			display: inline-block;
-			padding:10px;
-
-			&:hover,
-			&.active {
-				color: white;
-				background: $orange;
-				text-shadow:rgba(0,0,0,.3) 1px 1px 0;
-			}
-		}
-	}
+.footer {
+  background-color: s-color(secondary);
+  padding: s-space(big) 0;
+  color: white;
+  margin-top: s-space(big);
 }
 
-
-/**
- * Gridle set sample :
- */
-#myCoolItem {
-	@include g-set((
-		grid : 8,
-		push : 2,
-		tablet : (
-			grid : 12,
-		 	push : 0
-		),
-		mobile : (
-			grid : 12,
-			visible : false
-		)
-	));
+.coffeekraken-logo {
+  @include s-coffeekraken-logo(white, s-color(primary));
+  width: s-rem(100px);
 }

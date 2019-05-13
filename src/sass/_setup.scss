@@ -1,0 +1,119 @@
+/**
+ * Setting up your grid
+ * @param 		{Map} 		$settings 		Your default grid settings
+ * @example 	scss
+ * // default settings
+ * $_gridle-settings : (
+ *	name : default,
+ *	min-width : null,
+ *	max-width : null,
+ *	query : null,
+ *  columns: 12,
+ *  rows: 12,
+ *	column-width : 60,
+ *  width: 1200,
+ *  gutter-width: null,
+ *  container-width: 90vw,
+ *  container-max-width: 1200px
+ * );
+ *
+ * // setting up your grid
+ * \@include g-setup((
+ * 	columns : 12
+ * 	// other settings
+ * ));
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+ @mixin g-setup(
+	$settings : ()
+) {
+	// extend default settings
+	$_gridle-settings : map-merge((
+		name: default,
+		min-width: null,
+		max-width: null,
+    query: null,
+		columns: 12,
+		rows: 12,
+		column-width: 60,
+		width: 960,
+		gutter-width: null,
+		container-width: 90vw,
+		container-max-width: 1200px
+	), $settings) !global;
+
+	// register default state :
+	@include g-register-state(default, $_gridle-settings);
+
+	// set current state to default
+	$_g-current-state : $_gridle-settings !global;
+	$_g-current-stateName : default !global;
+}
+
+/**
+ * Register a new state with some settings
+ * @param 		{String} 		$name 		The new state name
+ * @param 		{Map} 			$settings 	The state settings
+ * @example 	scss
+ * \@include g-register-state(mobile, (
+ * 	max-width : 600px
+ * ));
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+@mixin g-register-state(
+	$name,
+	$settings : ()
+) {
+	// settings :
+	$settings : map-merge($_gridle-settings, $settings);
+
+	// set name :
+	$settings : map-set($settings, name, $name);
+
+	// add state in maps :
+	$_g-states : map-set($_g-states, $name, $settings) !global;
+
+	/**
+	 * @name 	#{g-state-var(name, $name)} State
+	 * Here's the settings for the **#{g-state-var(name, $name)}** state.
+	 * @styleguide 	Gridle / States
+	 * @display 	gridle-settings
+	 * @gridle-name 	#{g-state-var(name, $name)}
+	 * @gridle-min-width 	#{g-state-var(min-width, $name)}
+	 * @gridle-max-width 	#{g-state-var(max-width, $name)}
+	 * @gridle-query 	#{g-state-var(query, $name)}
+	 * @gridle-columns    #{g-state-var(columns, $name)}
+	 * @gridle-rows     #{g-state-var(rows, $name)}
+	 * @gridle-column-width    #{g-state-var(column-width, $name)}
+	 * @gridle-width    #{g-state-var(width, $name)}
+	 * @gridle-gutter-width    #{g-state-var(gutter-width, $name)}
+	 * @gridle-container-width    #{g-state-var(container-width, $name)}
+	 * @gridle-container-max-width    #{g-state-var(container-max-width, $name)}
+	 */
+}
+
+/**
+ * Register some basics mobile first states:
+ *
+ * - tablet : 640px to infinite
+ * - desktop : 992px to infinite
+ * - large : 1200px to infinite
+ *
+ * @example 	scss
+ * \@include g-register-mobile-first-states();
+ *
+ * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ */
+ @mixin g-register-mobile-first-states() {
+	@include g-register-state(tablet, (
+		min-width : 640px
+	));
+	@include g-register-state(desktop, (
+		min-width : 992px
+	));
+	@include g-register-state(large, (
+		min-width : 1200px
+	));
+}

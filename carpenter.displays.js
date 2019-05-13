@@ -44,58 +44,48 @@ module.exports = {
 								<td class="t-right">{{gridle-query}}</td>
 							</tr>
 						{{/if}}
-						<tr>
-							<td>Classes</td>
-							<td class="t-right">{{gridle-classes}}</td>
-						</tr>
-						<tr>
-							<td>Context</td>
-							<td class="t-right">{{gridle-context}}</td>
-						</tr>
-						<tr>
-							<td>Gutters width</td>
-							<td class="t-right">{{gridle-gutter-width}}</td>
-						</tr>
-						<tr>
-							<td>Gutters height</td>
-							<td class="t-right">{{gridle-gutter-height}}</td>
-						</tr>
-						<tr>
-							<td>Gutters top</td>
-							<td class="t-right">{{gridle-gutter-top}}</td>
-						</tr>
-						<tr>
-							<td>Gutters right</td>
-							<td class="t-right">{{gridle-gutter-right}}</td>
-						</tr>
-						<tr>
-							<td>Gutters bottom</td>
-							<td class="t-right">{{gridle-gutter-bottom}}</td>
-						</tr>
-						<tr>
-							<td>Gutters left</td>
-							<td class="t-right">{{gridle-gutter-left}}</td>
-						</tr>
-						<tr>
-							<td>Direction</td>
-							<td class="t-right">{{gridle-direction}}</td>
-						</tr>
-						<tr>
-							<td>"dir" attribute support</td>
-							<td class="t-right">{{gridle-dir-attribute}}</td>
-						</tr>
-						<tr>
-							<td>Name multiplicator</td>
-							<td class="t-right">{{gridle-name-multiplicator}}</td>
-						</tr>
-						<tr>
-							<td>States classes</td>
-							<td class="t-right">{{gridle-states-classes}}</td>
-						</tr>
-						<tr>
-							<td>Classes prefix</td>
-							<td class="t-right">{{gridle-classes-prefix}}</td>
-						</tr>
+						{{#if gridle-columns}}
+							<tr>
+								<td>Columns</td>
+								<td class="t-right">{{gridle-columns}}</td>
+							</tr>
+						{{/if}}
+						{{#if gridle-rows}}
+							<tr>
+								<td>Rows</td>
+								<td class="t-right">{{gridle-rows}}</td>
+							</tr>
+						{{/if}}
+						{{#if gridle-column-width}}
+							<tr>
+								<td>Column width</td>
+								<td class="t-right">{{gridle-column-width}}</td>
+							</tr>
+						{{/if}}
+						{{#if gridle-width}}
+							<tr>
+								<td>Width</td>
+								<td class="t-right">{{gridle-width}}</td>
+							</tr>
+						{{/if}}
+						{{#if gridle-gutter-width}}
+							<tr>
+								<td>Gutter width</td>
+								<td class="t-right">{{gridle-gutter-width}}</td>
+							</tr>
+						{{/if}}
+						{{#if gridle-container-width}}
+							<tr>
+								<td>Container width</td>
+								<td class="t-right">{{gridle-container-width}}</td>
+							</tr>
+						{{/if}}
+						{{#if gridle-container-max-width}}
+							<tr>
+								<td>Container max width</td>
+								<td class="t-right">{{gridle-container-max-width}}</td>
+							</tr>
+						{{/if}}		
 					</tbody>
 				</table>
 			</div>

@@ -1,0 +1,285 @@
+/**
+ * Generate the classes
+ */
+@mixin g-classes() {
+
+  /**
+   * Container
+   */
+  .container {
+    max-width: var(--g-container-max-width);
+    width: var(--g-container-width);
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /**
+   * Grid
+   */
+  .gr {
+    display: grid;
+    grid-template-columns: repeat(var(--g-columns), 1fr);
+    grid-column-gap: var(--g-gutter-unit);
+    justify-items: stretch;
+    align-items: stretch;
+    justify-content: stretch;
+    align-content: stretch;
+    box-sizing: border-box;
+  }
+
+  /**
+   * Grid flex
+   */
+  .gr--flex {
+    display: flex;
+    margin: 0 calc(#{g-gutters(1)} / 2 * -1);
+  }
+
+  /**
+   * Column
+   */
+  .col {
+    box-sizing: border-box;
+  }
+
+  /**
+   * Row
+   */
+  .row {
+    box-sizing: border-box;
+  }
+
+  /**
+   * Grid gutters
+   */
+  .gr--gutters {
+    grid-column-gap: var(--g-gutter-unit);
+    grid-row-gap: var(--g-gutter-unit);
+
+    &.gr--flex {
+      margin-top: calc(#{g-gutters(1)} / 2 * -1);
+      margin-bottom: calc(#{g-gutters(1)} / 2 * -1);
+    }
+
+    &.gr--flex > .col {
+      margin: calc(#{g-gutters(1)} / 2);
+    }
+  }
+  .gr--no-gutter {
+    grid-row-gap: 0;
+    grid-column-gap: 0;
+    margin-left: 0;
+    margin-right: 0;
+
+    &.gr--flex > .col {
+      margin: 0;
+    }
+  }
+  .gr--gutters-side {
+    grid-column-gap: var(--g-gutter-unit);
+    grid-row-gap: 0;
+
+    &.gr--flex {
+      margin-left: calc(#{g-gutters(1)} / 2 * -1);
+      margin-right: calc(#{g-gutters(1)} / 2 * -1);
+    }
+
+    &.gr--flex > .col {
+      margin: 0 calc(#{g-gutters(1)} / 2);
+    }
+  }
+  .gr--gutters-updown {
+    grid-column-gap: 0;
+    grid-row-gap: var(--g-gutter-unit);
+
+    &.gr--flex {
+      margin-top: calc(#{g-gutters(1)} / 2 * -1);
+      margin-bottom: calc(#{g-gutters(1)} / 2 * -1);
+    }
+
+    &.gr--flex > .col {
+      margin: calc(#{g-gutters(1)} / 2) 0;
+    }
+  }
+  .gr--no-gutter-side {
+    grid-row-gap: 0;
+
+    &.gr--flex {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &.gr--flex > .col {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  .gr--no-gutter-updown {
+    grid-column-gap: 0;
+
+    &.gr--flex {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+
+    &.gr--flex > .col {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  // process each states
+  @each $stateName in g-states-names() {
+    @include g-state($stateName) {
+      
+      /**
+       * Apply the settings through variables
+       */
+      :root {
+        /* Grid proportions */
+        --g-width: #{g-state-var(width, $stateName)};
+        --g-column-width: #{g-state-var(column-width, $stateName)};
+        --g-columns: #{g-state-var(columns, $stateName)};
+        --g-rows: #{g-state-var(rows, $stateName)};
+
+        /* Grid logic */
+        --g-gutters: calc(var(--g-columns) - 1);
+
+        /* Grid proportion logic */
+        --g-column-proportion: calc(var(--g-column-width) / var(--g-width));
+        --g-gutter-proportion: calc((1 - (var(--g-columns) * var(--g-column-proportion))) / var(--g-gutters));
+
+        /* Container Units */
+        --g-column-unit: calc(var(--g-column-proportion) * var(--g-container-width));
+        @if g-state-var(gutter-width, $stateName) {
+          --g-gutter-unit: #{g-state-var(gutter-width, $stateName)};
+        } @else {
+          --g-gutter-unit: calc(var(--g-gutter-proportion) * var(--g-container-width));
+        }
+        --g-column-and-gutter-unit: calc(var(--g-column-unit) + var(--g-gutter-unit));
+
+        /* Container Width */
+        --g-container-width: #{g-state-var(container-width, $stateName)};
+        --g-container-max-width: #{g-state-var(container-max-width, $stateName)};
+      }
+
+      /**
+       * Row wrap and nowrap
+       */
+      #{g-process-selector('.gr--wrap\\@#{$stateName}')} {
+        flex-wrap: wrap;
+      }
+      #{g-process-selector('.gr--nowrap\\@#{$stateName}')} {
+        flex-wrap: nowrap;
+      }
+
+      /**
+       * Row alignements
+       */
+      #{g-process-selector('.gr--start\\@#{$stateName}')} {
+        align-content: start; // grid
+        align-items: flex-start; // flex
+      }
+      #{g-process-selector('.gr--middle\\@#{$stateName}')} {
+        align-content: center; // grid
+        align-items: center; // flex
+      }
+      #{g-process-selector('.gr--end\\@#{$stateName}')} {
+        align-content: end; // grid
+        align-items: flex-end; // flex
+      }
+
+      /**
+       * Grid cells alignements
+       */
+      #{g-process-selector('.col--start\\@#{$stateName}')} {
+        align-self: start;
+
+        .gr--flex & {
+          align-self: flex-start;
+        }
+      }
+      #{g-process-selector('.col--middle\\@#{$stateName}')} {
+        align-self: center;
+      }
+      #{g-process-selector('.col--end\\@#{$stateName}')} {
+        align-self: end;
+
+        .gr--flex & {
+          align-self: flex-end;
+        }
+      }
+      
+      /**
+       * Grid cells
+       */
+      @for $i from 1 through g-state-var(columns) {
+        #{g-process-selector('.col--#{$i}\\@#{$stateName}')} {
+          grid-column-end: span $i;
+
+          .gr--flex & {
+            flex: 0 0 auto;
+            width: calc(100% / var(--g-columns) * #{$i} - #{g-gutters(1)}); 
+            flex-basis: calc(100% / var(--g-columns) * #{$i} - #{g-gutters(1)});
+            margin: 0 calc(#{g-gutters(1)} / 2);
+          }
+          .gr--flex.gr--no-gutter &,
+          .gr--flex.gr--no-gutter-side & {
+            width: calc(100% / var(--g-columns) * #{$i}); 
+            flex-basis: calc(100% / var(--g-columns) * #{$i});
+          }
+        }
+        #{g-process-selector('.col--start-#{$i}\\@#{$stateName}')} {
+          grid-column-start: #{$i};
+        } 
+        #{g-process-selector('.col--height-#{$i}\\@#{$stateName}')} {
+          height: calc(#{g-columns($i)} + #{g-gutters($i - 1)});
+        }
+      }
+      @for $i from 1 through g-state-var(rows) {
+        #{g-process-selector('.gr--rows-#{$i}\\@#{$stateName}')} {
+          grid-template-rows: repeat($i, 1fr);
+        }
+        #{g-process-selector('.row--#{$i}\\@#{$stateName}')} {
+          grid-row-end: span $i;
+        }
+        #{g-process-selector('.row--start-#{$i}\\@#{$stateName}')} {
+          grid-row-start: #{$i};
+        }   
+      }
+
+      /**
+       * Flex grid cells
+       */
+      #{g-process-selector('.col--adapt\\@#{$stateName}')} {
+        .gr--flex & {
+          width: auto !important;
+          flex-basis: auto !important;
+          flex: 0 0 auto;
+          margin: 0 calc(#{g-gutters(1)} / 2);
+        }
+      }
+      #{g-process-selector('.col--grow\\@#{$stateName}')} {
+        .gr--flex & {
+          width: auto !important;
+          flex-basis: auto !important;
+          flex: 1 1 auto;
+          margin: 0 calc(#{g-gutters(1)} / 2);
+        }
+      }
+
+      /**
+       * Utilities
+       */
+      #{g-process-selector('.hide\\@#{$stateName}')} {
+        display: none;
+      }
+      #{g-process-selector('.show\\@#{$stateName}')} {
+        display: block;
+      }
+      #{g-process-selector('.show-inline\\@#{$stateName}')} {
+        display: inline-block;
+      }
+    }
+  }
+}

@@ -1,20 +1,9 @@
-// |------------------------------------------------------
-// |------------------------------------------------------
-// | Functions
-// |------------------------------------------------------
-// |------------------------------------------------------
-
-/**
- * @name 	Functions API
- * This are all the API functions that are exposed by gridle.
- */
-
 /**
  * Get states count
  * @return 	{Integer} 	The number of states defined
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
-@function g-states-count() {
+ @function g-states-count() {
 	@return length($_g-states);
 }
 
@@ -39,67 +28,27 @@
 }
 
 
-/**
- * Get the column width in percent for the global or a specific context
- *
- * @param 	{Integer} 		[$columns=1] 							The number of columns to calculate
- * @param 	{Integer} 		[$stateMap-or-stateName=current] 	 	The state to calculate the column width for
- * @return 	{Percent} 												The width in percent
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
- */
-@function g-column-width(
-	$columns : 1,
-	$stateMap-or-stateName : current
-) {
-	$context : g-get-state-var(context, $stateMap-or-stateName);
-	@return percentage(1 / $context * $columns);
-}
-
-
 /*
  * Get a state map
  *
- * @param 	{String|Map} 		[$state=current] 		The name or map of the state to get
+ * @param 	{String} 		[$state=current] 		The name of the state to get
  * @return 	{Map} 				A state map object
  * @author 		Olivier Bossel <olivier.bossel@gmail.com>
  */
-@function g-get-state(
-	$stateMap-or-stateName : current
+@function g-state(
+	$stateName : current
 ) {
 
 	// check if need to return the current state
-	@if $stateMap-or-stateName == current {
+	@if $stateName == current {
 		@return g-current-state();
 	}
 
 	// check if has a state named like this
-	@if (type-of($stateMap-or-stateName) == string
-		and  map-has-key($_g-states, unquote("#{$stateMap-or-stateName}")))
+	@if (type-of($stateName) == string
+		and  map-has-key($_g-states, unquote("#{$stateName}")))
 	{
-		@return map-get($_g-states, unquote("#{$stateMap-or-stateName}"));
-	}
-
-	// check if it's a registered state as map passed
-	@if type-of($stateMap-or-stateName) == map
-		and map-get($stateMap-or-stateName, name) {
-		$name : map-get($stateMap-or-stateName, name);
-		@if g-has-state($name) {
-			@return $stateMap-or-stateName;
-		}
-	}
-
-	// a map is passed, so it's a state himself
-	@if $stateMap-or-stateName
-		and type-of($stateMap-or-stateName) == map
-	{
-		// prepare state
-		$stateMap-or-stateName : _g-prepare-state-settings($stateMap-or-stateName);
-		// create a new state by merging given one with default one
-		$state : map-merge($_gridle-settings, $stateMap-or-stateName);
-		// set the name with random name
-		$state : map-set($state, name, unique-id());
-		// return the custom state
-		@return $state;
+		@return map-get($_g-states, unquote("#{$stateName}"));
 	}
 
 	// return the default one if exist
@@ -110,11 +59,6 @@
 
 	// nothing finded, return the default state
 	@return $_gridle-settings;
-}
-@function g-state(
-	$stateMap-or-stateName : current
-) {
-	@return g-get-state($stateMap-or-stateName);
 }
 
 
@@ -145,15 +89,15 @@
  * @param  	{String} 		[$stateMap-or-stateName=current] 	 	The state name or a map state value
  * @return 	{Mixed} 												The finded value
  */
-@function g-get-state-var(
+@function g-state-var(
 	$varName,
-	$stateMap-or-stateName : current
+	$stateName : current
 ) {
 	// if is a state :
 	$state : null;
 
 	// get the state (if no state find, return the current one) :
-	$state : g-get-state($stateMap-or-stateName);
+	$state : g-state($stateName);
 
 	// check if has key
 	@if map-has-key($state, unquote("#{$varName}")) {
@@ -161,47 +105,6 @@
 	}
 
 	// nothing finded :
-	@return null;
-}
-@function g-state-var(
-	$varName,
-	$stateMap-or-stateName : current
-) {
-	@return g-get-state-var($varName, $stateMap-or-stateName);
-}
-
-
-/**
- * Set a variable in a state
- * @param  		{String} 	$var                    	Variable name to assign
- * @param  		{Mixed} 	$newValue          			The new value to assign
- * @param 		{String} 	[$state=current] 			The state to apply the variable for
- * @return 		{List}                         			The states list (full)
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
- */
-@function g-set-state-var(
-	$var,
-	$newValue,
-	$stateName : current
-) {
-	// get the state :
-	$state : g-get-state($stateName);
-
-	// check ig state and if has the variable :
-	@if $state
-		  and map-has-key($state,unquote("#{$var}"))
-	{
-		// set new value in state :
-		$state : map-set($state, unquote("#{$var}"), $newValue);
-
-		// set states :
-		$_g-states : map-set($_g-states, unquote("#{$stateName}"), $state);
-
-		// return new state :
-		@return $state;
-	}
-
-	// nothing getted :
 	@return null;
 }
 
@@ -214,9 +117,6 @@
 @function g-states() {
 	@return $_g-states;
 }
-@function g-get-states() {
-	@return $_g-states;
-}
 
 
 
@@ -226,9 +126,6 @@
  * @author 	Olivier Bossel <olivier.bossel@gmail.com>
  */
 @function g-states-names() {
-	@return g-get-states-names();
-}
-@function g-get-states-names() {
 	$list : ();
 	@each $stateName, $state in $_g-states {
 		$list : append($list, $stateName);
@@ -236,770 +133,54 @@
 	@return $list;
 }
 
-
-
-//
-// Get the apply css for map for a certain class and state
-//
-@function _g-get-apply-css-for-map(
-	$for,
-	$stateName : default
-) {
-	// check if has some extend for this state
-	$map : map-get($_g-apply-css-for, $stateName);
-	@if $map == null { @return null; }
-
-	// check if has some extend for the requested for
-	$extend : map-get($map, $for);
-
-	// return the resulting extend map
-	@return $extend;
-}
-
-
-//
-// Get the extend map for a certain class and state
-//
-@function _g-get-extend-class-map(
-	$for,
-	$stateName : default
-) {
-	// check if has some extend for this state
-	$map : map-get($_g-extend-base-classes, $stateName);
-	@if $map == null { @return null; }
-
-	// check if has some extend for the requested for
-	$extend : map-get($map, $for);
-
-	// return the resulting extend map
-	@return $extend;
-}
-
-
-//
-// Generate a column
-//
-// @param 	String 		$name 				The column name (often count)
-// @param 	int 		$columns 			The column count that the column will take
-// @param 	int 		$context 			The context on which the width will be calculed
-// @param 	Boolean 	$generateClasses 	Set if the column has to be generated in css
-//
-@function _g-create-column(
-	$name,
-	$columns,
-	$context,
-	$name-multiplicator : 1 // used to extend the state on custom registered columns
-) {
-	@return (
-		name : $name,
-		columns : $columns,
-		context : $context,
-		name-multiplicator : $name-multiplicator
-	);
-}
-
-
 /**
- * Get the register columns map
- * @param 	{String|List<String>} 		[$state=current] 		The state name or map
- * @return 	{Map} 												The map of registered columns for the specified state
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * Return a multiple of the gutter-unit variable
+ * @param    {Number}    $miltiplicator    The multiplicator to use
+ * @return    {String}    The calc representation of the multiplied value
  */
-@function g-get-columns(
-	$state : current
-) {
-	// get variables
-	$context : g-get-state-var(context, $state);
-	$name-multiplicator : g-get-state-var(name-multiplicator, $state);
-
-	// get specials columns
-	$columnsMap : map-merge((), $_g-columns);
-
-	// loop through context
-	@for $i from 0 through $context {
-
-		// name
-		$columnName : "#{$i*$name-multiplicator}";
-		$columnWidth : $i * $name-multiplicator;
-
-		// // create a column
-		$col : _g-create-column($columnName, $columnWidth, $context, $name-multiplicator);
-
-		// // add column in columns map
-		$columnsMap : map-set($columnsMap, $columnName,  $col);
-	}
-
-	// return columns
-	@return $columnsMap;
-}
-
-
-//
-// Check if has column
-//
-@function _g-has-column(
-	$name
-) {
-	$column : map-get($_g-columns,$name);
-	@if $column {
-		@return true;
-	} @else {
-		@return false;
-	}
-}
-
-
-@function _g-prepare-state-settings(
-	$settings
-) {
-	// manage gutters
-	$gutter-top : map-get($settings, gutter-top);
-	$gutter-bottom : map-get($settings, gutter-bottom);
-	$gutter-left : map-get($settings, gutter-left);
-	$gutter-right : map-get($settings, gutter-right);
-	$gutter-width : map-get($settings, gutter-width);
-	$gutter-height : map-get($settings, gutter-height);
-	@if $gutter-right and $gutter-left {
-		// calculate the gutter-width
-		$settings : map-set($settings, gutter-width, $gutter-left + $gutter-right);
-	} @else if $gutter-width {
-		// calculate the gutter-left and right
-		$settings : map-set($settings, gutter-left, $gutter-width * .5);
-		$settings : map-set($settings, gutter-right, $gutter-width * .5);
-	}
-	@if $gutter-top and $gutter-bottom {
-		// calculate the gutter-height
-		$settings : map-set($settings, gutter-height, $gutter-bottom + $gutter-top);
-	} @else if $gutter-height {
-		// calculate the gutter-bottom and top
-		$settings : map-set($settings, gutter-bottom, $gutter-height * .5);
-		$settings : map-set($settings, gutter-top, $gutter-height * .5);
-	}
-
-	// return prepared settings
-	@return $settings;
-}
-
-
-//
-// Extend a state
-//
-@function _g-inherit-state(
-	$state,
-	$extend-state
-) {
-	$extend-state-name : g-get-state-var(name, $extend-state);
-	$state-name : g-get-state-var(name, $state);
-	$has-state : g-has-state($state-name);
-	$has-extend-state : g-has-state($extend-state-name);
-	@if $has-state and $has-extend-state {
-		// we do nothing if this is nested existing states
-		@return $state;
-	} @else if $has-extend-state {
-		// if the base state is a registered one
-		// keep the extend state and extend it with the wanted state
-		@return map-merge($extend-state, $state);
-	} @else {
-		// otherwise, the base state is a custom one so we keep
-		// it and extend the wanted state with it
-		$new-state : map-remove($extend-state, name); // remove the name is important here!
-		@return map-merge($state, $new-state);
-	}
-}
-
-
-//
-// Get the padding value
-//
-@function _g-forge-gutters-map(
-	$side-or-size,
-	$state : current
-) {
-	$map : ();
-	// if the parameter is "all", mean that we want all the gutters
-	@if $side-or-size == all {
-		@each $side in (top right bottom left) {
-			$map : map-set($map, $side, g-get-state-var("gutter-#{$side}", $state));
-		}
-	} @else if type-of($side-or-size) == map {
-		@each $side in (top right bottom left) {
-			@if map-get($side-or-size, $side) {
-				$map : map-set($map, $side, map-get($side-or-size, $side));
-			} @else {
-				$map : map-set($map, $side, 0);
-			}
-		}
-	} @else if type-of($side-or-size) == number {
-		$map : (
-			top : 0,
-			right : $side-or-size * .5,
-			bottom : 0,
-			left : $side-or-size * .5
-		);
-	} @else if type-of($side-or-size) == list or type-of($side-or-size) == string {
-
-		// check if is a full number list
-		$list-number : true;
-		@each $s in $side-or-size {
-			@if type-of($s) != number {
-				$list-number : false;
-			}
-		}
-
-		@if $list-number {
-
-			@if length($side-or-size) == 2 {
-				$val1 : nth($side-or-size,1) * .5;
-				$val2 : nth($side-or-size,2) * .5;
-				$map : (
-					top : $val1,
-					right : $val2,
-					bottom : $val1,
-					left : $val2
-				)
-			} @else if length($side-or-size) == 4 {
-				$map : (
-					top : nth($side-or-size,1),
-					right : nth($side-or-size,2),
-					bottom : nth($side-or-size,3),
-					left : nth($side-or-size,4)
-				)
-			}
-
-		} @else {
-			// forge the map with registered values
-			@each $side in (top right bottom left) {
-				@if index($side-or-size, $side) {
-					$map : map-set($map, $side, g-get-state-var("gutter-#{$side}", $state));
-				} @else {
-					$map : map-set($map, $side, 0);
-				}
-			}
-			// @debug("get gutters from registered #{inspect($map)}");
-		}
-	} @else {
-		// unable to generate a gutter map
-		@return false;
-	}
-
-	// return the padding map
-	@return $map;
-}
-
-
-/**
- * Will return the generated selector depending on the "package" wanted, the state and some optional values that might be needed by the package (like for row-align that need a "side" value)
- * @param 		{String} 							$package 			The package to generate the selector for (see _settings.scss file)
- * @param 		{String|List<String} 				[$states=null] 		The list of state to generate the selector for. If not specified, will generate for all registered states
- * @param 		{Mixed} 							[$value=null] 		The value that will be used to replace the "%{tokenName}" inside the package pattern
- * @example 	scss
- * #{g-selector(grid, mobile, 2)} {
- * 	// your code here
- * 	// The selector will be .gr-2@mobile
- * }
- *
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
- */
-@function g-selector(
-	$package,
-	$states : null,
-	$value : null
-) {
-	$sel : ();
-
-	@if length($package) > 1 {
-		@each $f in $package {
-			$sel : append($sel, g-selector($f, $states, $value), comma);
-		}
-	} @else {
-		// get all states if not specified
-		@if $states == null {
-			$states : g-get-states-names();
-		}
-
-		// get the pattern
-		$pattern : map-get($_gridle-packages, $package);
-		$pattern : map-get($pattern, classname);
-
-		@each $stateName in $states {
-			@if $value != null {
-				$sel : append($sel, _g-selector($package, $stateName, $value), comma);
-			} @else if index($pattern, '%column') {
-				@each $columnName, $column in _g-get-pattern-values(column) {
-					$sel : append($sel, _g-selector($package, $stateName, $columnName), comma);
-				}
-			} @else if index($pattern, '%column-count') {
-				@for $i from 0 through _g-get-pattern-values(column-count) {
-					$sel : append($sel, _g-selector($package, $stateName, $i), comma);
-				}
-				@if $package == flex-order {
-					$sel : append($sel, _g-selector($package, $stateName, first), comma);
-					$sel : append($sel, _g-selector($package, $stateName, last), comma);
-				}
-			} @else if index($pattern, '%align') {
-				@each $a in _g-get-pattern-values(align) {
-					$sel : append($sel, _g-selector($package, $stateName, $a), comma);
-				}
-			} @else if index($pattern, '%count') and $package == clear-each {
-				@each $idx, $clearEach in _g-get-pattern-values(count) {
-					$count : map-get($clearEach, clearEach);
-					$sel : append($sel, _g-selector($package, $stateName, $count), comma);
-				}
-			} @else if index($pattern, '%side') {
-				@each $side in _g-get-pattern-values(side) {
-					$sel : append($sel, _g-selector($package, $stateName, $side), comma);
-				}
-			} @else if index($pattern, '%float') {
-				@each $float in _g-get-pattern-values(float) {
-					$sel : append($sel, _g-selector($package, $stateName, $float), comma);
-				}
-			} @else if index($pattern, '%reverse') {
-				@each $reverse in _g-get-pattern-values(reverse) {
-					$sel : append($sel, _g-selector($package, $stateName, $reverse), comma);
-				}
-			} @else {
-				$sel : append($sel, _g-selector($package, $stateName), comma);
-			}
-		}
-	}
-	@return $sel;
-}
-
-
-//
-// Generate classname
-//
-@function _g-classname(
-	$package,
-	$state : null,
-	$value : null
-) {
-	// get the pattern
-	$pattern : $package;
-	@if type-of($package) == string {
-		$pattern : map-get($_gridle-packages, $package);
-		$pattern : map-get($pattern, classname);
-	}
-
-	// delete default :
-	@if unquote("#{$state}") == default {
-		$state : null;
-	}
-
-	// construct class name :
-	$removeSeparator : false;
-	@for $i from length($pattern) through 1 {
-		$pa : nth($pattern, $i);
-
-		@if $pa == '@' {
-			$pattern : set-nth($pattern, $i, '\\@');
-		}
-
-		@if index($_g-names-separators, $pa) {
-			// check if need to remove separator
-			@if $removeSeparator {
-				$pattern : set-nth($pattern, $i, null);
-			}
-			$removeSeparator : false;
-		} @else if $pa == "%state" {
-			@if $state == null {
-				$pattern : set-nth($pattern, $i, null);
-				$removeSeparator : true;
-			} @else {
-				$pattern : set-nth($pattern, $i, $state);
-			}
-		} @else if $pa and str-index($pa, '%') == 1 {
-			$token : str-slice($pa, 2);
-			// check that the value is part of the token
-			$tokens : map-get($_g-names-tokens, $token);
-			@if $tokens {
-				$pattern : set-nth($pattern, $i, $value);
-				@if $value == null {
-					$removeSeparator : true;
-				}
-			}
-		} @else if $pa == null {
-			$removeSeparator : true;
-		}
-
-	}
-
-	// clean selector
-	$list: ();
-	@each $pa in $pattern {
-		@if $pa {
-			$list: append($list, $pa);
-		}
-	}
-	$pattern : $list;
-
-	// build selector
-	$sel : "";
-	$prefix : g-get-state-var(classes-prefix, $state);
-	@each $part in $pattern {
-		@if $part {
-			$sel : "#{$sel}#{$part}";
-		}
-	}
-	@if $prefix and str-slice($sel,1,str_length($prefix)) != $prefix {
-		$sel : "#{$prefix}#{$sel}";
-	}
-
-	// return generated class :
-	@return unquote($sel);
-}
-
-@function _g-selector(
-	$package,
-	$state : null,
-	$value : null
-) {
-	$classname : _g-classname($package, $state, $value);
-	@return unquote(".#{$classname}");
-}
-
-
-//
-// Unmatched patterns
-//
-// @param 	List 		$pattern 	The pattern to use to generate classname
-// @return  Map                     Map of unmatched pattern index:pattern
-//
-@function _g-unmatched-patterns(
-	$pattern
-) {
-	$unmatched : ();
-
-	// Loop each partern
-	@for $i from length($pattern) through 1 {
-		$var : nth($pattern, $i);
-		@if $var and str-index($var, '%') == 1 {
-			$token : str-slice($var, 2);
-			// check that the value is part of the token
-			$tokens : map-get($_g-names-tokens, $token);
-			@if $tokens == null {
-				$unmatched : map-set($unmatched, $i, $var);
-			}
-		}
-	}
-
-	@return $unmatched;
-}
-
-
-//
-// matched patterns
-//
-// @param 	List 		$pattern 	The pattern to use to generate classname
-// @return  Map                     Map of matched pattern index:pattern
-//
-@function _g-matched-patterns(
-	$pattern
-) {
-	$matched : ();
-
-	// Loop each partern
-	@for $i from length($pattern) through 1 {
-		$var : nth($pattern, $i);
-		@if $var and str-index($var, '%') == 1 {
-			$token : str-slice($var, 2);
-			// check that the value is part of the token
-			$tokens : map-get($_g-names-tokens, $token);
-			@if $tokens != null {
-				$matched : map-set($matched, $i, $var);
-			}
-		}
-	}
-
-	@return $matched;
-}
-
-
-//
-// Get dynamic pattern values
-//
-// @param 	String 		$package 			Name of the token
-// @return 	Mixed 					   	 Values of the token
-//
-@function _g-get-pattern-values(
-	$package
-){
-	@if $package == column {
-		@return g-get-columns();
-	}
-
-	@if $package == column-count {
-		@return length(g-get-columns());
-	}
-
-	@if $package == count {
-		@return $_g-clear-classes;
-	}
-
-	@return map-get($_g-names-tokens, $package);
+@function g-gutters($multiplicator) {
+	@return calc(var(--g-gutter-unit) * #{$multiplicator});
 }
 
 /**
- * Return the current used driver
- * @return 	{String} 		The used driver like default or driver
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * Return a multiple of the column-unit variable
+ * @param    {Number}    $miltiplicator    The multiplicator to use
+ * @return    {String}    The calc representation of the multiplied value
  */
-@function g-driver() {
-	@return $_gridle-driver;
+@function g-columns($multiplicator) {
+	@return calc(var(--g-column-unit) * #{$multiplicator});
 }
 
 /**
- * Check if the used driver is the specified one
- * @param 		{String} 		$driver 	The driver to check
- * @return 		{Boolean} 					True if is the current driver
- * @author 		Olivier Bossel <olivier.bossel@gmail.com>
+ * Return a multiple of the gutter AND column unit variables
+ * @param    {Number}    $miltiplicator    The multiplicator to use
+ * @return    {String}    The calc representation of the multiplied value
  */
-@function g-is-driver($driver) {
-	@each $d in $driver {
-		@if $d == g-driver() {
-			@return true;
-		}
-	}
-	@return false;
+@function g-columns-gutters($multiplicator) {
+	@return calc((var(--g-column-unit) + var(--g-gutter-unit)) * #{$multiplicator});
 }
-
-
-//
-// Check if we need to generate the class or not
-//
-// @param 	List 		$for 			Name of the class map
-// @param 	List 		$what 			The map that set which class map to include and exclude
-// @return 	Boolean 					true if need to generate, false if not
-//
-@function _g-need-to-generate(
-	$package,
-	$what
-) {
-	// check that the wanted package exist in system
-	@if map-get($_gridle-packages, $package) {
-		$package : map-get($_gridle-packages, $package);
-		$package : map-get($package, package);
-	} @else {
-		@return false;
-	}
-
-	// if we have a what param, need to check if the package is needed
-	@if $what and $what != all {
-
-		// check if we have only some - in the states list
-		// mean that we want to only remove these specified states
-		// from the all states list
-		$onlyRemove : true;
-		@each $w in $what {
-			@if str-slice($w,1,1) != '-' {
-				$onlyRemove : false;
-			}
-		}
-
-		@if $onlyRemove {
-			@each $name in $package {
-				@if index($what, unquote("-#{$name}")) {
-					@return false;
-				}
-			}
-			@return true;
-		} @else {
-			@each $name in $package {
-				@if index($what, unquote("#{$name}")) {
-					@return true;
-				}
-			}
-			@return false;
-		}
-	}
-	// we don't have a what param so the package is
-	@return true;
-}
-
-
-//
-// Get generic selector for a class
-//
-@function _g-get-generic-selector(
-	$package
-) {
-	$p : map-get($_gridle-packages, $package);
-	$sel : map-get($p, generic-selector);
-	@if $sel {
-		@return unquote($sel);
-	}
-	$sel : map-get($p, classname);
-	$generic : "";
-	$end : false;
-	$i : 1;
-	@each $part in $sel {
-		@if not $end {
-			// if we have a separator, check the next value to see if it's a variable
-			@if index($_g-names-separators, $part) and $i < length($sel) {
-				@if nth($sel,$i + 1) != '%state' {
-					$generic : #{$generic}#{$part};
-				} @else {
-					$end : true;
-				}
-			} @else {
-				@if str-slice($part,1,1) != '%' {
-					$generic : #{$generic}#{$part};
-				} @else {
-					$end : true;
-				}
-			}
-		}
-		$i : $i + 1;
-	}
-	@return unquote('[class*="#{$generic}"]');
-}
-
-
-//
-// Check if gridle is in generation phase
-//
-@function _g-is-in-generate-phase() {
-	@return $_g-is-in-generate-phase;
-}
-
-
-//
-// Parse gridle mixin list
-//
-@function _g-parse-gridle-mixin-list(
-	$list
-) {
-	// map
-	$map : ();
-
-	// context
-	$context : null;
-	$of : index($list, of);
-	@if $of {
-		$context : nth($list, ($of + 1));
-		$list : remove-nth($list,$of);
-		$list : remove-nth($list,$of);
-	} @else {
-		$ctx : index($list, context);
-		@if $ctx {
-			$context : nth($list, ($ctx + 1));
-			$list : remove-nth($list,$ctx);
-			$list : remove-nth($list,$ctx);
-		}
-	}
-
-	// grid
-	$gr : nth($list, 1);
-	@if type-of($gr) == number or $gr == adapt or $gr == grow or _g-has-column($gr) {
-		$map : map-set($map, grid, $gr $context);
-		$list : remove-nth($list,1);
-	}
-
-	// prefix
-	$prefix : null;
-	$at : index($list, at);
-	@if $at {
-		$map : map-set($map, prefix, nth($list,($at + 1)) $context);
-		$list : remove-nth($list,$at);
-		$list : remove-nth($list,$at);
-	}
-
-	// loop on each parameters
-	$prop_values : ();
-	$prop_name : null;
-	$list : append($list, _gridle-last);
-	@each $param in $list {
-
-		@if $param != with and $param != 'and' {
-			@if map-get($_gridle-packages, $param) or $param == _gridle-last {
-				@if $prop_name {
-					$values : true;
-					@if length($prop_values) > 0 {
-						$values : $prop_values;
-						@if length($prop_values) == 1 {
-							$values : nth($prop_values,1);
-						}
-						$prop_values : ();
-					}
-					$map : map-set($map, $prop_name, $values);
-				}
-				$prop_name : $param;
-			} @else {
-				$prop_values : append($prop_values, $param);
-			}
-		}
-	}
-
-	// // check if we don't have any gutter parameters
-	// @if not map-get($map, gutter) and not map-get($map, no-gutter) {
-	// 	$map : map-set($map, gutter, true);
-	// }
-
-	// return the map
-	@return $map;
-}
-
-
-//
-// Get set map from string
-//
-@function _g-get-gridle-set-map-from-list(
-	$list
-) {
-	// loop on each list element to split into states lists
-	$state : current;
-	$map : ();
-	@each $prop in $list {
-		@if map-get($map, $state) == null {
-			$map : map-set($map, $state, ());
-		}
-		@if type-of($prop) == string and g-has-state($prop) {
-			$state : $prop;
-		} @else {
-			$ls : map-get($map, $state);
-			$ls : append($ls, $prop);
-			$map : map-set($map, $state, $ls);
-		}
-	}
-
-	// loop on each states
-	@each $stateName, $props in $map {
-		@if length($props) > 0 {
-			$props_map : _g-parse-gridle-mixin-list($props);
-			@if type-of($props_map) == map {
-				$map : map-set($map, $stateName, $props_map);
-			} @else {
-				$map : map-set($map, $stateName, null);
-			}
-		}
-	}
-
-	@return $map;
-}
-
 
 /**
  * Get the media query for a particular state, or width, etc...
  *
- * @param 	{Mixed} 		[$stateName-or-stateMap=current] 		The state name of the min width
+ * @param 	{Mixed} 		[$stateName=current] 		The state name to generate the media query for
  * @return 	{String} 												The media query string without the @media
  */
-@function g-get-media-query(
-	$stateName-or-stateMap : current
+@function g-media-query(
+	$stateName : current
 ) {
 	// check if is a string :
 	$state : null;
-	@if type-of($stateName-or-stateMap) == string
+	@if type-of($stateName) == string
 	{
-		$state : g-get-state($stateName-or-stateMap);
+		$state : g-state($stateName);
 	}
-	@else if $stateName-or-stateMap == null
+	@else if type-of($stateName) == map {
+		$state : $stateName;
+	}
+	@else if $stateName == null
 	{
 		$state : $_gridle-settings;
-	}
-	@else
-	{
-		$state : map-merge($_gridle-settings, $stateName-or-stateMap);
 	}
 
 	// if it's some settings or a state :
@@ -1038,4 +219,14 @@
 	{
 		@return null;
 	}
+}
+
+/**
+ * Process a selector by:
+ * 1. replacing @default with ''
+ * @param    {String}    $selector    The selector to process
+ * @return    {String}    The processed selector
+ */
+@function g-process-selector($selector) {
+	@return str_replace($selector, '\\@default', '');
 }
