@@ -35,14 +35,15 @@ Gridle is a simple but powerful and convenient grid that make use of the CSS gri
 
 1. [Install](#install)
 2. [Get started](doc/00.get-started.md)
-3. [States](doc/01.states.md)
-4. [Classes](doc/02.classes.md)
-5. [Functions](doc/03.functions.md)
-6. [Mixins](doc/04.mixins.md)
-7. [Browsers Support](#readme-browsers-support)
-8. [Contribute](#readme-contribute)
-9. [Who are Coffeekraken](#readme-who-are-coffeekraken)
-10. [License](#readme-license)
+3. [Settings](doc/02.settings.md)
+4. [States](doc/02.states.md)
+5. [Classes](doc/03.classes.md)
+6. [Functions](doc/04.functions.md)
+7. [Mixins](doc/05.mixins.md)
+8. [Browsers Support](#readme-browsers-support)
+9. [Contribute](#readme-contribute)
+10. [Who are Coffeekraken](#readme-who-are-coffeekraken)
+11. [License](#readme-license)
 
 <a id="readme-install"></a>
 ## Install
@@ -50,7 +51,7 @@ Gridle is a simple but powerful and convenient grid that make use of the CSS gri
 Gridle is available through NPM. To install it, just launch this command line:
 
 ```
-npm install coffeekraken-gridle@4.0.0-beta --save
+npm install coffeekraken-gridle@4.0.0-beta.2 --save
 ```
 
 ## Quick start
